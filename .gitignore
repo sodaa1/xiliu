@@ -48,3 +48,10 @@ Thumbs.db
 .vendor-src/
 
 project-showcase/
+
+# Web dependency/build output and local verification
+web/node_modules/
+web/dist/
+*.log
+web/coverage/
+.preview/
