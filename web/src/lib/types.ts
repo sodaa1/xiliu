@@ -1,0 +1,17 @@
+export interface Conversation {
+  id: string; title: string; model_override: string | null
+  context_cutoff_seq: number; compressed_through_seq: number; context_summary: string
+  created_at: string; updated_at: string
+}
+export interface Message {
+  id: string; conversation_id: string; seq: number; role: 'user' | 'assistant' | 'event'
+  content: string; created_at: string; metadata_json: string
+}
+export interface ModelSettings {provider: 'openai' | 'deepseek'; model: string; base_url: string; api_key_set: boolean}
+export type ModelCatalog = Record<string, {base_url: string; models: string[]}>
+export interface Command {name: string; description: string}
+export interface Capability {name: string; description: string}
+export interface WebEvent {
+  type: 'status' | 'progress' | 'final' | 'error'
+  stage?: string; message?: string; text?: string; message_id?: string; code?: string; role?: Message['role']
+}

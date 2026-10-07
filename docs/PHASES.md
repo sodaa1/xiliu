@@ -28,3 +28,10 @@
 - 原 Runtime 的唯一行为扩展：公开 close() 释放短生命周期 MCP 资源；不改 stream_session 调用约定。
 - RED：模块不存在导致 2 collection errors；GREEN：全部 19 passed，涵盖 12 并发追加、同会话忙保护、context 不重复当前问题、错误无密钥、删除级联、NDJSON 中文与换行。
 - 未调用真实 provider；下一阶段 React Assistant。
+
+## Phase 3 完成
+- React/TypeScript/Vite SPA，三列浅色 Assistant、会话分组/切换/删除、独立 Query cache、Markdown 与 Settings。
+- readNDJSON 支持逐字节 UTF-8 中文、跨行缓冲、HTTP/JSON 错误。
+- 测试先失败于组件/reader 缺失；空初始会话额外复现了 null status 问题并修复。前端 6 passed。
+- 为用户 Phase 4 检查提前加入 xiliu web --open、静态 SPA 托管、start-xiliu.bat。后端 SPA/CLI 测试先失败再通过。
+- 下一阶段命令执行与 Runtime Memory 共享压缩。

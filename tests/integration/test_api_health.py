@@ -41,3 +41,23 @@ def test_settings_routes_keep_existing_key(tmp_path):
         assert response.status_code == 200
         assert response.json()["api_key_set"] is True
         assert "never-echo-this" not in response.text
+
+
+def test_spa_deep_links_and_unknown_api_do_not_return_html(tmp_path):
+    from typer.testing import CliRunner
+
+    from xiliu.cli import app as cli_app
+
+    dist = tmp_path / "dist"
+    dist.mkdir()
+    (dist / "index.html").write_text("<html>xiliu preview</html>")
+    with TestClient(
+        create_app(data_dir=tmp_path / "data", env_file=tmp_path / ".env", static_dir=dist)
+    ) as client:
+        assert client.get("/assistant").status_code == 200
+        assert "xiliu preview" in client.get("/settings").text
+        assert client.get("/api/missing").status_code == 404
+        assert client.get("/missing.js").status_code == 404
+    result = CliRunner().invoke(cli_app, ["web", "--help"])
+    assert result.exit_code == 0
+    assert "--open" in result.stdout

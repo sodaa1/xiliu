@@ -308,3 +308,23 @@ def list_sessions() -> None:
     """List saved sessions when persistence is available."""
 
     typer.echo("No sessions yet; persistence is scheduled for Task 3.")
+
+
+@app.command("web")
+def web(
+    open_browser: Annotated[bool, typer.Option("--open", help="Open the browser.")] = False,
+    port: Annotated[int, typer.Option(min=1, max=65535)] = 8765,
+) -> None:
+    """Open the local xiliu Web Assistant without starting Textual."""
+    import threading
+    import webbrowser
+
+    import uvicorn
+
+    from xiliu.api.app import create_app
+
+    if open_browser:
+        timer = threading.Timer(1.0, lambda: webbrowser.open(f"http://127.0.0.1:{port}/assistant"))
+        timer.daemon = True
+        timer.start()
+    uvicorn.run(create_app(), host="127.0.0.1", port=port)
