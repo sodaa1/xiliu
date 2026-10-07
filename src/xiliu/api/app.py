@@ -8,8 +8,11 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 from xiliu.api.errors import WebError
-from xiliu.api.routes import models
+from xiliu.api.routes import conversations, models
+from xiliu.api.services.chat import ChatService
+from xiliu.api.services.conversations import ConversationService
 from xiliu.api.services.model_settings import ModelSettingsService
+from xiliu.api.store import AppStore
 
 
 def create_app(*, data_dir: Path | None = None, env_file: Path = Path(".env")) -> FastAPI:
@@ -17,6 +20,10 @@ def create_app(*, data_dir: Path | None = None, env_file: Path = Path(".env")) -
     app.state.model_settings = ModelSettingsService(env_file)
     values = app.state.model_settings.values()
     app.state.data_dir = data_dir or Path(values.get("XILIU_DATA_DIR", ".xiliu"))
+
+    app.state.store = AppStore(app.state.data_dir)
+    app.state.conversations = ConversationService(app.state.store, app.state.model_settings)
+    app.state.chat = ChatService(app.state.conversations)
 
     @app.exception_handler(WebError)
     async def web_error(_request: Request, exc: WebError):
@@ -47,4 +54,5 @@ def create_app(*, data_dir: Path | None = None, env_file: Path = Path(".env")) -
         return {"status": "ok"}
 
     app.include_router(models.router)
+    app.include_router(conversations.router)
     return app

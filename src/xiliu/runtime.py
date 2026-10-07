@@ -131,6 +131,10 @@ class Runtime:
         self._policy_profile = policy_profile
         self.last_trace_id: str | None = None
 
+    def close(self) -> None:
+        """Release lazy MCP resources when a short-lived adapter finishes a turn."""
+        self._mcp_manager.close()
+
     def _context(self, workspace: Path, session_id: str = "") -> _RunContext:
         return _RunContext(
             self,

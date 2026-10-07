@@ -22,3 +22,9 @@
 - 测试先因缺少 api 包失败，再实现通过：10 passed；Ruff passed；整个 src compileall passed。
 - DeepSeek preset 使用本地已配置 deepseek-flash 为 canonical，保留 v4-flash 别名；来源 https://api-docs.deepseek.com/api/responses 。
 - 本地配置已迁移 XILIU_*，未进行任何付费 API 调用。
+
+## Phase 2 完成
+- 新增 AppStore、ConversationService、ChatService 与 conversations API。
+- 原 Runtime 的唯一行为扩展：公开 close() 释放短生命周期 MCP 资源；不改 stream_session 调用约定。
+- RED：模块不存在导致 2 collection errors；GREEN：全部 19 passed，涵盖 12 并发追加、同会话忙保护、context 不重复当前问题、错误无密钥、删除级联、NDJSON 中文与换行。
+- 未调用真实 provider；下一阶段 React Assistant。
