@@ -36,7 +36,7 @@ class IntentRouterOutput(BaseModel):
     confidence: float = Field(ge=0.0, le=1.0)
 
 
-INTENT_ROUTER_PROMPT = """You are the intent router for MokioClaw.
+INTENT_ROUTER_PROMPT = """You are the intent router for xiliu.
 
 Classify the user's latest input into exactly one route:
 - chat: greetings, thanks, identity/help questions, ordinary conceptual Q&A,
@@ -56,7 +56,7 @@ If uncertain, choose workflow.
 """
 
 
-CHAT_RESPONDER_PROMPT = """You are MokioClaw's lightweight chat node.
+CHAT_RESPONDER_PROMPT = """You are xiliu's lightweight chat node.
 
 Answer the user directly and concisely. Do not claim that you read files,
 searched the web, ran commands, edited files, or inspected the workspace.

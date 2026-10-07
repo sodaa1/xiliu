@@ -169,12 +169,15 @@ class MemoryManager:
         *,
         model_name: str,
         token_counter: Callable[[Sequence[BaseMessage], str], int] | None = None,
+        include_workspace_history: bool = True,
     ) -> None:
         self.workspace = workspace
         self.preference_store = preference_store
         self.limits = limits
         self.model_name = model_name
         self.token_counter = token_counter or estimate_message_tokens
+        self.include_workspace_history = include_workspace_history
+        self._notepad_baseline: str | None = None
 
     def assemble(
         self,
@@ -186,8 +189,20 @@ class MemoryManager:
 
         try:
             preferences = self.preference_store.read()
-            history_summary = HistorySummaryStore(self.workspace).read()
+            history_summary = (
+                HistorySummaryStore(self.workspace).read() if self.include_workspace_history else ""
+            )
             notepad_summary = read_notepad(self.workspace)
+            if not self.include_workspace_history:
+                # Web conversation history comes from SQLite. Keep only findings
+                # appended during this turn; never restore a previous turn's notes.
+                if self._notepad_baseline is None:
+                    self._notepad_baseline = notepad_summary
+                notepad_summary = (
+                    notepad_summary[len(self._notepad_baseline) :]
+                    if notepad_summary.startswith(self._notepad_baseline)
+                    else ""
+                )
         except (OSError, ValueError, WorkspaceError):
             raise MemorySystemError("memory data is invalid") from None
 
@@ -267,7 +282,7 @@ class MemoryManager:
             recent = [message for chunk in recent_chunks for message in chunk]
 
         try:
-            summary = _summarize_messages(model, compressed, state)
+            summary = summarize_messages(model, compressed, state)
             if not summary:
                 return messages
             replacement = SystemMessage(content=f"Compressed history summary:\n{summary}")
@@ -276,7 +291,7 @@ class MemoryManager:
             if after_tokens >= trigger_tokens and recent:
                 compressed.extend(recent)
                 recent = []
-                summary = _summarize_messages(model, compressed, state)
+                summary = summarize_messages(model, compressed, state)
                 if not summary:
                     return messages
                 replacement = SystemMessage(content=f"Compressed history summary:\n{summary}")
@@ -334,7 +349,7 @@ def _message_chunks(messages: Sequence[BaseMessage]) -> list[list[BaseMessage]]:
     return chunks
 
 
-def _summarize_messages(
+def summarize_messages(
     model: Any, messages: Sequence[BaseMessage], state: Mapping[str, Any]
 ) -> str:
     summary_input = {

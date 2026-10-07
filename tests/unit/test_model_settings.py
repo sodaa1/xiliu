@@ -2,6 +2,7 @@ from pathlib import Path
 
 import pytest
 from dotenv import dotenv_values
+from pydantic import SecretStr
 
 from xiliu.api.errors import WebError
 from xiliu.api.schemas import ModelUpdate
@@ -64,7 +65,7 @@ def test_mismatched_model_and_invalid_url_leave_env_untouched(tmp_path, monkeypa
             provider="openai",
             model="gpt-5.6-terra",
             base_url="file:///secret",
-            api_key="private-test-key",
+            api_key=SecretStr("private-test-key"),
         )
 
 
@@ -88,3 +89,13 @@ def test_process_configuration_keeps_documented_priority(tmp_path, monkeypatch):
     monkeypatch.setenv("XILIU_MODEL", "deepseek-v4-pro")
     assert settings.read()["model"] == "deepseek-v4-pro"
     assert settings.runtime_settings().model == "deepseek-v4-pro"
+
+
+@pytest.mark.parametrize("provider", ["openai", "deepseek"])
+def test_runtime_uses_the_same_effective_defaults_as_settings_view(tmp_path, monkeypatch, provider):
+    settings = service(tmp_path, monkeypatch)
+    settings.env_file.write_text(f"XILIU_PROVIDER={provider}\nXILIU_API_KEY=fake\n")
+    effective = settings.read()
+    runtime = settings.runtime_settings()
+    assert runtime.model == effective["model"]
+    assert runtime.base_url == effective["base_url"]

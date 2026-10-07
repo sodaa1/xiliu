@@ -126,9 +126,7 @@ class MCPManager:
         with self._lock:
             if self._loop is None:
                 loop = asyncio.new_event_loop()
-                thread = threading.Thread(
-                    target=loop.run_forever, name="xiliu-mcp", daemon=True
-                )
+                thread = threading.Thread(target=loop.run_forever, name="xiliu-mcp", daemon=True)
                 thread.start()
                 self._loop, self._thread = loop, thread
             return self._loop

@@ -35,3 +35,17 @@
 - 测试先失败于组件/reader 缺失；空初始会话额外复现了 null status 问题并修复。前端 6 passed。
 - 为用户 Phase 4 检查提前加入 xiliu web --open、静态 SPA 托管、start-xiliu.bat。后端 SPA/CLI 测试先失败再通过。
 - 下一阶段命令执行与 Runtime Memory 共享压缩。
+
+## Phase 4 完成
+- 实现四个命令及 metadata API：/clear 更新 cutoff 保留可见消息；/compress 合并前摘要并复用公开 summarize_messages，失败不覆盖；/skill 与 /mcp 生成 hint，经原 Runtime/Gateway 执行。
+- Composer 支持命令和能力名称筛选、键盘 Enter/Tab/方向键、IME 组合输入保护。
+- 先写命令/共享 Memory 失败测试再实现；独立审查发现 5 项问题，补充失败回归并逐项修复：旧工作区记忆恢复、Host 检查、首次重复发送/卸载、模型 PATCH 跨会话缓存、默认 endpoint 不一致。
+- Runtime 增加兼容关键字 include_workspace_history=True。Web 为 False，不载入前轮 HISTORY_SUMMARY/NOTEPAD；只保留本轮追加笔记与 state 摘要，CLI/TUI 默认不变。文件不删除、不改写清空。
+- 实际 Runtime + LangGraph 的 chat/workflow 接入通过离线模型验证；关闭生成器释放 Runtime 和会话保留锁。
+- 最终后端 44 passed，前端 12 passed；Ruff、Pyright（项目 .venv）、ESLint、Prettier 全通过；Vite 生产构建成功。
+- 浏览器：1600×1000 与 390×844 页面通过，空会话、新建/切换、模型覆盖、Skill/MCP 补全、clear 分隔、Settings 密钥不回显均检查；无 pageerror/console error。窄屏会话栏改为横向，聊天区域恢复可用宽度。
+- npm audit 0 vulnerabilities。Vitest 升级 4.1.11，兼容本机 Node 24 / Vite 7，官方修复依据：https://github.com/vitest-dev/vitest/security/advisories/GHSA-82fw-gwwq-j7x9 。前端源码统一 Prettier，仅格式变化。
+- web/tsconfig.tsbuildinfo 属构建产物，从 Git 移出并忽略。原 .env 与 SQLite 未加入提交。
+- 真实付费 provider/MCP 执行烟雾测试留待 Phase 7；当前只读取本地能力元信息。Phase 5/6 未实现。
+- 自动审批拒绝按消息内容批量删除早期浏览器样例，因为无法证明来源；保留该会话。后续只清理脚本本轮明确记录的新建 ID，安全清理已成功。
+- 按用户要求，到此等待 Phase 4 检查，保留工作区与本地预览。

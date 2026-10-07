@@ -31,32 +31,37 @@
 ### Task 1: Model settings and skeleton
 **Files:** config.py, pyproject.toml, api/app.py, schemas.py, errors.py, model_catalog.py, services/model_settings.py, routes/models.py。
 **Interfaces:** create_app(data_dir=None, env_file=Path('.env')); ModelSettingsService.read()/update(ModelUpdate)/runtime_settings(model=None)；api_key_set 且无 plaintext。
-- [ ] 先写 test_model_settings.py / test_api_health.py；校验空 key 保留、错误中不泄密、缺配置可启动、厂商模型不匹配拒绝。
-- [ ] uv run python -m pytest 对上述测试确认缺功能失败。
-- [ ] 实现 .env 明确加载与 process env 优先级、provider 推断兼容旧配置、原子 set_key 更新。
-- [ ] 定向测试与 Ruff，提交 Phase 1。
+- [x] 先写 test_model_settings.py / test_api_health.py；校验空 key 保留、错误中不泄密、缺配置可启动、厂商模型不匹配拒绝。
+- [x] uv run python -m pytest 对上述测试确认缺功能失败。
+- [x] 实现 .env 明确加载与 process env 优先级、provider 推断兼容旧配置、原子 set_key 更新。
+- [x] 定向测试与 Ruff，提交 Phase 1。
 
 ### Task 2: Durable conversations and Runtime chat
 **Files:** store.py, services/conversations.py, services/chat.py, routes/conversations.py。
 **Interfaces:** AppStore CRUD/append_message/context；ConversationService；ChatService.stream_turn(id,text) -> Iterator[dict]。
-- [ ] 写 Store CRUD/seq/删除级联/并发测试；fake Runtime 验证 session/context/deny，final 落库，error 不落成功消息；写 API stream 集成测试。
-- [ ] 执行失败测试。
-- [ ] 实现 sqlite 短连接、BEGIN IMMEDIATE、FK、同会话 busy gate、NDJSON，错误映射复用 classify_provider_error。
-- [ ] 定向测试与 Ruff，提交 Phase 2。
+- [x] 写 Store CRUD/seq/删除级联/并发测试；fake Runtime 验证 session/context/deny，final 落库，error 不落成功消息；写 API stream 集成测试。
+- [x] 执行失败测试。
+- [x] 实现 sqlite 短连接、BEGIN IMMEDIATE、FK、同会话 busy gate、NDJSON，错误映射复用 classify_provider_error。
+- [x] 定向测试与 Ruff，提交 Phase 2。
 
 ### Task 3: Assistant UI
 **Files:** web/（见 ARCHITECTURE.md）及轻量预览启动入口。
 **Interfaces:** API types 与 GET/PATCH/POST，ReadableStream WebEvent；React Query 按会话 key 缓存。
-- [ ] 建立 Vite/测试工具，先写四个 Assistant 交互测试及 stream 中文 chunk 测试。
-- [ ] 执行失败测试。
-- [ ] 实现三列、导航、模型选择、Markdown、composer、Settings；响应式、空/加载/错误状态。
-- [ ] npm test -- --run，npm run lint，npm run build，提交 Phase 3。
+- [x] 建立 Vite/测试工具，先写四个 Assistant 交互测试及 stream 中文 chunk 测试。
+- [x] 执行失败测试。
+- [x] 实现三列、导航、模型选择、Markdown、composer、Settings；响应式、空/加载/错误状态。
+- [x] npm test -- --run，npm run lint，npm run build，提交 Phase 3。
 
 ### Task 4: Commands and shared memory
 **Files:** services/commands.py, routes/capabilities.py, graph/memory.py, Composer.tsx。
 **Interfaces:** CommandService.resolve(id,text,model) -> CommandResult(task or message/event)；summarize_messages(model,messages,state)。
-- [ ] 写 clear 保留可见消息、compress 前摘要合并及失败不损坏、missing 能力错误、valid hints 经 Runtime、自动压缩回归。
-- [ ] 执行失败测试。
-- [ ] 抽取共享公共摘要 helper；使用 SkillRegistry.scan 与 MCPManager.servers 元信息；自然语言 hint 走 Runtime。
-- [ ] 补全 Skill/MCP 名称及键盘交互；模块测试、生产构建、浏览器验证；提交 Phase 4。
-- [ ] 记录原始基线限制，保存验收报告，本地预览交由用户检查，到此停止。
+- [x] 写 clear 保留可见消息、compress 前摘要合并及失败不损坏、missing 能力错误、valid hints 经 Runtime、自动压缩回归。
+- [x] 执行失败测试。
+- [x] 抽取共享公共摘要 helper；使用 SkillRegistry.scan 与 MCPManager.servers 元信息；自然语言 hint 走 Runtime。
+- [x] 补全 Skill/MCP 名称及键盘交互；模块测试、生产构建、浏览器验证；提交 Phase 4。
+- [x] 记录原始基线限制，保存验收报告，本地预览交由用户检查，到此停止。
+
+## Final evidence
+- Backend 44 passed；Frontend 12 passed；Ruff / Pyright / ESLint / Prettier 通过；Vite build 成功。
+- 独立审查发现的 5 项问题全部补充回归测试并修复；浏览器验收结果与范围见 docs/PHASE4_REVIEW.md。
+- 保留本地 feature/xiliu-web-phase4，等待用户检查；不执行 Phase 5、push 或 merge。

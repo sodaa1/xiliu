@@ -36,6 +36,7 @@ def test_runtime_session_context_model_and_final_persisted(tmp_path):
     events = list(chat.stream_turn(conversation["id"], "New question"))
     assert calls[0]["task"] == "New question"
     assert calls[0]["session_id"] == conversation["id"]
+    assert calls[0]["include_workspace_history"] is False
     assert "Earlier context" in calls[0]["context_summary"]
     assert "New question" not in calls[0]["context_summary"]
     assert events[-1]["type"] == "final"
@@ -85,3 +86,99 @@ def test_concurrent_turn_rejected_without_second_user_message(tmp_path):
         release.set()
         worker.join(5)
     assert [m["content"] for m in store.messages(cid)] == ["First", "Done"]
+
+
+def test_real_runtime_chat_graph_uses_shared_session(tmp_path):
+    from uuid import uuid4
+
+    from langchain_core.messages import AIMessage
+
+    from xiliu.runtime import Runtime
+
+    class ChatModel:
+        def __init__(self):
+            self.calls = 0
+
+        def invoke(self, messages):
+            self.calls += 1
+            if self.calls == 1:
+                return AIMessage(content='{"route":"chat","reason":"Greeting","confidence":0.99}')
+            return AIMessage(content="Hello from the real xiliu Runtime")
+
+    model = ChatModel()
+    runtime = Runtime(model, data_dir=tmp_path / "data", approval_mode="deny")
+    cid = str(uuid4())
+    try:
+        events = list(
+            runtime.stream_session(
+                task="Hello", session_id=cid, context_summary="Previous greeting"
+            )
+        )
+    finally:
+        runtime.close()
+    assert events[-1] == FinalEvent(text="Hello from the real xiliu Runtime", session_id=cid)
+    assert model.calls == 2
+    assert (tmp_path / "data" / "workspaces" / cid).is_dir()
+
+
+def test_real_runtime_workflow_turn_excludes_old_workspace_memory(tmp_path):
+    from uuid import uuid4
+
+    from langchain_core.messages import AIMessage
+
+    from xiliu.graph.memory import HistorySummaryStore
+    from xiliu.runtime import Runtime
+    from xiliu.tools.workspace import create_session_workspace
+
+    class WorkflowModel:
+        def invoke(self, messages):
+            return AIMessage(content='{"route":"workflow","reason":"Task","confidence":0.99}')
+
+    class InspectingRuntime(Runtime):
+        def _run(self, inputs, memory_manager, context, **kwargs):
+            for memory in (
+                inputs["memory"],
+                memory_manager.assemble(inputs, current_node="planner"),
+            ):
+                assert memory["history"]["history_summary"] == ""
+                assert memory["history"]["notepad_summary"] == ""
+                assert memory["history"]["context_summary"] == "SQLite context"
+            yield FinalEvent(text="Workflow isolated", session_id=inputs["session_id"])
+
+    cid = str(uuid4())
+    runtime = InspectingRuntime(WorkflowModel(), data_dir=tmp_path / "data", approval_mode="deny")
+    workspace = create_session_workspace(tmp_path / "data", cid)
+    HistorySummaryStore(workspace).write("OLD_HISTORY_MARKER")
+    (workspace / "NOTEPAD.md").write_text("OLD_NOTEPAD_MARKER")
+    try:
+        events = list(
+            runtime.stream_session("Task", cid, "SQLite context", include_workspace_history=False)
+        )
+    finally:
+        runtime.close()
+    assert events[-1] == FinalEvent(text="Workflow isolated", session_id=cid)
+
+
+def test_closing_turn_releases_runtime_and_conversation_reservation(tmp_path):
+    closed = []
+
+    class FakeRuntime:
+        def stream_session(self, **kwargs):
+            try:
+                yield ProgressEvent(stage="planner", message="Working")
+                yield FinalEvent(text="Done", session_id=kwargs["session_id"])
+            finally:
+                closed.append("events")
+
+        def close(self):
+            closed.append("runtime")
+
+    store, chat = setup_services(tmp_path, lambda *args, **kwargs: FakeRuntime())
+    cid = store.create()["id"]
+    turn = chat.stream_turn(cid, "Hello")
+    next(turn)
+    next(turn)
+    turn.close()
+    assert closed == ["events", "runtime"]
+    with chat.reserve(cid):
+        pass

@@ -41,14 +41,19 @@ class ModelSettingsService:
             "deepseek" if model.startswith("deepseek-") or "deepseek.com" in address else "openai"
         )
 
-    def read(self) -> dict[str, Any]:
-        values = self.values()
+    def _effective(self, values: dict[str, str]) -> dict[str, str]:
         provider = self._provider(values)
         catalog = MODEL_CATALOG[provider]
         return {
             "provider": provider,
             "model": values.get("XILIU_MODEL", "") or catalog["models"][0],
             "base_url": values.get("XILIU_BASE_URL", "") or catalog["base_url"],
+        }
+
+    def read(self) -> dict[str, Any]:
+        values = self.values()
+        return {
+            **self._effective(values),
             "api_key_set": bool(values.get("XILIU_API_KEY", "").strip()),
         }
 
@@ -81,7 +86,8 @@ class ModelSettingsService:
 
     def runtime_settings(self, model: str | None = None) -> Settings:
         values = self.values()
-        values["XILIU_PROVIDER"] = self._provider(values)
+        effective = self._effective(values)
+        values.update({f"XILIU_{key.upper()}": value for key, value in effective.items()})
         if model:
             values["XILIU_MODEL"] = model
         try:

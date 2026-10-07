@@ -38,6 +38,8 @@ xiliu/
 │   ├── vite.config.ts                # /api 开发代理、Vitest
 │   ├── tsconfig.json                 # 严格 TypeScript
 │   ├── eslint.config.js              # React/TS 检查
+│   ├── .prettierrc.json               # 统一前端代码格式
+│   ├── public/favicon.svg            # 复用 Lucide 品牌图标
 │   └── src/
 │       ├── main.tsx                  # React 挂载、QueryClient
 │       ├── app/App.tsx               # Sidebar、路由、后续导航占位
@@ -47,7 +49,8 @@ xiliu/
 │       │   ├── ConversationList.tsx   # 分组、新建、切换、删除菜单
 │       │   ├── MessageList.tsx        # Markdown、事件分隔、滚动
 │       │   ├── Composer.tsx           # 输入、命令及能力名称补全
-│       │   └── AssistantPage.test.tsx # 关键交互
+│       │   ├── AssistantPage.test.tsx # 会话交互、竞态与卸载取消
+│       │   └── Composer.test.tsx      # 命令/能力名称与 IME 交互
 │       ├── features/settings/
 │       │   └── SettingsPage.tsx       # 实际可用的模型设置
 │       ├── lib/
@@ -67,6 +70,7 @@ xiliu/
 ├── docs/reference/                   # 原文档与 01–08 PNG 参考图
 ├── docs/superpowers/plans/           # 分阶段计划
 ├── docs/PHASES.md                    # 进度、测试证据、接口适配记录
+├── docs/PHASE4_REVIEW.md              # 本阶段验收入口、结果与边界
 └── start-xiliu.bat                   # Windows 双击启动本地预览
 ```
 
@@ -75,3 +79,5 @@ xiliu/
 Phase 7：完整回归、真实 provider/MCP smoke 与完整交付。
 
 数据边界：app.sqlite3 只存 Web 对话，Runtime workspace/checkpoint 原机制不变。Today 不建独立业务库。前端不接触 API key，也不调用 TUI/CLI 进行对话。
+
+Web 向 Runtime 传入 `include_workspace_history=False`，会话上下文以 SQLite 为准；默认值为 True，保留 CLI/TUI 的原工作区记忆行为。当前轮新增笔记与自动压缩摘要仍可用于 workflow。

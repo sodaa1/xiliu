@@ -150,13 +150,14 @@ class Runtime:
             policy_profile=self._policy_profile,
         )
 
-    def _memory(self, workspace: Path) -> MemoryManager:
+    def _memory(self, workspace: Path, *, include_workspace_history: bool = True) -> MemoryManager:
         return MemoryManager(
             workspace,
             UserPreferenceStore(self._data_dir),
             self._memory_limits,
             model_name=self._model_name,
             token_counter=self._token_counter,
+            include_workspace_history=include_workspace_history,
         )
 
     def _fresh_inputs(
@@ -166,8 +167,12 @@ class Runtime:
         session_id: str,
         max_attempts: int,
         context_summary: str = "",
+        *,
+        include_workspace_history: bool = True,
     ) -> tuple[GraphState, MemoryManager]:
-        memory_manager = self._memory(workspace)
+        memory_manager = self._memory(
+            workspace, include_workspace_history=include_workspace_history
+        )
         initial: dict[str, Any] = {
             "resume_node": "planner",
             "task": task,
@@ -267,6 +272,8 @@ class Runtime:
         session_id: str,
         context_summary: str,
         max_attempts: int = 3,
+        *,
+        include_workspace_history: bool = True,
     ) -> Generator[RuntimeEvent, None, None]:
         """Route one session turn and answer lightweight chat directly."""
         try:
@@ -277,6 +284,7 @@ class Runtime:
                 session_id,
                 max_attempts,
                 context_summary,
+                include_workspace_history=include_workspace_history,
             )
             context = self._context(workspace, session_id)
             with _activate_run_context(context):

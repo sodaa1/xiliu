@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Iterator
+from collections.abc import Callable, Generator, Iterator
 from contextlib import contextmanager
 from threading import Lock
 from typing import Any
@@ -38,7 +38,7 @@ class ChatService:
             with self._lock:
                 self._active.discard(cid)
 
-    def stream_turn(self, conversation_id: str, text: str) -> Iterator[dict[str, Any]]:
+    def stream_turn(self, conversation_id: str, text: str) -> Generator[dict[str, Any], None, None]:
         try:
             with self.reserve(conversation_id):
                 yield from self._turn(conversation_id, text)
@@ -83,6 +83,7 @@ class ChatService:
                     task=task,
                     session_id=cid,
                     context_summary=self.conversations.build_context(cid, before_seq=user["seq"]),
+                    include_workspace_history=False,
                 )
             )
             for event in events:
