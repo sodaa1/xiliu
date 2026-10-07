@@ -1,0 +1,74 @@
+class XiliuError(Exception):
+    """Base class for safe, user-facing application errors."""
+
+
+class CheckpointError(XiliuError):
+    """Raised when checkpoint persistence or recovery fails."""
+
+    code = "checkpoint_error"
+
+
+class TraceError(XiliuError):
+    """Raised when execution tracing fails."""
+
+    code = "trace_error"
+
+
+class SessionError(XiliuError):
+    """Raised when durable conversation state is invalid or cannot be saved."""
+
+    code = "session_error"
+
+
+class ConfigError(XiliuError):
+    """Raised when runtime configuration is invalid."""
+
+
+class ProviderError(XiliuError):
+    """Raised when an OpenAI-compatible provider request fails."""
+
+    code = "provider_error"
+
+
+class AuthenticationProviderError(ProviderError):
+    code = "authentication"
+
+
+class RateLimitProviderError(ProviderError):
+    code = "rate_limit"
+
+
+class TimeoutProviderError(ProviderError):
+    code = "timeout"
+
+
+class ToolExecutionError(XiliuError):
+    """Raised for a controlled tool failure."""
+
+
+class WorkspaceError(ToolExecutionError):
+    """Raised when a workspace or workspace-relative path is invalid."""
+
+    code = "workspace_error"
+
+
+class CommandExecutionError(ToolExecutionError):
+    """Raised when a requested command violates the bounded execution contract."""
+
+    code = "command_error"
+
+
+class NodeOutputError(XiliuError):
+    """Raised when a model node cannot produce its required structured output."""
+
+    code = "node_output_error"
+
+
+class MemorySystemError(XiliuError):
+    """Raised when managed memory cannot be safely read or assembled."""
+
+    code = "memory_error"
+
+
+class MemoryBudgetError(MemorySystemError):
+    """Raised when non-compressible planner context exceeds its token budget."""

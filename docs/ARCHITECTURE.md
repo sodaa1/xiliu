@@ -1,13 +1,13 @@
 # 息流 Web 项目架构
 
-本次截止 Phase 4。根目录保留上游 xiliumini 的结构，Web 只增加薄适配层。
+本次截止 Phase 4。根目录保留上游 xiliu 的结构，Web 只增加薄适配层。
 
 ```text
 xiliu/
 ├── .env                              # 本地密钥与模型配置（忽略）
 ├── .env.example                      # 无密钥配置样例
 ├── pyproject.toml / uv.lock           # Python 依赖与锁文件
-├── src/xiliumini/
+├── src/xiliu/
 │   ├── config.py                     # 兼容原配置，新增 provider
 │   ├── runtime.py                    # 原 Runtime；Web 直接 stream_session
 │   ├── graph/memory.py               # 自动/手动压缩共享 summarize_messages

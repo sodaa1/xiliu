@@ -14,13 +14,13 @@ tests/
 .uv-python/
 
 # Runtime data
-.xiliumini/*
+.xiliu/*
 
 # Versioned Agent capabilities
-!.xiliumini/skills/
-!.xiliumini/skills/**
-!.xiliumini/mcp/
-!.xiliumini/mcp/**
+!.xiliu/skills/
+!.xiliu/skills/**
+!.xiliu/mcp/
+!.xiliu/mcp/**
 
 # Python caches and build output
 __pycache__/

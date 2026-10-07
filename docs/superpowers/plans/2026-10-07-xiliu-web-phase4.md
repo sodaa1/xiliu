@@ -3,7 +3,7 @@
 > **For agentic workers:** Use superpowers:executing-plans inline, task by task. 用户授权一步步实现，到 Phase 4 完成后检查，期间不再要求审批。
 
 **Goal:** 构建可浏览、可设置模型、可持久化多会话、直接调用 Runtime 的 Assistant，完成四个斜杠命令。
-**Architecture:** 在原 src/xiliumini 加 FastAPI 薄层，用 sqlite3 WAL 保存 Web 会话；Vite React TS 通过 HTTP/NDJSON 消费服务。Runtime/Gateway 维持原行为。
+**Architecture:** 在原 src/xiliu 加 FastAPI 薄层，用 sqlite3 WAL 保存 Web 会话；Vite React TS 通过 HTTP/NDJSON 消费服务。Runtime/Gateway 维持原行为。
 **Tech Stack:** FastAPI/Uvicorn/sqlite3；React/TypeScript/Vite/Router/Query/Lucide/Markdown/Vitest。
 **Spec:** docs/reference/息流_UI_v0.1_技术方案.md
 
