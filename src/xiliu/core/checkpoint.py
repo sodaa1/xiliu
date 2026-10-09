@@ -230,8 +230,10 @@ def build_recovery_markdown(payload: Mapping[str, Any]) -> str:
 
 
 def _next_node(state: Mapping[str, Any], latest_node: str | None) -> str:
-    if latest_node == "planner":
+    if latest_node in {"planner", "supervisor"}:
         return "verifier"
+    if latest_node == "fast_react":
+        return "final"
     if latest_node == "verifier":
         return (
             "planner"
@@ -459,7 +461,15 @@ def _validate_payload(payload: Any, workspace: Path, root: Path) -> dict[str, An
     ):
         raise ValueError("invalid checkpoint fields")
     datetime.fromisoformat(payload["saved_at"])
-    if payload["latest_node"] not in (None, "planner", "verifier", "final"):
+    if payload["latest_node"] not in (
+        None,
+        "planner",
+        "verifier",
+        "final",
+        "mode_router",
+        "fast_react",
+        "supervisor",
+    ):
         raise ValueError("invalid checkpoint node")
     if payload["trace_id"] is not None and (
         not isinstance(payload["trace_id"], str)

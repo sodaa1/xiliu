@@ -84,6 +84,10 @@ export const api = {
     }),
   remove: (id: string) =>
     request<void>(`/conversations/${encodeURIComponent(id)}`, { method: 'DELETE' }),
+  stop: (id: string) =>
+    request<{ stopping: boolean }>(`/conversations/${encodeURIComponent(id)}/stop`, {
+      method: 'POST',
+    }),
   settings: () => request<ModelSettings>('/settings/model'),
   catalog: () => request<ModelCatalog>('/models/catalog'),
   saveSettings: (body: Omit<ModelSettings, 'api_key_set'> & { api_key: string }) =>
@@ -91,11 +95,17 @@ export const api = {
   commands: () => request<Command[]>('/commands'),
   skills: () => request<Capability[]>('/capabilities/skills'),
   mcp: () => request<Capability[]>('/capabilities/mcp'),
-  async chat(id: string, text: string, signal: AbortSignal, onEvent: (event: WebEvent) => void) {
+  async chat(
+    id: string,
+    text: string,
+    signal: AbortSignal,
+    onEvent: (event: WebEvent) => void,
+    context?: string
+  ) {
     const response = await fetch(`/api/conversations/${encodeURIComponent(id)}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text }),
+      body: JSON.stringify({ text, ...(context ? { context } : {}) }),
       signal,
     })
     let final = false

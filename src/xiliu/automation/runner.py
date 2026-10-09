@@ -73,6 +73,13 @@ class AutomationRunner:
             if runtime is not None:
                 trace_id = getattr(runtime, "last_trace_id", None)
             error = f"Automation runtime failed: {type(exc).__name__}"
+        finally:
+            close = getattr(runtime, "close", None)
+            if callable(close):
+                try:
+                    close()
+                except Exception:
+                    error = error or "Automation runtime resources could not be released"
 
         status = "failed" if error else "success"
         report = self.store.data_dir / "automation-reports" / task_id / f"{run_id}.md"

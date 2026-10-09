@@ -1,4 +1,7 @@
-import { useState } from 'react'
+import { useState, type CSSProperties } from 'react'
+import { ResizeHandle } from '../../components/ResizeHandle'
+import { usePanelSize } from '../../lib/usePanelSize'
+import '../../styles/resizable-panels.css'
 import { MessageSquare, MoreHorizontal, Plus, Trash2 } from 'lucide-react'
 import type { Conversation } from '../../lib/types'
 
@@ -17,7 +20,7 @@ export function ConversationList({
   items,
   selected,
   creating,
-  busy,
+  busyIds,
   onCreate,
   onSelect,
   onDelete,
@@ -25,14 +28,34 @@ export function ConversationList({
   items: Conversation[]
   selected?: string
   creating: boolean
-  busy: boolean
+  busyIds: string[]
   onCreate: () => void
   onSelect: (id: string) => void
   onDelete: (id: string) => void
 }) {
   const [menu, setMenu] = useState<string | null>(null)
+  const maximum =
+    window.innerWidth >= 1700
+      ? 290
+      : window.innerWidth <= 900
+        ? 205
+        : window.innerWidth <= 1200
+          ? 225
+          : 266
+  const [width, setWidth] = usePanelSize('xiliu-conversation-width', 160, maximum)
   return (
-    <aside className="conversation-sidebar" aria-label="对话列表">
+    <aside
+      className="conversation-sidebar"
+      aria-label="对话列表"
+      style={{ '--panel-width': `${width}px` } as CSSProperties}
+    >
+      <ResizeHandle
+        label="调整对话侧栏宽度"
+        value={width}
+        min={160}
+        max={maximum}
+        onChange={setWidth}
+      />
       <button
         className="new-chat"
         aria-label="新建 New Chat"
@@ -75,7 +98,7 @@ export function ConversationList({
                   {menu === conversation.id && (
                     <div className="conversation-menu">
                       <button
-                        disabled={busy}
+                        disabled={busyIds.includes(conversation.id)}
                         onClick={() => {
                           setMenu(null)
                           onDelete(conversation.id)

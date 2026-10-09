@@ -10,8 +10,16 @@ if TYPE_CHECKING:
     from xiliu.capabilities.skills import SkillRegistry
 
 BUILTIN_PERMISSIONS = {
+    "agent_call": "agent.delegate",
+    "agent_catalog": "knowledge.read",
+    "knowledge_get": "knowledge.read",
     "calculator": "compute.safe",
     "current_time": "time.read",
+    "knowledge_search": "knowledge.read",
+    "inbox_list": "knowledge.read",
+    "knowledge_folders": "knowledge.read",
+    "inbox_import": "knowledge.write",
+    "inbox_classify": "knowledge.write",
     "file_read": "filesystem.read.workspace",
     "file_write": "filesystem.write.workspace",
     "file_edit": "filesystem.write.workspace",
@@ -33,6 +41,9 @@ BUILTIN_PERMISSIONS = {
 }
 
 CAPABILITY_ALIASES = {
+    "builtin:knowledge_search": (
+        "知识库 知识 检索 本地资料 搜索 标签 文件夹 knowledge search tags folders"
+    ),
     "mcp:aihot:aihot_get_latest": "AI 新闻 最新资讯 每日简报",
     "mcp:aihot:aihot_search": "AI 搜索 资讯检索",
     "mcp:aihot:aihot_get_hot_topics": "AI 热点 热榜",
@@ -57,6 +68,14 @@ class CapabilityManager:
 
     def get(self, capability_id: str) -> CapabilitySpec | None:
         return self._specs.get(capability_id)
+
+    def refresh_agents(self, specs: list[CapabilitySpec]) -> None:
+        self._specs = {identifier: spec for identifier, spec in self._specs.items()
+                       if spec.kind != 'agent'}
+        for spec in specs:
+            if spec.kind != 'agent':
+                raise ValueError('agent refresh accepts only agent manifests')
+            self.register(spec)
 
     def load_skill(self, skill_id: str) -> str:
         if self.skill_registry is None or not skill_id.startswith("skill:"):

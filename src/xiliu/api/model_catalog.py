@@ -1,5 +1,5 @@
 # Public UI presets. Keep model IDs out of persistence schemas.
-# DeepSeek canonical Flash name checked against official docs on 2026-10-07.
+# DeepSeek presets use the requested V4 model IDs.
 MODEL_CATALOG = {
     "openai": {
         "base_url": "https://api.openai.com/v1",
@@ -7,6 +7,6 @@ MODEL_CATALOG = {
     },
     "deepseek": {
         "base_url": "https://api.deepseek.com",
-        "models": ["deepseek-flash", "deepseek-v4-pro", "deepseek-v4-flash"],
+        "models": ["deepseek-v4-flash", "deepseek-v4-pro"],
     },
 }

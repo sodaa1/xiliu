@@ -44,9 +44,12 @@ class ModelSettingsService:
     def _effective(self, values: dict[str, str]) -> dict[str, str]:
         provider = self._provider(values)
         catalog = MODEL_CATALOG[provider]
+        model = values.get("XILIU_MODEL", "") or catalog["models"][0]
+        if provider == "deepseek" and model == "deepseek-flash":
+            model = "deepseek-v4-flash"
         return {
             "provider": provider,
-            "model": values.get("XILIU_MODEL", "") or catalog["models"][0],
+            "model": model,
             "base_url": values.get("XILIU_BASE_URL", "") or catalog["base_url"],
         }
 

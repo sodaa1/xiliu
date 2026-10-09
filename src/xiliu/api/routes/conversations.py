@@ -1,4 +1,7 @@
+import asyncio
 import json
+from contextlib import suppress
+from threading import Event, Thread
 
 from fastapi import APIRouter, Request, Response
 from fastapi.responses import StreamingResponse
@@ -42,12 +45,43 @@ def messages(cid: str, request: Request):
 
 
 @router.post("/{cid}/chat")
-def chat(cid: str, body: ChatRequest, request: Request):
+async def chat(cid: str, body: ChatRequest, request: Request):
     request.app.state.store.get(cid)
 
-    def lines():
-        for event in request.app.state.chat.stream_turn(cid, body.text):
-            yield json.dumps(event, ensure_ascii=False) + "\n"
+    async def lines():
+        # One owner thread keeps generator ContextVars stable and lets disconnects
+        # signal cancellation even while a provider request is waiting for data.
+        loop = asyncio.get_running_loop()
+        queue: asyncio.Queue = asyncio.Queue()
+        signal = Event()
+
+        def publish(event):
+            with suppress(RuntimeError):
+                loop.call_soon_threadsafe(queue.put_nowait, event)
+
+        def produce():
+            turn = request.app.state.chat.stream_turn(
+                cid, body.text, context=body.context, mode=body.mode, signal=signal
+            )
+            try:
+                for event in turn:
+                    publish(event)
+            finally:
+                turn.close()
+                publish(None)
+
+        Thread(target=produce, name=f"chat-{cid}", daemon=True).start()
+        try:
+            while not await request.is_disconnected():
+                try:
+                    event = await asyncio.wait_for(queue.get(), timeout=0.25)
+                except TimeoutError:
+                    continue
+                if event is None:
+                    break
+                yield json.dumps(event, ensure_ascii=False) + "\n"
+        finally:
+            signal.set()
 
     return StreamingResponse(
         lines(),
@@ -57,3 +91,8 @@ def chat(cid: str, body: ChatRequest, request: Request):
             "X-Accel-Buffering": "no",
         },
     )
+
+
+@router.post("/{cid}/stop")
+def stop(cid: str, request: Request):
+    return request.app.state.chat.cancel(cid)

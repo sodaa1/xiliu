@@ -34,6 +34,7 @@ class RunContext:
     approval_mode: str = "inline"
     hook_engine: HookEngine | None = None
     hook_failures: list[str] = field(default_factory=list)
+    local_only: bool = False
 
 
 active_run: ContextVar[RunContext | None] = ContextVar("xiliu_capability_run", default=None)
@@ -50,6 +51,8 @@ class _GatewayTool(BaseTool):
 
 class ExecutionGateway:
     def discover_mcp(self, server_id: str, context: RunContext) -> dict[str, Any]:
+        if context.local_only:
+            return {"ok": False, "error": "source_scope_denied", "retryable": False}
         manager = context.capability_manager
         if manager is None or manager.mcp_manager is None or context.policy_engine is None:
             return {"ok": False, "error": "policy_denied", "reason": "MCP is unavailable"}
@@ -153,12 +156,25 @@ class ExecutionGateway:
         return "builtin", f"builtin:{tool.name}", permission
 
     def invoke(self, tool: BaseTool, arguments: dict[str, Any], context: RunContext) -> Any:
+        from xiliu.execution.cancellation import check_cancelled
+
+        check_cancelled()
         started = time.monotonic()
         success = False
         decision = "allow"
         hook_results: list[dict[str, Any]] = []
         source, capability_id, permission = self._policy_target(tool, arguments, context)
         try:
+            if context.local_only and (permission == "network.read" or source == "mcp"):
+                decision = "deny"
+                return json.dumps(
+                    {
+                        "ok": False,
+                        "error": "source_scope_denied",
+                        "retryable": False,
+                        "reason": "Task scope is local Knowledge",
+                    }
+                )
             if tool.name == "mcp_call" and context.policy_engine is not None:
                 manager = context.capability_manager
                 pieces = capability_id.split(":", 2)
@@ -244,6 +260,7 @@ class ExecutionGateway:
                             "reason": "blocking before hook failed",
                         }
                     )
+            check_cancelled()
             result = tool.invoke(arguments)
             success = not (isinstance(result, str) and result.startswith("Error:"))
             if isinstance(result, str) and result.startswith("{"):

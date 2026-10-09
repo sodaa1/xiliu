@@ -1,3 +1,124 @@
 # 息流 · xiliu
 
-运行与架构说明见 [README](README.md)。
+![息流产品介绍](docs/assets/xiliu-intro-concept-a.png)
+
+[简体中文](README.zh-CN.md) · [English](README.en.md)
+
+*上图为产品介绍页的视觉概念，卡片内容为设计示意。*
+
+**信息有归处，思考自成流。** 息流是本地优先的个人信息与 AI 助手，把 Feed、Inbox、Knowledge、Assistant 和 Today 连接成从发现到行动的信息流。
+
+当前版本：**0.3.0**。React 界面和 FastAPI 业务层复用 Runtime / LangGraph；Windows 桌面使用 Tauri 2。资料与会话保存在本机，启用模型或联网工具时，对应请求会发送至用户配置的服务。
+
+## 0.3 更新
+
+- **资料操作接入 Agent**：`inbox_import`、`inbox_list`、`knowledge_folders`、`inbox_classify` 复用页面服务。多个 URL 分别导入，用户明确要求保存时可将未匹配文件夹的卡片保存到 Knowledge。
+- **多会话与停止回复**：每个聊天单独保存运行状态和请求控制器；可同时使用其他聊天，只停止选中的会话，保留已收到的思考内容与已完成操作。
+- **可调整布局**：主侧栏最小 144px，对话侧栏最小 160px，输入框高度 48–98px；支持拖动、键盘调整和刷新后保留尺寸。
+- **桌面与模型连接**：上传区使用 HTML5 拖入；保留 SDK 思考流与聊天历史。字面本地模型地址绕过系统代理，外部地址保留代理；连接和认证错误直接返回，不被路由器转成重复任务重试。
+- **AIHot 默认配置**：首次启动补入公开 MCP 配置，保留已有用户配置；读取资讯不依赖模型 API Key。
+
+详见 [0.3 修复记录](docs/XILIU_03_FIXES.md)。天气搜索循环及桌面检查点报错已进入独立修复分支，当前主干不将其标记为已解决。
+
+## 功能与工作流
+
+**发现 → 收集 → 整理 → 提问 → 行动**
+
+| 模块 | 功能 |
+| --- | --- |
+| Feed | AI Hot、GitHub Top 5、来源状态、收藏与 Ask AI。 |
+| Inbox | 收集文字、URL 和文件；保留来源与原件，后台提取、可选 AI 整理、编辑与归类。 |
+| Knowledge | 标签与规则文件夹、中文混合检索、原资料引用、可选 embedding。 |
+| Assistant | 多会话、Markdown、模型切换、思考过程、本轮参考、停止回复、Skill / MCP。 |
+| Today | 资讯与待办聚合，创建、编辑与完成任务。 |
+| Settings | 模型、个人、外观、数据与自动任务；浅色 / 深色 / 跟随系统、减少动态效果。 |
+
+## Windows 安装
+
+当前本地安装包：`dist/Xiliu-0.3.0-x64-setup.exe`，附带 `.sha256`。安装包不存入 Git 源码；从源码获取项目时，可按下文自行构建。
+
+1. 双击安装包，使用中文向导安装并启动「息流」。无需另装 Python、Node.js 或 Rust。
+2. 首次启动在设置中自行填写模型提供商、API 地址、模型名称和 API Key。安装包不包含开发者密钥、个人模型配置、数据库、测试或项目文档。
+3. 将资料收集到 Inbox，归类到 Knowledge，再在 Assistant 中引用资料提问。
+
+支持 Windows x64，需要 WebView2；缺少时安装引导程序需联网下载。当前安装包未签名。桌面资料位于 `%APPDATA%\io.xiliu.desktop`，开发 Web 默认使用项目 `.xiliu/`。升级前退出应用并备份完整数据目录，无需为升级删除已有资料。
+
+构建与验收边界见 [Windows 交付记录](docs/WINDOWS_RELEASE.md) 和 [桌面说明](desktop/README.md)。
+
+## 从源码运行
+
+需要 Python 3.12+、uv、Node.js / npm，在项目根目录执行：
+
+```powershell
+uv sync --dev
+cd web
+npm ci
+npm run build
+cd ..
+uv run xiliu web --open
+```
+
+Windows 可双击 `start-xiliu.bat`。默认 `http://127.0.0.1:8765`。开发前端执行 `npm run dev`，另一个终端在项目根目录执行 `uv run xiliu web`。CLI 命令见 `uv run xiliu --help`。
+
+Windows 源码打包还需要 Rust MSVC 与 Microsoft C++ Build Tools / Windows SDK：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/build-windows.ps1
+```
+
+脚本依次构建前端、冻结服务、Tauri / NSIS，导出版本对应的 `.exe` 和 SHA256 到 `dist/`。
+
+## 模型与联网配置
+
+通过设置页填写模型配置，或复制 `.env.example` 为本地 `.env`。不要提交真实密钥。
+
+| 配置项 | 用途 |
+| --- | --- |
+| `XILIU_PROVIDER` | 模型提供商。 |
+| `XILIU_BASE_URL` | 模型兼容 API 地址。 |
+| `XILIU_MODEL` | 对话模型名称。 |
+| `XILIU_API_KEY` | 模型密钥；接口不回显明文。 |
+| `XILIU_DATA_DIR` | 数据目录。 |
+| `XILIU_EMBEDDING_MODEL` | 可选专用 embedding 模型；留空使用本地检索。 |
+| `TAVILY_API_KEY` | Search 工具使用的搜索服务密钥，与对话模型 API 分开。 |
+
+对话模型、网页资料识别、AIHot MCP 与 Search 工具是不同调用链；其中一个能联网，不代表其他服务已配置。MCP 可按服务需要提供各自运行环境和配置。完整变量见 [.env.example](.env.example)。
+
+## 内核与 RAG
+
+**Fast** 处理轻量聊天和简单本地查询；**Standard** 使用计划、工具执行与有界验证；**Deep** 按需组织 Todo 与子 Agent。API 的可选 `mode` 参数支持指定模式，省略时自动路由；沿用 NDJSON 流和 Gateway 权限链。
+
+工具结果统一为 Evidence，进入 GraphState、Memory 和 Verifier。RAG 与 Knowledge 共用 SQLite；资料变化进入持久化后台队列，查询不触发全量索引，向量只重算变化片段。默认全文与元数据检索不需要向量服务；首次 RAG 迁移保留 `app.pre-rag.sqlite3` 备份。
+
+数据目录 `agents/` 提供 `rag`、`research`、`code` 模板，子 Agent 权限按父级范围收窄。详见 [0.2 内核交付](docs/XILIU_02_KERNEL_RAG.md)。
+
+## 验证与当前边界
+
+2026-10-09 本次主干回归：后端 **124 passed / 1 skipped**，前端 **33 passed**。跳过项为 Windows 缺少创建符号链接权限的既有静态资源用例。详细记录见 [项目进展](docs/DEVELOPMENT_PROCESS.md)。
+
+```powershell
+uv run python -m pytest
+uv run ruff check src/xiliu
+uv run pyright src/xiliu
+uv run python scripts/verify_kernel_rag.py
+cd web
+npm test -- --run
+npm run lint
+npm run build
+```
+
+测试源码与日志按当前约定只保留本地，不上传 GitHub 或进入安装包；源码使用者需要另行取得本地测试集。离线证明脚本使用假模型，不需要真实供应商密钥。
+
+- PDF / DOCX 可提取文字，扫描件暂不做 OCR；保存 URL 不等于自动抓取全文。
+- 停止回复不撤销已完成的写入，也不提供断点继续；同步外部请求可能等待下一段流数据或超时后才释放。
+- 节点内部工具批次崩溃时尚不提供逐工具 exactly-once 恢复；知识库面向单用户，工具权限不等于系统网络隔离。
+- 桌面包不携带开发解释器、pytest、ruff；Code Agent 的 Python 脚本与测试执行请使用源码开发环境。
+- 0.3 SDK / Graph / HTTP 链路用本地虚拟 API 验证，没有使用用户真实密钥；原生桌面窗口拖入和全新设备的 WebView2 下载流程尚未进行交互式验收。
+
+## 文档与来源
+
+[中文文档](docs/README.zh-CN.md) · [English documentation](docs/README.en.md) · [开发进展](docs/DEVELOPMENT_PROCESS.md) · [English progress](docs/DEVELOPMENT_PROCESS.en.md) · [架构](docs/ARCHITECTURE.md) · [阶段记录](docs/PHASES.md)
+
+源内核来自 [sodaa1/xiliumini](https://github.com/sodaa1/xiliumini)，基线 `6d3689583f93b3fafd6381b2b65c31d9613464e5`；本项目品牌、包名、CLI 与配置使用 `xiliu`。
+
+产品介绍页由 `web/intro/index.html` 与工作台一起构建，运行后访问 `/intro/`。公开介绍：[息流 · xiliu](https://933693.xyz/projects/xiliu/)。

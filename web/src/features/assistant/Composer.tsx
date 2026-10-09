@@ -1,10 +1,13 @@
 import { useState } from 'react'
-import type { KeyboardEvent } from 'react'
-import { ArrowUp, Command as CommandIcon } from 'lucide-react'
+import type { KeyboardEvent, ReactNode } from 'react'
+import { ArrowUp, Square, Command as CommandIcon } from 'lucide-react'
 import type { Capability, Command } from '../../lib/types'
+import { ResizeHandle } from '../../components/ResizeHandle'
+import { usePanelSize } from '../../lib/usePanelSize'
+import '../../styles/resizable-panels.css'
 
 const fallback: Command[] = [
-  { name: 'clear', description: '清除模型上下文，保留历史' },
+  { name: 'clear', description: '清除对话内容' },
   { name: 'compress', description: '压缩当前上下文' },
   { name: 'skill', description: '使用一个已安装技能' },
   { name: 'mcp', description: '使用一个已连接服务' },
@@ -14,20 +17,27 @@ export function Composer({
   onText,
   onSend,
   disabled,
+  onStop,
+  stopping,
   commands,
   skills,
   mcp,
+  modelPicker,
 }: {
   text: string
   onText: (text: string) => void
   onSend: () => void
   disabled: boolean
+  onStop?: () => void
+  stopping?: boolean
   commands?: Command[]
   skills?: Capability[]
   mcp?: Capability[]
+  modelPicker?: ReactNode
 }) {
   const [highlight, setHighlight] = useState(0),
     [dismissed, setDismissed] = useState(false)
+  const [height, setHeight] = usePanelSize('xiliu-composer-height', 48, 98)
   const trimmed = text.trimStart(),
     match = /^\/(skill|mcp)\s+(\S*)$/.exec(trimmed)
   const entries = match
@@ -64,6 +74,14 @@ export function Composer({
   return (
     <div className="composer-area">
       <div className="composer-box">
+        <ResizeHandle
+          label="调整输入框高度"
+          vertical
+          value={height}
+          min={48}
+          max={98}
+          onChange={setHeight}
+        />
         {open && (
           <div id="slash-options" className="command-palette" role="listbox" aria-label="命令建议">
             {entries.map((entry, index) => (
@@ -94,21 +112,24 @@ export function Composer({
           }}
           onKeyDown={keyDown}
           rows={3}
+          style={{ height }}
           aria-controls={open ? 'slash-options' : undefined}
           aria-activedescendant={open ? `suggestion-${chosen}` : undefined}
         />
         <div className="composer-toolbar">
+          {modelPicker}
           <span className="composer-hint">
             <CommandIcon size={15} />
             <span>输入 / 查看快捷命令</span>
           </span>
           <button
             className="send-button"
-            aria-label="发送消息"
-            onClick={onSend}
-            disabled={disabled || !text.trim()}
+            aria-label={onStop ? (stopping ? '正在停止回复' : '停止回复') : '发送消息'}
+            title={onStop ? '停止回复' : '发送消息'}
+            onClick={onStop ?? onSend}
+            disabled={onStop ? stopping : disabled || !text.trim()}
           >
-            <ArrowUp size={23} />
+            {onStop ? <Square size={17} fill="currentColor" /> : <ArrowUp size={23} />}
           </button>
         </div>
       </div>

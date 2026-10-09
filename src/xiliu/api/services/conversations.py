@@ -18,6 +18,11 @@ class ConversationService:
         conversation = self.store.get(cid)
         settings = self.model_settings.read()
         if (
+            settings["provider"] == "deepseek"
+            and conversation["model_override"] == "deepseek-flash"
+        ):
+            conversation = self.store.update(cid, model_override="deepseek-v4-flash")
+        if (
             conversation["model_override"]
             and conversation["model_override"] not in MODEL_CATALOG[settings["provider"]]["models"]
         ):

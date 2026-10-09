@@ -1,0 +1,8 @@
+.route-surface {
+  height: 100dvh;
+  width: 100%;
+}
+.route-surface[data-route-phase='exit'],
+.main-stage[data-route-phase='exit'] {
+  pointer-events: none;
+}

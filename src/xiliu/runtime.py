@@ -15,7 +15,7 @@ from xiliu.capabilities.manager import CapabilityManager
 from xiliu.capabilities.mcp import MCPManager
 from xiliu.capabilities.skills import SkillRegistry
 from xiliu.config import Settings
-from xiliu.core.agent import stream_agent
+from xiliu.core.agent import _chunk_events, stream_agent
 from xiliu.core.approval import ApprovalDecision, ApprovalRequest, normalize_approval_mode
 from xiliu.core.checkpoint import CheckpointManager
 from xiliu.core.trace import TraceRecorder
@@ -29,6 +29,7 @@ from xiliu.hooks.engine import HookEngine
 from xiliu.policy.engine import PolicyEngine
 from xiliu.providers.openai_compatible import classify_provider_error, create_chat_model
 from xiliu.tools.approval_context import ApprovalConfig, approval_config
+from xiliu.tools.knowledge_search import embedding_provider, embedding_provider_from_settings
 from xiliu.tools.preferences import UserPreferenceStore
 from xiliu.tools.todo import TodoStore
 from xiliu.tools.web_search_tool import search_api_key
@@ -50,10 +51,12 @@ class _RunContext:
     actor_type: str = "interactive"
     policy_profile: str = "interactive"
     hook_failures: list[str] = field(default_factory=list)
+    local_only: bool = False
 
 
 @contextmanager
 def _activate_run_context(context: _RunContext) -> Iterator[None]:
+    embedding_token = embedding_provider.set(context.owner._embedding_provider)
     model_token = model_factory.set(context.owner._agent_model_factory)
     search_token = search_api_key.set(context.owner._tavily_api_key)
     approval_token = approval_config.set(
@@ -74,11 +77,13 @@ def _activate_run_context(context: _RunContext) -> Iterator[None]:
             approval_mode=context.approval_mode,
             hook_engine=context.owner._hook_engine,
             hook_failures=context.hook_failures,
+            local_only=context.local_only,
         )
     )
     try:
         yield
     finally:
+        embedding_provider.reset(embedding_token)
         active_run.reset(capability_token)
         approval_config.reset(approval_token)
         search_api_key.reset(search_token)
@@ -105,14 +110,20 @@ class Runtime:
         approval_handler: Callable[[ApprovalRequest], ApprovalDecision] | None = None,
         actor_type: str = "interactive",
         policy_profile: str = "interactive",
+        knowledge_embedding_provider: Any = None,
     ) -> None:
         self._model = model
+        self._embedding_provider = knowledge_embedding_provider
         self._checkpointer = checkpointer or InMemorySaver()
         self._data_dir = data_dir
         self._mcp_manager = MCPManager(data_dir / "mcp")
         self._capabilities = CapabilityManager(
             skill_registry=SkillRegistry(data_dir / "skills"), mcp_manager=self._mcp_manager
         )
+        from xiliu.capabilities.agent_registry import AgentRegistry
+
+        for spec in AgentRegistry(data_dir).specs():
+            self._capabilities.register(spec)
         self._policy_engine = PolicyEngine(
             data_dir / "policy.json", trusted_mcp_servers=set(self._mcp_manager.servers())
         )
@@ -180,6 +191,8 @@ class Runtime:
             "research_notes": [],
             "agent_results": [],
             "tool_events": [],
+            "evidence": [],
+            "retrieval_hits": [],
             "supervisor_ok": False,
             "result": "",
             "graph_state": "planning",
@@ -274,6 +287,7 @@ class Runtime:
         max_attempts: int = 3,
         *,
         include_workspace_history: bool = True,
+        mode: str | None = None,
     ) -> Generator[RuntimeEvent, None, None]:
         """Route one session turn and answer lightweight chat directly."""
         try:
@@ -287,11 +301,40 @@ class Runtime:
                 include_workspace_history=include_workspace_history,
             )
             context = self._context(workspace, session_id)
+            if mode is not None:
+                inputs["requested_mode"] = mode
+            routed = dict(inputs)
             with _activate_run_context(context):
-                routed = build_entry_workflow(self._model).invoke(
-                    inputs,
-                    config={"configurable": {"thread_id": session_id}},
+                entry_events = iter(
+                    build_entry_workflow(self._model, model_name=self._model_name).stream(
+                        inputs,
+                        config={"configurable": {"thread_id": session_id}},
+                        stream_mode=["updates", "custom"],
+                    )
                 )
+            try:
+                while True:
+                    try:
+                        with _activate_run_context(context):
+                            chunk = next(entry_events)
+                    except StopIteration:
+                        break
+                    if not isinstance(chunk, tuple) or len(chunk) != 2:
+                        continue
+                    mode, payload = chunk
+                    if not isinstance(payload, dict):
+                        continue
+                    if mode == "updates":
+                        for update in payload.values():
+                            if isinstance(update, dict):
+                                routed.update(update)
+                    else:
+                        yield from _chunk_events((mode, payload), session_id)
+            finally:
+                close = getattr(entry_events, "close", None)
+                if callable(close):
+                    with _activate_run_context(context):
+                        close()
             route = routed.get("intent_route")
             if route == "chat":
                 answer = routed.get("final_answer")
@@ -347,6 +390,11 @@ class Runtime:
         resumed: bool = False,
         resume_event: Any = None,
     ) -> Iterator[RuntimeEvent]:
+        from xiliu.graph.routing import external_scope, local_scope
+
+        context = replace(
+            context, local_only=local_scope(inputs["task"]) and not external_scope(inputs["task"])
+        )
         checkpoint = CheckpointManager(context, task=inputs["task"])
         trace = TraceRecorder(context, task=inputs["task"])
         self.last_trace_id = trace.trace_id
@@ -397,6 +445,7 @@ def create_runtime(
     main_model = create_chat_model(settings)
     return Runtime(
         main_model,
+        knowledge_embedding_provider=embedding_provider_from_settings(settings),
         data_dir=settings.data_dir if data_dir is None else data_dir,
         agent_model_factory=lambda: create_chat_model(settings),
         tavily_api_key=settings.tavily_api_key,

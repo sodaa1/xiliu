@@ -1,0 +1,231 @@
+:root {
+  --surface: #fff;
+  --surface-muted: #f8fafc;
+  --text: #18243b;
+  --accent-soft: #eeedff;
+  --muted-readable: #68758b;
+  --app-font: Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  font-family: var(--app-font);
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  --surface: #191e2a;
+  --surface-muted: #131824;
+  --text: #e6eaf4;
+  --accent: #aaa4fa;
+  --accent-soft: #302c4a;
+  --muted: #a8b0c2;
+  --muted-readable: #b2bbce;
+  --line: #343b4d;
+  color: var(--text);
+  background: var(--surface-muted);
+}
+.profile-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 0.93rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--line);
+}
+.profile-avatar.large {
+  width: 64px;
+  height: 64px;
+  font-size: 1.6rem;
+}
+:root[data-density='compact'] .workspace-page {
+  padding: 22px 30px;
+}
+:root[data-density='compact'] .workspace-header {
+  margin-bottom: 18px;
+}
+:root[data-density='compact'] :is(.settings-card, .content-row, .feed-card, .today-card) {
+  padding: 18px;
+}
+:root[data-density='compact'] .messages-inner {
+  padding-top: 16px;
+}
+:root[data-density='compact'] .message {
+  margin-bottom: 16px;
+}
+:root[data-motion='reduced'] *,
+:root[data-motion='reduced'] *::before,
+:root[data-motion='reduced'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-delay: 0ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+:root[data-motion='reduced'] .launch-content {
+  visibility: visible;
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+:root[data-motion='reduced'] .launch-skip {
+  display: none;
+}
+
+/* Workbench surfaces only: the galaxy entrance retains its own night palette. */
+:root[data-theme='dark'] .app-shell {
+  background: var(--surface);
+  color: var(--text);
+}
+:root[data-theme='dark'] .app-shell * {
+  border-color: var(--line);
+}
+:root[data-theme='dark']
+  :is(
+    .global-sidebar,
+    .conversation-sidebar,
+    .conversations-sidebar,
+    .session-sidebar,
+    .chat-sidebar
+  ) {
+  background: var(--surface-muted);
+}
+:root[data-theme='dark']
+  :is(
+    .main-stage,
+    .workspace-page,
+    .settings-page,
+    .assistant-layout,
+    .chat-main,
+    .chat-panel,
+    .assistant-main,
+    .chat-header,
+    .workspace-global-actions,
+    .settings-card,
+    .today-card,
+    .content-row,
+    .feed-card,
+    .capture-card,
+    .content-editor,
+    .quick-ask,
+    .composer,
+    .composer-box,
+    .composer-area,
+    .conversation-list,
+    .conversation-menu,
+    .new-chat,
+    .thinking-content,
+    .search-field,
+    .command-palette,
+    .automations-drawer,
+    .automation-card,
+    .automation-runs,
+    .automation-runs article
+  ) {
+  background: var(--surface);
+  color: var(--text);
+}
+:root[data-theme='dark'] .app-shell .segmented {
+  background: var(--surface-muted);
+}
+:root[data-theme='dark'] .app-shell :is(.nav-item.active, .conversation-row.selected) {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+:root[data-theme='dark'] .new-chat:hover,
+:root[data-theme='dark'] .conversation-row:hover {
+  background: var(--accent-soft);
+}
+:root[data-theme='dark'] .send-button:disabled {
+  background: var(--accent-soft);
+  color: var(--muted-readable);
+}
+:root[data-theme='dark'] .app-shell :is(input:not([type='checkbox']), textarea, select) {
+  background: var(--surface-muted);
+  color: var(--text);
+  border-color: var(--line);
+}
+:root[data-theme='dark']
+  .app-shell
+  :is(h1, h2, h3, strong, .task-title, .conversation-title, .message-content) {
+  color: var(--text);
+}
+:root[data-theme='dark']
+  .app-shell
+  :is(
+    p,
+    small,
+    label,
+    dt,
+    dd,
+    .back-link,
+    .page-description,
+    .section-description,
+    .workspace-count,
+    .eyebrow,
+    .run-status
+  ) {
+  color: var(--muted-readable);
+}
+:root[data-theme='dark']
+  :is(
+    .nav-item,
+    .icon-button,
+    .secondary-button,
+    .segmented button,
+    .command-palette button,
+    .row-actions button,
+    .prompt-suggestions button
+  ) {
+  background: transparent;
+  color: var(--muted-readable);
+}
+:root[data-theme='dark']
+  :is(
+    .nav-item.active,
+    .segmented .selected,
+    .nav-item:hover,
+    .secondary-button:hover,
+    .command-palette .highlighted,
+    .command-palette button:hover,
+    .prompt-suggestions button:hover,
+    .assistant-reference,
+    .message-user .message-content,
+    .setup-banner
+  ) {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+:root[data-theme='dark'] .message-content :is(pre, code) {
+  background: #101520;
+  color: #d4dcf0;
+}
+:root[data-theme='dark']
+  :is(
+    .content-tags span,
+    .tag-list span,
+    .tag-list button,
+    .database-status,
+    .item-symbol,
+    .inbox-summary,
+    .automation-form
+  ) {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+:root[data-theme='dark'] :is(.workspace-error, .error-banner) {
+  background: #36232e;
+  color: #f5b5c4;
+}
+:root[data-theme='dark'] .primary-button {
+  background: #8276df;
+  color: #fff;
+}
+:root[data-theme='dark'] .glide-select {
+  background: var(--glide-surface);
+  color: var(--glide-text);
+}
+:root[data-theme='dark'] .glide-menu {
+  box-shadow: 0 12px 40px #0005;
+}

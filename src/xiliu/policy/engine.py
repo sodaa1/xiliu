@@ -11,6 +11,8 @@ DEFAULT_PROFILES: dict[str, dict[str, Effect]] = {
     "interactive": {
         "compute.safe": "allow",
         "time.read": "allow",
+        "knowledge.read": "allow",
+        "knowledge.write": "allow",
         "filesystem.read.workspace": "allow",
         "filesystem.write.workspace": "allow",
         "network.read": "allow",
@@ -24,6 +26,7 @@ DEFAULT_PROFILES: dict[str, dict[str, Effect]] = {
     "background": {
         "compute.safe": "allow",
         "time.read": "allow",
+        "knowledge.read": "allow",
         "filesystem.read.workspace": "allow",
         "filesystem.write.workspace": "allow",
         "network.read": "allow",

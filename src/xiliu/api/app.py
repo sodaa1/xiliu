@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import asyncio
+from contextlib import asynccontextmanager, suppress
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -8,12 +10,28 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 
 from xiliu.api.errors import WebError
-from xiliu.api.routes import capabilities, conversations, models
+from xiliu.api.routes import (
+    capabilities,
+    content,
+    conversations,
+    inbox,
+    knowledge,
+    models,
+    workspace,
+)
+from xiliu.api.services.automations import AutomationService
 from xiliu.api.services.chat import ChatService
 from xiliu.api.services.commands import CommandService
+from xiliu.api.services.content import ContentService
 from xiliu.api.services.conversations import ConversationService
+from xiliu.api.services.feed import FeedService
+from xiliu.api.services.inbox import InboxService
+from xiliu.api.services.knowledge import KnowledgeService
 from xiliu.api.services.model_settings import ModelSettingsService
+from xiliu.api.services.tasks import TaskService
 from xiliu.api.store import AppStore
+from xiliu.rag.service import RAGService
+from xiliu.tools.knowledge_search import embedding_provider_from_settings
 
 
 def create_app(
@@ -22,16 +40,61 @@ def create_app(
     env_file: Path = Path(".env"),
     static_dir: Path | None = None,
 ) -> FastAPI:
-    app = FastAPI(title="息流 · xiliu", version="0.1.0")
+    @asynccontextmanager
+    async def lifespan(application: FastAPI):
+        async def heartbeat():
+            while True:
+                await asyncio.sleep(10)
+                await asyncio.to_thread(application.state.automations.sync)
+
+        owner = None
+        try:
+            await asyncio.to_thread(application.state.retrieval.worker.start)
+            await asyncio.to_thread(application.state.inbox.start)
+            await asyncio.to_thread(application.state.automations.start)
+            owner = asyncio.create_task(heartbeat())
+            yield
+        finally:
+            try:
+                # Keep renewing ownership while running automation jobs drain.
+                try:
+                    await asyncio.to_thread(application.state.automations.shutdown)
+                finally:
+                    try:
+                        await asyncio.to_thread(application.state.inbox.shutdown)
+                    finally:
+                        await asyncio.to_thread(application.state.retrieval.worker.shutdown)
+            finally:
+                if owner is not None:
+                    owner.cancel()
+                    with suppress(asyncio.CancelledError):
+                        await owner
+
+    app = FastAPI(title="息流 · xiliu", version="0.3.0", lifespan=lifespan)
     app.state.model_settings = ModelSettingsService(env_file)
     values = app.state.model_settings.values()
-    app.state.data_dir = data_dir or Path(values.get("XILIU_DATA_DIR", ".xiliu"))
+    app.state.data_dir = (data_dir or Path(values.get("XILIU_DATA_DIR", ".xiliu"))).resolve()
 
     app.state.store = AppStore(app.state.data_dir)
     app.state.conversations = ConversationService(app.state.store, app.state.model_settings)
     app.state.chat = ChatService(app.state.conversations)
     app.state.commands = CommandService(app.state.conversations)
     app.state.chat.commands = app.state.commands
+    app.state.content = ContentService(app.state.store)
+    app.state.knowledge = KnowledgeService(app.state.content)
+    app.state.inbox = InboxService(app.state.content, app.state.knowledge, app.state.model_settings)
+    app.state.chat.inbox = app.state.inbox
+    embedding_provider = None
+    if values.get("XILIU_EMBEDDING_MODEL", "").strip():
+        embedding_provider = embedding_provider_from_settings(
+            app.state.model_settings.runtime_settings()
+        )
+    app.state.retrieval = RAGService(
+        app.state.content, app.state.knowledge, embedding_provider=embedding_provider
+    )
+    app.state.feed = FeedService(app.state.store, app.state.content)
+    app.state.tasks = TaskService(app.state.store)
+    app.state.automations = AutomationService(app.state.data_dir, app.state.model_settings)
 
     @app.exception_handler(WebError)
     async def web_error(_request: Request, exc: WebError):
@@ -76,6 +139,10 @@ def create_app(
     app.include_router(models.router)
     app.include_router(capabilities.router)
     app.include_router(conversations.router)
+    app.include_router(content.router)
+    app.include_router(inbox.router)
+    app.include_router(knowledge.router)
+    app.include_router(workspace.router)
     dist = (static_dir or Path(__file__).resolve().parents[3] / "web" / "dist").resolve()
 
     @app.get("/{path:path}", include_in_schema=False)
@@ -85,8 +152,13 @@ def create_app(
         target = (dist / path).resolve()
         if not target.is_relative_to(dist):
             raise WebError("not_found", "页面不存在。", 404)
+        if target.is_dir():
+            target = (target / "index.html").resolve()
+            if not target.is_relative_to(dist):
+                raise WebError("not_found", "页面不存在。", 404)
         if target.is_file():
-            return FileResponse(target)
+            headers = {"Cache-Control": "no-cache"} if target.suffix == ".html" else None
+            return FileResponse(target, headers=headers)
         if Path(path).suffix:
             raise WebError("not_found", "文件不存在。", 404)
         if (dist / "index.html").is_file():

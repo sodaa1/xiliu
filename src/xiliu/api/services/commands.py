@@ -14,7 +14,7 @@ from xiliu.graph.memory import summarize_messages
 from xiliu.providers.openai_compatible import create_chat_model
 
 COMMANDS = [
-    {"name": "clear", "description": "清除模型上下文，保留历史"},
+    {"name": "clear", "description": "清除当前对话内容"},
     {"name": "compress", "description": "压缩当前上下文，保留历史"},
     {"name": "skill", "description": "使用一个已安装技能"},
     {"name": "mcp", "description": "使用一个已连接服务"},
@@ -27,6 +27,7 @@ class CommandResult:
     task: str | None = None
     message: str = ""
     role: Literal["assistant", "event"] = "assistant"
+    reset_messages: bool = False
 
 
 class CommandService:
@@ -64,8 +65,10 @@ class CommandService:
             if len(parts) != 1:
                 raise WebError("invalid_command", f"/{command} 不接受附加参数。")
             if command == "clear":
-                self.store.clear_context(cid)
-                return CommandResult(command, message="Context cleared", role="event")
+                self.store.clear_messages(cid)
+                return CommandResult(
+                    command, message="已清除对话内容", role="event", reset_messages=True
+                )
             return self.compress(cid, model)
         if command not in {"skill", "mcp"} or len(parts) < 2:
             raise WebError(

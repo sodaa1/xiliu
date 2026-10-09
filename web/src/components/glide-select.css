@@ -1,0 +1,107 @@
+.glide-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: var(--glide-row);
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--glide-radius);
+  background: var(--glide-surface);
+  color: var(--glide-text);
+  text-align: left;
+  font-size: 0.93rem;
+  transition:
+    border-color 180ms,
+    box-shadow 180ms;
+}
+.glide-select:hover,
+.glide-select[aria-expanded='true'] {
+  border-color: var(--glide-accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.glide-select > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.glide-chevron {
+  flex: none;
+  transition: transform var(--glide-time);
+  opacity: 0.65;
+}
+.glide-chevron.open {
+  transform: rotate(180deg);
+}
+.glide-menu {
+  position: fixed;
+  z-index: 220;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: var(--glide-radius);
+  background: var(--glide-surface);
+  color: var(--glide-text);
+  box-shadow: 0 12px 40px #18243b24;
+  overflow-y: auto;
+  outline: none;
+  animation: glide-pop var(--glide-pop) ease-out;
+}
+.glide-options {
+  position: relative;
+  isolation: isolate;
+}
+.glide-highlight {
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--glide-row);
+  border-radius: max(4px, calc(var(--glide-radius) - 4px));
+  background: var(--glide-highlight);
+  z-index: -1;
+  pointer-events: none;
+  transition: transform var(--glide-time) cubic-bezier(0.22, 1, 0.36, 1);
+}
+.glide-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: var(--glide-row);
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 0.93rem;
+  white-space: nowrap;
+}
+.glide-option > span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.glide-option small {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.glide-option svg {
+  color: var(--glide-accent);
+  flex: none;
+}
+@keyframes glide-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glide-menu {
+    animation: none;
+  }
+  .glide-highlight,
+  .glide-chevron {
+    transition: none;
+  }
+}

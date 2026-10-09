@@ -1,0 +1,55 @@
+/* Local fonts: selected handwritten direction; reading font stays user-controlled. */
+@font-face {
+  font-family: 'Xiliu Script';
+  src: url('/fonts/xiliu-script.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Xiliu Headlines';
+  src: url('/fonts/xiliu-headlines.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Xiliu Handwriting';
+  src: url('/fonts/xiliu-handwriting.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --brand-script: 'Xiliu Script', cursive;
+  --display-handwriting: 'Xiliu Headlines', 'Xiliu Handwriting', 'KaiTi', serif;
+}
+.today-page > .workspace-header .today-title-row h1 {
+  font-family: var(--display-handwriting);
+  font-size: clamp(1.8rem, 2.6vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.global-sidebar .brand > span:last-child {
+  font-family: var(--brand-script);
+  font-weight: 400;
+  font-size: 2.6rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.global-sidebar .brand small {
+  font-family: var(--app-font, 'Segoe UI', 'Microsoft YaHei', sans-serif);
+  line-height: 1.5;
+}
+@media (max-width: 1100px) {
+  .today-page > .workspace-header .today-title-row h1 {
+    font-size: 1.85rem;
+  }
+}
+@media (max-width: 760px) {
+  .today-page > .workspace-header .today-title-row h1 {
+    font-size: 1.8rem;
+  }
+}

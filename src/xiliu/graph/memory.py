@@ -6,7 +6,7 @@ from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Literal
+from typing import Any, Literal, NotRequired
 
 import tiktoken
 from langchain_core.messages import (
@@ -109,6 +109,8 @@ class AgentHandoff(TypedDict):
 
 
 class WorkingMemory(TypedDict):
+    evidence: NotRequired[list[dict[str, Any]]]
+    retrieval_hits: NotRequired[list[dict[str, Any]]]
     current_node: Literal["planner", "verifier", "final"]
     task: str
     session_id: str
@@ -228,6 +230,8 @@ class MemoryManager:
                 "todos": _json_copy(state.get("todos", [])),
                 "acceptance_criteria": _json_copy(state.get("acceptance_criteria", [])),
                 "research_notes": research_notes,
+                "evidence": _json_copy(state.get("evidence", [])),
+                "retrieval_hits": _json_copy(state.get("retrieval_hits", [])),
                 "sources": sources,
                 "agent_handoffs": _json_copy(state.get("agent_handoffs", [])[-6:]),
                 "code_agent_summary": str(state.get("code_agent_summary", "")),

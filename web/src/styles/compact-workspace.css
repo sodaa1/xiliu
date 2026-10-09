@@ -1,0 +1,347 @@
+/* Reference lock: existing Xiliu surfaces + requested compact content proportions. */
+.today-page > .workspace-header > div:first-child {
+  width: 100%;
+  min-width: 0;
+}
+.today-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+.today-title-row h1 {
+  min-width: 0;
+  margin-right: auto;
+}
+.today-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+}
+.profile-avatar {
+  overflow: hidden;
+}
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.workspace-page:is(.feed-page, .content-page, .knowledge-page) {
+  padding: 18px 32px 28px;
+}
+:is(.feed-page, .content-page, .knowledge-page) .workspace-header {
+  margin-bottom: 12px;
+  gap: 16px;
+}
+:is(.feed-page, .content-page, .knowledge-page) .workspace-header :is(.eyebrow, p) {
+  display: none;
+}
+:is(.feed-page, .content-page, .knowledge-page) .workspace-header h1 {
+  font-size: 1.7rem;
+  margin: 0;
+  letter-spacing: -0.6px;
+}
+:is(.feed-page, .content-page, .knowledge-page)
+  .workspace-header
+  :is(.primary-button, .secondary-button) {
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+:is(.feed-page, .content-page, .knowledge-page) .workspace-toolbar {
+  margin: 0 0 10px;
+  gap: 12px;
+}
+:is(.feed-page, .content-page, .knowledge-page) .workspace-toolbar :is(input, select) {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+:is(.feed-page, .content-page, .knowledge-page) .segmented button {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+.content-page .content-filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 12px;
+}
+.content-page .content-filter {
+  margin: 0;
+}
+.content-page .content-bulk {
+  margin: 0;
+  gap: 14px;
+  font-size: 0.8rem;
+}
+.content-page .content-bulk .secondary-button {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+}
+.feed-page .source-statuses {
+  margin: 0 0 12px;
+  gap: 8px;
+}
+.feed-page .source-status {
+  padding: 5px 9px;
+  font-size: 0.75rem;
+}
+.feed-page .source-status span {
+  max-width: 36ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.feed-page .feed-grid {
+  gap: 14px;
+}
+.feed-page .feed-card {
+  padding: 15px 17px;
+  display: flex;
+  flex-direction: column;
+  min-height: 172px;
+}
+.feed-page .feed-card-top {
+  gap: 10px;
+}
+.feed-page .item-symbol {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+}
+.feed-page .item-symbol svg {
+  width: 19px;
+  height: 19px;
+}
+.feed-page .feed-source {
+  margin-bottom: 3px;
+  font-size: 0.68rem;
+}
+.feed-page .feed-card h2 {
+  font-size: 1.02rem;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.feed-page .feed-card > p {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin-top: 7px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.feed-page .tag-list {
+  margin-top: 8px;
+}
+.feed-page .tag-list span {
+  padding: 3px 6px;
+  font-size: 0.68rem;
+}
+.feed-page .feed-card-bottom {
+  margin-top: auto;
+  padding-top: 10px;
+}
+.content-page .content-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+.content-page .content-row {
+  position: relative;
+  min-width: 0;
+  padding: 16px;
+  gap: 10px;
+  border-radius: 15px;
+}
+.content-page .content-row > input[type='checkbox'] {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  margin: 0;
+  width: 15px;
+  height: 15px;
+}
+.content-page .item-symbol {
+  width: 30px;
+  height: 32px;
+  border-radius: 8px;
+}
+.content-page .item-symbol svg {
+  width: 18px;
+  height: 18px;
+}
+.content-page .content-row-title {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding-right: 18px;
+}
+.content-page .content-row h2 {
+  font-size: 1.02rem;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.content-page .content-row time {
+  font-size: 0.68rem;
+}
+.content-page .content-excerpt {
+  -webkit-line-clamp: 2;
+  font-size: 0.83rem;
+  line-height: 1.55;
+  margin-top: 6px;
+}
+.content-page .content-processing {
+  font-size: 0.73rem;
+  line-height: 1.5;
+  margin: 6px 0;
+}
+.content-page .tag-list {
+  margin-top: 7px;
+  gap: 4px;
+}
+.content-page .tag-list button {
+  font-size: 0.68rem;
+  padding: 3px 6px;
+}
+.content-page .row-actions {
+  margin-top: 10px;
+  gap: 8px 13px;
+}
+.content-page .row-actions :is(button, a) {
+  font-size: 0.73rem;
+  min-height: 24px;
+}
+.knowledge-page .knowledge-links {
+  margin: 8px 0 12px;
+  gap: 16px;
+  font-size: 0.82rem;
+}
+.knowledge-page .knowledge-folder-grid {
+  margin-top: 0;
+  gap: 16px;
+}
+.knowledge-page .knowledge-folder-card {
+  border-radius: 19px;
+  padding: 19px;
+}
+.knowledge-page .knowledge-folder-symbol {
+  margin-bottom: 16px;
+}
+.knowledge-page .knowledge-folder-card footer {
+  margin-top: 17px;
+}
+.knowledge-detail .knowledge-detail-heading {
+  padding: 12px 32px 0;
+  gap: 12px;
+  font-size: 0.82rem;
+}
+.knowledge-detail-heading .secondary-button {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+}
+.settings-dialog {
+  width: min(980px, 100%);
+  padding: 24px;
+}
+.settings-dialog > .section-heading {
+  position: sticky;
+  top: -24px;
+  z-index: 5;
+  background: var(--surface);
+  padding: 12px 0;
+  margin-bottom: 18px;
+}
+.settings-dialog .settings-page {
+  padding: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  min-height: 0;
+  overflow: visible;
+  background: transparent;
+}
+.settings-dialog .settings-panel {
+  margin-top: 16px;
+}
+.settings-dialog .settings-card {
+  padding: 22px;
+  box-shadow: none;
+}
+.settings-dialog .avatar-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 20px;
+}
+.avatar-upload {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.avatar-upload input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.avatar-upload:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.avatar-controls small {
+  font-size: 0.75rem;
+  color: var(--muted-readable);
+}
+@media (max-width: 1100px) {
+  .today-title-row h1 {
+    font-size: 1.6rem;
+  }
+  .today-title-row {
+    gap: 14px;
+  }
+  .today-header-actions {
+    gap: 8px;
+  }
+}
+@media (max-width: 760px) {
+  .today-title-row {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .today-header-actions {
+    margin-bottom: 6px;
+  }
+  .workspace-page:is(.feed-page, .content-page, .knowledge-page) {
+    padding: 18px 16px 24px;
+  }
+  .content-page .content-list {
+    grid-template-columns: 1fr;
+  }
+  :is(.feed-page, .content-page, .knowledge-page) .workspace-toolbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .settings-dialog {
+    padding: 18px;
+  }
+  .settings-dialog > .section-heading {
+    top: -18px;
+  }
+  .settings-dialog .settings-card {
+    padding: 18px;
+  }
+  .knowledge-detail .knowledge-detail-heading {
+    padding: 12px 16px 0;
+  }
+}

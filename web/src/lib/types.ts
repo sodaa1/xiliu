@@ -40,4 +40,20 @@ export interface WebEvent {
   message_id?: string
   code?: string
   role?: Message['role']
+  reasoning_delta?: string
+  metadata?: { thinking?: Thinking; model?: string }
+  reset_messages?: boolean
+}
+export interface Thinking {
+  elapsed_ms: number
+  steps: string[]
+  reasoning: string
+}
+export interface ChatRun {
+  stopping?: boolean
+  cid: string
+  status: string
+  startedAt: number
+  steps: string[]
+  reasoning: string
 }

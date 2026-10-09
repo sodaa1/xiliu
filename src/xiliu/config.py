@@ -24,6 +24,7 @@ class Settings(BaseSettings):
     api_key: SecretStr = Field(min_length=1)
     tavily_api_key: SecretStr | None = Field(default=None, validation_alias="TAVILY_API_KEY")
     model: str = Field(min_length=1)
+    embedding_model: str | None = None
     models: str | None = None
     base_url: str | None = None
     temperature: float = 0

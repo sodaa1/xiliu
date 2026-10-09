@@ -1,0 +1,128 @@
+/* Rounded card proportions inspired by Uiverse.io / JohnnyCSilva; adapted to Xiliu's purple palette and responsive layout. */
+.knowledge-folder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(252px, 100%), 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+.knowledge-folder-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line, #e9e5f4);
+  background: var(--surface, #fff);
+  border-radius: 26px;
+  padding: 24px;
+  transition:
+    box-shadow 0.16s,
+    border-color 0.16s;
+}
+.knowledge-folder-card:hover {
+  border-color: #d4ceee;
+  box-shadow: 0 10px 24px #5c4c9212;
+}
+.knowledge-folder-open {
+  flex: 1;
+  color: inherit;
+  text-decoration: none;
+}
+.knowledge-folder-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #8a80c8;
+  margin-bottom: 24px;
+}
+.knowledge-folder-symbol span {
+  font-size: 0.8rem;
+  color: var(--muted-readable, #79718d);
+}
+.knowledge-folder-card h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  overflow-wrap: anywhere;
+}
+.knowledge-folder-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--muted-readable, #777186);
+  overflow-wrap: anywhere;
+}
+.knowledge-folder-card footer {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  font-size: 0.75rem;
+  color: var(--muted-readable, #79718d);
+}
+.knowledge-folder-card footer > div {
+  display: flex;
+  gap: 14px;
+}
+.knowledge-folder-card footer button {
+  border: 0;
+  background: transparent;
+  color: #7568ad;
+  padding: 4px 0;
+}
+.knowledge-page .workspace-toolbar .search-field {
+  flex-direction: row;
+}
+.knowledge-links {
+  display: flex;
+  gap: 20px;
+  color: #7568ad;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+.knowledge-detail {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.knowledge-detail-heading {
+  padding: 20px 44px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: var(--muted-readable, #79718d);
+}
+.knowledge-results {
+  border: 1px solid var(--line, #e9e5f4);
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.knowledge-results h2 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+.knowledge-results article {
+  padding: 18px 0;
+  border-top: 1px solid var(--line, #e9e5f4);
+}
+.knowledge-results article p {
+  line-height: 1.7;
+  color: var(--muted-readable, #777186);
+  white-space: pre-wrap;
+}
+.knowledge-results article h3 {
+  color: #7568ad;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .knowledge-folder-card {
+    transition: none;
+  }
+}
+@media (max-width: 600px) {
+  .knowledge-detail-heading {
+    padding: 16px 15px 0;
+  }
+}

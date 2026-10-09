@@ -9,6 +9,7 @@ from xiliu.agents.react import create_agent_model, payload, run_react
 from xiliu.capabilities.langchain_tools import build_meta_tools
 from xiliu.execution.gateway import wrap_tools
 from xiliu.prompts import SEARCH_AGENT_PROMPT
+from xiliu.tools.knowledge_search import build_knowledge_tools
 from xiliu.tools.web_search_tool import WebSearchTool
 
 
@@ -43,7 +44,9 @@ def run_search_agent(state, instruction, *, writer=None, max_loops=4) -> dict:
     try:
         result = run_react(
             create_agent_model(),
-            wrap_tools([WebSearchTool(), *build_meta_tools(role="search_agent")]),
+            wrap_tools(
+                [WebSearchTool(), *build_knowledge_tools(), *build_meta_tools(role="search_agent")]
+            ),
             messages,
             agent="search_agent",
             attempt=state.get("attempt", 0),

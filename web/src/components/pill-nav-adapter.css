@@ -1,0 +1,59 @@
+/* React Bits PillNav JS-CSS; layout adapted to the existing Today title row. */
+.today-shortcuts {
+  flex: none;
+}
+.today-shortcuts .pill-nav-container {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: auto;
+  z-index: 3;
+}
+.today-shortcuts .pill-nav {
+  width: max-content;
+  padding: 0;
+  gap: 0;
+  border: 0;
+  background: none;
+  --nav-h: 38px;
+  --pill-pad-x: 19px;
+}
+.today-shortcuts .pill-logo,
+.today-shortcuts .mobile-only {
+  display: none;
+}
+.today-shortcuts .desktop-only {
+  display: block;
+}
+.today-shortcuts .pill {
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-transform: none;
+}
+.today-shortcuts .pill-nav-items {
+  border: 1px solid var(--line);
+}
+.today-shortcuts .pill:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+:root[data-motion='reduced'] .today-shortcuts :is(.hover-circle, .pill-label-hover) {
+  display: none;
+}
+:root[data-motion='reduced'] .today-shortcuts .pill-label {
+  transform: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .today-shortcuts :is(.hover-circle, .pill-label-hover) {
+    display: none;
+  }
+  .today-shortcuts .pill-label {
+    transform: none !important;
+  }
+}
+@media (max-width: 600px) {
+  .today-shortcuts .pill-nav {
+    --pill-pad-x: 14px;
+    --nav-h: 36px;
+  }
+}

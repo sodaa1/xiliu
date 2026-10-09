@@ -5,6 +5,7 @@ from copy import deepcopy
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any
+from uuid import uuid4
 
 from xiliu.core.approval import ApprovalDecision, ApprovalRequest
 from xiliu.core.session import (
@@ -32,7 +33,7 @@ from xiliu.graph.workflow import build_workflow
 def _update_event(node: str, update: Any, session_id: str) -> RuntimeEvent | None:
     if not isinstance(update, dict):
         return None
-    if node == "planner":
+    if node in {"planner", "supervisor"}:
         todos = update.get("todos")
         result = update.get("result")
         attempt = update.get("attempt")
@@ -142,8 +143,8 @@ def stream_agent(
         chunks = workflow.stream(
             inputs,
             config={
-                "configurable": {"thread_id": inputs["session_id"]},
-                "recursion_limit": 2 * inputs["max_attempts"] + 5,
+                "configurable": {"thread_id": inputs["session_id"] + ":" + uuid4().hex},
+                "recursion_limit": 2 * inputs["max_attempts"] + 8,
             },
             stream_mode=["updates", "custom"],
         )
@@ -161,7 +162,23 @@ def stream_agent(
                 elif mode == "updates":
                     for node, update in payload.items():
                         if isinstance(update, dict):
-                            latest_state.update(deepcopy(update))
+                            from xiliu.execution.evidence import (
+                                merge_agent_results_by_call_id,
+                                merge_events_by_id,
+                                merge_evidence_by_event_id,
+                            )
+
+                            reducers = {
+                                "tool_events": merge_events_by_id,
+                                "evidence": merge_evidence_by_event_id,
+                                "agent_results": merge_agent_results_by_call_id,
+                            }
+                            for key, value in deepcopy(update).items():
+                                latest_state[key] = (
+                                    reducers[key](latest_state.get(key, []), value)
+                                    if key in reducers
+                                    else value
+                                )
                             latest_node = node
                         node_event = {node: update}
                         if trace_recorder is not None:
@@ -321,7 +338,11 @@ def stream_session_events(
     verifier_summary = ""
     try:
         for event in events:
-            if isinstance(event, (ProgressEvent, PlannerEvent, VerifierEvent)):
+            if isinstance(event, (PlannerEvent, VerifierEvent)) or (
+                isinstance(event, ProgressEvent)
+                and event.stage
+                in {"planner", "verifier", "code_agent", "search_agent", "checkpoint", "memory"}
+            ):
                 route = "workflow"
             if isinstance(event, PlannerEvent) and event.summary:
                 planner_summary = event.summary

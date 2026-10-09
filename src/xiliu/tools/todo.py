@@ -6,7 +6,7 @@ from typing import cast
 
 from langchain_core.tools import BaseTool
 from langchain_core.tools.base import ArgsSchema
-from pydantic import BaseModel, Field, ValidationError, field_validator
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator
 
 from xiliu.errors import WorkspaceError
 from xiliu.graph.memory import decode_markdown_json, encode_markdown_json
@@ -45,6 +45,7 @@ def _decode_todo_document(text: str) -> dict:
 
 
 class TodoDraftInput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     id: str = Field(min_length=1, max_length=100)
     content: str = Field(min_length=1, max_length=2_000)
 
@@ -58,6 +59,7 @@ class TodoDraftInput(BaseModel):
 
 
 class TodoWriteInput(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     todos: list[TodoDraftInput] = Field(min_length=1)
 
 

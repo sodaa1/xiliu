@@ -1,15 +1,18 @@
 from __future__ import annotations
 
 import json
+import time
 from collections.abc import Callable
 from contextvars import ContextVar
 from typing import Any
+from uuid import uuid4
 
 from langchain_core.messages import AIMessage, BaseMessage, ToolMessage
 from langchain_core.tools import BaseTool
 
 from xiliu.config import load_settings
 from xiliu.errors import MemoryBudgetError
+from xiliu.execution.cancellation import TurnCancelled, check_cancelled
 from xiliu.providers.openai_compatible import create_chat_model
 
 model_factory: ContextVar[Callable[[], Any] | None] = ContextVar(
@@ -85,21 +88,30 @@ def run_react(
     max_loops: int = 4,
     before_tool: Callable[[str, dict], str | None] | None = None,
     before_model: Callable[[list[BaseMessage]], list[BaseMessage]] | None = None,
+    max_tool_calls: int = 32,
+    timeout_seconds: float = 120,
 ) -> dict[str, Any]:
     if max_loops < 1:
         raise ValueError("max_loops must be at least 1")
     events: list[dict[str, Any]] = []
+    invocation_id = uuid4().hex
     by_name = {tool.name: tool for tool in tools}
     summary = "Agent loop limit reached"
     completed = False
+    deadline = time.monotonic() + timeout_seconds
     try:
         bound = model.bind_tools(tools)
         stop_reason: str | None = None
         stop_requested = False
         for _ in range(max_loops):
+            check_cancelled()
+            if time.monotonic() >= deadline:
+                summary = "Agent time budget exceeded"
+                break
             if before_model is not None:
                 messages = before_model(messages)
             response = bound.invoke(messages)
+            check_cancelled()
             if not isinstance(response, AIMessage):
                 raise ValueError("expected AIMessage")
             messages.append(response)
@@ -115,6 +127,11 @@ def run_react(
                 summary = "Invalid model tool call IDs or call count"
                 break
             for call in calls:
+                check_cancelled()
+                if len(events) >= max_tool_calls or time.monotonic() >= deadline:
+                    summary = "Agent tool or time budget exceeded"
+                    stop_requested = True
+                    break
                 name, args = call["name"], call["args"]
                 emit(
                     writer,
@@ -145,6 +162,7 @@ def run_react(
                 ok = data.get("ok") is not False and not output.startswith("Error:")
                 ok = ok and not data.get("timed_out", False) and not data.get("truncated", False)
                 event = {
+                    "event_id": f"{invocation_id}:{call['id']}",
                     "agent": agent,
                     "tool": name,
                     "args": args,
@@ -180,7 +198,7 @@ def run_react(
                     break
             if stop_requested:
                 break
-    except MemoryBudgetError:
+    except (MemoryBudgetError, TurnCancelled):
         raise
     except Exception:
         summary = "Agent model request failed"

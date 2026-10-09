@@ -107,8 +107,8 @@ class AutomationScheduler:
         finally:
             self.shutdown()
 
-    def shutdown(self) -> None:
+    def shutdown(self, *, wait: bool = False) -> None:
         if self._started:
-            self._scheduler.shutdown(wait=False)
+            self._scheduler.shutdown(wait=wait)
             self._started = False
         self.store.release_owner(self.instance_id)

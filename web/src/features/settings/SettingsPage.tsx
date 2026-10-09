@@ -1,9 +1,25 @@
-import { useState } from 'react'
+import { useState, type CSSProperties } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { ArrowLeft, Check, KeyRound, SlidersHorizontal } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import {
+  ArrowLeft,
+  Check,
+  KeyRound,
+  SlidersHorizontal,
+  Database,
+  UserRound,
+  Palette,
+  Clock3,
+  Copy,
+} from 'lucide-react'
+import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { api } from '../../lib/api'
 import type { ModelCatalog, ModelSettings } from '../../lib/types'
+import { workspaceApi } from '../../lib/workspace-api'
+import { GlideSelect } from '../../components/GlideSelect'
+import { PersonalSettings } from './PersonalSettings'
+import { AppearanceSettings } from './AppearanceSettings'
+import { AutomationsPanel } from '../automations/AutomationsDrawer'
+import './settings.css'
 
 function ModelForm({ settings, catalog }: { settings: ModelSettings; catalog: ModelCatalog }) {
   const cache = useQueryClient()
@@ -37,31 +53,37 @@ function ModelForm({ settings, catalog }: { settings: ModelSettings; catalog: Mo
       <div className="settings-grid">
         <label>
           Provider
-          <select
+          <GlideSelect
+            ariaLabel="Provider"
             value={provider}
-            onChange={(event) => {
-              const value = event.target.value as ModelSettings['provider']
-              setProvider(value)
-              setModel(catalog[value].models[0])
-              setAddress(catalog[value].base_url)
+            options={Object.keys(catalog).map((value) => ({
+              value,
+              label: value === 'openai' ? 'OpenAI' : 'DeepSeek',
+            }))}
+            onChange={(value) => {
+              const selected = value as ModelSettings['provider']
+              setProvider(selected)
+              setModel(catalog[selected].models[0])
+              setAddress(catalog[selected].base_url)
+              save.reset()
             }}
-          >
-            <option value="openai">OpenAI</option>
-            <option value="deepseek">DeepSeek</option>
-          </select>
+          />
         </label>
         <label>
           Model
-          <select value={model} onChange={(event) => setModel(event.target.value)}>
-            {!catalog[provider].models.includes(model) && (
-              <option value={model}>{model}（现有配置）</option>
-            )}
-            {catalog[provider].models.map((name) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
+          <GlideSelect
+            ariaLabel="Model"
+            value={model}
+            menuWidth={290}
+            options={[...new Set([model, ...catalog[provider].models])].map((value) => ({
+              value,
+              label: value,
+            }))}
+            onChange={(value) => {
+              setModel(value)
+              save.reset()
+            }}
+          />
         </label>
         <label className="full-width">
           API Key
@@ -106,28 +128,199 @@ function ModelForm({ settings, catalog }: { settings: ModelSettings; catalog: Mo
     </form>
   )
 }
-export function SettingsPage() {
+const sections = [
+  { id: 'profile', label: '个人信息', icon: UserRound },
+  { id: 'appearance', label: '外观', icon: Palette },
+  { id: 'model', label: '模型与连接', icon: SlidersHorizontal },
+  { id: 'automations', label: '自动化', icon: Clock3 },
+  { id: 'data', label: '数据与存储', icon: Database },
+]
+export function ModelSettingsPanel() {
   const settings = useQuery({ queryKey: ['model-settings'], queryFn: api.settings })
   const catalog = useQuery({ queryKey: ['model-catalog'], queryFn: api.catalog })
+  if (settings.error || catalog.error)
+    return (
+      <div className="workspace-error" role="alert">
+        无法加载模型设置。
+        <button
+          className="secondary-button"
+          onClick={() => {
+            void settings.refetch()
+            void catalog.refetch()
+          }}
+        >
+          重新加载
+        </button>
+      </div>
+    )
+  return settings.data && catalog.data ? (
+    <ModelForm settings={settings.data} catalog={catalog.data} />
+  ) : (
+    <p className="settings-hint" role="status">
+      正在加载模型设置…
+    </p>
+  )
+}
+function DataSettings() {
+  const data = useQuery({ queryKey: ['data-settings'], queryFn: workspaceApi.dataSettings })
+  const [notice, setNotice] = useState('')
+  return (
+    <section className="settings-card data-settings">
+      <div className="card-title">
+        <Database size={20} />
+        <div>
+          <h2>数据与存储</h2>
+          <p>你的内容、原文件与模型配置保存在本机。</p>
+        </div>
+      </div>
+      {data.isLoading ? (
+        <p className="settings-hint">正在加载存储信息…</p>
+      ) : data.error ? (
+        <div className="workspace-error" role="alert">
+          {data.error.message}
+          <button className="secondary-button" onClick={() => void data.refetch()}>
+            重新加载
+          </button>
+        </div>
+      ) : (
+        data.data && (
+          <>
+            <dl>
+              <div>
+                <dt>数据位置</dt>
+                <dd>{data.data.data_dir}</dd>
+              </div>
+              <div>
+                <dt>数据库</dt>
+                <dd>
+                  {data.data.database}
+                  <span className="database-status">已连接</span>
+                </dd>
+              </div>
+              <div>
+                <dt>收藏内容</dt>
+                <dd>{data.data.content_count} 项</dd>
+              </div>
+              <div>
+                <dt>自动任务调度</dt>
+                <dd>{data.data.scheduler_active ? '正在运行' : '尚未运行'}</dd>
+              </div>
+            </dl>
+            <button
+              className="secondary-button copy-data-path"
+              onClick={async () => {
+                try {
+                  await navigator.clipboard.writeText(data.data!.data_dir)
+                  setNotice('数据位置已复制')
+                } catch {
+                  setNotice('无法自动复制，请选中上方路径手动复制。')
+                }
+              }}
+            >
+              <Copy size={14} />
+              复制数据位置
+            </button>
+            {notice && (
+              <p className="settings-hint" role="status">
+                {notice}
+              </p>
+            )}
+          </>
+        )
+      )}
+      <p className="settings-hint">
+        网页版将个人资料与外观偏好保存在当前浏览器，清除浏览器数据会重置偏好；桌面版另存本机备份，重启后恢复。以上操作不会删除内容数据库。
+      </p>
+      <div className="settings-about">
+        <strong>xiliu · 息流</strong>
+        <span>v0.1</span>
+        <p>属于你的信息空间。</p>
+      </div>
+    </section>
+  )
+}
+export function SettingsPage({ embedded = false }: { embedded?: boolean }) {
+  const location = useLocation()
+  const [params, setParams] = useSearchParams()
+  const index = Math.max(
+    0,
+    sections.findIndex((item) => item.id === params.get('section'))
+  )
+  const current = sections[index]
+  function select(value: number) {
+    setParams({ section: sections[value].id }, { replace: true, state: location.state })
+  }
   return (
     <section className="settings-page">
-      <Link to="/assistant" className="back-link">
-        <ArrowLeft size={17} />
-        返回 Assistant
-      </Link>
-      <h1>Settings</h1>
-      <p className="page-description">让息流以你习惯的方式工作。</p>
-      {settings.error || catalog.error ? (
-        <p role="alert">无法加载设置，请刷新重试。</p>
-      ) : settings.data && catalog.data ? (
-        <ModelForm settings={settings.data} catalog={catalog.data} />
-      ) : (
-        <p>正在加载设置…</p>
+      {!embedded && (
+        <Link to="/assistant" className="back-link">
+          <ArrowLeft size={17} />
+          返回 Assistant
+        </Link>
       )}
-      <div className="settings-card appearance-card">
-        <h2>外观</h2>
-        <p>Light · 轻盈的浅色界面</p>
-        <span className="appearance-swatch" aria-hidden="true" />
+      {!embedded && (
+        <header className="settings-heading">
+          <h1>Settings</h1>
+          <p className="page-description">让息流以你习惯的方式工作。</p>
+          <span className="settings-local-label">本机设置</span>
+        </header>
+      )}
+      <div
+        className="settings-section-tabs"
+        role="tablist"
+        aria-label="设置分类"
+        style={{ '--settings-index': index } as CSSProperties}
+      >
+        <span className="settings-tab-highlight" aria-hidden="true" />
+        {sections.map(({ id, label, icon: Icon }, position) => (
+          <button
+            key={id}
+            type="button"
+            role="tab"
+            id={`settings-tab-${id}`}
+            aria-selected={position === index}
+            aria-controls={`settings-panel-${id}`}
+            tabIndex={position === index ? 0 : -1}
+            onClick={() => select(position)}
+            onKeyDown={(event) => {
+              const target =
+                event.key === 'ArrowRight'
+                  ? (index + 1) % sections.length
+                  : event.key === 'ArrowLeft'
+                    ? (index + sections.length - 1) % sections.length
+                    : event.key === 'Home'
+                      ? 0
+                      : event.key === 'End'
+                        ? sections.length - 1
+                        : -1
+              if (target >= 0) {
+                event.preventDefault()
+                select(target)
+                document.getElementById(`settings-tab-${sections[target].id}`)?.focus()
+              }
+            }}
+          >
+            <Icon size={16} />
+            <span>{label}</span>
+          </button>
+        ))}
+      </div>
+      <div
+        role="tabpanel"
+        id={`settings-panel-${current.id}`}
+        aria-labelledby={`settings-tab-${current.id}`}
+        tabIndex={0}
+        className="settings-panel"
+      >
+        {current.id === 'profile' && <PersonalSettings />}
+        {current.id === 'appearance' && <AppearanceSettings />}
+        {current.id === 'model' && <ModelSettingsPanel />}
+        {current.id === 'automations' && (
+          <div className="settings-card">
+            <AutomationsPanel />
+          </div>
+        )}
+        {current.id === 'data' && <DataSettings />}
       </div>
     </section>
   )

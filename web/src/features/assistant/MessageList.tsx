@@ -1,24 +1,40 @@
 import { useEffect, useRef } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { Link } from 'react-router-dom'
 import { Brand } from '../../components/Brand'
-import type { Message } from '../../lib/types'
+import type { ChatRun, Message, Thinking } from '../../lib/types'
+import { ThinkingPanel } from './ThinkingPanel'
+
+function thinkingFor(message: Message): Thinking | undefined {
+  try {
+    const value = JSON.parse(message.metadata_json).thinking
+    if (
+      typeof value?.elapsed_ms === 'number' &&
+      Array.isArray(value.steps) &&
+      typeof value.reasoning === 'string'
+    )
+      return value
+  } catch {
+    /* Older messages may not have thinking metadata. */
+  }
+}
 
 export function MessageList({
   messages,
-  status,
+  run,
   loading,
   onPrompt,
 }: {
   messages: Message[]
-  status?: string
+  run?: ChatRun
   loading: boolean
   onPrompt: (text: string) => void
 }) {
   const bottom = useRef<HTMLDivElement>(null)
   useEffect(() => {
     bottom.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
-  }, [messages, status])
+  }, [messages, run?.status])
   return (
     <div className="messages-scroll" aria-label="对话内容">
       {loading ? (
@@ -58,14 +74,22 @@ export function MessageList({
                   </div>
                 )}
                 <div className="message-content">
+                  {message.role === 'assistant' && thinkingFor(message) && (
+                    <ThinkingPanel thinking={thinkingFor(message)!} />
+                  )}
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
                     components={{
-                      a: ({ children, ...props }) => (
-                        <a {...props} target="_blank" rel="noopener noreferrer">
-                          {children}
-                        </a>
-                      ),
+                      a: ({ children, href, title }) =>
+                        href?.startsWith('/knowledge?') ? (
+                          <Link to={href} title={title}>
+                            {children}
+                          </Link>
+                        ) : (
+                          <a href={href} title={title} target="_blank" rel="noopener noreferrer">
+                            {children}
+                          </a>
+                        ),
                     }}
                   >
                     {message.content}
@@ -76,10 +100,16 @@ export function MessageList({
           )}
         </div>
       )}
-      {status && (
-        <div className="run-status" role="status">
-          <span className="status-pulse" />
-          {status}
+      {run && (
+        <div className="active-thinking">
+          <ThinkingPanel
+            startedAt={run.startedAt}
+            thinking={{ elapsed_ms: 0, steps: run.steps, reasoning: run.reasoning }}
+          />
+          <div className="run-status" role="status">
+            <span className="status-pulse" />
+            {run.status}
+          </div>
         </div>
       )}
       <div ref={bottom} />

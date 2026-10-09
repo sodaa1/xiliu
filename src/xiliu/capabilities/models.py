@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Literal
 
-CapabilityKind = Literal["builtin", "skill", "mcp"]
+CapabilityKind = Literal["builtin", "skill", "mcp", "agent"]
 
 
 @dataclass(frozen=True)

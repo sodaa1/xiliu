@@ -5,7 +5,15 @@
 
 # Local agent instructions and test sources
 AGENTS.md
-tests/
+/tests/
+# Keep local tests, fixtures and reports out of uploads.
+*.test.*
+*.spec.*
+**/__tests__/
+/web/src/test/
+test-results/
+playwright-report/
+coverage/
 
 # Virtual environments and package caches
 .venv/
@@ -53,7 +61,15 @@ project-showcase/
 web/node_modules/
 web/dist/
 *.log
+*.log.*
+/logs/
 web/coverage/
 .preview/
 
 *.tsbuildinfo
+
+# Desktop build output
+desktop/node_modules/
+desktop/src-tauri/target/
+desktop/src-tauri/binaries/
+desktop/src-tauri/gen/

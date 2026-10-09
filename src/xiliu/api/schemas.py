@@ -41,6 +41,8 @@ class ConversationUpdate(BaseModel):
 class ChatRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     text: str = Field(min_length=1, max_length=100_000)
+    context: str = Field(default="", max_length=40_000)
+    mode: Literal["fast", "standard", "deep"] | None = None
 
     @field_validator("text")
     @classmethod

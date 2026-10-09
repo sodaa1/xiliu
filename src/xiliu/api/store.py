@@ -162,6 +162,17 @@ class AppStore:
                 (seq, seq, now(), cid),
             )
 
+    def clear_messages(self, cid: str) -> None:
+        with self.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            self._get(db, cid)
+            db.execute("DELETE FROM messages WHERE conversation_id=?", (cid,))
+            db.execute(
+                """UPDATE conversations SET context_cutoff_seq=0,
+                        compressed_through_seq=0, context_summary='', updated_at=? WHERE id=?""",
+                (now(), cid),
+            )
+
     def save_summary(self, cid: str, summary: str, through_seq: int) -> None:
         with self.connect() as db:
             self._get(db, cid)

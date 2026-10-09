@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>息流 · xiliu</title>
+  <style>
+    html { color-scheme: light; background:#f8fafc; color:#18243b; font-family:'Segoe UI','Microsoft YaHei',sans-serif }
+    body { margin:0; min-height:100vh; display:grid; place-content:center; text-align:center }
+    .orbit { width:32px; height:32px; margin:0 auto 20px; border:2px solid #e2deff; border-top-color:#7163e9; border-radius:50%; animation:spin 1s linear infinite }
+    p { color:#68758b; max-width:420px; line-height:1.7; padding:0 24px }
+    @keyframes spin { to { transform:rotate(360deg) } }
+    @media(prefers-reduced-motion:reduce) { .orbit { animation:none } }
+  </style>
+  <div class="orbit" aria-hidden="true"></div><h1>息流</h1><p id="status" role="status">正在打开你的信息空间…</p>
+  <script>window.__TAURI__.event.listen('desktop-error', e => { document.getElementById('status').textContent = e.payload; document.querySelector('.orbit').hidden = true })</script>
+</html>

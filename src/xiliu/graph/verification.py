@@ -5,6 +5,46 @@ import sqlite3
 from pathlib import Path
 
 from xiliu.agents.react import payload, unresolved_failures
+from xiliu.execution.evidence import evidence_from_events
+
+
+def _app_action_failure(state) -> str | None:
+    """Verify app writes against the actual library, rather than workspace deliverables."""
+    workspace = Path(state["workspace"])
+    database = workspace.parent.parent / "app.sqlite3"
+    touched = {}
+    for event in state["tool_events"]:
+        if event["tool"] not in {"inbox_import", "inbox_classify"}:
+            continue
+        if not event["ok"]:
+            return "App import or classification failed"
+        data = payload(event["output"])
+        items = [data["item"]] if isinstance(data.get("item"), dict) else data.get("items", [])
+        for item in items:
+            if isinstance(item, dict) and isinstance(item.get("id"), str):
+                touched[item["id"]] = item
+    if not touched or workspace.parent.name != "workspaces" or not database.is_file():
+        return "Missing persisted app card evidence"
+    try:
+        with sqlite3.connect(f"file:{database.as_posix()}?mode=ro", uri=True) as db:
+            rows = [
+                db.execute(
+                    "SELECT source,status FROM content_items WHERE id=?", (identifier,)
+                ).fetchone()
+                for identifier in touched
+            ]
+    except sqlite3.Error:
+        return "Could not verify persisted app cards"
+    if any(row is None for row in rows):
+        return "An app card was not persisted"
+    if re.search(r"知识库|Knowledge", state["task"], re.I) and any(
+        row[1] != "knowledge" for row in rows
+    ):
+        return "Cards have not been saved to Knowledge"
+    urls = set(re.findall(r"https?://[^\s<>\])]+", state["task"]))
+    if urls and not urls <= {row[0] for row in rows}:
+        return "Not all requested URLs were imported as separate cards"
+    return None
 
 
 def _persisted_automation(state) -> bool:
@@ -33,6 +73,10 @@ def _persisted_automation(state) -> bool:
 def requirements_failure(state) -> str | None:
     if not state.get("supervisor_ok", False):
         return "Supervisor did not finish a valid round"
+    from xiliu.graph.routing import app_action
+
+    if app_action(state["task"]):
+        return _app_action_failure(state)
     task = state["task"].lower()
     automation_intent = bool(
         re.search(r"automation|scheduled? task|定时任务|自动任务|每日任务|提醒", task)
@@ -71,9 +115,12 @@ def requirements_failure(state) -> str | None:
         and preference_events
         and preference_events[-1]["ok"]
     )
+    todos_required = state.get("mode") != "deep" or bool(state["todos"])
     if (
-        not state["todos"] or any(t["status"] != "completed" for t in state["todos"])
-    ) and not preference_only_complete:
+        todos_required
+        and (not state["todos"] or any(t["status"] != "completed" for t in state["todos"]))
+        and not preference_only_complete
+    ):
         return "Todos are missing or incomplete"
     if preference_only_complete:
         return None
@@ -84,7 +131,7 @@ def requirements_failure(state) -> str | None:
         task,
     )
     agents = state["agent_results"]
-    events = [e for e in state["tool_events"] if e["agent"] == "code_agent"]
+    events = [e for e in state["tool_events"] if e["agent"] in {"code_agent", "subagent:code"}]
     coding = bool(
         re.search(
             r"implement|code|python|build|tdd|fix|create|write|edit|refactor|debug"
@@ -96,13 +143,36 @@ def requirements_failure(state) -> str | None:
     code_results = [a for a in agents if a["agent"] == "code_agent"]
     if code_results and not code_results[-1]["ok"]:
         return "Latest codeAgent result failed"
-    if coding and not code_results:
-        return "Missing successful codeAgent result"
+    if (
+        coding
+        and not code_results
+        and not any(
+            e.get("ok") and e.get("tool") in {"file_read", "file_write", "file_edit", "bash"}
+            for e in state["tool_events"]
+        )
+    ):
+        return "Missing actual workspace execution evidence"
     search_results = [a for a in agents if a["agent"] == "search_agent"]
-    if re.search(r"\bresearch\b|\bsearch\b|搜索|研究|查阅|联网", research_task) and (
-        not search_results
-        or not search_results[-1]["ok"]
-        or not any(r["sources"] for r in state["research_notes"])
+    actual = evidence_from_events(state["tool_events"])
+    supported = any(e["tool_ok"] and e["matched"] and e["source_id"] for e in actual)
+    from xiliu.graph.routing import external_scope, local_scope
+
+    if (
+        local_scope(task)
+        and not external_scope(task)
+        and not any(
+            e["tool_ok"] and e["matched"] and e["source_type"] == "knowledge" for e in actual
+        )
+    ):
+        return "Missing matched local Knowledge evidence"
+    if (
+        re.search(r"\bresearch\b|\bsearch\b|搜索|研究|查阅|联网", research_task)
+        and not supported
+        and (
+            not search_results
+            or not search_results[-1]["ok"]
+            or not any(r["sources"] for r in state["research_notes"])
+        )
     ):
         return "Missing successful research and source URLs"
     if unresolved_failures(events):

@@ -1,0 +1,59 @@
+.global-sidebar,
+.conversation-sidebar {
+  position: relative;
+}
+.resize-handle {
+  touch-action: none;
+  z-index: 4;
+}
+.resize-width {
+  position: absolute;
+  inset: 0 -3px 0 auto;
+  width: 7px;
+  cursor: col-resize;
+}
+.resize-height {
+  position: absolute;
+  top: -4px;
+  left: 16px;
+  right: 16px;
+  height: 8px;
+  cursor: row-resize;
+}
+.resize-handle:hover,
+.resize-handle:focus-visible {
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 4px;
+}
+@media (min-width: 651px) {
+  .global-sidebar:not(.collapsed),
+  .assistant-layout > .conversation-sidebar {
+    width: var(--panel-width);
+  }
+}
+.global-sidebar[data-compact='true'] .nav-item {
+  padding-inline: 8px;
+  gap: 8px;
+}
+.global-sidebar[data-compact='true'] .brand {
+  margin-inline: 0;
+  gap: 6px;
+}
+.global-sidebar[data-compact='true'] .brand small {
+  max-width: 75px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.global-sidebar[data-compact='true'] .local-label {
+  overflow: hidden;
+  padding-inline: 0;
+}
+.composer-box textarea {
+  min-height: 48px;
+}
+@media (max-width: 650px) {
+  .resize-width {
+    display: none;
+  }
+}

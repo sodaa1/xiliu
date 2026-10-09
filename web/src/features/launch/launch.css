@@ -1,0 +1,302 @@
+.launch-page {
+  position: relative;
+  isolation: isolate;
+  height: 100dvh;
+  min-height: 480px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f5f3ff;
+  background:
+    radial-gradient(ellipse at 58% 38%, #211a42 0, transparent 48%),
+    radial-gradient(ellipse at 28% 65%, #101f3b 0, transparent 50%), #070a16;
+}
+.launch-galaxy,
+.launch-vignette {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.launch-vignette {
+  background: radial-gradient(
+    ellipse at 50% 46%,
+    rgb(7 10 22 / 36%) 0,
+    rgb(7 10 22 / 10%) 29%,
+    transparent 52%,
+    rgb(3 5 14 / 50%) 100%
+  );
+}
+.launch-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 19px;
+  padding: 30px;
+  opacity: 0;
+  visibility: hidden;
+  animation: launch-reveal 2.1s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  text-shadow: 0 2px 22px rgb(3 5 14 / 70%);
+}
+.launch-content .launch-title {
+  width: min(480px, 80vw);
+  height: 150px;
+  display: grid;
+  place-items: center;
+  letter-spacing: -4px;
+}
+.launch-content h1 .launch-script-wordmark {
+  font-family: var(--brand-script);
+  font-size: clamp(128px, 13vw, 180px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  margin: 0;
+  color: #f5f3ff;
+  text-shadow: 0 0 24px rgb(191 169 255 / 12%);
+}
+.launch-content .launch-signature {
+  font-family: var(--display-handwriting);
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0.3em;
+  padding-left: 0.3em;
+  margin-top: -12px;
+  color: #e0d8ee;
+}
+.launch-content > p {
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  margin: 0 0 9px;
+}
+.launch-content .brand-large {
+  color: #cbbcff;
+  background: transparent;
+  filter: drop-shadow(0 0 18px rgb(156 128 255 / 48%));
+}
+.launch-content .eyebrow {
+  color: #b9b1d5;
+  letter-spacing: 4px;
+  font-size: 11px;
+}
+.launch-content h1 {
+  font-size: clamp(56px, 6vw, 76px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -4px;
+}
+.launch-content h1 span {
+  display: block;
+  color: #cec5e5;
+  letter-spacing: 12px;
+  font-size: 21px;
+  font-weight: 400;
+  margin-left: 12px;
+  margin-top: 17px;
+}
+.launch-content p {
+  color: #a8aec8;
+  font-size: 13px;
+  line-height: 2;
+  margin: 3px 0 9px;
+}
+.launch-content small {
+  color: #797e9c;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.launch-skip {
+  position: absolute;
+  z-index: 2;
+  top: max(28px, env(safe-area-inset-top));
+  right: max(32px, env(safe-area-inset-right));
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 14px;
+  border: 1px solid rgb(190 181 232 / 18%);
+  border-radius: 24px;
+  background: rgb(13 17 36 / 40%);
+  color: #b4b7d0;
+  font-size: 12px;
+}
+.launch-skip:hover {
+  background: rgb(139 115 218 / 16%);
+  color: #fff;
+}
+.launch-version {
+  position: absolute;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  color: #646b89;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+.intro-complete .launch-content {
+  animation: none;
+  opacity: 1;
+  visibility: visible;
+}
+@keyframes launch-reveal {
+  from {
+    opacity: 0;
+    visibility: visible;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}
+
+/* From Uiverse.io by Codecite. Scoped to the launch Enter button. */
+.launch-enter.btn {
+  --fancy-button-gradient-0: #8d49fd;
+  --fancy-button-gradient-50: #7f56f3;
+  --fancy-button-gradient-100: #5691f3;
+  --fancy-button-inner-shadow-top: rgba(233, 209, 255, 0.2);
+  --fancy-button-inner-shadow-top-lg: rgba(9, 12, 60, 0.1);
+  --fancy-button-inner-shadow-bottom: rgba(137, 222, 246, 0.3);
+  --fancy-button-shine-top: #e9d1ff;
+  --fancy-button-shine-bottom: #adfff9;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 21px;
+  text-shadow: 0px 0.5px 0.5px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 25px;
+  color: #fff;
+  background-image: linear-gradient(
+    to bottom,
+    var(--fancy-button-gradient-0) 0%,
+    var(--fancy-button-gradient-50) 50%,
+    var(--fancy-button-gradient-100) 100%
+  );
+  box-shadow:
+    0px 4px 12px rgba(9, 12, 60, 0.15),
+    0px 2px 8px rgba(9, 12, 60, 0.15),
+    0px 1px 3px var(--fancy-button-inner-shadow-top-lg),
+    inset 0px 1px 1px var(--fancy-button-inner-shadow-top),
+    inset 0px -1px 3px var(--fancy-button-inner-shadow-bottom);
+}
+.launch-enter.btn::before,
+.launch-enter.btn::after {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+  will-change: transform;
+}
+.launch-enter.btn::before {
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--fancy-button-shine-top);
+  width: 96px;
+  height: 6px;
+  top: -3px;
+  opacity: 0.6;
+  filter: blur(6px);
+  transition: opacity 0.25s;
+}
+.launch-enter.btn::after {
+  inset: 0;
+  background-size: cover;
+  z-index: 2;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.launch-enter.btn span {
+  display: block;
+  padding: 12px 24px;
+  border-radius: inherit;
+  overflow: hidden;
+  position: relative;
+  background-image: linear-gradient(to bottom, var(--fancy-button-shine-top), transparent 8px);
+  background-position: 0 -6px;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.launch-enter.btn span::before,
+.launch-enter.btn span::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background-color: var(--fancy-button-shine-bottom);
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
+  will-change: transform;
+}
+.launch-enter.btn span::before {
+  width: 92px;
+  height: 8px;
+  bottom: -4px;
+  opacity: 0.75;
+  filter: blur(6px);
+}
+.launch-enter.btn span::after {
+  width: 112px;
+  height: 1px;
+  bottom: 0;
+  opacity: 0.9;
+  filter: blur(1px);
+}
+.launch-enter.btn:hover span::before {
+  opacity: 0.8;
+  transform: translateX(-50%) scale(1.25);
+}
+.launch-enter.btn:hover span::after {
+  opacity: 1;
+}
+.launch-enter.btn svg {
+  display: inline-block;
+  vertical-align: -4px;
+  margin-left: 12px;
+}
+.launch-enter.btn:focus-visible {
+  outline: 3px solid #c4b6ff;
+  outline-offset: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .launch-content {
+    animation: none;
+    opacity: 1;
+    visibility: visible;
+  }
+  .launch-skip {
+    display: none;
+  }
+  .launch-enter.btn span::before,
+  .launch-enter.btn span::after {
+    transition: none;
+  }
+}
+@media (max-width: 600px) {
+  .launch-content {
+    padding: 22px;
+    gap: 18px;
+  }
+  .launch-content h1 {
+    font-size: 56px;
+  }
+  .launch-skip {
+    right: 20px;
+    top: 20px;
+  }
+}

@@ -1,0 +1,229 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+.app-shell {
+  min-height: 0;
+}
+.workspace-page.today-page {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 20px;
+  overflow: hidden;
+  padding: 24px 36px;
+}
+.today-page > .workspace-header {
+  margin: 0;
+  flex-wrap: wrap;
+}
+.today-page > .workspace-header h1 {
+  font-size: clamp(1.5rem, 2.3vw, 2.1rem);
+}
+.today-page .today-grid {
+  min-height: 0;
+  gap: 20px;
+}
+.today-page .today-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 20px;
+  overflow: hidden;
+}
+.today-page .today-card > .section-heading {
+  flex: none;
+}
+.today-page .today-card > .section-description {
+  margin: 8px 0 10px;
+}
+.today-page .morning-brief .feed-card {
+  flex: 1;
+  min-height: 0;
+  padding: 12px 0;
+  overflow: hidden;
+}
+.today-page .feed-card-top {
+  gap: 10px;
+}
+.today-page .feed-card-top h2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+.today-page .feed-card > p {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.79rem;
+}
+.today-page .feed-card-bottom {
+  margin-top: 6px;
+}
+.today-page .morning-brief .workspace-empty {
+  flex: 1;
+  min-height: 0;
+}
+.today-page .inbox-summary {
+  flex: none;
+  padding: 10px;
+  margin-top: 10px;
+}
+.today-page .task-list {
+  flex: 1;
+  min-height: 0;
+  margin: 10px 0;
+  overflow: auto;
+}
+.today-page .task-row {
+  min-height: 42px;
+  padding: 5px 0;
+}
+.today-page .task-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.today-page .task-create {
+  flex: none;
+}
+.today-page .quick-ask {
+  min-width: 0;
+  margin: 0;
+  padding: 13px 18px;
+}
+.today-page .quick-ask input {
+  min-width: 0;
+}
+.today-see-tasks {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 0;
+  font-size: 0.79rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.task-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #18243b55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+}
+.task-modal {
+  width: min(600px, 100%);
+  max-height: min(760px, calc(100dvh - 44px));
+  overflow-y: auto;
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  box-shadow: 0 24px 80px #18243b22;
+}
+.task-modal > .glide-select {
+  margin-top: 18px;
+}
+.task-modal .task-list {
+  min-height: 80px;
+}
+.task-modal .task-input input,
+.task-modal input[type='datetime-local'] {
+  color: var(--text);
+  background: var(--surface);
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+}
+.task-modal .task-input input {
+  border: 0;
+}
+.task-modal .task-create-bottom label {
+  min-width: 0;
+}
+.task-modal .task-title {
+  color: var(--text);
+}
+@media (max-height: 800px) and (min-width: 901px) {
+  .today-page {
+    padding: 16px 28px;
+    gap: 14px;
+  }
+  .today-page .today-card {
+    padding: 16px;
+  }
+  .today-page .workspace-header .eyebrow,
+  .today-page .today-quote {
+    display: none;
+  }
+  .today-page .workspace-header h1 {
+    font-size: 1.6rem;
+    margin: 0 0 5px;
+  }
+  .today-page .today-card > .section-description {
+    display: none;
+  }
+  .today-page .feed-card .item-symbol {
+    width: 28px;
+    height: 28px;
+  }
+  .today-page .feed-card .feed-source,
+  .today-page .feed-card-bottom time {
+    display: none;
+  }
+  .today-page .morning-brief .feed-card {
+    padding: 9px 0;
+  }
+  .today-page .task-input input {
+    padding: 8px 3px !important;
+  }
+  .today-page .task-create-bottom {
+    margin-top: 8px;
+  }
+  .today-page .quick-ask {
+    padding: 9px 15px;
+  }
+}
+@media (max-width: 1000px) {
+  .workspace-page.today-page {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 22px 18px;
+    gap: 18px;
+  }
+  .today-page .today-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    flex: none;
+  }
+  .today-page .today-card {
+    overflow: visible;
+  }
+  .today-page .morning-brief .workspace-empty {
+    min-height: 150px;
+  }
+  .today-page .task-list {
+    min-height: 80px;
+    overflow: visible;
+  }
+  .today-page .quick-ask {
+    flex: none;
+  }
+}

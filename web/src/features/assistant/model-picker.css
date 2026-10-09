@@ -1,0 +1,198 @@
+/* Reference: React Bits Prompt Bar public preview; Xiliu surfaces and behavior. */
+.model-picker-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  max-width: 100%;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted-readable, #69758a);
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  transition:
+    background 160ms,
+    color 160ms;
+}
+.model-picker-trigger:hover,
+.model-picker-trigger[aria-expanded='true'] {
+  background: var(--accent-soft, #f1effb);
+  color: var(--accent);
+}
+.model-picker-trigger > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.model-picker-trigger svg,
+.model-picker-trigger small {
+  flex: none;
+}
+.model-picker-trigger small {
+  font-size: 0.68rem;
+  opacity: 0.75;
+}
+.model-picker-trigger .open {
+  transform: rotate(180deg);
+}
+.model-picker-popover {
+  position: fixed;
+  z-index: 110;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 6px;
+  background: var(--surface, #fff);
+  color: var(--text, #18243b);
+  box-shadow: 0 14px 45px #18243b1c;
+  animation: model-menu-in 160ms ease-out;
+  transform-origin: bottom left;
+}
+.model-picker-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 10px 10px;
+  color: var(--muted-readable, #69758a);
+  font-size: 0.75rem;
+}
+.model-picker-heading small {
+  color: var(--accent);
+  font-size: 0.7rem;
+}
+.model-picker-options {
+  min-height: 0;
+  overflow-y: auto;
+  outline: none;
+}
+.model-picker-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  border-radius: 9px;
+  padding: 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 160ms;
+}
+.model-picker-option > span {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+.model-picker-option small {
+  font-size: 0.68rem;
+  color: var(--muted-readable, #69758a);
+}
+.model-picker-option.highlighted {
+  background: var(--accent-soft, #f1effb);
+}
+.model-picker-option[aria-selected='true'] {
+  color: var(--accent);
+}
+.model-picker-option[aria-disabled='true'] {
+  opacity: 0.55;
+  cursor: default;
+}
+.model-picker-add {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  flex: none;
+  margin-top: 5px;
+  padding: 11px 10px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 9px 9px;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.83rem;
+  text-align: left;
+}
+.model-picker-add:hover {
+  background: var(--accent-soft, #f1effb);
+}
+.model-picker-note {
+  margin: 7px 10px;
+  color: var(--muted-readable, #69758a);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+.composer-toolbar .composer-hint {
+  margin-left: auto;
+}
+.composer-toolbar {
+  gap: 14px;
+}
+.setup-banner > button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.composer-toolbar > .send-button {
+  flex: none;
+}
+.settings-dialog.model-config-dialog {
+  width: min(620px, 100%);
+}
+.model-config-dialog .model-settings-panel {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  background: transparent;
+  overflow: visible;
+}
+.model-config-dialog .model-settings-panel .settings-card {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+.model-config-dialog .settings-grid {
+  gap: 18px;
+}
+.model-config-dialog .card-title {
+  margin-bottom: 22px;
+}
+.model-config-dialog .card-title > svg {
+  padding: 9px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.model-config-dialog .settings-save {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+@keyframes model-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 650px) {
+  .composer-toolbar .composer-hint {
+    display: none;
+  }
+  .composer-toolbar > .send-button {
+    margin-left: auto;
+  }
+  .model-picker-trigger {
+    max-width: calc(100% - 44px);
+  }
+}
