@@ -59,6 +59,8 @@ class AgentResult(TypedDict):
 
 
 class GraphState(TypedDict):
+    app_receipts: NotRequired[list[dict[str, Any]]]
+    app_model_calls: NotRequired[int]
     intent: NotRequired[Literal["chat", "task"]]
     mode: NotRequired[Literal["fast", "standard", "deep"]]
     requested_mode: NotRequired[str]

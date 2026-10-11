@@ -1,0 +1,953 @@
+{
+  "phase": "agent",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "UI/Agent database equivalence: matched",
+      "passed": true,
+      "persisted": {
+        "status": "knowledge",
+        "content": "same fixture one",
+        "tags": [
+          "学习"
+        ],
+        "folder_id": "f6381079-b20e-4dcc-bb9a-68d538bbfdb3",
+        "processing_status": "ready"
+      }
+    },
+    {
+      "name": "UI/Agent database equivalence: unmatched",
+      "passed": true,
+      "persisted": {
+        "status": "knowledge",
+        "content": "same fixture two",
+        "tags": [],
+        "folder_id": null,
+        "processing_status": "ready"
+      }
+    },
+    {
+      "name": "UI/Agent database equivalence: existing-tags",
+      "passed": true,
+      "persisted": {
+        "status": "knowledge",
+        "content": "same fixture three",
+        "tags": [
+          "学习",
+          "既有"
+        ],
+        "folder_id": "f6381079-b20e-4dcc-bb9a-68d538bbfdb3",
+        "processing_status": "ready"
+      }
+    },
+    {
+      "name": "UI/Agent database equivalence: pending-manual",
+      "passed": true,
+      "persisted": {
+        "status": "knowledge",
+        "content": "manual edit wins after pending seed",
+        "tags": [
+          "人工"
+        ],
+        "folder_id": null,
+        "processing_status": "ready"
+      }
+    },
+    {
+      "name": "UI HTTP defaults and Agent empty Inbox classification are equivalent no-ops",
+      "passed": true
+    },
+    {
+      "name": "Agent Feed→Inbox→Knowledge→Task→Automation chain uses real App HTTP/Dispatcher and bound confirmations",
+      "passed": true
+    }
+  ],
+  "app_receipts": [
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "feed.add_manual",
+      "data": {
+        "id": "manual-b2af11f2-d3b2-49bf-b926-68488bf896c5",
+        "url": "https://example.com/agent-feed",
+        "title": "Agent feed entry",
+        "summary": "",
+        "created_at": "2026-10-10T19:49:41.881145+00:00",
+        "updated_at": "2026-10-10T19:49:41.881145+00:00",
+        "deleted_at": null,
+        "tags": [
+          "学习"
+        ],
+        "metadata": {
+          "fetch_status": "not_requested"
+        },
+        "source": "manual",
+        "published_at": "2026-10-10T19:49:41.881145+00:00",
+        "editable": true,
+        "hidden": false
+      },
+      "records": [
+        {
+          "id": "manual-b2af11f2-d3b2-49bf-b926-68488bf896c5",
+          "url": "https://example.com/agent-feed",
+          "title": "Agent feed entry",
+          "summary": "",
+          "created_at": "2026-10-10T19:49:41.881145+00:00",
+          "updated_at": "2026-10-10T19:49:41.881145+00:00",
+          "deleted_at": null,
+          "tags": [
+            "学习"
+          ],
+          "metadata": {
+            "fetch_status": "not_requested"
+          },
+          "source": "manual",
+          "published_at": "2026-10-10T19:49:41.881145+00:00",
+          "editable": true,
+          "hidden": false
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "feed.update_manual",
+      "data": {
+        "id": "manual-b2af11f2-d3b2-49bf-b926-68488bf896c5",
+        "url": "https://example.com/agent-feed",
+        "title": "Agent feed edited",
+        "summary": "",
+        "created_at": "2026-10-10T19:49:41.881145+00:00",
+        "updated_at": "2026-10-10T19:49:41.927093+00:00",
+        "deleted_at": null,
+        "tags": [
+          "学习"
+        ],
+        "metadata": {
+          "fetch_status": "not_requested"
+        },
+        "source": "manual",
+        "published_at": "2026-10-10T19:49:41.881145+00:00",
+        "editable": true,
+        "hidden": false
+      },
+      "records": [
+        {
+          "id": "manual-b2af11f2-d3b2-49bf-b926-68488bf896c5",
+          "url": "https://example.com/agent-feed",
+          "title": "Agent feed edited",
+          "summary": "",
+          "created_at": "2026-10-10T19:49:41.881145+00:00",
+          "updated_at": "2026-10-10T19:49:41.927093+00:00",
+          "deleted_at": null,
+          "tags": [
+            "学习"
+          ],
+          "metadata": {
+            "fetch_status": "not_requested"
+          },
+          "source": "manual",
+          "published_at": "2026-10-10T19:49:41.881145+00:00",
+          "editable": true,
+          "hidden": false
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "feed.remove_manual",
+      "data": {
+        "id": "manual-b2af11f2-d3b2-49bf-b926-68488bf896c5",
+        "url": "https://example.com/agent-feed",
+        "title": "Agent feed edited",
+        "summary": "",
+        "created_at": "2026-10-10T19:49:41.881145+00:00",
+        "updated_at": "2026-10-10T19:49:41.994551+00:00",
+        "deleted_at": "2026-10-10T19:49:41.994551+00:00",
+        "tags": [
+          "学习"
+        ],
+        "metadata": {
+          "fetch_status": "not_requested"
+        },
+        "source": "manual",
+        "published_at": "2026-10-10T19:49:41.881145+00:00",
+        "editable": true,
+        "hidden": false
+      },
+      "records": [
+        {
+          "id": "manual-b2af11f2-d3b2-49bf-b926-68488bf896c5",
+          "url": "https://example.com/agent-feed",
+          "title": "Agent feed edited",
+          "summary": "",
+          "created_at": "2026-10-10T19:49:41.881145+00:00",
+          "updated_at": "2026-10-10T19:49:41.994551+00:00",
+          "deleted_at": "2026-10-10T19:49:41.994551+00:00",
+          "tags": [
+            "学习"
+          ],
+          "metadata": {
+            "fetch_status": "not_requested"
+          },
+          "source": "manual",
+          "published_at": "2026-10-10T19:49:41.881145+00:00",
+          "editable": true,
+          "hidden": false
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      },
+      "confirmation_id": "24zOyLukX2BubMRURTcgeqXLUYB7t79aCtMev1UkvSo",
+      "confirmation_resolved": true
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "feed.restore_manual",
+      "data": {
+        "id": "manual-b2af11f2-d3b2-49bf-b926-68488bf896c5",
+        "url": "https://example.com/agent-feed",
+        "title": "Agent feed edited",
+        "summary": "",
+        "created_at": "2026-10-10T19:49:41.881145+00:00",
+        "updated_at": "2026-10-10T19:49:42.033381+00:00",
+        "deleted_at": null,
+        "tags": [
+          "学习"
+        ],
+        "metadata": {
+          "fetch_status": "not_requested"
+        },
+        "source": "manual",
+        "published_at": "2026-10-10T19:49:41.881145+00:00",
+        "editable": true,
+        "hidden": false
+      },
+      "records": [
+        {
+          "id": "manual-b2af11f2-d3b2-49bf-b926-68488bf896c5",
+          "url": "https://example.com/agent-feed",
+          "title": "Agent feed edited",
+          "summary": "",
+          "created_at": "2026-10-10T19:49:41.881145+00:00",
+          "updated_at": "2026-10-10T19:49:42.033381+00:00",
+          "deleted_at": null,
+          "tags": [
+            "学习"
+          ],
+          "metadata": {
+            "fetch_status": "not_requested"
+          },
+          "source": "manual",
+          "published_at": "2026-10-10T19:49:41.881145+00:00",
+          "editable": true,
+          "hidden": false
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "feed.unhide_external",
+      "data": {
+        "id": "aihot-03e8bb047ae5a56112053ec2",
+        "source": "aihot",
+        "title": "E2E external story",
+        "summary": "",
+        "url": "https://example.com/external",
+        "published_at": null,
+        "tags": [
+          "外部"
+        ],
+        "metadata": {},
+        "editable": false,
+        "hidden": false
+      },
+      "records": [
+        {
+          "id": "aihot-03e8bb047ae5a56112053ec2",
+          "source": "aihot",
+          "title": "E2E external story",
+          "summary": "",
+          "url": "https://example.com/external",
+          "published_at": null,
+          "tags": [
+            "外部"
+          ],
+          "metadata": {},
+          "editable": false,
+          "hidden": false
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "feed.hide_external",
+      "data": {
+        "id": "aihot-03e8bb047ae5a56112053ec2",
+        "source": "aihot",
+        "title": "E2E external story",
+        "summary": "",
+        "url": "https://example.com/external",
+        "published_at": null,
+        "tags": [
+          "外部"
+        ],
+        "metadata": {},
+        "editable": false,
+        "hidden": true
+      },
+      "records": [
+        {
+          "id": "aihot-03e8bb047ae5a56112053ec2",
+          "source": "aihot",
+          "title": "E2E external story",
+          "summary": "",
+          "url": "https://example.com/external",
+          "published_at": null,
+          "tags": [
+            "外部"
+          ],
+          "metadata": {},
+          "editable": false,
+          "hidden": true
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "feed.save_to_inbox",
+      "data": {
+        "id": "5fdd9c26-1d36-43db-86fb-a058f0e50f3e",
+        "type": "link",
+        "status": "inbox",
+        "title": "Agent feed edited",
+        "content": "",
+        "summary": "",
+        "source": "https://example.com/agent-feed",
+        "tags": [
+          "学习"
+        ],
+        "created_at": "2026-10-10T19:49:42.173645+00:00",
+        "updated_at": "2026-10-10T19:49:42.173645+00:00",
+        "filename": null,
+        "folder_id": null,
+        "ai_processed": false,
+        "processing_status": "ready",
+        "processing_error": null,
+        "revision": 0
+      },
+      "records": [
+        {
+          "id": "5fdd9c26-1d36-43db-86fb-a058f0e50f3e",
+          "type": "link",
+          "status": "inbox",
+          "title": "Agent feed edited",
+          "content": "",
+          "summary": "",
+          "source": "https://example.com/agent-feed",
+          "tags": [
+            "学习"
+          ],
+          "created_at": "2026-10-10T19:49:42.173645+00:00",
+          "updated_at": "2026-10-10T19:49:42.173645+00:00",
+          "filename": null,
+          "folder_id": null,
+          "ai_processed": false,
+          "processing_status": "ready",
+          "processing_error": null,
+          "revision": 0
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "inbox.update",
+      "data": {
+        "id": "064927d0-45b2-4bf5-bb9a-dcf583bf7c22",
+        "type": "note",
+        "status": "inbox",
+        "title": "Agent pending-manual",
+        "content": "manual edit wins after pending seed",
+        "summary": "manual edit wins",
+        "source": "",
+        "created_at": "2026-10-10T19:49:25.407318+00:00",
+        "updated_at": "2026-10-10T19:49:42.252287+00:00",
+        "filename": null,
+        "folder_id": null,
+        "ai_processed": false,
+        "processing_status": "pending",
+        "processing_error": null,
+        "revision": 1,
+        "tags": [
+          "人工"
+        ]
+      },
+      "records": [
+        {
+          "id": "064927d0-45b2-4bf5-bb9a-dcf583bf7c22",
+          "type": "note",
+          "status": "inbox",
+          "title": "Agent pending-manual",
+          "content": "manual edit wins after pending seed",
+          "summary": "manual edit wins",
+          "source": "",
+          "created_at": "2026-10-10T19:49:25.407318+00:00",
+          "updated_at": "2026-10-10T19:49:42.252287+00:00",
+          "filename": null,
+          "folder_id": null,
+          "ai_processed": false,
+          "processing_status": "pending",
+          "processing_error": null,
+          "revision": 1,
+          "tags": [
+            "人工"
+          ]
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "inbox.classify_selected",
+      "data": {
+        "items": [
+          {
+            "id": "5fdd9c26-1d36-43db-86fb-a058f0e50f3e",
+            "type": "link",
+            "status": "knowledge",
+            "title": "Agent feed edited",
+            "content": "",
+            "summary": "",
+            "source": "https://example.com/agent-feed",
+            "created_at": "2026-10-10T19:49:42.173645+00:00",
+            "updated_at": "2026-10-10T19:49:42.304375+00:00",
+            "filename": null,
+            "folder_id": "f6381079-b20e-4dcc-bb9a-68d538bbfdb3",
+            "ai_processed": false,
+            "processing_status": "ready",
+            "processing_error": null,
+            "revision": 1,
+            "tags": [
+              "学习"
+            ]
+          },
+          {
+            "id": "be0a2d6c-6614-4854-95a5-41d9e229b9fb",
+            "type": "note",
+            "status": "knowledge",
+            "title": "Agent matched",
+            "content": "same fixture one",
+            "summary": "",
+            "source": "",
+            "created_at": "2026-10-10T19:49:25.303591+00:00",
+            "updated_at": "2026-10-10T19:49:42.328089+00:00",
+            "filename": null,
+            "folder_id": "f6381079-b20e-4dcc-bb9a-68d538bbfdb3",
+            "ai_processed": false,
+            "processing_status": "ready",
+            "processing_error": null,
+            "revision": 1,
+            "tags": [
+              "学习"
+            ]
+          },
+          {
+            "id": "51bce8fe-d09b-459d-b2d6-151dd035197e",
+            "type": "note",
+            "status": "knowledge",
+            "title": "Agent unmatched",
+            "content": "same fixture two",
+            "summary": "",
+            "source": "",
+            "created_at": "2026-10-10T19:49:25.332745+00:00",
+            "updated_at": "2026-10-10T19:49:42.352473+00:00",
+            "filename": null,
+            "folder_id": null,
+            "ai_processed": false,
+            "processing_status": "ready",
+            "processing_error": null,
+            "revision": 1,
+            "tags": []
+          },
+          {
+            "id": "4b256e55-cc24-457a-a62d-a5932dc04baf",
+            "type": "note",
+            "status": "knowledge",
+            "title": "Agent existing-tags",
+            "content": "same fixture three",
+            "summary": "",
+            "source": "",
+            "created_at": "2026-10-10T19:49:25.359171+00:00",
+            "updated_at": "2026-10-10T19:49:42.376326+00:00",
+            "filename": null,
+            "folder_id": "f6381079-b20e-4dcc-bb9a-68d538bbfdb3",
+            "ai_processed": false,
+            "processing_status": "ready",
+            "processing_error": null,
+            "revision": 1,
+            "tags": [
+              "学习",
+              "既有"
+            ]
+          },
+          {
+            "id": "064927d0-45b2-4bf5-bb9a-dcf583bf7c22",
+            "type": "note",
+            "status": "knowledge",
+            "title": "Agent pending-manual",
+            "content": "manual edit wins after pending seed",
+            "summary": "manual edit wins",
+            "source": "",
+            "created_at": "2026-10-10T19:49:25.407318+00:00",
+            "updated_at": "2026-10-10T19:49:42.396600+00:00",
+            "filename": null,
+            "folder_id": null,
+            "ai_processed": false,
+            "processing_status": "ready",
+            "processing_error": null,
+            "revision": 2,
+            "tags": [
+              "人工"
+            ]
+          }
+        ],
+        "failures": [],
+        "counts": {
+          "total": 5,
+          "succeeded": 5,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      "records": [
+        {
+          "id": "5fdd9c26-1d36-43db-86fb-a058f0e50f3e",
+          "type": "link",
+          "status": "knowledge",
+          "title": "Agent feed edited",
+          "content": "",
+          "summary": "",
+          "source": "https://example.com/agent-feed",
+          "created_at": "2026-10-10T19:49:42.173645+00:00",
+          "updated_at": "2026-10-10T19:49:42.304375+00:00",
+          "filename": null,
+          "folder_id": "f6381079-b20e-4dcc-bb9a-68d538bbfdb3",
+          "ai_processed": false,
+          "processing_status": "ready",
+          "processing_error": null,
+          "revision": 1,
+          "tags": [
+            "学习"
+          ]
+        },
+        {
+          "id": "be0a2d6c-6614-4854-95a5-41d9e229b9fb",
+          "type": "note",
+          "status": "knowledge",
+          "title": "Agent matched",
+          "content": "same fixture one",
+          "summary": "",
+          "source": "",
+          "created_at": "2026-10-10T19:49:25.303591+00:00",
+          "updated_at": "2026-10-10T19:49:42.328089+00:00",
+          "filename": null,
+          "folder_id": "f6381079-b20e-4dcc-bb9a-68d538bbfdb3",
+          "ai_processed": false,
+          "processing_status": "ready",
+          "processing_error": null,
+          "revision": 1,
+          "tags": [
+            "学习"
+          ]
+        },
+        {
+          "id": "51bce8fe-d09b-459d-b2d6-151dd035197e",
+          "type": "note",
+          "status": "knowledge",
+          "title": "Agent unmatched",
+          "content": "same fixture two",
+          "summary": "",
+          "source": "",
+          "created_at": "2026-10-10T19:49:25.332745+00:00",
+          "updated_at": "2026-10-10T19:49:42.352473+00:00",
+          "filename": null,
+          "folder_id": null,
+          "ai_processed": false,
+          "processing_status": "ready",
+          "processing_error": null,
+          "revision": 1,
+          "tags": []
+        },
+        {
+          "id": "4b256e55-cc24-457a-a62d-a5932dc04baf",
+          "type": "note",
+          "status": "knowledge",
+          "title": "Agent existing-tags",
+          "content": "same fixture three",
+          "summary": "",
+          "source": "",
+          "created_at": "2026-10-10T19:49:25.359171+00:00",
+          "updated_at": "2026-10-10T19:49:42.376326+00:00",
+          "filename": null,
+          "folder_id": "f6381079-b20e-4dcc-bb9a-68d538bbfdb3",
+          "ai_processed": false,
+          "processing_status": "ready",
+          "processing_error": null,
+          "revision": 1,
+          "tags": [
+            "学习",
+            "既有"
+          ]
+        },
+        {
+          "id": "064927d0-45b2-4bf5-bb9a-dcf583bf7c22",
+          "type": "note",
+          "status": "knowledge",
+          "title": "Agent pending-manual",
+          "content": "manual edit wins after pending seed",
+          "summary": "manual edit wins",
+          "source": "",
+          "created_at": "2026-10-10T19:49:25.407318+00:00",
+          "updated_at": "2026-10-10T19:49:42.396600+00:00",
+          "filename": null,
+          "folder_id": null,
+          "ai_processed": false,
+          "processing_status": "ready",
+          "processing_error": null,
+          "revision": 2,
+          "tags": [
+            "人工"
+          ]
+        }
+      ],
+      "counts": {
+        "total": 5,
+        "succeeded": 5,
+        "failed": 0,
+        "skipped": 0
+      },
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "inbox.classify_selected",
+      "data": {
+        "items": [
+          {
+            "id": "d1ca50ac-5e3e-422e-897b-eccb2fdd07be",
+            "type": "note",
+            "status": "knowledge",
+            "title": "Browser note without a matching folder",
+            "content": "Browser note without a matching folder",
+            "summary": "Browser note without a matching folder",
+            "source": "",
+            "created_at": "2026-10-10T19:49:25.137732+00:00",
+            "updated_at": "2026-10-10T19:49:42.480572+00:00",
+            "filename": null,
+            "folder_id": null,
+            "ai_processed": false,
+            "processing_status": "ready",
+            "processing_error": null,
+            "revision": 1,
+            "tags": []
+          }
+        ],
+        "failures": [],
+        "counts": {
+          "total": 1,
+          "succeeded": 1,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      "records": [
+        {
+          "id": "d1ca50ac-5e3e-422e-897b-eccb2fdd07be",
+          "type": "note",
+          "status": "knowledge",
+          "title": "Browser note without a matching folder",
+          "content": "Browser note without a matching folder",
+          "summary": "Browser note without a matching folder",
+          "source": "",
+          "created_at": "2026-10-10T19:49:25.137732+00:00",
+          "updated_at": "2026-10-10T19:49:42.480572+00:00",
+          "filename": null,
+          "folder_id": null,
+          "ai_processed": false,
+          "processing_status": "ready",
+          "processing_error": null,
+          "revision": 1,
+          "tags": []
+        }
+      ],
+      "counts": {
+        "total": 1,
+        "succeeded": 1,
+        "failed": 0,
+        "skipped": 0
+      },
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "inbox.classify_all",
+      "data": {
+        "items": [],
+        "failures": [],
+        "counts": {
+          "total": 0,
+          "succeeded": 0,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      "records": [],
+      "counts": {
+        "total": 0,
+        "succeeded": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "tasks.create",
+      "data": {
+        "id": "1ee7bdc0-336e-4e38-9b46-31ef6ffbfa35",
+        "title": "Agent task",
+        "completed": false,
+        "due_at": null,
+        "created_at": "2026-10-10T19:49:42.560187+00:00",
+        "updated_at": "2026-10-10T19:49:42.560187+00:00"
+      },
+      "records": [
+        {
+          "id": "1ee7bdc0-336e-4e38-9b46-31ef6ffbfa35",
+          "title": "Agent task",
+          "completed": false,
+          "due_at": null,
+          "created_at": "2026-10-10T19:49:42.560187+00:00",
+          "updated_at": "2026-10-10T19:49:42.560187+00:00"
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "tasks.update",
+      "data": {
+        "id": "1ee7bdc0-336e-4e38-9b46-31ef6ffbfa35",
+        "title": "Agent task edited",
+        "completed": false,
+        "due_at": null,
+        "created_at": "2026-10-10T19:49:42.560187+00:00",
+        "updated_at": "2026-10-10T19:49:42.626325+00:00"
+      },
+      "records": [
+        {
+          "id": "1ee7bdc0-336e-4e38-9b46-31ef6ffbfa35",
+          "title": "Agent task edited",
+          "completed": false,
+          "due_at": null,
+          "created_at": "2026-10-10T19:49:42.560187+00:00",
+          "updated_at": "2026-10-10T19:49:42.626325+00:00"
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "tasks.complete",
+      "data": {
+        "id": "1ee7bdc0-336e-4e38-9b46-31ef6ffbfa35",
+        "title": "Agent task edited",
+        "completed": true,
+        "due_at": null,
+        "created_at": "2026-10-10T19:49:42.560187+00:00",
+        "updated_at": "2026-10-10T19:49:42.712375+00:00"
+      },
+      "records": [
+        {
+          "id": "1ee7bdc0-336e-4e38-9b46-31ef6ffbfa35",
+          "title": "Agent task edited",
+          "completed": true,
+          "due_at": null,
+          "created_at": "2026-10-10T19:49:42.560187+00:00",
+          "updated_at": "2026-10-10T19:49:42.712375+00:00"
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "tasks.complete",
+      "data": {
+        "id": "1ee7bdc0-336e-4e38-9b46-31ef6ffbfa35",
+        "title": "Agent task edited",
+        "completed": false,
+        "due_at": null,
+        "created_at": "2026-10-10T19:49:42.560187+00:00",
+        "updated_at": "2026-10-10T19:49:43.526697+00:00"
+      },
+      "records": [
+        {
+          "id": "1ee7bdc0-336e-4e38-9b46-31ef6ffbfa35",
+          "title": "Agent task edited",
+          "completed": false,
+          "due_at": null,
+          "created_at": "2026-10-10T19:49:42.560187+00:00",
+          "updated_at": "2026-10-10T19:49:43.526697+00:00"
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      }
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "automations.create",
+      "data": {
+        "id": "daily-bf7abb67d9974c7e8fa67ddd4e66ee71",
+        "name": "Agent automation",
+        "prompt": "检查我的 Inbox",
+        "trigger_type": "cron",
+        "schedule": {
+          "hour": 23,
+          "minute": 59
+        },
+        "timezone": "Asia/Shanghai",
+        "enabled": true,
+        "policy_profile": "background"
+      },
+      "records": [
+        {
+          "id": "daily-bf7abb67d9974c7e8fa67ddd4e66ee71",
+          "name": "Agent automation",
+          "prompt": "检查我的 Inbox",
+          "trigger_type": "cron",
+          "schedule": {
+            "hour": 23,
+            "minute": 59
+          },
+          "timezone": "Asia/Shanghai",
+          "enabled": true,
+          "policy_profile": "background"
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      },
+      "confirmation_id": "wdYHYg7t_g55khJdk9SzLFZKeuk2yfblbGZfjSWoUxE",
+      "confirmation_resolved": true
+    },
+    {
+      "ok": true,
+      "status": "completed",
+      "action_id": "automations.toggle",
+      "data": {
+        "id": "daily-bf7abb67d9974c7e8fa67ddd4e66ee71",
+        "name": "Agent automation",
+        "prompt": "检查我的 Inbox",
+        "trigger_type": "cron",
+        "schedule": {
+          "hour": 23,
+          "minute": 59
+        },
+        "timezone": "Asia/Shanghai",
+        "enabled": false,
+        "policy_profile": "background"
+      },
+      "records": [
+        {
+          "id": "daily-bf7abb67d9974c7e8fa67ddd4e66ee71",
+          "name": "Agent automation",
+          "prompt": "检查我的 Inbox",
+          "trigger_type": "cron",
+          "schedule": {
+            "hour": 23,
+            "minute": 59
+          },
+          "timezone": "Asia/Shanghai",
+          "enabled": false,
+          "policy_profile": "background"
+        }
+      ],
+      "counts": {},
+      "verification": {
+        "passed": true
+      },
+      "confirmation_id": "_oqU-vG704K1t0natmZCy9sWJcWV9yFjwysKlyrZOgE",
+      "confirmation_resolved": true
+    }
+  ],
+  "screenshots": [
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\agent-feed.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\agent-inbox-empty.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\agent-knowledge.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\agent-today.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\agent-automations.png"
+  ],
+  "browserErrors": [],
+  "failedResponses": []
+}

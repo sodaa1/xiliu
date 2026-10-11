@@ -1,12 +1,17 @@
 from __future__ import annotations
 
 import hashlib
+import ipaddress
 import json
 import re
+import socket
+import sqlite3
+import time
 from html import unescape
-from threading import RLock
+from queue import Empty, Queue
+from threading import Lock, RLock, Thread
 from typing import TYPE_CHECKING, Any
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urlunparse
 from uuid import uuid4
 
 import httpx
@@ -16,6 +21,7 @@ from xiliu.api.store import AppStore, now
 from xiliu.capabilities.langchain_tools import build_meta_tools
 from xiliu.capabilities.manager import CapabilityManager
 from xiliu.capabilities.mcp import MCPManager
+from xiliu.execution.cancellation import check_cancelled
 from xiliu.execution.gateway import ExecutionGateway, RunContext, active_run
 from xiliu.hooks.engine import HookEngine
 from xiliu.policy.engine import PolicyEngine
@@ -40,7 +46,64 @@ def _item(source: str, title: str, url: str, summary: str = "", **kwargs: Any) -
         "published_at": kwargs.get("published_at"),
         "tags": kwargs.get("tags", []),
         "metadata": kwargs.get("metadata", {}),
+        "editable": source == "manual",
+        "hidden": False,
     }
+
+
+def _canonical_url(value: Any) -> str:
+    if not isinstance(value, str) or not value or len(value) > 2048:
+        raise WebError("invalid_feed_url", "请填写有效的 HTTP 或 HTTPS 链接。")
+    if any(character.isspace() or ord(character) < 32 for character in value):
+        raise WebError("invalid_feed_url", "链接不能包含空白或控制字符。")
+    try:
+        parsed = urlparse(value)
+        if parsed.scheme not in {"http", "https"} or not parsed.hostname:
+            raise ValueError("unsupported URL")
+        if parsed.username is not None or parsed.password is not None:
+            raise ValueError("credentials in URL")
+        hostname = parsed.hostname.rstrip(".").encode("idna").decode("ascii").lower()
+        if not hostname:
+            raise ValueError("missing hostname")
+        host = f"[{hostname}]" if ":" in hostname else hostname
+        port = parsed.port
+        if port and port != (443 if parsed.scheme == "https" else 80):
+            host += f":{port}"
+        return urlunparse(
+            (parsed.scheme, host, parsed.path or "/", parsed.params, parsed.query, "")
+        )
+    except (ValueError, UnicodeError) as exc:
+        raise WebError("invalid_feed_url", "请填写有效的 HTTP 或 HTTPS 链接。") from exc
+
+
+def _manual_payload(payload: dict[str, Any], *, partial: bool = False) -> dict[str, Any]:
+    allowed = {"url", "title", "summary", "tags", "fetch_title"}
+    if not isinstance(payload, dict) or set(payload) - allowed:
+        raise WebError("invalid_feed_arguments", "资讯参数无效。")
+    values = dict(payload)
+    if not partial:
+        values = {"title": "", "summary": "", "tags": [], "fetch_title": False, **values}
+        if "url" not in values:
+            raise WebError("invalid_feed_url", "请填写资讯链接。")
+    if "url" in values:
+        _canonical_url(values["url"])
+    for key, limit in (("title", 500), ("summary", 4000)):
+        if key in values:
+            if not isinstance(values[key], str) or len(values[key]) > limit:
+                raise WebError("invalid_feed_arguments", "资讯标题或摘要过长或格式无效。")
+            values[key] = values[key].strip()
+    if "tags" in values:
+        tags = values["tags"]
+        if (
+            not isinstance(tags, list)
+            or len(tags) > 30
+            or any(not isinstance(tag, str) or len(tag) > 100 for tag in tags)
+        ):
+            raise WebError("invalid_feed_arguments", "资讯标签无效。")
+        values["tags"] = list(dict.fromkeys(tag.strip() for tag in tags if tag.strip()))
+    if "fetch_title" in values and type(values["fetch_title"]) is not bool:
+        raise WebError("invalid_feed_arguments", "抓取标题选项无效。")
+    return values
 
 
 def normalize_github(html: str) -> list[dict[str, Any]]:
@@ -136,6 +199,7 @@ class FeedService:
     def __init__(self, store: AppStore, content: ContentService):
         self.store, self.content = store, content
         self._lock = RLock()
+        self._metadata_lock = Lock()
         with store.connect() as db:
             db.executescript("""
                 CREATE TABLE IF NOT EXISTS feed_cache (
@@ -145,6 +209,16 @@ class FeedService:
                 CREATE TABLE IF NOT EXISTS feed_saves (
                     feed_id TEXT PRIMARY KEY, content_id TEXT NOT NULL
                 );
+                CREATE TABLE IF NOT EXISTS feed_manual_items (
+                    id TEXT PRIMARY KEY, canonical_url TEXT NOT NULL UNIQUE,
+                    url TEXT NOT NULL, title TEXT NOT NULL, summary TEXT NOT NULL DEFAULT '',
+                    tags_json TEXT NOT NULL DEFAULT '[]', metadata_json TEXT NOT NULL DEFAULT '{}',
+                    created_at TEXT NOT NULL, updated_at TEXT NOT NULL, deleted_at TEXT
+                );
+                CREATE TABLE IF NOT EXISTS feed_hidden_items (
+                    feed_id TEXT PRIMARY KEY, source TEXT NOT NULL,
+                    hidden_at TEXT NOT NULL, item_json TEXT NOT NULL
+                );
             """)
             for source in SOURCE_LABELS:
                 db.execute(
@@ -152,11 +226,20 @@ class FeedService:
                     (source, "idle", "尚未刷新资讯。"),
                 )
 
-    def list(self, source: str = "", q: str = "") -> dict[str, Any]:
-        if source and source not in SOURCE_LABELS:
+    def list(self, source: str = "", q: str = "", include_hidden: bool = False) -> dict[str, Any]:
+        if source and source not in {*SOURCE_LABELS, "manual"}:
             raise WebError("invalid_feed_source", "资讯来源无效。")
         with self.store.connect() as db:
             rows = {row["source"]: dict(row) for row in db.execute("SELECT * FROM feed_cache")}
+            manual = [
+                self._manual_item(row)
+                for row in db.execute(
+                    "SELECT * FROM feed_manual_items ORDER BY created_at DESC, id"
+                )
+            ]
+            hidden = {
+                row["feed_id"]: dict(row) for row in db.execute("SELECT * FROM feed_hidden_items")
+            }
         items, sources = [], []
         for name, label in SOURCE_LABELS.items():
             row = rows[name]
@@ -172,15 +255,322 @@ class FeedService:
             if source and source != name:
                 continue
             for item in json.loads(row["items_json"]):
-                if (
-                    not q
-                    or q.casefold()
-                    in (
-                        item["title"] + " " + item["summary"] + " " + " ".join(item["tags"])
-                    ).casefold()
-                ):
+                item.setdefault("editable", False)
+                item["hidden"] = item["id"] in hidden
+                if include_hidden or not item["hidden"]:
                     items.append(item)
+        if include_hidden:
+            included = {item["id"] for item in items}
+            for item_id, record in hidden.items():
+                if item_id not in included and (not source or source == record["source"]):
+                    items.append(
+                        {**json.loads(record["item_json"]), "hidden": True, "editable": False}
+                    )
+        sources.append(
+            {
+                "source": "manual",
+                "label": "我的资讯",
+                "status": "ready",
+                "message": "手动添加的资讯会持续保留。",
+                "updated_at": None,
+            }
+        )
+        if not source or source == "manual":
+            items.extend(item for item in manual if include_hidden or not item["deleted_at"])
+        if q:
+            items = [
+                item
+                for item in items
+                if q.casefold()
+                in (
+                    item["title"]
+                    + " "
+                    + item["summary"]
+                    + " "
+                    + item["url"]
+                    + " "
+                    + " ".join(item["tags"])
+                ).casefold()
+            ]
         return {"items": items, "sources": sources}
+
+    @staticmethod
+    def _manual_item(row: Any) -> dict[str, Any]:
+        value = dict(row)
+        value.pop("canonical_url")
+        value["tags"] = json.loads(value.pop("tags_json"))
+        value["metadata"] = json.loads(value.pop("metadata_json"))
+        return {
+            **value,
+            "source": "manual",
+            "published_at": value["created_at"],
+            "editable": True,
+            "hidden": False,
+        }
+
+    def _manual_get(self, db: sqlite3.Connection, item_id: str) -> dict[str, Any]:
+        row = db.execute("SELECT * FROM feed_manual_items WHERE id=?", (item_id,)).fetchone()
+        if row is None:
+            provider = next(
+                (item for item in self.list(include_hidden=True)["items"] if item["id"] == item_id),
+                None,
+            )
+            if provider:
+                raise WebError("feed_not_editable", "外部资讯仅支持隐藏或取消隐藏。", 403)
+            raise WebError("feed_not_found", "资讯不存在。", 404)
+        return self._manual_item(row)
+
+    def _request_title(self, url: str) -> str:
+        """One request to a pinned public address; never follow a redirect or use a proxy."""
+        parsed = urlparse(_canonical_url(url))
+        hostname = parsed.hostname or ""
+        port = parsed.port or (443 if parsed.scheme == "https" else 80)
+        if port not in {80, 443}:
+            raise ValueError("unsupported fetch port")
+        deadline = time.monotonic() + 5
+        addresses = {
+            answer[4][0]
+            for answer in socket.getaddrinfo(hostname, port, type=socket.SOCK_STREAM)
+            if isinstance(answer[4][0], str)
+        }
+        resolved = [ipaddress.ip_address(address) for address in addresses]
+        if not resolved or any(
+            not address.is_global or address.is_multicast or address.is_reserved
+            for address in resolved
+        ):
+            raise ValueError("non-public address")
+        address = sorted(addresses)[0]
+        host = f"[{address}]" if ":" in address else address
+        pinned = urlunparse(parsed._replace(netloc=f"{host}:{port}", fragment=""))
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            raise TimeoutError("DNS timeout")
+        authority = parsed.netloc
+        with (
+            httpx.Client(
+                timeout=min(remaining, 3), follow_redirects=False, trust_env=False
+            ) as client,
+            client.stream(
+                "GET",
+                pinned,
+                headers={
+                    "Host": authority,
+                    "User-Agent": "xiliu/0.4",
+                    "Accept": "text/html",
+                    "Accept-Encoding": "identity",
+                },
+                extensions={"sni_hostname": hostname},
+            ) as response,
+        ):
+            if response.is_redirect:
+                raise ValueError("redirect refused")
+            response.raise_for_status()
+            if "html" not in response.headers.get("content-type", "").lower():
+                raise ValueError("non-HTML response")
+            if response.headers.get("content-encoding", "identity").lower() != "identity":
+                raise ValueError("compressed response refused")
+            limit = 256 * 1024
+            if int(response.headers.get("content-length", "0")) > limit:
+                raise ValueError("response too large")
+            body = bytearray()
+            for chunk in response.iter_bytes():
+                if time.monotonic() > deadline or len(body) + len(chunk) > limit:
+                    raise ValueError("response limit exceeded")
+                body.extend(chunk)
+            title = re.search(
+                r"<title\b[^>]*>(.*?)</title>",
+                body.decode(response.encoding or "utf-8", errors="replace"),
+                re.S | re.I,
+            )
+            if not title or not _plain(title[1]):
+                raise ValueError("no title")
+            return _plain(title[1])[:500]
+
+    def _fetch_title(self, url: str) -> tuple[str | None, dict[str, Any]]:
+        # The daemon bounds DNS/slow-response wall time without accumulating concurrent fetches.
+        failed = {"fetch_status": "failed", "fetch_error": "网页标题未补齐，链接已保留。"}
+        if not self._metadata_lock.acquire(blocking=False):
+            return None, failed
+        result: Queue[str | None] = Queue(maxsize=1)
+
+        def fetch():
+            try:
+                result.put(self._request_title(url))
+            except Exception:
+                result.put(None)
+            finally:
+                self._metadata_lock.release()
+
+        Thread(target=fetch, daemon=True, name="feed-title-fetch").start()
+        try:
+            title = result.get(timeout=6)
+        except Empty:
+            return None, failed
+        return (title, {"fetch_status": "ready"}) if title else (None, failed)
+
+    def add_manual(self, payload: dict[str, Any]) -> dict[str, Any]:
+        values = _manual_payload(payload)
+        canonical = _canonical_url(values["url"])
+        with self.store.connect() as db:
+            existing = db.execute(
+                "SELECT * FROM feed_manual_items WHERE canonical_url=?", (canonical,)
+            ).fetchone()
+        if existing:
+            if existing["deleted_at"]:
+                raise WebError("feed_removed", "这条资讯已删除，请先恢复。", 409)
+            return self._manual_item(existing)
+        title, metadata = (None, {"fetch_status": "not_requested"})
+        if values["fetch_title"]:
+            title, metadata = self._fetch_title(values["url"])
+        check_cancelled()
+        item_id, timestamp = "manual-" + str(uuid4()), now()
+        with self.store.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            db.execute(
+                "INSERT OR IGNORE INTO feed_manual_items "
+                "(id,canonical_url,url,title,summary,tags_json,metadata_json,"
+                "created_at,updated_at) "
+                "VALUES(?,?,?,?,?,?,?,?,?)",
+                (
+                    item_id,
+                    canonical,
+                    values["url"],
+                    values["title"] or title or values["url"],
+                    values["summary"],
+                    json.dumps(values["tags"], ensure_ascii=False),
+                    json.dumps(metadata),
+                    timestamp,
+                    timestamp,
+                ),
+            )
+            row = db.execute(
+                "SELECT * FROM feed_manual_items WHERE canonical_url=?", (canonical,)
+            ).fetchone()
+            if row["deleted_at"]:
+                raise WebError("feed_removed", "这条资讯已删除，请先恢复。", 409)
+            return self._manual_item(row)
+
+    def update_manual(self, item_id: str, payload: dict[str, Any]) -> dict[str, Any]:
+        changes = _manual_payload(payload, partial=True)
+        with self.store.connect() as db:
+            current = self._manual_get(db, item_id)
+        if current["deleted_at"]:
+            raise WebError("feed_removed", "请先恢复这条资讯再编辑。", 409)
+        metadata = None
+        if changes.pop("fetch_title", False):
+            title, metadata = self._fetch_title(changes.get("url", current["url"]))
+            if title and "title" not in changes:
+                changes["title"] = title
+        check_cancelled()
+        with self.store.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            current = self._manual_get(db, item_id)
+            if current["deleted_at"]:
+                raise WebError("feed_removed", "请先恢复这条资讯再编辑。", 409)
+            value = {**current, **changes}
+            canonical = _canonical_url(value["url"])
+            if db.execute(
+                "SELECT id FROM feed_manual_items WHERE canonical_url=? AND id<>?",
+                (canonical, item_id),
+            ).fetchone():
+                raise WebError("feed_conflict", "这个链接已有一条资讯。", 409)
+            if metadata is None:
+                metadata = (
+                    {"fetch_status": "not_requested"}
+                    if value["url"] != current["url"]
+                    else current["metadata"]
+                )
+            db.execute(
+                "UPDATE feed_manual_items SET canonical_url=?,url=?,title=?,summary=?,"
+                "tags_json=?,metadata_json=?,updated_at=? WHERE id=?",
+                (
+                    canonical,
+                    value["url"],
+                    value["title"] or value["url"],
+                    value["summary"],
+                    json.dumps(value["tags"], ensure_ascii=False),
+                    json.dumps(metadata),
+                    now(),
+                    item_id,
+                ),
+            )
+            return self._manual_get(db, item_id)
+
+    def remove_manual(self, item_id: str) -> dict[str, Any]:
+        return self._manual_visibility(item_id, deleted=True)
+
+    def restore_manual(self, item_id: str) -> dict[str, Any]:
+        return self._manual_visibility(item_id, deleted=False)
+
+    def _manual_visibility(self, item_id: str, *, deleted: bool) -> dict[str, Any]:
+        with self.store.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            current = self._manual_get(db, item_id)
+            timestamp = now()
+            db.execute(
+                "UPDATE feed_manual_items SET deleted_at=?,updated_at=? WHERE id=?",
+                ((current["deleted_at"] or timestamp) if deleted else None, timestamp, item_id),
+            )
+            return self._manual_get(db, item_id)
+
+    def hide_external(self, item_id: str) -> dict[str, Any]:
+        return self._external_visibility(item_id, hidden=True)
+
+    def unhide_external(self, item_id: str) -> dict[str, Any]:
+        return self._external_visibility(item_id, hidden=False)
+
+    def _external_visibility(self, item_id: str, *, hidden: bool) -> dict[str, Any]:
+        with self._lock:
+            item = next(
+                (item for item in self.list(include_hidden=True)["items"] if item["id"] == item_id),
+                None,
+            )
+            if item is None:
+                raise WebError("feed_not_found", "资讯不存在。", 404)
+            if item["source"] == "manual":
+                raise WebError("feed_not_external", "手动资讯请使用删除或恢复操作。", 403)
+            with self.store.connect() as db:
+                if hidden:
+                    db.execute(
+                        "INSERT OR IGNORE INTO feed_hidden_items VALUES(?,?,?,?)",
+                        (item_id, item["source"], now(), json.dumps(item, ensure_ascii=False)),
+                    )
+                else:
+                    db.execute("DELETE FROM feed_hidden_items WHERE feed_id=?", (item_id,))
+            return {**item, "hidden": hidden}
+
+    def _verify_persisted(self, item: dict[str, Any]) -> bool:
+        """Internal readback for Agent receipts, including provider items outside the cache."""
+        with self.store.connect() as db:
+            if item.get("source") == "manual":
+                row = db.execute(
+                    "SELECT * FROM feed_manual_items WHERE id=?", (item.get("id"),)
+                ).fetchone()
+                if row is None:
+                    return False
+                persisted = self._manual_item(row)
+            else:
+                hidden = db.execute(
+                    "SELECT 1 FROM feed_hidden_items WHERE feed_id=?", (item.get("id"),)
+                ).fetchone()
+                if bool(hidden) != bool(item.get("hidden")):
+                    return False
+                persisted = next(
+                    (
+                        value
+                        for value in self.list(include_hidden=True)["items"]
+                        if value["id"] == item.get("id")
+                    ),
+                    None,
+                )
+                # Unhiding a retired provider item removes the local recovery record.
+                if persisted is None:
+                    return not hidden and item.get("hidden") is False
+        return all(
+            persisted.get(key) == item[key]
+            for key in ("id", "source", "title", "url", "summary", "tags", "deleted_at", "hidden")
+            if key in item
+        )
 
     def _fetch_github(self) -> list[dict[str, Any]]:
         with httpx.Client(timeout=15, follow_redirects=True) as client:

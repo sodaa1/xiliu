@@ -27,13 +27,14 @@ class AutomationService:
         self._lock = RLock()
         self._stopping = False
         self._shutdown_requested = False
+        self.app_services: Any = None
 
     def _runtime(self, _settings: Any, **kwargs: Any):
         # Resolve credentials only when a persisted task actually runs.
         settings = self.model_settings.runtime_settings().model_copy(
             update={"data_dir": self.store.data_dir}
         )
-        return create_runtime(settings, **kwargs)
+        return create_runtime(settings, app_services=self.app_services, **kwargs)
 
     def list(self) -> list[dict[str, Any]]:
         return [task.model_dump(mode="json") for task in self.store.list()]

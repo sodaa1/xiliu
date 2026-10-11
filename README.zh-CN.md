@@ -8,17 +8,25 @@
 
 **信息有归处，思考自成流。** 息流是本地优先的个人信息与 AI 助手，把 Feed、Inbox、Knowledge、Assistant 和 Today 连接成从发现到行动的信息流。
 
-当前版本：**0.3.0**。React 界面和 FastAPI 业务层复用 Runtime / LangGraph；Windows 桌面使用 Tauri 2。资料与会话保存在本机，启用模型或联网工具时，对应请求会发送至用户配置的服务。
+当前版本：**0.4.0**。React 界面和 FastAPI 业务层复用 Runtime / LangGraph；Windows 桌面使用 Tauri 2。资料与会话保存在本机，启用模型或联网工具时，对应请求会发送至用户配置的服务。
+
+## 0.4 更新
+
+- 应用业务统一通过一个 `app` 工具和 ActionRegistry，复用页面原有 Service。
+- 明确的本地操作走 Fast，零模型、零 Supervisor；可选 AI 元数据归档作业持久化并支持重启恢复。
+- Feed 支持手动添加、编辑、删除和恢复，外部资讯支持隐藏和恢复；非敏感偏好通过版本检查同步。
+- 人工确认、逐项权限、取消与真实写入校验在执行路径中统一。
+- 实测结果见 [0.4 交付记录](docs/XILIU_04_UNIFIED_ACTIONS.md)、[全页面能力矩阵](docs/audit/all-pages-capabilities.md)、[性能](docs/audit/fast-performance.md)和[包体积对比](docs/audit/package-size-before-after.md)。
 
 ## 0.3 更新
 
-- **资料操作接入 Agent**：`inbox_import`、`inbox_list`、`knowledge_folders`、`inbox_classify` 复用页面服务。多个 URL 分别导入，用户明确要求保存时可将未匹配文件夹的卡片保存到 Knowledge。
+- **资料操作接入 Agent**：`inbox_import`、`inbox_list`、`knowledge_folders`、`knowledge_folder_create`、`inbox_classify` 复用页面服务。多个 URL 分别导入，用户明确要求保存时可将未匹配文件夹的卡片保存到 Knowledge。
 - **多会话与停止回复**：每个聊天单独保存运行状态和请求控制器；可同时使用其他聊天，只停止选中的会话，保留已收到的思考内容与已完成操作。
 - **可调整布局**：主侧栏最小 144px，对话侧栏最小 160px，输入框高度 48–98px；支持拖动、键盘调整和刷新后保留尺寸。
 - **桌面与模型连接**：上传区使用 HTML5 拖入；保留 SDK 思考流与聊天历史。字面本地模型地址绕过系统代理，外部地址保留代理；连接和认证错误直接返回，不被路由器转成重复任务重试。
 - **AIHot 默认配置**：首次启动补入公开 MCP 配置，保留已有用户配置；读取资讯不依赖模型 API Key。
 
-详见 [0.3 修复记录](docs/XILIU_03_FIXES.md)。天气搜索循环及桌面检查点报错已进入独立修复分支，当前主干不将其标记为已解决。
+详见 [0.3 修复记录](docs/XILIU_03_FIXES.md) 与 [0.3.1 天气检索及桌面检查点修复](docs/XILIU_031_FIXES.md)。0.3.1 补齐实时天气检索、统一搜索重试预算及 Windows Git 子进程启动。[0.3.2](docs/XILIU_032_FIXES.md) 补齐文件夹创建与指定归档，保留 Inbox 生成的标签。
 
 ## 功能与工作流
 
@@ -35,7 +43,7 @@
 
 ## Windows 安装
 
-当前本地安装包：`dist/Xiliu-0.3.0-x64-setup.exe`，附带 `.sha256`。安装包不存入 Git 源码；从源码获取项目时，可按下文自行构建。
+当前本地安装包：`dist/Xiliu-0.4.0-x64-setup.exe`，附带 `.sha256`。安装包不存入 Git 源码；从源码获取项目时，可按下文自行构建。
 
 1. 双击安装包，使用中文向导安装并启动「息流」。无需另装 Python、Node.js 或 Rust。
 2. 首次启动在设置中自行填写模型提供商、API 地址、模型名称和 API Key。安装包不包含开发者密钥、个人模型配置、数据库、测试或项目文档。

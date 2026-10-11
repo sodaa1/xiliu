@@ -1,0 +1,1436 @@
+{
+  "generated_at": "2026-10-10T09:33:56.255342+00:00",
+  "python": "3.12.1",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "samples_per_layer": 10,
+  "method": {
+    "percentile": "nearest rank p95; median p50",
+    "data": "fresh disposable SQLite+Markdown copies per operation, outside timing",
+    "cold": "app_initialization measures fresh Service/App; first_ms is first observation",
+    "warm": "modules imported once; operations use warm interpreter and fresh App/data",
+    "cache": "OS cache not flushed; true cold process/import/device latency not measured",
+    "excluded": "seeding/copy, assertions, shutdown, HTTP/SSE/browser rendering",
+    "workers": "workers not started; synchronous local Service/Dispatcher/Fast/Chat path",
+    "comparisons": "independent layers; subtracting medians only estimates overhead",
+    "credentials": "empty env file; credential/provider env removed; model/network blocked"
+  },
+  "counters": {
+    "provider_model_calls": 0,
+    "supervisor_runtime_calls": 0,
+    "network_attempts": 0,
+    "reported_model_calls": 0
+  },
+  "results": [
+    {
+      "scenario": "inbox.archive_all",
+      "items": 100,
+      "layer": "service",
+      "latency": {
+        "samples": 10,
+        "first_ms": 2236.198,
+        "p50_ms": 1615.542,
+        "p95_ms": 2236.198,
+        "min_ms": 1586.008,
+        "max_ms": 2236.198,
+        "values_ms": [
+          2236.198,
+          1749.933,
+          1596.087,
+          1586.008,
+          1597.141,
+          1612.032,
+          1619.053,
+          1675.135,
+          1625.583,
+          1601.867
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 24.832,
+        "p50_ms": 23.881,
+        "p95_ms": 34.684,
+        "min_ms": 19.65,
+        "max_ms": 34.684,
+        "values_ms": [
+          24.832,
+          25.228,
+          24.499,
+          22.996,
+          22.866,
+          19.65,
+          23.763,
+          34.684,
+          22.714,
+          23.998
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "inbox.archive_all",
+      "items": 100,
+      "layer": "dispatch",
+      "latency": {
+        "samples": 10,
+        "first_ms": 1813.421,
+        "p50_ms": 1856.225,
+        "p95_ms": 1956.204,
+        "min_ms": 1813.421,
+        "max_ms": 1956.204,
+        "values_ms": [
+          1813.421,
+          1867.891,
+          1843.187,
+          1869.929,
+          1843.099,
+          1913.278,
+          1956.204,
+          1940.249,
+          1819.643,
+          1844.559
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 23.599,
+        "p50_ms": 23.585,
+        "p95_ms": 27.21,
+        "min_ms": 21.279,
+        "max_ms": 27.21,
+        "values_ms": [
+          23.599,
+          21.516,
+          21.608,
+          22.288,
+          23.571,
+          21.279,
+          27.21,
+          25.353,
+          25.551,
+          24.113
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "inbox.archive_all",
+      "items": 100,
+      "layer": "fast",
+      "latency": {
+        "samples": 10,
+        "first_ms": 1941.373,
+        "p50_ms": 1875.935,
+        "p95_ms": 1941.373,
+        "min_ms": 1802.282,
+        "max_ms": 1941.373,
+        "values_ms": [
+          1941.373,
+          1845.207,
+          1877.375,
+          1898.688,
+          1905.471,
+          1857.184,
+          1802.282,
+          1904.167,
+          1874.495,
+          1868.98
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 23.38,
+        "p50_ms": 23.009,
+        "p95_ms": 29.873,
+        "min_ms": 19.961,
+        "max_ms": 29.873,
+        "values_ms": [
+          23.38,
+          19.961,
+          29.873,
+          22.485,
+          26.738,
+          22.638,
+          24.269,
+          21.83,
+          20.309,
+          26.065
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "inbox.archive_all",
+      "items": 100,
+      "layer": "chat",
+      "latency": {
+        "samples": 10,
+        "first_ms": 1912.426,
+        "p50_ms": 1885.171,
+        "p95_ms": 1912.426,
+        "min_ms": 1855.524,
+        "max_ms": 1912.426,
+        "values_ms": [
+          1912.426,
+          1882.299,
+          1911.612,
+          1855.524,
+          1895.75,
+          1865.889,
+          1888.042,
+          1881.632,
+          1881.82,
+          1905.226
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 25.639,
+        "p50_ms": 23.309,
+        "p95_ms": 30.292,
+        "min_ms": 19.841,
+        "max_ms": 30.292,
+        "values_ms": [
+          25.639,
+          21.105,
+          19.841,
+          22.0,
+          24.888,
+          20.895,
+          24.906,
+          22.947,
+          30.292,
+          23.672
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "inbox.archive_all",
+      "items": 1000,
+      "layer": "service",
+      "latency": {
+        "samples": 10,
+        "first_ms": 23973.286,
+        "p50_ms": 20872.445,
+        "p95_ms": 24364.646,
+        "min_ms": 19346.469,
+        "max_ms": 24364.646,
+        "values_ms": [
+          23973.286,
+          19346.469,
+          19391.939,
+          19835.398,
+          19375.407,
+          21930.078,
+          21204.301,
+          20540.59,
+          23836.371,
+          24364.646
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 26.879,
+        "p50_ms": 28.582,
+        "p95_ms": 32.249,
+        "min_ms": 23.418,
+        "max_ms": 32.249,
+        "values_ms": [
+          26.879,
+          28.275,
+          25.696,
+          28.89,
+          23.418,
+          25.535,
+          29.342,
+          32.093,
+          30.24,
+          32.249
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "inbox.archive_all",
+      "items": 1000,
+      "layer": "dispatch",
+      "latency": {
+        "samples": 10,
+        "first_ms": 26860.805,
+        "p50_ms": 23763.906,
+        "p95_ms": 80150.635,
+        "min_ms": 20776.883,
+        "max_ms": 80150.635,
+        "values_ms": [
+          26860.805,
+          80150.635,
+          33523.528,
+          30603.826,
+          24913.869,
+          20776.883,
+          22613.944,
+          21903.368,
+          22412.69,
+          22462.228
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 43.672,
+        "p50_ms": 35.01,
+        "p95_ms": 49.792,
+        "min_ms": 22.92,
+        "max_ms": 49.792,
+        "values_ms": [
+          43.672,
+          49.792,
+          36.755,
+          42.919,
+          40.998,
+          22.92,
+          32.321,
+          27.336,
+          29.69,
+          33.265
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "inbox.archive_all",
+      "items": 1000,
+      "layer": "fast",
+      "latency": {
+        "samples": 10,
+        "first_ms": 21773.389,
+        "p50_ms": 22052.355,
+        "p95_ms": 23654.409,
+        "min_ms": 21368.977,
+        "max_ms": 23654.409,
+        "values_ms": [
+          21773.389,
+          21787.134,
+          21728.237,
+          23191.191,
+          23654.409,
+          23354.353,
+          22317.577,
+          22655.349,
+          21418.277,
+          21368.977
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 28.369,
+        "p50_ms": 27.183,
+        "p95_ms": 33.534,
+        "min_ms": 22.447,
+        "max_ms": 33.534,
+        "values_ms": [
+          28.369,
+          27.939,
+          25.667,
+          26.141,
+          25.918,
+          33.534,
+          26.586,
+          28.591,
+          27.78,
+          22.447
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "inbox.archive_all",
+      "items": 1000,
+      "layer": "chat",
+      "latency": {
+        "samples": 10,
+        "first_ms": 22268.216,
+        "p50_ms": 22444.757,
+        "p95_ms": 24604.291,
+        "min_ms": 21869.638,
+        "max_ms": 24604.291,
+        "values_ms": [
+          22268.216,
+          22464.83,
+          24604.291,
+          23657.944,
+          21869.638,
+          22370.988,
+          22424.685,
+          22215.497,
+          22537.751,
+          22583.851
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 25.96,
+        "p50_ms": 27.757,
+        "p95_ms": 40.223,
+        "min_ms": 25.929,
+        "max_ms": 40.223,
+        "values_ms": [
+          25.96,
+          25.929,
+          36.749,
+          26.216,
+          28.246,
+          40.223,
+          28.97,
+          27.829,
+          27.686,
+          26.513
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "link.folder.workflow",
+      "items": 1,
+      "layer": "service",
+      "latency": {
+        "samples": 10,
+        "first_ms": 75.267,
+        "p50_ms": 72.543,
+        "p95_ms": 80.979,
+        "min_ms": 57.506,
+        "max_ms": 80.979,
+        "values_ms": [
+          75.267,
+          66.794,
+          64.62,
+          57.506,
+          78.467,
+          75.658,
+          73.841,
+          65.986,
+          80.979,
+          71.244
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 162.735,
+        "p50_ms": 32.798,
+        "p95_ms": 162.735,
+        "min_ms": 25.816,
+        "max_ms": 162.735,
+        "values_ms": [
+          162.735,
+          27.669,
+          31.233,
+          25.816,
+          33.452,
+          33.182,
+          35.439,
+          28.15,
+          32.414,
+          35.434
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "link.folder.workflow",
+      "items": 1,
+      "layer": "dispatch",
+      "latency": {
+        "samples": 10,
+        "first_ms": 111.981,
+        "p50_ms": 105.992,
+        "p95_ms": 126.766,
+        "min_ms": 92.648,
+        "max_ms": 126.766,
+        "values_ms": [
+          111.981,
+          126.766,
+          105.339,
+          108.312,
+          92.648,
+          103.715,
+          114.657,
+          99.511,
+          106.644,
+          97.154
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 28.878,
+        "p50_ms": 28.435,
+        "p95_ms": 33.489,
+        "min_ms": 23.294,
+        "max_ms": 33.489,
+        "values_ms": [
+          28.878,
+          29.984,
+          33.489,
+          27.002,
+          24.793,
+          23.294,
+          31.545,
+          27.992,
+          29.677,
+          26.856
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "link.folder.workflow",
+      "items": 1,
+      "layer": "fast",
+      "latency": {
+        "samples": 10,
+        "first_ms": 119.491,
+        "p50_ms": 120.9,
+        "p95_ms": 129.733,
+        "min_ms": 109.221,
+        "max_ms": 129.733,
+        "values_ms": [
+          119.491,
+          123.12,
+          120.28,
+          123.276,
+          121.515,
+          129.733,
+          113.867,
+          122.689,
+          120.285,
+          109.221
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 30.615,
+        "p50_ms": 25.279,
+        "p95_ms": 31.729,
+        "min_ms": 22.987,
+        "max_ms": 31.729,
+        "values_ms": [
+          30.615,
+          29.263,
+          24.404,
+          27.705,
+          24.817,
+          25.742,
+          23.461,
+          24.377,
+          31.729,
+          22.987
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "link.folder.workflow",
+      "items": 1,
+      "layer": "chat",
+      "latency": {
+        "samples": 10,
+        "first_ms": 137.438,
+        "p50_ms": 142.524,
+        "p95_ms": 160.579,
+        "min_ms": 125.48,
+        "max_ms": 160.579,
+        "values_ms": [
+          137.438,
+          160.579,
+          143.63,
+          148.997,
+          147.498,
+          141.419,
+          147.49,
+          130.617,
+          131.632,
+          125.48
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 26.064,
+        "p50_ms": 27.247,
+        "p95_ms": 30.424,
+        "min_ms": 23.279,
+        "max_ms": 30.424,
+        "values_ms": [
+          26.064,
+          30.424,
+          28.772,
+          27.164,
+          25.017,
+          23.279,
+          27.649,
+          27.149,
+          27.534,
+          27.329
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "feed.create",
+      "items": 1,
+      "layer": "service",
+      "latency": {
+        "samples": 10,
+        "first_ms": 6.406,
+        "p50_ms": 6.358,
+        "p95_ms": 8.061,
+        "min_ms": 5.962,
+        "max_ms": 8.061,
+        "values_ms": [
+          6.406,
+          7.066,
+          6.177,
+          5.962,
+          5.992,
+          6.31,
+          6.662,
+          6.507,
+          8.061,
+          6.026
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 28.534,
+        "p50_ms": 24.543,
+        "p95_ms": 28.534,
+        "min_ms": 22.962,
+        "max_ms": 28.534,
+        "values_ms": [
+          28.534,
+          23.564,
+          24.07,
+          23.739,
+          25.564,
+          25.017,
+          25.514,
+          27.189,
+          22.962,
+          23.359
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "feed.create",
+      "items": 1,
+      "layer": "dispatch",
+      "latency": {
+        "samples": 10,
+        "first_ms": 21.009,
+        "p50_ms": 20.012,
+        "p95_ms": 24.663,
+        "min_ms": 17.926,
+        "max_ms": 24.663,
+        "values_ms": [
+          21.009,
+          24.257,
+          17.926,
+          18.518,
+          24.663,
+          19.046,
+          19.139,
+          20.839,
+          22.001,
+          19.186
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 24.816,
+        "p50_ms": 25.911,
+        "p95_ms": 29.44,
+        "min_ms": 23.656,
+        "max_ms": 29.44,
+        "values_ms": [
+          24.816,
+          25.907,
+          26.282,
+          25.915,
+          23.656,
+          29.44,
+          24.475,
+          28.317,
+          26.843,
+          25.086
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "feed.create",
+      "items": 1,
+      "layer": "fast",
+      "latency": {
+        "samples": 10,
+        "first_ms": 36.303,
+        "p50_ms": 36.179,
+        "p95_ms": 44.739,
+        "min_ms": 31.356,
+        "max_ms": 44.739,
+        "values_ms": [
+          36.303,
+          39.081,
+          32.221,
+          37.94,
+          36.056,
+          34.652,
+          31.356,
+          35.883,
+          44.739,
+          36.839
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 28.377,
+        "p50_ms": 26.566,
+        "p95_ms": 29.676,
+        "min_ms": 23.522,
+        "max_ms": 29.676,
+        "values_ms": [
+          28.377,
+          27.967,
+          25.311,
+          26.794,
+          29.676,
+          23.522,
+          25.541,
+          23.577,
+          26.338,
+          27.911
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "feed.create",
+      "items": 1,
+      "layer": "chat",
+      "latency": {
+        "samples": 10,
+        "first_ms": 59.813,
+        "p50_ms": 58.254,
+        "p95_ms": 70.843,
+        "min_ms": 51.006,
+        "max_ms": 70.843,
+        "values_ms": [
+          59.813,
+          52.8,
+          56.696,
+          65.229,
+          51.006,
+          53.296,
+          65.735,
+          55.828,
+          64.389,
+          70.843
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 25.574,
+        "p50_ms": 26.305,
+        "p95_ms": 27.895,
+        "min_ms": 23.386,
+        "max_ms": 27.895,
+        "values_ms": [
+          25.574,
+          27.102,
+          23.424,
+          27.895,
+          27.031,
+          23.745,
+          26.656,
+          23.386,
+          25.953,
+          27.711
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "today.task.create",
+      "items": 1,
+      "layer": "service",
+      "latency": {
+        "samples": 10,
+        "first_ms": 6.789,
+        "p50_ms": 6.535,
+        "p95_ms": 17.28,
+        "min_ms": 4.369,
+        "max_ms": 17.28,
+        "values_ms": [
+          6.789,
+          6.427,
+          6.66,
+          6.585,
+          17.28,
+          6.484,
+          5.141,
+          5.09,
+          4.369,
+          15.333
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 31.124,
+        "p50_ms": 33.018,
+        "p95_ms": 40.527,
+        "min_ms": 23.77,
+        "max_ms": 40.527,
+        "values_ms": [
+          31.124,
+          40.527,
+          33.837,
+          35.389,
+          34.567,
+          37.053,
+          32.199,
+          24.566,
+          23.77,
+          26.08
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "today.task.create",
+      "items": 1,
+      "layer": "dispatch",
+      "latency": {
+        "samples": 10,
+        "first_ms": 24.309,
+        "p50_ms": 23.434,
+        "p95_ms": 33.01,
+        "min_ms": 19.234,
+        "max_ms": 33.01,
+        "values_ms": [
+          24.309,
+          24.367,
+          33.01,
+          19.234,
+          20.411,
+          32.065,
+          21.188,
+          20.004,
+          22.559,
+          31.431
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 35.798,
+        "p50_ms": 30.503,
+        "p95_ms": 35.798,
+        "min_ms": 28.186,
+        "max_ms": 35.798,
+        "values_ms": [
+          35.798,
+          31.503,
+          28.186,
+          30.23,
+          34.168,
+          29.311,
+          30.251,
+          29.925,
+          30.754,
+          33.162
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "today.task.create",
+      "items": 1,
+      "layer": "fast",
+      "latency": {
+        "samples": 10,
+        "first_ms": 35.712,
+        "p50_ms": 36.464,
+        "p95_ms": 48.899,
+        "min_ms": 29.245,
+        "max_ms": 48.899,
+        "values_ms": [
+          35.712,
+          37.055,
+          46.068,
+          30.893,
+          48.899,
+          35.872,
+          29.245,
+          31.792,
+          46.273,
+          39.889
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 26.26,
+        "p50_ms": 26.69,
+        "p95_ms": 31.935,
+        "min_ms": 23.635,
+        "max_ms": 31.935,
+        "values_ms": [
+          26.26,
+          31.713,
+          26.762,
+          23.973,
+          24.281,
+          31.935,
+          26.717,
+          26.663,
+          23.635,
+          31.754
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "today.task.create",
+      "items": 1,
+      "layer": "chat",
+      "latency": {
+        "samples": 10,
+        "first_ms": 61.505,
+        "p50_ms": 65.775,
+        "p95_ms": 72.16,
+        "min_ms": 43.963,
+        "max_ms": 72.16,
+        "values_ms": [
+          61.505,
+          67.489,
+          71.229,
+          65.748,
+          60.2,
+          72.16,
+          70.462,
+          43.963,
+          46.044,
+          65.802
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 30.462,
+        "p50_ms": 32.171,
+        "p95_ms": 35.558,
+        "min_ms": 25.504,
+        "max_ms": 35.558,
+        "values_ms": [
+          30.462,
+          31.713,
+          33.275,
+          33.635,
+          32.63,
+          35.558,
+          30.637,
+          33.725,
+          25.504,
+          31.288
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "preferences.update",
+      "items": 1,
+      "layer": "service",
+      "latency": {
+        "samples": 10,
+        "first_ms": 7.743,
+        "p50_ms": 8.306,
+        "p95_ms": 20.318,
+        "min_ms": 5.664,
+        "max_ms": 20.318,
+        "values_ms": [
+          7.743,
+          5.664,
+          7.392,
+          8.367,
+          9.443,
+          20.318,
+          9.352,
+          8.246,
+          8.869,
+          7.689
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 35.892,
+        "p50_ms": 32.45,
+        "p95_ms": 36.472,
+        "min_ms": 24.165,
+        "max_ms": 36.472,
+        "values_ms": [
+          35.892,
+          24.229,
+          24.165,
+          31.764,
+          32.529,
+          32.625,
+          36.472,
+          33.131,
+          32.371,
+          31.9
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "preferences.update",
+      "items": 1,
+      "layer": "dispatch",
+      "latency": {
+        "samples": 10,
+        "first_ms": 45.175,
+        "p50_ms": 31.702,
+        "p95_ms": 45.175,
+        "min_ms": 27.623,
+        "max_ms": 45.175,
+        "values_ms": [
+          45.175,
+          27.746,
+          27.623,
+          42.852,
+          28.721,
+          30.78,
+          44.882,
+          31.424,
+          44.673,
+          31.98
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 28.55,
+        "p50_ms": 27.615,
+        "p95_ms": 43.919,
+        "min_ms": 23.182,
+        "max_ms": 43.919,
+        "values_ms": [
+          28.55,
+          25.55,
+          23.182,
+          27.743,
+          31.065,
+          43.919,
+          27.015,
+          27.488,
+          26.642,
+          29.272
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "preferences.update",
+      "items": 1,
+      "layer": "fast",
+      "latency": {
+        "samples": 10,
+        "first_ms": 70.689,
+        "p50_ms": 61.325,
+        "p95_ms": 70.977,
+        "min_ms": 43.504,
+        "max_ms": 70.977,
+        "values_ms": [
+          70.689,
+          56.08,
+          60.235,
+          43.504,
+          65.583,
+          46.454,
+          62.415,
+          45.856,
+          65.158,
+          70.977
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 31.039,
+        "p50_ms": 30.203,
+        "p95_ms": 34.74,
+        "min_ms": 25.973,
+        "max_ms": 34.74,
+        "values_ms": [
+          31.039,
+          31.417,
+          32.708,
+          27.242,
+          34.74,
+          30.322,
+          30.085,
+          26.996,
+          25.973,
+          29.542
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "preferences.update",
+      "items": 1,
+      "layer": "chat",
+      "latency": {
+        "samples": 10,
+        "first_ms": 70.91,
+        "p50_ms": 77.667,
+        "p95_ms": 97.838,
+        "min_ms": 59.091,
+        "max_ms": 97.838,
+        "values_ms": [
+          70.91,
+          82.155,
+          80.336,
+          78.743,
+          72.981,
+          59.091,
+          76.591,
+          97.838,
+          97.663,
+          62.503
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 34.826,
+        "p50_ms": 28.888,
+        "p95_ms": 34.826,
+        "min_ms": 25.7,
+        "max_ms": 34.826,
+        "values_ms": [
+          34.826,
+          31.46,
+          30.586,
+          26.999,
+          25.7,
+          29.447,
+          28.329,
+          29.676,
+          25.739,
+          25.896
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "preferences.read",
+      "items": 1,
+      "layer": "service",
+      "latency": {
+        "samples": 10,
+        "first_ms": 2.135,
+        "p50_ms": 2.606,
+        "p95_ms": 3.234,
+        "min_ms": 1.778,
+        "max_ms": 3.234,
+        "values_ms": [
+          2.135,
+          1.778,
+          1.868,
+          3.234,
+          2.868,
+          2.707,
+          2.675,
+          3.041,
+          2.538,
+          2.17
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 29.561,
+        "p50_ms": 29.617,
+        "p95_ms": 36.124,
+        "min_ms": 23.568,
+        "max_ms": 36.124,
+        "values_ms": [
+          29.561,
+          27.206,
+          28.481,
+          26.606,
+          29.673,
+          34.538,
+          36.124,
+          34.423,
+          30.923,
+          23.568
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "preferences.read",
+      "items": 1,
+      "layer": "dispatch",
+      "latency": {
+        "samples": 10,
+        "first_ms": 13.574,
+        "p50_ms": 12.467,
+        "p95_ms": 16.536,
+        "min_ms": 11.549,
+        "max_ms": 16.536,
+        "values_ms": [
+          13.574,
+          14.694,
+          11.549,
+          13.099,
+          11.786,
+          16.536,
+          15.519,
+          11.652,
+          11.835,
+          11.634
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 25.215,
+        "p50_ms": 26.177,
+        "p95_ms": 31.942,
+        "min_ms": 22.826,
+        "max_ms": 31.942,
+        "values_ms": [
+          25.215,
+          28.018,
+          25.578,
+          31.942,
+          26.05,
+          30.236,
+          30.893,
+          23.861,
+          26.304,
+          22.826
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "preferences.read",
+      "items": 1,
+      "layer": "fast",
+      "latency": {
+        "samples": 10,
+        "first_ms": 27.505,
+        "p50_ms": 26.974,
+        "p95_ms": 29.379,
+        "min_ms": 24.58,
+        "max_ms": 29.379,
+        "values_ms": [
+          27.505,
+          26.817,
+          26.93,
+          26.621,
+          26.307,
+          24.58,
+          28.61,
+          27.017,
+          29.379,
+          27.312
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 25.71,
+        "p50_ms": 24.726,
+        "p95_ms": 29.774,
+        "min_ms": 22.818,
+        "max_ms": 29.774,
+        "values_ms": [
+          25.71,
+          23.554,
+          22.818,
+          24.675,
+          25.356,
+          23.198,
+          25.114,
+          22.88,
+          29.774,
+          24.776
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "preferences.read",
+      "items": 1,
+      "layer": "chat",
+      "latency": {
+        "samples": 10,
+        "first_ms": 44.525,
+        "p50_ms": 52.906,
+        "p95_ms": 59.073,
+        "min_ms": 42.799,
+        "max_ms": 59.073,
+        "values_ms": [
+          44.525,
+          54.616,
+          56.173,
+          42.799,
+          45.47,
+          59.073,
+          56.481,
+          53.227,
+          52.585,
+          43.47
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 24.119,
+        "p50_ms": 27.451,
+        "p95_ms": 35.75,
+        "min_ms": 23.1,
+        "max_ms": 35.75,
+        "values_ms": [
+          24.119,
+          31.483,
+          30.789,
+          28.503,
+          25.034,
+          23.1,
+          31.83,
+          35.75,
+          26.399,
+          23.906
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "unknown.clarify",
+      "items": 0,
+      "layer": "fast",
+      "latency": {
+        "samples": 10,
+        "first_ms": 10.588,
+        "p50_ms": 8.378,
+        "p95_ms": 11.299,
+        "min_ms": 6.762,
+        "max_ms": 11.299,
+        "values_ms": [
+          10.588,
+          9.015,
+          11.299,
+          9.499,
+          7.803,
+          7.957,
+          6.762,
+          6.909,
+          8.799,
+          7.233
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 26.101,
+        "p50_ms": 25.611,
+        "p95_ms": 36.246,
+        "min_ms": 23.146,
+        "max_ms": 36.246,
+        "values_ms": [
+          26.101,
+          28.299,
+          25.122,
+          32.948,
+          23.146,
+          36.246,
+          29.062,
+          25.093,
+          23.689,
+          25.023
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "unknown.clarify",
+      "items": 0,
+      "layer": "chat",
+      "latency": {
+        "samples": 10,
+        "first_ms": 24.17,
+        "p50_ms": 31.242,
+        "p95_ms": 123.065,
+        "min_ms": 24.17,
+        "max_ms": 123.065,
+        "values_ms": [
+          24.17,
+          28.139,
+          123.065,
+          35.061,
+          31.161,
+          31.18,
+          31.304,
+          26.732,
+          33.462,
+          33.656
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 28.813,
+        "p50_ms": 29.542,
+        "p95_ms": 36.228,
+        "min_ms": 24.186,
+        "max_ms": 36.228,
+        "values_ms": [
+          28.813,
+          25.223,
+          24.186,
+          36.228,
+          29.35,
+          33.899,
+          31.743,
+          29.734,
+          24.448,
+          34.895
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    }
+  ],
+  "source_scope": "Earlier process loaded Fast before ExecutionGateway integration. Its Fast/Chat data does not prove final Gateway overhead; 1000-item Service is a core-write baseline."
+}

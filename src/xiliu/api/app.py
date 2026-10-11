@@ -11,12 +11,17 @@ from fastapi.responses import FileResponse, JSONResponse
 
 from xiliu.api.errors import WebError
 from xiliu.api.routes import (
+    app as app_actions,
+)
+from xiliu.api.routes import (
     capabilities,
     content,
     conversations,
+    feed,
     inbox,
     knowledge,
     models,
+    preferences,
     workspace,
 )
 from xiliu.api.services.automations import AutomationService
@@ -28,10 +33,12 @@ from xiliu.api.services.feed import FeedService
 from xiliu.api.services.inbox import InboxService
 from xiliu.api.services.knowledge import KnowledgeService
 from xiliu.api.services.model_settings import ModelSettingsService
+from xiliu.api.services.preferences import PreferencesService
 from xiliu.api.services.tasks import TaskService
 from xiliu.api.store import AppStore
+from xiliu.app.actions import AppServices
+from xiliu.rag.embedding_config import embedding_provider_from_settings
 from xiliu.rag.service import RAGService
-from xiliu.tools.knowledge_search import embedding_provider_from_settings
 
 
 def create_app(
@@ -70,7 +77,7 @@ def create_app(
                     with suppress(asyncio.CancelledError):
                         await owner
 
-    app = FastAPI(title="息流 · xiliu", version="0.3.0", lifespan=lifespan)
+    app = FastAPI(title="息流 · xiliu", version="0.4.0", lifespan=lifespan)
     app.state.model_settings = ModelSettingsService(env_file)
     values = app.state.model_settings.values()
     app.state.data_dir = (data_dir or Path(values.get("XILIU_DATA_DIR", ".xiliu"))).resolve()
@@ -94,7 +101,11 @@ def create_app(
     )
     app.state.feed = FeedService(app.state.store, app.state.content)
     app.state.tasks = TaskService(app.state.store)
+    app.state.preferences = PreferencesService(app.state.store)
     app.state.automations = AutomationService(app.state.data_dir, app.state.model_settings)
+    app.state.app_services = AppServices.from_state(app.state)
+    app.state.chat.app_services = app.state.app_services
+    app.state.automations.app_services = app.state.app_services
 
     @app.exception_handler(WebError)
     async def web_error(_request: Request, exc: WebError):
@@ -137,9 +148,12 @@ def create_app(
         return {"status": "ok"}
 
     app.include_router(models.router)
+    app.include_router(app_actions.router)
+    app.include_router(preferences.router)
     app.include_router(capabilities.router)
     app.include_router(conversations.router)
     app.include_router(content.router)
+    app.include_router(feed.router)
     app.include_router(inbox.router)
     app.include_router(knowledge.router)
     app.include_router(workspace.router)

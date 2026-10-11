@@ -123,6 +123,25 @@ class KnowledgeService:
             "priority": priority,
         }
 
+    def ensure_folder(self, payload: dict[str, Any]) -> dict[str, Any]:
+        values = self._validate(payload)
+
+        def operation(db):
+            for existing in self._folders(db):
+                if existing["name"].casefold() == values["name"].casefold():
+                    return existing
+            timestamp = now()
+            folder = {
+                **values,
+                "id": str(uuid4()),
+                "created_at": timestamp,
+                "updated_at": timestamp,
+            }
+            self._save(db, folder)
+            return self.get_folder(folder["id"], db=db)
+
+        return self._mutate(operation)
+
     def create_folder(self, payload: dict[str, Any]) -> dict[str, Any]:
         timestamp = now()
         folder = {

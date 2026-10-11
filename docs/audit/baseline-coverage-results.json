@@ -1,0 +1,66 @@
+{
+  "format_version": 1,
+  "status": "passed",
+  "scope": "baseline inventory only",
+  "surface_count": 592,
+  "registry_action_count": 0,
+  "pages": {
+    "API / Service / Agent": {
+      "total": 186,
+      "restricted": 35,
+      "missing_implementation": 151
+    },
+    "Launch / Navigation / shared UI": {
+      "total": 23,
+      "ui_only": 23
+    },
+    "Assistant": {
+      "total": 74,
+      "missing_implementation": 30,
+      "ui_only": 43,
+      "restricted": 1
+    },
+    "Automations": {
+      "total": 31,
+      "missing_implementation": 18,
+      "ui_only": 13
+    },
+    "Inbox / shared content": {
+      "total": 94,
+      "missing_implementation": 48,
+      "ui_only": 46
+    },
+    "Feed": {
+      "total": 20,
+      "missing_implementation": 14,
+      "ui_only": 6
+    },
+    "Intro": {
+      "total": 26,
+      "ui_only": 26
+    },
+    "Knowledge": {
+      "total": 45,
+      "missing_implementation": 14,
+      "ui_only": 31
+    },
+    "Launch": {
+      "total": 4,
+      "ui_only": 4
+    },
+    "Settings": {
+      "total": 42,
+      "ui_only": 32,
+      "restricted": 2,
+      "missing_implementation": 8
+    },
+    "Today": {
+      "total": 47,
+      "missing_implementation": 20,
+      "ui_only": 27
+    }
+  },
+  "errors": [],
+  "ui_e2e": "not_run: static mapping does not establish browser execution",
+  "action_test_execution": {}
+}

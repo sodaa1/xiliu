@@ -418,7 +418,10 @@ class ContentService:
         expected_revision: int | None = None,
         internal: bool = False,
         advance_revision: bool = False,
+        on_persist: Callable[[sqlite3.Connection], Any] | None = None,
     ) -> dict[str, Any]:
+        if on_persist is not None and not internal:
+            raise _invalid("提交回调仅允许内部业务调用。")
         allowed = _EDITABLE | (
             {"ai_processed", "processing_status", "processing_error"} if internal else set()
         )
@@ -480,6 +483,8 @@ class ContentService:
                 ).fetchone()
             ):
                 db.execute("DELETE FROM knowledge_vectors WHERE document_id=?", (item_id,))
+            if on_persist is not None:
+                on_persist(db)
         return item
 
     def delete(self, item_id: str) -> None:

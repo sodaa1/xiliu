@@ -1,0 +1,138 @@
+{
+  "phase": "ui",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "Launch fresh browser Skip intro and Enter navigate to Today",
+      "passed": true
+    },
+    {
+      "name": "Intro real workflow anchor and local workspace CTA navigate correctly",
+      "passed": true
+    },
+    {
+      "name": "Feed real UI create/edit/remove/restore, external hide/unhide, source filter, Save",
+      "passed": true,
+      "manual_id": "manual-45f496b1-233c-41dd-9955-81fe59d822bd",
+      "content_id": "8a890c7a-a0db-417d-a325-51ce62b35a6a"
+    },
+    {
+      "name": "Knowledge folder rules created through real UI",
+      "passed": true,
+      "folder_id": "f6381079-b20e-4dcc-bb9a-68d538bbfdb3"
+    },
+    {
+      "name": "Knowledge actual folder edit, delete cancel and confirmed deletion persist",
+      "passed": true
+    },
+    {
+      "name": "Inbox manual edit/capture and UI local batch archives to Knowledge",
+      "passed": true,
+      "defaults": {
+        "item_ids": [
+          "8a890c7a-a0db-417d-a325-51ce62b35a6a",
+          "e8735102-c52e-4e79-a837-76e1d232ee50",
+          "826a98fd-1dee-4d5b-b18a-140cbf77b240",
+          "306d4296-20ce-4361-972a-37508e35dd7f",
+          "06bcd07f-6436-4102-89d9-28337d144b04"
+        ],
+        "save_to_knowledge": true,
+        "use_ai": false
+      },
+      "fixture_pairs": [
+        {
+          "name": "matched",
+          "ui": "e8735102-c52e-4e79-a837-76e1d232ee50",
+          "agent": "be0a2d6c-6614-4854-95a5-41d9e229b9fb"
+        },
+        {
+          "name": "unmatched",
+          "ui": "826a98fd-1dee-4d5b-b18a-140cbf77b240",
+          "agent": "51bce8fe-d09b-459d-b2d6-151dd035197e"
+        },
+        {
+          "name": "existing-tags",
+          "ui": "306d4296-20ce-4361-972a-37508e35dd7f",
+          "agent": "4b256e55-cc24-457a-a62d-a5932dc04baf"
+        },
+        {
+          "name": "pending-manual",
+          "ui": "06bcd07f-6436-4102-89d9-28337d144b04",
+          "agent": "064927d0-45b2-4bf5-bb9a-dcf583bf7c22"
+        }
+      ]
+    },
+    {
+      "name": "Knowledge folder detail and real local retrieval displayed",
+      "passed": true
+    },
+    {
+      "name": "Inbox actual captured Content delete persists",
+      "passed": true,
+      "deleted_id": "92f950fd-b072-4c5b-88a8-94687eff531d"
+    },
+    {
+      "name": "Today real task create/edit/complete/restore persists",
+      "passed": true,
+      "task_id": "1ebf4adb-19af-4ebe-a579-f8f7254111cb"
+    },
+    {
+      "name": "Today actual task deletion persists",
+      "passed": true
+    },
+    {
+      "name": "Automation create/pause and run history UI persists",
+      "passed": true,
+      "automation_id": "daily-4b1930ab98324013b4964544a3d632c4"
+    },
+    {
+      "name": "Automation actual task deletion persists",
+      "passed": true
+    },
+    {
+      "name": "Settings actual theme/font size/font family/density/reduced motion and default reset persist",
+      "passed": true
+    },
+    {
+      "name": "All Settings sections load; profile/appearance persist; key stays empty",
+      "passed": true
+    },
+    {
+      "name": "Assistant real composer executes keyless Chat Fast with verified receipts and zero model calls",
+      "passed": true
+    },
+    {
+      "name": "Assistant confirmation review/cancel/confirm and reload resolves the bound destructive action",
+      "passed": true
+    },
+    {
+      "name": "Assistant actual new conversation, model override/reset, conversation switching and deletion persist",
+      "passed": true
+    },
+    {
+      "name": "Assistant actual Stop cancels an in-flight local SDK response, blocks late write, and preserves other conversation messages",
+      "passed": true,
+      "cancelled_session": "28a113c0-d079-4696-853c-990dbec03ef7"
+    }
+  ],
+  "app_receipts": [],
+  "screenshots": [
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-launch.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-intro.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-feed.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-knowledge-folders.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-inbox.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-knowledge-detail.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-knowledge-search.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-today.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-automations.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-settings-appearance.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-settings-model.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-settings-data.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-assistant.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-assistant-confirmation.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui-assistant-stop.png"
+  ],
+  "browserErrors": [],
+  "failedResponses": []
+}

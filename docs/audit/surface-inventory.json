@@ -1,0 +1,5526 @@
+{
+  "format_version": 1,
+  "items": [
+    {
+      "id": "http_route:ce1d4ca9799eade85f4b:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "desktop/server.py",
+      "line": 44,
+      "symbol": "GET /api/desktop/ready",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:82262cfc4a3316a0402c:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "desktop/server.py",
+      "line": 46,
+      "symbol": "POST /api/desktop/shutdown",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:ea0e184e39eb7e0b583f:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/app.py",
+      "line": 147,
+      "symbol": "GET /api/health",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:9d14c47044373f68d6e3:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/app.py",
+      "line": 163,
+      "symbol": "GET /{path:path}",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:a49ffe30539b21f4f320:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/routes/app.py",
+      "line": 40,
+      "symbol": "POST /api/app",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:1173c512fd559e69a7c7:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/routes/app.py",
+      "line": 55,
+      "symbol": "POST /api/app/confirm",
+      "service_calls": [
+        "request.app.state.store.append_message"
+      ]
+    },
+    {
+      "id": "http_route:0d0c7bbfcbf1321500a7:1",
+      "kind": "http_route",
+      "page": "Assistant",
+      "file": "src/xiliu/api/routes/capabilities.py",
+      "line": 9,
+      "symbol": "GET /api/commands",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:b9b090fb8da95c98301c:1",
+      "kind": "http_route",
+      "page": "Settings",
+      "file": "src/xiliu/api/routes/capabilities.py",
+      "line": 14,
+      "symbol": "GET /api/capabilities/skills",
+      "service_calls": [
+        "request.app.state.commands.skills"
+      ]
+    },
+    {
+      "id": "http_route:03434f2456c47192a30e:1",
+      "kind": "http_route",
+      "page": "Settings",
+      "file": "src/xiliu/api/routes/capabilities.py",
+      "line": 19,
+      "symbol": "GET /api/capabilities/mcp",
+      "service_calls": [
+        "request.app.state.commands.mcp"
+      ]
+    },
+    {
+      "id": "http_route:740cca64204fcd26b1b9:1",
+      "kind": "http_route",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/routes/content.py",
+      "line": 10,
+      "symbol": "GET /api/content",
+      "service_calls": [
+        "request.app.state.content.list"
+      ]
+    },
+    {
+      "id": "http_route:a0aa048ca965035fea84:1",
+      "kind": "http_route",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/routes/content.py",
+      "line": 15,
+      "symbol": "POST /api/content",
+      "service_calls": [
+        "request.app.state.content.create"
+      ]
+    },
+    {
+      "id": "http_route:58f335bdb1ff5fa5411e:1",
+      "kind": "http_route",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/routes/content.py",
+      "line": 20,
+      "symbol": "GET /api/content/{item_id}",
+      "service_calls": [
+        "request.app.state.content.get"
+      ]
+    },
+    {
+      "id": "http_route:7b8b90d976f200303ad5:1",
+      "kind": "http_route",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/routes/content.py",
+      "line": 25,
+      "symbol": "PATCH /api/content/{item_id}",
+      "service_calls": [
+        "request.app.state.content.update"
+      ]
+    },
+    {
+      "id": "http_route:4648d8e72eb28b99ed9f:1",
+      "kind": "http_route",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/routes/content.py",
+      "line": 30,
+      "symbol": "DELETE /api/content/{item_id}",
+      "service_calls": [
+        "request.app.state.content.delete"
+      ]
+    },
+    {
+      "id": "http_route:a6a85d431ba89e4c8c3a:1",
+      "kind": "http_route",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/routes/content.py",
+      "line": 36,
+      "symbol": "GET /api/content/{item_id}/original",
+      "service_calls": [
+        "service.get",
+        "service.original"
+      ]
+    },
+    {
+      "id": "http_route:2cd063f02a139e0e375e:1",
+      "kind": "http_route",
+      "page": "Assistant",
+      "file": "src/xiliu/api/routes/conversations.py",
+      "line": 15,
+      "symbol": "GET /api/conversations",
+      "service_calls": [
+        "request.app.state.store.list"
+      ]
+    },
+    {
+      "id": "http_route:a7bc9491cc7c4f24d9d6:1",
+      "kind": "http_route",
+      "page": "Assistant",
+      "file": "src/xiliu/api/routes/conversations.py",
+      "line": 20,
+      "symbol": "POST /api/conversations",
+      "service_calls": [
+        "request.app.state.store.create"
+      ]
+    },
+    {
+      "id": "http_route:e3561f5f06cfd523fe7c:1",
+      "kind": "http_route",
+      "page": "Assistant",
+      "file": "src/xiliu/api/routes/conversations.py",
+      "line": 25,
+      "symbol": "GET /api/conversations/{cid}",
+      "service_calls": [
+        "request.app.state.conversations.get"
+      ]
+    },
+    {
+      "id": "http_route:b7b071a0bbaec94ae3be:1",
+      "kind": "http_route",
+      "page": "Assistant",
+      "file": "src/xiliu/api/routes/conversations.py",
+      "line": 30,
+      "symbol": "PATCH /api/conversations/{cid}",
+      "service_calls": [
+        "request.app.state.chat.reserve",
+        "request.app.state.conversations.update"
+      ]
+    },
+    {
+      "id": "http_route:2958689cc7086ba8e540:1",
+      "kind": "http_route",
+      "page": "Assistant",
+      "file": "src/xiliu/api/routes/conversations.py",
+      "line": 36,
+      "symbol": "DELETE /api/conversations/{cid}",
+      "service_calls": [
+        "request.app.state.chat.reserve",
+        "request.app.state.store.delete"
+      ]
+    },
+    {
+      "id": "http_route:bc6550284762e36bc397:1",
+      "kind": "http_route",
+      "page": "Assistant",
+      "file": "src/xiliu/api/routes/conversations.py",
+      "line": 43,
+      "symbol": "GET /api/conversations/{cid}/messages",
+      "service_calls": [
+        "request.app.state.store.messages"
+      ]
+    },
+    {
+      "id": "http_route:7f4d3a0fe13dfd7329d9:1",
+      "kind": "http_route",
+      "page": "Assistant",
+      "file": "src/xiliu/api/routes/conversations.py",
+      "line": 48,
+      "symbol": "POST /api/conversations/{cid}/chat",
+      "service_calls": [
+        "request.app.state.chat.stream_turn",
+        "request.app.state.store.get"
+      ]
+    },
+    {
+      "id": "http_route:5a4d4f0dd69529d8fc1e:1",
+      "kind": "http_route",
+      "page": "Assistant",
+      "file": "src/xiliu/api/routes/conversations.py",
+      "line": 97,
+      "symbol": "POST /api/conversations/{cid}/stop",
+      "service_calls": [
+        "request.app.state.chat.cancel"
+      ]
+    },
+    {
+      "id": "http_route:cdeec4f96d1c3ddbcd25:1",
+      "kind": "http_route",
+      "page": "Feed",
+      "file": "src/xiliu/api/routes/feed.py",
+      "line": 26,
+      "symbol": "GET /api/feed",
+      "service_calls": [
+        "request.app.state.feed.list"
+      ]
+    },
+    {
+      "id": "http_route:cd80759263d38a187448:1",
+      "kind": "http_route",
+      "page": "Feed",
+      "file": "src/xiliu/api/routes/feed.py",
+      "line": 31,
+      "symbol": "POST /api/feed/refresh",
+      "service_calls": [
+        "request.app.state.feed.refresh"
+      ]
+    },
+    {
+      "id": "http_route:502079eccecfff3d84a6:1",
+      "kind": "http_route",
+      "page": "Feed",
+      "file": "src/xiliu/api/routes/feed.py",
+      "line": 36,
+      "symbol": "POST /api/feed/manual",
+      "service_calls": [
+        "request.app.state.feed.add_manual"
+      ]
+    },
+    {
+      "id": "http_route:529d432f57dc56366994:1",
+      "kind": "http_route",
+      "page": "Feed",
+      "file": "src/xiliu/api/routes/feed.py",
+      "line": 41,
+      "symbol": "PATCH /api/feed/manual/{item_id}",
+      "service_calls": [
+        "request.app.state.feed.update_manual"
+      ]
+    },
+    {
+      "id": "http_route:f3f0d490ece524022683:1",
+      "kind": "http_route",
+      "page": "Feed",
+      "file": "src/xiliu/api/routes/feed.py",
+      "line": 46,
+      "symbol": "DELETE /api/feed/manual/{item_id}",
+      "service_calls": [
+        "request.app.state.feed.remove_manual"
+      ]
+    },
+    {
+      "id": "http_route:493e6a752ae6caa4823a:1",
+      "kind": "http_route",
+      "page": "Feed",
+      "file": "src/xiliu/api/routes/feed.py",
+      "line": 51,
+      "symbol": "POST /api/feed/manual/{item_id}/restore",
+      "service_calls": [
+        "request.app.state.feed.restore_manual"
+      ]
+    },
+    {
+      "id": "http_route:dda206cc094a62889192:1",
+      "kind": "http_route",
+      "page": "Feed",
+      "file": "src/xiliu/api/routes/feed.py",
+      "line": 56,
+      "symbol": "POST /api/feed/{item_id}/hide",
+      "service_calls": [
+        "request.app.state.feed.hide_external"
+      ]
+    },
+    {
+      "id": "http_route:ae671a7cfc9283e80054:1",
+      "kind": "http_route",
+      "page": "Feed",
+      "file": "src/xiliu/api/routes/feed.py",
+      "line": 61,
+      "symbol": "POST /api/feed/{item_id}/unhide",
+      "service_calls": [
+        "request.app.state.feed.unhide_external"
+      ]
+    },
+    {
+      "id": "http_route:266ee88ff7794032353c:1",
+      "kind": "http_route",
+      "page": "Feed",
+      "file": "src/xiliu/api/routes/feed.py",
+      "line": 66,
+      "symbol": "POST /api/feed/{item_id}/save",
+      "service_calls": [
+        "request.app.state.feed.save"
+      ]
+    },
+    {
+      "id": "http_route:3b1cdb854bb00a097d48:1",
+      "kind": "http_route",
+      "page": "Inbox",
+      "file": "src/xiliu/api/routes/inbox.py",
+      "line": 18,
+      "symbol": "GET /api/inbox",
+      "service_calls": [
+        "request.app.state.content.list"
+      ]
+    },
+    {
+      "id": "http_route:ba39b24caf33a7400852:1",
+      "kind": "http_route",
+      "page": "Inbox",
+      "file": "src/xiliu/api/routes/inbox.py",
+      "line": 23,
+      "symbol": "POST /api/inbox/import",
+      "service_calls": [
+        "request.app.state.inbox.import_item"
+      ]
+    },
+    {
+      "id": "http_route:098ca21bf6061dd58d21:1",
+      "kind": "http_route",
+      "page": "Inbox",
+      "file": "src/xiliu/api/routes/inbox.py",
+      "line": 28,
+      "symbol": "POST /api/inbox/classify-batch",
+      "service_calls": [
+        "request.app.state.inbox.classify_batch"
+      ]
+    },
+    {
+      "id": "http_route:1af1b7ac938c83b9d14f:1",
+      "kind": "http_route",
+      "page": "Inbox",
+      "file": "src/xiliu/api/routes/inbox.py",
+      "line": 38,
+      "symbol": "POST /api/inbox/{item_id}/retry",
+      "service_calls": [
+        "request.app.state.inbox.retry"
+      ]
+    },
+    {
+      "id": "http_route:1a4fee35a78c3668b338:1",
+      "kind": "http_route",
+      "page": "Inbox",
+      "file": "src/xiliu/api/routes/inbox.py",
+      "line": 43,
+      "symbol": "GET /api/inbox/archive-jobs/{job_id}",
+      "service_calls": [
+        "request.app.state.inbox.get_archive_job"
+      ]
+    },
+    {
+      "id": "http_route:1a0b6cb5045c631efb83:1",
+      "kind": "http_route",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/routes/knowledge.py",
+      "line": 11,
+      "symbol": "GET /api/knowledge/folders",
+      "service_calls": [
+        "request.app.state.knowledge.list_folders"
+      ]
+    },
+    {
+      "id": "http_route:059779c84b9969f49c55:1",
+      "kind": "http_route",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/routes/knowledge.py",
+      "line": 16,
+      "symbol": "POST /api/knowledge/folders",
+      "service_calls": [
+        "request.app.state.knowledge.create_folder"
+      ]
+    },
+    {
+      "id": "http_route:b732576b2d554c7bb2fe:1",
+      "kind": "http_route",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/routes/knowledge.py",
+      "line": 21,
+      "symbol": "GET /api/knowledge/folders/{folder_id}",
+      "service_calls": [
+        "request.app.state.knowledge.get_folder"
+      ]
+    },
+    {
+      "id": "http_route:2949705af34a07bb15dd:1",
+      "kind": "http_route",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/routes/knowledge.py",
+      "line": 26,
+      "symbol": "PATCH /api/knowledge/folders/{folder_id}",
+      "service_calls": [
+        "request.app.state.knowledge.update_folder"
+      ]
+    },
+    {
+      "id": "http_route:a2f817e294ebb0f483ac:1",
+      "kind": "http_route",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/routes/knowledge.py",
+      "line": 31,
+      "symbol": "DELETE /api/knowledge/folders/{folder_id}",
+      "service_calls": [
+        "request.app.state.knowledge.delete_folder"
+      ]
+    },
+    {
+      "id": "http_route:4d191958d8f19ebf63b7:1",
+      "kind": "http_route",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/routes/knowledge.py",
+      "line": 37,
+      "symbol": "GET /api/knowledge/folders/{folder_id}/items",
+      "service_calls": [
+        "request.app.state.knowledge.folder_items"
+      ]
+    },
+    {
+      "id": "http_route:b4aa16582e66c38d7447:1",
+      "kind": "http_route",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/routes/knowledge.py",
+      "line": 42,
+      "symbol": "GET /api/knowledge/search",
+      "service_calls": [
+        "request.app.state.retrieval.search"
+      ]
+    },
+    {
+      "id": "http_route:076dfe38ef16d206a810:1",
+      "kind": "http_route",
+      "page": "Settings",
+      "file": "src/xiliu/api/routes/models.py",
+      "line": 10,
+      "symbol": "GET /api/models/catalog",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:b4e59d7c3a0191f92d02:1",
+      "kind": "http_route",
+      "page": "Settings",
+      "file": "src/xiliu/api/routes/models.py",
+      "line": 15,
+      "symbol": "GET /api/settings/model",
+      "service_calls": [
+        "request.app.state.model_settings.read"
+      ]
+    },
+    {
+      "id": "http_route:8c8f0b25e5e0780e6ad1:1",
+      "kind": "http_route",
+      "page": "Settings",
+      "file": "src/xiliu/api/routes/models.py",
+      "line": 20,
+      "symbol": "PUT /api/settings/model",
+      "service_calls": [
+        "request.app.state.model_settings.update"
+      ]
+    },
+    {
+      "id": "http_route:b84f8b806b15c6e1f511:1",
+      "kind": "http_route",
+      "page": "Settings",
+      "file": "src/xiliu/api/routes/preferences.py",
+      "line": 19,
+      "symbol": "GET /api/settings/preferences",
+      "service_calls": [
+        "request.app.state.preferences.get"
+      ]
+    },
+    {
+      "id": "http_route:2db6ac4cf008137de9b3:1",
+      "kind": "http_route",
+      "page": "Settings",
+      "file": "src/xiliu/api/routes/preferences.py",
+      "line": 24,
+      "symbol": "PUT /api/settings/preferences",
+      "service_calls": [
+        "request.app.state.preferences.update"
+      ]
+    },
+    {
+      "id": "http_route:001d86571e3dc8010b2f:1",
+      "kind": "http_route",
+      "page": "Settings",
+      "file": "src/xiliu/api/routes/preferences.py",
+      "line": 29,
+      "symbol": "POST /api/settings/preferences/reset",
+      "service_calls": [
+        "request.app.state.preferences.reset"
+      ]
+    },
+    {
+      "id": "http_route:9e23c3ebcff61ea11538:1",
+      "kind": "http_route",
+      "page": "Today",
+      "file": "src/xiliu/api/routes/workspace.py",
+      "line": 38,
+      "symbol": "GET /api/tasks",
+      "service_calls": [
+        "request.app.state.tasks.list"
+      ]
+    },
+    {
+      "id": "http_route:f50c28b1f7be2d0afaaa:1",
+      "kind": "http_route",
+      "page": "Today",
+      "file": "src/xiliu/api/routes/workspace.py",
+      "line": 43,
+      "symbol": "POST /api/tasks",
+      "service_calls": [
+        "request.app.state.tasks.create"
+      ]
+    },
+    {
+      "id": "http_route:22875cea372d850b83da:1",
+      "kind": "http_route",
+      "page": "Today",
+      "file": "src/xiliu/api/routes/workspace.py",
+      "line": 48,
+      "symbol": "PATCH /api/tasks/{task_id}",
+      "service_calls": [
+        "request.app.state.tasks.update"
+      ]
+    },
+    {
+      "id": "http_route:bfeb8633f5c24321bb9b:1",
+      "kind": "http_route",
+      "page": "Today",
+      "file": "src/xiliu/api/routes/workspace.py",
+      "line": 53,
+      "symbol": "DELETE /api/tasks/{task_id}",
+      "service_calls": [
+        "request.app.state.tasks.delete"
+      ]
+    },
+    {
+      "id": "http_route:ab4f4c3705f208ef78c1:1",
+      "kind": "http_route",
+      "page": "Automations",
+      "file": "src/xiliu/api/routes/workspace.py",
+      "line": 59,
+      "symbol": "GET /api/automations",
+      "service_calls": [
+        "request.app.state.automations.list"
+      ]
+    },
+    {
+      "id": "http_route:b7619fc897f061e2ec08:1",
+      "kind": "http_route",
+      "page": "Automations",
+      "file": "src/xiliu/api/routes/workspace.py",
+      "line": 64,
+      "symbol": "POST /api/automations",
+      "service_calls": [
+        "request.app.state.automations.create"
+      ]
+    },
+    {
+      "id": "http_route:da0e8e977c9c0d91139f:1",
+      "kind": "http_route",
+      "page": "Automations",
+      "file": "src/xiliu/api/routes/workspace.py",
+      "line": 69,
+      "symbol": "PATCH /api/automations/{task_id}",
+      "service_calls": [
+        "request.app.state.automations.toggle"
+      ]
+    },
+    {
+      "id": "http_route:99693d36e4050678712a:1",
+      "kind": "http_route",
+      "page": "Automations",
+      "file": "src/xiliu/api/routes/workspace.py",
+      "line": 74,
+      "symbol": "DELETE /api/automations/{task_id}",
+      "service_calls": [
+        "request.app.state.automations.delete"
+      ]
+    },
+    {
+      "id": "http_route:0cba6348cda41cb5c397:1",
+      "kind": "http_route",
+      "page": "Automations",
+      "file": "src/xiliu/api/routes/workspace.py",
+      "line": 80,
+      "symbol": "GET /api/automations/{task_id}/runs",
+      "service_calls": [
+        "request.app.state.automations.runs"
+      ]
+    },
+    {
+      "id": "http_route:2ece08b4fc1008a77a5f:1",
+      "kind": "http_route",
+      "page": "Today",
+      "file": "src/xiliu/api/routes/workspace.py",
+      "line": 85,
+      "symbol": "GET /api/today",
+      "service_calls": [
+        "state.content.list",
+        "state.feed.list",
+        "state.tasks.list"
+      ]
+    },
+    {
+      "id": "http_route:986fefe39e343291182a:1",
+      "kind": "http_route",
+      "page": "Settings",
+      "file": "src/xiliu/api/routes/workspace.py",
+      "line": 95,
+      "symbol": "GET /api/settings/data",
+      "service_calls": [
+        "state.content.list",
+        "state.store.path.parent.resolve",
+        "state.store.path.resolve"
+      ]
+    },
+    {
+      "id": "service_method:8372570736676b94d0dd:1",
+      "kind": "service_method",
+      "page": "Automations",
+      "file": "src/xiliu/api/services/automations.py",
+      "line": 39,
+      "symbol": "AutomationService.list"
+    },
+    {
+      "id": "service_method:020bf68d094f7349ee2d:1",
+      "kind": "service_method",
+      "page": "Automations",
+      "file": "src/xiliu/api/services/automations.py",
+      "line": 48,
+      "symbol": "AutomationService.create"
+    },
+    {
+      "id": "service_method:1ad8d3f20d49c94977ca:1",
+      "kind": "service_method",
+      "page": "Automations",
+      "file": "src/xiliu/api/services/automations.py",
+      "line": 68,
+      "symbol": "AutomationService.toggle"
+    },
+    {
+      "id": "service_method:a32bd58fabe2f0219e58:1",
+      "kind": "service_method",
+      "page": "Automations",
+      "file": "src/xiliu/api/services/automations.py",
+      "line": 76,
+      "symbol": "AutomationService.delete"
+    },
+    {
+      "id": "service_method:0e6a052401673c1ea84c:1",
+      "kind": "service_method",
+      "page": "Automations",
+      "file": "src/xiliu/api/services/automations.py",
+      "line": 81,
+      "symbol": "AutomationService.runs"
+    },
+    {
+      "id": "service_method:14e0e2e26ecb3d79277b:1",
+      "kind": "service_method",
+      "page": "Automations",
+      "file": "src/xiliu/api/services/automations.py",
+      "line": 101,
+      "symbol": "AutomationService.start"
+    },
+    {
+      "id": "service_method:d0af564421e82f326a8e:1",
+      "kind": "service_method",
+      "page": "Automations",
+      "file": "src/xiliu/api/services/automations.py",
+      "line": 124,
+      "symbol": "AutomationService.sync"
+    },
+    {
+      "id": "service_method:e81faf177a6cb47efb49:1",
+      "kind": "service_method",
+      "page": "Automations",
+      "file": "src/xiliu/api/services/automations.py",
+      "line": 151,
+      "symbol": "AutomationService.shutdown"
+    },
+    {
+      "id": "service_method:a679493be935e7132633:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/services/chat.py",
+      "line": 36,
+      "symbol": "ChatService.reserve"
+    },
+    {
+      "id": "service_method:f12a853a44dde3d8c24a:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/services/chat.py",
+      "line": 47,
+      "symbol": "ChatService.cancel"
+    },
+    {
+      "id": "service_method:21c6b088c3c318935d25:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/services/chat.py",
+      "line": 55,
+      "symbol": "ChatService.stream_turn"
+    },
+    {
+      "id": "service_method:73fcb8a47bcfd3460e1d:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/services/commands.py",
+      "line": 39,
+      "symbol": "CommandService.skills"
+    },
+    {
+      "id": "service_method:e681ae73f0a2394be43e:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/services/commands.py",
+      "line": 48,
+      "symbol": "CommandService.mcp"
+    },
+    {
+      "id": "service_method:f211c33e6d141c21b2aa:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/services/commands.py",
+      "line": 61,
+      "symbol": "CommandService.resolve"
+    },
+    {
+      "id": "service_method:3374da4ed8181121d58b:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/services/commands.py",
+      "line": 115,
+      "symbol": "CommandService.compress"
+    },
+    {
+      "id": "service_method:feb03bebab3524567384:1",
+      "kind": "service_method",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/services/content.py",
+      "line": 276,
+      "symbol": "ContentService.create"
+    },
+    {
+      "id": "service_method:e9ec028aa3e2617a08cb:1",
+      "kind": "service_method",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/services/content.py",
+      "line": 367,
+      "symbol": "ContentService.list"
+    },
+    {
+      "id": "service_method:c37262cdfe331eb3b6b7:1",
+      "kind": "service_method",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/services/content.py",
+      "line": 409,
+      "symbol": "ContentService.get"
+    },
+    {
+      "id": "service_method:cc22f7bf8e37411988a8:1",
+      "kind": "service_method",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/services/content.py",
+      "line": 413,
+      "symbol": "ContentService.update"
+    },
+    {
+      "id": "service_method:5a3b11f14f1953e07a9e:1",
+      "kind": "service_method",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/services/content.py",
+      "line": 490,
+      "symbol": "ContentService.delete"
+    },
+    {
+      "id": "service_method:d09c6a1a17d86fb388e6:1",
+      "kind": "service_method",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/services/content.py",
+      "line": 527,
+      "symbol": "ContentService.original"
+    },
+    {
+      "id": "service_method:0117c07b64b44eb20cfb:1",
+      "kind": "service_method",
+      "page": "Inbox / shared content",
+      "file": "src/xiliu/api/services/content.py",
+      "line": 536,
+      "symbol": "ContentService.rebuild_index"
+    },
+    {
+      "id": "service_method:a34b2ff422dcf2035d28:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/services/conversations.py",
+      "line": 17,
+      "symbol": "ConversationService.get"
+    },
+    {
+      "id": "service_method:e3077e418de34654cfd7:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/services/conversations.py",
+      "line": 32,
+      "symbol": "ConversationService.update"
+    },
+    {
+      "id": "service_method:d8b3625845ce341fcc90:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/services/conversations.py",
+      "line": 41,
+      "symbol": "ConversationService.active_messages"
+    },
+    {
+      "id": "service_method:f4fd5d6fce9e9ba68fe5:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/services/conversations.py",
+      "line": 52,
+      "symbol": "ConversationService.build_context"
+    },
+    {
+      "id": "service_method:a0326ce5f7a04ff85477:1",
+      "kind": "service_method",
+      "page": "Feed",
+      "file": "src/xiliu/api/services/feed.py",
+      "line": 229,
+      "symbol": "FeedService.list"
+    },
+    {
+      "id": "service_method:03a5709f014c1f463ccf:1",
+      "kind": "service_method",
+      "page": "Feed",
+      "file": "src/xiliu/api/services/feed.py",
+      "line": 411,
+      "symbol": "FeedService.add_manual"
+    },
+    {
+      "id": "service_method:37e64660a986798ede12:1",
+      "kind": "service_method",
+      "page": "Feed",
+      "file": "src/xiliu/api/services/feed.py",
+      "line": 453,
+      "symbol": "FeedService.update_manual"
+    },
+    {
+      "id": "service_method:848db3940cc72db60503:1",
+      "kind": "service_method",
+      "page": "Feed",
+      "file": "src/xiliu/api/services/feed.py",
+      "line": 499,
+      "symbol": "FeedService.remove_manual"
+    },
+    {
+      "id": "service_method:0e2b053a6fdd779fc162:1",
+      "kind": "service_method",
+      "page": "Feed",
+      "file": "src/xiliu/api/services/feed.py",
+      "line": 502,
+      "symbol": "FeedService.restore_manual"
+    },
+    {
+      "id": "service_method:e47ff6fc34a5b55ee549:1",
+      "kind": "service_method",
+      "page": "Feed",
+      "file": "src/xiliu/api/services/feed.py",
+      "line": 516,
+      "symbol": "FeedService.hide_external"
+    },
+    {
+      "id": "service_method:f00509441d8f06b324fe:1",
+      "kind": "service_method",
+      "page": "Feed",
+      "file": "src/xiliu/api/services/feed.py",
+      "line": 519,
+      "symbol": "FeedService.unhide_external"
+    },
+    {
+      "id": "service_method:a88c08bc0ee240f6f6a4:1",
+      "kind": "service_method",
+      "page": "Feed",
+      "file": "src/xiliu/api/services/feed.py",
+      "line": 635,
+      "symbol": "FeedService.refresh"
+    },
+    {
+      "id": "service_method:a7154565f9b69153b86d:1",
+      "kind": "service_method",
+      "page": "Feed",
+      "file": "src/xiliu/api/services/feed.py",
+      "line": 660,
+      "symbol": "FeedService.save"
+    },
+    {
+      "id": "service_method:6c1b3d44b851dd54997b:1",
+      "kind": "service_method",
+      "page": "Inbox",
+      "file": "src/xiliu/api/services/inbox.py",
+      "line": 155,
+      "symbol": "InboxService.get_archive_job"
+    },
+    {
+      "id": "service_method:b14b3055650da7318fca:1",
+      "kind": "service_method",
+      "page": "Inbox",
+      "file": "src/xiliu/api/services/inbox.py",
+      "line": 209,
+      "symbol": "InboxService.queue_archive_batch"
+    },
+    {
+      "id": "service_method:37853426077eb80bbb6b:1",
+      "kind": "service_method",
+      "page": "Inbox",
+      "file": "src/xiliu/api/services/inbox.py",
+      "line": 282,
+      "symbol": "InboxService.queue_archive"
+    },
+    {
+      "id": "service_method:1987129ff5f7f12a61e1:1",
+      "kind": "service_method",
+      "page": "Inbox",
+      "file": "src/xiliu/api/services/inbox.py",
+      "line": 396,
+      "symbol": "InboxService.start"
+    },
+    {
+      "id": "service_method:64d2da30e64044962adb:1",
+      "kind": "service_method",
+      "page": "Inbox",
+      "file": "src/xiliu/api/services/inbox.py",
+      "line": 404,
+      "symbol": "InboxService.shutdown"
+    },
+    {
+      "id": "service_method:ea5b0a31e4b2a7ade37f:1",
+      "kind": "service_method",
+      "page": "Inbox",
+      "file": "src/xiliu/api/services/inbox.py",
+      "line": 433,
+      "symbol": "InboxService.import_item"
+    },
+    {
+      "id": "service_method:e459109793bed6f5f98b:1",
+      "kind": "service_method",
+      "page": "Inbox",
+      "file": "src/xiliu/api/services/inbox.py",
+      "line": 496,
+      "symbol": "InboxService.retry"
+    },
+    {
+      "id": "service_method:67eb30612038e74a9515:1",
+      "kind": "service_method",
+      "page": "Inbox",
+      "file": "src/xiliu/api/services/inbox.py",
+      "line": 663,
+      "symbol": "InboxService.wait_for_metadata"
+    },
+    {
+      "id": "service_method:cad71b74f1a1b41f0875:1",
+      "kind": "service_method",
+      "page": "Inbox",
+      "file": "src/xiliu/api/services/inbox.py",
+      "line": 681,
+      "symbol": "InboxService.classify_batch"
+    },
+    {
+      "id": "service_method:954bf666203d7da1c9bc:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/services/knowledge.py",
+      "line": 74,
+      "symbol": "KnowledgeService.list_folders"
+    },
+    {
+      "id": "service_method:6fc8b868477595540ca1:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/services/knowledge.py",
+      "line": 78,
+      "symbol": "KnowledgeService.get_folder"
+    },
+    {
+      "id": "service_method:5e1ab2d9b0e00c3bd966:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/services/knowledge.py",
+      "line": 126,
+      "symbol": "KnowledgeService.ensure_folder"
+    },
+    {
+      "id": "service_method:81d009b97e21153cbccc:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/services/knowledge.py",
+      "line": 145,
+      "symbol": "KnowledgeService.create_folder"
+    },
+    {
+      "id": "service_method:a31326d37fd0ba4f995b:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/services/knowledge.py",
+      "line": 160,
+      "symbol": "KnowledgeService.update_folder"
+    },
+    {
+      "id": "service_method:6b19472aa6c3f893087c:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/services/knowledge.py",
+      "line": 173,
+      "symbol": "KnowledgeService.delete_folder"
+    },
+    {
+      "id": "service_method:0793617e04a1aa69164a:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/services/knowledge.py",
+      "line": 210,
+      "symbol": "KnowledgeService.folder_items"
+    },
+    {
+      "id": "service_method:5fa038dadcd6ea53ab42:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/services/knowledge.py",
+      "line": 220,
+      "symbol": "KnowledgeService.classify"
+    },
+    {
+      "id": "service_method:33add0b911ea4a3dd484:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/services/knowledge.py",
+      "line": 232,
+      "symbol": "KnowledgeService.fallback_tags"
+    },
+    {
+      "id": "service_method:b83310cc2bfb486d306c:1",
+      "kind": "service_method",
+      "page": "Settings",
+      "file": "src/xiliu/api/services/model_settings.py",
+      "line": 23,
+      "symbol": "ModelSettingsService.values"
+    },
+    {
+      "id": "service_method:bcc82372d3e9ccb0f040:1",
+      "kind": "service_method",
+      "page": "Settings",
+      "file": "src/xiliu/api/services/model_settings.py",
+      "line": 56,
+      "symbol": "ModelSettingsService.read"
+    },
+    {
+      "id": "service_method:e9c79399f7fc11a08ab6:1",
+      "kind": "service_method",
+      "page": "Settings",
+      "file": "src/xiliu/api/services/model_settings.py",
+      "line": 63,
+      "symbol": "ModelSettingsService.update"
+    },
+    {
+      "id": "service_method:49f824ad67ffd6b8ac0e:1",
+      "kind": "service_method",
+      "page": "Settings",
+      "file": "src/xiliu/api/services/model_settings.py",
+      "line": 90,
+      "symbol": "ModelSettingsService.runtime_settings"
+    },
+    {
+      "id": "service_method:c9028269ff404f1727c5:1",
+      "kind": "service_method",
+      "page": "Settings",
+      "file": "src/xiliu/api/services/preferences.py",
+      "line": 100,
+      "symbol": "PreferencesService.get"
+    },
+    {
+      "id": "service_method:25ad85b0b268f04484a8:1",
+      "kind": "service_method",
+      "page": "Settings",
+      "file": "src/xiliu/api/services/preferences.py",
+      "line": 104,
+      "symbol": "PreferencesService.update"
+    },
+    {
+      "id": "service_method:23c7845f713c87d89a4f:1",
+      "kind": "service_method",
+      "page": "Settings",
+      "file": "src/xiliu/api/services/preferences.py",
+      "line": 130,
+      "symbol": "PreferencesService.reset"
+    },
+    {
+      "id": "service_method:a0b81253f95e5b9b6d51:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/api/services/retrieval.py",
+      "line": 142,
+      "symbol": "RetrievalService.search"
+    },
+    {
+      "id": "service_method:9a4e7dffee0cd99332a1:1",
+      "kind": "service_method",
+      "page": "Today",
+      "file": "src/xiliu/api/services/tasks.py",
+      "line": 52,
+      "symbol": "TaskService.list"
+    },
+    {
+      "id": "service_method:172fe2654312a5b5d226:1",
+      "kind": "service_method",
+      "page": "Today",
+      "file": "src/xiliu/api/services/tasks.py",
+      "line": 57,
+      "symbol": "TaskService.create"
+    },
+    {
+      "id": "service_method:7e60b597f1558b33cbf5:1",
+      "kind": "service_method",
+      "page": "Today",
+      "file": "src/xiliu/api/services/tasks.py",
+      "line": 76,
+      "symbol": "TaskService.update"
+    },
+    {
+      "id": "service_method:df1d99e77c0931e3300a:1",
+      "kind": "service_method",
+      "page": "Today",
+      "file": "src/xiliu/api/services/tasks.py",
+      "line": 89,
+      "symbol": "TaskService.delete"
+    },
+    {
+      "id": "service_method:769e72c62441a8604fd2:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/store.py",
+      "line": 46,
+      "symbol": "AppStore.connect"
+    },
+    {
+      "id": "service_method:52e2da6e328de9f14584:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/store.py",
+      "line": 68,
+      "symbol": "AppStore.create"
+    },
+    {
+      "id": "service_method:7b47a2496a57d6e35774:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/store.py",
+      "line": 77,
+      "symbol": "AppStore.list"
+    },
+    {
+      "id": "service_method:8d2514eecef7b6b7141a:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/store.py",
+      "line": 84,
+      "symbol": "AppStore.get"
+    },
+    {
+      "id": "service_method:b1d16adc08b64f8eabe6:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/store.py",
+      "line": 88,
+      "symbol": "AppStore.update"
+    },
+    {
+      "id": "service_method:337d0e5ea846afe54ce2:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/store.py",
+      "line": 103,
+      "symbol": "AppStore.delete"
+    },
+    {
+      "id": "service_method:507c31071626d82202b1:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/store.py",
+      "line": 108,
+      "symbol": "AppStore.messages"
+    },
+    {
+      "id": "service_method:f0f477ff0f42bb4d29b6:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/store.py",
+      "line": 118,
+      "symbol": "AppStore.append_message"
+    },
+    {
+      "id": "service_method:c02313963b37f753faef:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/store.py",
+      "line": 152,
+      "symbol": "AppStore.clear_context"
+    },
+    {
+      "id": "service_method:1549a0b83473d6be13a2:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/store.py",
+      "line": 165,
+      "symbol": "AppStore.clear_messages"
+    },
+    {
+      "id": "service_method:343f36cbf47916475305:1",
+      "kind": "service_method",
+      "page": "Assistant",
+      "file": "src/xiliu/api/store.py",
+      "line": 176,
+      "symbol": "AppStore.save_summary"
+    },
+    {
+      "id": "service_method:915d6aebaea9c466c9b4:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/rag/service.py",
+      "line": 21,
+      "symbol": "RAGService.get_document"
+    },
+    {
+      "id": "service_method:9829a3b92245ebec9c88:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/rag/service.py",
+      "line": 32,
+      "symbol": "RAGService.search"
+    },
+    {
+      "id": "service_method:a029c509310dc78de49d:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/rag/service.py",
+      "line": 100,
+      "symbol": "RAGService.index_document"
+    },
+    {
+      "id": "service_method:1abd6f6ca06829f79cdd:1",
+      "kind": "service_method",
+      "page": "Knowledge",
+      "file": "src/xiliu/rag/service.py",
+      "line": 103,
+      "symbol": "RAGService.delete_document"
+    },
+    {
+      "id": "base_tool:b0bbe06ce19700c51772:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/app.py",
+      "line": 24,
+      "symbol": "AppTool",
+      "tool_names": [
+        "app"
+      ]
+    },
+    {
+      "id": "base_tool:0e7535338c9cd3856769:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/calculator.py",
+      "line": 70,
+      "symbol": "calculator",
+      "tool_names": [
+        "calculator"
+      ]
+    },
+    {
+      "id": "base_tool:52ec1687e237f2483b9f:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/command.py",
+      "line": 44,
+      "symbol": "CommandTool",
+      "tool_names": [
+        "command"
+      ]
+    },
+    {
+      "id": "base_tool:f0458c629d6248ea7db0:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/current_time.py",
+      "line": 27,
+      "symbol": "current_time",
+      "tool_names": [
+        "current_time"
+      ]
+    },
+    {
+      "id": "base_tool:318d1b91521b3e3f7ffc:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/delegate_analysis.py",
+      "line": 19,
+      "symbol": "delegate_analysis",
+      "tool_names": [
+        "delegate_analysis"
+      ]
+    },
+    {
+      "id": "base_tool:12956ce8bcad33c1762c:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/file_edit.py",
+      "line": 27,
+      "symbol": "FileEditTool",
+      "tool_names": [
+        "file_edit"
+      ]
+    },
+    {
+      "id": "base_tool:937b1f3b1d4553ec3768:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/file_read.py",
+      "line": 19,
+      "symbol": "FileReadTool",
+      "tool_names": [
+        "file_read"
+      ]
+    },
+    {
+      "id": "base_tool:236adce03c5cd669c629:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/file_write.py",
+      "line": 24,
+      "symbol": "FileWriteTool",
+      "tool_names": [
+        "file_write"
+      ]
+    },
+    {
+      "id": "base_tool:dd54039387c476e2a1f9:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/grep.py",
+      "line": 47,
+      "symbol": "GrepTool",
+      "tool_names": [
+        "grep"
+      ]
+    },
+    {
+      "id": "base_tool:7647e9c3283806904825:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/notepad.py",
+      "line": 58,
+      "symbol": "NotepadReadTool",
+      "tool_names": [
+        "notepad_read"
+      ]
+    },
+    {
+      "id": "base_tool:6042cf28353f501c111a:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/notepad.py",
+      "line": 74,
+      "symbol": "NotepadAppendTool",
+      "tool_names": [
+        "notepad_append"
+      ]
+    },
+    {
+      "id": "base_tool:d40cd812d7146ceb0f25:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/preferences.py",
+      "line": 140,
+      "symbol": "PreferenceWriteTool",
+      "tool_names": [
+        "preference_write"
+      ]
+    },
+    {
+      "id": "base_tool:09e9554a85e410ce2dd9:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/subagent_tools.py",
+      "line": 95,
+      "symbol": "CallSearchAgentTool",
+      "tool_names": [
+        "call_search_agent"
+      ]
+    },
+    {
+      "id": "base_tool:f57b5203dcedde2cf5a2:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/subagent_tools.py",
+      "line": 108,
+      "symbol": "CallCodeAgentTool",
+      "tool_names": [
+        "call_code_agent"
+      ]
+    },
+    {
+      "id": "base_tool:002b523e0e9b3e224a83:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/todo.py",
+      "line": 194,
+      "symbol": "TodoWriteTool",
+      "tool_names": [
+        "todo_write"
+      ]
+    },
+    {
+      "id": "base_tool:f7b59922387fc03a869c:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/todo.py",
+      "line": 208,
+      "symbol": "TodoUpdateTool",
+      "tool_names": [
+        "todo_update"
+      ]
+    },
+    {
+      "id": "base_tool:0afdadcabbb9642eba17:1",
+      "kind": "base_tool",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/tools/web_search_tool.py",
+      "line": 29,
+      "symbol": "WebSearchTool",
+      "tool_names": [
+        "web_search"
+      ]
+    },
+    {
+      "id": "ui_event:87473881123a0098094d:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 107,
+      "symbol": "onChange={setSidebarWidth}"
+    },
+    {
+      "id": "ui_link:392181d0b4b499a80c9d:1",
+      "kind": "ui_link",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 110,
+      "symbol": "<NavLink className=\"brand\" to=\"/assistant\" aria-label=\"xiliu Assistant\">"
+    },
+    {
+      "id": "ui_button:98e4d256bc5976ebd252:1",
+      "kind": "ui_button",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 116,
+      "symbol": "<button className=\"icon-button sidebar-toggle\" aria-label={collapsed ? '展开侧栏' : '折叠侧栏'} aria-expanded={!collapsed} aria-controls=\"main-navigation\" onClick={() => { setCollapsed(!collapsed) try { localStorage.setItem('xiliu-sidebar-collapsed', String(!collapsed)) void persistDesktopSidebar(!collapsed).catch(() => { /* Browser storage still preserves this window's selection. */ }) } catch { /* Storage may be unavailable. */ } }} > {collapsed ? <PanelLeftOpen size={20} /> : <PanelLeftClose size={20} />} </button> <nav aria-label=\"主导航\" id=\"main-navigation\"> {navigation.map(({ path, label, icon: Icon }) => ( <NavLink key={path} to={path} aria-label={label} title={collapsed ? label : undefined} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} > <Icon size={21} /> <span>{label}</span> </NavLink> ))} </nav> <div className=\"sidebar-bottom\"> <NavLink className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} to=\"/settings\" state={{ backgroundLocation: isSettings ? backgroundUrl : location }} aria-label=\"Settings\" title={collapsed ? 'Settings' : undefined} > <Settings size={20} /> <span>Settings</span> </NavLink> <div className=\"local-label\"> <Sparkles size={13} /> <span>属于你的信息空间</span> <span className=\"version\">v0.3</span> </div> </div> </aside> <main className=\"main-stage\" inert={isSettings || undefined}> <Routes location={displayed}> <Route path=\"/assistant\" element={<AssistantPage />} /> <Route path=\"/today\" element={<TodayPage />} /> <Route path=\"/feed\" element={<FeedPage />} /> <Route path=\"/inbox\" element={<ContentPage key=\"inbox\" status=\"inbox\" />} /> <Route path=\"/knowledge\" element={<KnowledgePage />} /> <Route path=\"*\" element={<Navigate to=\"/assistant\" replace />} /> </Routes> </main> {isSettings && ( <Modal title=\"设置\" onClose={closeSettings} className=\"settings-dialog\"> <SettingsPage embedded /> </Modal> )} </div> )} </div> ) }"
+    },
+    {
+      "id": "ui_event:a30248251fa946ca4fd0:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 121,
+      "symbol": "onClick={() => { setCollapsed(!collapsed) try { localStorage.setItem('xiliu-sidebar-collapsed', String(!collapsed)) void persistDesktopSidebar(!collapsed).catch(() => { /* Browser storage still preserves this window's selection. */ }) } catch { /* Storage may be unavailable. */ } }} > {collapsed ? <PanelLeftOpen size={20} /> : <PanelLeftClose size={20} />} </button> <nav aria-label=\"主导航\" id=\"main-navigation\"> {navigation.map(({ path, label, icon: Icon }) => ( <NavLink key={path} to={path} aria-label={label} title={collapsed ? label : undefined} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} > <Icon size={21} /> <span>{label}</span> </NavLink> ))} </nav> <div className=\"sidebar-bottom\"> <NavLink className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} to=\"/settings\" state={{ backgroundLocation: isSettings ? backgroundUrl : location }} aria-label=\"Settings\" title={collapsed ? 'Settings' : undefined} > <Settings size={20} /> <span>Settings</span> </NavLink> <div className=\"local-label\"> <Sparkles size={13} /> <span>属于你的信息空间</span> <span className=\"version\">v0.3</span> </div> </div> </aside> <main className=\"main-stage\" inert={isSettings || undefined}> <Routes location={displayed}> <Route path=\"/assistant\" element={<AssistantPage />} /> <Route path=\"/today\" element={<TodayPage />} /> <Route path=\"/feed\" element={<FeedPage />} /> <Route path=\"/inbox\" element={<ContentPage key=\"inbox\" status=\"inbox\" />} /> <Route path=\"/knowledge\" element={<KnowledgePage />} /> <Route path=\"*\" element={<Navigate to=\"/assistant\" replace />} /> </Routes> </main> {isSettings && ( <Modal title=\"设置\" onClose={closeSettings} className=\"settings-dialog\"> <SettingsPage embedded /> </Modal> )} </div> )} </div> ) }"
+    },
+    {
+      "id": "ui_link:8bc3d7d5fd9631eb94cc:1",
+      "kind": "ui_link",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 137,
+      "symbol": "<NavLink key={path} to={path} aria-label={label} title={collapsed ? label : undefined} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} >"
+    },
+    {
+      "id": "ui_link:9dd215e4a79601937801:1",
+      "kind": "ui_link",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 150,
+      "symbol": "<NavLink className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} to=\"/settings\" state={{ backgroundLocation: isSettings ? backgroundUrl : location }} aria-label=\"Settings\" title={collapsed ? 'Settings' : undefined} >"
+    },
+    {
+      "id": "ui_event:d2762e3e1c8c292323bd:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 178,
+      "symbol": "onClose={closeSettings}"
+    },
+    {
+      "id": "ui_button:d3ece91cb481e0215049:1",
+      "kind": "ui_button",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/GlideSelect.tsx",
+      "line": 177,
+      "symbol": "<button type=\"button\" ref={trigger} className={`glide-select glide-${size}`} style={style} role=\"combobox\" aria-label={ariaLabel} aria-haspopup=\"listbox\" aria-expanded={visible} aria-controls={visible ? id : undefined} disabled={disabled || !options.length} onClick={() => (visible ? close() : show())} onKeyDown={keyboard} >"
+    },
+    {
+      "id": "ui_event:438aa9de526742afac29:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/GlideSelect.tsx",
+      "line": 188,
+      "symbol": "onClick={() => (visible ? close() : show())}"
+    },
+    {
+      "id": "ui_event:a68f92fe8a1bc7616a86:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/GlideSelect.tsx",
+      "line": 189,
+      "symbol": "onKeyDown={keyboard}"
+    },
+    {
+      "id": "ui_event:a68f92fe8a1bc7616a86:2",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/GlideSelect.tsx",
+      "line": 204,
+      "symbol": "onKeyDown={keyboard}"
+    },
+    {
+      "id": "ui_event:88b2caf90ec473ca395f:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/GlideSelect.tsx",
+      "line": 221,
+      "symbol": "onPointerMove={() => setActive(index)}"
+    },
+    {
+      "id": "ui_event:a1a482e2a4258cf4d639:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/GlideSelect.tsx",
+      "line": 222,
+      "symbol": "onClick={() => choose(index)}"
+    },
+    {
+      "id": "ui_event:63bfec6f67265ab7ef9d:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/Modal.tsx",
+      "line": 57,
+      "symbol": "onClick={(event) => { if (event.target === event.currentTarget) onClose() }}"
+    },
+    {
+      "id": "ui_button:8d084f21f703dc7a8c12:1",
+      "kind": "ui_button",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/Modal.tsx",
+      "line": 71,
+      "symbol": "<button className=\"icon-button\" aria-label={`关闭${title}`} onClick={onClose}>"
+    },
+    {
+      "id": "ui_event:01361f2b6a3f9f62862a:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/Modal.tsx",
+      "line": 71,
+      "symbol": "onClick={onClose}"
+    },
+    {
+      "id": "ui_event:96f663b2d6fdc5a02d1e:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/PillNav.tsx",
+      "line": 19,
+      "symbol": "onClickCapture={(event) => { const anchor = (event.target as HTMLElement).closest('a') if (anchor?.getAttribute('href') === '/settings') { event.preventDefault() navigate('/settings', { state: { backgroundLocation: location } }) } }}"
+    },
+    {
+      "id": "ui_event:b8299ec6365db078f5f3:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/ResizeHandle.tsx",
+      "line": 30,
+      "symbol": "onPointerDown={(event) => { event.preventDefault() event.currentTarget.setPointerCapture(event.pointerId) start.current = { coordinate: vertical ? event.clientY : event.clientX, value } }}"
+    },
+    {
+      "id": "ui_event:f2303ddd770d2bf5f74f:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/ResizeHandle.tsx",
+      "line": 35,
+      "symbol": "onPointerMove={(event) => { if (!start.current) return const delta = (vertical ? event.clientY : event.clientX) - start.current.coordinate change(start.current.value + delta * (vertical ? -1 : 1)) }}"
+    },
+    {
+      "id": "ui_event:898d7f3589213fd68e1e:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/ResizeHandle.tsx",
+      "line": 40,
+      "symbol": "onPointerUp={() => { start.current = null }}"
+    },
+    {
+      "id": "ui_event:f38f3fe9b8e2c6a331b0:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/ResizeHandle.tsx",
+      "line": 43,
+      "symbol": "onPointerCancel={() => { start.current = null }}"
+    },
+    {
+      "id": "ui_event:e2ff1315cb9033fa997c:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/ResizeHandle.tsx",
+      "line": 46,
+      "symbol": "onLostPointerCapture={() => { start.current = null }}"
+    },
+    {
+      "id": "ui_event:add362ed6b52447547e8:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/components/ResizeHandle.tsx",
+      "line": 49,
+      "symbol": "onKeyDown={(event) => { const keys = vertical ? ['ArrowDown', 'ArrowUp'] : ['ArrowLeft', 'ArrowRight'] if (keys.includes(event.key) || ['Home', 'End'].includes(event.key)) { event.preventDefault() change( event.key === 'Home' ? min : event.key === 'End' ? max : value + (event.key === keys[0] ? -10 : 10) ) } }}"
+    },
+    {
+      "id": "ui_api:98a225981750b1c6aaeb:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 17,
+      "symbol": "api.archiveJob"
+    },
+    {
+      "id": "ui_query:0b77f4fa02bfa6bb6780:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 17,
+      "symbol": "queryFn: ()"
+    },
+    {
+      "id": "ui_mutation:f328c6c99794192ed2d4:1",
+      "kind": "ui_mutation",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 48,
+      "symbol": "useMutation({ mutationFn: () => api.confirmAction(sessionId, receipt.confirmation_id!), onSuccess: async () => { setOpen(false) await cache.invalidateQueries() }, }"
+    },
+    {
+      "id": "ui_api:541e7b7b63a4c6457c6e:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 49,
+      "symbol": "api.confirmAction"
+    },
+    {
+      "id": "ui_query:b92f881f0fc9d3feea6a:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 49,
+      "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_button:be2d9bbcd2e3fa670944:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 59,
+      "symbol": "<button className=\"secondary-button\" onClick={() => setOpen(true)}>"
+    },
+    {
+      "id": "ui_event:125babc7c1d69f721922:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 59,
+      "symbol": "onClick={() => setOpen(true)}"
+    },
+    {
+      "id": "ui_event:36b1d99b13e112077342:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 63,
+      "symbol": "onClose={close}"
+    },
+    {
+      "id": "ui_button:6125d4f76ae97807d54b:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 85,
+      "symbol": "<button className=\"secondary-button\" onClick={close} disabled={confirm.isPending}>"
+    },
+    {
+      "id": "ui_event:34248f7f4f6a3e73ccb8:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 85,
+      "symbol": "onClick={close}"
+    },
+    {
+      "id": "ui_button:7d8fcf316e4bf67b874b:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 88,
+      "symbol": "<button className=\"primary-button\" onClick={() => confirm.mutate()} disabled={confirm.isPending} >"
+    },
+    {
+      "id": "ui_event:854ca5c6d0d13bc0df60:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AppReceipts.tsx",
+      "line": 90,
+      "symbol": "onClick={() => confirm.mutate()}"
+    },
+    {
+      "id": "ui_api:beb309cb5296091f0d86:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 38,
+      "symbol": "api.conversations"
+    },
+    {
+      "id": "ui_query:fb048788022cf137885f:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 38,
+      "symbol": "queryFn: api.conversations"
+    },
+    {
+      "id": "ui_api:a9dc58b10cd1b25b4799:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 46,
+      "symbol": "api.conversation"
+    },
+    {
+      "id": "ui_query:2cd266915e1e56f4f66a:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 46,
+      "symbol": "queryFn: ()"
+    },
+    {
+      "id": "ui_api:552c9ae0d2fd5c2e2769:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 51,
+      "symbol": "api.messages"
+    },
+    {
+      "id": "ui_query:2cd266915e1e56f4f66a:2",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 51,
+      "symbol": "queryFn: ()"
+    },
+    {
+      "id": "ui_api:e6a92c3f95f2c5824e2d:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 54,
+      "symbol": "api.settings"
+    },
+    {
+      "id": "ui_query:d1f4e06754f745a393b6:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 54,
+      "symbol": "queryFn: api.settings"
+    },
+    {
+      "id": "ui_api:4d2cb5907104545db6e3:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 55,
+      "symbol": "api.catalog"
+    },
+    {
+      "id": "ui_query:f537d44f2aa9e76d0546:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 55,
+      "symbol": "queryFn: api.catalog"
+    },
+    {
+      "id": "ui_api:be0278727e0ab25b96dd:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 56,
+      "symbol": "api.commands"
+    },
+    {
+      "id": "ui_query:df744a43734113ed4efb:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 56,
+      "symbol": "queryFn: api.commands,"
+    },
+    {
+      "id": "ui_api:8c0d64f19c842f972dfe:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 57,
+      "symbol": "api.skills"
+    },
+    {
+      "id": "ui_query:a97fa981c1b59d271d64:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 57,
+      "symbol": "queryFn: api.skills,"
+    },
+    {
+      "id": "ui_api:00e5a2687b097d650993:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 58,
+      "symbol": "api.mcp"
+    },
+    {
+      "id": "ui_query:71c7fd934fdc8904eb93:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 58,
+      "symbol": "queryFn: api.mcp,"
+    },
+    {
+      "id": "ui_mutation:2d2c89fce743250cc805:1",
+      "kind": "ui_mutation",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 59,
+      "symbol": "useMutation({ mutationFn: api.create, onSuccess: async (created) => { await cache.invalidateQueries({ queryKey: ['conversations'] }) select(created.id) setParams({ c: created.id }) setDraft('') setReference(undefined) setError(null) }, onError: (error) => setError(error.message), }"
+    },
+    {
+      "id": "ui_api:c70119570dd65f96b6fe:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 60,
+      "symbol": "api.create"
+    },
+    {
+      "id": "ui_query:9001bb722c98179fc1bf:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 60,
+      "symbol": "mutationFn: api.create,"
+    },
+    {
+      "id": "ui_mutation:673055fbd427936e78f3:1",
+      "kind": "ui_mutation",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 71,
+      "symbol": "useMutation({ mutationFn: api.remove, onSuccess: async (_, id) => { cache.removeQueries({ queryKey: ['messages', id] }) cache.removeQueries({ queryKey: ['conversation', id] }) if (id === cid) { select(null) setParams({}) } await cache.invalidateQueries({ queryKey: ['conversations'] }) }, onError: (error) => setError(error.message), }"
+    },
+    {
+      "id": "ui_api:d5346a57f0b7836b5870:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 72,
+      "symbol": "api.remove"
+    },
+    {
+      "id": "ui_query:faf3dae68fb12d2c2c0c:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 72,
+      "symbol": "mutationFn: api.remove,"
+    },
+    {
+      "id": "ui_mutation:4b1b883429303acaa37f:1",
+      "kind": "ui_mutation",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 84,
+      "symbol": "useMutation({ mutationFn: ({ id, value }: { id: string; value: string }) => api.patch(id, { model_override: value || null }), onSuccess: async (updated) => { cache.setQueryData(['conversation', updated.id], updated) await cache.invalidateQueries({ queryKey: ['conversations'] }) }, onError: (error) => setError(error.message), }"
+    },
+    {
+      "id": "ui_query:4d80b36a9e54c5c26ea1:1",
+      "kind": "ui_query",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 85,
+      "symbol": "mutationFn: ({"
+    },
+    {
+      "id": "ui_api:4894bf36514235389b80:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 86,
+      "symbol": "api.patch"
+    },
+    {
+      "id": "ui_event:05f12569c2278ab2c5b6:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 125,
+      "symbol": "onCreate={() => create.mutate()}"
+    },
+    {
+      "id": "ui_event:95ce050d9a8b0a66666f:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 126,
+      "symbol": "onSelect={(id) => { setParams({ c: id }) setDraft('') setReference(undefined) setError(null) }}"
+    },
+    {
+      "id": "ui_event:3d8f1f4122d2e6d17fd9:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 132,
+      "symbol": "onDelete={(id) => remove.mutate(id)}"
+    },
+    {
+      "id": "ui_button:5ef292fe8f2fc6fc9947:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 144,
+      "symbol": "<button className=\"icon-button\" aria-label=\"关闭提示\" onClick={() => { setError(null) dismiss(cid ?? '') void cache.invalidateQueries() }} >"
+    },
+    {
+      "id": "ui_event:e6df492c64fd2063fe30:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 147,
+      "symbol": "onClick={() => { setError(null) dismiss(cid ?? '') void cache.invalidateQueries() }}"
+    },
+    {
+      "id": "ui_button:e5f71d761e274ca81499:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 160,
+      "symbol": "<button type=\"button\" onClick={() => setConfigOpen(true)}>"
+    },
+    {
+      "id": "ui_event:2bea1c8fc3d519f0fd56:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 160,
+      "symbol": "onClick={() => setConfigOpen(true)}"
+    },
+    {
+      "id": "ui_event:ca7bd2b6090a027a503b:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 169,
+      "symbol": "onPrompt={setDraft}"
+    },
+    {
+      "id": "ui_button:b366d1b30c5624552c5f:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 178,
+      "symbol": "<button className=\"icon-button\" aria-label=\"移除参考内容\" onClick={() => setReference(undefined)} >"
+    },
+    {
+      "id": "ui_event:f971a41cb5e047ab03a2:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 181,
+      "symbol": "onClick={() => setReference(undefined)}"
+    },
+    {
+      "id": "ui_event:919b542683f060945139:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 189,
+      "symbol": "onText={setDraft}"
+    },
+    {
+      "id": "ui_event:32c031f4380527a5642a:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 190,
+      "symbol": "onSend={() => void send()}"
+    },
+    {
+      "id": "ui_event:870ee793ae0a2fe5dce5:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 192,
+      "symbol": "onStop={run ? () => void stop(run.cid) : undefined}"
+    },
+    {
+      "id": "ui_event:f613a1f65fd9b131efe9:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 204,
+      "symbol": "onChange={(value) => model.mutate({ id: cid!, value })}"
+    },
+    {
+      "id": "ui_event:d03e587b5f2b2075f1ce:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 205,
+      "symbol": "onConfigure={() => setConfigOpen(true)}"
+    },
+    {
+      "id": "ui_event:1ea000e67af371800a02:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 214,
+      "symbol": "onClose={closeConfig}"
+    },
+    {
+      "id": "ui_api:a425dae2efaa413cc037:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ChatProvider.tsx",
+      "line": 33,
+      "symbol": "api.stop"
+    },
+    {
+      "id": "ui_api:01203c2ec94de514277b:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ChatProvider.tsx",
+      "line": 70,
+      "symbol": "api.create"
+    },
+    {
+      "id": "ui_api:4e06e770bd62cff49f82:1",
+      "kind": "ui_api",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ChatProvider.tsx",
+      "line": 100,
+      "symbol": "api.chat"
+    },
+    {
+      "id": "ui_event:c0bdd2a8511b02b698a9:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/Composer.tsx",
+      "line": 83,
+      "symbol": "onChange={setHeight}"
+    },
+    {
+      "id": "ui_button:b808b95581333a8c37b2:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/Composer.tsx",
+      "line": 88,
+      "symbol": "<button key={entry.name} role=\"option\" id={`suggestion-${index}`} aria-selected={chosen === index} className={chosen === index ? 'highlighted' : ''} onMouseDown={(event) => event.preventDefault()} onClick={() => complete(index)} >"
+    },
+    {
+      "id": "ui_event:dda196fa75c58e11f4b3:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/Composer.tsx",
+      "line": 94,
+      "symbol": "onMouseDown={(event) => event.preventDefault()}"
+    },
+    {
+      "id": "ui_event:2cc08380bd89ed72395b:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/Composer.tsx",
+      "line": 95,
+      "symbol": "onClick={() => complete(index)}"
+    },
+    {
+      "id": "ui_event:7562ad120500ae2c4976:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/Composer.tsx",
+      "line": 108,
+      "symbol": "onChange={(event) => { onText(event.target.value) setDismissed(false) setHighlight(0) }}"
+    },
+    {
+      "id": "ui_event:1a74e889cddf5f873a57:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/Composer.tsx",
+      "line": 113,
+      "symbol": "onKeyDown={keyDown}"
+    },
+    {
+      "id": "ui_button:997da45e2626e48f24d0:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/Composer.tsx",
+      "line": 125,
+      "symbol": "<button className=\"send-button\" aria-label={onStop ? (stopping ? '正在停止回复' : '停止回复') : '发送消息'} title={onStop ? '停止回复' : '发送消息'} onClick={onStop ?? onSend} disabled={onStop ? stopping : disabled || !text.trim()} >"
+    },
+    {
+      "id": "ui_event:1fe14dd086df415988bf:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/Composer.tsx",
+      "line": 129,
+      "symbol": "onClick={onStop ?? onSend}"
+    },
+    {
+      "id": "ui_event:fbbd90a45b5361767dc3:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ConversationList.tsx",
+      "line": 57,
+      "symbol": "onChange={setWidth}"
+    },
+    {
+      "id": "ui_button:a35c8e16750bb2362d0d:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ConversationList.tsx",
+      "line": 59,
+      "symbol": "<button className=\"new-chat\" aria-label=\"新建 New Chat\" onClick={onCreate} disabled={creating} >"
+    },
+    {
+      "id": "ui_event:1ba2c0c9326617a88d8d:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ConversationList.tsx",
+      "line": 62,
+      "symbol": "onClick={onCreate}"
+    },
+    {
+      "id": "ui_button:513ead544f4d010409f5:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ConversationList.tsx",
+      "line": 80,
+      "symbol": "<button className=\"conversation-select\" onClick={() => { setMenu(null) onSelect(conversation.id) }} >"
+    },
+    {
+      "id": "ui_event:0e18c6f4b7b3e284763c:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ConversationList.tsx",
+      "line": 82,
+      "symbol": "onClick={() => { setMenu(null) onSelect(conversation.id) }}"
+    },
+    {
+      "id": "ui_button:655dd0a879c45a9a4311:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ConversationList.tsx",
+      "line": 90,
+      "symbol": "<button className=\"icon-button conversation-more\" aria-label={`对话操作：${conversation.title}`} aria-expanded={menu === conversation.id} onClick={() => setMenu(menu === conversation.id ? null : conversation.id)} >"
+    },
+    {
+      "id": "ui_event:7584fb1cf7fdf5d6f8c7:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ConversationList.tsx",
+      "line": 94,
+      "symbol": "onClick={() => setMenu(menu === conversation.id ? null : conversation.id)}"
+    },
+    {
+      "id": "ui_button:bd419ed9bb05cb1d17d8:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ConversationList.tsx",
+      "line": 100,
+      "symbol": "<button disabled={busyIds.includes(conversation.id)} onClick={() => { setMenu(null) onDelete(conversation.id) }} >"
+    },
+    {
+      "id": "ui_event:0f080c9d692e262c17fa:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ConversationList.tsx",
+      "line": 102,
+      "symbol": "onClick={() => { setMenu(null) onDelete(conversation.id) }}"
+    },
+    {
+      "id": "ui_button:9223f9632858621b1532:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/MessageList.tsx",
+      "line": 61,
+      "symbol": "<button key={text} onClick={() => onPrompt(text)}>"
+    },
+    {
+      "id": "ui_event:34472cf2957b9a662543:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/MessageList.tsx",
+      "line": 61,
+      "symbol": "onClick={() => onPrompt(text)}"
+    },
+    {
+      "id": "ui_link:d126f27c237ed6cb6f25:1",
+      "kind": "ui_link",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/MessageList.tsx",
+      "line": 96,
+      "symbol": "<Link to={href} title={title}>"
+    },
+    {
+      "id": "ui_link:9e2a56b477b70a13c63b:1",
+      "kind": "ui_link",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/MessageList.tsx",
+      "line": 100,
+      "symbol": "<a href={href} title={title} target=\"_blank\" rel=\"noopener noreferrer\">"
+    },
+    {
+      "id": "ui_button:999573e7367955f45c91:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ModelPicker.tsx",
+      "line": 105,
+      "symbol": "<button type=\"button\" ref={trigger} className=\"model-picker-trigger\" role=\"combobox\" aria-label=\"当前对话模型\" aria-haspopup=\"listbox\" aria-expanded={open} aria-controls={open ? id : undefined} onClick={() => (open ? close() : show())} onKeyDown={keyboard} >"
+    },
+    {
+      "id": "ui_event:b5693142a9e067dda3db:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ModelPicker.tsx",
+      "line": 114,
+      "symbol": "onClick={() => (open ? close() : show())}"
+    },
+    {
+      "id": "ui_event:dc173b772d5c4a183175:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ModelPicker.tsx",
+      "line": 115,
+      "symbol": "onKeyDown={keyboard}"
+    },
+    {
+      "id": "ui_event:dc173b772d5c4a183175:2",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ModelPicker.tsx",
+      "line": 139,
+      "symbol": "onKeyDown={keyboard}"
+    },
+    {
+      "id": "ui_event:88001d45e594f44db11d:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ModelPicker.tsx",
+      "line": 150,
+      "symbol": "onPointerMove={() => setActive(index)}"
+    },
+    {
+      "id": "ui_event:895d9d42921559f82bbe:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ModelPicker.tsx",
+      "line": 151,
+      "symbol": "onClick={() => choose(index)}"
+    },
+    {
+      "id": "ui_button:3fa24c0c2891939ae06d:1",
+      "kind": "ui_button",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ModelPicker.tsx",
+      "line": 162,
+      "symbol": "<button type=\"button\" className=\"model-picker-add\" onKeyDown={(event) => { if (event.key === 'Escape') { event.preventDefault() close(true) } }} onClick={() => { close(true) onConfigure() }} >"
+    },
+    {
+      "id": "ui_event:b3ab8ae5a79b26c0727f:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ModelPicker.tsx",
+      "line": 165,
+      "symbol": "onKeyDown={(event) => { if (event.key === 'Escape') { event.preventDefault() close(true) } }}"
+    },
+    {
+      "id": "ui_event:8880af44c104b1bf11e6:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/ModelPicker.tsx",
+      "line": 171,
+      "symbol": "onClick={() => { close(true) onConfigure() }}"
+    },
+    {
+      "id": "ui_api:85a061a6a6d2a51340c6:1",
+      "kind": "ui_api",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 7,
+      "symbol": "workspaceApi.runs"
+    },
+    {
+      "id": "ui_query:2bf5c75a3c6b62a8a2bb:1",
+      "kind": "ui_query",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 7,
+      "symbol": "queryFn: ()"
+    },
+    {
+      "id": "ui_api:94be5985ee17b60554b6:1",
+      "kind": "ui_api",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 48,
+      "symbol": "workspaceApi.automations"
+    },
+    {
+      "id": "ui_query:0a8dd28879f98fb28bc2:1",
+      "kind": "ui_query",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 48,
+      "symbol": "queryFn: workspaceApi.automations"
+    },
+    {
+      "id": "ui_mutation:35ae616db7558b01bd95:1",
+      "kind": "ui_mutation",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 53,
+      "symbol": "useMutation({ mutationFn: () => { const [hour, minute] = time.split(':').map(Number) return workspaceApi.createAutomation({ name: name.trim(), prompt: prompt.trim(), hour, minute, timezone: 'Asia/Shanghai', }) }, onSuccess: () => { setName('') setPrompt('') setAdding(false) invalidate() }, }"
+    },
+    {
+      "id": "ui_query:21fa510a264d5e6e46bd:1",
+      "kind": "ui_query",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 54,
+      "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_api:cf9313295d5135c4b89b:1",
+      "kind": "ui_api",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 56,
+      "symbol": "workspaceApi.createAutomation"
+    },
+    {
+      "id": "ui_mutation:06af37f76932c309eff1:1",
+      "kind": "ui_mutation",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 71,
+      "symbol": "useMutation({ mutationFn: ({ id, enabled }: { id: string; enabled: boolean }) => workspaceApi.toggleAutomation(id, enabled), onSuccess: invalidate, }"
+    },
+    {
+      "id": "ui_query:bdafd9047778f29fe52f:1",
+      "kind": "ui_query",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 72,
+      "symbol": "mutationFn: ({"
+    },
+    {
+      "id": "ui_api:016a12cf711d44d63135:1",
+      "kind": "ui_api",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 73,
+      "symbol": "workspaceApi.toggleAutomation"
+    },
+    {
+      "id": "ui_api:8042b3e95a18a73966d5:1",
+      "kind": "ui_api",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 76,
+      "symbol": "workspaceApi.deleteAutomation"
+    },
+    {
+      "id": "ui_mutation:38f1dc4333ed518cc18b:1",
+      "kind": "ui_mutation",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 76,
+      "symbol": "useMutation({ mutationFn: workspaceApi.deleteAutomation, onSuccess: invalidate }"
+    },
+    {
+      "id": "ui_query:aee5d803f5730275df2a:1",
+      "kind": "ui_query",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 76,
+      "symbol": "mutationFn: workspaceApi.deleteAutomation,"
+    },
+    {
+      "id": "ui_button:ce0d5b6c502b591e79a8:1",
+      "kind": "ui_button",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 87,
+      "symbol": "<button className=\"secondary-button automation-add\" onClick={() => setAdding(!adding)} aria-expanded={adding} >"
+    },
+    {
+      "id": "ui_event:84873d5c21fcc16d4611:1",
+      "kind": "ui_event",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 89,
+      "symbol": "onClick={() => setAdding(!adding)}"
+    },
+    {
+      "id": "ui_event:21cc289da6e0533a41e4:1",
+      "kind": "ui_event",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 98,
+      "symbol": "onSubmit={(event) => { event.preventDefault() create.mutate() }}"
+    },
+    {
+      "id": "ui_event:47a8c56a000527cbf2f5:1",
+      "kind": "ui_event",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 109,
+      "symbol": "onChange={(event) => setName(event.target.value)}"
+    },
+    {
+      "id": "ui_event:b8441f9fecf4d986d77f:1",
+      "kind": "ui_event",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 119,
+      "symbol": "onChange={(event) => setPrompt(event.target.value)}"
+    },
+    {
+      "id": "ui_event:71fa4450e2d2da298bd3:1",
+      "kind": "ui_event",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 129,
+      "symbol": "onChange={(event) => setTime(event.target.value)}"
+    },
+    {
+      "id": "ui_button:8d6b3dc3f8c877c2ffa4:1",
+      "kind": "ui_button",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 133,
+      "symbol": "<button className=\"primary-button\" disabled={create.isPending || !name.trim() || !prompt.trim()} >"
+    },
+    {
+      "id": "ui_button:803162e6f20ee6a4eefc:1",
+      "kind": "ui_button",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 151,
+      "symbol": "<button className=\"secondary-button\" onClick={() => void automations.refetch()}>"
+    },
+    {
+      "id": "ui_event:213c94db92bafebc8c4d:1",
+      "kind": "ui_event",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 151,
+      "symbol": "onClick={() => void automations.refetch()}"
+    },
+    {
+      "id": "ui_button:d455694031ca96bed254:1",
+      "kind": "ui_button",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 167,
+      "symbol": "<button role=\"switch\" aria-label={`${item.name} 启用`} aria-checked={item.enabled} disabled={toggle.isPending} className={`automation-switch ${item.enabled ? 'enabled' : ''}`} onClick={() => toggle.mutate({ id: item.id, enabled: !item.enabled })} >"
+    },
+    {
+      "id": "ui_event:3f4ab9dfbf9e124bdb99:1",
+      "kind": "ui_event",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 173,
+      "symbol": "onClick={() => toggle.mutate({ id: item.id, enabled: !item.enabled })}"
+    },
+    {
+      "id": "ui_button:6f153ee8f36e94a4bbc8:1",
+      "kind": "ui_button",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 188,
+      "symbol": "<button aria-expanded={history === item.id} onClick={() => setHistory(history === item.id ? null : item.id)} >"
+    },
+    {
+      "id": "ui_event:0b417fd55ea90ce608fc:1",
+      "kind": "ui_event",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 190,
+      "symbol": "onClick={() => setHistory(history === item.id ? null : item.id)}"
+    },
+    {
+      "id": "ui_button:46235ef9e9528301b8b6:1",
+      "kind": "ui_button",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 195,
+      "symbol": "<button className=\"delete-action\" disabled={remove.isPending} aria-label={`删除自动任务 ${item.name}`} onClick={() => remove.mutate(item.id)} >"
+    },
+    {
+      "id": "ui_event:2efc999dcfb8aaa69268:1",
+      "kind": "ui_event",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 199,
+      "symbol": "onClick={() => remove.mutate(item.id)}"
+    },
+    {
+      "id": "ui_event:2f7112c03fc65200ce68:1",
+      "kind": "ui_event",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 269,
+      "symbol": "onClick={(event) => { if (event.target === event.currentTarget) onClose() }}"
+    },
+    {
+      "id": "ui_button:415fe9d378c6b39e3675:1",
+      "kind": "ui_button",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 281,
+      "symbol": "<button className=\"icon-button drawer-close\" aria-label=\"关闭 Automations\" onClick={onClose} >"
+    },
+    {
+      "id": "ui_event:af970b49fc0e33e4d04e:1",
+      "kind": "ui_event",
+      "page": "Automations",
+      "file": "web/src/features/automations/AutomationsDrawer.tsx",
+      "line": 284,
+      "symbol": "onClick={onClose}"
+    },
+    {
+      "id": "ui_mutation:0ae3ec663375b52a3187:1",
+      "kind": "ui_mutation",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 28,
+      "symbol": "useMutation({ mutationFn: async () => { if (!text.trim() && !file) throw new Error('请粘贴文字、链接，或选择一个文件。') return workspaceApi.importContent({ ...(text.trim() ? { text: text.trim() } : {}), ...(file ? { filename: file.name, data_base64: await fileBase64(file) } : {}), use_ai: useAI, }) }, onSuccess: onSaved, }"
+    },
+    {
+      "id": "ui_query:9683aa2611ec7398dff9:1",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 29,
+      "symbol": "mutationFn: async"
+    },
+    {
+      "id": "ui_api:b78c9cf22e13e547664f:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 31,
+      "symbol": "workspaceApi.importContent"
+    },
+    {
+      "id": "ui_event:9c8b323cc0ebf95304c0:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 40,
+      "symbol": "onClose={onClose}"
+    },
+    {
+      "id": "ui_event:73c34b7f152b2d4a642c:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 42,
+      "symbol": "onSubmit={(event) => { event.preventDefault() create.mutate() }}"
+    },
+    {
+      "id": "ui_event:9fd63b8f93573c49709e:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 52,
+      "symbol": "onChange={(event) => setText(event.target.value)}"
+    },
+    {
+      "id": "ui_event:32449bcd4320260050a5:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 54,
+      "symbol": "onPaste={(event) => { const value = event.clipboardData.files[0] if (value) { event.preventDefault() chooseFile(value) } }}"
+    },
+    {
+      "id": "ui_event:c262fc44f184badfbe0f:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 65,
+      "symbol": "onDragOver={(event) => { event.preventDefault() setDragging(true) }}"
+    },
+    {
+      "id": "ui_event:3d05dbdb65591b148cc7:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 69,
+      "symbol": "onDragLeave={() => setDragging(false)}"
+    },
+    {
+      "id": "ui_event:74d157690e54193c74d2:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 70,
+      "symbol": "onDrop={(event) => { event.preventDefault() setDragging(false) chooseFile(event.dataTransfer.files[0]) }}"
+    },
+    {
+      "id": "ui_event:12151313cfb2658fa6da:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 82,
+      "symbol": "onChange={(event) => chooseFile(event.target.files?.[0])}"
+    },
+    {
+      "id": "ui_button:6909acd69cffda91b919:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 86,
+      "symbol": "<button className=\"secondary-button\" type=\"button\" onClick={() => { setFile(null) setFileError('') }} >"
+    },
+    {
+      "id": "ui_event:4d866c2964d85c447799:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 89,
+      "symbol": "onClick={() => { setFile(null) setFileError('') }}"
+    },
+    {
+      "id": "ui_event:0a6f565d5621ed27801a:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 102,
+      "symbol": "onChange={(event) => setUseAI(event.target.checked)}"
+    },
+    {
+      "id": "ui_button:b97407fe88a7313068c1:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 115,
+      "symbol": "<button className=\"secondary-button\" type=\"button\" onClick={onClose}>"
+    },
+    {
+      "id": "ui_event:b755036eb1ab4cc40b40:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 115,
+      "symbol": "onClick={onClose}"
+    },
+    {
+      "id": "ui_button:728666f22f26fe90af13:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 118,
+      "symbol": "<button className=\"primary-button\" disabled={create.isPending || !!fileError}>"
+    },
+    {
+      "id": "ui_event:61b0089dee8c1f666a3b:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentDialog.tsx",
+      "line": 58,
+      "symbol": "onMouseDown={(event) => { if (event.target === event.currentTarget) onClose() }}"
+    },
+    {
+      "id": "ui_button:a3c7743104aae010677f:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentDialog.tsx",
+      "line": 72,
+      "symbol": "<button type=\"button\" className=\"icon-button\" aria-label=\"关闭弹窗\" onClick={onClose}>"
+    },
+    {
+      "id": "ui_event:3cfd1350b45d2b1dc44a:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentDialog.tsx",
+      "line": 72,
+      "symbol": "onClick={onClose}"
+    },
+    {
+      "id": "ui_api:a8274a222e3f00a676ab:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 47,
+      "symbol": "workspaceApi.folders"
+    },
+    {
+      "id": "ui_query:e4e4e3e024da2ebdf9a1:1",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 47,
+      "symbol": "queryFn: workspaceApi.folders"
+    },
+    {
+      "id": "ui_mutation:c65194e63d69584b135d:1",
+      "kind": "ui_mutation",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 48,
+      "symbol": "useMutation({ mutationFn: () => workspaceApi.updateContent(item.id, { title, content, summary, tags: tagsFrom(tags), ...(folder !== (item.folder_id ?? '') ? { folder_id: folder || null } : {}), }), onSuccess: () => { onSaved() onClose() }, }"
+    },
+    {
+      "id": "ui_query:70a4fcf873d317cdd1ef:1",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 49,
+      "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_api:a63b3693a7d617b6a25a:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 50,
+      "symbol": "workspaceApi.updateContent"
+    },
+    {
+      "id": "ui_event:603345b84c7158f8f529:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 65,
+      "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
+    },
+    {
+      "id": "ui_button:aeb5b6c14959e32fe44d:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 72,
+      "symbol": "<button type=\"button\" className=\"icon-button\" aria-label=\"取消编辑\" onClick={onClose}>"
+    },
+    {
+      "id": "ui_event:ac3cc04dbe83b1031e5d:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 72,
+      "symbol": "onClick={onClose}"
+    },
+    {
+      "id": "ui_event:7d52d472edae2c661fe2:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 78,
+      "symbol": "onChange={(event) => setTitle(event.target.value)}"
+    },
+    {
+      "id": "ui_event:a71406ba75282d1af3bd:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 82,
+      "symbol": "onChange={(event) => setContent(event.target.value)}"
+    },
+    {
+      "id": "ui_event:832faa5f0e973c387798:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 86,
+      "symbol": "onChange={(event) => setSummary(event.target.value)}"
+    },
+    {
+      "id": "ui_event:b6ac0843958805ffd98f:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 92,
+      "symbol": "onChange={(event) => setTags(event.target.value)}"
+    },
+    {
+      "id": "ui_event:c37db5a6a25234fd3616:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 101,
+      "symbol": "onChange={setFolder}"
+    },
+    {
+      "id": "ui_button:99492fbc682588b36700:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 119,
+      "symbol": "<button type=\"button\" className=\"secondary-button\" onClick={onClose}>"
+    },
+    {
+      "id": "ui_event:ac3cc04dbe83b1031e5d:2",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 119,
+      "symbol": "onClick={onClose}"
+    },
+    {
+      "id": "ui_button:20210065038aeefa0593:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 122,
+      "symbol": "<button className=\"primary-button\" disabled={save.isPending}>"
+    },
+    {
+      "id": "ui_api:a8274a222e3f00a676ab:2",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 149,
+      "symbol": "workspaceApi.folders"
+    },
+    {
+      "id": "ui_query:e4e4e3e024da2ebdf9a1:2",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 149,
+      "symbol": "queryFn: workspaceApi.folders"
+    },
+    {
+      "id": "ui_api:b0c4832a1d7b5ed4f05f:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 152,
+      "symbol": "workspaceApi.contentItem"
+    },
+    {
+      "id": "ui_query:4f2246f4ffecccd46477:1",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 152,
+      "symbol": "queryFn: ()"
+    },
+    {
+      "id": "ui_query:4f2246f4ffecccd46477:2",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 159,
+      "symbol": "queryFn: ()"
+    },
+    {
+      "id": "ui_api:b0c4832a1d7b5ed4f05f:2",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 161,
+      "symbol": "workspaceApi.contentItem"
+    },
+    {
+      "id": "ui_api:e47fe3991d5da7ab2977:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 163,
+      "symbol": "workspaceApi.folderItems"
+    },
+    {
+      "id": "ui_api:baef87b6f3e8d3c4a86d:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 165,
+      "symbol": "workspaceApi.inbox"
+    },
+    {
+      "id": "ui_api:9dc114179cdbfc4f937c:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 166,
+      "symbol": "workspaceApi.content"
+    },
+    {
+      "id": "ui_api:9dc114179cdbfc4f937c:2",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 172,
+      "symbol": "workspaceApi.content"
+    },
+    {
+      "id": "ui_query:4f2246f4ffecccd46477:3",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 172,
+      "symbol": "queryFn: ()"
+    },
+    {
+      "id": "ui_mutation:71eb8cc4a003aa779d15:1",
+      "kind": "ui_mutation",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 182,
+      "symbol": "useMutation({ mutationFn: (item: ContentItem) => workspaceApi.updateContent(item.id, { status: status === 'inbox' ? 'knowledge' : 'inbox' }), onSuccess: () => { setNotice(status === 'inbox' ? '已保存到 Knowledge' : '已移回 Inbox') invalidate() }, }"
+    },
+    {
+      "id": "ui_query:7164cad0c21984924497:1",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 183,
+      "symbol": "mutationFn: (item:"
+    },
+    {
+      "id": "ui_api:a63b3693a7d617b6a25a:2",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 184,
+      "symbol": "workspaceApi.updateContent"
+    },
+    {
+      "id": "ui_mutation:9f196f8e10ef116c231a:1",
+      "kind": "ui_mutation",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 190,
+      "symbol": "useMutation({ mutationFn: workspaceApi.deleteContent, onSuccess: async (_, id) => { await cache.cancelQueries({ queryKey: ['recent-imports'] }) cache.removeQueries({ queryKey: ['recent-imports'] }) setRecentIds((ids) => ids.filter((value) => value !== id)) setSelected((ids) => ids.filter((value) => value !== id)) setNotice('已删除内容') // React has not rendered the new IDs yet; do not refetch the old query. invalidate(false) }, }"
+    },
+    {
+      "id": "ui_api:8fb592717179af071107:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 191,
+      "symbol": "workspaceApi.deleteContent"
+    },
+    {
+      "id": "ui_query:fece2c69994b1f0703f1:1",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 191,
+      "symbol": "mutationFn: workspaceApi.deleteContent,"
+    },
+    {
+      "id": "ui_mutation:850d111d21660ce371b3:1",
+      "kind": "ui_mutation",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 202,
+      "symbol": "useMutation({ mutationFn: workspaceApi.classifyBatch, onSuccess: ({ items }) => { setRecentIds((ids) => [...new Set([...ids, ...items.map((item) => item.id)])]) setSelected([]) setNotice('已提交分类，结果将在下方更新') invalidate() }, }"
+    },
+    {
+      "id": "ui_api:412ab40c5973f31811c9:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 203,
+      "symbol": "workspaceApi.classifyBatch"
+    },
+    {
+      "id": "ui_query:13ed63496adbb0228f26:1",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 203,
+      "symbol": "mutationFn: workspaceApi.classifyBatch,"
+    },
+    {
+      "id": "ui_api:f5f79fc70468e2530ef4:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 211,
+      "symbol": "workspaceApi.retryContent"
+    },
+    {
+      "id": "ui_mutation:ae0b44b43abe75ec7a94:1",
+      "kind": "ui_mutation",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 211,
+      "symbol": "useMutation({ mutationFn: workspaceApi.retryContent, onSuccess: () => invalidate() }"
+    },
+    {
+      "id": "ui_query:9259af3864a1f2823649:1",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 211,
+      "symbol": "mutationFn: workspaceApi.retryContent,"
+    },
+    {
+      "id": "ui_button:59c895b10e01a7f1b127:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 248,
+      "symbol": "<button className=\"primary-button\" aria-label=\"添加到 Inbox\" onClick={() => setCaptureOpen(true)} >"
+    },
+    {
+      "id": "ui_event:a4f9772ebff90ba1ab4c:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 251,
+      "symbol": "onClick={() => setCaptureOpen(true)}"
+    },
+    {
+      "id": "ui_event:5125c804f4dd93984c05:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 261,
+      "symbol": "onClose={() => setCaptureOpen(false)}"
+    },
+    {
+      "id": "ui_event:5d1d7d19eb5ef15678f5:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 262,
+      "symbol": "onSaved={(item) => { setRecentIds((ids) => [...ids, item.id]) cache.setQueryData<ContentItem[]>( ['recent-imports', [...recentIds, item.id]], [...(recent.data ?? []), item] ) setCaptureOpen(false) setNotice('已保存，正在后台整理') invalidate() }}"
+    },
+    {
+      "id": "ui_event:48786107cdda6c8ca955:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 281,
+      "symbol": "onChange={(event) => setQ(event.target.value)}"
+    },
+    {
+      "id": "ui_event:3717080ea92d8e4c5198:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 287,
+      "symbol": "onChange={(event) => setTag(event.target.value)}"
+    },
+    {
+      "id": "ui_button:86914bae4e5c1f13956c:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 305,
+      "symbol": "<button key={value} className={type === value ? 'selected' : ''} aria-pressed={type === value} onClick={() => setType(value)} >"
+    },
+    {
+      "id": "ui_event:64f53d10a1c9a8ea5872:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 309,
+      "symbol": "onClick={() => setType(value)}"
+    },
+    {
+      "id": "ui_event:94df1a4641c8bdaa61b4:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 322,
+      "symbol": "onChange={(event) => setSelected(event.target.checked ? items.map((item) => item.id) : []) }"
+    },
+    {
+      "id": "ui_button:6c0a0a77bfe4a9553172:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 328,
+      "symbol": "<button className=\"secondary-button\" disabled={!selected.length || classify.isPending} onClick={() => classify.mutate(selected)} >"
+    },
+    {
+      "id": "ui_event:e9f9751ec2eea58a207c:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 331,
+      "symbol": "onClick={() => classify.mutate(selected)}"
+    },
+    {
+      "id": "ui_event:0b2a5d8e80184011cc14:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 352,
+      "symbol": "onClose={() => setEditing(null)}"
+    },
+    {
+      "id": "ui_event:de8c680c656b5a78c9e7:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 353,
+      "symbol": "onSaved={invalidate}"
+    },
+    {
+      "id": "ui_button:d1e05c576e0e2de72aa4:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 361,
+      "symbol": "<button className=\"secondary-button\" onClick={() => void list.refetch()}>"
+    },
+    {
+      "id": "ui_event:619554ae8c343578129a:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 361,
+      "symbol": "onClick={() => void list.refetch()}"
+    },
+    {
+      "id": "ui_event:e39c0caf563ca2cada90:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 395,
+      "symbol": "onChange={(event) => setSelected((ids) => event.target.checked ? [...ids, item.id] : ids.filter((id) => id !== item.id) ) }"
+    },
+    {
+      "id": "ui_link:e7d8ac6e8432e2151b37:1",
+      "kind": "ui_link",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 418,
+      "symbol": "<a className=\"source-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\">"
+    },
+    {
+      "id": "ui_button:babac9926da0029b213e:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 434,
+      "symbol": "<button className=\"secondary-button\" disabled={retry.isPending} onClick={() => retry.mutate(item.id)} >"
+    },
+    {
+      "id": "ui_event:2ca4c53324042d649cc5:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 437,
+      "symbol": "onClick={() => retry.mutate(item.id)}"
+    },
+    {
+      "id": "ui_button:a48abcf3286100d5cc85:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 444,
+      "symbol": "<button key={value} onClick={() => setTag(value)}>"
+    },
+    {
+      "id": "ui_event:d24cd8eafb55b4fcf31f:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 444,
+      "symbol": "onClick={() => setTag(value)}"
+    },
+    {
+      "id": "ui_button:15a1ad374146057e0699:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 450,
+      "symbol": "<button onClick={() => setEditing(item)}>"
+    },
+    {
+      "id": "ui_event:dcc2b96e9298a1b298d3:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 450,
+      "symbol": "onClick={() => setEditing(item)}"
+    },
+    {
+      "id": "ui_link:a3b5af0eef4c3f60e97e:1",
+      "kind": "ui_link",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 452,
+      "symbol": "<Link to={`/knowledge?folder=${encodeURIComponent(item.folder_id ?? 'unfiled')}&document=${encodeURIComponent(item.id)}`} >"
+    },
+    {
+      "id": "ui_button:186be3856ed9e3afe1bb:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 458,
+      "symbol": "<button disabled={ update.isPending || classify.isPending || item.processing_status === 'pending' } onClick={() => status === 'inbox' ? classify.mutate([item.id]) : update.mutate(item) } >"
+    },
+    {
+      "id": "ui_event:f85af4beceb9796a99be:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 464,
+      "symbol": "onClick={() => status === 'inbox' ? classify.mutate([item.id]) : update.mutate(item) }"
+    },
+    {
+      "id": "ui_button:46791fc5c34a4258d6d1:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 472,
+      "symbol": "<button disabled={ask.isPending} onClick={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { title: item.title, content: [ item.filename ? `文件：${item.filename}\\n以下参考仅包含文件名与备注，原文件内容未展开。` : '', item.content, item.summary, item.source, ] .filter(Boolean) .join('\\n\\n'), }, }) } >"
+    },
+    {
+      "id": "ui_event:bd4939ebe5701e09ab3a:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 474,
+      "symbol": "onClick={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { title: item.title, content: [ item.filename ? `文件：${item.filename}\\n以下参考仅包含文件名与备注，原文件内容未展开。` : '', item.content, item.summary, item.source, ] .filter(Boolean) .join('\\n\\n'), }, }) }"
+    },
+    {
+      "id": "ui_api:017121cc84e984853358:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 497,
+      "symbol": "workspaceApi.originalUrl"
+    },
+    {
+      "id": "ui_link:36eca5aa17dfd6057f23:1",
+      "kind": "ui_link",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 497,
+      "symbol": "<a href={workspaceApi.originalUrl(item.id)} download={item.filename}>"
+    },
+    {
+      "id": "ui_button:5cc7d0ded7b615e6a922:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 502,
+      "symbol": "<button className=\"delete-action\" disabled={remove.isPending} aria-label={`删除 ${item.title}`} onClick={() => remove.mutate(item.id)} >"
+    },
+    {
+      "id": "ui_event:ccee925002607e85d122:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 506,
+      "symbol": "onClick={() => remove.mutate(item.id)}"
+    },
+    {
+      "id": "ui_mutation:26563356a031842be98e:1",
+      "kind": "ui_mutation",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/useAskAI.ts",
+      "line": 13,
+      "symbol": "useMutation({ mutationFn: async ({ draft, reference, }: { draft: string reference?: AssistantReference }) => ({ conversation: await api.create(), draft, reference: reference ? { ...reference, title: reference.title.slice(0, 300), content: reference.content.slice(0, 38000), ...(reference.content.length > 38000 || reference.title.length > 300 ? { truncated: true } : {}), } : undefined, }), onSuccess: async ({ conversation, draft, reference }) => { await cache.invalidateQueries({ queryKey: ['conversations'] }) navigate(`/assistant?c=${encodeURIComponent(conversation.id)}`, { state: { draft, reference }, }) }, }"
+    },
+    {
+      "id": "ui_query:174b1945a88a4125da45:1",
+      "kind": "ui_query",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/useAskAI.ts",
+      "line": 14,
+      "symbol": "mutationFn: async"
+    },
+    {
+      "id": "ui_api:fdc5d07548c425138192:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/useAskAI.ts",
+      "line": 21,
+      "symbol": "api.create"
+    },
+    {
+      "id": "ui_mutation:b43beca5a3b9030ede93:1",
+      "kind": "ui_mutation",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 29,
+      "symbol": "useMutation({ mutationFn: () => { const body = { url, title, summary, tags: [ ...new Set( tags .split(/[,，]/) .map((tag) => tag.trim()) .filter(Boolean) ), ], fetch_title: fetchTitle, } return item ? workspaceApi.updateManualFeed(item.id, body) : workspaceApi.addManualFeed(body) }, onSuccess: () => { void cache.invalidateQueries({ queryKey: ['feed'] }) void cache.invalidateQueries({ queryKey: ['today'] }) onClose() }, }"
+    },
+    {
+      "id": "ui_query:597839f9da40b4e937da:1",
+      "kind": "ui_query",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 30,
+      "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_api:1a6a5bea4066facdb123:1",
+      "kind": "ui_api",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 45,
+      "symbol": "workspaceApi.updateManualFeed"
+    },
+    {
+      "id": "ui_api:a158a2e8824d2bdcba7d:1",
+      "kind": "ui_api",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 45,
+      "symbol": "workspaceApi.addManualFeed"
+    },
+    {
+      "id": "ui_event:769d463f0bb524f0e58a:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 54,
+      "symbol": "onClose={onClose}"
+    },
+    {
+      "id": "ui_event:df077e6d9f472c9897d0:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 56,
+      "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
+    },
+    {
+      "id": "ui_event:ee98bd26ae3ebd6f7e4b:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 69,
+      "symbol": "onChange={(event) => setUrl(event.target.value)}"
+    },
+    {
+      "id": "ui_event:2269e30357450ee7c582:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 78,
+      "symbol": "onChange={(event) => setTitle(event.target.value)}"
+    },
+    {
+      "id": "ui_event:69af23f2049139836e3f:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 88,
+      "symbol": "onChange={(event) => setSummary(event.target.value)}"
+    },
+    {
+      "id": "ui_event:7d20081b69e50966a3ba:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 95,
+      "symbol": "onChange={(event) => setTags(event.target.value)}"
+    },
+    {
+      "id": "ui_event:91c11b52ba52c9150f68:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 103,
+      "symbol": "onChange={(event) => setFetchTitle(event.target.checked)}"
+    },
+    {
+      "id": "ui_button:80716a6884baae03e2c7:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 114,
+      "symbol": "<button type=\"button\" className=\"secondary-button\" onClick={onClose}>"
+    },
+    {
+      "id": "ui_event:540f148b48f355644811:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 114,
+      "symbol": "onClick={onClose}"
+    },
+    {
+      "id": "ui_button:023d9e98f019dd3887bd:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 117,
+      "symbol": "<button className=\"primary-button\" disabled={save.isPending}>"
+    },
+    {
+      "id": "ui_mutation:f9afc0d7f4a7a9e1fc3c:1",
+      "kind": "ui_mutation",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 129,
+      "symbol": "useMutation({ mutationFn: () => workspaceApi.saveFeed(item.id), onSuccess: () => { void cache.invalidateQueries({ queryKey: ['content'] }) void cache.invalidateQueries({ queryKey: ['content-tags'] }) void cache.invalidateQueries({ queryKey: ['today'] }) void cache.invalidateQueries({ queryKey: ['data-settings'] }) }, }"
+    },
+    {
+      "id": "ui_api:bcc61225d757b87f90f9:1",
+      "kind": "ui_api",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 130,
+      "symbol": "workspaceApi.saveFeed"
+    },
+    {
+      "id": "ui_query:597839f9da40b4e937da:2",
+      "kind": "ui_query",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 130,
+      "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_mutation:9cffac2ae7504e430667:1",
+      "kind": "ui_mutation",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 138,
+      "symbol": "useMutation({ mutationFn: () => item.source === 'manual' ? item.deleted_at ? workspaceApi.restoreManualFeed(item.id) : workspaceApi.removeManualFeed(item.id) : item.hidden ? workspaceApi.unhideExternalFeed(item.id) : workspaceApi.hideExternalFeed(item.id), onSuccess: () => { void cache.invalidateQueries({ queryKey: ['feed'] }) void cache.invalidateQueries({ queryKey: ['today'] }) }, }"
+    },
+    {
+      "id": "ui_query:597839f9da40b4e937da:3",
+      "kind": "ui_query",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 139,
+      "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_api:dc5ddd29a30f7ed819c1:1",
+      "kind": "ui_api",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 142,
+      "symbol": "workspaceApi.restoreManualFeed"
+    },
+    {
+      "id": "ui_api:50225c3e00f4807dc8f5:1",
+      "kind": "ui_api",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 143,
+      "symbol": "workspaceApi.removeManualFeed"
+    },
+    {
+      "id": "ui_api:7998ec552035a4bcabae:1",
+      "kind": "ui_api",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 145,
+      "symbol": "workspaceApi.unhideExternalFeed"
+    },
+    {
+      "id": "ui_api:c8952a6a582dec5941dc:1",
+      "kind": "ui_api",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 146,
+      "symbol": "workspaceApi.hideExternalFeed"
+    },
+    {
+      "id": "ui_link:ea7cb84a94bab9339add:1",
+      "kind": "ui_link",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 188,
+      "symbol": "<a href={url} target=\"_blank\" rel=\"noreferrer\">"
+    },
+    {
+      "id": "ui_button:699ce3b0d461c0fb0ce3:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 193,
+      "symbol": "<button disabled={removed || save.isPending || save.isSuccess} onClick={() => save.mutate()} >"
+    },
+    {
+      "id": "ui_event:eaf63a7ff06ce974709a:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 195,
+      "symbol": "onClick={() => save.mutate()}"
+    },
+    {
+      "id": "ui_button:173d196b7d2cc446d73f:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 201,
+      "symbol": "<button aria-label={`编辑 ${item.title}`} onClick={onEdit}>"
+    },
+    {
+      "id": "ui_event:9e8f29a709a0ccd060c9:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 201,
+      "symbol": "onClick={onEdit}"
+    },
+    {
+      "id": "ui_button:2bed8583ec34d7b42b92:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 206,
+      "symbol": "<button disabled={visibility.isPending} aria-label={`${visibilityLabel} ${item.title}`} onClick={() => visibility.mutate()} >"
+    },
+    {
+      "id": "ui_event:a1101fa2545178066e1b:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 209,
+      "symbol": "onClick={() => visibility.mutate()}"
+    },
+    {
+      "id": "ui_button:3ef2b85a7e3b8c491e90:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 220,
+      "symbol": "<button disabled={ask.isPending} onClick={() => ask.mutate({ draft: '请解读这条资讯，说明它值得关注的地方。', reference: { title: item.title, content: `${item.summary}\\n\\n来源：${item.url}` }, }) } >"
+    },
+    {
+      "id": "ui_event:21393683d3dfcd696301:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 222,
+      "symbol": "onClick={() => ask.mutate({ draft: '请解读这条资讯，说明它值得关注的地方。', reference: { title: item.title, content: `${item.summary}\\n\\n来源：${item.url}` }, }) }"
+    },
+    {
+      "id": "ui_api:19785fe8d43d9680ea7b:1",
+      "kind": "ui_api",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 250,
+      "symbol": "workspaceApi.feed"
+    },
+    {
+      "id": "ui_query:fb4550e819750d2488b0:1",
+      "kind": "ui_query",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 250,
+      "symbol": "queryFn: ()"
+    },
+    {
+      "id": "ui_mutation:af46e8e710048c182d11:1",
+      "kind": "ui_mutation",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 252,
+      "symbol": "useMutation({ mutationFn: workspaceApi.refreshFeed, onSuccess: () => { void cache.invalidateQueries({ queryKey: ['feed'] }) void cache.invalidateQueries({ queryKey: ['today'] }) }, }"
+    },
+    {
+      "id": "ui_api:7ffdb8057e26ffd20a34:1",
+      "kind": "ui_api",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 253,
+      "symbol": "workspaceApi.refreshFeed"
+    },
+    {
+      "id": "ui_query:e400837da741e4bb2292:1",
+      "kind": "ui_query",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 253,
+      "symbol": "mutationFn: workspaceApi.refreshFeed,"
+    },
+    {
+      "id": "ui_button:4f3f22898c9c33bf7e2d:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 268,
+      "symbol": "<button className=\"secondary-button\" onClick={() => setEditor('new')}>"
+    },
+    {
+      "id": "ui_event:a52419a93e49cac5775a:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 268,
+      "symbol": "onClick={() => setEditor('new')}"
+    },
+    {
+      "id": "ui_button:48320c7d7a46079cf3e4:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 272,
+      "symbol": "<button className=\"secondary-button\" disabled={refresh.isPending} onClick={() => refresh.mutate()} >"
+    },
+    {
+      "id": "ui_event:421e77c43eb2aa77c5b0:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 275,
+      "symbol": "onClick={() => refresh.mutate()}"
+    },
+    {
+      "id": "ui_event:70d9fe134aae3ea58c0e:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 283,
+      "symbol": "onClose={() => setEditor(null)}"
+    },
+    {
+      "id": "ui_button:c0254ca290598cdbe3c5:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 293,
+      "symbol": "<button key={value} className={value === source ? 'selected' : ''} aria-pressed={value === source} onClick={() => setSource(value)} >"
+    },
+    {
+      "id": "ui_event:5861e308e54fd37647a6:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 297,
+      "symbol": "onClick={() => setSource(value)}"
+    },
+    {
+      "id": "ui_event:98258cf98b2e99562456:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 309,
+      "symbol": "onChange={(event) => setQ(event.target.value)}"
+    },
+    {
+      "id": "ui_event:387172e254b754d497c3:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 317,
+      "symbol": "onChange={(event) => setIncludeHidden(event.target.checked)}"
+    },
+    {
+      "id": "ui_button:274eb5209b1f6261e268:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 358,
+      "symbol": "<button className=\"secondary-button\" onClick={() => void feed.refetch()}>"
+    },
+    {
+      "id": "ui_event:fbcd8f54afef5addda21:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 358,
+      "symbol": "onClick={() => void feed.refetch()}"
+    },
+    {
+      "id": "ui_event:976fc6505e9668b98a43:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 371,
+      "symbol": "onEdit={() => setEditor(item)}"
+    },
+    {
+      "id": "ui_link:705001b4018741fca1a6:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 132,
+      "symbol": "<a className={`intro-button ${secondary ? 'outline' : ''}`} href={href}>"
+    },
+    {
+      "id": "ui_link:2cf59125c75b39fa1b90:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 182,
+      "symbol": "<a className=\"skip-link\" href=\"#features\">"
+    },
+    {
+      "id": "ui_link:792fe118078e7954aac3:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 186,
+      "symbol": "<a className=\"intro-brand\" href=\"#top\" aria-label=\"息流 xiliu 首页\">"
+    },
+    {
+      "id": "ui_event:61722207af3383743455:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 196,
+      "symbol": "onClick={() => setMenuOpen(false)}"
+    },
+    {
+      "id": "ui_link:4d461c04a89a2df708c0:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 198,
+      "symbol": "<a href=\"#features\">"
+    },
+    {
+      "id": "ui_link:f4a2481a5bdb475cd8fd:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 202,
+      "symbol": "<a href=\"#workflow\">"
+    },
+    {
+      "id": "ui_link:2248142206dc1cfde67b:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 206,
+      "symbol": "<a href=\"#local\">"
+    },
+    {
+      "id": "ui_link:725d40fe7f383401f687:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 210,
+      "symbol": "<a href=\"#questions\">"
+    },
+    {
+      "id": "ui_button:adc3f7390b66bec5a200:1",
+      "kind": "ui_button",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 217,
+      "symbol": "<button className=\"mobile-menu\" ref={menuButton} aria-label={menuOpen ? '关闭导航' : '打开导航'} aria-controls=\"intro-navigation\" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} >"
+    },
+    {
+      "id": "ui_event:bbf1ee0c5fa888b469c0:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 223,
+      "symbol": "onClick={() => setMenuOpen(!menuOpen)}"
+    },
+    {
+      "id": "ui_link:79325c673c0bad17e581:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 269,
+      "symbol": "<a className=\"hero-scroll-cue\" href=\"#features\">"
+    },
+    {
+      "id": "ui_link:69561ecf5e15a18d91f4:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 296,
+      "symbol": "<a className=\"text-link\" href=\"#workflow\">"
+    },
+    {
+      "id": "ui_button:53b632297b57ac898691:1",
+      "kind": "ui_button",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 338,
+      "symbol": "<button key={stage.name} role=\"tab\" id={`flow-tab-${i}`} aria-controls=\"flow-panel\" aria-selected={active === i} tabIndex={active === i ? 0 : -1} onClick={() => setActive(i)} onKeyDown={(event) => onTabKey(event, i)} >"
+    },
+    {
+      "id": "ui_event:de7e0bfeae1f8c8a66ee:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 345,
+      "symbol": "onClick={() => setActive(i)}"
+    },
+    {
+      "id": "ui_event:ef6444efbe913e11e528:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 346,
+      "symbol": "onKeyDown={(event) => onTabKey(event, i)}"
+    },
+    {
+      "id": "ui_link:2e704061e63ea0ba187e:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 382,
+      "symbol": "<a className=\"text-link\" href={publicShowcase ? '#workflow' : '/feed'}>"
+    },
+    {
+      "id": "ui_link:aac711410f47890d63c0:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 446,
+      "symbol": "<a className=\"text-link\" href={publicShowcase ? '#workflow' : '/knowledge'}>"
+    },
+    {
+      "id": "ui_button:d799d1e76bc76c5c25c1:1",
+      "kind": "ui_button",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 546,
+      "symbol": "<button key={label} aria-pressed={question === i} onClick={() => setQuestion(i)}>"
+    },
+    {
+      "id": "ui_event:c055cc99defeebc3a5c1:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 546,
+      "symbol": "onClick={() => setQuestion(i)}"
+    },
+    {
+      "id": "ui_link:b0029b3a499be2b3177b:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 646,
+      "symbol": "<a className=\"text-link\" href=\"#start\">"
+    },
+    {
+      "id": "ui_button:5bad578318d4ed4f359c:1",
+      "kind": "ui_button",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 734,
+      "symbol": "<button onClick={() => void copyInstall()} aria-label=\"复制安装命令\">"
+    },
+    {
+      "id": "ui_event:f8eaed0cff6da95c28e6:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 734,
+      "symbol": "onClick={() => void copyInstall()}"
+    },
+    {
+      "id": "ui_link:b90521f2fdeb0e0b3ecc:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 756,
+      "symbol": "<a className=\"intro-brand\" href=\"#top\">"
+    },
+    {
+      "id": "ui_link:17b3056749efee39234f:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 763,
+      "symbol": "<a className=\"text-link\" href=\"#top\">"
+    },
+    {
+      "id": "ui_link:83fb4f989f6e8af4e568:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 770,
+      "symbol": "<a href=\"https://933693.xyz/\">"
+    },
+    {
+      "id": "ui_link:3fd9fa1ac5baff36024c:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "web/src/features/intro/LandingPage.tsx",
+      "line": 773,
+      "symbol": "<a href=\"https://github.com/sodaa1\" target=\"_blank\" rel=\"noreferrer\">"
+    },
+    {
+      "id": "ui_mutation:2c5751f450516c7eb6f8:1",
+      "kind": "ui_mutation",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 22,
+      "symbol": "useMutation({ mutationFn: () => { const body = { name: name.trim(), summary: summary.trim(), tags: [ ...new Set( tags .split(/[,，]/) .map((tag) => tag.trim()) .filter(Boolean) ), ], priority: Number(priority), } return folder ? workspaceApi.updateFolder(folder.id, body) : workspaceApi.createFolder(body) }, onSuccess: () => { void cache.invalidateQueries({ queryKey: ['knowledge-folders'] }) onClose() }, }"
+    },
+    {
+      "id": "ui_query:47c2f8e2dbf02e3d5d2b:1",
+      "kind": "ui_query",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 23,
+      "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_api:c3c0bf1e71bf660cc9ea:1",
+      "kind": "ui_api",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 37,
+      "symbol": "workspaceApi.updateFolder"
+    },
+    {
+      "id": "ui_api:f559abf4dafb8d090d6a:1",
+      "kind": "ui_api",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 37,
+      "symbol": "workspaceApi.createFolder"
+    },
+    {
+      "id": "ui_event:586315f9f6e5c638d896:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 45,
+      "symbol": "onClose={onClose}"
+    },
+    {
+      "id": "ui_event:d90f1bc0051d7579bae5:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 47,
+      "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
+    },
+    {
+      "id": "ui_event:6828fdd819a6d8795d16:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 54,
+      "symbol": "onChange={(event) => setName(event.target.value)}"
+    },
+    {
+      "id": "ui_event:2ad2f7aea3c4c4d11af0:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 58,
+      "symbol": "onChange={(event) => setSummary(event.target.value)}"
+    },
+    {
+      "id": "ui_event:2547d57ec5792898b6d7:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 64,
+      "symbol": "onChange={(event) => setTags(event.target.value)}"
+    },
+    {
+      "id": "ui_event:f03038e2c4a4807fd50d:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 75,
+      "symbol": "onChange={(event) => setPriority(event.target.value)}"
+    },
+    {
+      "id": "ui_button:3e5a586fa484938ebd67:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 87,
+      "symbol": "<button className=\"secondary-button\" type=\"button\" onClick={onClose}>"
+    },
+    {
+      "id": "ui_event:dcbd1569a44bab0da118:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 87,
+      "symbol": "onClick={onClose}"
+    },
+    {
+      "id": "ui_button:6efe1557766a468f4b51:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 90,
+      "symbol": "<button className=\"primary-button\" disabled={save.isPending || !name.trim()}>"
+    },
+    {
+      "id": "ui_api:0c1bcf9c7b2c4708b7c0:1",
+      "kind": "ui_api",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 107,
+      "symbol": "workspaceApi.folders"
+    },
+    {
+      "id": "ui_query:c48619c5deef26b4f50a:1",
+      "kind": "ui_query",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 107,
+      "symbol": "queryFn: workspaceApi.folders"
+    },
+    {
+      "id": "ui_api:da19748e9602c3d2c635:1",
+      "kind": "ui_api",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 110,
+      "symbol": "workspaceApi.searchKnowledge"
+    },
+    {
+      "id": "ui_query:03191c11ca2c460255b4:1",
+      "kind": "ui_query",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 110,
+      "symbol": "queryFn: ()"
+    },
+    {
+      "id": "ui_mutation:df2e9965e983e2a6378f:1",
+      "kind": "ui_mutation",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 113,
+      "symbol": "useMutation({ mutationFn: workspaceApi.deleteFolder, onSuccess: () => { setDeleting(null) void cache.invalidateQueries({ queryKey: ['knowledge-folders'] }) void cache.invalidateQueries({ queryKey: ['content'] }) }, }"
+    },
+    {
+      "id": "ui_api:5fbd46fd9cbaf203e5bb:1",
+      "kind": "ui_api",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 114,
+      "symbol": "workspaceApi.deleteFolder"
+    },
+    {
+      "id": "ui_query:75fff1e8afa44d5a8cf5:1",
+      "kind": "ui_query",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 114,
+      "symbol": "mutationFn: workspaceApi.deleteFolder,"
+    },
+    {
+      "id": "ui_button:569d0297964de48b419b:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 126,
+      "symbol": "<button className=\"secondary-button\" onClick={() => setParams({})}>"
+    },
+    {
+      "id": "ui_event:0367926299ffb37aaddd:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 126,
+      "symbol": "onClick={() => setParams({})}"
+    },
+    {
+      "id": "ui_button:e7ad89b798cce4dac471:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 154,
+      "symbol": "<button className=\"primary-button\" onClick={() => setEditing(null)}>"
+    },
+    {
+      "id": "ui_event:05afe02370dbf1b8a86f:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 154,
+      "symbol": "onClick={() => setEditing(null)}"
+    },
+    {
+      "id": "ui_event:46c8e2631c24bdf62eea:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 161,
+      "symbol": "onSubmit={(event) => { event.preventDefault() setSearch(q.trim()) }}"
+    },
+    {
+      "id": "ui_event:9982a3c976b8d26de1e4:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 171,
+      "symbol": "onChange={(event) => setQ(event.target.value)}"
+    },
+    {
+      "id": "ui_button:e3351a72009801b03dbf:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 175,
+      "symbol": "<button className=\"secondary-button\">"
+    },
+    {
+      "id": "ui_button:6d87395c01463fe4ad74:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 177,
+      "symbol": "<button className=\"secondary-button\" type=\"button\" onClick={() => { setSearch('') setQ('') }} >"
+    },
+    {
+      "id": "ui_event:9f29442912353c15fb1a:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 180,
+      "symbol": "onClick={() => { setSearch('') setQ('') }}"
+    },
+    {
+      "id": "ui_link:f229e1d5f3afaa083d3f:1",
+      "kind": "ui_link",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 190,
+      "symbol": "<Link to=\"?folder=all\">"
+    },
+    {
+      "id": "ui_link:57c73ca290855a811272:1",
+      "kind": "ui_link",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 191,
+      "symbol": "<Link to=\"?folder=unfiled\">"
+    },
+    {
+      "id": "ui_link:289af7da836d643edf34:1",
+      "kind": "ui_link",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 209,
+      "symbol": "<Link to={`?folder=all&document=${encodeURIComponent(item.document_id)}`}>"
+    },
+    {
+      "id": "ui_button:a88124bc28d748dc65f5:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 229,
+      "symbol": "<button className=\"secondary-button\" onClick={() => void folders.refetch()}>"
+    },
+    {
+      "id": "ui_event:4157d3364132c19dfc0e:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 229,
+      "symbol": "onClick={() => void folders.refetch()}"
+    },
+    {
+      "id": "ui_link:a954f1cebb619039406a:1",
+      "kind": "ui_link",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 243,
+      "symbol": "<Link className=\"knowledge-folder-open\" to={`?folder=${encodeURIComponent(folder.id)}`} >"
+    },
+    {
+      "id": "ui_button:36a36e0e5e389dd568ce:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 262,
+      "symbol": "<button onClick={() => setEditing(folder)}>"
+    },
+    {
+      "id": "ui_event:ab4b645ab35ad8511007:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 262,
+      "symbol": "onClick={() => setEditing(folder)}"
+    },
+    {
+      "id": "ui_button:6f7be27c069fc8bbab84:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 263,
+      "symbol": "<button aria-label={`删除文件夹 ${folder.name}`} onClick={() => setDeleting(folder)} >"
+    },
+    {
+      "id": "ui_event:4229a258399eb7300871:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 265,
+      "symbol": "onClick={() => setDeleting(folder)}"
+    },
+    {
+      "id": "ui_event:ed364d6ab3b6514b4f1c:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 279,
+      "symbol": "onClose={() => setEditing(undefined)}"
+    },
+    {
+      "id": "ui_event:8b7306870dfd6ad30453:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 283,
+      "symbol": "onClose={() => setDeleting(null)}"
+    },
+    {
+      "id": "ui_button:efd53a1fa268235ca17f:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 293,
+      "symbol": "<button className=\"secondary-button\" onClick={() => setDeleting(null)}>"
+    },
+    {
+      "id": "ui_event:0469185681b8738e8d1d:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 293,
+      "symbol": "onClick={() => setDeleting(null)}"
+    },
+    {
+      "id": "ui_button:60d57f301a65013108c6:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 296,
+      "symbol": "<button className=\"primary-button\" disabled={remove.isPending} onClick={() => remove.mutate(deleting.id)} >"
+    },
+    {
+      "id": "ui_event:47d94b9f24fa9e2647e5:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 299,
+      "symbol": "onClick={() => remove.mutate(deleting.id)}"
+    },
+    {
+      "id": "ui_button:8021ac25775f40dcda24:1",
+      "kind": "ui_button",
+      "page": "Launch",
+      "file": "web/src/features/launch/LaunchPage.tsx",
+      "line": 18,
+      "symbol": "<button className=\"launch-skip\" onClick={() => setIntroComplete(true)}>"
+    },
+    {
+      "id": "ui_event:5471ecb0dbc2bbae181d:1",
+      "kind": "ui_event",
+      "page": "Launch",
+      "file": "web/src/features/launch/LaunchPage.tsx",
+      "line": 18,
+      "symbol": "onClick={() => setIntroComplete(true)}"
+    },
+    {
+      "id": "ui_event:121c0def3d1cb9587097:1",
+      "kind": "ui_event",
+      "page": "Launch",
+      "file": "web/src/features/launch/LaunchPage.tsx",
+      "line": 24,
+      "symbol": "onAnimationEnd={(event) => { if (event.target === event.currentTarget && event.animationName === 'launch-reveal') setIntroComplete(true) }}"
+    },
+    {
+      "id": "ui_link:aee80f2a18e8d46da4f7:1",
+      "kind": "ui_link",
+      "page": "Launch",
+      "file": "web/src/features/launch/LaunchPage.tsx",
+      "line": 35,
+      "symbol": "<Link to=\"/today\" className=\"btn launch-enter\">"
+    },
+    {
+      "id": "ui_event:bdce9f300637311ebbec:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/AppearanceSettings.tsx",
+      "line": 53,
+      "symbol": "onChange={(theme) => change({ theme: theme as Preferences['theme'] })}"
+    },
+    {
+      "id": "ui_event:fdd1835b617e4a04664f:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/AppearanceSettings.tsx",
+      "line": 68,
+      "symbol": "onChange={(fontSize) => change({ fontSize: fontSize as Preferences['fontSize'] })}"
+    },
+    {
+      "id": "ui_event:0bed6821366325d418a2:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/AppearanceSettings.tsx",
+      "line": 83,
+      "symbol": "onChange={(fontFamily) => change({ fontFamily: fontFamily as Preferences['fontFamily'] }) }"
+    },
+    {
+      "id": "ui_event:782f8482fc357b0b53e7:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/AppearanceSettings.tsx",
+      "line": 99,
+      "symbol": "onChange={(density) => change({ density: density as Preferences['density'] })}"
+    },
+    {
+      "id": "ui_button:d173228e4bf6d7e86be7:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/AppearanceSettings.tsx",
+      "line": 108,
+      "symbol": "<button role=\"switch\" disabled={saving} aria-label=\"减少动态效果\" aria-checked={preferences.reducedMotion} className={`automation-switch ${preferences.reducedMotion ? 'enabled' : ''}`} onClick={() => change({ reducedMotion: !preferences.reducedMotion })} >"
+    },
+    {
+      "id": "ui_event:d9a10df43a2ce3848880:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/AppearanceSettings.tsx",
+      "line": 114,
+      "symbol": "onClick={() => change({ reducedMotion: !preferences.reducedMotion })}"
+    },
+    {
+      "id": "ui_button:b7b5c2588de178072a9d:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/AppearanceSettings.tsx",
+      "line": 132,
+      "symbol": "<button className=\"secondary-button\" disabled={saving} onClick={() => change({ theme: defaultPreferences.theme, fontSize: defaultPreferences.fontSize, fontFamily: defaultPreferences.fontFamily, density: defaultPreferences.density, reducedMotion: defaultPreferences.reducedMotion, }) } >"
+    },
+    {
+      "id": "ui_event:0b56c32aa407b94447de:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/AppearanceSettings.tsx",
+      "line": 135,
+      "symbol": "onClick={() => change({ theme: defaultPreferences.theme, fontSize: defaultPreferences.fontSize, fontFamily: defaultPreferences.fontFamily, density: defaultPreferences.density, reducedMotion: defaultPreferences.reducedMotion, }) }"
+    },
+    {
+      "id": "ui_event:f3074b07e568e08ee134:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/PersonalSettings.tsx",
+      "line": 30,
+      "symbol": "onSubmit={async (event) => { event.preventDefault() setSaving(true) setSaved(false) setError('') try { await savePreferences( { displayName: displayName.trim(), email: email.trim(), bio: bio.trim(), avatar, }, baselineRevision ) setDirty(false) setSaved(true) setError('') } catch (failure) { setError((failure as Error).message) setSaved(false) } finally { setSaving(false) } }}"
+    },
+    {
+      "id": "ui_event:a681678350772b409eb4:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/PersonalSettings.tsx",
+      "line": 55,
+      "symbol": "onChange={() => { setSaved(false) setDirty(true) }}"
+    },
+    {
+      "id": "ui_event:58ec0b8d930506d6fbc1:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/PersonalSettings.tsx",
+      "line": 84,
+      "symbol": "onChange={async (event) => { const file = event.target.files?.[0] event.target.value = '' if (!file) return setReading(true) setError('') setSaved(false) try { setAvatar(await readAvatar(file)) } catch (failure) { setError((failure as Error).message) } finally { setReading(false) } }}"
+    },
+    {
+      "id": "ui_button:59410c32ae6d64955538:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/PersonalSettings.tsx",
+      "line": 101,
+      "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={!avatar || saving || reading} onClick={() => { setAvatar('') setSaved(false) setDirty(true) }} >"
+    },
+    {
+      "id": "ui_event:a27fde196c2b9606b4ba:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/PersonalSettings.tsx",
+      "line": 105,
+      "symbol": "onClick={() => { setAvatar('') setSaved(false) setDirty(true) }}"
+    },
+    {
+      "id": "ui_event:745df518040ade4d8b84:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/PersonalSettings.tsx",
+      "line": 122,
+      "symbol": "onChange={(event) => setDisplayName(event.target.value)}"
+    },
+    {
+      "id": "ui_event:8496ceddcfa3e3f487e3:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/PersonalSettings.tsx",
+      "line": 134,
+      "symbol": "onChange={(event) => setEmail(event.target.value)}"
+    },
+    {
+      "id": "ui_event:6782360483f96e7cd75a:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/PersonalSettings.tsx",
+      "line": 146,
+      "symbol": "onChange={(event) => setBio(event.target.value)}"
+    },
+    {
+      "id": "ui_button:90d4fe29a5824f29bd63:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/PersonalSettings.tsx",
+      "line": 161,
+      "symbol": "<button className=\"primary-button\" disabled={saving || reading}>"
+    },
+    {
+      "id": "ui_mutation:f67c4bde95fe63bb112f:1",
+      "kind": "ui_mutation",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 30,
+      "symbol": "useMutation({ mutationFn: () => api.saveSettings({ provider, model, base_url: address, api_key: key }), onSuccess: async (updated) => { setKey('') cache.setQueryData(['model-settings'], updated) await cache.invalidateQueries({ queryKey: ['conversation'] }) }, }"
+    },
+    {
+      "id": "ui_api:1dd82f4cd57ba1016916:1",
+      "kind": "ui_api",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 31,
+      "symbol": "api.saveSettings"
+    },
+    {
+      "id": "ui_query:237188bc34be27a4372e:1",
+      "kind": "ui_query",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 31,
+      "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_event:017f39726882adc146b5:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 41,
+      "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
+    },
+    {
+      "id": "ui_event:3c84e1628fcbd1735bf9:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 63,
+      "symbol": "onChange={(value) => { const selected = value as ModelSettings['provider'] setProvider(selected) setModel(catalog[selected].models[0]) setAddress(catalog[selected].base_url) save.reset() }}"
+    },
+    {
+      "id": "ui_event:289e43751430514f3a8c:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 82,
+      "symbol": "onChange={(value) => { setModel(value) save.reset() }}"
+    },
+    {
+      "id": "ui_event:2372e5037db72f49792b:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 97,
+      "symbol": "onChange={(event) => setKey(event.target.value)}"
+    },
+    {
+      "id": "ui_event:3824a6423f14908ac90d:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 112,
+      "symbol": "onChange={(event) => setAddress(event.target.value)}"
+    },
+    {
+      "id": "ui_button:21906574ff76ffdbe32c:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 124,
+      "symbol": "<button className=\"primary-button\" disabled={save.isPending}>"
+    },
+    {
+      "id": "ui_api:ebe64a5f50f341e88ceb:1",
+      "kind": "ui_api",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 139,
+      "symbol": "api.settings"
+    },
+    {
+      "id": "ui_query:86399ef76eace97175db:1",
+      "kind": "ui_query",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 139,
+      "symbol": "queryFn: api.settings"
+    },
+    {
+      "id": "ui_api:1a2dec63c112c44b0242:1",
+      "kind": "ui_api",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 140,
+      "symbol": "api.catalog"
+    },
+    {
+      "id": "ui_query:eed1108f1a89ab9a717f:1",
+      "kind": "ui_query",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 140,
+      "symbol": "queryFn: api.catalog"
+    },
+    {
+      "id": "ui_button:7a9d53359775be1cd971:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 145,
+      "symbol": "<button className=\"secondary-button\" onClick={() => { void settings.refetch() void catalog.refetch() }} >"
+    },
+    {
+      "id": "ui_event:9baec46668704bf0182e:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 147,
+      "symbol": "onClick={() => { void settings.refetch() void catalog.refetch() }}"
+    },
+    {
+      "id": "ui_api:bf486270d280cecba2d1:1",
+      "kind": "ui_api",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 165,
+      "symbol": "workspaceApi.dataSettings"
+    },
+    {
+      "id": "ui_query:94877495f41e53aa47fb:1",
+      "kind": "ui_query",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 165,
+      "symbol": "queryFn: workspaceApi.dataSettings"
+    },
+    {
+      "id": "ui_button:4d4440cd145e3adae49a:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 181,
+      "symbol": "<button className=\"secondary-button\" onClick={() => void data.refetch()}>"
+    },
+    {
+      "id": "ui_event:f7c73abbfd59780fa77b:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 181,
+      "symbol": "onClick={() => void data.refetch()}"
+    },
+    {
+      "id": "ui_button:80fb109db6734840b53a:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 209,
+      "symbol": "<button className=\"secondary-button copy-data-path\" onClick={async () => { try { await navigator.clipboard.writeText(data.data!.data_dir) setNotice('数据位置已复制') } catch { setNotice('无法自动复制，请选中上方路径手动复制。') } }} >"
+    },
+    {
+      "id": "ui_event:d48e069b140d709a2a29:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 211,
+      "symbol": "onClick={async () => { try { await navigator.clipboard.writeText(data.data!.data_dir) setNotice('数据位置已复制') } catch { setNotice('无法自动复制，请选中上方路径手动复制。') } }}"
+    },
+    {
+      "id": "ui_link:1b03a5dd16dcab19d5cb:1",
+      "kind": "ui_link",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 256,
+      "symbol": "<Link to=\"/assistant\" className=\"back-link\">"
+    },
+    {
+      "id": "ui_button:f5c28cb56903c6c61cfe:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 276,
+      "symbol": "<button key={id} type=\"button\" role=\"tab\" id={`settings-tab-${id}`} aria-selected={position === index} aria-controls={`settings-panel-${id}`} tabIndex={position === index ? 0 : -1} onClick={() => select(position)} onKeyDown={(event) => { const target = event.key === 'ArrowRight' ? (index + 1) % sections.length : event.key === 'ArrowLeft' ? (index + sections.length - 1) % sections.length : event.key === 'Home' ? 0 : event.key === 'End' ? sections.length - 1 : -1 if (target >= 0) { event.preventDefault() select(target) document.getElementById(`settings-tab-${sections[target].id}`)?.focus() } }} >"
+    },
+    {
+      "id": "ui_event:2f424fd9619d12f04ff2:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 284,
+      "symbol": "onClick={() => select(position)}"
+    },
+    {
+      "id": "ui_event:3b698d873284d6a4d509:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 285,
+      "symbol": "onKeyDown={(event) => { const target = event.key === 'ArrowRight' ? (index + 1) % sections.length : event.key === 'ArrowLeft' ? (index + sections.length - 1) % sections.length : event.key === 'Home' ? 0 : event.key === 'End' ? sections.length - 1 : -1 if (target >= 0) { event.preventDefault() select(target) document.getElementById(`settings-tab-${sections[target].id}`)?.focus() } }}"
+    },
+    {
+      "id": "ui_mutation:54638dfa1c2d15cafefb:1",
+      "kind": "ui_mutation",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 36,
+      "symbol": "useMutation({ mutationFn: () => workspaceApi.updateTask(task.id, { title, due_at: due ? new Date(due).toISOString() : null }), onSuccess: onDone, }"
+    },
+    {
+      "id": "ui_query:eead62e7c8344e52d67e:1",
+      "kind": "ui_query",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 37,
+      "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_api:55d8234b540311f0e03a:1",
+      "kind": "ui_api",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 38,
+      "symbol": "workspaceApi.updateTask"
+    },
+    {
+      "id": "ui_event:e89478b7719f6fd49b37:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 44,
+      "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
+    },
+    {
+      "id": "ui_event:5d1e4f12167845857bff:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 53,
+      "symbol": "onChange={(event) => setTitle(event.target.value)}"
+    },
+    {
+      "id": "ui_event:48e7ff2c1dfed3a15c36:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 59,
+      "symbol": "onChange={(event) => setDue(event.target.value)}"
+    },
+    {
+      "id": "ui_button:521c97f8791b4ac171cc:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 62,
+      "symbol": "<button disabled={save.isPending}>"
+    },
+    {
+      "id": "ui_button:8ad47962edec1a53509c:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 63,
+      "symbol": "<button type=\"button\" onClick={onDone}>"
+    },
+    {
+      "id": "ui_event:ef4727c23541d071962d:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 63,
+      "symbol": "onClick={onDone}"
+    },
+    {
+      "id": "ui_api:bbb0919bf7a19ad55dea:1",
+      "kind": "ui_api",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 87,
+      "symbol": "workspaceApi.today"
+    },
+    {
+      "id": "ui_query:1cb115aa6b9d636a9252:1",
+      "kind": "ui_query",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 87,
+      "symbol": "queryFn: workspaceApi.today"
+    },
+    {
+      "id": "ui_mutation:c99edd2437261db8c4bf:1",
+      "kind": "ui_mutation",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 91,
+      "symbol": "useMutation({ mutationFn: () => workspaceApi.createTask(title.trim(), due ? new Date(due).toISOString() : null), onSuccess: () => { setTitle('') setDue('') invalidate() }, }"
+    },
+    {
+      "id": "ui_query:eead62e7c8344e52d67e:2",
+      "kind": "ui_query",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 92,
+      "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_api:c75792f04d11ceb1fe36:1",
+      "kind": "ui_api",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 93,
+      "symbol": "workspaceApi.createTask"
+    },
+    {
+      "id": "ui_mutation:73d64aa8338678970f0d:1",
+      "kind": "ui_mutation",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 100,
+      "symbol": "useMutation({ mutationFn: (task: Task) => workspaceApi.updateTask(task.id, { completed: !task.completed }), onSuccess: invalidate, }"
+    },
+    {
+      "id": "ui_api:55d8234b540311f0e03a:2",
+      "kind": "ui_api",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 101,
+      "symbol": "workspaceApi.updateTask"
+    },
+    {
+      "id": "ui_query:2c0b0f7cea6bcc0dd528:1",
+      "kind": "ui_query",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 101,
+      "symbol": "mutationFn: (task:"
+    },
+    {
+      "id": "ui_api:351c24a4c356f2938888:1",
+      "kind": "ui_api",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 104,
+      "symbol": "workspaceApi.deleteTask"
+    },
+    {
+      "id": "ui_mutation:930601ceecdd5c84d101:1",
+      "kind": "ui_mutation",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 104,
+      "symbol": "useMutation({ mutationFn: workspaceApi.deleteTask, onSuccess: invalidate }"
+    },
+    {
+      "id": "ui_query:03bd0ce09493061cc3a7:1",
+      "kind": "ui_query",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 104,
+      "symbol": "mutationFn: workspaceApi.deleteTask,"
+    },
+    {
+      "id": "ui_event:610b3296fa33afb09f61:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 116,
+      "symbol": "onDone={() => { setEditing(null) invalidate() }}"
+    },
+    {
+      "id": "ui_event:a05034bd791c444c7f7d:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 128,
+      "symbol": "onChange={() => toggle.mutate(task)}"
+    },
+    {
+      "id": "ui_button:a3601de125f75d87fcd1:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 130,
+      "symbol": "<button className=\"task-title\" title=\"编辑待办\" onClick={() => setEditing(task.id)}>"
+    },
+    {
+      "id": "ui_event:edfa52e81d06573c0248:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 130,
+      "symbol": "onClick={() => setEditing(task.id)}"
+    },
+    {
+      "id": "ui_button:ca966a3a1b2c4524571e:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 143,
+      "symbol": "<button className=\"icon-button\" disabled={remove.isPending} aria-label={`删除待办 ${task.title}`} onClick={() => remove.mutate(task.id)} >"
+    },
+    {
+      "id": "ui_event:d988f51ac89ab597e393:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 147,
+      "symbol": "onClick={() => remove.mutate(task.id)}"
+    },
+    {
+      "id": "ui_event:fcabde6c6194bec5d92b:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 158,
+      "symbol": "onSubmit={(event) => { event.preventDefault() if (title.trim()) create.mutate() }}"
+    },
+    {
+      "id": "ui_event:5d1e4f12167845857bff:2",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 172,
+      "symbol": "onChange={(event) => setTitle(event.target.value)}"
+    },
+    {
+      "id": "ui_event:48e7ff2c1dfed3a15c36:2",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 183,
+      "symbol": "onChange={(event) => setDue(event.target.value)}"
+    },
+    {
+      "id": "ui_button:618b0172f5518c530e6c:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 186,
+      "symbol": "<button className=\"primary-button\" disabled={create.isPending || !title.trim()}>"
+    },
+    {
+      "id": "ui_link:9e3f2db9cde31fd08f72:1",
+      "kind": "ui_link",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 204,
+      "symbol": "<Link to=\"/settings?section=profile\" state={{ backgroundLocation: location }} aria-label={`${preferences.displayName || '你'}的个人设置`} >"
+    },
+    {
+      "id": "ui_button:f4982ab0fe2d708f1915:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 224,
+      "symbol": "<button className=\"secondary-button\" onClick={() => void today.refetch()}>"
+    },
+    {
+      "id": "ui_event:254625ba1fec97d31dfb:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 224,
+      "symbol": "onClick={() => void today.refetch()}"
+    },
+    {
+      "id": "ui_link:1cab4bbd5e88edac8d6b:1",
+      "kind": "ui_link",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 238,
+      "symbol": "<Link to=\"/feed\">"
+    },
+    {
+      "id": "ui_link:e5cc6eabcda6415ec965:1",
+      "kind": "ui_link",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 250,
+      "symbol": "<Link className=\"secondary-button\" to=\"/feed\">"
+    },
+    {
+      "id": "ui_link:00539b7c8cbd48d353a1:1",
+      "kind": "ui_link",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 255,
+      "symbol": "<Link to=\"/inbox\" className=\"inbox-summary\">"
+    },
+    {
+      "id": "ui_button:d5b706b99aad34d53d9a:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 269,
+      "symbol": "<button className=\"today-see-tasks\" onClick={() => setAllTasks(true)}>"
+    },
+    {
+      "id": "ui_event:5727974ad9b0e47be58c:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 269,
+      "symbol": "onClick={() => setAllTasks(true)}"
+    },
+    {
+      "id": "ui_button:4243fe043dd789f82af7:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 276,
+      "symbol": "<button aria-pressed={tab === 'active'} className={tab === 'active' ? 'selected' : ''} onClick={() => setTab('active')} >"
+    },
+    {
+      "id": "ui_event:71acf035fab875e9eb1a:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 279,
+      "symbol": "onClick={() => setTab('active')}"
+    },
+    {
+      "id": "ui_button:17fea3cacbcd7e7b4af4:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 283,
+      "symbol": "<button aria-pressed={tab === 'done'} className={tab === 'done' ? 'selected' : ''} onClick={() => setTab('done')} >"
+    },
+    {
+      "id": "ui_event:16628ba847dea0bac0f5:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 286,
+      "symbol": "onClick={() => setTab('done')}"
+    },
+    {
+      "id": "ui_event:8e16a560ab06eb36196c:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 310,
+      "symbol": "onSubmit={(event) => { event.preventDefault() if (draft.trim()) ask.mutate({ draft: draft.trim() }) }}"
+    },
+    {
+      "id": "ui_event:50d4302f025e62782edf:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 320,
+      "symbol": "onChange={(event) => setDraft(event.target.value)}"
+    },
+    {
+      "id": "ui_button:9a2149917b34d34f5652:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 322,
+      "symbol": "<button className=\"primary-button\" disabled={ask.isPending || !draft.trim()} aria-label=\"在 Assistant 中继续\" >"
+    },
+    {
+      "id": "ui_event:d7f22d1a98b579f0a454:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 331,
+      "symbol": "onClose={closeTasks}"
+    },
+    {
+      "id": "ui_event:727386743dcc1144f165:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 335,
+      "symbol": "onChange={setTab}"
+    },
+    {
+      "id": "ui_fetch:0e17141805a226101207:1",
+      "kind": "ui_fetch",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 32,
+      "symbol": "fetch(`/api${path}`,"
+    },
+    {
+      "id": "api_client:4536489fa3ec557c4025:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 76,
+      "symbol": "confirmAction"
+    },
+    {
+      "id": "api_client:63bdecc2138b7976e7be:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 81,
+      "symbol": "archiveJob"
+    },
+    {
+      "id": "api_client:279f1de4de30709fa499:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 85,
+      "symbol": "conversations"
+    },
+    {
+      "id": "api_client:63ee78ddc205790e28e2:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 86,
+      "symbol": "create"
+    },
+    {
+      "id": "api_client:960e0f068dbb61c15cd8:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 87,
+      "symbol": "conversation"
+    },
+    {
+      "id": "api_client:d650a6f589ce56b0114c:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 88,
+      "symbol": "messages"
+    },
+    {
+      "id": "api_client:e89b1ca770b5a8a16c3b:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 89,
+      "symbol": "patch"
+    },
+    {
+      "id": "api_client:81799d3ecc48885c5309:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 94,
+      "symbol": "remove"
+    },
+    {
+      "id": "api_client:a26f8e6f8dafbfa4f8f1:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 96,
+      "symbol": "stop"
+    },
+    {
+      "id": "api_client:b0fa806a63fad3f59e92:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 100,
+      "symbol": "settings"
+    },
+    {
+      "id": "api_client:0288439d3b0c5bd4711e:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 101,
+      "symbol": "catalog"
+    },
+    {
+      "id": "api_client:880b7b98225675b108c9:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 102,
+      "symbol": "saveSettings"
+    },
+    {
+      "id": "api_client:e1b4678e20cfbb2e4c0c:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 104,
+      "symbol": "commands"
+    },
+    {
+      "id": "api_client:5d1312b74a7f4fb61679:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 105,
+      "symbol": "skills"
+    },
+    {
+      "id": "api_client:f4b63626f0db23eb5a56:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 106,
+      "symbol": "mcp"
+    },
+    {
+      "id": "api_client:866b669edabc24a60e71:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 107,
+      "symbol": "chat"
+    },
+    {
+      "id": "ui_fetch:d1d5acda85de00596cd0:1",
+      "kind": "ui_fetch",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/api.ts",
+      "line": 114,
+      "symbol": "fetch(`/api/conversations/${encodeURIComponent(id)}/chat`,"
+    },
+    {
+      "id": "ui_fetch:761909de83b6bddcec82:1",
+      "kind": "ui_fetch",
+      "page": "Settings",
+      "file": "web/src/lib/preferences.ts",
+      "line": 110,
+      "symbol": "fetch('/api/settings/preferences',"
+    },
+    {
+      "id": "ui_fetch:b920e7696b9965cc3e71:1",
+      "kind": "ui_fetch",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 108,
+      "symbol": "fetch(`/api${path}`,"
+    },
+    {
+      "id": "api_client:65fffbc732955c3b2939:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 133,
+      "symbol": "inbox"
+    },
+    {
+      "id": "api_client:3d54e3a331103751bc18:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 134,
+      "symbol": "importContent"
+    },
+    {
+      "id": "api_client:e1496e4236cbe6ae1700:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 140,
+      "symbol": "contentItem"
+    },
+    {
+      "id": "api_client:ffc8fa8e5f48676127ba:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 141,
+      "symbol": "classifyBatch"
+    },
+    {
+      "id": "api_client:c24a4d6e8e9958bb182c:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 143,
+      "symbol": "retryContent"
+    },
+    {
+      "id": "api_client:0c82068ecd6171cbd678:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 145,
+      "symbol": "folders"
+    },
+    {
+      "id": "api_client:288364342ee8b70b0966:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 146,
+      "symbol": "createFolder"
+    },
+    {
+      "id": "api_client:c568bc9fd07a1fdbbb5c:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 148,
+      "symbol": "updateFolder"
+    },
+    {
+      "id": "api_client:9bbd35cc349865b7a015:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 152,
+      "symbol": "deleteFolder"
+    },
+    {
+      "id": "api_client:e631187af58206bad11d:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 154,
+      "symbol": "folderItems"
+    },
+    {
+      "id": "api_client:0db2741380825fca9b48:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 156,
+      "symbol": "searchKnowledge"
+    },
+    {
+      "id": "api_client:d3447ff6386eb580174b:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 158,
+      "symbol": "content"
+    },
+    {
+      "id": "api_client:555222adb7a307737ca6:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 160,
+      "symbol": "createContent"
+    },
+    {
+      "id": "api_client:8e54270e0e182f6a8883:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 161,
+      "symbol": "updateContent"
+    },
+    {
+      "id": "api_client:1bab5b64d03a547173df:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 167,
+      "symbol": "deleteContent"
+    },
+    {
+      "id": "api_client:9d7c9d0ab659bc4e3264:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 168,
+      "symbol": "originalUrl"
+    },
+    {
+      "id": "api_client:b00c1062e4f8a9f6dfc9:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 169,
+      "symbol": "feed"
+    },
+    {
+      "id": "api_client:07b717763029c8170173:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 173,
+      "symbol": "refreshFeed"
+    },
+    {
+      "id": "api_client:81be10b6b257011546a5:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 174,
+      "symbol": "addManualFeed"
+    },
+    {
+      "id": "api_client:016c905c4cbf17edef4c:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 175,
+      "symbol": "updateManualFeed"
+    },
+    {
+      "id": "api_client:53f72d2bb03f9f497359:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 177,
+      "symbol": "removeManualFeed"
+    },
+    {
+      "id": "api_client:a10b5d6978972df83e04:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 179,
+      "symbol": "restoreManualFeed"
+    },
+    {
+      "id": "api_client:260ac4f7d9a5b71fea8e:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 181,
+      "symbol": "hideExternalFeed"
+    },
+    {
+      "id": "api_client:d55198f1c29204f8e2f6:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 183,
+      "symbol": "unhideExternalFeed"
+    },
+    {
+      "id": "api_client:664a352abbbb26244bc3:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 185,
+      "symbol": "saveFeed"
+    },
+    {
+      "id": "api_client:aee191a7c26321a3daf8:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 186,
+      "symbol": "today"
+    },
+    {
+      "id": "api_client:2e99c5d5e509675614d6:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 187,
+      "symbol": "createTask"
+    },
+    {
+      "id": "api_client:8c9d9f70058ef76807d8:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 189,
+      "symbol": "updateTask"
+    },
+    {
+      "id": "api_client:60bef4a7fd19d4f149ae:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 191,
+      "symbol": "deleteTask"
+    },
+    {
+      "id": "api_client:8e4b96091d61f6f0f02b:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 192,
+      "symbol": "automations"
+    },
+    {
+      "id": "api_client:72b73734cdd5daf6be75:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 193,
+      "symbol": "createAutomation"
+    },
+    {
+      "id": "api_client:ed9421ae4960614d37cb:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 200,
+      "symbol": "toggleAutomation"
+    },
+    {
+      "id": "api_client:68db77e7ae02473ddabc:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 202,
+      "symbol": "deleteAutomation"
+    },
+    {
+      "id": "api_client:0c5fd99637c8602f7ed1:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 204,
+      "symbol": "runs"
+    },
+    {
+      "id": "api_client:1cfd3203c2ba49f40cd9:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 205,
+      "symbol": "dataSettings"
+    }
+  ],
+  "counts": {
+    "http_route": 61,
+    "service_method": 80,
+    "base_tool": 17,
+    "ui_event": 192,
+    "ui_link": 35,
+    "ui_button": 87,
+    "ui_api": 60,
+    "ui_query": 48,
+    "ui_mutation": 25,
+    "ui_fetch": 4,
+    "api_client": 51
+  }
+}

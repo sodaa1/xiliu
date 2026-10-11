@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { Brand } from '../../components/Brand'
 import type { ChatRun, Message, Thinking } from '../../lib/types'
 import { ThinkingPanel } from './ThinkingPanel'
+import { AppReceipts } from './AppReceipts'
 
 function thinkingFor(message: Message): Thinking | undefined {
   try {
@@ -31,6 +32,16 @@ export function MessageList({
   loading: boolean
   onPrompt: (text: string) => void
 }) {
+  const resolved = messages.flatMap((message) => {
+    try {
+      const receipts = JSON.parse(message.metadata_json).app_receipts
+      return Array.isArray(receipts)
+        ? receipts.filter((r) => r.confirmation_resolved).map((r) => String(r.confirmation_id))
+        : []
+    } catch {
+      return []
+    }
+  })
   const bottom = useRef<HTMLDivElement>(null)
   useEffect(() => {
     bottom.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
@@ -94,6 +105,13 @@ export function MessageList({
                   >
                     {message.content}
                   </ReactMarkdown>
+                  {message.role === 'assistant' && (
+                    <AppReceipts
+                      metadata={message.metadata_json}
+                      sessionId={message.conversation_id}
+                      resolved={resolved}
+                    />
+                  )}
                 </div>
               </article>
             )

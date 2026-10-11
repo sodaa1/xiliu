@@ -1,0 +1,3627 @@
+{
+  "format_version": 1,
+  "actions": [
+    {
+      "id": "today.read",
+      "domain": "today",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": [
+        "FeedService.list",
+        "TaskService.list",
+        "ContentService.list"
+      ],
+      "constant_catalog": null,
+      "permission": "today.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.today"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_metadata_and_today_actions_read_real_services_without_credentials",
+          "tests/integration/test_completion_api.py::test_content_capture_move_search_download_and_task_today",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "content.create",
+      "domain": "content",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "default": "note",
+            "enum": [
+              "note",
+              "link"
+            ],
+            "title": "Type",
+            "type": "string"
+          },
+          "title": {
+            "default": "未命名笔记",
+            "title": "Title",
+            "type": "string"
+          },
+          "content": {
+            "default": "",
+            "title": "Content",
+            "type": "string"
+          },
+          "summary": {
+            "default": "",
+            "title": "Summary",
+            "type": "string"
+          },
+          "source": {
+            "default": "",
+            "title": "Source",
+            "type": "string"
+          },
+          "status": {
+            "default": "inbox",
+            "enum": [
+              "inbox",
+              "knowledge"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "folder_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Folder Id"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Tags",
+            "type": "array"
+          }
+        },
+        "title": "ContentCreate",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ContentService.create",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.createContent"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_content_create_and_inbox_get_persist_exact_note",
+          "tests/integration/test_completion_api.py::test_content_capture_move_search_download_and_task_today",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_creates_note_link_and_file_with_portable_markdown"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.list",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "q": {
+            "default": "",
+            "title": "Q",
+            "type": "string"
+          },
+          "tag": {
+            "default": "",
+            "title": "Tag",
+            "type": "string"
+          }
+        },
+        "title": "Query",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ContentService.list",
+      "constant_catalog": null,
+      "permission": "knowledge.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.inbox",
+        "workspaceApi.content"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_inbox_folder_preferences_actions_use_actual_services",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.get",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_id"
+        ],
+        "title": "Item",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ContentService.get",
+      "constant_catalog": null,
+      "permission": "knowledge.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.contentItem"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_content_create_and_inbox_get_persist_exact_note",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.update",
+      "domain": "inbox",
+      "args_schema": {
+        "$defs": {
+          "ContentPatch": {
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Title"
+              },
+              "content": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Content"
+              },
+              "summary": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Summary"
+              },
+              "tags": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Tags"
+              },
+              "status": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "inbox",
+                      "knowledge"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Status"
+              },
+              "folder_id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Folder Id"
+              }
+            },
+            "title": "ContentPatch",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          },
+          "changes": {
+            "$ref": "#/$defs/ContentPatch"
+          },
+          "expected_revision": {
+            "title": "Expected Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "item_id",
+          "changes",
+          "expected_revision"
+        ],
+        "title": "inboxUpdate",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ContentService.update",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.updateContent"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_inbox_folder_preferences_actions_use_actual_services",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.delete",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_id"
+        ],
+        "title": "Item",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "ContentService.delete",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "explicit",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.deleteContent"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_content_delete_requires_human_approval_and_removes_real_files",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.items.list",
+      "domain": "knowledge",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "q": {
+            "default": "",
+            "title": "Q",
+            "type": "string"
+          },
+          "tag": {
+            "default": "",
+            "title": "Tag",
+            "type": "string"
+          }
+        },
+        "title": "Query",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ContentService.list",
+      "constant_catalog": null,
+      "permission": "knowledge.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.content"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_knowledge_items_folder_reads_update_and_move_share_sqlite",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.items.get",
+      "domain": "knowledge",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_id"
+        ],
+        "title": "Item",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ContentService.get",
+      "constant_catalog": null,
+      "permission": "knowledge.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.contentItem"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_knowledge_items_folder_reads_update_and_move_share_sqlite",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.items.update",
+      "domain": "knowledge",
+      "args_schema": {
+        "$defs": {
+          "ContentPatch": {
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Title"
+              },
+              "content": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Content"
+              },
+              "summary": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Summary"
+              },
+              "tags": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Tags"
+              },
+              "status": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "inbox",
+                      "knowledge"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Status"
+              },
+              "folder_id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Folder Id"
+              }
+            },
+            "title": "ContentPatch",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          },
+          "changes": {
+            "$ref": "#/$defs/ContentPatch"
+          },
+          "expected_revision": {
+            "title": "Expected Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "item_id",
+          "changes",
+          "expected_revision"
+        ],
+        "title": "knowledge.itemsUpdate",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ContentService.update",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.updateContent"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_knowledge_items_folder_reads_update_and_move_share_sqlite",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.items.delete",
+      "domain": "knowledge",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_id"
+        ],
+        "title": "Item",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "ContentService.delete",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "explicit",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.deleteContent"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_content_delete_requires_human_approval_and_removes_real_files",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.import_text",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "use_ai": {
+            "default": false,
+            "title": "Use Ai",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "title": "ImportText",
+        "type": "object"
+      },
+      "handler": "_import",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "InboxService.import_item",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.importContent"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_inbox_folder_preferences_actions_use_actual_services",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.import_url",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "use_ai": {
+            "default": false,
+            "title": "Use Ai",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "title": "ImportURL",
+        "type": "object"
+      },
+      "handler": "_import",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "InboxService.import_item",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.importContent"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_ai_mentions_in_data_or_topic_do_not_enable_metadata_model",
+          "tests/integration/test_app_fast.py::test_ai_metadata_workflow_returns_pending_without_waiting_for_external_model",
+          "tests/integration/test_app_fast.py::test_exact_folder_url_workflow_is_bounded_local_and_replay_safe",
+          "tests/integration/test_app_fast.py::test_explicit_ai_opt_out_remains_local",
+          "tests/integration/test_app_fast.py::test_fast_ai_pending_archive_survives_service_restart_and_has_registered_readback",
+          "tests/integration/test_app_fast.py::test_fast_ai_pending_job_completes_without_a_second_user_instruction",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_runtime_modes.py::test_background_uses_same_services_but_cannot_write",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_ai_metadata_requires_network_permission_before_queueing",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_dispatch.py::test_policy_and_rag_scope_reject_writes",
+          "tests/unit/test_app_folder_workflow.py::test_exact_request_through_fast_creates_folder_and_real_link_card",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_app_tools.py::test_chat_can_import_separate_links_and_save_real_knowledge_cards",
+          "tests/unit/test_app_tools.py::test_real_fast_local_classification_verifies_two_persisted_cards"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.import_file",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "attachment_id": {
+            "title": "Attachment Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "attachment_id"
+        ],
+        "title": "ImportFile",
+        "type": "object"
+      },
+      "handler": "_restricted_file_import",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "InboxService.import_item",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "restricted",
+      "ui_binding": [
+        "workspaceApi.importContent"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_restricted_actions_cannot_be_enabled_by_agent",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "denied",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.retry",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_id"
+        ],
+        "title": "Item",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "InboxService.retry",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.retryContent"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_feed_refresh_real_cache_and_inbox_retry_queue_without_external_models",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.archive_after_metadata",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          },
+          "folder_id": {
+            "title": "Folder Id",
+            "type": "string"
+          },
+          "expected_revision": {
+            "title": "Expected Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "item_id",
+          "folder_id",
+          "expected_revision"
+        ],
+        "title": "ArchiveAfterMetadata",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "InboxService.queue_archive",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "agent_only:inbox.archive_after_metadata"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_ai_metadata_workflow_returns_pending_without_waiting_for_external_model",
+          "tests/integration/test_app_fast.py::test_fast_ai_pending_archive_survives_service_restart_and_has_registered_readback",
+          "tests/integration/test_app_fast.py::test_fast_ai_pending_job_completes_without_a_second_user_instruction",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.archive_job",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "job_id": {
+            "title": "Job Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "job_id"
+        ],
+        "title": "ArchiveJob",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "InboxService.get_archive_job",
+      "constant_catalog": null,
+      "permission": "knowledge.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.archiveJob"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_fast_ai_pending_archive_survives_service_restart_and_has_registered_readback",
+          "tests/integration/test_app_fast.py::test_fast_ai_pending_job_completes_without_a_second_user_instruction",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_read_edit_delete_chains_have_real_readback",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.classify_selected",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Item Ids",
+            "type": "array"
+          },
+          "folder_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Folder Id"
+          },
+          "use_ai": {
+            "default": false,
+            "title": "Use Ai",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "item_ids"
+        ],
+        "title": "Classify",
+        "type": "object"
+      },
+      "handler": "_classify",
+      "postcondition": "_verify_classify",
+      "service_binding": [
+        "InboxService.classify_batch",
+        "InboxService.queue_archive_batch"
+      ],
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.classifyBatch"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_ai_mentions_in_data_or_topic_do_not_enable_metadata_model",
+          "tests/integration/test_app_fast.py::test_exact_folder_url_workflow_is_bounded_local_and_replay_safe",
+          "tests/integration/test_app_fast.py::test_explicit_ai_opt_out_remains_local",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_folder_workflow.py::test_exact_request_through_fast_creates_folder_and_real_link_card",
+          "tests/unit/test_app_folder_workflow.py::test_target_folder_waits_for_inbox_tags_and_preserves_link_only",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.classify_all",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "folder_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Folder Id"
+          },
+          "use_ai": {
+            "default": false,
+            "title": "Use Ai",
+            "type": "boolean"
+          }
+        },
+        "title": "ClassifyAll",
+        "type": "object"
+      },
+      "handler": "_classify",
+      "postcondition": "_verify_classify",
+      "service_binding": [
+        "InboxService.classify_batch",
+        "InboxService.queue_archive_batch"
+      ],
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.classifyBatch"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_bulk_archive_uses_current_inbox_snapshot_and_handles_empty",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_app_tools.py::test_chat_can_import_separate_links_and_save_real_knowledge_cards",
+          "tests/unit/test_app_tools.py::test_real_fast_local_classification_verifies_two_persisted_cards"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "inbox.move",
+      "domain": "inbox",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          },
+          "folder_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Folder Id"
+          },
+          "expected_revision": {
+            "title": "Expected Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "item_id",
+          "expected_revision"
+        ],
+        "title": "Move",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "ContentService.update",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.updateContent"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_inbox_folder_preferences_actions_use_actual_services",
+          "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
+          "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
+          "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "content.move_to_inbox",
+      "domain": "content",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          },
+          "expected_revision": {
+            "title": "Expected Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "item_id",
+          "expected_revision"
+        ],
+        "title": "MoveToInbox",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ContentService.update",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.updateContent"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_knowledge_items_folder_reads_update_and_move_share_sqlite",
+          "tests/integration/test_completion_api.py::test_content_capture_move_search_download_and_task_today",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_creates_note_link_and_file_with_portable_markdown"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.search",
+      "domain": "knowledge",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "title": "Query",
+            "type": "string"
+          },
+          "limit": {
+            "default": 6,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "mode": {
+            "default": "auto",
+            "title": "Mode",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "Search",
+        "type": "object"
+      },
+      "handler": "_search",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "RAGService.search",
+      "constant_catalog": null,
+      "permission": "knowledge.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.searchKnowledge"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_runtime_modes.py::test_all_modes_bind_only_one_business_tool_and_share_services",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/test_knowledge_retrieval.py::test_knowledge_tool_uses_runtime_directory_and_gateway_read_permission",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original",
+          "tests/unit/test_graph_modes.py::test_fast_local_query_has_no_todo_subagent_verifier_or_web",
+          "tests/unit/test_kernel_boundaries.py::test_deep_can_use_local_tools_without_todos_or_delegation",
+          "tests/unit/test_rag_agent.py::test_fast_checkpoint_resume_preserves_ids_and_does_not_reexecute_tool",
+          "tests/unit/test_rag_agent.py::test_rag_agent_rewrites_then_returns_only_actual_hit_ids",
+          "tests/unit/test_rag_agent.py::test_rag_zero_hits_is_bounded_and_unsupported"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.get",
+      "domain": "knowledge",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "document_id": {
+            "title": "Document Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "document_id"
+        ],
+        "title": "Document",
+        "type": "object"
+      },
+      "handler": "_document",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "RAGService.get_document",
+      "constant_catalog": null,
+      "permission": "knowledge.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "agent_only:knowledge.get"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_inbox_folder_preferences_actions_use_actual_services",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.folders.list",
+      "domain": "knowledge",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "KnowledgeService.list_folders",
+      "constant_catalog": null,
+      "permission": "knowledge.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.folders"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_inbox_folder_preferences_actions_use_actual_services",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.folders.get",
+      "domain": "knowledge",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "folder_id": {
+            "title": "Folder Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "folder_id"
+        ],
+        "title": "Folder",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "KnowledgeService.get_folder",
+      "constant_catalog": null,
+      "permission": "knowledge.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "agent_only:knowledge.folders.get"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_knowledge_items_folder_reads_update_and_move_share_sqlite",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.folders.create",
+      "domain": "knowledge",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "summary": {
+            "default": "",
+            "title": "Summary",
+            "type": "string"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Tags",
+            "type": "array"
+          },
+          "priority": {
+            "default": 0,
+            "title": "Priority",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "FolderCreate",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "KnowledgeService.create_folder",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.createFolder"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_read_edit_delete_chains_have_real_readback",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_dispatch.py::test_write_verification_matches_service_normalization",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.folders.ensure",
+      "domain": "knowledge",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "summary": {
+            "default": "",
+            "title": "Summary",
+            "type": "string"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Tags",
+            "type": "array"
+          },
+          "priority": {
+            "default": 0,
+            "title": "Priority",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "FolderCreate",
+        "type": "object"
+      },
+      "handler": "_ensure_folder",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "KnowledgeService.ensure_folder",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "agent_only:knowledge.folders.ensure"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_ai_mentions_in_data_or_topic_do_not_enable_metadata_model",
+          "tests/integration/test_app_fast.py::test_ai_metadata_workflow_returns_pending_without_waiting_for_external_model",
+          "tests/integration/test_app_fast.py::test_exact_folder_url_workflow_is_bounded_local_and_replay_safe",
+          "tests/integration/test_app_fast.py::test_explicit_ai_opt_out_remains_local",
+          "tests/integration/test_app_fast.py::test_fast_ai_pending_archive_survives_service_restart_and_has_registered_readback",
+          "tests/integration/test_app_fast.py::test_fast_ai_pending_job_completes_without_a_second_user_instruction",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_folder_workflow.py::test_exact_request_through_fast_creates_folder_and_real_link_card",
+          "tests/unit/test_app_folder_workflow.py::test_folder_creation_is_rejected_by_write_policy",
+          "tests/unit/test_app_folder_workflow.py::test_folder_only_action_verifies_database",
+          "tests/unit/test_app_folder_workflow.py::test_folder_tool_reuses_existing_folder_and_is_registered_as_write",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.folders.update",
+      "domain": "knowledge",
+      "args_schema": {
+        "$defs": {
+          "FolderPatch": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Name"
+              },
+              "summary": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Summary"
+              },
+              "tags": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Tags"
+              },
+              "priority": {
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Priority"
+              }
+            },
+            "title": "FolderPatch",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "folder_id": {
+            "title": "Folder Id",
+            "type": "string"
+          },
+          "changes": {
+            "$ref": "#/$defs/FolderPatch"
+          }
+        },
+        "required": [
+          "folder_id",
+          "changes"
+        ],
+        "title": "FolderUpdate",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "KnowledgeService.update_folder",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.updateFolder"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_inbox_folder_preferences_actions_use_actual_services",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.folders.delete",
+      "domain": "knowledge",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "folder_id": {
+            "title": "Folder Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "folder_id"
+        ],
+        "title": "Folder",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "KnowledgeService.delete_folder",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "explicit",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.deleteFolder"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_inbox_folder_preferences_actions_use_actual_services",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "knowledge.folders.items",
+      "domain": "knowledge",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "folder_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Folder Id"
+          },
+          "q": {
+            "default": "",
+            "title": "Q",
+            "type": "string"
+          },
+          "tag": {
+            "default": "",
+            "title": "Tag",
+            "type": "string"
+          }
+        },
+        "title": "FolderItems",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "KnowledgeService.folder_items",
+      "constant_catalog": null,
+      "permission": "knowledge.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.folderItems"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_knowledge_items_folder_reads_update_and_move_share_sqlite",
+          "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "tasks.list",
+      "domain": "tasks",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "TaskService.list",
+      "constant_catalog": null,
+      "permission": "tasks.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "agent_only:tasks.list"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_unique_task_completion_and_ambiguous_match_never_guess",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_runtime_modes.py::test_background_uses_same_services_but_cannot_write",
+          "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "tasks.create",
+      "domain": "tasks",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "completed": {
+            "default": false,
+            "title": "Completed",
+            "type": "boolean"
+          },
+          "due_at": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Due At"
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "title": "TaskCreate",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "TaskService.create",
+      "constant_catalog": null,
+      "permission": "tasks.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.createTask"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_local_task_create_and_replay_use_zero_model_calls_and_real_service",
+          "tests/integration/test_app_fast.py::test_replayed_fast_receipt_still_respects_revoked_policy",
+          "tests/integration/test_app_fast.py::test_scope_permission_and_ambiguous_dates_reject_without_writes",
+          "tests/integration/test_app_fast.py::test_valid_typed_model_fallback_can_only_execute_the_selected_registered_action",
+          "tests/integration/test_app_http.py::test_app_http_is_same_service_with_human_confirmation_and_session_binding",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_runtime_modes.py::test_background_uses_same_services_but_cannot_write",
+          "tests/integration/test_app_runtime_modes.py::test_cli_registered_local_action_has_zero_model_calls_and_real_receipt",
+          "tests/integration/test_chat_app_fast.py::test_local_chat_app_action_without_api_key_never_constructs_runtime",
+          "tests/unit/test_app_dispatch.py::test_policy_and_rag_scope_reject_writes",
+          "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
+          "tests/unit/test_app_dispatch.py::test_unrelated_request_does_not_wait_for_slow_service",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "tasks.update",
+      "domain": "tasks",
+      "args_schema": {
+        "$defs": {
+          "TaskPatch": {
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Title"
+              },
+              "completed": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Completed"
+              },
+              "due_at": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Due At"
+              }
+            },
+            "title": "TaskPatch",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string"
+          },
+          "changes": {
+            "$ref": "#/$defs/TaskPatch"
+          }
+        },
+        "required": [
+          "task_id",
+          "changes"
+        ],
+        "title": "TaskUpdate",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "TaskService.update",
+      "constant_catalog": null,
+      "permission": "tasks.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.updateTask"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_conversation_and_task_crud_matches_persisted_records",
+          "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "tasks.complete",
+      "domain": "tasks",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string"
+          },
+          "completed": {
+            "default": true,
+            "title": "Completed",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "task_id"
+        ],
+        "title": "Complete",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "TaskService.update",
+      "constant_catalog": null,
+      "permission": "tasks.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.updateTask"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_unique_task_completion_and_ambiguous_match_never_guess",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "tasks.delete",
+      "domain": "tasks",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "task_id"
+        ],
+        "title": "Task",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "TaskService.delete",
+      "constant_catalog": null,
+      "permission": "tasks.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "explicit",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.deleteTask"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_http.py::test_app_http_is_same_service_with_human_confirmation_and_session_binding",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_read_edit_delete_chains_have_real_readback",
+          "tests/unit/test_app_dispatch.py::test_cli_trusted_human_handler_can_confirm_once",
+          "tests/unit/test_app_dispatch.py::test_delete_confirmation_cannot_be_approved_by_model_or_other_session",
+          "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "feed.list",
+      "domain": "feed",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "source": {
+            "default": "",
+            "title": "Source",
+            "type": "string"
+          },
+          "q": {
+            "default": "",
+            "title": "Q",
+            "type": "string"
+          },
+          "include_hidden": {
+            "default": false,
+            "title": "Include Hidden",
+            "type": "boolean"
+          }
+        },
+        "title": "FeedList",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "FeedService.list",
+      "constant_catalog": null,
+      "permission": "feed.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.feed"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_explicit_nested_title_fetch_is_allowed_with_real_saved_receipt",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+          "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+          "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache",
+          "tests/integration/test_feed_agent_actions.py::test_agent_feed_crud_replay_and_save_use_persisted_service",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "feed.refresh",
+      "domain": "feed",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "FeedService.refresh",
+      "constant_catalog": null,
+      "permission": "network.read",
+      "side_effect": "read",
+      "requires_network": true,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.refreshFeed"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_feed_refresh_real_cache_and_inbox_retry_queue_without_external_models",
+          "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+          "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+          "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache",
+          "tests/integration/test_feed_agent_actions.py::test_agent_feed_crud_replay_and_save_use_persisted_service",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "feed.save_to_inbox",
+      "domain": "feed",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_id"
+        ],
+        "title": "Item",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "FeedService.save",
+      "constant_catalog": null,
+      "permission": "knowledge.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.saveFeed"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_feed_visibility_restore_and_save_chains_share_actual_database",
+          "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+          "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+          "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache",
+          "tests/integration/test_feed_agent_actions.py::test_agent_feed_crud_replay_and_save_use_persisted_service",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "feed.add_manual",
+      "domain": "feed",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "url": {
+            "title": "Url",
+            "type": "string"
+          },
+          "title": {
+            "default": "",
+            "title": "Title",
+            "type": "string"
+          },
+          "summary": {
+            "default": "",
+            "title": "Summary",
+            "type": "string"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Tags",
+            "type": "array"
+          },
+          "fetch_title": {
+            "default": false,
+            "title": "Fetch Title",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "title": "ManualFeed",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "FeedService.add_manual",
+      "constant_catalog": null,
+      "permission": "feed.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.addManualFeed"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_explicit_title_fetch_opt_out_only_saves_link",
+          "tests/integration/test_app_fast.py::test_local_feed_url_save_never_fetches_or_uses_inbox",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_runtime_modes.py::test_background_uses_same_services_but_cannot_write",
+          "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+          "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+          "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache",
+          "tests/integration/test_feed_agent_actions.py::test_agent_feed_crud_replay_and_save_use_persisted_service",
+          "tests/integration/test_feed_agent_actions.py::test_agent_feed_policy_and_network_denials_do_not_write",
+          "tests/unit/test_app_dispatch.py::test_request_receipt_rechecks_optional_network_permission",
+          "tests/unit/test_app_dispatch.py::test_write_verification_matches_service_normalization",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "feed.update_manual",
+      "domain": "feed",
+      "args_schema": {
+        "$defs": {
+          "ManualPatch": {
+            "additionalProperties": false,
+            "properties": {
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Url"
+              },
+              "title": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Title"
+              },
+              "summary": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Summary"
+              },
+              "tags": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Tags"
+              },
+              "fetch_title": {
+                "default": false,
+                "title": "Fetch Title",
+                "type": "boolean"
+              }
+            },
+            "title": "ManualPatch",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          },
+          "changes": {
+            "$ref": "#/$defs/ManualPatch"
+          }
+        },
+        "required": [
+          "item_id",
+          "changes"
+        ],
+        "title": "ManualUpdate",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "FeedService.update_manual",
+      "constant_catalog": null,
+      "permission": "feed.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.updateManualFeed"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_fast.py::test_explicit_nested_title_fetch_is_allowed_with_real_saved_receipt",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+          "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+          "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache",
+          "tests/integration/test_feed_agent_actions.py::test_agent_feed_crud_replay_and_save_use_persisted_service",
+          "tests/integration/test_feed_agent_actions.py::test_agent_optional_fetch_patch_verifies_real_title_not_control_flag",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "feed.remove_manual",
+      "domain": "feed",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_id"
+        ],
+        "title": "Item",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "FeedService.remove_manual",
+      "constant_catalog": null,
+      "permission": "feed.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "explicit",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.removeManualFeed"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_feed_visibility_restore_and_save_chains_share_actual_database",
+          "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+          "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+          "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache",
+          "tests/integration/test_feed_agent_actions.py::test_agent_feed_crud_replay_and_save_use_persisted_service",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "feed.restore_manual",
+      "domain": "feed",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_id"
+        ],
+        "title": "Item",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "FeedService.restore_manual",
+      "constant_catalog": null,
+      "permission": "feed.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.restoreManualFeed"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_feed_visibility_restore_and_save_chains_share_actual_database",
+          "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+          "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+          "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache",
+          "tests/integration/test_feed_agent_actions.py::test_agent_feed_crud_replay_and_save_use_persisted_service",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "feed.hide_external",
+      "domain": "feed",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_id"
+        ],
+        "title": "Item",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "FeedService.hide_external",
+      "constant_catalog": null,
+      "permission": "feed.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.hideExternalFeed"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_feed_visibility_restore_and_save_chains_share_actual_database",
+          "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+          "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+          "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache",
+          "tests/integration/test_feed_agent_actions.py::test_agent_feed_crud_replay_and_save_use_persisted_service",
+          "tests/integration/test_feed_agent_actions.py::test_agent_unhide_missing_provider_item_verifies_removed_hidden_record",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "feed.unhide_external",
+      "domain": "feed",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "item_id": {
+            "title": "Item Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "item_id"
+        ],
+        "title": "Item",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "FeedService.unhide_external",
+      "constant_catalog": null,
+      "permission": "feed.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.unhideExternalFeed"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_feed_visibility_restore_and_save_chains_share_actual_database",
+          "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+          "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+          "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache",
+          "tests/integration/test_feed_agent_actions.py::test_agent_feed_crud_replay_and_save_use_persisted_service",
+          "tests/integration/test_feed_agent_actions.py::test_agent_unhide_missing_provider_item_verifies_removed_hidden_record",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "automations.list",
+      "domain": "automations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "AutomationService.list",
+      "constant_catalog": null,
+      "permission": "automation.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.automations"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_automation_lifecycle_real_store_and_bound_human_confirmations",
+          "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_workspace_services.py::test_automation_crud_uses_existing_store_and_honors_owner"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "automations.create",
+      "domain": "automations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "prompt": {
+            "title": "Prompt",
+            "type": "string"
+          },
+          "hour": {
+            "title": "Hour",
+            "type": "integer"
+          },
+          "minute": {
+            "title": "Minute",
+            "type": "integer"
+          },
+          "timezone": {
+            "default": "Asia/Shanghai",
+            "title": "Timezone",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "prompt",
+          "hour",
+          "minute"
+        ],
+        "title": "AutomationCreate",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "AutomationService.create",
+      "constant_catalog": null,
+      "permission": "automation.manage",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "explicit",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.createAutomation"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_automation_lifecycle_real_store_and_bound_human_confirmations",
+          "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_workspace_services.py::test_automation_crud_uses_existing_store_and_honors_owner"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "automations.toggle",
+      "domain": "automations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string"
+          },
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "task_id",
+          "enabled"
+        ],
+        "title": "AutomationToggle",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "AutomationService.toggle",
+      "constant_catalog": null,
+      "permission": "automation.manage",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "explicit",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.toggleAutomation"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_automation_lifecycle_real_store_and_bound_human_confirmations",
+          "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_workspace_services.py::test_automation_crud_uses_existing_store_and_honors_owner"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "automations.delete",
+      "domain": "automations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "task_id"
+        ],
+        "title": "Task",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "AutomationService.delete",
+      "constant_catalog": null,
+      "permission": "automation.manage",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "explicit",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.deleteAutomation"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_automation_lifecycle_real_store_and_bound_human_confirmations",
+          "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_workspace_services.py::test_automation_crud_uses_existing_store_and_honors_owner"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "automations.runs",
+      "domain": "automations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "task_id": {
+            "title": "Task Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "task_id"
+        ],
+        "title": "Task",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "AutomationService.runs",
+      "constant_catalog": null,
+      "permission": "automation.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.runs"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_automation_lifecycle_real_store_and_bound_human_confirmations",
+          "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_workspace_services.py::test_automation_crud_uses_existing_store_and_honors_owner"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "conversations.list",
+      "domain": "conversations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "AppStore.list",
+      "constant_catalog": null,
+      "permission": "conversations.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.conversations"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_conversation_and_task_crud_matches_persisted_records",
+          "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_conversation_store.py::test_durable_crud_and_cascade"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "conversations.create",
+      "domain": "conversations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "AppStore.create",
+      "constant_catalog": null,
+      "permission": "conversations.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.create"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_conversation_and_task_crud_matches_persisted_records",
+          "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_conversation_store.py::test_durable_crud_and_cascade"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "conversations.get",
+      "domain": "conversations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "cid": {
+            "title": "Cid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "cid"
+        ],
+        "title": "Conversation",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ConversationService.get",
+      "constant_catalog": null,
+      "permission": "conversations.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.conversation"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_conversation_and_task_crud_matches_persisted_records",
+          "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_conversation_store.py::test_durable_crud_and_cascade"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "conversations.messages",
+      "domain": "conversations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "cid": {
+            "title": "Cid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "cid"
+        ],
+        "title": "Conversation",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "AppStore.messages",
+      "constant_catalog": null,
+      "permission": "conversations.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.messages"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_read_edit_delete_chains_have_real_readback",
+          "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
+          "tests/unit/test_app_dispatch.py::test_conversation_history_reads_messages_not_conversation_ids",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_conversation_store.py::test_durable_crud_and_cascade"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "conversations.update",
+      "domain": "conversations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "cid": {
+            "title": "Cid",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          }
+        },
+        "required": [
+          "cid",
+          "title"
+        ],
+        "title": "ConversationUpdate",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ConversationService.update",
+      "constant_catalog": null,
+      "permission": "conversations.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.patch"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_read_edit_delete_chains_have_real_readback",
+          "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
+          "tests/unit/test_app_dispatch.py::test_conversation_title_preserves_existing_service_whitespace",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_conversation_store.py::test_durable_crud_and_cascade"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "conversations.model",
+      "domain": "conversations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "cid": {
+            "title": "Cid",
+            "type": "string"
+          },
+          "model": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Model"
+          }
+        },
+        "required": [
+          "cid"
+        ],
+        "title": "ConversationModel",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ConversationService.update",
+      "constant_catalog": null,
+      "permission": "conversations.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.patch"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_conversation_model_change_matches_persisted_override",
+          "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_conversation_store.py::test_durable_crud_and_cascade"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "conversations.stop",
+      "domain": "conversations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "cid": {
+            "title": "Cid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "cid"
+        ],
+        "title": "Conversation",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ChatService.cancel",
+      "constant_catalog": null,
+      "permission": "conversations.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "restricted",
+      "ui_binding": [
+        "api.stop"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_restricted_actions_cannot_be_enabled_by_agent",
+          "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_conversation_store.py::test_durable_crud_and_cascade"
+        ],
+        "execution": "denied",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "conversations.delete",
+      "domain": "conversations",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "cid": {
+            "title": "Cid",
+            "type": "string"
+          }
+        },
+        "required": [
+          "cid"
+        ],
+        "title": "Conversation",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "AppStore.delete",
+      "constant_catalog": null,
+      "permission": "conversations.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "explicit",
+      "idempotency": "request",
+      "agent_availability": "restricted",
+      "ui_binding": [
+        "api.remove"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_conversation_and_task_crud_matches_persisted_records",
+          "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_conversation_store.py::test_durable_crud_and_cascade"
+        ],
+        "execution": "denied",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "preferences.get",
+      "domain": "preferences",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "PreferencesService.get",
+      "constant_catalog": null,
+      "permission": "preferences.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "syncPreferences"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_inbox_folder_preferences_actions_use_actual_services",
+          "tests/integration/test_preferences_actions.py::test_agent_patch_and_http_read_share_persisted_preferences",
+          "tests/integration/test_preferences_actions.py::test_agent_revision_conflict_and_permission_denial_leave_preferences_intact",
+          "tests/integration/test_preferences_actions.py::test_reset_restores_appearance_and_preserves_personal_data",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "preferences.update",
+      "domain": "preferences",
+      "args_schema": {
+        "$defs": {
+          "PreferencePatch": {
+            "additionalProperties": false,
+            "properties": {
+              "displayName": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Displayname"
+              },
+              "email": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Email"
+              },
+              "bio": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Bio"
+              },
+              "theme": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "light",
+                      "dark",
+                      "system"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Theme"
+              },
+              "fontSize": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "small",
+                      "medium",
+                      "large"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Fontsize"
+              },
+              "fontFamily": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "system",
+                      "rounded",
+                      "serif"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Fontfamily"
+              },
+              "density": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "comfortable",
+                      "compact"
+                    ],
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Density"
+              },
+              "reducedMotion": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Reducedmotion"
+              }
+            },
+            "title": "PreferencePatch",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "changes": {
+            "$ref": "#/$defs/PreferencePatch"
+          },
+          "expected_revision": {
+            "title": "Expected Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "changes",
+          "expected_revision"
+        ],
+        "title": "PreferencesUpdate",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "PreferencesService.update",
+      "constant_catalog": null,
+      "permission": "preferences.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "savePreferences"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_read_edit_delete_chains_have_real_readback",
+          "tests/integration/test_app_runtime_modes.py::test_background_uses_same_services_but_cannot_write",
+          "tests/integration/test_preferences_actions.py::test_agent_patch_and_http_read_share_persisted_preferences",
+          "tests/integration/test_preferences_actions.py::test_agent_revision_conflict_and_permission_denial_leave_preferences_intact",
+          "tests/integration/test_preferences_actions.py::test_reset_restores_appearance_and_preserves_personal_data",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "preferences.reset",
+      "domain": "preferences",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_revision": {
+            "title": "Expected Revision",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "expected_revision"
+        ],
+        "title": "PreferenceReset",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.<lambda>",
+      "service_binding": "PreferencesService.reset",
+      "constant_catalog": null,
+      "permission": "preferences.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "agent_only:preferences.reset"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_remaining_inbox_folder_preferences_actions_use_actual_services",
+          "tests/integration/test_preferences_actions.py::test_agent_patch_and_http_read_share_persisted_preferences",
+          "tests/integration/test_preferences_actions.py::test_agent_revision_conflict_and_permission_denial_leave_preferences_intact",
+          "tests/integration/test_preferences_actions.py::test_reset_restores_appearance_and_preserves_personal_data",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "settings.model.read",
+      "domain": "settings",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ModelSettingsService.read",
+      "constant_catalog": null,
+      "permission": "settings.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.settings"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_metadata_and_today_actions_read_real_services_without_credentials",
+          "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_model_settings.py::test_legacy_provider_inferred_and_key_redacted"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "settings.model.update",
+      "domain": "settings",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ModelSettingsService.update",
+      "constant_catalog": null,
+      "permission": "settings.write",
+      "side_effect": "write",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "restricted",
+      "ui_binding": [
+        "api.saveSettings"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_http.py::test_app_http_rejects_credentials_unknown_action_and_cross_origin",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_model_settings.py::test_legacy_provider_inferred_and_key_redacted"
+        ],
+        "execution": "denied",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "settings.data.read",
+      "domain": "settings",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "ContentService.list",
+      "constant_catalog": null,
+      "permission": "settings.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "workspaceApi.dataSettings"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_metadata_and_today_actions_read_real_services_without_credentials",
+          "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_model_settings.py::test_legacy_provider_inferred_and_key_redacted"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "capabilities.skills",
+      "domain": "capabilities",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "CommandService.skills",
+      "constant_catalog": null,
+      "permission": "capabilities.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.skills"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_metadata_and_today_actions_read_real_services_without_credentials",
+          "tests/integration/test_conversation_api.py::test_command_catalog_metadata_and_clear_route",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "capabilities.mcp",
+      "domain": "capabilities",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": "CommandService.mcp",
+      "constant_catalog": null,
+      "permission": "capabilities.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.mcp"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_metadata_and_today_actions_read_real_services_without_credentials",
+          "tests/integration/test_conversation_api.py::test_command_catalog_metadata_and_clear_route",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "settings.models.catalog",
+      "domain": "settings",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": [],
+      "constant_catalog": "xiliu.api.model_catalog.MODEL_CATALOG",
+      "permission": "settings.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.catalog"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_metadata_and_today_actions_read_real_services_without_credentials",
+          "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
+          "tests/unit/test_model_settings.py::test_legacy_provider_inferred_and_key_redacted"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    },
+    {
+      "id": "capabilities.commands",
+      "domain": "capabilities",
+      "args_schema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Empty",
+        "type": "object"
+      },
+      "handler": "get_registry.<locals>.<lambda>",
+      "postcondition": "get_registry.<locals>.add.<locals>.<lambda>",
+      "service_binding": [],
+      "constant_catalog": "xiliu.api.services.commands.COMMANDS",
+      "permission": "capabilities.read",
+      "side_effect": "read",
+      "requires_network": false,
+      "confirmation_policy": "none",
+      "idempotency": "request",
+      "agent_availability": "enabled",
+      "ui_binding": [
+        "api.commands"
+      ],
+      "tests": {
+        "references": [
+          "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
+          "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
+          "tests/integration/test_app_registry_coverage.py::test_gateway_metadata_and_today_actions_read_real_services_without_credentials",
+          "tests/integration/test_conversation_api.py::test_command_catalog_metadata_and_clear_route",
+          "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+        ],
+        "execution": "passed",
+        "source": "coverage-manifest.json / action-execution-results.json"
+      }
+    }
+  ]
+}

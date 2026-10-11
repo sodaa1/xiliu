@@ -21,6 +21,7 @@ def build_meta_tools(*, role: str) -> list[BaseTool]:
             return json.dumps({"ok": False, "error": "invalid_capability_kind"})
         if context.data_dir is not None:
             from xiliu.capabilities.agent_registry import AgentRegistry
+
             manager.refresh_agents(AgentRegistry(context.data_dir).specs())
         if manager.mcp_manager is not None and kind in {"", "mcp"}:
             for server_id in manager.mcp_manager.servers():
@@ -34,12 +35,13 @@ def build_meta_tools(*, role: str) -> list[BaseTool]:
                 "name": spec.name,
                 "description": spec.description[:300],
             }
-            if spec.kind == 'agent' and context.data_dir is not None:
+            if spec.kind == "agent" and context.data_dir is not None:
                 from xiliu.capabilities.agent_registry import AgentRegistry
+
                 manifest = AgentRegistry(context.data_dir).agents.get(spec.source_id)
                 if manifest is not None:
-                    entry['allowed_modes'] = manifest.allowed_modes
-                    entry['allowed_tools'] = manifest.allowed_tools
+                    entry["allowed_modes"] = manifest.allowed_modes
+                    entry["allowed_tools"] = manifest.allowed_tools
             if spec.kind == "mcp" and manager.mcp_manager is not None:
                 schema = manager.mcp_manager.schema(spec.id)
                 entry["schema_preview"] = {
@@ -81,44 +83,5 @@ def build_meta_tools(*, role: str) -> list[BaseTool]:
         except (ValueError, TimeoutError, RuntimeError) as exc:
             return json.dumps({"ok": False, "error": "mcp_call_failed", "reason": str(exc)})
 
-    def automation_manage(
-        action: str, task_id: str = "", definition: dict[str, Any] | None = None
-    ) -> str:
-        """Create, list, pause, resume or remove a persisted scheduled task."""
-        if context.data_dir is None:
-            return json.dumps({"ok": False, "error": "automation_unavailable"})
-        from xiliu.automation.models import AutomationTask
-        from xiliu.automation.store import AutomationStore
-
-        store = AutomationStore(context.data_dir)
-        try:
-            if action == "add" and definition is not None:
-                task = AutomationTask.model_validate(definition)
-                if task_id and task.id != task_id:
-                    raise ValueError("task ID conflicts with definition")
-                store.add(task)
-                return json.dumps({"ok": True, "id": task.id, "persisted": True})
-            if action == "list":
-                tasks = [task.model_dump(mode="json") for task in store.list()]
-                return json.dumps({"ok": True, "tasks": tasks}, ensure_ascii=False)
-            if action in {"pause", "resume", "remove"} and task_id:
-                changed = (
-                    store.remove(task_id)
-                    if action == "remove"
-                    else store.set_enabled(task_id, action == "resume")
-                )
-                return json.dumps({"ok": changed, "id": task_id, "persisted": changed})
-            raise ValueError("invalid automation action")
-        except (ValueError, OSError) as exc:
-            return json.dumps(
-                {
-                    "ok": False,
-                    "error": "automation_manage_failed",
-                    "reason": str(exc),
-                }
-            )
-
     functions = [capability_search, skill_load, skill_resource_read, mcp_call]
-    if role == "planner":
-        functions.append(automation_manage)
     return [StructuredTool.from_function(function) for function in functions]

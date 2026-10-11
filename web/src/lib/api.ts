@@ -73,6 +73,15 @@ export async function* readNDJSON(response: Response): AsyncGenerator<WebEvent> 
   }
 }
 export const api = {
+  confirmAction: (session_id: string, confirmation_id: string) =>
+    request<{ ok: boolean }>('/app/confirm', {
+      method: 'POST',
+      body: JSON.stringify({ session_id, confirmation_id }),
+    }),
+  archiveJob: (job_id: string) =>
+    request<{ status: string; counts?: Record<string, number> }>(
+      `/inbox/archive-jobs/${encodeURIComponent(job_id)}`
+    ),
   conversations: () => request<Conversation[]>('/conversations'),
   create: () => request<Conversation>('/conversations', { method: 'POST' }),
   conversation: (id: string) => request<Conversation>(`/conversations/${encodeURIComponent(id)}`),

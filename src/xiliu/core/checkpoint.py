@@ -4,18 +4,20 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import os
 import re
 import shlex
 import shutil
 import subprocess
+import sys
 import tempfile
 from collections.abc import Iterator, Mapping
 from contextlib import contextmanager, suppress
 from datetime import UTC, datetime
 from pathlib import Path, PureWindowsPath
 from types import UnionType
-from typing import Any, Literal, Union, get_args, get_origin, get_type_hints
+from typing import Any, Literal, Union, cast, get_args, get_origin, get_type_hints
 
 from langchain_core.messages import BaseMessage
 from typing_extensions import is_typeddict
@@ -33,6 +35,22 @@ from xiliu.tools.workspace import atomic_write_utf8
 
 _ERROR = "Checkpoint persistence failed."
 _CONTROL = {".git", ".xiliu"}
+_LOG = logging.getLogger(__name__)
+_GIT_STEPS = {
+    "init",
+    "symbolic-ref",
+    "show-ref",
+    "rev-parse",
+    "read-tree",
+    "hash-object",
+    "update-index",
+    "write-tree",
+    "commit-tree",
+    "update-ref",
+    "merge-base",
+    "ls-tree",
+    "cat-file",
+}
 
 
 def _safe_directory(path: Path, workspace: Path) -> None:
@@ -90,45 +108,91 @@ def workspace_manifest(workspace: Path) -> list[dict[str, Any]]:
         raise CheckpointError(_ERROR) from None
 
 
-def _git(
-    workspace: Path, root: Path, *args: str, output: bool = False, absent_ok: bool = False
-) -> str:
+def _git_executable() -> str:
+    executable = shutil.which("git")
+    if executable:
+        return executable
+    if sys.platform == "win32":
+        for variable in ("ProgramW6432", "ProgramFiles", "ProgramFiles(x86)"):
+            directory = os.environ.get(variable)
+            if directory:
+                candidate = Path(directory) / "Git" / "cmd" / "git.exe"
+                if candidate.is_file():
+                    return str(candidate)
+        local = os.environ.get("LOCALAPPDATA")
+        if local:
+            candidate = Path(local) / "Programs" / "Git" / "cmd" / "git.exe"
+            if candidate.is_file():
+                return str(candidate)
+    return "git"  # The launcher records a missing executable without exposing its path.
+
+
+def _run_git(
+    workspace: Path,
+    root: Path,
+    *args: str,
+    output: bool = False,
+    text: bool = True,
+    absent_ok: bool = False,
+) -> subprocess.CompletedProcess[Any]:
     repo = root / "repo.git"
-    command = [
-        "git",
-        "--git-dir",
-        str(repo),
-        "--work-tree",
-        str(workspace),
-        "-c",
-        "user.name=Xiliu Checkpoint",
-        "-c",
-        "user.email=checkpoint@xiliu.local",
-        "-c",
-        "core.autocrlf=false",
-        "-c",
-        "core.hooksPath=" + str(repo / "disabled-hooks"),
-        *args,
-    ]
-    if args and args[0] == "init":
-        del command[3:5]  # Git rejects a work tree while initializing a bare repository.
+    step = args[0] if args and args[0] in _GIT_STEPS else "unknown"
     try:
-        result = subprocess.run(
+        command = [
+            _git_executable(),
+            "--git-dir",
+            str(repo),
+            "--work-tree",
+            str(workspace),
+            "-c",
+            "user.name=Xiliu Checkpoint",
+            "-c",
+            "user.email=checkpoint@xiliu.local",
+            "-c",
+            "core.autocrlf=false",
+            "-c",
+            "core.hooksPath=" + str(repo / "disabled-hooks"),
+            *args,
+        ]
+        if step == "init":
+            del command[3:5]  # A bare repository cannot have a work tree at initialization.
+        return subprocess.run(
             command,
             shell=False,
             timeout=30,
             check=True,
+            stdin=subprocess.DEVNULL,
             stdout=subprocess.PIPE if output else subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
-            text=True,
+            text=text,
+            creationflags=subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0,
         )
-        return result.stdout.strip() if output else ""
-    except subprocess.CalledProcessError as error:
-        if absent_ok and error.returncode == 1:
-            return "<absent>"
+    except (OSError, subprocess.SubprocessError) as error:
+        exit_code = error.returncode if isinstance(error, subprocess.CalledProcessError) else None
+        if absent_ok and exit_code == 1:
+            return subprocess.CompletedProcess([], 1, stdout="<absent>" if text else b"<absent>")
+        # Command arguments, stderr and exception messages may contain private workspace data.
+        _LOG.warning(
+            "Checkpoint Git failed: step=%s type=%s exit_code=%s",
+            step,
+            type(error).__name__,
+            exit_code,
+            extra={
+                "checkpoint_step": step,
+                "checkpoint_error_type": type(error).__name__,
+                "checkpoint_exit_code": exit_code,
+            },
+        )
         raise CheckpointError(_ERROR) from None
-    except (OSError, subprocess.SubprocessError):
-        raise CheckpointError(_ERROR) from None
+
+
+def _git(
+    workspace: Path, root: Path, *args: str, output: bool = False, absent_ok: bool = False
+) -> str:
+    result = _run_git(workspace, root, *args, output=output, absent_ok=absent_ok)
+    if result.returncode == 1 and absent_ok:
+        return "<absent>"
+    return cast(str, result.stdout).strip() if output else ""
 
 
 def snapshot_workspace_git(workspace: Path, root: Path, *, message: str) -> str:
@@ -271,20 +335,9 @@ def _read_tree(workspace: Path, root: Path, commit: str) -> dict[str, bytes]:
     if _git(workspace, root, "symbolic-ref", "HEAD", output=True) != "refs/heads/checkpoint":
         raise ValueError("foreign repository")
     _git(workspace, root, "merge-base", "--is-ancestor", commit, "refs/heads/checkpoint")
-    command = ["git", "--git-dir", str(root / "repo.git"), "--work-tree", str(workspace)]
 
     def read(*args: str) -> bytes:
-        try:
-            return subprocess.run(
-                command + list(args),
-                shell=False,
-                timeout=30,
-                check=True,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.DEVNULL,
-            ).stdout
-        except (OSError, subprocess.SubprocessError):
-            raise CheckpointError(_ERROR) from None
+        return cast(bytes, _run_git(workspace, root, *args, output=True, text=False).stdout)
 
     result = {}
     for line in read("ls-tree", "-r", "-z", commit).split(b"\0"):

@@ -21,7 +21,8 @@ def main() -> None:
             raise RuntimeError("Refusing to replace assets outside the build workspace")
         shutil.rmtree(web_assets)
     shutil.copytree(
-        ROOT / "web/dist", web_assets,
+        ROOT / "web/dist",
+        web_assets,
         ignore=shutil.ignore_patterns("*.md", "*.map", "*.test.*", "*.spec.*", ".env*"),
     )
     command = [
@@ -49,11 +50,30 @@ def main() -> None:
     # Desktop uses the API and Runtime, not the terminal UI or development tools.
     # Exclude optional test imports that PyInstaller can discover in dependencies.
     for package in (
-        "xiliu.cli", "textual", "pytest", "_pytest", "py", "ruff", "pyright",
-        "tests", "hypothesis", "IPython", "notebook", "jupyter",
+        "xiliu.cli",
+        "textual",
+        "pytest",
+        "_pytest",
+        "py",
+        "ruff",
+        "pyright",
+        "tests",
+        "hypothesis",
+        "IPython",
+        "notebook",
+        "jupyter",
     ):
         command.extend(["--exclude-module", package])
-    for package in ("xiliu", "uvicorn", "tiktoken_ext", "langgraph", "langchain_openai", "mcp"):
+    # Xiliu is an MCP client. Collect its client transports; PyInstaller follows
+    # reachable imports from mcp.__init__ without bundling every unused server CLI.
+    for package in (
+        "xiliu",
+        "uvicorn",
+        "tiktoken_ext",
+        "langgraph",
+        "langchain_openai",
+        "mcp.client",
+    ):
         command.extend(["--collect-submodules", package])
     for package in ("langchain-core", "langchain-openai", "langgraph", "tiktoken", "pydantic"):
         command.extend(["--copy-metadata", package])

@@ -1,0 +1,1412 @@
+{
+  "installer": {
+    "path": "E:\\Learning\\xiliu\\dist\\Xiliu-0.3.2-x64-setup.exe",
+    "bytes": 38746721,
+    "sha256": "fe4a45f399ea4a2f5e2160194d1059ed9049acb14429015ca399b9f4823bbeb2"
+  },
+  "sidecar": {
+    "path": "E:\\Learning\\xiliu\\.preview\\desktop-sidecar\\xiliu-service",
+    "file_count": 863,
+    "total_bytes": 70968696,
+    "top30": [
+      {
+        "path": "xiliu-service.exe",
+        "bytes": 19153272,
+        "sha256": "41e7fb3db0531b2db9e09ea360b762b5ab5d231c88986961856147b1db1b9503"
+      },
+      {
+        "path": "_internal/cryptography/hazmat/bindings/_rust.pyd",
+        "bytes": 9897472,
+        "sha256": "1d4332a447cab13dec8e3a533ad579e0e562b79e40822c931f33769758fc7156"
+      },
+      {
+        "path": "_internal/python312.dll",
+        "bytes": 7003928,
+        "sha256": "0cc4e557972488eb99ea4aeb3d29f3ade974ef3bcd47c211911489a189a0b6f2"
+      },
+      {
+        "path": "_internal/web/dist/fonts/xiliu-handwriting.woff2",
+        "bytes": 5432280,
+        "sha256": "28cc2022ea80f1dab80e3e2ce8f0c2bcb2bf68f40deac6e5b784fef7b7ce3110"
+      },
+      {
+        "path": "_internal/libcrypto-3.dll",
+        "bytes": 5162776,
+        "sha256": "2a234b5aa20c3faecf725bbb54fb33f3d94543f78fa7045408e905593e49960a"
+      },
+      {
+        "path": "_internal/pydantic_core/_pydantic_core.cp312-win_amd64.pyd",
+        "bytes": 5157888,
+        "sha256": "28fd1266fb9946fe61775505a13c0bf803f6932b51b306a0032687393d9a558b"
+      },
+      {
+        "path": "_internal/tiktoken/_tiktoken.cp312-win_amd64.pyd",
+        "bytes": 2450944,
+        "sha256": "4819f4517aa091644f574d607a8d2308b9700dcccd1708397951fa94abbe8697"
+      },
+      {
+        "path": "_internal/sqlite3.dll",
+        "bytes": 1500440,
+        "sha256": "17d547994008f1626be2877497912687cb3ebd9a407396804310fd12c85aead4"
+      },
+      {
+        "path": "_internal/ucrtbase.dll",
+        "bytes": 1362264,
+        "sha256": "3239227d27667ba20d10a880751924e5719de0078f9fce232d149d383f7681f6"
+      },
+      {
+        "path": "_internal/base_library.zip",
+        "bytes": 1332005,
+        "sha256": "940a47d39bd2b6b197e71575dfd80916b5e7a6ae7780dbbe8961e936fb408e50"
+      },
+      {
+        "path": "_internal/unicodedata.pyd",
+        "bytes": 1137944,
+        "sha256": "2a50d629895a05b10a262acf333e7a4a31db5cb035b70d14d1a4be1c3e27d309"
+      },
+      {
+        "path": "_internal/libssl-3.dll",
+        "bytes": 790296,
+        "sha256": "41ad1a04ca27a7959579e87fbbda87c93099616a64a0e66260c983381c5570d1"
+      },
+      {
+        "path": "_internal/regex/_regex.cp312-win_amd64.pyd",
+        "bytes": 726016,
+        "sha256": "57ce9fe071fb893a5c79931d23100d4a63f8a92e4f0d567336efc89ee14237b6"
+      },
+      {
+        "path": "_internal/zstandard/_cffi.cp312-win_amd64.pyd",
+        "bytes": 667136,
+        "sha256": "651b62c353beb56b2471d4ece6ffde0cef9403a67cc9637c26edc28278980921"
+      },
+      {
+        "path": "_internal/web/dist/assets/app-wRwq25jC.js",
+        "bytes": 634622,
+        "sha256": "634dd86ac353bc24cd05eeba0c9860510f8f6461d01962ee07cb543f3592ee17"
+      },
+      {
+        "path": "_internal/rpds/rpds.cp312-win_amd64.pyd",
+        "bytes": 559104,
+        "sha256": "f2151350525864528ac0664f461ea49444b787834f05a0c96f34fb3ac2690046"
+      },
+      {
+        "path": "_internal/zstandard/backend_c.cp312-win_amd64.pyd",
+        "bytes": 525312,
+        "sha256": "2ce792041f2bf7d8a8f514f0fb5adfc7778e56e988491e6ac7f3438c2e8cb3d3"
+      },
+      {
+        "path": "_internal/jiter/jiter.cp312-win_amd64.pyd",
+        "bytes": 465920,
+        "sha256": "4cf612d63cf512f8fc3171f3c610cdf02acee71cbc9030cfffe4fd7f8294d521"
+      },
+      {
+        "path": "_internal/web/dist/intro/assets/index-L-MDhamW.js",
+        "bytes": 374551,
+        "sha256": "0fd9e02283613c1dd6e63727c238cd5fb50f1a8c9295eb0229572b45e07fee05"
+      },
+      {
+        "path": "_internal/uuid_utils/_uuid_utils.cp312-win_amd64.pyd",
+        "bytes": 352256,
+        "sha256": "954cd29e680f16ec610a8e2708b06efd3e5d5f022275b945b158d3f0f273394b"
+      },
+      {
+        "path": "_internal/yaml/_yaml.cp312-win_amd64.pyd",
+        "bytes": 253952,
+        "sha256": "4fd0e84f50261ed0886cffcdd8008b055af3352546e649c3d741b50eae1f9b5f"
+      },
+      {
+        "path": "_internal/_decimal.pyd",
+        "bytes": 253208,
+        "sha256": "d4ae192bbd4627fc9487a2c1cd9869d1b461c20cfd338194e87f5cf882bbed12"
+      },
+      {
+        "path": "_internal/certifi/cacert.pem",
+        "bytes": 240216,
+        "sha256": "9cc2a774b5198dcff14d9be1e66091f538975d867ce029a96bce15a55dfd730f"
+      },
+      {
+        "path": "_internal/orjson/orjson.cp312-win_amd64.pyd",
+        "bytes": 224768,
+        "sha256": "ce1f204ff6cdbde5b12bcf775755e78c8905fc47530b04ab918d3ecaec660841"
+      },
+      {
+        "path": "_internal/ormsgpack/ormsgpack.cp312-win_amd64.pyd",
+        "bytes": 209408,
+        "sha256": "d0d1f18a374a7bcd59e83f160b4782ed8f0710e503044e415de5fbc478195e79"
+      },
+      {
+        "path": "_internal/pyexpat.pyd",
+        "bytes": 199448,
+        "sha256": "cdc09fbae2f103196215facd50d108be3eff60c8ee5795dcc80bf57a0f120cdf"
+      },
+      {
+        "path": "_internal/charset_normalizer/md.cp312-win_amd64.pyd",
+        "bytes": 193536,
+        "sha256": "c53a0a481bbcef6a88492bd113b6293997900f4a17a1a5055776d76256d720f9"
+      },
+      {
+        "path": "_internal/_cffi_backend.cp312-win_amd64.pyd",
+        "bytes": 181248,
+        "sha256": "9af5e4f68a41f26b726f2e9424f9d58a4f5666189f6a48be95f406b257102aec"
+      },
+      {
+        "path": "_internal/_ssl.pyd",
+        "bytes": 177432,
+        "sha256": "2b6f1b1ac47cb7878b62e8d6bb587052f86ca8145b05a261e855305b9ca3d36c"
+      },
+      {
+        "path": "_internal/_lzma.pyd",
+        "bytes": 159512,
+        "sha256": "22d10e2d6ad3e3ed3c49eb79ab69a81aaa9d16aeca7f948da2fe80877f106c16"
+      }
+    ],
+    "duplicate_hashes": [
+      {
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "bytes_each": 11357,
+        "redundant_bytes": 11357,
+        "paths": [
+          "_internal/opentelemetry_api-1.45.1.dist-info/licenses/LICENSE",
+          "_internal/tzdata-2026.4.dist-info/licenses/licenses/LICENSE_APACHE"
+        ]
+      },
+      {
+        "sha256": "676541f0b8ad457c744c093f807589adcad909e3fd03f901787d08786eedbd33",
+        "bytes_each": 1599,
+        "redundant_bytes": 9594,
+        "paths": [
+          "_internal/tzdata/zoneinfo/GB",
+          "_internal/tzdata/zoneinfo/GB-Eire",
+          "_internal/tzdata/zoneinfo/Europe/Belfast",
+          "_internal/tzdata/zoneinfo/Europe/Guernsey",
+          "_internal/tzdata/zoneinfo/Europe/Isle_of_Man",
+          "_internal/tzdata/zoneinfo/Europe/Jersey",
+          "_internal/tzdata/zoneinfo/Europe/London"
+        ]
+      },
+      {
+        "sha256": "815ab4db7a1b1292867d2f924b718e1bba32455ce9f92205db2feb65029c6761",
+        "bytes_each": 1717,
+        "redundant_bytes": 8585,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Montreal",
+          "_internal/tzdata/zoneinfo/America/Nassau",
+          "_internal/tzdata/zoneinfo/America/Nipigon",
+          "_internal/tzdata/zoneinfo/America/Thunder_Bay",
+          "_internal/tzdata/zoneinfo/America/Toronto",
+          "_internal/tzdata/zoneinfo/Canada/Eastern"
+        ]
+      },
+      {
+        "sha256": "b10f9542a8509f0a63ebca78e3d80432dd86b8ea296400280febd9cfa76e8288",
+        "bytes_each": 1103,
+        "redundant_bytes": 4412,
+        "paths": [
+          "_internal/tzdata/zoneinfo/CET",
+          "_internal/tzdata/zoneinfo/MET",
+          "_internal/tzdata/zoneinfo/Europe/Amsterdam",
+          "_internal/tzdata/zoneinfo/Europe/Brussels",
+          "_internal/tzdata/zoneinfo/Europe/Luxembourg"
+        ]
+      },
+      {
+        "sha256": "af9aea4aee505143fa5e847643c0ffe164190c38411010ac7f0b170f4098a6c8",
+        "bytes_each": 1367,
+        "redundant_bytes": 4101,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Ensenada",
+          "_internal/tzdata/zoneinfo/America/Santa_Isabel",
+          "_internal/tzdata/zoneinfo/America/Tijuana",
+          "_internal/tzdata/zoneinfo/Mexico/BajaNorte"
+        ]
+      },
+      {
+        "sha256": "abbe8628dd5487c889db816ce3a5077bbb47f6bafafeb9411d92d6ef2f70ce8d",
+        "bytes_each": 177,
+        "redundant_bytes": 3540,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Anguilla",
+          "_internal/tzdata/zoneinfo/America/Antigua",
+          "_internal/tzdata/zoneinfo/America/Aruba",
+          "_internal/tzdata/zoneinfo/America/Blanc-Sablon",
+          "_internal/tzdata/zoneinfo/America/Curacao",
+          "_internal/tzdata/zoneinfo/America/Dominica",
+          "_internal/tzdata/zoneinfo/America/Grenada",
+          "_internal/tzdata/zoneinfo/America/Guadeloupe",
+          "_internal/tzdata/zoneinfo/America/Kralendijk",
+          "_internal/tzdata/zoneinfo/America/Lower_Princes",
+          "_internal/tzdata/zoneinfo/America/Marigot",
+          "_internal/tzdata/zoneinfo/America/Montserrat",
+          "_internal/tzdata/zoneinfo/America/Port_of_Spain",
+          "_internal/tzdata/zoneinfo/America/Puerto_Rico",
+          "_internal/tzdata/zoneinfo/America/St_Barthelemy",
+          "_internal/tzdata/zoneinfo/America/St_Kitts",
+          "_internal/tzdata/zoneinfo/America/St_Lucia",
+          "_internal/tzdata/zoneinfo/America/St_Thomas",
+          "_internal/tzdata/zoneinfo/America/St_Vincent",
+          "_internal/tzdata/zoneinfo/America/Tortola",
+          "_internal/tzdata/zoneinfo/America/Virgin"
+        ]
+      },
+      {
+        "sha256": "a7fd9932d785d4d690900b834c3563c1810c1cf2e01711bcc0926af6c0767cb7",
+        "bytes_each": 705,
+        "redundant_bytes": 3525,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Arctic/Longyearbyen",
+          "_internal/tzdata/zoneinfo/Atlantic/Jan_Mayen",
+          "_internal/tzdata/zoneinfo/Europe/Berlin",
+          "_internal/tzdata/zoneinfo/Europe/Copenhagen",
+          "_internal/tzdata/zoneinfo/Europe/Oslo",
+          "_internal/tzdata/zoneinfo/Europe/Stockholm"
+        ]
+      },
+      {
+        "sha256": "0e06e7e55aedbc92ef5b3d106e7c392ab1628cfd8a428b20e92e99028a0bfbb9",
+        "bytes_each": 1043,
+        "redundant_bytes": 3129,
+        "paths": [
+          "_internal/tzdata/zoneinfo/NZ",
+          "_internal/tzdata/zoneinfo/Antarctica/McMurdo",
+          "_internal/tzdata/zoneinfo/Antarctica/South_Pole",
+          "_internal/tzdata/zoneinfo/Pacific/Auckland"
+        ]
+      },
+      {
+        "sha256": "9bb703920eca4b6119e81a105583a4f6ca220651f13b418479ab7cd56c413f3e",
+        "bytes_each": 1042,
+        "redundant_bytes": 3126,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Navajo",
+          "_internal/tzdata/zoneinfo/America/Denver",
+          "_internal/tzdata/zoneinfo/America/Shiprock",
+          "_internal/tzdata/zoneinfo/US/Mountain"
+        ]
+      },
+      {
+        "sha256": "44d2f6cf84737e6a1e0daf914109e94256beca40b40c9a11b7a04e8bddaee4ec",
+        "bytes_each": 1463,
+        "redundant_bytes": 2926,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Portugal",
+          "_internal/tzdata/zoneinfo/WET",
+          "_internal/tzdata/zoneinfo/Europe/Lisbon"
+        ]
+      },
+      {
+        "sha256": "820d45a868a88f81c731d5b2c758b4ed000039b6260a80433f8e0f094a604b59",
+        "bytes_each": 904,
+        "redundant_bytes": 2712,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Australia/ACT",
+          "_internal/tzdata/zoneinfo/Australia/Canberra",
+          "_internal/tzdata/zoneinfo/Australia/NSW",
+          "_internal/tzdata/zoneinfo/Australia/Sydney"
+        ]
+      },
+      {
+        "sha256": "d52173b56a28205d8d6f792bcfa8bc07614ee0d269f7bf6e43ec91f68d410600",
+        "bytes_each": 1313,
+        "redundant_bytes": 2626,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Edmonton",
+          "_internal/tzdata/zoneinfo/America/Yellowknife",
+          "_internal/tzdata/zoneinfo/Canada/Mountain"
+        ]
+      },
+      {
+        "sha256": "00dcf0606054d4f927416e0b47e1fdda2e5ce036fde4b53e51084f8566428c3a",
+        "bytes_each": 1294,
+        "redundant_bytes": 2588,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Rainy_River",
+          "_internal/tzdata/zoneinfo/America/Winnipeg",
+          "_internal/tzdata/zoneinfo/Canada/Central"
+        ]
+      },
+      {
+        "sha256": "2a7163b16b94806f69991348e7d0a60c46eb61b1f0305f5f4b83f613db10806f",
+        "bytes_each": 1200,
+        "redundant_bytes": 2400,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Turkey",
+          "_internal/tzdata/zoneinfo/Asia/Istanbul",
+          "_internal/tzdata/zoneinfo/Europe/Istanbul"
+        ]
+      },
+      {
+        "sha256": "a8c964f3eaa7a209d9a650fb16c68c003e9a5fc62ffbbb10fa849d54fb3662d6",
+        "bytes_each": 478,
+        "redundant_bytes": 2390,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Europe/Belgrade",
+          "_internal/tzdata/zoneinfo/Europe/Ljubljana",
+          "_internal/tzdata/zoneinfo/Europe/Podgorica",
+          "_internal/tzdata/zoneinfo/Europe/Sarajevo",
+          "_internal/tzdata/zoneinfo/Europe/Skopje",
+          "_internal/tzdata/zoneinfo/Europe/Zagreb"
+        ]
+      },
+      {
+        "sha256": "9fcde8d584dea0585f5c8727aaf35f48a149e0dbd3a83bf6cef8bca9c14021e3",
+        "bytes_each": 1074,
+        "redundant_bytes": 2148,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Israel",
+          "_internal/tzdata/zoneinfo/Asia/Jerusalem",
+          "_internal/tzdata/zoneinfo/Asia/Tel_Aviv"
+        ]
+      },
+      {
+        "sha256": "2890b35dcb7c093308b552d82d8781a8ce9a4fa6f9de058283a6836ec1f9f282",
+        "bytes_each": 1016,
+        "redundant_bytes": 2032,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Knox_IN",
+          "_internal/tzdata/zoneinfo/US/Indiana-Starke",
+          "_internal/tzdata/zoneinfo/America/Indiana/Knox"
+        ]
+      },
+      {
+        "sha256": "d4801581fd00037b013d71616b119fbbd510fdca5de06369b10f718a8da5e32d",
+        "bytes_each": 1003,
+        "redundant_bytes": 2006,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Australia/Currie",
+          "_internal/tzdata/zoneinfo/Australia/Hobart",
+          "_internal/tzdata/zoneinfo/Australia/Tasmania"
+        ]
+      },
+      {
+        "sha256": "abfb1980e20d5f84ec5fd881c7580d77a5c6c019f30a383aaa97404212b489e0",
+        "bytes_each": 969,
+        "redundant_bytes": 1938,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Adak",
+          "_internal/tzdata/zoneinfo/America/Atka",
+          "_internal/tzdata/zoneinfo/US/Aleutian"
+        ]
+      },
+      {
+        "sha256": "0783854f52c33ada6b6d2a5d867662f0ae8e15238d2fce7b9ada4f4d319eb466",
+        "bytes_each": 191,
+        "redundant_bytes": 1910,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Africa/Addis_Ababa",
+          "_internal/tzdata/zoneinfo/Africa/Asmara",
+          "_internal/tzdata/zoneinfo/Africa/Asmera",
+          "_internal/tzdata/zoneinfo/Africa/Dar_es_Salaam",
+          "_internal/tzdata/zoneinfo/Africa/Djibouti",
+          "_internal/tzdata/zoneinfo/Africa/Kampala",
+          "_internal/tzdata/zoneinfo/Africa/Mogadishu",
+          "_internal/tzdata/zoneinfo/Africa/Nairobi",
+          "_internal/tzdata/zoneinfo/Indian/Antananarivo",
+          "_internal/tzdata/zoneinfo/Indian/Comoro",
+          "_internal/tzdata/zoneinfo/Indian/Mayotte"
+        ]
+      },
+      {
+        "sha256": "86bd26a06fe3057b36cf29dd7a338f2524aff8116ef08d005aa2114ea6122869",
+        "bytes_each": 947,
+        "redundant_bytes": 1894,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Europe/Rome",
+          "_internal/tzdata/zoneinfo/Europe/San_Marino",
+          "_internal/tzdata/zoneinfo/Europe/Vatican"
+        ]
+      },
+      {
+        "sha256": "bfdf6afc014c3e597930cc4ca7df1aa98e347268acdb07224df4eab36fe46f49",
+        "bytes_each": 1878,
+        "redundant_bytes": 1878,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/St_Johns",
+          "_internal/tzdata/zoneinfo/Canada/Newfoundland"
+        ]
+      },
+      {
+        "sha256": "c27b739ff46a7df0594e120d725b439217e11e44ea9a50cdc49130383b5482e7",
+        "bytes_each": 1754,
+        "redundant_bytes": 1754,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Chicago",
+          "_internal/tzdata/zoneinfo/US/Central"
+        ]
+      },
+      {
+        "sha256": "d7f2206b3a45989fc9ad63d558922532fa7352280d5f87176bf1db79cb1d1fa9",
+        "bytes_each": 1744,
+        "redundant_bytes": 1744,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/New_York",
+          "_internal/tzdata/zoneinfo/US/Eastern"
+        ]
+      },
+      {
+        "sha256": "f3e7fcaa0e9840ff4169d3567d8fb5926644848f4963d7acf92320843c5d486e",
+        "bytes_each": 130,
+        "redundant_bytes": 1690,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Iceland",
+          "_internal/tzdata/zoneinfo/Africa/Abidjan",
+          "_internal/tzdata/zoneinfo/Africa/Accra",
+          "_internal/tzdata/zoneinfo/Africa/Bamako",
+          "_internal/tzdata/zoneinfo/Africa/Banjul",
+          "_internal/tzdata/zoneinfo/Africa/Conakry",
+          "_internal/tzdata/zoneinfo/Africa/Dakar",
+          "_internal/tzdata/zoneinfo/Africa/Freetown",
+          "_internal/tzdata/zoneinfo/Africa/Lome",
+          "_internal/tzdata/zoneinfo/Africa/Nouakchott",
+          "_internal/tzdata/zoneinfo/Africa/Ouagadougou",
+          "_internal/tzdata/zoneinfo/Africa/Timbuktu",
+          "_internal/tzdata/zoneinfo/Atlantic/Reykjavik",
+          "_internal/tzdata/zoneinfo/Atlantic/St_Helena"
+        ]
+      },
+      {
+        "sha256": "0589e80ddecebf9d3077898c12975d2be7393df2856ee9926c534763e1e26bf2",
+        "bytes_each": 558,
+        "redundant_bytes": 1674,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Europe/Kiev",
+          "_internal/tzdata/zoneinfo/Europe/Kyiv",
+          "_internal/tzdata/zoneinfo/Europe/Uzhgorod",
+          "_internal/tzdata/zoneinfo/Europe/Zaporozhye"
+        ]
+      },
+      {
+        "sha256": "7d23681b36849ac7f50537b9c02bd8d3aa000b98bd3d1825ce85e7ea3e5534c9",
+        "bytes_each": 1673,
+        "redundant_bytes": 1673,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Vancouver",
+          "_internal/tzdata/zoneinfo/Canada/Pacific"
+        ]
+      },
+      {
+        "sha256": "90ee5a841336a132df592e0a5f5e456ca5dfa39c20f9ff6fc35fe130e2121a28",
+        "bytes_each": 1672,
+        "redundant_bytes": 1672,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Halifax",
+          "_internal/tzdata/zoneinfo/Canada/Atlantic"
+        ]
+      },
+      {
+        "sha256": "e5ef1288571cc56c5276ca966e1c8a675c6747726d758ecafe7effce6eca7be4",
+        "bytes_each": 180,
+        "redundant_bytes": 1620,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Africa/Bangui",
+          "_internal/tzdata/zoneinfo/Africa/Brazzaville",
+          "_internal/tzdata/zoneinfo/Africa/Douala",
+          "_internal/tzdata/zoneinfo/Africa/Kinshasa",
+          "_internal/tzdata/zoneinfo/Africa/Lagos",
+          "_internal/tzdata/zoneinfo/Africa/Libreville",
+          "_internal/tzdata/zoneinfo/Africa/Luanda",
+          "_internal/tzdata/zoneinfo/Africa/Malabo",
+          "_internal/tzdata/zoneinfo/Africa/Niamey",
+          "_internal/tzdata/zoneinfo/Africa/Porto-Novo"
+        ]
+      },
+      {
+        "sha256": "e678f42a13efbd7be0f26a9ce53e04b1c28a582eab05611cb01c16836432f07b",
+        "bytes_each": 531,
+        "redundant_bytes": 1593,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Fort_Wayne",
+          "_internal/tzdata/zoneinfo/America/Indianapolis",
+          "_internal/tzdata/zoneinfo/US/East-Indiana",
+          "_internal/tzdata/zoneinfo/America/Indiana/Indianapolis"
+        ]
+      },
+      {
+        "sha256": "bf8b7ed82fe6e63e6d98f8cea934eeac901cd16aba85eb5755ce3f8b4289ea8a",
+        "bytes_each": 393,
+        "redundant_bytes": 1572,
+        "paths": [
+          "_internal/tzdata/zoneinfo/PRC",
+          "_internal/tzdata/zoneinfo/Asia/Chongqing",
+          "_internal/tzdata/zoneinfo/Asia/Chungking",
+          "_internal/tzdata/zoneinfo/Asia/Harbin",
+          "_internal/tzdata/zoneinfo/Asia/Shanghai"
+        ]
+      },
+      {
+        "sha256": "11c00336e02f1318fe764ab29467c5f2afefbfffa644fa8dd24f5b083b495b71",
+        "bytes_each": 1496,
+        "redundant_bytes": 1496,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Eire",
+          "_internal/tzdata/zoneinfo/Europe/Dublin"
+        ]
+      },
+      {
+        "sha256": "502d1fc71ed93e68cfc370f404afb9bdaa7e735701cdb811dbddcc76611f3b1d",
+        "bytes_each": 708,
+        "redundant_bytes": 1416,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Catamarca",
+          "_internal/tzdata/zoneinfo/America/Argentina/Catamarca",
+          "_internal/tzdata/zoneinfo/America/Argentina/ComodRivadavia"
+        ]
+      },
+      {
+        "sha256": "f488f75a34fd99630a438dcb792508a90b836fdcd2dc54a51d83d535025315fd",
+        "bytes_each": 708,
+        "redundant_bytes": 1416,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Cordoba",
+          "_internal/tzdata/zoneinfo/America/Rosario",
+          "_internal/tzdata/zoneinfo/America/Argentina/Cordoba"
+        ]
+      },
+      {
+        "sha256": "fd006953c2b442a2e1e66db2a967dd932a4824390f01cddd9c801ce63450c715",
+        "bytes_each": 1354,
+        "redundant_bytes": 1354,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Santiago",
+          "_internal/tzdata/zoneinfo/Chile/Continental"
+        ]
+      },
+      {
+        "sha256": "89cb9a36212fb82e933dcd9faa10efdfa969a29ec80c32063bbb4518c033d1be",
+        "bytes_each": 1309,
+        "redundant_bytes": 1309,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Egypt",
+          "_internal/tzdata/zoneinfo/Africa/Cairo"
+        ]
+      },
+      {
+        "sha256": "200d05754f6d83a371cf408d7085125797657b3b0bebeba1e508cffe86a3e5c8",
+        "bytes_each": 1294,
+        "redundant_bytes": 1294,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Los_Angeles",
+          "_internal/tzdata/zoneinfo/US/Pacific"
+        ]
+      },
+      {
+        "sha256": "cd2d924b9ef70fd4e6419156b52c9121537765754dff61695416eda9014ccca5",
+        "bytes_each": 1242,
+        "redundant_bytes": 1242,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Louisville",
+          "_internal/tzdata/zoneinfo/America/Kentucky/Louisville"
+        ]
+      },
+      {
+        "sha256": "439e1ca44e245387148c1141d7d7c5e84bcca73188ff85351a126c8deea0e12e",
+        "bytes_each": 1207,
+        "redundant_bytes": 1207,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Europe/Chisinau",
+          "_internal/tzdata/zoneinfo/Europe/Tiraspol"
+        ]
+      },
+      {
+        "sha256": "fbe23c3fafdee01b5121edf009290fb701cebbf93dacfb30f8aa90287242f6f3",
+        "bytes_each": 594,
+        "redundant_bytes": 1188,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Choibalsan",
+          "_internal/tzdata/zoneinfo/Asia/Ulaanbaatar",
+          "_internal/tzdata/zoneinfo/Asia/Ulan_Bator"
+        ]
+      },
+      {
+        "sha256": "13054cef85e3b1ba0f5712bd6d699d7789d3aedbdab0fd7394b771acc07f61a1",
+        "bytes_each": 1174,
+        "redundant_bytes": 1174,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Chile/EasterIsland",
+          "_internal/tzdata/zoneinfo/Pacific/Easter"
+        ]
+      },
+      {
+        "sha256": "9ace6b0aeab6c81338f55993ca632d15037773968137596477c8e3cca767366f",
+        "bytes_each": 1117,
+        "redundant_bytes": 1117,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Cuba",
+          "_internal/tzdata/zoneinfo/America/Havana"
+        ]
+      },
+      {
+        "sha256": "cd588e779c5737d70e4e47158dafab7945b026b2bb34454cc47741815459b068",
+        "bytes_each": 1105,
+        "redundant_bytes": 1105,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Europe/Monaco",
+          "_internal/tzdata/zoneinfo/Europe/Paris"
+        ]
+      },
+      {
+        "sha256": "0b26388cd7747f335275fd4795819f6a4b40a661fbd6d44d465a4e10edf60c6b",
+        "bytes_each": 1029,
+        "redundant_bytes": 1029,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Whitehorse",
+          "_internal/tzdata/zoneinfo/Canada/Yukon"
+        ]
+      },
+      {
+        "sha256": "dc4a07571b10884e4f4f3450c9d1a1cbf4c03ef53d06ed2e4ea152d9eba5d5d7",
+        "bytes_each": 111,
+        "redundant_bytes": 999,
+        "paths": [
+          "_internal/tzdata/zoneinfo/GMT",
+          "_internal/tzdata/zoneinfo/GMT+0",
+          "_internal/tzdata/zoneinfo/GMT-0",
+          "_internal/tzdata/zoneinfo/GMT0",
+          "_internal/tzdata/zoneinfo/Greenwich",
+          "_internal/tzdata/zoneinfo/Etc/GMT",
+          "_internal/tzdata/zoneinfo/Etc/GMT+0",
+          "_internal/tzdata/zoneinfo/Etc/GMT-0",
+          "_internal/tzdata/zoneinfo/Etc/GMT0",
+          "_internal/tzdata/zoneinfo/Etc/Greenwich"
+        ]
+      },
+      {
+        "sha256": "199062b1c30cfeb2375ec84c56df52be51891986a6293b7a124d3a62509f45e9",
+        "bytes_each": 497,
+        "redundant_bytes": 994,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Europe/Busingen",
+          "_internal/tzdata/zoneinfo/Europe/Vaduz",
+          "_internal/tzdata/zoneinfo/Europe/Zurich"
+        ]
+      },
+      {
+        "sha256": "77ca0c22962f06998bce5e48d81cb865a14466c83ff5dc607eaa483344058bf6",
+        "bytes_each": 977,
+        "redundant_bytes": 977,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Anchorage",
+          "_internal/tzdata/zoneinfo/US/Alaska"
+        ]
+      },
+      {
+        "sha256": "2e5199e58fee77d270591be77079d41d102b41b6e735c9a6af3dddb8c851dc77",
+        "bytes_each": 965,
+        "redundant_bytes": 965,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Godthab",
+          "_internal/tzdata/zoneinfo/America/Nuuk"
+        ]
+      },
+      {
+        "sha256": "fa2ceb222f065c0289f3997ff0c54ba05a74a599b4522870fa86a96e24e18891",
+        "bytes_each": 952,
+        "redundant_bytes": 952,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Sao_Paulo",
+          "_internal/tzdata/zoneinfo/Brazil/East"
+        ]
+      },
+      {
+        "sha256": "77393d2ef180ff1452b670088c016e4c9f14c33feceea1961909a25cf803b0b6",
+        "bytes_each": 941,
+        "redundant_bytes": 941,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Australia/Broken_Hill",
+          "_internal/tzdata/zoneinfo/Australia/Yancowinna"
+        ]
+      },
+      {
+        "sha256": "e88f5a51f168157a41ac2dd8a4ee0e9a879419c84c6122b4771b1a2a33d93a4c",
+        "bytes_each": 923,
+        "redundant_bytes": 923,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Poland",
+          "_internal/tzdata/zoneinfo/Europe/Warsaw"
+        ]
+      },
+      {
+        "sha256": "1a4d52746455981db7dc8f961135c0302673ecbec7573a0de1a52821c80daf78",
+        "bytes_each": 921,
+        "redundant_bytes": 921,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Australia/Adelaide",
+          "_internal/tzdata/zoneinfo/Australia/South"
+        ]
+      },
+      {
+        "sha256": "910c97c091cd34ae7427c83226234ce7b4f2f425c5822d6669c24be62010a792",
+        "bytes_each": 131,
+        "redundant_bytes": 917,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Africa/Blantyre",
+          "_internal/tzdata/zoneinfo/Africa/Bujumbura",
+          "_internal/tzdata/zoneinfo/Africa/Gaborone",
+          "_internal/tzdata/zoneinfo/Africa/Harare",
+          "_internal/tzdata/zoneinfo/Africa/Kigali",
+          "_internal/tzdata/zoneinfo/Africa/Lubumbashi",
+          "_internal/tzdata/zoneinfo/Africa/Lusaka",
+          "_internal/tzdata/zoneinfo/Africa/Maputo"
+        ]
+      },
+      {
+        "sha256": "ed2e0a099fb446b2416683438d3f56f9fc5a62a16c7549a7f59cbc935b364c8a",
+        "bytes_each": 908,
+        "redundant_bytes": 908,
+        "paths": [
+          "_internal/tzdata/zoneinfo/W-SU",
+          "_internal/tzdata/zoneinfo/Europe/Moscow"
+        ]
+      },
+      {
+        "sha256": "5fb24f3048ff4985b27e0585324a7a14e993e867f28d1fa517d8451a04dabe71",
+        "bytes_each": 904,
+        "redundant_bytes": 904,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Australia/Melbourne",
+          "_internal/tzdata/zoneinfo/Australia/Victoria"
+        ]
+      },
+      {
+        "sha256": "23817c32df67c77f0017a0feb2d798b2405afc71ceea3294d7e5b4c9116be740",
+        "bytes_each": 899,
+        "redundant_bytes": 899,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Detroit",
+          "_internal/tzdata/zoneinfo/US/Michigan"
+        ]
+      },
+      {
+        "sha256": "9ce352ef392c1874eb6c4263ef72d84595bdeb83a7710ba3fd5e9f363a43a10d",
+        "bytes_each": 855,
+        "redundant_bytes": 855,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Iqaluit",
+          "_internal/tzdata/zoneinfo/America/Pangnirtung"
+        ]
+      },
+      {
+        "sha256": "563b9052bebaf2986ae5b707e34afde013e7641287cc97ff31005f33a0dbf7a5",
+        "bytes_each": 418,
+        "redundant_bytes": 836,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Porto_Acre",
+          "_internal/tzdata/zoneinfo/America/Rio_Branco",
+          "_internal/tzdata/zoneinfo/Brazil/Acre"
+        ]
+      },
+      {
+        "sha256": "452d5a097a6c260fccb4e7b229b4eddca5563f5cac30c515bc89cb73bc615b72",
+        "bytes_each": 812,
+        "redundant_bytes": 812,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Iran",
+          "_internal/tzdata/zoneinfo/Asia/Tehran"
+        ]
+      },
+      {
+        "sha256": "a67858fcb6fc5787a8e9c2b7c8be8964bd3ce9223f7ad1baac2c9ca6925f4c78",
+        "bytes_each": 808,
+        "redundant_bytes": 808,
+        "paths": [
+          "_internal/tzdata/zoneinfo/NZ-CHAT",
+          "_internal/tzdata/zoneinfo/Pacific/Chatham"
+        ]
+      },
+      {
+        "sha256": "9abf3d8bfc293285a102da99ac5d9219ca082dc530eab62b0e42143400deb3b1",
+        "bytes_each": 791,
+        "redundant_bytes": 791,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Macao",
+          "_internal/tzdata/zoneinfo/Asia/Macau"
+        ]
+      },
+      {
+        "sha256": "fddce1e648a1732ac29afd9a16151b2973cdf082e7ec0c690f7e42be6b598b93",
+        "bytes_each": 111,
+        "redundant_bytes": 777,
+        "paths": [
+          "_internal/tzdata/zoneinfo/UCT",
+          "_internal/tzdata/zoneinfo/Universal",
+          "_internal/tzdata/zoneinfo/UTC",
+          "_internal/tzdata/zoneinfo/Zulu",
+          "_internal/tzdata/zoneinfo/Etc/UCT",
+          "_internal/tzdata/zoneinfo/Etc/Universal",
+          "_internal/tzdata/zoneinfo/Etc/UTC",
+          "_internal/tzdata/zoneinfo/Etc/Zulu"
+        ]
+      },
+      {
+        "sha256": "f4068f73246db97417f73467453564c57d6646ce4909b9fa2536923efcd7eb4f",
+        "bytes_each": 775,
+        "redundant_bytes": 775,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Hongkong",
+          "_internal/tzdata/zoneinfo/Asia/Hong_Kong"
+        ]
+      },
+      {
+        "sha256": "37dd2bf08f13fce0f707c3b1f4cec4018efbd9c47c8367b0fb4debbd461bd72f",
+        "bytes_each": 773,
+        "redundant_bytes": 773,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Mexico_City",
+          "_internal/tzdata/zoneinfo/Mexico/General"
+        ]
+      },
+      {
+        "sha256": "a6e930e3375cdcb51f7d8a74885aff89fd14b861ebb75cb339d0f91c16c1469a",
+        "bytes_each": 723,
+        "redundant_bytes": 723,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Europe/Bratislava",
+          "_internal/tzdata/zoneinfo/Europe/Prague"
+        ]
+      },
+      {
+        "sha256": "ae11453c21d08984de75f2efec04dc93178a7b4e23c5e52f2098b8bd45ccb547",
+        "bytes_each": 240,
+        "redundant_bytes": 720,
+        "paths": [
+          "_internal/tzdata/zoneinfo/MST",
+          "_internal/tzdata/zoneinfo/America/Creston",
+          "_internal/tzdata/zoneinfo/America/Phoenix",
+          "_internal/tzdata/zoneinfo/US/Arizona"
+        ]
+      },
+      {
+        "sha256": "20454ea527c8ea888926614d21bf556f46ce38c220c4ee5b821170eef9071469",
+        "bytes_each": 708,
+        "redundant_bytes": 708,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Buenos_Aires",
+          "_internal/tzdata/zoneinfo/America/Argentina/Buenos_Aires"
+        ]
+      },
+      {
+        "sha256": "74be2ad33818d8528f6c6f1c0be5a49e7a69f2d17663b496816482fc6fd6ce72",
+        "bytes_each": 708,
+        "redundant_bytes": 708,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Mendoza",
+          "_internal/tzdata/zoneinfo/America/Argentina/Mendoza"
+        ]
+      },
+      {
+        "sha256": "f368bd25659c0293d02bb79ec7dac7d5b73a92dffafce14b4dd2ffb8ba11aada",
+        "bytes_each": 692,
+        "redundant_bytes": 692,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Australia/LHI",
+          "_internal/tzdata/zoneinfo/Australia/Lord_Howe"
+        ]
+      },
+      {
+        "sha256": "ed8a6339c99568a2a98aadf5ad07bc4d30cd131747f638d922175c66ff928548",
+        "bytes_each": 690,
+        "redundant_bytes": 690,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Jujuy",
+          "_internal/tzdata/zoneinfo/America/Argentina/Jujuy"
+        ]
+      },
+      {
+        "sha256": "20dede710f520eaf6c0cdbeefe773fc6e30dd8b1d28aaf17e9842099551ee9a6",
+        "bytes_each": 690,
+        "redundant_bytes": 690,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Mazatlan",
+          "_internal/tzdata/zoneinfo/Mexico/BajaSur"
+        ]
+      },
+      {
+        "sha256": "f1fd678b0548e329b38934f6281255e698dfa761ad1ff841f6ccb79606c61345",
+        "bytes_each": 682,
+        "redundant_bytes": 682,
+        "paths": [
+          "_internal/tzdata/zoneinfo/EET",
+          "_internal/tzdata/zoneinfo/Europe/Athens"
+        ]
+      },
+      {
+        "sha256": "1daa5729aa1e0f32cd44be112d01ad4cc567a9fe76d87dcbb9182be8d2c88ff0",
+        "bytes_each": 221,
+        "redundant_bytes": 663,
+        "paths": [
+          "_internal/tzdata/zoneinfo/HST",
+          "_internal/tzdata/zoneinfo/Pacific/Honolulu",
+          "_internal/tzdata/zoneinfo/Pacific/Johnston",
+          "_internal/tzdata/zoneinfo/US/Hawaii"
+        ]
+      },
+      {
+        "sha256": "fc91ee9ecdb6e6213e4c773d345a7e441ab83d650b02e1b0d8e2dba4e07f50cc",
+        "bytes_each": 638,
+        "redundant_bytes": 638,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Regina",
+          "_internal/tzdata/zoneinfo/Canada/Saskatchewan"
+        ]
+      },
+      {
+        "sha256": "683001055b6ef9dc9d88734e0eddd1782f1c3643b7c13a75e9cf8e9052006e19",
+        "bytes_each": 154,
+        "redundant_bytes": 616,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Antarctica/DumontDUrville",
+          "_internal/tzdata/zoneinfo/Pacific/Chuuk",
+          "_internal/tzdata/zoneinfo/Pacific/Port_Moresby",
+          "_internal/tzdata/zoneinfo/Pacific/Truk",
+          "_internal/tzdata/zoneinfo/Pacific/Yap"
+        ]
+      },
+      {
+        "sha256": "4d862a5a9f2c2b40300541c0a74c2eba2859b90d7d45776ddbc6ed877df33812",
+        "bytes_each": 597,
+        "redundant_bytes": 597,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Nicosia",
+          "_internal/tzdata/zoneinfo/Europe/Nicosia"
+        ]
+      },
+      {
+        "sha256": "a78d73067ba3cbd94f8a23dfdd6aa8b68cb33b18484bc17b4e20ea1aec2f0a81",
+        "bytes_each": 149,
+        "redundant_bytes": 596,
+        "paths": [
+          "_internal/tzdata/zoneinfo/EST",
+          "_internal/tzdata/zoneinfo/America/Atikokan",
+          "_internal/tzdata/zoneinfo/America/Cayman",
+          "_internal/tzdata/zoneinfo/America/Coral_Harbour",
+          "_internal/tzdata/zoneinfo/America/Panama"
+        ]
+      },
+      {
+        "sha256": "09035620bd831697a3e9072f82de34cfca5e912d50c8da547739aa2f28fb6d8e",
+        "bytes_each": 134,
+        "redundant_bytes": 536,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Pacific/Funafuti",
+          "_internal/tzdata/zoneinfo/Pacific/Majuro",
+          "_internal/tzdata/zoneinfo/Pacific/Tarawa",
+          "_internal/tzdata/zoneinfo/Pacific/Wake",
+          "_internal/tzdata/zoneinfo/Pacific/Wallis"
+        ]
+      },
+      {
+        "sha256": "0954b2d9a301d94f4348024606a71bbcb2fa24d3cd3709f5bc8bca605039785d",
+        "bytes_each": 256,
+        "redundant_bytes": 512,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Singapore",
+          "_internal/tzdata/zoneinfo/Asia/Kuala_Lumpur",
+          "_internal/tzdata/zoneinfo/Asia/Singapore"
+        ]
+      },
+      {
+        "sha256": "a04c2c72f4f76a83178d036dd97d157ee1f32e478e44dda7a5c10923687ee6cf",
+        "bytes_each": 511,
+        "redundant_bytes": 511,
+        "paths": [
+          "_internal/tzdata/zoneinfo/ROC",
+          "_internal/tzdata/zoneinfo/Asia/Taipei"
+        ]
+      },
+      {
+        "sha256": "434af71ad039cb644690e8f9e8e4d91b9b6e072d41ea47db872ac9a8281fdbb8",
+        "bytes_each": 484,
+        "redundant_bytes": 484,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Noronha",
+          "_internal/tzdata/zoneinfo/Brazil/DeNoronha"
+        ]
+      },
+      {
+        "sha256": "71ca4af5998f09990c5e875d350fc3c8e34f280bae6fe14f36d4692face7a563",
+        "bytes_each": 481,
+        "redundant_bytes": 481,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Europe/Helsinki",
+          "_internal/tzdata/zoneinfo/Europe/Mariehamn"
+        ]
+      },
+      {
+        "sha256": "cdc8e2c282d8bc9a5e9c3caf2fc45ff4e9e5cd18f5dec8cb873340ad7c584d64",
+        "bytes_each": 152,
+        "redundant_bytes": 456,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Bangkok",
+          "_internal/tzdata/zoneinfo/Asia/Phnom_Penh",
+          "_internal/tzdata/zoneinfo/Asia/Vientiane",
+          "_internal/tzdata/zoneinfo/Indian/Christmas"
+        ]
+      },
+      {
+        "sha256": "230d2a074981baf887e70dd0cbc8dac4239eb34ed91e1db0916f0c3d4589aa3d",
+        "bytes_each": 441,
+        "redundant_bytes": 441,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Atlantic/Faeroe",
+          "_internal/tzdata/zoneinfo/Atlantic/Faroe"
+        ]
+      },
+      {
+        "sha256": "650d918751366590553063cd681592fdca8a09957e0ce2c18d6697ec385ef796",
+        "bytes_each": 146,
+        "redundant_bytes": 438,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Pacific/Midway",
+          "_internal/tzdata/zoneinfo/Pacific/Pago_Pago",
+          "_internal/tzdata/zoneinfo/Pacific/Samoa",
+          "_internal/tzdata/zoneinfo/US/Samoa"
+        ]
+      },
+      {
+        "sha256": "cf33012d9661e15438fc045ee64e0bfebb2ea8a3fb79d2af56df05ea4be3e453",
+        "bytes_each": 431,
+        "redundant_bytes": 431,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Libya",
+          "_internal/tzdata/zoneinfo/Africa/Tripoli"
+        ]
+      },
+      {
+        "sha256": "64a70b6fbcc9b65e762dbd25eb89b6f40c137146edc8dbd4d081eafacdab78de",
+        "bytes_each": 415,
+        "redundant_bytes": 415,
+        "paths": [
+          "_internal/tzdata/zoneinfo/ROK",
+          "_internal/tzdata/zoneinfo/Asia/Seoul"
+        ]
+      },
+      {
+        "sha256": "f6482b869af207de18395a2c8499628a20d27fd9b08dbdce6705f41eeb0d46b9",
+        "bytes_each": 412,
+        "redundant_bytes": 412,
+        "paths": [
+          "_internal/tzdata/zoneinfo/America/Manaus",
+          "_internal/tzdata/zoneinfo/Brazil/West"
+        ]
+      },
+      {
+        "sha256": "46853e94276af2eea8e86c2f152a871c092df195dc51273b8fc7091faa4b461c",
+        "bytes_each": 133,
+        "redundant_bytes": 399,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Antarctica/Syowa",
+          "_internal/tzdata/zoneinfo/Asia/Aden",
+          "_internal/tzdata/zoneinfo/Asia/Kuwait",
+          "_internal/tzdata/zoneinfo/Asia/Riyadh"
+        ]
+      },
+      {
+        "sha256": "0d9ea5053e83188032a6fb4d301d5db688f43011e5b6b1f917a11b71a0da7b16",
+        "bytes_each": 133,
+        "redundant_bytes": 399,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Dubai",
+          "_internal/tzdata/zoneinfo/Asia/Muscat",
+          "_internal/tzdata/zoneinfo/Indian/Mahe",
+          "_internal/tzdata/zoneinfo/Indian/Reunion"
+        ]
+      },
+      {
+        "sha256": "d19aebe2435c4e84bf7ae65533d23a9d440f98162e5b4d69c73f783e02299ec8",
+        "bytes_each": 190,
+        "redundant_bytes": 380,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Africa/Johannesburg",
+          "_internal/tzdata/zoneinfo/Africa/Maseru",
+          "_internal/tzdata/zoneinfo/Africa/Mbabane"
+        ]
+      },
+      {
+        "sha256": "3932c7750f2314f0efc6efc8c0a5ff7375b78dd37a7bb146a0248411bd172aec",
+        "bytes_each": 375,
+        "redundant_bytes": 375,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Ashgabat",
+          "_internal/tzdata/zoneinfo/Asia/Ashkhabad"
+        ]
+      },
+      {
+        "sha256": "e89d835c811d4da44aa8b386782ce8828df085aa0ee8f25661a9881d2f00e90c",
+        "bytes_each": 187,
+        "redundant_bytes": 374,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Rangoon",
+          "_internal/tzdata/zoneinfo/Asia/Yangon",
+          "_internal/tzdata/zoneinfo/Indian/Cocos"
+        ]
+      },
+      {
+        "sha256": "8b9ede33ab32ae2505bc06eb5402e7ce20b0fc8e2510dcb305c25d39a1fbd725",
+        "bytes_each": 350,
+        "redundant_bytes": 350,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Pacific/Guam",
+          "_internal/tzdata/zoneinfo/Pacific/Saipan"
+        ]
+      },
+      {
+        "sha256": "a437b1700333aeff53a8b5868d5387c080dc14c2d3e95aa5ce36f901b3669284",
+        "bytes_each": 339,
+        "redundant_bytes": 339,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Jamaica",
+          "_internal/tzdata/zoneinfo/America/Jamaica"
+        ]
+      },
+      {
+        "sha256": "dda8e0208df167e59cf9da9745348cc3ca904434a35e5481231c84fec0d11939",
+        "bytes_each": 320,
+        "redundant_bytes": 320,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Brunei",
+          "_internal/tzdata/zoneinfo/Asia/Kuching"
+        ]
+      },
+      {
+        "sha256": "66cb9e95c042d587d6ba01f60ab94e5d07120c3e20194242a1b0755be6aea47a",
+        "bytes_each": 306,
+        "redundant_bytes": 306,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Australia/Perth",
+          "_internal/tzdata/zoneinfo/Australia/West"
+        ]
+      },
+      {
+        "sha256": "da4556cfd088feab5f75be7983488be7d814042ee59cedc651a948431b470036",
+        "bytes_each": 289,
+        "redundant_bytes": 289,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Australia/Brisbane",
+          "_internal/tzdata/zoneinfo/Australia/Queensland"
+        ]
+      },
+      {
+        "sha256": "522f0f374b61e2c6f5fa7d19f1c7acccd09e4a213462ee3b42c90d32bf2bf18c",
+        "bytes_each": 134,
+        "redundant_bytes": 268,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Pacific/Guadalcanal",
+          "_internal/tzdata/zoneinfo/Pacific/Pohnpei",
+          "_internal/tzdata/zoneinfo/Pacific/Ponape"
+        ]
+      },
+      {
+        "sha256": "ccec20e2307acd7da453dd7437e70c6b08e2bc3ead3bc3445af135da37b56d59",
+        "bytes_each": 87,
+        "redundant_bytes": 261,
+        "paths": [
+          "_internal/httpcore2-2.13.0.dist-info/WHEEL",
+          "_internal/httpx2-2.13.0.dist-info/WHEEL",
+          "_internal/pydantic-2.13.5.dist-info/WHEEL",
+          "_internal/urllib3-2.8.0.dist-info/WHEEL"
+        ]
+      },
+      {
+        "sha256": "5b77e4a649bbfb07fdbc123967eeecd1e5a478cfaca6eefc23c35e6fdf037848",
+        "bytes_each": 87,
+        "redundant_bytes": 261,
+        "paths": [
+          "_internal/langchain_core-1.6.4.dist-info/WHEEL",
+          "_internal/langchain_openai-1.6.3.dist-info/WHEEL",
+          "_internal/langgraph-1.2.12.dist-info/WHEEL",
+          "_internal/opentelemetry_api-1.45.1.dist-info/WHEEL"
+        ]
+      },
+      {
+        "sha256": "6687b16e181d52557895e57e76106ee80c43564272e37c6b3dbf5443711009d2",
+        "bytes_each": 234,
+        "redundant_bytes": 234,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Australia/Darwin",
+          "_internal/tzdata/zoneinfo/Australia/North"
+        ]
+      },
+      {
+        "sha256": "0d6e76fb941d0540214ee81f161f449c6a7dc3d515e5654618a7ae42d0acd1e1",
+        "bytes_each": 232,
+        "redundant_bytes": 232,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Ho_Chi_Minh",
+          "_internal/tzdata/zoneinfo/Asia/Saigon"
+        ]
+      },
+      {
+        "sha256": "ac21a61306d6e2a91453641f4e3e732ebc9d542abc1d35a5d5db2a10340ebefa",
+        "bytes_each": 231,
+        "redundant_bytes": 231,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Dacca",
+          "_internal/tzdata/zoneinfo/Asia/Dhaka"
+        ]
+      },
+      {
+        "sha256": "3a00bdbe1bc4959e727567c730ba51b03455ecd455f7c190c5ad14386eb79b0d",
+        "bytes_each": 220,
+        "redundant_bytes": 220,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Calcutta",
+          "_internal/tzdata/zoneinfo/Asia/Kolkata"
+        ]
+      },
+      {
+        "sha256": "4be6458ba89d2b30da7a52f2ec346318f783d2cee856e777c4b33164a365064f",
+        "bytes_each": 219,
+        "redundant_bytes": 219,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Kwajalein",
+          "_internal/tzdata/zoneinfo/Pacific/Kwajalein"
+        ]
+      },
+      {
+        "sha256": "59a3871430f0d3b93e619fa30a43a41d1e88bdd49ff26f09d0f405a500706f96",
+        "bytes_each": 213,
+        "redundant_bytes": 213,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Japan",
+          "_internal/tzdata/zoneinfo/Asia/Tokyo"
+        ]
+      },
+      {
+        "sha256": "355f63fd14ee894e3b9af26f7ca13c75a5c7e4015827c2a2e20bc70494b1c8b7",
+        "bytes_each": 190,
+        "redundant_bytes": 190,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Makassar",
+          "_internal/tzdata/zoneinfo/Asia/Ujung_Pandang"
+        ]
+      },
+      {
+        "sha256": "a23386fa8aa2db91ce9d8e811616afff76e65a0d4b0c82d3e2ffa4c4e155baa2",
+        "bytes_each": 172,
+        "redundant_bytes": 172,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Pacific/Enderbury",
+          "_internal/tzdata/zoneinfo/Pacific/Kanton"
+        ]
+      },
+      {
+        "sha256": "76b8f1bfe072231a1d9e7f8501310e27c0d08048c48f7422860b6477c142c438",
+        "bytes_each": 161,
+        "redundant_bytes": 161,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Kathmandu",
+          "_internal/tzdata/zoneinfo/Asia/Katmandu"
+        ]
+      },
+      {
+        "sha256": "37a77fbdf16f60e45f327af57c7263612b780c139149b2e2ff64feaf67490672",
+        "bytes_each": 154,
+        "redundant_bytes": 154,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Thimbu",
+          "_internal/tzdata/zoneinfo/Asia/Thimphu"
+        ]
+      },
+      {
+        "sha256": "6160d6575a371c75b19e6c25cf03160b9dc2f386583e42bf8189fdf8fd17c785",
+        "bytes_each": 152,
+        "redundant_bytes": 152,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Bahrain",
+          "_internal/tzdata/zoneinfo/Asia/Qatar"
+        ]
+      },
+      {
+        "sha256": "94485f0f58f842767ec2db93539d5fc3afb2bdce16673d9e63c0988cccd6438e",
+        "bytes_each": 152,
+        "redundant_bytes": 152,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Indian/Kerguelen",
+          "_internal/tzdata/zoneinfo/Indian/Maldives"
+        ]
+      },
+      {
+        "sha256": "849cafd377611cc2fc2b41891ab63c6fb3343949045db961fd16267593315ad4",
+        "bytes_each": 133,
+        "redundant_bytes": 133,
+        "paths": [
+          "_internal/tzdata/zoneinfo/Asia/Kashgar",
+          "_internal/tzdata/zoneinfo/Asia/Urumqi"
+        ]
+      },
+      {
+        "sha256": "69e6228a0d35958183cc1812f07c565ce837b95eb51bd8a33acba9fa4f68d6c9",
+        "bytes_each": 91,
+        "redundant_bytes": 91,
+        "paths": [
+          "_internal/apscheduler-3.11.3.dist-info/WHEEL",
+          "_internal/tzlocal-5.4.4.dist-info/WHEEL"
+        ]
+      },
+      {
+        "sha256": "41c708c5adba6e097513ab8ccb9f1d7865a2fb469e22491a9e01dcc64da459fc",
+        "bytes_each": 87,
+        "redundant_bytes": 87,
+        "paths": [
+          "_internal/attrs-26.1.0.dist-info/WHEEL",
+          "_internal/mcp-2.3.0.dist-info/WHEEL"
+        ]
+      },
+      {
+        "sha256": "e6184ce10e266134fdcfa401e8f1a95005bcd4f18d16b62b757323e2833fe9a9",
+        "bytes_each": 2,
+        "redundant_bytes": 34,
+        "paths": [
+          "_internal/apscheduler-3.11.3.dist-info/INSTALLER",
+          "_internal/attrs-26.1.0.dist-info/INSTALLER",
+          "_internal/click-8.5.0.dist-info/INSTALLER",
+          "_internal/cryptography-50.0.2.dist-info/INSTALLER",
+          "_internal/httpcore2-2.13.0.dist-info/INSTALLER",
+          "_internal/httpx2-2.13.0.dist-info/INSTALLER",
+          "_internal/jsonschema-4.26.0.dist-info/INSTALLER",
+          "_internal/langchain_core-1.6.4.dist-info/INSTALLER",
+          "_internal/langchain_openai-1.6.3.dist-info/INSTALLER",
+          "_internal/langgraph-1.2.12.dist-info/INSTALLER",
+          "_internal/mcp-2.3.0.dist-info/INSTALLER",
+          "_internal/opentelemetry_api-1.45.1.dist-info/INSTALLER",
+          "_internal/pydantic-2.13.5.dist-info/INSTALLER",
+          "_internal/tiktoken-0.14.0.dist-info/INSTALLER",
+          "_internal/tzdata-2026.4.dist-info/INSTALLER",
+          "_internal/tzlocal-5.4.4.dist-info/INSTALLER",
+          "_internal/urllib3-2.8.0.dist-info/INSTALLER",
+          "_internal/websockets-16.1.1.dist-info/INSTALLER"
+        ]
+      },
+      {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes_each": 0,
+        "redundant_bytes": 0,
+        "paths": [
+          "_internal/apscheduler-3.11.3.dist-info/REQUESTED",
+          "_internal/attrs-26.1.0.dist-info/REQUESTED",
+          "_internal/certifi/py.typed",
+          "_internal/click-8.5.0.dist-info/REQUESTED",
+          "_internal/cryptography-50.0.2.dist-info/REQUESTED",
+          "_internal/httpcore2-2.13.0.dist-info/REQUESTED",
+          "_internal/httpx2-2.13.0.dist-info/REQUESTED",
+          "_internal/jsonschema-4.26.0.dist-info/REQUESTED",
+          "_internal/langchain_core-1.6.4.dist-info/REQUESTED",
+          "_internal/langchain_openai-1.6.3.dist-info/REQUESTED",
+          "_internal/langgraph-1.2.12.dist-info/REQUESTED",
+          "_internal/mcp-2.3.0.dist-info/REQUESTED",
+          "_internal/opentelemetry_api-1.45.1.dist-info/REQUESTED",
+          "_internal/pydantic-2.13.5.dist-info/REQUESTED",
+          "_internal/tiktoken-0.14.0.dist-info/REQUESTED",
+          "_internal/tzdata-2026.4.dist-info/REQUESTED",
+          "_internal/tzlocal-5.4.4.dist-info/REQUESTED",
+          "_internal/urllib3-2.8.0.dist-info/REQUESTED",
+          "_internal/websockets-16.1.1.dist-info/REQUESTED"
+        ]
+      }
+    ],
+    "duplicate_redundant_bytes": 150719
+  },
+  "installer_installed_total": {
+    "status": "not_run",
+    "reason": "Sidecar total is measured separately; installer was not installed for Gate0."
+  }
+}

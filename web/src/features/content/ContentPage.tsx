@@ -171,9 +171,9 @@ export function ContentPage({
     queryKey: ['content-tags', status],
     queryFn: () => workspaceApi.content(status),
   })
-  const invalidate = () => {
+  const invalidate = (refreshRecent = true) => {
     void cache.invalidateQueries({ queryKey: ['knowledge-folders'] })
-    void cache.invalidateQueries({ queryKey: ['recent-imports'] })
+    if (refreshRecent) void cache.invalidateQueries({ queryKey: ['recent-imports'] })
     void cache.invalidateQueries({ queryKey: ['content'] })
     void cache.invalidateQueries({ queryKey: ['content-tags'] })
     void cache.invalidateQueries({ queryKey: ['today'] })
@@ -189,11 +189,14 @@ export function ContentPage({
   })
   const remove = useMutation({
     mutationFn: workspaceApi.deleteContent,
-    onSuccess: (_, id) => {
+    onSuccess: async (_, id) => {
+      await cache.cancelQueries({ queryKey: ['recent-imports'] })
+      cache.removeQueries({ queryKey: ['recent-imports'] })
       setRecentIds((ids) => ids.filter((value) => value !== id))
       setSelected((ids) => ids.filter((value) => value !== id))
       setNotice('已删除内容')
-      invalidate()
+      // React has not rendered the new IDs yet; do not refetch the old query.
+      invalidate(false)
     },
   })
   const classify = useMutation({
@@ -205,7 +208,7 @@ export function ContentPage({
       invalidate()
     },
   })
-  const retry = useMutation({ mutationFn: workspaceApi.retryContent, onSuccess: invalidate })
+  const retry = useMutation({ mutationFn: workspaceApi.retryContent, onSuccess: () => invalidate() })
   const tags = [...new Set((allTags.data ?? []).flatMap((item) => item.tags))].sort()
   const combined = [
     ...new Map(

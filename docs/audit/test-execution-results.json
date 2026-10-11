@@ -1,0 +1,56 @@
+{
+  "full_backend": {
+    "tests": 571,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 570,
+    "seconds": 83.03,
+    "status": "passed",
+    "source": "backend-results.xml"
+  },
+  "action_execution_totals": {
+    "passed": 62,
+    "denied": 4,
+    "not_run": 0
+  },
+  "frontend_unit": {
+    "status": "passed",
+    "passed": 54,
+    "files": 14,
+    "seconds": 7.03148681640625,
+    "source": "frontend-results.json"
+  },
+  "frontend_lint": {
+    "status": "passed"
+  },
+  "frontend_build": {
+    "status": "passed"
+  },
+  "browser_e2e": {
+    "status": "passed",
+    "selected_checks": 26,
+    "source": "browser-e2e/report.json",
+    "scope": "Selected real browser flows, not every control"
+  },
+  "registered_windows_installation": {
+    "status": "not_run"
+  },
+  "frozen_extracted_payload": {
+    "status": "passed",
+    "checks": 2,
+    "source": "desktop-frozen-app-actions.json",
+    "executable_sha256": "c1fdf8e44dc41a703451b815fc7c5d33669f4a7c60c643eaec748c6e4b14c4a0",
+    "ordinary_sdk_model_calls": 1,
+    "local_stdio_mcp_model_calls": 7,
+    "scope": "Actual frozen extracted exe, local deterministic SDK provider and real local stdio MCP server. Not a registered NSIS GUI installation or external account/provider."
+  },
+  "source_desktop_smoke": {
+    "status": "passed",
+    "checks": 2,
+    "source": "desktop-source-app-actions.json"
+  },
+  "external_provider_account": {
+    "status": "not_run"
+  }
+}

@@ -1,10 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Check, UserRound } from 'lucide-react'
-import { savePreferences, usePreferences } from '../../lib/preferences'
+import { savePreferences, usePreferenceRevision, usePreferences } from '../../lib/preferences'
 import { readAvatar } from '../../lib/avatar'
 
 export function PersonalSettings() {
   const preferences = usePreferences()
+  const revision = usePreferenceRevision()
+  const [baselineRevision, setBaselineRevision] = useState(revision)
+  const [dirty, setDirty] = useState(false)
   const [displayName, setDisplayName] = useState(preferences.displayName)
   const [avatar, setAvatar] = useState(preferences.avatar)
   const [reading, setReading] = useState(false)
@@ -13,6 +16,14 @@ export function PersonalSettings() {
   const [saved, setSaved] = useState(false),
     [error, setError] = useState(''),
     [saving, setSaving] = useState(false)
+  useEffect(() => {
+    if (dirty) return
+    setDisplayName(preferences.displayName)
+    setAvatar(preferences.avatar)
+    setEmail(preferences.email)
+    setBio(preferences.bio)
+    setBaselineRevision(revision)
+  }, [preferences, revision, dirty])
   return (
     <form
       className="settings-card"
@@ -22,12 +33,16 @@ export function PersonalSettings() {
         setSaved(false)
         setError('')
         try {
-          await savePreferences({
-            displayName: displayName.trim(),
-            email: email.trim(),
-            bio: bio.trim(),
-            avatar,
-          })
+          await savePreferences(
+            {
+              displayName: displayName.trim(),
+              email: email.trim(),
+              bio: bio.trim(),
+              avatar,
+            },
+            baselineRevision
+          )
+          setDirty(false)
           setSaved(true)
           setError('')
         } catch (failure) {
@@ -37,7 +52,10 @@ export function PersonalSettings() {
           setSaving(false)
         }
       }}
-      onChange={() => setSaved(false)}
+      onChange={() => {
+        setSaved(false)
+        setDirty(true)
+      }}
     >
       <div className="card-title">
         <UserRound size={20} />
@@ -87,6 +105,7 @@ export function PersonalSettings() {
           onClick={() => {
             setAvatar('')
             setSaved(false)
+            setDirty(true)
           }}
         >
           恢复默认头像

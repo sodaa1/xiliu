@@ -1,0 +1,139 @@
+{
+  "status": "passed",
+  "executable": "E:\\Learning\\xiliu\\.preview\\desktop-sidecar\\xiliu-service\\xiliu-service.exe",
+  "executable_sha256": "41e7fb3db0531b2db9e09ea360b762b5ab5d231c88986961856147b1db1b9503",
+  "environment": "Windows, existing frozen 0.3.2 sidecar; empty TemporaryDirectory each run; XILIU/provider credential environment stripped; no model calls, Feed refresh or user data.",
+  "cold_limit": "First process launch and two subsequent launches measured. OS disk cache was not flushed: these are not guaranteed cold-disk measurements.",
+  "runs": [
+    {
+      "status": "passed",
+      "launch_to_ready_ms": 2921.1326999939047,
+      "memory_at_ready": {
+        "status": "passed",
+        "working_set_bytes": 124579840,
+        "peak_working_set_bytes": 124579840,
+        "private_commit_bytes": 108044288
+      },
+      "desktop_ready": true,
+      "today_read_ms": [
+        22.94840000104159,
+        7.912700006272644,
+        9.506300004431978,
+        7.663299998966977,
+        7.0589000097243115,
+        6.870400000480004,
+        8.209200008423068,
+        11.600800004089251,
+        8.694299991475418,
+        7.994300001882948
+      ],
+      "task_create_persisted_ms": [
+        6.585600000107661,
+        6.323299996438436,
+        7.897300005424768,
+        11.683499993523583,
+        7.05020000168588,
+        9.009200002765283,
+        6.660400002147071,
+        9.193899997626431,
+        6.53240000247024,
+        7.79550000152085
+      ],
+      "memory_after_local_workflow": {
+        "status": "passed",
+        "working_set_bytes": 125497344,
+        "peak_working_set_bytes": 125530112,
+        "private_commit_bytes": 108290048
+      },
+      "exit_code": 0,
+      "local_workflow": "passed: 10 Task create/complete/delete cycles against disposable SQLite"
+    },
+    {
+      "status": "passed",
+      "launch_to_ready_ms": 2550.507899999502,
+      "memory_at_ready": {
+        "status": "passed",
+        "working_set_bytes": 123969536,
+        "peak_working_set_bytes": 123969536,
+        "private_commit_bytes": 107479040
+      },
+      "desktop_ready": true,
+      "today_read_ms": [
+        28.829899994889274,
+        8.309900003951043,
+        25.241600000299513,
+        30.926599996746518,
+        14.655999999376945,
+        30.72989999782294,
+        11.373699991963804,
+        7.788400005665608,
+        7.858600001782179,
+        7.6932000083616
+      ],
+      "task_create_persisted_ms": [
+        10.582000002614222,
+        6.468699997640215,
+        9.289599998737685,
+        27.865700001711957,
+        9.867000000667758,
+        5.985199997667223,
+        7.083999997121282,
+        6.934399993042462,
+        8.900600005290471,
+        7.271499998751096
+      ],
+      "memory_after_local_workflow": {
+        "status": "passed",
+        "working_set_bytes": 125116416,
+        "peak_working_set_bytes": 125149184,
+        "private_commit_bytes": 107819008
+      },
+      "exit_code": 0,
+      "local_workflow": "passed: 10 Task create/complete/delete cycles against disposable SQLite"
+    },
+    {
+      "status": "passed",
+      "launch_to_ready_ms": 2632.5138000102015,
+      "memory_at_ready": {
+        "status": "passed",
+        "working_set_bytes": 124039168,
+        "peak_working_set_bytes": 124039168,
+        "private_commit_bytes": 107515904
+      },
+      "desktop_ready": true,
+      "today_read_ms": [
+        20.697700005257502,
+        27.02300000237301,
+        8.888700001989491,
+        10.812199994688854,
+        26.57619999081362,
+        32.59279999474529,
+        7.830100003047846,
+        10.938199993688613,
+        28.285099993809126,
+        30.316500007756986
+      ],
+      "task_create_persisted_ms": [
+        32.79420000035316,
+        7.8111000038916245,
+        6.91470000310801,
+        9.447300006286241,
+        11.204199996427633,
+        6.344099994748831,
+        9.647200000472367,
+        5.901800002902746,
+        6.966200002352707,
+        8.619499989436008
+      ],
+      "memory_after_local_workflow": {
+        "status": "passed",
+        "working_set_bytes": 125767680,
+        "peak_working_set_bytes": 125800448,
+        "private_commit_bytes": 108580864
+      },
+      "exit_code": 0,
+      "local_workflow": "passed: 10 Task create/complete/delete cycles against disposable SQLite"
+    }
+  ],
+  "installed_ui_workflow": "not_run"
+}

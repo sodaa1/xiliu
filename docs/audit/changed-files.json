@@ -1,0 +1,831 @@
+{
+  "format_version": 1,
+  "generated_at": "2026-10-10T15:26:05.947643+00:00",
+  "baseline_commit": "62e873383599eaf6548a2074a7c7bc59e5b6d844",
+  "branch": "codex/v0.4-unified-app-actions",
+  "counts": {
+    "configuration": 6,
+    "desktop": 6,
+    "validation_ci": 8,
+    "backend": 41,
+    "frontend": 10,
+    "documentation_evidence": 69,
+    "tests": 62
+  },
+  "backend_line_delta": {
+    "added": 3635,
+    "deleted": 474,
+    "note": "Production Python source only; tests/reports excluded. Includes new files. No claim of net total line reduction."
+  },
+  "changes": [
+    {
+      "status": "M",
+      "path": ".gitignore"
+    },
+    {
+      "status": "M",
+      "path": "README.en.md"
+    },
+    {
+      "status": "M",
+      "path": "README.md"
+    },
+    {
+      "status": "M",
+      "path": "README.zh-CN.md"
+    },
+    {
+      "status": "M",
+      "path": "desktop/build_sidecar.py"
+    },
+    {
+      "status": "M",
+      "path": "desktop/package-lock.json"
+    },
+    {
+      "status": "M",
+      "path": "desktop/package.json"
+    },
+    {
+      "status": "M",
+      "path": "desktop/src-tauri/Cargo.lock"
+    },
+    {
+      "status": "M",
+      "path": "desktop/src-tauri/Cargo.toml"
+    },
+    {
+      "status": "M",
+      "path": "desktop/src-tauri/tauri.conf.json"
+    },
+    {
+      "status": "M",
+      "path": "pyproject.toml"
+    },
+    {
+      "status": "M",
+      "path": "scripts/verify_desktop_service.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/__init__.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/agents/rag_agent.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/agents/runtime.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/agents/search_agent.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/api/app.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/api/routes/inbox.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/api/routes/workspace.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/api/services/automations.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/api/services/chat.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/api/services/commands.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/api/services/content.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/api/services/feed.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/api/services/inbox.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/api/services/knowledge.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/capabilities/agent_registry.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/capabilities/langchain_tools.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/capabilities/manager.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/execution/evidence.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/execution/gateway.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/graph/modes/fast.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/graph/nodes.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/graph/routing.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/graph/state.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/graph/verification.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/policy/engine.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/prompts/task1.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/runtime.py"
+    },
+    {
+      "status": "M",
+      "path": "src/xiliu/tools/__init__.py"
+    },
+    {
+      "status": "D",
+      "path": "src/xiliu/tools/app_tools.py"
+    },
+    {
+      "status": "D",
+      "path": "src/xiliu/tools/knowledge_search.py"
+    },
+    {
+      "status": "M",
+      "path": "uv.lock"
+    },
+    {
+      "status": "M",
+      "path": "web/package-lock.json"
+    },
+    {
+      "status": "M",
+      "path": "web/package.json"
+    },
+    {
+      "status": "M",
+      "path": "web/src/features/assistant/MessageList.tsx"
+    },
+    {
+      "status": "M",
+      "path": "web/src/features/content/ContentPage.tsx"
+    },
+    {
+      "status": "M",
+      "path": "web/src/features/feed/FeedPage.tsx"
+    },
+    {
+      "status": "M",
+      "path": "web/src/features/settings/PersonalSettings.tsx"
+    },
+    {
+      "status": "M",
+      "path": "web/src/lib/api.ts"
+    },
+    {
+      "status": "M",
+      "path": "web/src/lib/preferences.ts"
+    },
+    {
+      "status": "M",
+      "path": "web/src/lib/workspace-api.ts"
+    },
+    {
+      "status": "A",
+      "path": ".github/workflows/app-actions.yml"
+    },
+    {
+      "status": "A",
+      "path": "docs/XILIU_04_UNIFIED_ACTIONS.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/action-execution-results.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/all-pages-capabilities-baseline.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/all-pages-capabilities.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/backend-results.xml"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/baseline-coverage-manifest.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/baseline-coverage-results.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/baseline-surface-inventory.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/baseline.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/agent-automations.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/agent-failure.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/agent-feed.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/agent-inbox-empty.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/agent-knowledge.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/agent-today.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/agent.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/agent_restart-feed.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/agent_restart-profile.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/agent_restart.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/report.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/state.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-assistant-confirmation.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-assistant-stop.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-assistant.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-automations.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-failure.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-feed.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-inbox.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-intro.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-knowledge-detail.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-knowledge-folders.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-knowledge-search.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-launch.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-settings-appearance.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-settings-data.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-settings-model.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui-today.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui_restart-feed.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui_restart-profile.png"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/browser-e2e/ui_restart.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/changed-files.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/confirmation-reference.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/core-review.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/coverage-manifest.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/coverage-results-pending-ai.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/coverage-results.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/desktop-frozen-app-actions.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/desktop-source-app-actions.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/desktop-source-mcp-app-actions.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/fast-performance-before-gateway.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/fast-performance-before-gateway.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/fast-performance-gateway.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/fast-performance.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/fast-performance.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/frontend-results.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/package-after-before-final.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/package-after.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/package-baseline.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/package-size-before-after.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/registered-actions.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/startup-after-before-ai.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/startup-after-before-final.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/startup-after.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/startup-baseline.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/surface-inventory.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/audit/test-execution-results.json"
+    },
+    {
+      "status": "A",
+      "path": "docs/superpowers/plans/2026-10-10-unified-app-actions.md"
+    },
+    {
+      "status": "A",
+      "path": "docs/superpowers/specs/2026-10-10-unified-app-actions.md"
+    },
+    {
+      "status": "A",
+      "path": "scripts/app_action_observer.py"
+    },
+    {
+      "status": "A",
+      "path": "scripts/audit_app_surface.py"
+    },
+    {
+      "status": "A",
+      "path": "scripts/benchmark_app_fast.py"
+    },
+    {
+      "status": "A",
+      "path": "scripts/measure_sidecar_baseline.py"
+    },
+    {
+      "status": "A",
+      "path": "scripts/run_browser_e2e.py"
+    },
+    {
+      "status": "A",
+      "path": "scripts/verify_all_app_actions.py"
+    },
+    {
+      "status": "A",
+      "path": "src/xiliu/api/routes/app.py"
+    },
+    {
+      "status": "A",
+      "path": "src/xiliu/api/routes/feed.py"
+    },
+    {
+      "status": "A",
+      "path": "src/xiliu/api/routes/preferences.py"
+    },
+    {
+      "status": "A",
+      "path": "src/xiliu/api/services/preferences.py"
+    },
+    {
+      "status": "A",
+      "path": "src/xiliu/app/__init__.py"
+    },
+    {
+      "status": "A",
+      "path": "src/xiliu/app/actions.py"
+    },
+    {
+      "status": "A",
+      "path": "src/xiliu/app/dispatch.py"
+    },
+    {
+      "status": "A",
+      "path": "src/xiliu/app/fast.py"
+    },
+    {
+      "status": "A",
+      "path": "src/xiliu/app/intent.py"
+    },
+    {
+      "status": "A",
+      "path": "src/xiliu/rag/embedding_config.py"
+    },
+    {
+      "status": "A",
+      "path": "src/xiliu/tools/app.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/conftest.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/e2e/all_pages.mjs"
+    },
+    {
+      "status": "A",
+      "path": "tests/e2e/mcp_probe.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_api_health.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_app_fast.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_app_http.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_app_registry_coverage.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_app_runtime_modes.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_capability_command_routing.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_chat_app_fast.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_completion_api.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_conversation_api.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_feed_actions.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_feed_agent_actions.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_inbox_archive_jobs.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_intro_static.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_knowledge_inbox_api.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/integration/test_preferences_actions.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/test_knowledge_retrieval.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_agent_registry.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_app_dispatch.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_app_folder_workflow.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_app_intent.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_app_routing.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_app_surface_guard.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_app_tools.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_automation_resources.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_chat_identity.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_chat_service.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_checkpoint_desktop.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_commands.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_content_service.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_conversation_store.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_desktop_defaults.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_graph_modes.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_kernel_boundaries.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_kernel_security.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_knowledge_inbox.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_model_settings.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_planner_direct_tools.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_provider_transport.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_rag_agent.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_rag_ingestion.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_search_workflow.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_shared_evidence.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_web_memory.py"
+    },
+    {
+      "status": "A",
+      "path": "tests/unit/test_workspace_services.py"
+    },
+    {
+      "status": "A",
+      "path": "web/src/app/App.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/components/GlideSelect.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/features/assistant/AppReceipts.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/features/assistant/AppReceipts.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/features/assistant/AssistantPage.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/features/assistant/Composer.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/features/content/Workspace.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/features/feed/FeedPage.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/features/intro/LandingPage.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/features/knowledge/KnowledgePage.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/features/launch/LaunchPage.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/features/settings/DesktopPreferences.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/features/settings/SettingsPage.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/lib/api.test.ts"
+    },
+    {
+      "status": "A",
+      "path": "web/src/lib/preferences.test.tsx"
+    },
+    {
+      "status": "A",
+      "path": "web/src/test/setup.ts"
+    }
+  ],
+  "final_note": "Actual isolated branch files after minimal AI retry/recovery fixes; no changes to primary main or user data."
+}

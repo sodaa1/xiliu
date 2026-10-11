@@ -34,21 +34,6 @@ class AutomationUpdate(BaseModel):
     enabled: bool
 
 
-@router.get("/feed")
-def feed(request: Request, source: str = "", q: str = ""):
-    return request.app.state.feed.list(source=source, q=q)
-
-
-@router.post("/feed/refresh")
-def refresh_feed(request: Request):
-    return request.app.state.feed.refresh()
-
-
-@router.post("/feed/{item_id}/save")
-def save_feed(item_id: str, request: Request):
-    return request.app.state.feed.save(item_id)
-
-
 @router.get("/tasks")
 def tasks(request: Request):
     return request.app.state.tasks.list()

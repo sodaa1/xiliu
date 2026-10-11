@@ -1,0 +1,17 @@
+{
+  "phase": "ui_restart",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "Fresh browser after real process restart reads all chain records, external hide, manual edits and preferences from same SQLite data",
+      "passed": true
+    }
+  ],
+  "app_receipts": [],
+  "screenshots": [
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui_restart-feed.png",
+    "C:\\Users\\Sodaa\\.codex\\worktrees\\unified-app-actions\\xiliu\\docs\\audit\\browser-e2e\\ui_restart-profile.png"
+  ],
+  "browserErrors": [],
+  "failedResponses": []
+}

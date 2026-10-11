@@ -25,6 +25,8 @@ _SAFE_TOOL_ERRORS = {
     "Tavily usage limit exceeded",
     "Tavily request forbidden",
     "Tavily rejected search request",
+    "search failed",
+    "search timed out",
 }
 
 
@@ -88,6 +90,7 @@ def run_react(
     max_loops: int = 4,
     before_tool: Callable[[str, dict], str | None] | None = None,
     before_model: Callable[[list[BaseMessage]], list[BaseMessage]] | None = None,
+    after_tool: Callable[[dict[str, Any]], str | None] | None = None,
     max_tool_calls: int = 32,
     timeout_seconds: float = 120,
 ) -> dict[str, Any]:
@@ -98,10 +101,11 @@ def run_react(
     by_name = {tool.name: tool for tool in tools}
     summary = "Agent loop limit reached"
     completed = False
+    retryable = True
+    stop_reason: str | None = None
     deadline = time.monotonic() + timeout_seconds
     try:
         bound = model.bind_tools(tools)
-        stop_reason: str | None = None
         stop_requested = False
         for _ in range(max_loops):
             check_cancelled()
@@ -154,6 +158,8 @@ def run_react(
                         output = (
                             raw if isinstance(raw, str) else json.dumps(raw, ensure_ascii=False)
                         )
+                except (MemoryBudgetError, TurnCancelled):
+                    raise
                 except Exception:
                     output = json.dumps(
                         {"ok": False, "error": "tool arguments or execution failed"}
@@ -194,7 +200,26 @@ def run_react(
                         error if isinstance(error, str) and error in _SAFE_TOOL_ERRORS else None
                     )
                     stop_requested = True
+                    retryable = False
                     summary = stop_reason or "Non-retryable tool failure"
+                    break
+                if not ok and (
+                    name in {"web_search", "call_search_agent"}
+                    or (name == "agent_call" and args.get("agent_id") == "research")
+                ):
+                    # Retry at the workflow attempt boundary, never multiply retries in child loops.
+                    error = data.get("error")
+                    stop_reason = (
+                        error
+                        if isinstance(error, str) and error in _SAFE_TOOL_ERRORS
+                        else "search failed"
+                    )
+                    summary = stop_reason
+                    stop_requested = True
+                    break
+                if after_tool and (reason := after_tool(event)):
+                    summary = reason
+                    stop_requested = True
                     break
             if stop_requested:
                 break
@@ -202,7 +227,16 @@ def run_react(
         raise
     except Exception:
         summary = "Agent model request failed"
-    return {"ok": completed, "summary": summary, "messages": messages, "tool_events": events}
+    result = {
+        "ok": completed,
+        "summary": summary,
+        "messages": messages,
+        "tool_events": events,
+        "retryable": retryable,
+    }
+    if stop_reason is not None or not retryable:
+        result["error"] = stop_reason or summary
+    return result
 
 
 def unresolved_failures(events: list[dict[str, Any]]) -> bool:

@@ -11,6 +11,8 @@ from pydantic import BaseModel, Field
 from xiliu.agents.code_agent import run_code_agent
 from xiliu.agents.react import emit
 from xiliu.agents.search_agent import run_search_agent
+from xiliu.errors import MemoryBudgetError
+from xiliu.execution.cancellation import TurnCancelled
 from xiliu.tools.todo import TodoStore
 
 
@@ -26,6 +28,8 @@ class SupervisorContext:
         runner = run_code_agent if agent == "code_agent" else run_search_agent
         try:
             result = runner(self.state, instruction, writer=writer)
+        except (MemoryBudgetError, TurnCancelled):
+            raise
         except Exception:
             result = {"ok": False, "summary": "subagent failed", "tool_events": []}
         self._emit_handoff(agent, bool(result["ok"]), writer)
@@ -36,6 +40,9 @@ class SupervisorContext:
             "summary": result["summary"],
             "attempt": self.state["attempt"],
         }
+        if not result["ok"] and isinstance(result.get("retryable"), bool):
+            summary["retryable"] = result["retryable"]
+            summary["error"] = result.get("error", "subagent failed")
         self.state["agent_results"].append(summary.copy())
         self.state["agent_handoffs"] = [
             *self.state.get("agent_handoffs", []),

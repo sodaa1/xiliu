@@ -35,6 +35,7 @@ class RunContext:
     hook_engine: HookEngine | None = None
     hook_failures: list[str] = field(default_factory=list)
     local_only: bool = False
+    app_services: Any = None
 
 
 active_run: ContextVar[RunContext | None] = ContextVar("xiliu_capability_run", default=None)
@@ -125,8 +126,19 @@ class ExecutionGateway:
     def _policy_target(
         tool: BaseTool, arguments: dict[str, Any], context: RunContext
     ) -> tuple[str, str, str]:
-        if tool.name == "automation_manage":
-            return "automation", "automation:manage", "automation.manage"
+        if tool.name == "app":
+            from xiliu.app.actions import get_registry
+
+            identifier = arguments.get("action_id") or ""
+            spec = get_registry().get(identifier)
+            permission = (
+                "compute.safe"
+                if arguments.get("operation") in {"catalog", "describe"}
+                else spec.permission
+                if spec
+                else "unknown"
+            )
+            return "builtin", "builtin:app:" + identifier, permission
         if tool.name == "mcp_call":
             capability_id = arguments.get("capability_id")
             if not isinstance(capability_id, str):
@@ -156,6 +168,13 @@ class ExecutionGateway:
         return "builtin", f"builtin:{tool.name}", permission
 
     def invoke(self, tool: BaseTool, arguments: dict[str, Any], context: RunContext) -> Any:
+        token = active_run.set(context)
+        try:
+            return self._invoke(tool, arguments, context)
+        finally:
+            active_run.reset(token)
+
+    def _invoke(self, tool: BaseTool, arguments: dict[str, Any], context: RunContext) -> Any:
         from xiliu.execution.cancellation import check_cancelled
 
         check_cancelled()

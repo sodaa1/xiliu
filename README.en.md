@@ -8,17 +8,25 @@
 
 **Give information a home and ideas room to flow.** Xiliu is a local-first personal knowledge workspace and AI assistant connecting Feed, Inbox, Knowledge, Assistant, and Today.
 
-Current version: **0.3.0**. React and FastAPI share the Runtime / LangGraph kernel; the Windows desktop uses Tauri 2. Documents and conversations stay on your device. Enabled model and network tools send their requests to the services you configure.
+Current version: **0.4.0**. React and FastAPI share the Runtime / LangGraph kernel; the Windows desktop uses Tauri 2. Documents and conversations stay on your device. Enabled model and network tools send their requests to the services you configure.
+
+## What's new in 0.4
+
+- App business operations use one `app` tool and one ActionRegistry, backed by the existing UI services.
+- Explicit local operations use Fast without Supervisor or model calls; optional AI metadata jobs persist and recover after restart.
+- Feed supports manual add/edit/remove/restore and external hide/unhide. Non-sensitive preferences synchronize with revision checks.
+- Human confirmations, per-action policy, cancellation and stored result verification are shared across execution paths.
+- See the [v0.4 delivery report](docs/XILIU_04_UNIFIED_ACTIONS.md), [page capability matrix](docs/audit/all-pages-capabilities.md), [performance](docs/audit/fast-performance.md) and [package comparison](docs/audit/package-size-before-after.md).
 
 ## What's new in 0.3
 
-- **Agent access to application data:** `inbox_import`, `inbox_list`, `knowledge_folders`, and `inbox_classify` reuse the UI's services. URLs are imported separately. When explicitly requested, unmatched cards can be saved to Knowledge without a folder.
+- **Agent access to application data:** `inbox_import`, `inbox_list`, `knowledge_folders`, `knowledge_folder_create`, and `inbox_classify` reuse the UI's services. URLs are imported separately. When explicitly requested, unmatched cards can be saved to Knowledge without a folder.
 - **Independent chats and cancellation:** each conversation owns its running state and request controller. Use other chats while one is running, stop only the selected chat, and retain received reasoning and completed operations.
 - **Adjustable layout:** the main sidebar can shrink to 144px, the conversation sidebar to 160px, and the composer height ranges from 48–98px. Pointer and keyboard resizing persist across reloads.
 - **Desktop and model connections:** uploads use HTML5 drag and drop; SDK reasoning and chat history are retained. Literal local model addresses bypass system proxies; external endpoints keep their proxy settings. Connection and authentication errors return directly instead of becoming repeated routing retries.
 - **AIHot defaults:** first launch adds the public MCP configuration when missing and preserves existing user configuration. News retrieval does not require a model API key.
 
-See the [0.3 change record](docs/XILIU_03_FIXES.md). Weather search loops and desktop checkpoint errors are being investigated in a separate repair branch; this mainline does not claim those issues are resolved.
+See the [0.3 change record](docs/XILIU_03_FIXES.md) and [0.3.1 repair record](docs/XILIU_031_FIXES.md). The patch adds current-weather retrieval, one workflow retry budget for search, and reliable Windows Git subprocess startup. [0.3.2](docs/XILIU_032_FIXES.md) adds folder creation and preserves Inbox tags when moving links to a requested folder.
 
 ## Features and workflow
 
@@ -35,7 +43,7 @@ See the [0.3 change record](docs/XILIU_03_FIXES.md). Weather search loops and de
 
 ## Windows installation
 
-Current local installer: `dist/Xiliu-0.3.0-x64-setup.exe`, with a `.sha256` file. Installers are excluded from Git source uploads. If you obtain the source repository, build the installer using the instructions below.
+Current local installer: `dist/Xiliu-0.4.0-x64-setup.exe`, with a `.sha256` file. Installers are excluded from Git source uploads. If you obtain the source repository, build the installer using the instructions below.
 
 1. Run the installer and follow its Chinese-language wizard. Python, Node.js, and Rust are not required to use the packaged application.
 2. On first launch, configure your provider, API endpoint, model, and API key in Settings. The package includes no developer credentials, personal model configuration, databases, tests, or project documentation.

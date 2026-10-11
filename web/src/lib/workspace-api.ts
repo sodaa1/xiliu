@@ -40,13 +40,25 @@ export interface KnowledgeSearchResult {
 }
 export interface FeedItem {
   id: string
-  source: 'aihot' | 'github'
+  source: 'aihot' | 'github' | 'manual'
   title: string
   summary: string
   url: string
   published_at: string
   tags: string[]
   metadata: Record<string, unknown>
+  editable?: boolean
+  hidden?: boolean
+  deleted_at?: string | null
+  created_at?: string
+  updated_at?: string
+}
+export interface ManualFeedInput {
+  url: string
+  title?: string
+  summary?: string
+  tags?: string[]
+  fetch_title?: boolean
 }
 export interface SourceStatus {
   source: string
@@ -127,7 +139,7 @@ export const workspaceApi = {
   }) => request<ContentItem>('/inbox/import', 'POST', body),
   contentItem: (id: string) => request<ContentItem>(itemPath(id)),
   classifyBatch: (item_ids: string[]) =>
-    request<{ items: ContentItem[] }>('/inbox/classify-batch', 'POST', { item_ids }),
+    request<{ items: ContentItem[] }>('/inbox/classify-batch', 'POST', { item_ids, save_to_knowledge: true, use_ai: false }),
   retryContent: (id: string) =>
     request<ContentItem>(`/inbox/${encodeURIComponent(id)}/retry`, 'POST'),
   folders: () => request<KnowledgeFolder[]>('/knowledge/folders'),
@@ -154,8 +166,22 @@ export const workspaceApi = {
   ) => request<ContentItem>(itemPath(id), 'PATCH', body),
   deleteContent: (id: string) => request<void>(itemPath(id), 'DELETE'),
   originalUrl: (id: string) => `/api${itemPath(id)}/original`,
-  feed: (source = '', q = '') => request<FeedResult>(`/feed?${query({ source, q })}`),
+  feed: (source = '', q = '', includeHidden = false) =>
+    request<FeedResult>(
+      `/feed?${query({ source, q, include_hidden: includeHidden ? 'true' : '' })}`
+    ),
   refreshFeed: () => request<FeedResult>('/feed/refresh', 'POST'),
+  addManualFeed: (body: ManualFeedInput) => request<FeedItem>('/feed/manual', 'POST', body),
+  updateManualFeed: (id: string, body: Partial<ManualFeedInput>) =>
+    request<FeedItem>(`/feed/manual/${encodeURIComponent(id)}`, 'PATCH', body),
+  removeManualFeed: (id: string) =>
+    request<FeedItem>(`/feed/manual/${encodeURIComponent(id)}`, 'DELETE'),
+  restoreManualFeed: (id: string) =>
+    request<FeedItem>(`/feed/manual/${encodeURIComponent(id)}/restore`, 'POST'),
+  hideExternalFeed: (id: string) =>
+    request<FeedItem>(`/feed/${encodeURIComponent(id)}/hide`, 'POST'),
+  unhideExternalFeed: (id: string) =>
+    request<FeedItem>(`/feed/${encodeURIComponent(id)}/unhide`, 'POST'),
   saveFeed: (id: string) => request<ContentItem>(`/feed/${encodeURIComponent(id)}/save`, 'POST'),
   today: () => request<{ feed: FeedItem[]; tasks: Task[]; inbox_count: number }>('/today'),
   createTask: (title: string, due_at: string | null) =>

@@ -3,14 +3,8 @@
 .env.*
 !/.env.example
 
-# Local agent instructions and test sources
+# Local agent instructions and test reports
 AGENTS.md
-/tests/
-# Keep local tests, fixtures and reports out of uploads.
-*.test.*
-*.spec.*
-**/__tests__/
-/web/src/test/
 test-results/
 playwright-report/
 coverage/

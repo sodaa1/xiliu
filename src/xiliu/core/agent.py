@@ -17,6 +17,7 @@ from xiliu.core.session import (
     load_or_create_session,
     save_session,
 )
+from xiliu.errors import CheckpointError
 from xiliu.events import (
     ErrorEvent,
     FinalEvent,
@@ -212,7 +213,9 @@ def stream_agent(
                 )
         # Attempt each terminal operation once, retaining the original exception.
         try:
-            save(status)
+            # A persistence failure cannot be repaired by repeating it during cleanup.
+            if not isinstance(primary, CheckpointError):
+                save(status)
         except BaseException as error:
             if failure is None:
                 failure = error

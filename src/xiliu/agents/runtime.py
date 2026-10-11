@@ -14,10 +14,11 @@ from pydantic import BaseModel, ConfigDict, Field
 from xiliu.agents.react import create_agent_model, run_react
 from xiliu.capabilities.agent_registry import AgentRegistry
 from xiliu.capabilities.manager import BUILTIN_PERMISSIONS
+from xiliu.execution.cancellation import check_cancelled
 from xiliu.execution.evidence import evidence_from_events
 from xiliu.execution.gateway import active_run, wrap_tools
 from xiliu.graph.routing import external_scope, local_scope
-from xiliu.tools.knowledge_search import build_knowledge_tools
+from xiliu.tools.app import build_app_tool
 from xiliu.tools.web_search_tool import WebSearchTool
 
 delegation_depth: ContextVar[int] = ContextVar("xiliu_delegation_depth", default=0)
@@ -33,6 +34,7 @@ def call_agent(
     budget: int = 5,
     parent_call_id: str = "",
 ) -> dict:
+    check_cancelled()
     call_id = uuid4().hex
     base = {
         "call_id": call_id,
@@ -84,14 +86,16 @@ def call_agent(
                 "hit_ids": result["hit_ids"],
                 "evidence_ids": result.get("evidence_ids", []),
                 "answer_supported": result["answer_supported"],
+                "retryable": result.get("retryable", True),
+                "error": result.get("error"),
             }
         from xiliu.tools import build_tools
         from xiliu.tools.todo import TodoUpdateTool
 
         candidates = [
-            *build_knowledge_tools(),
+            build_app_tool(allowed_actions=set(manifest.allowed_actions)),
             WebSearchTool(),
-            *build_tools(state),
+            *[t for t in build_tools(state) if t.name != "app"],
             TodoUpdateTool(workspace=state["workspace"]),
         ]
         selected = {
@@ -132,6 +136,8 @@ def call_agent(
             "child_events": result["tool_events"],
             "evidence_ids": list(dict.fromkeys(e["event_id"] for e in evidence)),
             "hit_ids": list(dict.fromkeys(e["source_id"] for e in evidence if e["matched"])),
+            "retryable": result.get("retryable", True),
+            "error": result.get("error"),
         }
     finally:
         delegation_depth.reset(token)

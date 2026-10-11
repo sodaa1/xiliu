@@ -1,0 +1,145 @@
+{
+  "executable": ".preview\\release-04-ai-payload\\xiliu-service.exe",
+  "checks": [
+    {
+      "version": "0.4.0",
+      "ready": true,
+      "owner_token": true,
+      "frontend": true,
+      "intro": true,
+      "model_key_unset": true,
+      "knowledge_retrieval": true,
+      "configured_chat": true,
+      "workflow_checkpoint": true,
+      "app_folder_workflow": true,
+      "app_folder_model_calls": 0,
+      "app_folder_verified_receipts": 3,
+      "http_feed_inbox_knowledge_today_automation_chain": true,
+      "same_data_restart_persistence": true,
+      "empty_path": true,
+      "live_keyless_search": false,
+      "local_model_calls": 8,
+      "ordinary_sdk_model_calls": 1,
+      "real_stdio_mcp_client": true,
+      "mcp_model_calls": 7,
+      "mcp_protocol_methods": [
+        "server/discover",
+        "initialize",
+        "notifications/initialized",
+        "tools/list",
+        "server/discover",
+        "initialize",
+        "notifications/initialized",
+        "tools/call",
+        "tools/list"
+      ],
+      "mcp_execution_events": [
+        {
+          "event_id": "2eaa19134c66465dbe6379df3e0a0f93:probe-search",
+          "agent": "planner",
+          "tool": "capability_search",
+          "args": {
+            "query": "tool_marker",
+            "kind": "mcp",
+            "limit": 5
+          },
+          "output": "{\"ok\": true, \"results\": [{\"kind\": \"mcp\", \"id\": \"mcp:packaging_probe:tool_marker\", \"name\": \"tool_marker\", \"description\": \"Write the offline packaging probe marker\", \"schema_preview\": {\"properties\": [\"value\"], \"required\": [\"value\"]}}]}",
+          "ok": true,
+          "attempt": 1,
+          "phase": null
+        },
+        {
+          "event_id": "2eaa19134c66465dbe6379df3e0a0f93:probe-call",
+          "agent": "planner",
+          "tool": "mcp_call",
+          "args": {
+            "capability_id": "mcp:packaging_probe:tool_marker",
+            "arguments": {
+              "value": "FrozenMCPMarker"
+            }
+          },
+          "output": "{\"ok\": true, \"text\": \"Frozen MCP marker written\", \"structured_content\": null, \"is_error\": false}",
+          "ok": true,
+          "attempt": 1,
+          "phase": null
+        }
+      ],
+      "mcp_workflow_checkpoint": true,
+      "reasoning_stream": true,
+      "aihot_defaults": true,
+      "exit_code": 0,
+      "port_released": true,
+      "shutdown": "private_route"
+    },
+    {
+      "version": "0.4.0",
+      "ready": true,
+      "owner_token": true,
+      "frontend": true,
+      "intro": true,
+      "model_key_unset": true,
+      "knowledge_retrieval": true,
+      "configured_chat": true,
+      "workflow_checkpoint": true,
+      "app_folder_workflow": true,
+      "app_folder_model_calls": 0,
+      "app_folder_verified_receipts": 3,
+      "http_feed_inbox_knowledge_today_automation_chain": true,
+      "same_data_restart_persistence": true,
+      "empty_path": true,
+      "live_keyless_search": false,
+      "local_model_calls": 8,
+      "ordinary_sdk_model_calls": 1,
+      "real_stdio_mcp_client": true,
+      "mcp_model_calls": 7,
+      "mcp_protocol_methods": [
+        "server/discover",
+        "initialize",
+        "notifications/initialized",
+        "tools/list",
+        "server/discover",
+        "initialize",
+        "notifications/initialized",
+        "tools/call",
+        "tools/list"
+      ],
+      "mcp_execution_events": [
+        {
+          "event_id": "d892552e5b7f42dc8f0af7e5cb9e944f:probe-search",
+          "agent": "planner",
+          "tool": "capability_search",
+          "args": {
+            "query": "tool_marker",
+            "kind": "mcp",
+            "limit": 5
+          },
+          "output": "{\"ok\": true, \"results\": [{\"kind\": \"mcp\", \"id\": \"mcp:packaging_probe:tool_marker\", \"name\": \"tool_marker\", \"description\": \"Write the offline packaging probe marker\", \"schema_preview\": {\"properties\": [\"value\"], \"required\": [\"value\"]}}]}",
+          "ok": true,
+          "attempt": 1,
+          "phase": null
+        },
+        {
+          "event_id": "d892552e5b7f42dc8f0af7e5cb9e944f:probe-call",
+          "agent": "planner",
+          "tool": "mcp_call",
+          "args": {
+            "capability_id": "mcp:packaging_probe:tool_marker",
+            "arguments": {
+              "value": "FrozenMCPMarker"
+            }
+          },
+          "output": "{\"ok\": true, \"text\": \"Frozen MCP marker written\", \"structured_content\": null, \"is_error\": false}",
+          "ok": true,
+          "attempt": 1,
+          "phase": null
+        }
+      ],
+      "mcp_workflow_checkpoint": true,
+      "reasoning_stream": true,
+      "aihot_defaults": true,
+      "exit_code": 0,
+      "port_released": true,
+      "shutdown": "stdin_eof"
+    }
+  ]
+}

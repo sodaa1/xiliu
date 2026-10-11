@@ -28,8 +28,8 @@ from xiliu.graph.workflow import build_entry_workflow
 from xiliu.hooks.engine import HookEngine
 from xiliu.policy.engine import PolicyEngine
 from xiliu.providers.openai_compatible import classify_provider_error, create_chat_model
+from xiliu.rag.embedding_config import embedding_provider, embedding_provider_from_settings
 from xiliu.tools.approval_context import ApprovalConfig, approval_config
-from xiliu.tools.knowledge_search import embedding_provider, embedding_provider_from_settings
 from xiliu.tools.preferences import UserPreferenceStore
 from xiliu.tools.todo import TodoStore
 from xiliu.tools.web_search_tool import search_api_key
@@ -78,6 +78,7 @@ def _activate_run_context(context: _RunContext) -> Iterator[None]:
             hook_engine=context.owner._hook_engine,
             hook_failures=context.hook_failures,
             local_only=context.local_only,
+            app_services=context.owner._app_services,
         )
     )
     try:
@@ -111,8 +112,11 @@ class Runtime:
         actor_type: str = "interactive",
         policy_profile: str = "interactive",
         knowledge_embedding_provider: Any = None,
+        app_services: Any = None,
     ) -> None:
         self._model = model
+        self._app_services = app_services
+        self._owns_app_services = app_services is None
         self._embedding_provider = knowledge_embedding_provider
         self._checkpointer = checkpointer or InMemorySaver()
         self._data_dir = data_dir
@@ -145,8 +149,14 @@ class Runtime:
     def close(self) -> None:
         """Release lazy MCP resources when a short-lived adapter finishes a turn."""
         self._mcp_manager.close()
+        if self._owns_app_services and self._app_services is not None:
+            self._app_services.close()
 
     def _context(self, workspace: Path, session_id: str = "") -> _RunContext:
+        if self._app_services is None:
+            from xiliu.app.actions import AppServices
+
+            self._app_services = AppServices.open(self._data_dir)
         return _RunContext(
             self,
             workspace,
@@ -390,10 +400,16 @@ class Runtime:
         resumed: bool = False,
         resume_event: Any = None,
     ) -> Iterator[RuntimeEvent]:
+        from xiliu.app.intent import resolve_intent
         from xiliu.graph.routing import external_scope, local_scope
 
         context = replace(
-            context, local_only=local_scope(inputs["task"]) and not external_scope(inputs["task"])
+            context,
+            local_only=(
+                resolve_intent(inputs["task"]) is None
+                and local_scope(inputs["task"])
+                and not external_scope(inputs["task"])
+            ),
         )
         checkpoint = CheckpointManager(context, task=inputs["task"])
         trace = TraceRecorder(context, task=inputs["task"])
@@ -439,6 +455,7 @@ def create_runtime(
     data_dir: Path | None = None,
     actor_type: str = "interactive",
     policy_profile: str = "interactive",
+    app_services: Any = None,
 ) -> Runtime:
     """Construct the Supervisor runtime with independent specialist models."""
 
@@ -468,4 +485,5 @@ def create_runtime(
         approval_handler=approval_handler,
         actor_type=actor_type,
         policy_profile=policy_profile,
+        app_services=app_services,
     )

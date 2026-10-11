@@ -27,7 +27,10 @@ const key = 'xiliu-preferences-v1'
 const listeners = new Set<() => void>()
 let cachedRaw: string | null | undefined
 let cached: Preferences = defaultPreferences
+let revision: number | null = null
+let storageUnavailable = false
 function read(): Preferences {
+  if (storageUnavailable) return cached
   let raw: string | null
   try {
     raw = localStorage.getItem(key)
@@ -36,6 +39,7 @@ function read(): Preferences {
   }
   if (raw === cachedRaw) return cached
   cachedRaw = raw
+  revision = null
   let value: Partial<Preferences> = {}
   try {
     value = JSON.parse(raw ?? '{}') ?? {}
@@ -70,36 +74,135 @@ function emit() {
 }
 function subscribe(listener: () => void) {
   listeners.add(listener)
+  if (listeners.size === 1) {
+    void syncPreferences().catch(() => {})
+    polling = window.setInterval(() => void syncPreferences().catch(() => {}), 2000)
+    window.addEventListener('focus', refresh)
+  }
   const storage = (event: StorageEvent) => {
-    if (event.key === key || event.key === null) emit()
+    if (event.key === key || event.key === null) {
+      emit()
+      refresh()
+    }
   }
   window.addEventListener('storage', storage)
   return () => {
     listeners.delete(listener)
     window.removeEventListener('storage', storage)
+    if (!listeners.size) {
+      window.clearInterval(polling)
+      window.removeEventListener('focus', refresh)
+    }
   }
 }
-let nativeSaveQueue: Promise<void> = Promise.resolve()
-export async function savePreferences(changes: Partial<Preferences>): Promise<void> {
-  const updated = { ...read(), ...changes }
-  const json = JSON.stringify(updated)
+type Snapshot = { preferences: Preferences; revision: number; initialized: boolean }
+let polling: number | undefined
+let queue: Promise<void> = Promise.resolve()
+function refresh() {
+  void syncPreferences().catch(() => {})
+}
+function enqueue(operation: () => Promise<void>): Promise<void> {
+  const next = queue.catch(() => {}).then(operation)
+  queue = next
+  return next
+}
+async function request(method = 'GET', body?: unknown): Promise<Snapshot> {
+  const response = await fetch('/api/settings/preferences', {
+    method,
+    ...(body
+      ? { headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }
+      : {}),
+  })
+  if (!response.ok) {
+    if (response.status === 409) throw new Error('偏好已在其他窗口或助手中更新，请检查后重试。')
+    throw new Error('无法同步本机偏好，请重试保存。')
+  }
+  const snapshot = (await response.json()) as Snapshot
+  if (
+    !Number.isInteger(snapshot.revision) ||
+    snapshot.revision < 0 ||
+    typeof snapshot.initialized !== 'boolean' ||
+    !snapshot.preferences ||
+    typeof snapshot.preferences !== 'object'
+  )
+    throw new Error('本机偏好同步格式不正确。')
+  return snapshot
+}
+function accept(snapshot: Snapshot) {
+  if (!snapshot.initialized) {
+    // Do not manufacture a legacy seed on a browser with no previous preferences.
+    const changed = revision !== snapshot.revision
+    revision = snapshot.revision
+    if (changed) emit()
+    return
+  }
+  const json = JSON.stringify(snapshot.preferences)
   try {
     localStorage.setItem(key, json)
+    storageUnavailable = false
   } catch {
-    throw new Error('无法保存到此浏览器，请检查存储空间或隐私设置。')
+    // The authoritative SQLite write remains durable without browser storage.
+    storageUnavailable = true
   }
-  emit()
-  // Preserve call order even when appearance controls are changed rapidly.
-  const write = nativeSaveQueue.catch(() => {}).then(() => saveDesktopPreferences(json))
-  nativeSaveQueue = write
-  try {
-    await write
-  } catch {
-    throw new Error('当前窗口的偏好已生效，但桌面备份未保存，重启后可能恢复旧设置。请重试保存。')
+  const changed = json !== cachedRaw || revision !== snapshot.revision
+  if (json !== cachedRaw) cached = snapshot.preferences
+  cachedRaw = json
+  revision = snapshot.revision
+  if (changed) emit()
+}
+async function synchronize() {
+  const legacy = read()
+  const hasLegacy = cachedRaw !== null && cachedRaw !== undefined
+  let snapshot = await request()
+  if (!snapshot.initialized && hasLegacy) {
+    try {
+      snapshot = await request('PUT', { changes: legacy, expected_revision: 0 })
+    } catch {
+      // A concurrent migration or Agent write wins; never retry the stale seed.
+      snapshot = await request()
+      if (!snapshot.initialized) throw new Error('旧偏好尚未同步，请重试保存。')
+    }
   }
+  accept(snapshot)
+}
+export function syncPreferences(): Promise<void> {
+  return enqueue(synchronize)
+}
+export function savePreferences(
+  changes: Partial<Preferences>,
+  expectedRevision?: number
+): Promise<void> {
+  return enqueue(async () => {
+    if (revision === null) await synchronize()
+    let snapshot: Snapshot
+    try {
+      snapshot = await request('PUT', { changes, expected_revision: expectedRevision ?? revision })
+    } catch (error) {
+      // Update the shared view, while the Personal form keeps its unsaved draft.
+      try {
+        accept(await request())
+      } catch {
+        /* Keep the last known view while offline. */
+      }
+      throw error
+    }
+    accept(snapshot)
+    try {
+      await saveDesktopPreferences(JSON.stringify(snapshot.preferences))
+    } catch {
+      throw new Error('本机偏好已保存，但桌面备份未保存，请重试保存。')
+    }
+  })
 }
 export function usePreferences() {
   return useSyncExternalStore(subscribe, read, () => defaultPreferences)
+}
+function readRevision() {
+  read()
+  return revision ?? 0
+}
+export function usePreferenceRevision() {
+  return useSyncExternalStore(subscribe, readRevision, () => 0)
 }
 export function useApplyPreferences() {
   const preferences = usePreferences()

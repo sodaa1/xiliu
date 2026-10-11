@@ -9,11 +9,121 @@ import {
   Search,
   Sparkles,
   BookmarkPlus,
+  EyeOff,
+  Pencil,
+  Plus,
+  RotateCcw,
+  Trash2,
 } from 'lucide-react'
 import { safeHttpUrl, workspaceApi, type FeedItem } from '../../lib/workspace-api'
 import { useAskAI } from '../content/useAskAI'
+import { ContentDialog } from '../content/ContentDialog'
 
-export function FeedCard({ item }: { item: FeedItem }) {
+function FeedEditor({ item, onClose }: { item?: FeedItem; onClose: () => void }) {
+  const cache = useQueryClient()
+  const [url, setUrl] = useState(item?.url ?? '')
+  const [title, setTitle] = useState(item?.title ?? '')
+  const [summary, setSummary] = useState(item?.summary ?? '')
+  const [tags, setTags] = useState(item?.tags.join(', ') ?? '')
+  const [fetchTitle, setFetchTitle] = useState(false)
+  const save = useMutation({
+    mutationFn: () => {
+      const body = {
+        url,
+        title,
+        summary,
+        tags: [
+          ...new Set(
+            tags
+              .split(/[,，]/)
+              .map((tag) => tag.trim())
+              .filter(Boolean)
+          ),
+        ],
+        fetch_title: fetchTitle,
+      }
+      return item ? workspaceApi.updateManualFeed(item.id, body) : workspaceApi.addManualFeed(body)
+    },
+    onSuccess: () => {
+      void cache.invalidateQueries({ queryKey: ['feed'] })
+      void cache.invalidateQueries({ queryKey: ['today'] })
+      onClose()
+    },
+  })
+  return (
+    <ContentDialog title={item ? '编辑资讯' : '添加资讯'} onClose={onClose}>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault()
+          save.mutate()
+        }}
+      >
+        <label>
+          资讯链接
+          <input
+            autoFocus
+            required
+            type="url"
+            maxLength={2048}
+            value={url}
+            onChange={(event) => setUrl(event.target.value)}
+            placeholder="https://"
+          />
+        </label>
+        <label>
+          资讯标题
+          <input
+            maxLength={500}
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+            placeholder="留空则使用链接"
+          />
+        </label>
+        <label>
+          资讯摘要
+          <textarea
+            rows={3}
+            maxLength={4000}
+            value={summary}
+            onChange={(event) => setSummary(event.target.value)}
+          />
+        </label>
+        <label>
+          资讯标签
+          <input
+            value={tags}
+            onChange={(event) => setTags(event.target.value)}
+            placeholder="用逗号分隔"
+          />
+        </label>
+        <label className="content-checkbox">
+          <input
+            type="checkbox"
+            checked={fetchTitle}
+            onChange={(event) => setFetchTitle(event.target.checked)}
+          />
+          联网抓取网页标题
+        </label>
+        <p>手动资讯会持续保留，删除后可以恢复。</p>
+        {save.error && (
+          <p className="workspace-error" role="alert">
+            {save.error.message}
+          </p>
+        )}
+        <div className="editor-actions">
+          <button type="button" className="secondary-button" onClick={onClose}>
+            取消
+          </button>
+          <button className="primary-button" disabled={save.isPending}>
+            {save.isPending ? '保存中…' : '保存资讯'}
+          </button>
+        </div>
+      </form>
+    </ContentDialog>
+  )
+}
+
+export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void }) {
   const cache = useQueryClient(),
     ask = useAskAI()
   const save = useMutation({
@@ -25,6 +135,23 @@ export function FeedCard({ item }: { item: FeedItem }) {
       void cache.invalidateQueries({ queryKey: ['data-settings'] })
     },
   })
+  const visibility = useMutation({
+    mutationFn: () =>
+      item.source === 'manual'
+        ? item.deleted_at
+          ? workspaceApi.restoreManualFeed(item.id)
+          : workspaceApi.removeManualFeed(item.id)
+        : item.hidden
+          ? workspaceApi.unhideExternalFeed(item.id)
+          : workspaceApi.hideExternalFeed(item.id),
+    onSuccess: () => {
+      void cache.invalidateQueries({ queryKey: ['feed'] })
+      void cache.invalidateQueries({ queryKey: ['today'] })
+    },
+  })
+  const removed = Boolean(item.hidden || item.deleted_at)
+  const visibilityLabel =
+    item.source === 'manual' ? (removed ? '恢复' : '删除') : removed ? '取消隐藏' : '隐藏'
   const url = safeHttpUrl(item.url),
     Icon = item.source === 'github' ? Github : Newspaper
   return (
@@ -35,12 +162,18 @@ export function FeedCard({ item }: { item: FeedItem }) {
         </span>
         <div>
           <span className="feed-source">
-            {item.source === 'github' ? 'GitHub Top 5' : 'AI Hot'}
+            {item.source === 'manual'
+              ? '我的资讯'
+              : item.source === 'github'
+                ? 'GitHub Top 5'
+                : 'AI Hot'}
+            {removed && (item.deleted_at ? ' · 已删除' : ' · 已隐藏')}
           </span>
           <h2>{item.title}</h2>
         </div>
       </div>
       <p>{item.summary || '打开原文，看看这条新发现。'}</p>
+      {item.metadata.fetch_status === 'failed' && <p role="status">网页标题未补齐，链接已保留。</p>}
       <div className="tag-list">
         {item.tags.map((tag) => (
           <span key={tag}># {tag}</span>
@@ -57,9 +190,32 @@ export function FeedCard({ item }: { item: FeedItem }) {
               <ArrowUpRight size={14} />
             </a>
           )}
-          <button disabled={save.isPending || save.isSuccess} onClick={() => save.mutate()}>
+          <button
+            disabled={removed || save.isPending || save.isSuccess}
+            onClick={() => save.mutate()}
+          >
             {save.isSuccess ? <Check size={14} /> : <BookmarkPlus size={14} />}
             {save.isSuccess ? '已收进 Inbox' : 'Save'}
+          </button>
+          {item.source === 'manual' && onEdit && !removed && (
+            <button aria-label={`编辑 ${item.title}`} onClick={onEdit}>
+              <Pencil size={14} />
+              编辑
+            </button>
+          )}
+          <button
+            disabled={visibility.isPending}
+            aria-label={`${visibilityLabel} ${item.title}`}
+            onClick={() => visibility.mutate()}
+          >
+            {removed ? (
+              <RotateCcw size={14} />
+            ) : item.source === 'manual' ? (
+              <Trash2 size={14} />
+            ) : (
+              <EyeOff size={14} />
+            )}
+            {visibilityLabel}
           </button>
           <button
             disabled={ask.isPending}
@@ -75,9 +231,9 @@ export function FeedCard({ item }: { item: FeedItem }) {
           </button>
         </div>
       </div>
-      {(save.error || ask.error) && (
+      {(save.error || ask.error || visibility.error) && (
         <p className="workspace-error" role="alert">
-          {(save.error || ask.error)!.message}
+          {(save.error || ask.error || visibility.error)!.message}
         </p>
       )}
     </article>
@@ -86,10 +242,12 @@ export function FeedCard({ item }: { item: FeedItem }) {
 export function FeedPage() {
   const cache = useQueryClient(),
     [source, setSource] = useState(''),
-    [q, setQ] = useState('')
+    [q, setQ] = useState(''),
+    [includeHidden, setIncludeHidden] = useState(false),
+    [editor, setEditor] = useState<FeedItem | 'new' | null>(null)
   const feed = useQuery({
-    queryKey: ['feed', source, q],
-    queryFn: () => workspaceApi.feed(source, q),
+    queryKey: ['feed', source, q, includeHidden],
+    queryFn: () => workspaceApi.feed(source, q, includeHidden),
   })
   const refresh = useMutation({
     mutationFn: workspaceApi.refreshFeed,
@@ -106,21 +264,31 @@ export function FeedPage() {
           <h1>Feed</h1>
           <p>AI 与开源世界的新发现。</p>
         </div>
-        <button
-          className="secondary-button"
-          disabled={refresh.isPending}
-          onClick={() => refresh.mutate()}
-        >
-          <RefreshCw size={16} className={refresh.isPending ? 'spinning' : ''} />
-          {refresh.isPending ? '更新中…' : '刷新资讯'}
-        </button>
+        <div className="row-actions">
+          <button className="secondary-button" onClick={() => setEditor('new')}>
+            <Plus size={16} />
+            添加资讯
+          </button>
+          <button
+            className="secondary-button"
+            disabled={refresh.isPending}
+            onClick={() => refresh.mutate()}
+          >
+            <RefreshCw size={16} className={refresh.isPending ? 'spinning' : ''} />
+            {refresh.isPending ? '更新中…' : '刷新资讯'}
+          </button>
+        </div>
       </header>
+      {editor && (
+        <FeedEditor item={editor === 'new' ? undefined : editor} onClose={() => setEditor(null)} />
+      )}
       <div className="workspace-toolbar">
         <div className="segmented" aria-label="资讯来源">
           {[
             ['', '全部'],
             ['aihot', 'AI Hot'],
             ['github', 'GitHub Top 5'],
+            ['manual', '我的资讯'],
           ].map(([value, label]) => (
             <button
               key={value}
@@ -142,6 +310,14 @@ export function FeedPage() {
           />
         </div>
       </div>
+      <label className="content-checkbox">
+        <input
+          type="checkbox"
+          checked={includeHidden}
+          onChange={(event) => setIncludeHidden(event.target.checked)}
+        />
+        显示已移除资讯
+      </label>
       {!!feed.data?.sources.length && (
         <div className="source-statuses">
           {feed.data.sources
@@ -192,7 +368,7 @@ export function FeedPage() {
       ) : (
         <div className="feed-grid">
           {feed.data.items.map((item) => (
-            <FeedCard key={item.id} item={item} />
+            <FeedCard key={item.id} item={item} onEdit={() => setEditor(item)} />
           ))}
         </div>
       )}

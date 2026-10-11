@@ -108,7 +108,9 @@ class CommandService:
                 f"Do not call other MCP servers for this request. "
                 f"User request (JSON): {request}"
             )
-        return CommandResult(command, task=task)
+        # Preserve the explicit capability boundary when instructions are expanded.
+        # Words in the scaffold/user JSON must not become a new App business intent.
+        return CommandResult(command, task=f"/{command} {name}\n{task}")
 
     def compress(self, cid: str, model: str | None = None) -> CommandResult:
         conversation = self.store.get(cid)

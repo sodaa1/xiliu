@@ -1,0 +1,224 @@
+{
+  "generated_at": "2026-10-10T14:49:28.868201+00:00",
+  "started_at": "2026-10-10T14:48:31.559380+00:00",
+  "profile": "gateway",
+  "source_sha256": {
+    "src/xiliu/app/fast.py": "26646ed36479d3eb33250b7e7e9bb5baf5f274b424f6dc8fd51fa2bcaa52ddb1",
+    "src/xiliu/app/dispatch.py": "09dba350b88a19f1c6bef58e5b158e4aaf1f0b3b5a00155e5f705a69110f573f",
+    "src/xiliu/app/actions.py": "944af3ee997c8fee3dbee0e4cd7750a514bff848cbdd09f0acf303e10f3d06c5",
+    "src/xiliu/execution/gateway.py": "0516b89ae85e3c2d6d3721786bac33152ab121f03a476ba406a5e9e48287dfb6",
+    "src/xiliu/tools/app.py": "6888b496e412317dc8a3dd5faeef0746af2c9a51bf4c1336a6f3e8675fe07c4b",
+    "src/xiliu/api/services/chat.py": "c53d02d63c52ff9a75118ac17f9820b108ad8ec7bf1d62dce76b78374a7fe4ee",
+    "src/xiliu/api/services/inbox.py": "a183f6627e14406494845e4cd1e44c4b08647578937fefd3a849c9310b63e7e1"
+  },
+  "python": "3.12.1",
+  "platform": "Windows-11-10.0.26100-SP0",
+  "samples_per_layer": 10,
+  "method": {
+    "percentile": "nearest rank p95; median p50",
+    "data": "fresh disposable SQLite+Markdown copies per operation, outside timing",
+    "cold": "app_initialization measures fresh Service/App; first_ms is first observation",
+    "warm": "modules imported once; operations use warm interpreter and fresh App/data",
+    "cache": "OS cache not flushed; true cold process/import/device latency not measured",
+    "excluded": "seeding/copy, assertions, shutdown, HTTP/SSE/browser rendering",
+    "workers": "workers not started; synchronous local Service/Dispatcher/Fast/Chat path",
+    "comparisons": "independent layers; subtracting medians only estimates overhead",
+    "credentials": "empty env file; credential/provider env removed; model/network blocked"
+  },
+  "counters": {
+    "provider_model_calls": 0,
+    "supervisor_runtime_calls": 0,
+    "network_attempts": 0,
+    "reported_model_calls": 0
+  },
+  "results": [
+    {
+      "scenario": "inbox.archive_all",
+      "items": 100,
+      "layer": "fast",
+      "latency": {
+        "samples": 10,
+        "first_ms": 2663.29,
+        "p50_ms": 2334.968,
+        "p95_ms": 3328.813,
+        "min_ms": 2093.549,
+        "max_ms": 3328.813,
+        "values_ms": [
+          2663.29,
+          2348.177,
+          2137.437,
+          2381.099,
+          2321.76,
+          2118.785,
+          2093.549,
+          3328.813,
+          3327.861,
+          2126.425
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 25.802,
+        "p50_ms": 26.961,
+        "p95_ms": 34.695,
+        "min_ms": 25.085,
+        "max_ms": 34.695,
+        "values_ms": [
+          25.802,
+          26.388,
+          29.946,
+          27.265,
+          29.664,
+          34.695,
+          27.22,
+          25.085,
+          25.419,
+          26.703
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "inbox.archive_all",
+      "items": 100,
+      "layer": "chat",
+      "latency": {
+        "samples": 10,
+        "first_ms": 2127.027,
+        "p50_ms": 2126.732,
+        "p95_ms": 2420.88,
+        "min_ms": 2075.217,
+        "max_ms": 2420.88,
+        "values_ms": [
+          2127.027,
+          2165.509,
+          2126.436,
+          2420.88,
+          2075.217,
+          2101.886,
+          2086.947,
+          2222.059,
+          2125.19,
+          2177.305
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 25.962,
+        "p50_ms": 26.699,
+        "p95_ms": 31.516,
+        "min_ms": 25.859,
+        "max_ms": 31.516,
+        "values_ms": [
+          25.962,
+          25.859,
+          27.258,
+          26.438,
+          26.319,
+          26.946,
+          31.516,
+          27.642,
+          29.17,
+          26.452
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "link.folder.workflow",
+      "items": 1,
+      "layer": "fast",
+      "latency": {
+        "samples": 10,
+        "first_ms": 178.32,
+        "p50_ms": 182.84,
+        "p95_ms": 269.216,
+        "min_ms": 171.745,
+        "max_ms": 269.216,
+        "values_ms": [
+          178.32,
+          183.926,
+          182.222,
+          171.745,
+          186.955,
+          183.459,
+          269.216,
+          178.737,
+          186.139,
+          180.726
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 27.29,
+        "p50_ms": 27.668,
+        "p95_ms": 28.43,
+        "min_ms": 25.747,
+        "max_ms": 28.43,
+        "values_ms": [
+          27.29,
+          28.004,
+          27.594,
+          28.43,
+          27.741,
+          28.193,
+          27.988,
+          25.935,
+          26.752,
+          25.747
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    },
+    {
+      "scenario": "link.folder.workflow",
+      "items": 1,
+      "layer": "chat",
+      "latency": {
+        "samples": 10,
+        "first_ms": 191.432,
+        "p50_ms": 195.622,
+        "p95_ms": 288.254,
+        "min_ms": 187.765,
+        "max_ms": 288.254,
+        "values_ms": [
+          191.432,
+          190.102,
+          197.177,
+          194.066,
+          187.765,
+          192.029,
+          217.517,
+          248.397,
+          288.254,
+          209.815
+        ]
+      },
+      "app_initialization": {
+        "samples": 10,
+        "first_ms": 26.034,
+        "p50_ms": 26.297,
+        "p95_ms": 32.493,
+        "min_ms": 24.529,
+        "max_ms": 32.493,
+        "values_ms": [
+          26.034,
+          25.302,
+          25.319,
+          27.125,
+          24.948,
+          26.561,
+          30.631,
+          32.493,
+          30.007,
+          24.529
+        ]
+      },
+      "model_calls": 0,
+      "supervisor_calls": 0
+    }
+  ]
+}

@@ -12,13 +12,15 @@ from xiliu.agents.rag_state import RAGState
 from xiliu.agents.react import content_text, create_agent_model, payload
 from xiliu.execution.evidence import evidence_from_events
 from xiliu.execution.gateway import active_run, wrap_tools
-from xiliu.tools.knowledge_search import build_knowledge_tools
+from xiliu.tools.app import build_app_tool
 
 
 def run_rag_agent(state, instruction, manifest, *, model=None, writer=None, budget=5, scope=""):
     context = active_run.get()
     tools = {
-        t.name: t for t in wrap_tools(build_knowledge_tools()) if t.name in manifest.allowed_tools
+        t.name: t
+        for t in wrap_tools([build_app_tool(allowed_actions=set(manifest.allowed_actions))])
+        if t.name in manifest.allowed_tools
     }
     local: RAGState = {
         "queries": [],
@@ -27,7 +29,7 @@ def run_rag_agent(state, instruction, manifest, *, model=None, writer=None, budg
         "iteration": 0,
         "answer_supported": False,
     }
-    if context is None or "knowledge_search" not in tools:
+    if context is None or "app" not in tools:
         return {"ok": False, "summary": "Local search unavailable", **local, "hit_ids": []}
     model = model or create_agent_model()
     invocation = uuid4().hex
@@ -73,17 +75,29 @@ def run_rag_agent(state, instruction, manifest, *, model=None, writer=None, budg
             pass
         local["queries"].append(query)
         try:
-            raw = tools["knowledge_search"].invoke({"query": query})
-            data = payload(raw)
-            ok = data.get("ok") is True
+            raw = tools["app"].invoke(
+                {
+                    "operation": "execute",
+                    "action_id": "knowledge.search",
+                    "arguments": {"query": query},
+                }
+            )
+            receipt = payload(raw)
+            data = receipt.get("data", {})
+            ok = receipt.get("ok") is True
         except Exception:
             data, ok = {"ok": False, "error": "local_search_failed"}, False
+            raw = json.dumps(data)
         event = {
             "event_id": f"{invocation}:{iteration}",
             "agent": "subagent:rag",
-            "tool": "knowledge_search",
-            "args": {"query": query},
-            "output": json.dumps(data, ensure_ascii=False),
+            "tool": "app",
+            "args": {
+                "operation": "execute",
+                "action_id": "knowledge.search",
+                "arguments": {"query": query},
+            },
+            "output": raw,
             "ok": ok,
             "attempt": state.get("attempt", 0),
             "phase": None,

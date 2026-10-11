@@ -13,7 +13,6 @@ from xiliu.events import ErrorEvent, FinalEvent, PlannerEvent, ProgressEvent, Ve
 from xiliu.execution.cancellation import TurnCancelled, cancel_signal, check_cancelled
 from xiliu.providers.openai_compatible import classify_provider_error
 from xiliu.runtime import create_runtime
-from xiliu.tools.app_tools import app_inbox
 
 
 class ChatService:
@@ -28,6 +27,7 @@ class ChatService:
         self.runtime_factory = runtime_factory
         self.commands: Any = None
         self.inbox: Any = None
+        self.app_services: Any = None
         self._active: set[str] = set()
         self._cancellations: dict[str, Event] = {}
         self._lock = Lock()
@@ -67,14 +67,23 @@ class ChatService:
                 with self._lock:
                     self._cancellations[conversation_id] = signal
                 token = cancel_signal.set(signal)
-                inbox_token = app_inbox.set(self.inbox)
                 try:
                     yield from self._turn(conversation_id, text, context=context, mode=mode)
                 finally:
-                    app_inbox.reset(inbox_token)
                     cancel_signal.reset(token)
                     with self._lock:
                         self._cancellations.pop(conversation_id, None)
+        except TurnCancelled:
+            message = self.store.append_message(
+                conversation_id, "assistant", "已停止本次回复。", metadata={"cancelled": True}
+            )
+            yield {
+                "type": "final",
+                "message_id": message["id"],
+                "text": message["content"],
+                "role": "assistant",
+                "metadata": {"cancelled": True},
+            }
         except WebError as exc:
             yield {"type": "error", "code": exc.code, "message": exc.message}
         except Exception as exc:
@@ -118,11 +127,68 @@ class ChatService:
             task = result.task
         if conversation["title"] == "New Chat" and not text.startswith("/"):
             self.store.update(cid, title=text.splitlines()[0][:24])
+        if self.app_services is not None:
+            from xiliu.app.fast import run_app_fast
+            from xiliu.execution.gateway import RunContext
+            from xiliu.policy.engine import PolicyEngine
+
+            run_context = RunContext(
+                user["id"],
+                cid,
+                self.store.path.parent,
+                data_dir=self.store.path.parent,
+                app_services=self.app_services,
+                policy_engine=PolicyEngine(self.store.path.parent / "policy.json"),
+            )
+            check_cancelled()
+            local = run_app_fast(task, self.app_services, run_context)
+            if local is not None:
+                if (
+                    local["status"] == "clarification_required"
+                    and self.conversations.model_settings.read()["api_key_set"]
+                ):
+                    from xiliu.providers.openai_compatible import create_chat_model
+
+                    try:
+                        intent_settings = self.conversations.model_settings.runtime_settings(
+                            conversation["model_override"]
+                        )
+                        parsed_local = run_app_fast(
+                            task,
+                            self.app_services,
+                            run_context,
+                            model=create_chat_model(intent_settings),
+                        )
+                        if parsed_local is not None:
+                            local = parsed_local
+                    except Exception:
+                        pass
+                metadata = {
+                    "model": "local",
+                    "mode": "fast",
+                    "model_calls": local["model_calls"],
+                    "app_receipts": local["receipts"],
+                    "thinking": thinking(),
+                }
+                check_cancelled()
+                message = self.store.append_message(
+                    cid, "assistant", local["text"], metadata=metadata
+                )
+                yield {
+                    "type": "final",
+                    "message_id": message["id"],
+                    "text": local["text"],
+                    "role": "assistant",
+                    "metadata": metadata,
+                }
+                return
         settings = self.conversations.model_settings.runtime_settings(
             conversation["model_override"]
         )
         settings = settings.model_copy(update={"data_dir": self.store.path.parent})
-        runtime = self.runtime_factory(settings, approval_mode="deny")
+        runtime = self.runtime_factory(
+            settings, approval_mode="deny", app_services=self.app_services
+        )
         prior_context = self.conversations.build_context(cid, before_seq=user["seq"])
         if context:
             prior_context += (

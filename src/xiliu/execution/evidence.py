@@ -45,16 +45,22 @@ def evidence_from_events(events: list[dict]) -> list[dict[str, Any]]:
             continue
         data = payload(event.get("output", ""))
         tool = event.get("tool", "")
+        action_id = event.get("args", {}).get("action_id", "") if tool == "app" else ""
         ok = bool(event.get("ok")) and data.get("ok") is not False
         ok = ok and not data.get("timed_out") and not data.get("truncated")
-        local = tool in {"knowledge_search", "knowledge_get"}
-        web = tool in {'web_search', 'mcp_call'}
+        local = action_id in {"knowledge.search", "knowledge.get"}
+        if local:
+            data = data.get("data", {})
+        web = tool in {"web_search", "mcp_call"}
         hits = data.get("hits", data.get("items", data.get("results", [])))
-        if tool == 'mcp_call' and ok:
+        if tool == "mcp_call" and ok:
             from xiliu.agents.search_agent import mcp_source_urls
-            hits = [{'url': url, 'snippet': str(data.get('text', ''))[:1000]}
-                    for url in mcp_source_urls(data)]
-        if tool == "knowledge_get" and isinstance(data.get("document"), dict):
+
+            hits = [
+                {"url": url, "snippet": str(data.get("text", ""))[:1000]}
+                for url in mcp_source_urls(data)
+            ]
+        if action_id == "knowledge.get" and isinstance(data.get("document"), dict):
             hits = [data["document"]]
         valid = []
         if ok and isinstance(hits, list):
@@ -100,12 +106,17 @@ def state_evidence(events: list[dict]) -> dict[str, Any]:
     evidence = evidence_from_events(events)
     hits = []
     for event in events:
-        if event.get("tool") == "knowledge_search":
+        if (
+            event.get("tool") == "app"
+            and event.get("args", {}).get("action_id") == "knowledge.search"
+        ):
             data = payload(event.get("output", ""))
+            receipt_ok = data.get("ok")
+            data = data.get("data", {})
             raw = data.get("hits", data.get("items", []))
             hits = (
                 [h for h in raw if isinstance(h, dict) and h.get("document_id")]
-                if (event.get("ok") and data.get("ok") is not False and isinstance(raw, list))
+                if (event.get("ok") and receipt_ok is True and isinstance(raw, list))
                 else []
             )
     notes = [
