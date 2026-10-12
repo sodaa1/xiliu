@@ -428,5 +428,7 @@ test('switching pages keeps the turn alive and restores its timed thinking', asy
   expect(summary.closest('details')).not.toHaveAttribute('open')
   await user.click(summary)
   expect(summary.closest('details')).toHaveAttribute('open')
+  expect(screen.getByText('Thought detail')).not.toBeVisible()
+  await user.click(screen.getByText('模型原始摘要'))
   expect(screen.getByText('Thought detail')).toBeVisible()
 })

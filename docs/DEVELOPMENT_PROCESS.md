@@ -123,6 +123,9 @@ xiliu/
 
 ### 3. 对话与执行循环
 
+当前已迁移为 [Agent Graph v2](ARCHITECTURE.md)：唯一工作流、两层路由和 12 个节点。
+下面展示当前入口与执行循环；0.2/0.3 的历史阶段记录保留其当时实现。
+
 ```mermaid
 flowchart TD
     A[用户输入 / 本轮资料参考] --> B[FastAPI 校验 / 会话忙保护]
@@ -130,16 +133,23 @@ flowchart TD
     C -->|clear / compress / 仅查看能力| D[处理会话状态或共享摘要]
     C -->|普通输入 / Skill 或 MCP 指令| E[SQLite 上下文 + 模型设置 → Runtime]
     E --> F{意图路由}
-    F -->|Fast| G[Fast ReAct / 直接本地 Knowledge]
-    F -->|Standard| H[Standard Plan-Act]
-    F -->|Deep| S[Supervisor / 可选 Todo 和子 Agent]
-    S --> H
-    H --> I{需要工具?}
-    I -->|是| J[Gateway：Policy / Hook 校验]
+    F --> R[Capability Router]
+    R -->|Chat| G[Chat Responder]
+    R -->|明确 App Action| X[App Executor]
+    R -->|有界任务| H[Fast ReAct]
+    R -->|多步骤| S[Planner]
+    H --> I[Capability Discovery]
+    S --> I
+    I -->|模型选择工具| J[Tool Execute：Gateway / Policy / Hook]
+    X --> J
     J --> K[Code / Search / Skill / MCP / Knowledge]
-    K -->|Evidence → GraphState / Memory| H
-    I -->|本轮计划完成| L[Verifier]
-    L -->|未通过且未达重试上限| H
+    K --> Q[State Collect：回执 / Evidence / Results]
+    Q -->|继续轮次| I
+    Q -->|轮次结束| L[Execution Verifier]
+    I -->|无需调用| L
+    L -->|安全重试 / 重规划| R
+    L -->|需参数或已部分写入| P[Clarification]
+    P --> M
     L -->|通过或达到上限| M[Final]
     D --> N[持久化结果 / NDJSON 返回]
     G --> N

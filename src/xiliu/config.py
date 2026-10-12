@@ -20,7 +20,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    provider: Literal["openai", "deepseek"] = "openai"
+    provider: Literal["openai", "deepseek", "mimo", "custom"] = "openai"
     api_key: SecretStr = Field(min_length=1)
     tavily_api_key: SecretStr | None = Field(default=None, validation_alias="TAVILY_API_KEY")
     model: str = Field(min_length=1)

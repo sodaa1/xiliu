@@ -1,0 +1,11 @@
+{
+  "name": "xiliu-introduction-site",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/build-intro-showcase.mjs dev",
+    "build": "node scripts/build-intro-showcase.mjs build",
+    "test": "node scripts/build-intro-showcase.mjs test"
+  }
+}

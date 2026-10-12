@@ -18,6 +18,27 @@ from xiliu.errors import (
 
 
 class CancellableChatOpenAI(ChatOpenAI):
+    def _stream(self, *args, **kwargs):
+        from xiliu.execution.cancellation import check_cancelled
+
+        for chunk in super()._stream(*args, **kwargs):
+            check_cancelled()
+            content = chunk.message.content
+            if isinstance(content, list):
+                for block in content:
+                    if not isinstance(block, dict) or block.get("type") != "reasoning":
+                        continue
+                    for part in block.get("summary", []):
+                        text = part.get("text") if isinstance(part, dict) else None
+                        if isinstance(text, str) and text:
+                            try:
+                                writer = get_stream_writer()
+                            except RuntimeError:
+                                writer = None
+                            if writer:
+                                writer({"type": "reasoning", "stage": "model", "message": text})
+            yield chunk
+
     def _get_request_payload(self, input_, *, stop=None, **kwargs):
         from xiliu.execution.cancellation import check_cancelled
 
@@ -93,9 +114,20 @@ def create_chat_model(settings: Settings) -> ChatOpenAI:
         if urlsplit(settings.base_url).hostname in {"localhost", "127.0.0.1", "::1"}:
             kwargs["http_client"] = DefaultHttpxClient(trust_env=False)
             kwargs["http_async_client"] = DefaultAsyncHttpxClient(trust_env=False)
+    if (
+        settings.provider == "openai"
+        and settings.model.startswith(("gpt-5", "gpt-6", "o1", "o3", "o4"))
+        and (not settings.base_url or urlsplit(settings.base_url).hostname == "api.openai.com")
+    ):
+        kwargs.update(
+            use_responses_api=True,
+            reasoning={"effort": "low", "summary": "auto"},
+            output_version="responses/v1",
+        )
     adapter = (
         DeepSeekChatOpenAI
-        if settings.provider == "deepseek" or settings.model.startswith("deepseek-")
+        if settings.provider in {"deepseek", "mimo"}
+        or settings.model.startswith("deepseek-")
         else CancellableChatOpenAI
     )
     return adapter(**kwargs)

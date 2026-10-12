@@ -1,0 +1,17 @@
+[
+  {
+    "file": "docs/architecture/graph-v2/Xiliu-Agent-Graph-v2-Codex.md",
+    "archive_bytes_equal": true,
+    "sha256": "ec7c48ad838c70883c411566e82c8d3d570f217f53642c6a015730292c1ed3d3"
+  },
+  {
+    "file": "docs/architecture/graph-v2/target_workflow_v2.mmd",
+    "archive_bytes_equal": true,
+    "sha256": "c1a8818507df3384fa00180c43ddd73149400069c9163e891dc611c15b9b91bc"
+  },
+  {
+    "file": "tests/fixtures/graph-v2/eval_50.jsonl",
+    "archive_bytes_equal": true,
+    "sha256": "eac395a621173df3d9f4611221fabedd7abfb405e78d1115d76c89501efb60af"
+  }
+]

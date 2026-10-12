@@ -13,7 +13,7 @@ import {
 } from 'lucide-react'
 import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { api } from '../../lib/api'
-import type { ModelCatalog, ModelSettings } from '../../lib/types'
+import type { ModelCatalog, ModelConnection, ModelSettings } from '../../lib/types'
 import { workspaceApi } from '../../lib/workspace-api'
 import { GlideSelect } from '../../components/GlideSelect'
 import { PersonalSettings } from './PersonalSettings'
@@ -21,14 +21,36 @@ import { AppearanceSettings } from './AppearanceSettings'
 import { AutomationsPanel } from '../automations/AutomationsDrawer'
 import './settings.css'
 
-function ModelForm({ settings, catalog }: { settings: ModelSettings; catalog: ModelCatalog }) {
+function ModelForm({
+  settings,
+  catalog,
+  connection,
+}: {
+  settings: ModelSettings
+  catalog: ModelCatalog
+  connection?: ModelConnection
+}) {
   const cache = useQueryClient()
-  const [provider, setProvider] = useState(settings.provider),
-    [model, setModel] = useState(settings.model)
-  const [address, setAddress] = useState(settings.base_url),
+  const [provider, setProvider] = useState(connection?.provider ?? settings.provider),
+    [model, setModel] = useState(connection?.model ?? settings.model)
+  const [label, setLabel] = useState(connection?.label ?? '')
+  const [address, setAddress] = useState(connection?.base_url ?? settings.base_url),
     [key, setKey] = useState('')
+  const keySet =
+    connection?.api_key_set ??
+    settings.profiles?.[provider]?.api_key_set ??
+    (provider === settings.provider && settings.api_key_set)
   const save = useMutation({
-    mutationFn: () => api.saveSettings({ provider, model, base_url: address, api_key: key }),
+    mutationFn: () =>
+      api.saveSettings({
+        provider,
+        model,
+        base_url: address,
+        api_key: key,
+        ...(connection
+          ? { ...(connection.id ? { profile_id: connection.id } : {}), label, make_default: false }
+          : {}),
+      }),
     onSuccess: async (updated) => {
       setKey('')
       cache.setQueryData(['model-settings'], updated)
@@ -47,60 +69,108 @@ function ModelForm({ settings, catalog }: { settings: ModelSettings; catalog: Mo
         <SlidersHorizontal size={20} />
         <div>
           <h2>模型接口</h2>
-          <p>默认用于新对话，也可在 Assistant 中单独选择。</p>
+          <p>
+            {connection
+              ? '独立保存此连接，可在对话中随时选择。'
+              : '默认用于新对话，也可在 Assistant 中单独选择。'}
+          </p>
         </div>
       </div>
       <div className="settings-grid">
         <label>
           Provider
-          <GlideSelect
-            ariaLabel="Provider"
-            value={provider}
-            options={Object.keys(catalog).map((value) => ({
-              value,
-              label: value === 'openai' ? 'OpenAI' : 'DeepSeek',
-            }))}
-            onChange={(value) => {
-              const selected = value as ModelSettings['provider']
-              setProvider(selected)
-              setModel(catalog[selected].models[0])
-              setAddress(catalog[selected].base_url)
-              save.reset()
-            }}
-          />
+          {connection ? (
+            <input
+              value={
+                provider === 'mimo'
+                  ? '小米 MiMo'
+                  : provider === 'custom'
+                    ? '自定义接口'
+                    : provider === 'openai'
+                      ? 'OpenAI'
+                      : 'DeepSeek'
+              }
+              readOnly
+            />
+          ) : (
+            <GlideSelect
+              ariaLabel="Provider"
+              value={provider}
+              options={Object.keys(catalog).map((value) => ({
+                value,
+                label:
+                  value === 'openai'
+                    ? 'OpenAI'
+                    : value === 'deepseek'
+                      ? 'DeepSeek'
+                      : value === 'mimo'
+                        ? '小米 MiMo'
+                        : '自定义接口',
+              }))}
+              onChange={(value) => {
+                const selected = value as ModelSettings['provider']
+                const profile = settings.profiles?.[selected]
+                setProvider(selected)
+                setModel(profile?.model ?? catalog[selected].models[0])
+                setAddress(profile?.base_url ?? catalog[selected].base_url)
+                setKey('')
+                save.reset()
+              }}
+            />
+          )}
         </label>
         <label>
           Model
-          <GlideSelect
-            ariaLabel="Model"
-            value={model}
-            menuWidth={290}
-            options={[...new Set([model, ...catalog[provider].models])].map((value) => ({
-              value,
-              label: value,
-            }))}
-            onChange={(value) => {
-              setModel(value)
-              save.reset()
-            }}
-          />
+          {connection ? (
+            <input
+              required
+              value={model}
+              readOnly={!!connection.id}
+              onChange={(event) => setModel(event.target.value)}
+              placeholder="接口中的模型 ID"
+            />
+          ) : (
+            <GlideSelect
+              ariaLabel="Model"
+              value={model}
+              menuWidth={290}
+              options={[...new Set([model, ...catalog[provider].models])].map((value) => ({
+                value,
+                label: value,
+              }))}
+              onChange={(value) => {
+                setModel(value)
+                save.reset()
+              }}
+            />
+          )}
         </label>
+        {connection && (
+          <label className="full-width">
+            显示名称
+            <input
+              value={label}
+              onChange={(event) => setLabel(event.target.value)}
+              placeholder="例如：我的研究模型"
+            />
+          </label>
+        )}
         <label className="full-width">
           API Key
           <div className="key-input">
             <KeyRound size={16} />
             <input
               type="password"
+              aria-label="API Key"
               autoComplete="new-password"
+              spellCheck={false}
               value={key}
-              placeholder={settings.api_key_set ? '已配置 · 留空保留已有密钥' : '输入 API Key'}
+              placeholder={keySet ? '已配置 · 留空保留已有密钥' : '输入 API Key'}
               onChange={(event) => setKey(event.target.value)}
             />
           </div>
           <small>
-            {settings.api_key_set
-              ? '已有密钥仅保存在本机，不会返回浏览器。'
-              : '密钥仅保存在本机配置文件。'}
+            {keySet ? '已有密钥仅保存在本机，不会返回浏览器。' : '密钥仅保存在本机配置文件。'}
           </small>
         </label>
         <label className="full-width">
@@ -111,6 +181,9 @@ function ModelForm({ settings, catalog }: { settings: ModelSettings; catalog: Mo
             value={address}
             onChange={(event) => setAddress(event.target.value)}
           />
+          {provider === 'mimo' && (
+            <small>普通 API 使用 api.xiaomimimo.com；Token Plan 请填写账户提供的专属地址。</small>
+          )}
         </label>
       </div>
       <div className="settings-save">
@@ -118,7 +191,7 @@ function ModelForm({ settings, catalog }: { settings: ModelSettings; catalog: Mo
         {save.isSuccess && (
           <span className="saved" role="status">
             <Check size={16} />
-            已保存，下次对话生效
+            已保存，可在对话中选择
           </span>
         )}
         <button className="primary-button" disabled={save.isPending}>
@@ -126,6 +199,137 @@ function ModelForm({ settings, catalog }: { settings: ModelSettings; catalog: Mo
         </button>
       </div>
     </form>
+  )
+}
+function ConnectionsPanel({
+  settings,
+  catalog,
+}: {
+  settings: ModelSettings
+  catalog: ModelCatalog
+}) {
+  const [params] = useSearchParams()
+  const connections = settings.connections ?? []
+  const [editing, setEditing] = useState(
+    () => connections.find((c) => c.provider === params.get('configure'))?.id ?? ''
+  )
+  const cache = useQueryClient()
+  const makeDefault = useMutation({
+    mutationFn: (connection: ModelConnection) =>
+      api.saveSettings({
+        provider: connection.provider,
+        model: connection.model,
+        base_url: connection.base_url,
+        profile_id: connection.id,
+        label: connection.label,
+        api_key: '',
+      }),
+    onSuccess: (updated) => cache.setQueryData(['model-settings'], updated),
+  })
+  const toggle = useMutation({
+    mutationFn: (item: ModelConnection) =>
+      api.saveSettings({
+        provider: item.provider,
+        model: item.model,
+        base_url: item.base_url,
+        profile_id: item.id,
+        label: item.label,
+        api_key: '',
+        make_default: false,
+        enabled: item.enabled === false,
+      }),
+    onSuccess: (updated) => cache.setQueryData(['model-settings'], updated),
+  })
+  const isDefault = (item: ModelConnection) =>
+    item.provider === settings.provider &&
+    item.model === settings.model &&
+    item.base_url === settings.base_url
+  const renderConnection = (item: ModelConnection) => (
+    <div className="connection-row" key={item.id}>
+      <button
+        type="button"
+        className="connection-edit"
+        aria-label={`编辑 ${item.label}`}
+        aria-expanded={editing === item.id}
+        onClick={() => setEditing(item.id)}
+      >
+        <span>
+          <strong>{names[item.provider]}</strong>
+          <span>{item.label}</span>
+        </span>
+        <small>{isDefault(item) ? '默认' : item.api_key_set ? '已配置' : '未配置'}</small>
+      </button>
+      <button
+        type="button"
+        role="switch"
+        aria-checked={item.enabled !== false}
+        aria-label={`启用 ${item.label}`}
+        className="secondary-button"
+        title={isDefault(item) ? '请先更换默认模型，再停用' : '停用后隐藏，保留密钥和配置'}
+        disabled={isDefault(item) || toggle.isPending}
+        onClick={() => toggle.mutate(item)}
+      >
+        {item.enabled === false ? '已停用' : '已启用'}
+      </button>
+      <button
+        type="button"
+        className="secondary-button"
+        disabled={!item.api_key_set || item.enabled === false || makeDefault.isPending}
+        onClick={() => makeDefault.mutate(item)}
+        aria-label={`设为默认 ${item.label}`}
+      >
+        设为默认
+      </button>
+    </div>
+  )
+  const connection =
+    editing === 'new'
+      ? {
+          id: '',
+          provider: 'custom' as const,
+          model: '',
+          base_url: '',
+          label: '',
+          api_key_set: false,
+        }
+      : connections.find((c) => c.id === editing)
+  const names = { openai: 'OpenAI', deepseek: 'DeepSeek', mimo: '小米 MiMo', custom: '自定义接口' }
+  return (
+    <>
+      <section className="settings-card connection-list">
+        <div className="card-title">
+          <SlidersHorizontal size={20} />
+          <div>
+            <h2>模型与连接</h2>
+            <p>每个模型独立保存密钥和地址，切换不会覆盖其他连接。</p>
+          </div>
+        </div>
+        {connections.filter((item) => item.enabled !== false).map(renderConnection)}
+        {connections.some((item) => item.enabled === false) && (
+          <details className="disabled-connections">
+            <summary>
+              已停用（{connections.filter((item) => item.enabled === false).length}）
+            </summary>
+            {connections.filter((item) => item.enabled === false).map(renderConnection)}
+          </details>
+        )}
+        <button
+          type="button"
+          className="secondary-button add-connection"
+          onClick={() => setEditing('new')}
+        >
+          添加其他模型接口
+        </button>
+        {makeDefault.isError && <p role="alert">{makeDefault.error.message}</p>}
+        {toggle.isError && <p role="alert">{toggle.error.message}</p>}
+        <p className="settings-hint">
+          密钥只保存到本机配置文件，不返回浏览器，不保存到浏览器缓存。
+        </p>
+      </section>
+      {connection && (
+        <ModelForm key={editing} settings={settings} catalog={catalog} connection={connection} />
+      )}
+    </>
   )
 }
 const sections = [
@@ -154,7 +358,11 @@ export function ModelSettingsPanel() {
       </div>
     )
   return settings.data && catalog.data ? (
-    <ModelForm settings={settings.data} catalog={catalog.data} />
+    settings.data.connections?.length ? (
+      <ConnectionsPanel settings={settings.data} catalog={catalog.data} />
+    ) : (
+      <ModelForm settings={settings.data} catalog={catalog.data} />
+    )
   ) : (
     <p className="settings-hint" role="status">
       正在加载模型设置…

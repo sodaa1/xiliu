@@ -58,12 +58,11 @@ def test_fast_local_query_has_no_todo_subagent_verifier_or_web(tmp_path):
     assert not {"todo_write", "call_search_agent", "web_search"} & set(model.names)
 
 
-def test_mode_routing_respects_explicit_and_local_scope():
-    from xiliu.graph.routing import mode_router_node
+def test_two_layer_routing_respects_local_scope_and_complexity():
+    from xiliu.routing import recognize_intent, select_execution
 
-    assert mode_router_node({"task": "查我的知识库"})["mode"] == "fast"
-    assert mode_router_node({"task": "比较多篇文章并解释分歧"})["mode"] == "deep"
-    assert mode_router_node({"task": "你好", "requested_mode": "standard"})["mode"] == "standard"
+    assert select_execution(recognize_intent("查我的知识库", model=object())) == "app_executor"
+    assert select_execution(recognize_intent("比较多篇文章并解释分歧", model=object())) == "planner"
 
 
 def test_non_retryable_tool_failure_exits_without_replanning():

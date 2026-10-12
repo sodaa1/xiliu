@@ -8048,396 +8048,6 @@
       }
     },
     {
-      "surface_id": "ui_link:705001b4018741fca1a6:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:2cf59125c75b39fa1b90:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:792fe118078e7954aac3:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:61722207af3383743455:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:4d461c04a89a2df708c0:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:f4a2481a5bdb475cd8fd:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:2248142206dc1cfde67b:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:725d40fe7f383401f687:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:adc3f7390b66bec5a200:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:bbf1ee0c5fa888b469c0:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:79325c673c0bad17e581:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:69561ecf5e15a18d91f4:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:53b632297b57ac898691:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:de7e0bfeae1f8c8a66ee:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:ef6444efbe913e11e528:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:2e704061e63ea0ba187e:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:aac711410f47890d63c0:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:d799d1e76bc76c5c25c1:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:c055cc99defeebc3a5c1:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:b0029b3a499be2b3177b:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:5bad578318d4ed4f359c:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:f8eaed0cff6da95c28e6:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:b90521f2fdeb0e0b3ecc:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:17b3056749efee39234f:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:83fb4f989f6e8af4e568:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:3fd9fa1ac5baff36024c:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
-        "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
       "surface_id": "ui_mutation:2c5751f450516c7eb6f8:1",
       "classification": "agent_enabled",
       "action_ids": [
@@ -9556,25 +9166,6 @@
       }
     },
     {
-      "surface_id": "ui_mutation:f67c4bde95fe63bb112f:1",
-      "classification": "restricted",
-      "action_ids": [
-        "settings.model.update"
-      ],
-      "reason": "Individual ActionSpec policy, confirmation and attachment restrictions still apply.",
-      "ui_tests": [
-        "web/src/features/settings/SettingsPage.test.tsx::settings opens above the current page; profile and appearance persist"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted",
-        "tests/unit/test_model_settings.py::test_legacy_provider_inferred_and_key_redacted"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
       "surface_id": "ui_api:1dd82f4cd57ba1016916:1",
       "classification": "restricted",
       "action_ids": [
@@ -9626,20 +9217,6 @@
         "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted",
         "tests/unit/test_model_settings.py::test_legacy_provider_inferred_and_key_redacted"
       ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:3c84e1628fcbd1735bf9:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/settings/SettingsPage.test.tsx::settings opens above the current page; profile and appearance persist"
-      ],
-      "tests": [],
       "verification": {
         "status": "not_run",
         "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
@@ -11740,6 +11317,810 @@
         "status": "not_run",
         "scope": "New explicit AI async branch; awaits final product freeze and actual full Agent/UI regression."
       }
+    },
+    {
+      "surface_id": "ui_mutation:23934144a3544508d4ee:1",
+      "classification": "restricted",
+      "action_ids": [
+        "settings.model.update"
+      ],
+      "reason": "Human password form saves one connection; Agent model-settings write remains restricted.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::connections panel opens MiMo password form and saves only its connection"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_event:5070157ec75e227022ab:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Provider selection restores fields and clears the unsaved key draft.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::switching providers isolates key draft and restores saved profile fields"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_event:57a74f8e56759d9e87cf:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Custom model draft input.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::custom interface draft saves an independent model and key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_event:ea424a88f305e3360f4e:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Connection label draft input.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::custom interface draft saves an independent model and key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_api:7f1d20559ab941b36a9c:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Displayed MiMo address hint, not an API client invocation.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::connections panel opens MiMo password form and saves only its connection"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_mutation:e2f6f0928cc0c44110b0:1",
+      "classification": "restricted",
+      "action_ids": [
+        "settings.model.update"
+      ],
+      "reason": "Human sets an existing configured connection as default; no key readback.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::default selection respects configuration and sends no stored key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_api:1dd82f4cd57ba1016916:2",
+      "classification": "restricted",
+      "action_ids": [
+        "settings.model.update"
+      ],
+      "reason": "Human-only default save uses a stored connection ID.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::default selection respects configuration and sends no stored key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_query:a1e685e6b0ad43d0c335:1",
+      "classification": "restricted",
+      "action_ids": [
+        "settings.model.update"
+      ],
+      "reason": "Lexical mutationFn occurrence for human default selection.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::default selection respects configuration and sends no stored key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_button:06778fe57d68cf29eaf4:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Opens one editor with an empty password field.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::connections panel opens MiMo password form and saves only its connection"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_event:7e4d6cf5d24ea6b3030d:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Selects an editor, no persistent write.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::connections panel opens MiMo password form and saves only its connection"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_event:e984782a3dfb65badbc1:1",
+      "classification": "restricted",
+      "action_ids": [
+        "settings.model.update"
+      ],
+      "reason": "Persists the human-selected stored default connection.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::default selection respects configuration and sends no stored key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_button:6d6d473234b42c7b9f8f:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Opens a blank custom interface form.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::custom interface draft saves an independent model and key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_event:e5b92824d49de0aa80e7:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Selects a new local draft; human save required.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::custom interface draft saves an independent model and key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component/unit coverage; per-occurrence live UI/Agent equivalence has not run."
+      }
+    },
+    {
+      "surface_id": "ui_api:1dd82f4cd57ba1016916:3",
+      "classification": "restricted",
+      "action_ids": [
+        "settings.model.update"
+      ],
+      "reason": "Human model enable/default control; preserves credentials; Agent settings write remains restricted.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::disabled connections are hidden from picker and can be restored without sending a key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py::test_disable_restore_preserves_connection_and_rejects_default",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component and service tests passed; per-occurrence live UI/Agent equivalence not run."
+      }
+    },
+    {
+      "surface_id": "ui_button:4b267fd7e23d0be0ded4:1",
+      "classification": "restricted",
+      "action_ids": [
+        "settings.model.update"
+      ],
+      "reason": "Human model enable/default control; preserves credentials; Agent settings write remains restricted.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::disabled connections are hidden from picker and can be restored without sending a key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py::test_disable_restore_preserves_connection_and_rejects_default",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component and service tests passed; per-occurrence live UI/Agent equivalence not run."
+      }
+    },
+    {
+      "surface_id": "ui_button:b6bc7fb7e237d5ae166e:1",
+      "classification": "restricted",
+      "action_ids": [
+        "settings.model.update"
+      ],
+      "reason": "Human model enable/default control; preserves credentials; Agent settings write remains restricted.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::disabled connections are hidden from picker and can be restored without sending a key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py::test_disable_restore_preserves_connection_and_rejects_default",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component and service tests passed; per-occurrence live UI/Agent equivalence not run."
+      }
+    },
+    {
+      "surface_id": "ui_event:a5eae1a9e8e00039be4d:1",
+      "classification": "restricted",
+      "action_ids": [
+        "settings.model.update"
+      ],
+      "reason": "Human model enable/default control; preserves credentials; Agent settings write remains restricted.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::disabled connections are hidden from picker and can be restored without sending a key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py::test_disable_restore_preserves_connection_and_rejects_default",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component and service tests passed; per-occurrence live UI/Agent equivalence not run."
+      }
+    },
+    {
+      "surface_id": "ui_mutation:a30e18e9367c8d5f1f9b:1",
+      "classification": "restricted",
+      "action_ids": [
+        "settings.model.update"
+      ],
+      "reason": "Human model enable/default control; preserves credentials; Agent settings write remains restricted.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::disabled connections are hidden from picker and can be restored without sending a key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py::test_disable_restore_preserves_connection_and_rejects_default",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component and service tests passed; per-occurrence live UI/Agent equivalence not run."
+      }
+    },
+    {
+      "surface_id": "ui_query:c28c3e9318b35ddc5d00:1",
+      "classification": "restricted",
+      "action_ids": [
+        "settings.model.update"
+      ],
+      "reason": "Human model enable/default control; preserves credentials; Agent settings write remains restricted.",
+      "ui_tests": [
+        "web/src/features/settings/ModelProfiles.test.tsx::disabled connections are hidden from picker and can be restored without sending a key"
+      ],
+      "tests": [
+        "tests/unit/test_model_profiles.py::test_disable_restore_preserves_connection_and_rejects_default",
+        "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Component and service tests passed; per-occurrence live UI/Agent equivalence not run."
+      }
+    },
+    {
+      "surface_id": "ui_link:79c7b43963fa98dcf1be:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:b7bba2fc4a4180bb5bd1:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:8bc0539a290f3526c181:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_event:f037f7682df672437245:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:aa55cea7ac41e3edfbbf:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:8a06a2ed6be67a014c56:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:0ef882e4426379308227:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:188b030868adeb5f4910:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_button:2beaafc743bdb75b741d:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_event:67750fb89580cfae67ae:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:3286c93c51c52e98942f:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:92c54c77851f48020a31:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_button:5667918f371bdffe526c:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_event:f9ece79b023c0d752c5e:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_event:94c0b43e7f3940094df6:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:89058fa505715d592e01:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:f687c4728176c82e7273:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_button:d575cf090e894a21a406:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_event:c465eacff9bdc3ea0c62:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:ac865a3d03dfd38f7c99:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_button:c6ec5ae5b6c1eb418f4b:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_event:8764061a3d5f3d7ca93a:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:b94e5fd9a4dca1f99658:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:bfdab515167578410707:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:fffcec96dff5edd05131:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:48b2cde7fd38327c64a9:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "ui_link:e48dc80f0d84b2d8abc7:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Reviewed relocated Intro presentation: anchors/navigation, local tab/menu/question state or clipboard copy; no App/HTTP business mutation.",
+      "ui_tests": [
+        "docs/web/src/LandingPage.test.tsx::the product demo supports arrow-key navigation without sending an API request",
+        "docs/web/src/LandingPage.test.tsx::installation copy reports success only after the clipboard accepts the commands",
+        "docs/web/src/LandingPage.test.tsx::clipboard failure offers manual copying instead of a false success",
+        "docs/web/src/LandingPage.test.tsx::the public introduction uses the current repository and source installation commands"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
     }
   ],
   "specialist_tools": {
@@ -13157,13 +13538,13 @@
       "http_scope": "Actual legacy HTTP route calls with successful status in passed tests; route bindings do not prove every Action argument or exact UI control. App bridge executions are separately recorded in actual_execution.events.",
       "tests": [
         "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
-        "tests/integration/test_app_runtime_modes.py::test_all_modes_bind_only_one_business_tool_and_share_services",
+        "tests/integration/test_app_runtime_modes.py::test_fast_and_planner_bind_one_business_tool_and_share_services",
         "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
         "tests/test_knowledge_retrieval.py::test_knowledge_tool_uses_runtime_directory_and_gateway_read_permission",
         "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields",
         "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original",
         "tests/unit/test_graph_modes.py::test_fast_local_query_has_no_todo_subagent_verifier_or_web",
-        "tests/unit/test_kernel_boundaries.py::test_deep_can_use_local_tools_without_todos_or_delegation",
+        "tests/unit/test_kernel_boundaries.py::test_planner_can_use_local_tools_without_todos_or_delegation",
         "tests/unit/test_rag_agent.py::test_fast_checkpoint_resume_preserves_ids_and_does_not_reexecute_tool",
         "tests/unit/test_rag_agent.py::test_rag_agent_rewrites_then_returns_only_actual_hit_ids",
         "tests/unit/test_rag_agent.py::test_rag_zero_hits_is_bounded_and_unsupported"
@@ -15993,5 +16374,708 @@
         "not_run": 0
       }
     }
-  }
+  },
+  "archived_surfaces": [
+    {
+      "record": {
+        "surface_id": "ui_link:705001b4018741fca1a6:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:705001b4018741fca1a6:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 132,
+        "symbol": "<a className={`intro-button ${secondary ? 'outline' : ''}`} href={href}>"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:2cf59125c75b39fa1b90:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:2cf59125c75b39fa1b90:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 182,
+        "symbol": "<a className=\"skip-link\" href=\"#features\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:792fe118078e7954aac3:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:792fe118078e7954aac3:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 186,
+        "symbol": "<a className=\"intro-brand\" href=\"#top\" aria-label=\"息流 xiliu 首页\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_event:61722207af3383743455:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_event:61722207af3383743455:1",
+        "kind": "ui_event",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 196,
+        "symbol": "onClick={() => setMenuOpen(false)}"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:4d461c04a89a2df708c0:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:4d461c04a89a2df708c0:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 198,
+        "symbol": "<a href=\"#features\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:f4a2481a5bdb475cd8fd:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:f4a2481a5bdb475cd8fd:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 202,
+        "symbol": "<a href=\"#workflow\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:2248142206dc1cfde67b:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:2248142206dc1cfde67b:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 206,
+        "symbol": "<a href=\"#local\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:725d40fe7f383401f687:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:725d40fe7f383401f687:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 210,
+        "symbol": "<a href=\"#questions\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_button:adc3f7390b66bec5a200:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_button:adc3f7390b66bec5a200:1",
+        "kind": "ui_button",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 217,
+        "symbol": "<button className=\"mobile-menu\" ref={menuButton} aria-label={menuOpen ? '关闭导航' : '打开导航'} aria-controls=\"intro-navigation\" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} >"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_event:bbf1ee0c5fa888b469c0:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_event:bbf1ee0c5fa888b469c0:1",
+        "kind": "ui_event",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 223,
+        "symbol": "onClick={() => setMenuOpen(!menuOpen)}"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:79325c673c0bad17e581:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:79325c673c0bad17e581:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 269,
+        "symbol": "<a className=\"hero-scroll-cue\" href=\"#features\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:69561ecf5e15a18d91f4:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:69561ecf5e15a18d91f4:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 296,
+        "symbol": "<a className=\"text-link\" href=\"#workflow\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_button:53b632297b57ac898691:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_button:53b632297b57ac898691:1",
+        "kind": "ui_button",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 338,
+        "symbol": "<button key={stage.name} role=\"tab\" id={`flow-tab-${i}`} aria-controls=\"flow-panel\" aria-selected={active === i} tabIndex={active === i ? 0 : -1} onClick={() => setActive(i)} onKeyDown={(event) => onTabKey(event, i)} >"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_event:de7e0bfeae1f8c8a66ee:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_event:de7e0bfeae1f8c8a66ee:1",
+        "kind": "ui_event",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 345,
+        "symbol": "onClick={() => setActive(i)}"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_event:ef6444efbe913e11e528:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_event:ef6444efbe913e11e528:1",
+        "kind": "ui_event",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 346,
+        "symbol": "onKeyDown={(event) => onTabKey(event, i)}"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:2e704061e63ea0ba187e:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:2e704061e63ea0ba187e:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 382,
+        "symbol": "<a className=\"text-link\" href={publicShowcase ? '#workflow' : '/feed'}>"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:aac711410f47890d63c0:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:aac711410f47890d63c0:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 446,
+        "symbol": "<a className=\"text-link\" href={publicShowcase ? '#workflow' : '/knowledge'}>"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_button:d799d1e76bc76c5c25c1:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_button:d799d1e76bc76c5c25c1:1",
+        "kind": "ui_button",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 546,
+        "symbol": "<button key={label} aria-pressed={question === i} onClick={() => setQuestion(i)}>"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_event:c055cc99defeebc3a5c1:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_event:c055cc99defeebc3a5c1:1",
+        "kind": "ui_event",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 546,
+        "symbol": "onClick={() => setQuestion(i)}"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:b0029b3a499be2b3177b:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:b0029b3a499be2b3177b:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 646,
+        "symbol": "<a className=\"text-link\" href=\"#start\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_button:5bad578318d4ed4f359c:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_button:5bad578318d4ed4f359c:1",
+        "kind": "ui_button",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 734,
+        "symbol": "<button onClick={() => void copyInstall()} aria-label=\"复制安装命令\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_event:f8eaed0cff6da95c28e6:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_event:f8eaed0cff6da95c28e6:1",
+        "kind": "ui_event",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 734,
+        "symbol": "onClick={() => void copyInstall()}"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:b90521f2fdeb0e0b3ecc:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:b90521f2fdeb0e0b3ecc:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 756,
+        "symbol": "<a className=\"intro-brand\" href=\"#top\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:17b3056749efee39234f:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:17b3056749efee39234f:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 763,
+        "symbol": "<a className=\"text-link\" href=\"#top\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:83fb4f989f6e8af4e568:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:83fb4f989f6e8af4e568:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 770,
+        "symbol": "<a href=\"https://933693.xyz/\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_link:3fd9fa1ac5baff36024c:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/intro/LandingPage.test.tsx::Intro links, workflow tabs, keyboard navigation and menu remain available",
+          "web/src/features/intro/LandingPage.test.tsx::Intro clipboard feedback covers success and refusal"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_link:3fd9fa1ac5baff36024c:1",
+        "kind": "ui_link",
+        "page": "Intro",
+        "file": "web/src/features/intro/LandingPage.tsx",
+        "line": 773,
+        "symbol": "<a href=\"https://github.com/sodaa1\" target=\"_blank\" rel=\"noreferrer\">"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    },
+    {
+      "record": {
+        "surface_id": "ui_event:3c84e1628fcbd1735bf9:1",
+        "classification": "ui_only",
+        "action_ids": [],
+        "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
+        "ui_tests": [
+          "web/src/features/settings/SettingsPage.test.tsx::settings opens above the current page; profile and appearance persist"
+        ],
+        "tests": [],
+        "verification": {
+          "status": "not_run",
+          "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+        }
+      },
+      "source": {
+        "id": "ui_event:3c84e1628fcbd1735bf9:1",
+        "kind": "ui_event",
+        "page": "Settings",
+        "file": "web/src/features/settings/SettingsPage.tsx",
+        "line": 63,
+        "symbol": "onChange={(value) => { const selected = value as ModelSettings['provider'] setProvider(selected) setModel(catalog[selected].models[0]) setAddress(catalog[selected].base_url) save.reset() }}"
+      },
+      "reason": "Source relocated to docs/web or superseded by independent model-profile form; original verification preserved."
+    }
+  ]
 }

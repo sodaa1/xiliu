@@ -67,3 +67,6 @@ desktop/node_modules/
 desktop/src-tauri/target/
 desktop/src-tauri/binaries/
 desktop/src-tauri/gen/
+
+# Graph v2 isolated test databases and snapshots
+/tmp

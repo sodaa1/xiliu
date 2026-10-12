@@ -29,7 +29,7 @@ BUILTIN_PERMISSIONS = {
     "web_search": "network.read",
     "call_search_agent": "agent.delegate",
     "call_code_agent": "agent.delegate",
-    "capability_search": "network.read",
+    "capability_search": "capabilities.read",
     "skill_load": "filesystem.read.workspace",
     "skill_resource_read": "filesystem.read.workspace",
 }
@@ -49,6 +49,21 @@ class CapabilityManager:
         self._specs: dict[str, CapabilitySpec] = {}
         self.skill_registry = skill_registry
         self.mcp_manager = mcp_manager
+        from xiliu.app.actions import get_registry
+
+        for action in get_registry().values():
+            self.register(
+                CapabilitySpec(
+                    id=f"app:{action.id}",
+                    kind="app",
+                    source_id=action.id,
+                    name=action.id,
+                    description=action.description,
+                    permission=action.permission,
+                    requires_confirmation=action.confirmation_policy != "none",
+                    enabled=action.agent_availability == "enabled",
+                )
+            )
         if skill_registry is not None:
             for spec in skill_registry.scan():
                 self.register(spec)
@@ -60,6 +75,10 @@ class CapabilityManager:
 
     def get(self, capability_id: str) -> CapabilitySpec | None:
         return self._specs.get(capability_id)
+
+    def catalog(self, kind: CapabilityKind | None = None) -> list[CapabilitySpec]:
+        """Metadata only; execution remains authorized by the Gateway and Dispatcher."""
+        return [s for s in self._specs.values() if s.enabled and (kind is None or s.kind == kind)]
 
     def refresh_agents(self, specs: list[CapabilitySpec]) -> None:
         self._specs = {
@@ -103,7 +122,7 @@ class CapabilityManager:
             haystack = f"{spec.id} {spec.name} {spec.description} {alias}".casefold()
             if terms and not all(term in haystack for term in terms):
                 continue
-            score = sum(term in spec.name.casefold() for term in terms)
+            score = sum(3 * (term in spec.name.casefold()) + 2 * (term in alias) for term in terms)
             ranked.append((-score, spec))
         ranked.sort(key=lambda item: (item[0], item[1].id))
         return [spec for _, spec in ranked[: max(0, min(limit, 5))]]

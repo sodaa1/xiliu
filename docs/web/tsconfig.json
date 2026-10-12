@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "typeRoots": ["../../web/node_modules/@types"],
+    "paths": {
+      "react": ["../../web/node_modules/@types/react"],
+      "react/*": ["../../web/node_modules/@types/react/*"],
+      "react-dom/*": ["../../web/node_modules/@types/react-dom/*"],
+      "gsap": ["../../web/node_modules/gsap"],
+      "gsap/*": ["../../web/node_modules/gsap/*"],
+      "lucide-react": ["../../web/node_modules/lucide-react"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.test.tsx"]
+}

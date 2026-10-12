@@ -17,7 +17,7 @@ def build_meta_tools(*, role: str) -> list[BaseTool]:
 
     def capability_search(query: str, kind: str = "", limit: int = 5) -> str:
         """Find relevant built-in, Skill or MCP capabilities by a short query."""
-        if kind not in {"", "builtin", "skill", "mcp", "agent"}:
+        if kind not in {"", "app", "builtin", "skill", "mcp", "agent"}:
             return json.dumps({"ok": False, "error": "invalid_capability_kind"})
         if context.data_dir is not None:
             from xiliu.capabilities.agent_registry import AgentRegistry
@@ -40,7 +40,7 @@ def build_meta_tools(*, role: str) -> list[BaseTool]:
 
                 manifest = AgentRegistry(context.data_dir).agents.get(spec.source_id)
                 if manifest is not None:
-                    entry["allowed_modes"] = manifest.allowed_modes
+                    entry["allowed_paths"] = manifest.allowed_paths
                     entry["allowed_tools"] = manifest.allowed_tools
             if spec.kind == "mcp" and manager.mcp_manager is not None:
                 schema = manager.mcp_manager.schema(spec.id)

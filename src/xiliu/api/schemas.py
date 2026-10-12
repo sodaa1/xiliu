@@ -8,10 +8,14 @@ from pydantic import BaseModel, ConfigDict, Field, SecretStr, field_validator
 
 class ModelUpdate(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    provider: Literal["openai", "deepseek"]
+    provider: Literal["openai", "deepseek", "mimo", "custom"]
     model: str = Field(min_length=1, max_length=100)
     base_url: str = Field(max_length=2048)
     api_key: SecretStr | None = None
+    profile_id: str | None = Field(default=None, min_length=1, max_length=200)
+    label: str = Field(default="", max_length=100)
+    make_default: bool = True
+    enabled: bool | None = None
 
     @field_validator("base_url")
     @classmethod
@@ -42,7 +46,6 @@ class ChatRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     text: str = Field(min_length=1, max_length=100_000)
     context: str = Field(default="", max_length=40_000)
-    mode: Literal["fast", "standard", "deep"] | None = None
 
     @field_validator("text")
     @classmethod

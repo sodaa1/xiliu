@@ -47,6 +47,8 @@ def _expression(source: str, start: int) -> str:
 
 
 def _page(path: str, symbol: str = "") -> str:
+    if path.startswith("docs/web/src/"):
+        return "Intro"
     if "/features/" in path:
         name = path.split("/features/", 1)[1].split("/")[0]
         return {"content": "Inbox / shared content", "intro": "Intro"}.get(name, name.title())
@@ -119,6 +121,9 @@ def scan_surface(root: Path) -> list[dict]:
     ui += list((root / "web/src/features").rglob("*.ts"))
     ui += list((root / "web/src/app").glob("*.tsx"))
     ui += list((root / "web/src/components").rglob("*.tsx"))
+    # The introduction is still shipped with the app after its source relocation.
+    ui += list((root / "docs/web/src").rglob("*.tsx"))
+    ui += list((root / "docs/web/src").rglob("*.ts"))
     ui += [
         root / "web/src/lib/api.ts",
         root / "web/src/lib/workspace-api.ts",

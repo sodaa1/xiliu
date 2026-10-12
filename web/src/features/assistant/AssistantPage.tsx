@@ -21,7 +21,7 @@ export function AssistantPage() {
   const [draft, setDraft] = useState(incoming?.draft ?? ''),
     [error, setError] = useState<string | null>(null)
   const [reference, setReference] = useState<AssistantReference | undefined>(incoming?.reference)
-  const [configOpen, setConfigOpen] = useState(false)
+  const [configOpen, setConfigOpen] = useState(params.has('configure'))
   const closeConfig = useCallback(() => setConfigOpen(false), [])
   useEffect(() => {
     if (location.state)
@@ -199,6 +199,7 @@ export function AssistantPage() {
                 value={conversation.data?.model_override ?? ''}
                 defaultModel={settings.data?.model ?? ''}
                 models={models}
+                connections={settings.data?.connections}
                 provider={settings.data?.provider}
                 selectionDisabled={!cid || model.isPending || !!run}
                 onChange={(value) => model.mutate({ id: cid!, value })}

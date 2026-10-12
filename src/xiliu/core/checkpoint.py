@@ -294,6 +294,27 @@ def build_recovery_markdown(payload: Mapping[str, Any]) -> str:
 
 
 def _next_node(state: Mapping[str, Any], latest_node: str | None) -> str:
+    from xiliu.graph.workflow import after_collect, after_discovery, route_after_verifier
+
+    if latest_node == "intent_router":
+        return "final" if state.get("command") else "capability_router"
+    if latest_node == "capability_router":
+        return state["execution_path"]
+    if latest_node == "app_executor":
+        return "tool_execute"
+    if latest_node in {"planner", "fast_react"} and "loop_messages" in state:
+        return "capability_discovery"
+    if latest_node == "capability_discovery":
+        return after_discovery(state)
+    if latest_node == "tool_execute":
+        return "state_collect"
+    if latest_node == "state_collect":
+        return after_collect(state)
+    if latest_node == "execution_verifier":
+        return route_after_verifier(state)
+    if latest_node in {"chat_responder", "clarification", "final"}:
+        return "final"
+    # Read-only migration of v1 snapshots; old execution modes never execute.
     if latest_node in {"planner", "supervisor"}:
         return "verifier"
     if latest_node == "fast_react":
@@ -305,9 +326,7 @@ def _next_node(state: Mapping[str, Any], latest_node: str | None) -> str:
             and state.get("attempt", 0) < state.get("max_attempts", 3)
             else "final"
         )
-    if latest_node == "final":
-        return "final"
-    return state.get("resume_node", "planner")
+    return state.get("resume_node", "intent_router")
 
 
 def _relative_file(name: str) -> Path:
@@ -514,7 +533,10 @@ def _validate_payload(payload: Any, workspace: Path, root: Path) -> dict[str, An
     ):
         raise ValueError("invalid checkpoint fields")
     datetime.fromisoformat(payload["saved_at"])
+    from xiliu.graph.workflow import NODE_NAMES
+
     if payload["latest_node"] not in (
+        *NODE_NAMES,
         None,
         "planner",
         "verifier",
@@ -536,6 +558,29 @@ def _validate_payload(payload: Any, workspace: Path, root: Path) -> dict[str, An
         if strict != encoded:
             raise ValueError("inconsistent strict state")
     state = restore_persisted_value(encoded, workspace)
+    legacy = isinstance(state, dict) and (
+        "mode" in state or "requested_mode" in state or isinstance(state.get("intent"), str)
+    )
+    if legacy:
+        if state.get("mode", "standard") not in {"fast", "standard", "deep"}:
+            raise ValueError("invalid legacy mode")
+        if "requested_mode" in state and not isinstance(state["requested_mode"], str):
+            raise ValueError("invalid legacy requested mode")
+        if isinstance(state.get("intent"), str) and state["intent"] not in {"chat", "task"}:
+            raise ValueError("invalid legacy intent")
+        state["execution_path"] = (
+            "fast_react" if state.pop("mode", "standard") == "fast" else "planner"
+        )
+        state.pop("requested_mode", None)
+        from xiliu.routing.rules import intent
+
+        old_intent = state.pop("intent", "task")
+        state["intent"] = intent(
+            "chat" if old_intent == "chat" else "task", complexity="multi_step"
+        )
+        state["execution_ok"] = state.get("supervisor_ok", False)
+        state["execution_result"] = {"status": "running"}
+    state.setdefault("execution_run_id", payload["trace_id"] or "legacy-" + payload["git_commit"])
     if not isinstance(state, dict) or set(state) - (
         set(GraphState.__annotations__) | {"messages", "resume_node"}
     ):
@@ -600,11 +645,11 @@ def _validate_payload(payload: Any, workspace: Path, root: Path) -> dict[str, An
     ):
         raise ValueError("invalid graph status")
     for key in ("resume_node", "current_node"):
-        if key in state and state[key] not in ("planner", "verifier", "final"):
+        if key in state and state[key] not in (*NODE_NAMES, "verifier"):
             raise ValueError("invalid state node")
-    if payload["next_node"] not in ("planner", "verifier", "final") or payload[
-        "next_node"
-    ] != _next_node(state, payload["latest_node"]):
+    if payload["next_node"] not in (*NODE_NAMES, "verifier") or payload["next_node"] != _next_node(
+        state, payload["latest_node"]
+    ):
         raise ValueError("inconsistent checkpoint route")
     tree = _read_tree(workspace, root, payload["git_commit"])
     manifest = payload["workspace_manifest"]

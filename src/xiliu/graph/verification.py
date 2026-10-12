@@ -29,15 +29,15 @@ def _app_action_failure(state) -> str | None:
 def _persisted_automation(state) -> bool:
     return any(
         event.get("tool") == "app"
-        and event.get("args", {}).get("action_id", "").startswith("automations.")
+        and event.get("args", {}).get("action_id") == "automations.create"
         and payload(event.get("output", "")).get("verification", {}).get("passed")
         for event in state["tool_events"]
     )
 
 
 def requirements_failure(state) -> str | None:
-    if not state.get("supervisor_ok", False):
-        return "Supervisor did not finish a valid round"
+    if not state.get("execution_ok", state.get("supervisor_ok", False)):
+        return "Execution did not finish a valid round"
     from xiliu.graph.routing import app_action
 
     if app_action(state["task"]):
@@ -80,7 +80,7 @@ def requirements_failure(state) -> str | None:
         and preference_events
         and preference_events[-1]["ok"]
     )
-    todos_required = state.get("mode") != "deep" or bool(state["todos"])
+    todos_required = bool(state["todos"])
     if (
         todos_required
         and (not state["todos"] or any(t["status"] != "completed" for t in state["todos"]))
@@ -95,8 +95,13 @@ def requirements_failure(state) -> str | None:
         "",
         task,
     )
+    research_task = re.sub(r"研究数据库|research database", "database", research_task)
     agents = state["agent_results"]
-    events = [e for e in state["tool_events"] if e["agent"] in {"code_agent", "subagent:code"}]
+    events = [
+        e
+        for e in state["tool_events"]
+        if e["agent"] in {"code_agent", "subagent:code", "planner", "fast_react"}
+    ]
     coding = bool(
         re.search(
             r"implement|code|python|build|tdd|fix|create|write|edit|refactor|debug"
@@ -143,7 +148,13 @@ def requirements_failure(state) -> str | None:
     if unresolved_failures(events):
         return "Unresolved failed or incomplete tool action"
     last_write = max(
-        (i for i, e in enumerate(events) if e["tool"] in {"file_write", "file_edit"} and e["ok"]),
+        (
+            i
+            for i, e in enumerate(events)
+            if e["tool"] in {"file_write", "file_edit"}
+            and e["ok"]
+            and not str(e["args"].get("path", "")).endswith((".md", ".txt", ".html"))
+        ),
         default=-1,
     )
     tdd = bool(re.search(r"tdd|test-driven|测试驱动", task))

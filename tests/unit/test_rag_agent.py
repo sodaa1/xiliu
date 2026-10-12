@@ -42,7 +42,7 @@ def test_rag_agent_rewrites_then_returns_only_actual_hit_ids(tmp_path):
         result = run_rag_agent(
             {"task": "整理我的知识库文章", "attempt": 1},
             "summarize",
-            AgentRegistry(tmp_path).get("rag", "deep"),
+            AgentRegistry(tmp_path).get("rag", "planner"),
             model=Model(),
         )
     finally:
@@ -69,7 +69,7 @@ def test_rag_zero_hits_is_bounded_and_unsupported(tmp_path):
         result = run_rag_agent(
             {"task": "知识库", "attempt": 1},
             "find",
-            AgentRegistry(tmp_path).get("rag", "deep"),
+            AgentRegistry(tmp_path).get("rag", "planner"),
             model=Model(),
             budget=2,
         )

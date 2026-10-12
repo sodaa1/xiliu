@@ -413,10 +413,17 @@ class InboxService:
             db.execute("DELETE FROM inbox_worker_owner WHERE id=1 AND owner=?", (self._owner,))
         self._owns_worker = False
 
-    def _enqueue(self, item: dict[str, Any], use_ai: bool) -> None:
-        atomic_write_utf8(
-            self.content._directory(item["id"]) / "processing.json", json.dumps({"use_ai": use_ai})
-        )
+    def _enqueue(
+        self, item: dict[str, Any], use_ai: bool, auto_archive: bool | None = None
+    ) -> None:
+        path = self.content._directory(item["id"]) / "processing.json"
+        if auto_archive is None:
+            auto_archive = (
+                json.loads(path.read_text(encoding="utf-8")).get("auto_archive", True)
+                if path.exists()
+                else True
+            )
+        atomic_write_utf8(path, json.dumps({"use_ai": use_ai, "auto_archive": auto_archive}))
         with self.content.store.connect() as db:
             db.execute(
                 "INSERT OR REPLACE INTO inbox_jobs VALUES(?,?,?,'pending')",
@@ -436,12 +443,16 @@ class InboxService:
             "filename",
             "data_base64",
             "use_ai",
+            "auto_archive",
         }:
             raise _invalid("存在不支持的导入字段。")
         text = _text(payload.get("text", ""), "text", 200_000).strip()
         use_ai = payload.get("use_ai", True)
         if not isinstance(use_ai, bool):
             raise _invalid("use_ai 必须是布尔值。")
+        auto_archive = payload.get("auto_archive", True)
+        if not isinstance(auto_archive, bool):
+            raise _invalid("auto_archive 必须是布尔值。")
         extraction_error = None
         if "filename" in payload or "data_base64" in payload:
             encoded = payload.get("data_base64")
@@ -490,7 +501,7 @@ class InboxService:
             {"processing_status": "pending", "processing_error": extraction_error},
             internal=True,
         )
-        self._enqueue(item, use_ai)
+        self._enqueue(item, use_ai, auto_archive)
         return item
 
     def retry(self, item_id: str) -> dict[str, Any]:
@@ -572,7 +583,13 @@ class InboxService:
                 failed = cancelled = True
             except Exception:
                 failed = True
-        folder_id = self.knowledge.classify(metadata["tags"])
+        path = self.content._directory(item["id"]) / "processing.json"
+        auto_archive = (
+            json.loads(path.read_text(encoding="utf-8")).get("auto_archive", True)
+            if path.exists()
+            else True
+        )
+        folder_id = self.knowledge.classify(metadata["tags"]) if auto_archive else None
         with self.content.store.connect() as db:
             archive_jobs = db.execute(
                 "SELECT job_id FROM inbox_archive_jobs WHERE item_id=? "

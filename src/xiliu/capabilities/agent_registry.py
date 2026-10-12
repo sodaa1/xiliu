@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Literal
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, model_validator
 
 from xiliu.capabilities.manager import BUILTIN_PERMISSIONS
 from xiliu.capabilities.models import CapabilitySpec
@@ -20,9 +20,7 @@ class AgentManifest(BaseModel):
     kind: Literal["agent"] = "agent"
     description: str = Field(min_length=1, max_length=2000)
     tags: list[str] = Field(default_factory=list, max_length=30)
-    allowed_modes: list[Literal["standard", "deep"]] = Field(
-        default_factory=lambda: ["standard", "deep"]
-    )
+    allowed_paths: list[Literal["planner"]] = Field(default_factory=lambda: ["planner"])
     allowed_tools: list[str] = Field(default_factory=lambda: ["app"])
     allowed_actions: list[str] = Field(
         default_factory=lambda: ["knowledge.search", "knowledge.get"]
@@ -32,6 +30,17 @@ class AgentManifest(BaseModel):
     network_access: StrictBool = False
     prompt_path: str = "prompt.md"
     prompt: str = Field(default="", exclude=True)
+
+    @model_validator(mode="before")
+    @classmethod
+    def migrate_execution_modes(cls, value):
+        if isinstance(value, dict) and "allowed_modes" in value:
+            value = dict(value)
+            legacy = value.pop("allowed_modes")
+            if not isinstance(legacy, list) or not legacy or set(legacy) - {"standard", "deep"}:
+                raise ValueError("invalid legacy agent mode restriction")
+            value.setdefault("allowed_paths", ["planner"])
+        return value
 
 
 BUILTINS = (
@@ -124,11 +133,11 @@ class AgentRegistry:
             except (OSError, ValueError, yaml.YAMLError):
                 self.errors.append(f"{directory.name}: invalid manifest disabled")
 
-    def get(self, identifier: str, mode: str) -> AgentManifest:
+    def get(self, identifier: str, path: str = "planner") -> AgentManifest:
         self.refresh()
         manifest = self.agents.get(identifier)
-        if manifest is None or mode not in manifest.allowed_modes:
-            raise ValueError("agent unavailable in requested mode")
+        if manifest is None or path not in manifest.allowed_paths:
+            raise ValueError("agent unavailable in requested execution path")
         return manifest
 
     def specs(self) -> list[CapabilitySpec]:

@@ -182,6 +182,7 @@ class ActionSpec:
     agent_availability: str = "enabled"
     ui_binding: tuple[str, ...] = ()
     constant_catalog: str | None = None
+    supports_batch: bool = False
 
 
 def _records(value: Any) -> list[dict]:
@@ -268,8 +269,28 @@ def _document(services: Any, args: dict, context: Any) -> dict:
 
 
 def _import(services: Any, args: dict, context: Any) -> dict:
-    payload = {"text": args.get("url", args.get("text", "")), "use_ai": args["use_ai"]}
+    payload = {
+        "text": args.get("url", args.get("text", "")),
+        "use_ai": args["use_ai"],
+        "auto_archive": False,
+    }
     return services.inbox.import_item(payload)
+
+
+def _verify_import(services: Any, args: dict, value: Any) -> bool:
+    if not isinstance(value, dict) or not value.get("id"):
+        return False
+    current = services.content.get(value["id"])
+    original = args.get("url", args.get("text", "")).strip()
+    # Background metadata may change without a user revision. Destination and
+    # original material remain the postcondition; any manual edit invalidates it.
+    return (
+        current["revision"] == value["revision"]
+        and current["content"] == original
+        and current["status"] == "inbox"
+        and current["folder_id"] is None
+        and ("url" not in args or current["source"] == original and current["type"] == "link")
+    )
 
 
 def _restricted_file_import(services: Any, args: dict, context: Any) -> dict:
@@ -422,6 +443,7 @@ def get_registry() -> dict[str, ActionSpec]:
             agent_availability="restricted" if restricted else "enabled",
             ui_binding=UI_BINDINGS.get(identifier, ()),
             constant_catalog=catalog,
+            supports_batch=identifier in {"inbox.classify_selected", "inbox.classify_all"},
         )
 
     add(
@@ -503,6 +525,7 @@ def get_registry() -> dict[str, ActionSpec]:
         "inbox.import_item",
         write=True,
         permission="knowledge.write",
+        postcondition=_verify_import,
     )
     add(
         "inbox.import_url",
@@ -511,6 +534,7 @@ def get_registry() -> dict[str, ActionSpec]:
         "inbox.import_item",
         write=True,
         permission="knowledge.write",
+        postcondition=_verify_import,
     )
     add(
         "inbox.import_file",
@@ -892,7 +916,11 @@ def get_registry() -> dict[str, ActionSpec]:
     add(
         "settings.model.read",
         EMPTY,
-        lambda s, a, c: s.model_settings.read(),
+        lambda s, a, c: {
+            key: value
+            for key, value in s.model_settings.read().items()
+            if key in {"provider", "model", "base_url", "api_key_set"}
+        },
         "model_settings.read",
         permission="settings.read",
     )

@@ -80,10 +80,11 @@ def search_sdk(monkeypatch):
 )
 def test_current_weather_uses_fast_web_search(task, tmp_path, search_sdk):
     from xiliu.events import FinalEvent
-    from xiliu.graph.routing import external_scope, mode_router_node
+    from xiliu.graph.routing import external_scope
+    from xiliu.routing import recognize_intent, select_execution
 
     assert external_scope(task)
-    assert mode_router_node({"task": task})["mode"] == "fast"
+    assert select_execution(recognize_intent(task, model=object())) == "fast_react"
     model = ToolModel("web_search", {"query": task})
     runtime = Runtime(model, data_dir=tmp_path, checkpoint_mode="off", trace_mode="off")
     try:
@@ -375,7 +376,9 @@ def test_fast_search_stops_at_first_transient_failure(failure, error, tmp_path, 
     model = ToolModel("web_search", {"query": "Beijing weather"}, repeat=True)
     runtime = Runtime(model, data_dir=tmp_path, checkpoint_mode="off", trace_mode="off")
     try:
-        events = list(runtime.stream_session("Beijing weather today", str(uuid4()), ""))
+        events = list(
+            runtime.stream_session("Beijing weather today", str(uuid4()), "", max_attempts=1)
+        )
     finally:
         runtime.close()
     assert isinstance(events[-1], FinalEvent)
@@ -412,7 +415,9 @@ def test_transient_search_retries_only_with_outer_attempt_budget(delegate, tmp_p
     )
     try:
         events = list(
-            runtime.stream_session("Beijing weather today", str(uuid4()), "", mode="standard")
+            runtime.stream_session(
+                "Beijing weather today; write a research report", str(uuid4()), ""
+            )
         )
     finally:
         runtime.close()

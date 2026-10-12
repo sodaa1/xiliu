@@ -25,8 +25,13 @@ export function ThinkingPanel({ thinking, startedAt }: { thinking: Thinking; sta
             ))}
           </ol>
         )}
-        {thinking.reasoning && <pre>{thinking.reasoning}</pre>}
-        {!thinking.reasoning && <p>这里显示处理步骤；模型返回思考内容时会同步显示。</p>}
+        {thinking.reasoning && (
+          <details>
+            <summary>模型原始摘要</summary>
+            <pre>{thinking.reasoning}</pre>
+          </details>
+        )}
+        {!thinking.reasoning && <p>这里记录实际执行步骤；模型提供的原文可在折叠项中查看。</p>}
       </div>
     </details>
   )

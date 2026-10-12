@@ -4,7 +4,8 @@ from xiliu.api.app import create_app
 from xiliu.app.intent import resolve_intent
 from xiliu.events import FinalEvent
 from xiliu.graph.nodes import intent_router_node
-from xiliu.graph.routing import app_action, local_scope, mode_router_node
+from xiliu.graph.routing import app_action, local_scope
+from xiliu.routing import recognize_intent, select_execution
 
 
 @pytest.fixture
@@ -51,6 +52,5 @@ def test_expanded_capability_command_remains_a_workflow_through_graph(command_ap
     assert resolve_intent(task) is None
     assert not app_action(task)
     assert not local_scope(task)
-    state = {"task": task, "requested_mode": "fast"}
-    assert mode_router_node(state)["mode"] == "standard"
+    assert select_execution(recognize_intent(task, model=object())) == "planner"
     assert intent_router_node({"task": task}, model=object())["intent_route"] == "workflow"

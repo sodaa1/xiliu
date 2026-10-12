@@ -58,12 +58,36 @@ class AgentResult(TypedDict):
     attempt: int
 
 
+class StructuredIntent(TypedDict):
+    intent: Literal["chat", "task", "control", "clarification"]
+    domain: str
+    action: str
+    complexity: Literal["simple", "bounded", "multi_step"]
+    source: Literal["command", "rule", "embedding", "llm"]
+    preferred_capability: str
+    confidence: float
+
+
 class GraphState(TypedDict):
+    execution_run_id: NotRequired[str]
+    workspace_before: NotRequired[dict[str, str]]
+    capability_candidates: NotRequired[list[dict[str, Any]]]
+    execution_result: NotRequired[dict[str, Any]]
+    execution_ids: NotRequired[list[str]]
+    results: NotRequired[list[dict[str, Any]]]
+    execution_path: NotRequired[str]
+    loop_messages: NotRequired[list[dict[str, Any]]]
+    pending_calls: NotRequired[list[dict[str, Any]]]
+    loop_count: NotRequired[int]
+    loop_complete: NotRequired[bool]
+    round_events: NotRequired[list[ToolEvent]]
+    selected_tools: NotRequired[list[str]]
+    command: NotRequired[str]
+    clarification_reason: NotRequired[str]
+    execution_ok: NotRequired[bool]
     app_receipts: NotRequired[list[dict[str, Any]]]
     app_model_calls: NotRequired[int]
-    intent: NotRequired[Literal["chat", "task"]]
-    mode: NotRequired[Literal["fast", "standard", "deep"]]
-    requested_mode: NotRequired[str]
+    intent: NotRequired[StructuredIntent]
     route_reason: NotRequired[str]
     evidence: Annotated[NotRequired[list[dict[str, Any]]], merge_evidence_by_event_id]
     retrieval_hits: NotRequired[list[dict[str, Any]]]
@@ -71,8 +95,8 @@ class GraphState(TypedDict):
     intent_reason: NotRequired[str]
     intent_confidence: NotRequired[float]
     chat_response: NotRequired[str]
-    resume_node: Literal["planner", "verifier", "final"]
-    supervisor_ok: bool
+    resume_node: str
+    supervisor_ok: NotRequired[bool]
     task: str
     todos: list[TodoItem]
     research_notes: list[ResearchNote]

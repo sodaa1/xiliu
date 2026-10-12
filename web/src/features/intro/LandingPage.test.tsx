@@ -1,8 +1,8 @@
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { expect, test, vi } from 'vitest'
-import { LandingPage } from './LandingPage'
-vi.mock('./useLandingMotion', () => ({ useLandingMotion: () => {} }))
+import { LandingPage } from '../../../../docs/web/src/LandingPage'
+vi.mock('../../../../docs/web/src/useLandingMotion', () => ({ useLandingMotion: () => {} }))
 
 test('Intro links, workflow tabs, keyboard navigation and menu remain available', async () => {
   render(<LandingPage />)

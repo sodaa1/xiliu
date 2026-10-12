@@ -1,4 +1,4 @@
-from xiliu.graph.routing import mode_router_node
+from xiliu.routing import recognize_intent, select_execution
 
 
 def test_import_and_classification_use_registered_fast_service_workflow():
@@ -10,4 +10,4 @@ def test_import_and_classification_use_registered_fast_service_workflow():
         "将这两个链接存入 Knowledge",
         "把 https://example.com/a 收藏到知识库",
     ):
-        assert mode_router_node({"task": task})["mode"] == "fast"
+        assert select_execution(recognize_intent(task, model=object())) == "app_executor"

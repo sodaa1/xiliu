@@ -20,6 +20,222 @@
       "service_calls": []
     },
     {
+      "id": "ui_link:79c7b43963fa98dcf1be:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 141,
+      "symbol": "<a className={`intro-button ${secondary ? \"outline\" : \"\"}`} href={href}>"
+    },
+    {
+      "id": "ui_link:b7bba2fc4a4180bb5bd1:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 196,
+      "symbol": "<a className=\"skip-link\" href=\"#features\">"
+    },
+    {
+      "id": "ui_link:8bc0539a290f3526c181:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 200,
+      "symbol": "<a className=\"intro-brand\" href=\"#top\" aria-label=\"息流 xiliu 首页\">"
+    },
+    {
+      "id": "ui_event:f037f7682df672437245:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 210,
+      "symbol": "onClick={() => setMenuOpen(false)}"
+    },
+    {
+      "id": "ui_link:aa55cea7ac41e3edfbbf:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 212,
+      "symbol": "<a href=\"#features\">"
+    },
+    {
+      "id": "ui_link:8a06a2ed6be67a014c56:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 216,
+      "symbol": "<a href=\"#workflow\">"
+    },
+    {
+      "id": "ui_link:0ef882e4426379308227:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 220,
+      "symbol": "<a href=\"#local\">"
+    },
+    {
+      "id": "ui_link:188b030868adeb5f4910:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 224,
+      "symbol": "<a href=\"#questions\">"
+    },
+    {
+      "id": "ui_button:2beaafc743bdb75b741d:1",
+      "kind": "ui_button",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 231,
+      "symbol": "<button className=\"mobile-menu\" ref={menuButton} aria-label={menuOpen ? \"关闭导航\" : \"打开导航\"} aria-controls=\"intro-navigation\" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} >"
+    },
+    {
+      "id": "ui_event:67750fb89580cfae67ae:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 237,
+      "symbol": "onClick={() => setMenuOpen(!menuOpen)}"
+    },
+    {
+      "id": "ui_link:3286c93c51c52e98942f:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 287,
+      "symbol": "<a className=\"hero-scroll-cue\" href=\"#features\">"
+    },
+    {
+      "id": "ui_link:92c54c77851f48020a31:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 314,
+      "symbol": "<a className=\"text-link\" href=\"#workflow\">"
+    },
+    {
+      "id": "ui_button:5667918f371bdffe526c:1",
+      "kind": "ui_button",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 364,
+      "symbol": "<button key={stage.name} role=\"tab\" id={`flow-tab-${i}`} aria-controls=\"flow-panel\" aria-selected={active === i} tabIndex={active === i ? 0 : -1} onClick={() => setActive(i)} onKeyDown={(event) => onTabKey(event, i)} >"
+    },
+    {
+      "id": "ui_event:f9ece79b023c0d752c5e:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 371,
+      "symbol": "onClick={() => setActive(i)}"
+    },
+    {
+      "id": "ui_event:94c0b43e7f3940094df6:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 372,
+      "symbol": "onKeyDown={(event) => onTabKey(event, i)}"
+    },
+    {
+      "id": "ui_link:89058fa505715d592e01:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 409,
+      "symbol": "<a className=\"text-link\" href={publicShowcase ? \"#workflow\" : \"/feed\"} >"
+    },
+    {
+      "id": "ui_link:f687c4728176c82e7273:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 479,
+      "symbol": "<a className=\"text-link\" href={publicShowcase ? \"#workflow\" : \"/knowledge\"} >"
+    },
+    {
+      "id": "ui_button:d575cf090e894a21a406:1",
+      "kind": "ui_button",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 589,
+      "symbol": "<button key={label} aria-pressed={question === i} onClick={() => setQuestion(i)} >"
+    },
+    {
+      "id": "ui_event:c465eacff9bdc3ea0c62:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 592,
+      "symbol": "onClick={() => setQuestion(i)}"
+    },
+    {
+      "id": "ui_link:ac865a3d03dfd38f7c99:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 694,
+      "symbol": "<a className=\"text-link\" href=\"#start\">"
+    },
+    {
+      "id": "ui_button:c6ec5ae5b6c1eb418f4b:1",
+      "kind": "ui_button",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 782,
+      "symbol": "<button onClick={() => void copyInstall()} aria-label=\"复制安装命令\" >"
+    },
+    {
+      "id": "ui_event:8764061a3d5f3d7ca93a:1",
+      "kind": "ui_event",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 783,
+      "symbol": "onClick={() => void copyInstall()}"
+    },
+    {
+      "id": "ui_link:b94e5fd9a4dca1f99658:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 800,
+      "symbol": "<a className=\"text-link\" href={`${repositoryUrl}/blob/main/desktop/README.md`} target=\"_blank\" rel=\"noreferrer\" >"
+    },
+    {
+      "id": "ui_link:bfdab515167578410707:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 818,
+      "symbol": "<a className=\"intro-brand\" href=\"#top\">"
+    },
+    {
+      "id": "ui_link:fffcec96dff5edd05131:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 825,
+      "symbol": "<a className=\"text-link\" href=\"#top\">"
+    },
+    {
+      "id": "ui_link:48b2cde7fd38327c64a9:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 832,
+      "symbol": "<a href=\"https://933693.xyz/\">"
+    },
+    {
+      "id": "ui_link:e48dc80f0d84b2d8abc7:1",
+      "kind": "ui_link",
+      "page": "Intro",
+      "file": "docs/web/src/LandingPage.tsx",
+      "line": 835,
+      "symbol": "<a href={repositoryUrl} target=\"_blank\" rel=\"noreferrer\">"
+    },
+    {
       "id": "http_route:ea0e184e39eb7e0b583f:1",
       "kind": "http_route",
       "page": "API / Service / Agent",
@@ -735,7 +951,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/chat.py",
-      "line": 36,
+      "line": 44,
       "symbol": "ChatService.reserve"
     },
     {
@@ -743,7 +959,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/chat.py",
-      "line": 47,
+      "line": 55,
       "symbol": "ChatService.cancel"
     },
     {
@@ -751,7 +967,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/chat.py",
-      "line": 55,
+      "line": 63,
       "symbol": "ChatService.stream_turn"
     },
     {
@@ -855,7 +1071,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/conversations.py",
-      "line": 32,
+      "line": 34,
       "symbol": "ConversationService.update"
     },
     {
@@ -863,7 +1079,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/conversations.py",
-      "line": 41,
+      "line": 49,
       "symbol": "ConversationService.active_messages"
     },
     {
@@ -871,7 +1087,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/conversations.py",
-      "line": 52,
+      "line": 60,
       "symbol": "ConversationService.build_context"
     },
     {
@@ -991,7 +1207,7 @@
       "kind": "service_method",
       "page": "Inbox",
       "file": "src/xiliu/api/services/inbox.py",
-      "line": 433,
+      "line": 440,
       "symbol": "InboxService.import_item"
     },
     {
@@ -999,7 +1215,7 @@
       "kind": "service_method",
       "page": "Inbox",
       "file": "src/xiliu/api/services/inbox.py",
-      "line": 496,
+      "line": 507,
       "symbol": "InboxService.retry"
     },
     {
@@ -1007,7 +1223,7 @@
       "kind": "service_method",
       "page": "Inbox",
       "file": "src/xiliu/api/services/inbox.py",
-      "line": 663,
+      "line": 680,
       "symbol": "InboxService.wait_for_metadata"
     },
     {
@@ -1015,7 +1231,7 @@
       "kind": "service_method",
       "page": "Inbox",
       "file": "src/xiliu/api/services/inbox.py",
-      "line": 681,
+      "line": 698,
       "symbol": "InboxService.classify_batch"
     },
     {
@@ -1095,7 +1311,7 @@
       "kind": "service_method",
       "page": "Settings",
       "file": "src/xiliu/api/services/model_settings.py",
-      "line": 23,
+      "line": 25,
       "symbol": "ModelSettingsService.values"
     },
     {
@@ -1103,7 +1319,7 @@
       "kind": "service_method",
       "page": "Settings",
       "file": "src/xiliu/api/services/model_settings.py",
-      "line": 56,
+      "line": 58,
       "symbol": "ModelSettingsService.read"
     },
     {
@@ -1111,7 +1327,7 @@
       "kind": "service_method",
       "page": "Settings",
       "file": "src/xiliu/api/services/model_settings.py",
-      "line": 63,
+      "line": 169,
       "symbol": "ModelSettingsService.update"
     },
     {
@@ -1119,7 +1335,7 @@
       "kind": "service_method",
       "page": "Settings",
       "file": "src/xiliu/api/services/model_settings.py",
-      "line": 90,
+      "line": 249,
       "symbol": "ModelSettingsService.runtime_settings"
     },
     {
@@ -2082,7 +2298,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 204,
+      "line": 205,
       "symbol": "onChange={(value) => model.mutate({ id: cid!, value })}"
     },
     {
@@ -2090,7 +2306,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 205,
+      "line": 206,
       "symbol": "onConfigure={() => setConfigOpen(true)}"
     },
     {
@@ -2098,7 +2314,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 214,
+      "line": 215,
       "symbol": "onClose={closeConfig}"
     },
     {
@@ -2298,7 +2514,7 @@
       "kind": "ui_button",
       "page": "Assistant",
       "file": "web/src/features/assistant/ModelPicker.tsx",
-      "line": 105,
+      "line": 125,
       "symbol": "<button type=\"button\" ref={trigger} className=\"model-picker-trigger\" role=\"combobox\" aria-label=\"当前对话模型\" aria-haspopup=\"listbox\" aria-expanded={open} aria-controls={open ? id : undefined} onClick={() => (open ? close() : show())} onKeyDown={keyboard} >"
     },
     {
@@ -2306,7 +2522,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/ModelPicker.tsx",
-      "line": 114,
+      "line": 134,
       "symbol": "onClick={() => (open ? close() : show())}"
     },
     {
@@ -2314,7 +2530,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/ModelPicker.tsx",
-      "line": 115,
+      "line": 135,
       "symbol": "onKeyDown={keyboard}"
     },
     {
@@ -2322,7 +2538,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/ModelPicker.tsx",
-      "line": 139,
+      "line": 171,
       "symbol": "onKeyDown={keyboard}"
     },
     {
@@ -2330,7 +2546,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/ModelPicker.tsx",
-      "line": 150,
+      "line": 182,
       "symbol": "onPointerMove={() => setActive(index)}"
     },
     {
@@ -2338,7 +2554,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/ModelPicker.tsx",
-      "line": 151,
+      "line": 183,
       "symbol": "onClick={() => choose(index)}"
     },
     {
@@ -2346,7 +2562,7 @@
       "kind": "ui_button",
       "page": "Assistant",
       "file": "web/src/features/assistant/ModelPicker.tsx",
-      "line": 162,
+      "line": 194,
       "symbol": "<button type=\"button\" className=\"model-picker-add\" onKeyDown={(event) => { if (event.key === 'Escape') { event.preventDefault() close(true) } }} onClick={() => { close(true) onConfigure() }} >"
     },
     {
@@ -2354,7 +2570,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/ModelPicker.tsx",
-      "line": 165,
+      "line": 197,
       "symbol": "onKeyDown={(event) => { if (event.key === 'Escape') { event.preventDefault() close(true) } }}"
     },
     {
@@ -2362,7 +2578,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/ModelPicker.tsx",
-      "line": 171,
+      "line": 203,
       "symbol": "onClick={() => { close(true) onConfigure() }}"
     },
     {
@@ -3758,214 +3974,6 @@
       "symbol": "onEdit={() => setEditor(item)}"
     },
     {
-      "id": "ui_link:705001b4018741fca1a6:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 132,
-      "symbol": "<a className={`intro-button ${secondary ? 'outline' : ''}`} href={href}>"
-    },
-    {
-      "id": "ui_link:2cf59125c75b39fa1b90:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 182,
-      "symbol": "<a className=\"skip-link\" href=\"#features\">"
-    },
-    {
-      "id": "ui_link:792fe118078e7954aac3:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 186,
-      "symbol": "<a className=\"intro-brand\" href=\"#top\" aria-label=\"息流 xiliu 首页\">"
-    },
-    {
-      "id": "ui_event:61722207af3383743455:1",
-      "kind": "ui_event",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 196,
-      "symbol": "onClick={() => setMenuOpen(false)}"
-    },
-    {
-      "id": "ui_link:4d461c04a89a2df708c0:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 198,
-      "symbol": "<a href=\"#features\">"
-    },
-    {
-      "id": "ui_link:f4a2481a5bdb475cd8fd:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 202,
-      "symbol": "<a href=\"#workflow\">"
-    },
-    {
-      "id": "ui_link:2248142206dc1cfde67b:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 206,
-      "symbol": "<a href=\"#local\">"
-    },
-    {
-      "id": "ui_link:725d40fe7f383401f687:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 210,
-      "symbol": "<a href=\"#questions\">"
-    },
-    {
-      "id": "ui_button:adc3f7390b66bec5a200:1",
-      "kind": "ui_button",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 217,
-      "symbol": "<button className=\"mobile-menu\" ref={menuButton} aria-label={menuOpen ? '关闭导航' : '打开导航'} aria-controls=\"intro-navigation\" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} >"
-    },
-    {
-      "id": "ui_event:bbf1ee0c5fa888b469c0:1",
-      "kind": "ui_event",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 223,
-      "symbol": "onClick={() => setMenuOpen(!menuOpen)}"
-    },
-    {
-      "id": "ui_link:79325c673c0bad17e581:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 269,
-      "symbol": "<a className=\"hero-scroll-cue\" href=\"#features\">"
-    },
-    {
-      "id": "ui_link:69561ecf5e15a18d91f4:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 296,
-      "symbol": "<a className=\"text-link\" href=\"#workflow\">"
-    },
-    {
-      "id": "ui_button:53b632297b57ac898691:1",
-      "kind": "ui_button",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 338,
-      "symbol": "<button key={stage.name} role=\"tab\" id={`flow-tab-${i}`} aria-controls=\"flow-panel\" aria-selected={active === i} tabIndex={active === i ? 0 : -1} onClick={() => setActive(i)} onKeyDown={(event) => onTabKey(event, i)} >"
-    },
-    {
-      "id": "ui_event:de7e0bfeae1f8c8a66ee:1",
-      "kind": "ui_event",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 345,
-      "symbol": "onClick={() => setActive(i)}"
-    },
-    {
-      "id": "ui_event:ef6444efbe913e11e528:1",
-      "kind": "ui_event",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 346,
-      "symbol": "onKeyDown={(event) => onTabKey(event, i)}"
-    },
-    {
-      "id": "ui_link:2e704061e63ea0ba187e:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 382,
-      "symbol": "<a className=\"text-link\" href={publicShowcase ? '#workflow' : '/feed'}>"
-    },
-    {
-      "id": "ui_link:aac711410f47890d63c0:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 446,
-      "symbol": "<a className=\"text-link\" href={publicShowcase ? '#workflow' : '/knowledge'}>"
-    },
-    {
-      "id": "ui_button:d799d1e76bc76c5c25c1:1",
-      "kind": "ui_button",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 546,
-      "symbol": "<button key={label} aria-pressed={question === i} onClick={() => setQuestion(i)}>"
-    },
-    {
-      "id": "ui_event:c055cc99defeebc3a5c1:1",
-      "kind": "ui_event",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 546,
-      "symbol": "onClick={() => setQuestion(i)}"
-    },
-    {
-      "id": "ui_link:b0029b3a499be2b3177b:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 646,
-      "symbol": "<a className=\"text-link\" href=\"#start\">"
-    },
-    {
-      "id": "ui_button:5bad578318d4ed4f359c:1",
-      "kind": "ui_button",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 734,
-      "symbol": "<button onClick={() => void copyInstall()} aria-label=\"复制安装命令\">"
-    },
-    {
-      "id": "ui_event:f8eaed0cff6da95c28e6:1",
-      "kind": "ui_event",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 734,
-      "symbol": "onClick={() => void copyInstall()}"
-    },
-    {
-      "id": "ui_link:b90521f2fdeb0e0b3ecc:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 756,
-      "symbol": "<a className=\"intro-brand\" href=\"#top\">"
-    },
-    {
-      "id": "ui_link:17b3056749efee39234f:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 763,
-      "symbol": "<a className=\"text-link\" href=\"#top\">"
-    },
-    {
-      "id": "ui_link:83fb4f989f6e8af4e568:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 770,
-      "symbol": "<a href=\"https://933693.xyz/\">"
-    },
-    {
-      "id": "ui_link:3fd9fa1ac5baff36024c:1",
-      "kind": "ui_link",
-      "page": "Intro",
-      "file": "web/src/features/intro/LandingPage.tsx",
-      "line": 773,
-      "symbol": "<a href=\"https://github.com/sodaa1\" target=\"_blank\" rel=\"noreferrer\">"
-    },
-    {
       "id": "ui_mutation:2c5751f450516c7eb6f8:1",
       "kind": "ui_mutation",
       "page": "Knowledge",
@@ -4494,59 +4502,75 @@
       "symbol": "<button className=\"primary-button\" disabled={saving || reading}>"
     },
     {
-      "id": "ui_mutation:f67c4bde95fe63bb112f:1",
+      "id": "ui_mutation:23934144a3544508d4ee:1",
       "kind": "ui_mutation",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 30,
-      "symbol": "useMutation({ mutationFn: () => api.saveSettings({ provider, model, base_url: address, api_key: key }), onSuccess: async (updated) => { setKey('') cache.setQueryData(['model-settings'], updated) await cache.invalidateQueries({ queryKey: ['conversation'] }) }, }"
-    },
-    {
-      "id": "ui_api:1dd82f4cd57ba1016916:1",
-      "kind": "ui_api",
-      "page": "Settings",
-      "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 31,
-      "symbol": "api.saveSettings"
+      "line": 43,
+      "symbol": "useMutation({ mutationFn: () => api.saveSettings({ provider, model, base_url: address, api_key: key, ...(connection ? { ...(connection.id ? { profile_id: connection.id } : {}), label, make_default: false } : {}), }), onSuccess: async (updated) => { setKey('') cache.setQueryData(['model-settings'], updated) await cache.invalidateQueries({ queryKey: ['conversation'] }) }, }"
     },
     {
       "id": "ui_query:237188bc34be27a4372e:1",
       "kind": "ui_query",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 31,
+      "line": 44,
       "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_api:1dd82f4cd57ba1016916:1",
+      "kind": "ui_api",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 45,
+      "symbol": "api.saveSettings"
     },
     {
       "id": "ui_event:017f39726882adc146b5:1",
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 41,
+      "line": 63,
       "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
     },
     {
-      "id": "ui_event:3c84e1628fcbd1735bf9:1",
+      "id": "ui_event:5070157ec75e227022ab:1",
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 63,
-      "symbol": "onChange={(value) => { const selected = value as ModelSettings['provider'] setProvider(selected) setModel(catalog[selected].models[0]) setAddress(catalog[selected].base_url) save.reset() }}"
+      "line": 110,
+      "symbol": "onChange={(value) => { const selected = value as ModelSettings['provider'] const profile = settings.profiles?.[selected] setProvider(selected) setModel(profile?.model ?? catalog[selected].models[0]) setAddress(profile?.base_url ?? catalog[selected].base_url) setKey('') save.reset() }}"
+    },
+    {
+      "id": "ui_event:57a74f8e56759d9e87cf:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 129,
+      "symbol": "onChange={(event) => setModel(event.target.value)}"
     },
     {
       "id": "ui_event:289e43751430514f3a8c:1",
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 82,
+      "line": 141,
       "symbol": "onChange={(value) => { setModel(value) save.reset() }}"
+    },
+    {
+      "id": "ui_event:ea424a88f305e3360f4e:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 153,
+      "symbol": "onChange={(event) => setLabel(event.target.value)}"
     },
     {
       "id": "ui_event:2372e5037db72f49792b:1",
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 97,
+      "line": 169,
       "symbol": "onChange={(event) => setKey(event.target.value)}"
     },
     {
@@ -4554,23 +4578,143 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 112,
+      "line": 182,
       "symbol": "onChange={(event) => setAddress(event.target.value)}"
+    },
+    {
+      "id": "ui_api:7f1d20559ab941b36a9c:1",
+      "kind": "ui_api",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 185,
+      "symbol": "api.xiaomimimo"
     },
     {
       "id": "ui_button:21906574ff76ffdbe32c:1",
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 124,
+      "line": 197,
       "symbol": "<button className=\"primary-button\" disabled={save.isPending}>"
+    },
+    {
+      "id": "ui_mutation:e2f6f0928cc0c44110b0:1",
+      "kind": "ui_mutation",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 217,
+      "symbol": "useMutation({ mutationFn: (connection: ModelConnection) => api.saveSettings({ provider: connection.provider, model: connection.model, base_url: connection.base_url, profile_id: connection.id, label: connection.label, api_key: '', }), onSuccess: (updated) => cache.setQueryData(['model-settings'], updated), }"
+    },
+    {
+      "id": "ui_query:a1e685e6b0ad43d0c335:1",
+      "kind": "ui_query",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 218,
+      "symbol": "mutationFn: (connection:"
+    },
+    {
+      "id": "ui_api:1dd82f4cd57ba1016916:2",
+      "kind": "ui_api",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 219,
+      "symbol": "api.saveSettings"
+    },
+    {
+      "id": "ui_mutation:a30e18e9367c8d5f1f9b:1",
+      "kind": "ui_mutation",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 229,
+      "symbol": "useMutation({ mutationFn: (item: ModelConnection) => api.saveSettings({ provider: item.provider, model: item.model, base_url: item.base_url, profile_id: item.id, label: item.label, api_key: '', make_default: false, enabled: item.enabled === false, }), onSuccess: (updated) => cache.setQueryData(['model-settings'], updated), }"
+    },
+    {
+      "id": "ui_query:c28c3e9318b35ddc5d00:1",
+      "kind": "ui_query",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 230,
+      "symbol": "mutationFn: (item:"
+    },
+    {
+      "id": "ui_api:1dd82f4cd57ba1016916:3",
+      "kind": "ui_api",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 231,
+      "symbol": "api.saveSettings"
+    },
+    {
+      "id": "ui_button:06778fe57d68cf29eaf4:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 249,
+      "symbol": "<button type=\"button\" className=\"connection-edit\" aria-label={`编辑 ${item.label}`} aria-expanded={editing === item.id} onClick={() => setEditing(item.id)} >"
+    },
+    {
+      "id": "ui_event:7e4d6cf5d24ea6b3030d:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 254,
+      "symbol": "onClick={() => setEditing(item.id)}"
+    },
+    {
+      "id": "ui_button:b6bc7fb7e237d5ae166e:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 262,
+      "symbol": "<button type=\"button\" role=\"switch\" aria-checked={item.enabled !== false} aria-label={`启用 ${item.label}`} className=\"secondary-button\" title={isDefault(item) ? '请先更换默认模型，再停用' : '停用后隐藏，保留密钥和配置'} disabled={isDefault(item) || toggle.isPending} onClick={() => toggle.mutate(item)} >"
+    },
+    {
+      "id": "ui_event:a5eae1a9e8e00039be4d:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 270,
+      "symbol": "onClick={() => toggle.mutate(item)}"
+    },
+    {
+      "id": "ui_button:4b267fd7e23d0be0ded4:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 274,
+      "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={!item.api_key_set || item.enabled === false || makeDefault.isPending} onClick={() => makeDefault.mutate(item)} aria-label={`设为默认 ${item.label}`} >"
+    },
+    {
+      "id": "ui_event:e984782a3dfb65badbc1:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 278,
+      "symbol": "onClick={() => makeDefault.mutate(item)}"
+    },
+    {
+      "id": "ui_button:6d6d473234b42c7b9f8f:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 316,
+      "symbol": "<button type=\"button\" className=\"secondary-button add-connection\" onClick={() => setEditing('new')} >"
+    },
+    {
+      "id": "ui_event:e5b92824d49de0aa80e7:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/SettingsPage.tsx",
+      "line": 319,
+      "symbol": "onClick={() => setEditing('new')}"
     },
     {
       "id": "ui_api:ebe64a5f50f341e88ceb:1",
       "kind": "ui_api",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 139,
+      "line": 343,
       "symbol": "api.settings"
     },
     {
@@ -4578,7 +4722,7 @@
       "kind": "ui_query",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 139,
+      "line": 343,
       "symbol": "queryFn: api.settings"
     },
     {
@@ -4586,7 +4730,7 @@
       "kind": "ui_api",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 140,
+      "line": 344,
       "symbol": "api.catalog"
     },
     {
@@ -4594,7 +4738,7 @@
       "kind": "ui_query",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 140,
+      "line": 344,
       "symbol": "queryFn: api.catalog"
     },
     {
@@ -4602,7 +4746,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 145,
+      "line": 349,
       "symbol": "<button className=\"secondary-button\" onClick={() => { void settings.refetch() void catalog.refetch() }} >"
     },
     {
@@ -4610,7 +4754,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 147,
+      "line": 351,
       "symbol": "onClick={() => { void settings.refetch() void catalog.refetch() }}"
     },
     {
@@ -4618,7 +4762,7 @@
       "kind": "ui_api",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 165,
+      "line": 373,
       "symbol": "workspaceApi.dataSettings"
     },
     {
@@ -4626,7 +4770,7 @@
       "kind": "ui_query",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 165,
+      "line": 373,
       "symbol": "queryFn: workspaceApi.dataSettings"
     },
     {
@@ -4634,7 +4778,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 181,
+      "line": 389,
       "symbol": "<button className=\"secondary-button\" onClick={() => void data.refetch()}>"
     },
     {
@@ -4642,7 +4786,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 181,
+      "line": 389,
       "symbol": "onClick={() => void data.refetch()}"
     },
     {
@@ -4650,7 +4794,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 209,
+      "line": 417,
       "symbol": "<button className=\"secondary-button copy-data-path\" onClick={async () => { try { await navigator.clipboard.writeText(data.data!.data_dir) setNotice('数据位置已复制') } catch { setNotice('无法自动复制，请选中上方路径手动复制。') } }} >"
     },
     {
@@ -4658,7 +4802,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 211,
+      "line": 419,
       "symbol": "onClick={async () => { try { await navigator.clipboard.writeText(data.data!.data_dir) setNotice('数据位置已复制') } catch { setNotice('无法自动复制，请选中上方路径手动复制。') } }}"
     },
     {
@@ -4666,7 +4810,7 @@
       "kind": "ui_link",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 256,
+      "line": 464,
       "symbol": "<Link to=\"/assistant\" className=\"back-link\">"
     },
     {
@@ -4674,7 +4818,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 276,
+      "line": 484,
       "symbol": "<button key={id} type=\"button\" role=\"tab\" id={`settings-tab-${id}`} aria-selected={position === index} aria-controls={`settings-panel-${id}`} tabIndex={position === index ? 0 : -1} onClick={() => select(position)} onKeyDown={(event) => { const target = event.key === 'ArrowRight' ? (index + 1) % sections.length : event.key === 'ArrowLeft' ? (index + sections.length - 1) % sections.length : event.key === 'Home' ? 0 : event.key === 'End' ? sections.length - 1 : -1 if (target >= 0) { event.preventDefault() select(target) document.getElementById(`settings-tab-${sections[target].id}`)?.focus() } }} >"
     },
     {
@@ -4682,7 +4826,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 284,
+      "line": 492,
       "symbol": "onClick={() => select(position)}"
     },
     {
@@ -4690,7 +4834,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 285,
+      "line": 493,
       "symbol": "onKeyDown={(event) => { const target = event.key === 'ArrowRight' ? (index + 1) % sections.length : event.key === 'ArrowLeft' ? (index + sections.length - 1) % sections.length : event.key === 'Home' ? 0 : event.key === 'End' ? sections.length - 1 : -1 if (target >= 0) { event.preventDefault() select(target) document.getElementById(`settings-tab-${sections[target].id}`)?.focus() } }}"
     },
     {
@@ -5178,7 +5322,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 104,
+      "line": 111,
       "symbol": "commands"
     },
     {
@@ -5186,7 +5330,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 105,
+      "line": 112,
       "symbol": "skills"
     },
     {
@@ -5194,7 +5338,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 106,
+      "line": 113,
       "symbol": "mcp"
     },
     {
@@ -5202,7 +5346,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 107,
+      "line": 114,
       "symbol": "chat"
     },
     {
@@ -5210,7 +5354,7 @@
       "kind": "ui_fetch",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 114,
+      "line": 121,
       "symbol": "fetch(`/api/conversations/${encodeURIComponent(id)}/chat`,"
     },
     {
@@ -5509,18 +5653,5 @@
       "line": 205,
       "symbol": "dataSettings"
     }
-  ],
-  "counts": {
-    "http_route": 61,
-    "service_method": 80,
-    "base_tool": 17,
-    "ui_event": 192,
-    "ui_link": 35,
-    "ui_button": 87,
-    "ui_api": 60,
-    "ui_query": 48,
-    "ui_mutation": 25,
-    "ui_fetch": 4,
-    "api_client": 51
-  }
+  ]
 }

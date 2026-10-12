@@ -1,0 +1,57 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	intent_router(intent_router)
+	capability_router(capability_router)
+	chat_responder(chat_responder)
+	app_executor(app_executor)
+	fast_react(fast_react)
+	planner(planner)
+	capability_discovery(capability_discovery)
+	tool_execute(tool_execute)
+	execution_verifier(execution_verifier)
+	state_collect(state_collect)
+	clarification(clarification)
+	final(final)
+	__end__([<p>__end__</p>]):::last
+	__start__ -.-> app_executor;
+	__start__ -.-> capability_discovery;
+	__start__ -.-> capability_router;
+	__start__ -.-> chat_responder;
+	__start__ -.-> clarification;
+	__start__ -.-> execution_verifier;
+	__start__ -.-> fast_react;
+	__start__ -.-> final;
+	__start__ -.-> intent_router;
+	__start__ -.-> planner;
+	__start__ -.-> state_collect;
+	__start__ -.-> tool_execute;
+	app_executor --> tool_execute;
+	capability_discovery -.-> execution_verifier;
+	capability_discovery -.-> tool_execute;
+	capability_router -.-> app_executor;
+	capability_router -.-> chat_responder;
+	capability_router -.-> clarification;
+	capability_router -.-> fast_react;
+	capability_router -.-> planner;
+	chat_responder --> final;
+	clarification --> final;
+	execution_verifier -.-> clarification;
+	execution_verifier -.-> fast_react;
+	execution_verifier -.-> final;
+	execution_verifier -.-> planner;
+	fast_react --> capability_discovery;
+	intent_router -.-> __end__;
+	intent_router -.-> capability_router;
+	planner --> capability_discovery;
+	state_collect -.-> capability_discovery;
+	state_collect -.-> execution_verifier;
+	tool_execute --> state_collect;
+	final --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

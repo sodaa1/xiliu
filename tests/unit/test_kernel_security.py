@@ -55,8 +55,9 @@ def test_negated_network_request_does_not_authorize_external_sources():
 
 
 def test_my_ui_bookmarks_are_a_fast_local_task():
-    from xiliu.graph.routing import local_scope, mode_router_node
+    from xiliu.graph.routing import local_scope
+    from xiliu.routing import recognize_intent, select_execution
 
     task = "我的 UI 收藏网站叫什么？"
     assert local_scope(task)
-    assert mode_router_node({"task": task})["mode"] == "fast"
+    assert select_execution(recognize_intent(task, model=object())) == "fast_react"

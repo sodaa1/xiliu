@@ -1,0 +1,1543 @@
+{
+  "source": "logs/graph-v2/p5-delivery-full.xml",
+  "methodology": "Production Runtime/LangGraph/Gateway/AppDispatcher/RAG/Policy and isolated real SQLite/files. Deterministic model and remote transport fixtures; not live-model accuracy.",
+  "task_count": 51,
+  "test_passed": 51,
+  "actual_execution_status_counts": {
+    "chat": 2,
+    "clarification_required": 15,
+    "confirmation_required": 1,
+    "completed": 27,
+    "failed": 4,
+    "context_updated": 2
+  },
+  "tasks": [
+    {
+      "id": 1,
+      "query": "解释什么是RAG",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "chat_responder",
+        "final"
+      ],
+      "execution_status": "chat",
+      "verified": "chat",
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 2,
+      "query": "LangGraph中的State是什么",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "chat_responder",
+        "final"
+      ],
+      "execution_status": "chat",
+      "verified": "chat",
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 3,
+      "query": "创建一个待办：明天提交论文",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "app_executor",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 4,
+      "query": "删除待办买牛奶",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "app_executor",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "confirmation_required",
+      "verified": false,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "tasks.list",
+          "receipt_verified": true
+        },
+        {
+          "tool": "app",
+          "ok": false,
+          "action": "tasks.delete",
+          "receipt_verified": false
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 5,
+      "query": "查看今天任务",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "app_executor",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "today.read",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 6,
+      "query": "搜索知识库中的LangGraph",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "app_executor",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.search",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 7,
+      "query": "把Feed中的文章保存到Inbox",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "app_executor",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 8,
+      "query": "创建Knowledge文件夹AI",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "app_executor",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.folders.create",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": [
+          "AI"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "query": "移动Inbox内容到Knowledge",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "app_executor",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 10,
+      "query": "删除Knowledge文件夹",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "app_executor",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 11,
+      "query": "帮我移动桌面的论文文件到Research",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "failed",
+      "verified": false,
+      "tool_receipts": [
+        {
+          "tool": "file_read",
+          "ok": false,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 12,
+      "query": "找出知识库里关于Agent的资料",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.search",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 13,
+      "query": "查看最近保存的AI资讯",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "inbox.list",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 14,
+      "query": "帮我查找并整理一个文件",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "file_read",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        },
+        {
+          "tool": "file_write",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 15,
+      "query": "搜索我的收藏并总结三条",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.search",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 16,
+      "query": "整理过去一个月Inbox资料并分类",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "inbox.list",
+          "receipt_verified": true
+        },
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "inbox.classify_selected",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "knowledge",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 17,
+      "query": "分析知识库论文并生成报告",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.search",
+          "receipt_verified": true
+        },
+        {
+          "tool": "file_write",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 18,
+      "query": "建立一个AI研究资料体系",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.search",
+          "receipt_verified": true
+        },
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.folders.create",
+          "receipt_verified": true
+        },
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.folders.create",
+          "receipt_verified": true
+        },
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.folders.create",
+          "receipt_verified": true
+        },
+        {
+          "tool": "file_write",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": [
+          "论文",
+          "AI研究资料",
+          "实验"
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "query": "批量清理重复知识内容",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "failed",
+      "verified": false,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": false,
+          "action": "knowledge.items.delete",
+          "receipt_verified": false
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 20,
+      "query": "分析多个来源形成研究计划",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.search",
+          "receipt_verified": true
+        },
+        {
+          "tool": "file_write",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 21,
+      "query": "/clear",
+      "test_passed": true,
+      "actual_node_path": [
+        "command_control"
+      ],
+      "execution_status": "context_updated",
+      "verified": "control",
+      "tool_receipts": []
+    },
+    {
+      "id": 22,
+      "query": "/compress",
+      "test_passed": true,
+      "actual_node_path": [
+        "command_control"
+      ],
+      "execution_status": "context_updated",
+      "verified": "control",
+      "tool_receipts": []
+    },
+    {
+      "id": 23,
+      "query": "/skill 创建知识整理流程",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "skill_load",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        },
+        {
+          "tool": "file_write",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 24,
+      "query": "/mcp 查询可用能力",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "capability_search",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 25,
+      "query": "/skill 分析我的论文资料",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "skill_load",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        },
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.search",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 26,
+      "query": "删除所有数据",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 27,
+      "query": "删除Knowledge前确认",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "app_executor",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 28,
+      "query": "删除它",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 29,
+      "query": "整理一下",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 30,
+      "query": "查询今天AI新闻",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "web_search",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 31,
+      "query": "搜索最新论文",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "web_search",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 32,
+      "query": "只使用本地知识库回答",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 33,
+      "query": "不要联网寻找资料",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 34,
+      "query": "总结我的Inbox",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "inbox.list",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 35,
+      "query": "把AI文章归档",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "failed",
+      "verified": false,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.search",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 36,
+      "query": "生成本周工作总结",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "tasks.list",
+          "receipt_verified": true
+        },
+        {
+          "tool": "file_write",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 37,
+      "query": "查看自动化任务",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "app_executor",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "automations.list",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 38,
+      "query": "创建每日AI简报",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "failed",
+      "verified": false,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "automations.list",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 39,
+      "query": "关闭某个自动化",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "app_executor",
+        "tool_execute",
+        "state_collect",
+        "execution_verifier",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 40,
+      "query": "修改模型设置",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 41,
+      "query": "查看MCP列表",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "capability_search",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 42,
+      "query": "查看Skill列表",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "capability_search",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 43,
+      "query": "运行一个Skill",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 44,
+      "query": "调用代码能力修改文件",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "file_edit",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 45,
+      "query": "读取项目文件",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "fast_react",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "file_read",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 46,
+      "query": "检查代码错误",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "bash",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 47,
+      "query": "生成测试报告",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "bash",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        },
+        {
+          "tool": "file_write",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 48,
+      "query": "恢复之前任务",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 49,
+      "query": "继续上一次分析",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "clarification",
+        "final"
+      ],
+      "execution_status": "clarification_required",
+      "verified": false,
+      "tool_receipts": [],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 50,
+      "query": "比较两个知识文档",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "app",
+          "ok": true,
+          "action": "knowledge.search",
+          "receipt_verified": true
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    },
+    {
+      "id": 51,
+      "query": "建立研究数据库",
+      "test_passed": true,
+      "actual_node_path": [
+        "intent_router",
+        "capability_router",
+        "planner",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "tool_execute",
+        "state_collect",
+        "capability_discovery",
+        "execution_verifier",
+        "final"
+      ],
+      "execution_status": "completed",
+      "verified": true,
+      "tool_receipts": [
+        {
+          "tool": "file_write",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        },
+        {
+          "tool": "bash",
+          "ok": true,
+          "action": null,
+          "receipt_verified": null
+        }
+      ],
+      "database_tasks": 1,
+      "database_state": {
+        "inbox_status": "inbox",
+        "knowledge_status": "knowledge",
+        "folders": []
+      }
+    }
+  ]
+}

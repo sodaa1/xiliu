@@ -2,11 +2,13 @@ import { useEffect, useId, useRef, useState, type KeyboardEvent } from 'react'
 import { createPortal } from 'react-dom'
 import { Check, ChevronDown, Cpu, Plus } from 'lucide-react'
 import './model-picker.css'
+import type { ModelConnection } from '../../lib/types'
 
 export function ModelPicker({
   value,
   defaultModel,
   models,
+  connections,
   provider,
   selectionDisabled,
   onChange,
@@ -15,6 +17,7 @@ export function ModelPicker({
   value: string
   defaultModel: string
   models: string[]
+  connections?: ModelConnection[]
   provider?: string
   selectionDisabled: boolean
   onChange: (value: string) => void
@@ -22,11 +25,28 @@ export function ModelPicker({
 }) {
   const options = [
     { value: '', label: defaultModel || '选择模型', tag: '默认' },
-    ...[...new Set(models)].map((name) => ({ value: name, label: name, tag: '' })),
+    ...(connections?.length
+      ? connections
+          .filter((connection) => connection.enabled !== false)
+          .map((connection) => ({
+            value: connection.id,
+            label: `${{ openai: 'OpenAI', deepseek: 'DeepSeek', mimo: '小米 MiMo', custom: '自定义' }[connection.provider]} · ${connection.label}`,
+            tag: connection.api_key_set ? '' : '未配置',
+          }))
+      : [...new Set(models)].map((name) => ({ value: name, label: name, tag: '' }))),
   ]
+  const selectedValue =
+    connections?.find(
+      (connection) => connection.model === value && connection.provider === provider
+    )?.id ?? value
   const selected = Math.max(
     0,
-    options.findIndex((option) => option.value === value)
+    options.findIndex((option) => option.value === selectedValue)
+  )
+  const selectedProvider =
+    connections?.find((connection) => connection.id === selectedValue)?.provider ?? provider
+  const disabledSelection = connections?.find(
+    (connection) => connection.id === selectedValue && connection.enabled === false
   )
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState(selected)
@@ -115,7 +135,11 @@ export function ModelPicker({
         onKeyDown={keyboard}
       >
         <Cpu size={15} aria-hidden="true" />
-        <span>{options[selected].label}</span>
+        <span>
+          {disabledSelection
+            ? `${disabledSelection.label}（已停用，请切换）`
+            : options[selected].label}
+        </span>
         {!value && <small>默认</small>}
         <ChevronDown size={14} className={open ? 'open' : ''} aria-hidden="true" />
       </button>
@@ -125,7 +149,15 @@ export function ModelPicker({
             <div className="model-picker-heading">
               <span>对话模型</span>
               <small>
-                {provider === 'deepseek' ? 'DeepSeek' : provider === 'openai' ? 'OpenAI' : '未连接'}
+                {selectedProvider === 'deepseek'
+                  ? 'DeepSeek'
+                  : selectedProvider === 'openai'
+                    ? 'OpenAI'
+                    : selectedProvider === 'mimo'
+                      ? '小米 MiMo'
+                      : selectedProvider === 'custom'
+                        ? '自定义'
+                        : '未连接'}
               </small>
             </div>
             <div
@@ -144,7 +176,7 @@ export function ModelPicker({
                   id={`${id}-${index}`}
                   role="option"
                   data-index={index}
-                  aria-selected={value === option.value}
+                  aria-selected={selectedValue === option.value}
                   aria-disabled={selectionDisabled}
                   className={`model-picker-option ${active === index ? 'highlighted' : ''}`}
                   onPointerMove={() => setActive(index)}
@@ -152,7 +184,7 @@ export function ModelPicker({
                 >
                   <span>{option.label}</span>
                   {option.tag && <small>{option.tag}</small>}
-                  {value === option.value && <Check size={15} aria-hidden="true" />}
+                  {selectedValue === option.value && <Check size={15} aria-hidden="true" />}
                 </div>
               ))}
             </div>

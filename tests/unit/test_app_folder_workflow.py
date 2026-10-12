@@ -7,8 +7,8 @@ import pytest
 
 from xiliu.api.app import create_app
 from xiliu.execution.gateway import ExecutionGateway, RunContext, active_run
-from xiliu.graph.routing import mode_router_node
 from xiliu.policy.engine import PolicyEngine
+from xiliu.routing import recognize_intent, select_execution
 from xiliu.tools.app import build_app_tool
 
 URL = "https://github.com/CHENG-LIANG1/real-company-interview-ai-coding-projects"
@@ -18,9 +18,8 @@ TASK = (
 )
 
 
-@pytest.mark.parametrize("mode", [None, "fast"])
-def test_exact_folder_import_request_uses_write_workflow(mode):
-    assert mode_router_node({"task": TASK, "requested_mode": mode})["mode"] == "fast"
+def test_exact_folder_import_request_uses_write_workflow():
+    assert select_execution(recognize_intent(TASK, model=object())) == "app_executor"
 
 
 @pytest.fixture
@@ -199,13 +198,12 @@ def test_exact_request_through_fast_creates_folder_and_real_link_card(applicatio
 
 @pytest.mark.parametrize("task", ["查看我创建的知识库文件夹", "查找我放入知识库的资料"])
 def test_historical_app_actions_remain_readonly(task):
-    assert mode_router_node({"task": task})["mode"] == "fast"
+    assert select_execution(recognize_intent(task, model=object())) == "app_executor"
 
 
 def test_python_url_is_not_a_request_to_write_code():
-    assert (
-        mode_router_node({"task": "https://github.com/python/cpython 放入知识库"})["mode"] == "fast"
-    )
+    route = recognize_intent("https://github.com/python/cpython 放入知识库", model=object())
+    assert select_execution(route) == "app_executor"
 
 
 def test_cancelled_metadata_wait_does_not_start_worker(application):

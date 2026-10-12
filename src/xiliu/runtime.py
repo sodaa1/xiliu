@@ -5,6 +5,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Any, cast
+from uuid import uuid4
 
 from langchain_core.messages import BaseMessage
 from langgraph.checkpoint.memory import InMemorySaver
@@ -15,16 +16,15 @@ from xiliu.capabilities.manager import CapabilityManager
 from xiliu.capabilities.mcp import MCPManager
 from xiliu.capabilities.skills import SkillRegistry
 from xiliu.config import Settings
-from xiliu.core.agent import _chunk_events, stream_agent
+from xiliu.core.agent import stream_agent
 from xiliu.core.approval import ApprovalDecision, ApprovalRequest, normalize_approval_mode
 from xiliu.core.checkpoint import CheckpointManager
 from xiliu.core.trace import TraceRecorder
-from xiliu.errors import CheckpointError, NodeOutputError, WorkspaceError, XiliuError
+from xiliu.errors import CheckpointError, WorkspaceError, XiliuError
 from xiliu.events import ErrorEvent, FinalEvent, RuntimeEvent
 from xiliu.execution.gateway import RunContext, active_run
 from xiliu.graph.memory import MemoryLimits, MemoryManager
 from xiliu.graph.state import GraphState
-from xiliu.graph.workflow import build_entry_workflow
 from xiliu.hooks.engine import HookEngine
 from xiliu.policy.engine import PolicyEngine
 from xiliu.providers.openai_compatible import classify_provider_error, create_chat_model
@@ -52,6 +52,7 @@ class _RunContext:
     policy_profile: str = "interactive"
     hook_failures: list[str] = field(default_factory=list)
     local_only: bool = False
+    execution_run_id: str = ""
 
 
 @contextmanager
@@ -64,7 +65,7 @@ def _activate_run_context(context: _RunContext) -> Iterator[None]:
     )
     capability_token = active_run.set(
         RunContext(
-            run_id=context.trace_id or context.session_id,
+            run_id=context.execution_run_id or context.trace_id or context.session_id,
             session_id=context.session_id,
             workspace=context.workspace,
             data_dir=context.data_dir,
@@ -113,6 +114,7 @@ class Runtime:
         policy_profile: str = "interactive",
         knowledge_embedding_provider: Any = None,
         app_services: Any = None,
+        intent_embedding_matcher: Any = None,
     ) -> None:
         self._model = model
         self._app_services = app_services
@@ -145,6 +147,9 @@ class Runtime:
         self._actor_type = actor_type
         self._policy_profile = policy_profile
         self.last_trace_id: str | None = None
+        self.last_state: dict[str, Any] = {}
+        self.last_node_path: list[str] = []
+        self._embedding_matcher = intent_embedding_matcher
 
     def close(self) -> None:
         """Release lazy MCP resources when a short-lived adapter finishes a turn."""
@@ -195,7 +200,8 @@ class Runtime:
             workspace, include_workspace_history=include_workspace_history
         )
         initial: dict[str, Any] = {
-            "resume_node": "planner",
+            "execution_run_id": uuid4().hex,
+            "resume_node": "intent_router",
             "task": task,
             "todos": [],
             "research_notes": [],
@@ -203,7 +209,6 @@ class Runtime:
             "tool_events": [],
             "evidence": [],
             "retrieval_hits": [],
-            "supervisor_ok": False,
             "result": "",
             "graph_state": "planning",
             "verification": "",
@@ -297,10 +302,30 @@ class Runtime:
         max_attempts: int = 3,
         *,
         include_workspace_history: bool = True,
-        mode: str | None = None,
     ) -> Generator[RuntimeEvent, None, None]:
         """Route one session turn and answer lightweight chat directly."""
         try:
+            from xiliu.routing import command_adapter
+
+            control = command_adapter(task)
+            if control and control["intent"] == "control":
+                self.last_node_path, self.last_state = [], {}
+                if control["action"] == "clear":
+                    answer = "已清除当前上下文。"
+                elif not context_summary.strip():
+                    answer = "没有新的上下文需要压缩。"
+                else:
+                    from langchain_core.messages import HumanMessage
+
+                    from xiliu.graph.memory import summarize_messages
+
+                    answer = summarize_messages(
+                        self._model,
+                        [HumanMessage(content=context_summary)],
+                        {"task": "Compress conversation context"},
+                    )
+                yield FinalEvent(text=answer, session_id=session_id)
+                return
             workspace = create_session_workspace(self._data_dir, session_id)
             inputs, memory_manager = self._fresh_inputs(
                 task,
@@ -311,55 +336,8 @@ class Runtime:
                 include_workspace_history=include_workspace_history,
             )
             context = self._context(workspace, session_id)
-            if mode is not None:
-                inputs["requested_mode"] = mode
-            routed = dict(inputs)
-            with _activate_run_context(context):
-                entry_events = iter(
-                    build_entry_workflow(self._model, model_name=self._model_name).stream(
-                        inputs,
-                        config={"configurable": {"thread_id": session_id}},
-                        stream_mode=["updates", "custom"],
-                    )
-                )
-            try:
-                while True:
-                    try:
-                        with _activate_run_context(context):
-                            chunk = next(entry_events)
-                    except StopIteration:
-                        break
-                    if not isinstance(chunk, tuple) or len(chunk) != 2:
-                        continue
-                    mode, payload = chunk
-                    if not isinstance(payload, dict):
-                        continue
-                    if mode == "updates":
-                        for update in payload.values():
-                            if isinstance(update, dict):
-                                routed.update(update)
-                    else:
-                        yield from _chunk_events((mode, payload), session_id)
-            finally:
-                close = getattr(entry_events, "close", None)
-                if callable(close):
-                    with _activate_run_context(context):
-                        close()
-            route = routed.get("intent_route")
-            if route == "chat":
-                answer = routed.get("final_answer")
-                if not isinstance(answer, str):
-                    raise NodeOutputError("chat responder returned invalid output")
-                yield FinalEvent(text=answer, session_id=session_id)
-                return
-            if route != "workflow":
-                raise NodeOutputError("entry workflow returned invalid route")
             TodoStore(workspace).start_task()
-            yield from self._run(
-                cast(GraphState, routed),
-                memory_manager,
-                context,
-            )
+            yield from self._run(inputs, memory_manager, context)
         except XiliuError as exc:
             yield ErrorEvent(code=getattr(exc, "code", "runtime_error"), message=str(exc))
         except Exception as exc:
@@ -391,6 +369,13 @@ class Runtime:
             error = classify_provider_error(exc)
             yield ErrorEvent(code=error.code, message=str(error))
 
+    def _observe_state(self, node, state):
+        self.last_state = state
+        if node is None:
+            self.last_node_path = []
+        else:
+            self.last_node_path.append(node)
+
     def _run(
         self,
         inputs: GraphState,
@@ -400,14 +385,14 @@ class Runtime:
         resumed: bool = False,
         resume_event: Any = None,
     ) -> Iterator[RuntimeEvent]:
-        from xiliu.app.intent import resolve_intent
-        from xiliu.graph.routing import external_scope, local_scope
+        from xiliu.graph.routing import external_scope, local_scope, network_forbidden
 
         context = replace(
             context,
+            execution_run_id=inputs.get("execution_run_id", ""),
             local_only=(
-                resolve_intent(inputs["task"]) is None
-                and local_scope(inputs["task"])
+                network_forbidden(inputs["task"])
+                or local_scope(inputs["task"])
                 and not external_scope(inputs["task"])
             ),
         )
@@ -429,6 +414,9 @@ class Runtime:
                         trace_recorder=trace,
                         resumed=resumed,
                         resume_event=resume_event,
+                        model_name=self._model_name,
+                        state_observer=self._observe_state,
+                        embedding_matcher=self._embedding_matcher,
                     )
                 )
             while True:
@@ -457,7 +445,7 @@ def create_runtime(
     policy_profile: str = "interactive",
     app_services: Any = None,
 ) -> Runtime:
-    """Construct the Supervisor runtime with independent specialist models."""
+    """Construct the unified graph runtime with independent specialist models."""
 
     main_model = create_chat_model(settings)
     return Runtime(

@@ -34,13 +34,13 @@ from xiliu.graph.workflow import build_workflow
 def _update_event(node: str, update: Any, session_id: str) -> RuntimeEvent | None:
     if not isinstance(update, dict):
         return None
-    if node in {"planner", "supervisor"}:
+    if node == "planner":
         todos = update.get("todos")
         result = update.get("result")
         attempt = update.get("attempt")
         if isinstance(todos, list) and isinstance(result, str) and isinstance(attempt, int):
             return PlannerEvent(todos=todos, summary=result, attempt=attempt)
-    elif node == "verifier":
+    elif node == "execution_verifier":
         status = update.get("graph_state")
         reason = update.get("verification")
         attempt = update.get("attempt")
@@ -97,6 +97,9 @@ def stream_agent(
     trace_recorder: Any | None = None,
     resumed: bool = False,
     resume_event: Any = None,
+    model_name: str = "unknown-model",
+    state_observer: Any = None,
+    embedding_matcher: Any = None,
 ) -> Generator[RuntimeEvent, None, None]:
     """Run the graph and translate LangGraph chunks into stable runtime events."""
 
@@ -105,6 +108,8 @@ def stream_agent(
     # Runtime owns live services; persistence observes only independent state data.
     latest_state = deepcopy({key: value for key, value in inputs.items() if key != "runtime"})
     latest_node = None
+    if state_observer:
+        state_observer(None, deepcopy(latest_state))
 
     def save(status: str, event: Any = None) -> ProgressEvent | None:
         if checkpoint_manager is None or checkpoint_manager.mode == "off":
@@ -140,12 +145,18 @@ def stream_agent(
                 if run_context.event_sink is not None:
                     run_context.event_sink(hook_event)
         save("started")
-        workflow = build_workflow(model, memory_manager, checkpointer=checkpointer)
+        workflow = build_workflow(
+            model,
+            memory_manager,
+            checkpointer=checkpointer,
+            model_name=model_name,
+            embedding_matcher=embedding_matcher,
+        )
         chunks = workflow.stream(
             inputs,
             config={
                 "configurable": {"thread_id": inputs["session_id"] + ":" + uuid4().hex},
-                "recursion_limit": 2 * inputs["max_attempts"] + 8,
+                "recursion_limit": 32 * inputs["max_attempts"] + 16,
             },
             stream_mode=["updates", "custom"],
         )
@@ -181,14 +192,16 @@ def stream_agent(
                                     else value
                                 )
                             latest_node = node
+                            if state_observer:
+                                state_observer(node, deepcopy(latest_state))
                         node_event = {node: update}
                         if trace_recorder is not None:
                             trace_recorder.record_graph_update(deepcopy(node_event))
                         saved_event = save("running", node_event)
                         if saved_event is not None:
                             checkpoint_events.append(saved_event)
-            yield from _chunk_events(chunk, inputs["session_id"])
             yield from checkpoint_events
+            yield from _chunk_events(chunk, inputs["session_id"])
     except BaseException as error:
         primary = error
         status = (
@@ -319,6 +332,26 @@ def stream_session_events(
 
     workspace = (session_workspace or Path(SESSION_ROOT).parent).expanduser().resolve()
     session = load_or_create_session(workspace)
+    from xiliu.routing import command_adapter
+
+    control = command_adapter(task)
+    if (
+        control
+        and control["intent"] == "control"
+        and (control["action"] == "clear" or not session["recent_turns"])
+    ):
+        answer = (
+            "已清除当前上下文。" if control["action"] == "clear" else "没有新的上下文需要压缩。"
+        )
+        session.update(recent_turns=[], turn_index=0)
+        turn = append_user_turn(session, task)
+        append_assistant_turn(session, turn=turn + 1, route="chat", content=answer)
+        save_session(workspace, session)
+        yield {
+            "type": "graph_event",
+            "event": asdict(FinalEvent(text=answer, session_id=session["session_id"])),
+        }
+        return
     user_turn = append_user_turn(session, task)
     save_session(workspace, session)
     context = build_session_context(workspace, session)
@@ -343,8 +376,7 @@ def stream_session_events(
         for event in events:
             if isinstance(event, (PlannerEvent, VerifierEvent)) or (
                 isinstance(event, ProgressEvent)
-                and event.stage
-                in {"planner", "verifier", "code_agent", "search_agent", "checkpoint", "memory"}
+                and event.stage in {"planner", "verifier", "code_agent", "search_agent", "memory"}
             ):
                 route = "workflow"
             if isinstance(event, PlannerEvent) and event.summary:
@@ -352,6 +384,9 @@ def stream_session_events(
             elif isinstance(event, VerifierEvent) and event.reason:
                 verifier_summary = event.reason
             if isinstance(event, FinalEvent):
+                if control and control["intent"] == "control" and control["action"] == "compress":
+                    session.update(recent_turns=[], turn_index=0)
+                    user_turn = append_user_turn(session, task)
                 if verifier_summary:
                     available = MAX_TURN_CONTENT - len(verifier_summary) - 2
                     summary = (

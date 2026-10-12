@@ -185,8 +185,12 @@ class AppDispatcher:
                 {
                     "action_id": spec.id,
                     "description": spec.description,
+                    "domain": spec.domain,
+                    "schema": spec.args_schema.model_json_schema(),
+                    "permission": spec.permission,
                     "side_effect": spec.side_effect,
                     "requires_network": spec.requires_network,
+                    "supports_batch": spec.supports_batch,
                     "confirmation": spec.confirmation_policy,
                 }
                 for spec in self.registry.values()
@@ -205,6 +209,7 @@ class AppDispatcher:
             "action_id": action_id,
             "schema": spec.args_schema.model_json_schema(),
             "confirmation": spec.confirmation_policy,
+            "supports_batch": spec.supports_batch,
         }
 
     @contextmanager
@@ -283,6 +288,18 @@ class AppDispatcher:
         ):
             return _failure("policy_denied")
         return result
+
+    def get_receipt_arguments(self, request_id: str) -> dict:
+        """Recover the original parameters for policy-checked receipt replay."""
+        receipt = self.get_receipt(request_id)
+        if receipt is None or receipt.get("ok") is not True:
+            return {}
+        with self._db() as db:
+            row = db.execute(
+                "SELECT arguments FROM app_requests WHERE session=? AND request=?",
+                (self.context.session_id, request_id),
+            ).fetchone()
+        return json.loads(row[0]) if row and row[0] else {}
 
     def execute(
         self,

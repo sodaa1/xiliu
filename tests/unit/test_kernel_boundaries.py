@@ -12,7 +12,7 @@ from xiliu.events import FinalEvent
 from xiliu.runtime import Runtime
 
 
-def test_deep_can_use_local_tools_without_todos_or_delegation(tmp_path):
+def test_planner_can_use_local_tools_without_todos_or_delegation(tmp_path):
     ContentService(AppStore(tmp_path)).create({"content": "Refero", "status": "knowledge"})
 
     class Model:
@@ -54,7 +54,7 @@ def test_deep_can_use_local_tools_without_todos_or_delegation(tmp_path):
     model = Model()
     runtime = Runtime(model, data_dir=tmp_path, checkpoint_mode="off", trace_mode="off")
     try:
-        events = list(runtime.stream_session("我的收藏 Refero", str(uuid4()), "", mode="deep"))
+        events = list(runtime.stream_session("比较多篇我的收藏 Refero", str(uuid4()), ""))
     finally:
         runtime.close()
     assert isinstance(events[-1], FinalEvent) and "状态：passed" in events[-1].text

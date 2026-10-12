@@ -54,7 +54,7 @@ def call_agent(
     if context is None or context.data_dir is None:
         return {**base, "summary": "Agent requires an active execution context"}
     try:
-        manifest = AgentRegistry(context.data_dir).get(agent_id, state.get("mode", "standard"))
+        manifest = AgentRegistry(context.data_dir).get(agent_id, "planner")
     except ValueError as exc:
         return {**base, "summary": str(exc)}
     if delegation_depth.get() >= manifest.max_delegation_depth:
@@ -155,7 +155,7 @@ class AgentCallInput(BaseModel):
 class AgentCallTool(BaseTool):
     name: str = "agent_call"
     description: str = (
-        "Delegate by agent ID discovered through capability_search; optional in Standard/Deep."
+        "Delegate by agent ID discovered through capability_search in the Planner path."
     )
     args_schema: ArgsSchema | None = AgentCallInput
     state: dict = Field(exclude=True)
@@ -196,7 +196,7 @@ class AgentCatalogTool(BaseTool):
                         "id": a.id,
                         "description": a.description,
                         "allowed_tools": a.allowed_tools,
-                        "allowed_modes": a.allowed_modes,
+                        "allowed_paths": a.allowed_paths,
                         **({"prompt": a.prompt} if agent_id else {}),
                     }
                     for a in agents

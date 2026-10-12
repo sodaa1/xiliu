@@ -76,8 +76,10 @@ def test_app_fast_uses_shared_gateway_hooks_and_audit(tmp_path):
     assert events[-1]["decision"] == "deny" and not events[-1]["success"]
 
 
-@pytest.mark.parametrize("mode", ["fast", "standard", "deep"])
-def test_all_modes_bind_only_one_business_tool_and_share_services(tmp_path, mode):
+@pytest.mark.parametrize(
+    "task", ["我的收藏 Refero", "比较多篇我的收藏 Refero", "我的收藏 Refero 生成报告"]
+)
+def test_fast_and_planner_bind_one_business_tool_and_share_services(tmp_path, task):
     application = create_app(data_dir=tmp_path, env_file=tmp_path / ".env")
     item = application.state.content.create(
         {"content": "Refero local source", "status": "knowledge"}
@@ -140,7 +142,7 @@ def test_all_modes_bind_only_one_business_tool_and_share_services(tmp_path, mode
         trace_mode="off",
     )
     try:
-        list(runtime.stream_session("我的收藏 Refero", str(uuid4()), "", mode=mode))
+        list(runtime.stream_session(task, str(uuid4()), ""))
     finally:
         runtime.close()
     assert model.bound

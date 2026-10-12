@@ -15,6 +15,14 @@ from xiliu.providers.openai_compatible import classify_provider_error
 from xiliu.runtime import create_runtime
 
 
+class UnconfiguredModel:
+    def invoke(self, messages):
+        raise WebError("model_not_configured", "请先在 Settings 配置模型接口。", 400)
+
+    def bind_tools(self, tools):
+        return self
+
+
 class ChatService:
     def __init__(
         self,
@@ -58,7 +66,6 @@ class ChatService:
         text: str,
         *,
         context: str = "",
-        mode: str | None = None,
         signal: Event | None = None,
     ) -> Generator[dict[str, Any], None, None]:
         try:
@@ -68,7 +75,7 @@ class ChatService:
                     self._cancellations[conversation_id] = signal
                 token = cancel_signal.set(signal)
                 try:
-                    yield from self._turn(conversation_id, text, context=context, mode=mode)
+                    yield from self._turn(conversation_id, text, context=context)
                 finally:
                     cancel_signal.reset(token)
                     with self._lock:
@@ -90,9 +97,7 @@ class ChatService:
             error = classify_provider_error(exc)
             yield {"type": "error", "code": provider_code(error.code), "message": str(error)}
 
-    def _turn(
-        self, cid: str, text: str, *, context: str = "", mode: str | None = None
-    ) -> Iterator[dict[str, Any]]:
+    def _turn(self, cid: str, text: str, *, context: str = "") -> Iterator[dict[str, Any]]:
         started = monotonic()
         steps = ["正在处理"]
         reasoning = ""
@@ -127,68 +132,28 @@ class ChatService:
             task = result.task
         if conversation["title"] == "New Chat" and not text.startswith("/"):
             self.store.update(cid, title=text.splitlines()[0][:24])
-        if self.app_services is not None:
-            from xiliu.app.fast import run_app_fast
-            from xiliu.execution.gateway import RunContext
-            from xiliu.policy.engine import PolicyEngine
-
-            run_context = RunContext(
-                user["id"],
-                cid,
-                self.store.path.parent,
-                data_dir=self.store.path.parent,
-                app_services=self.app_services,
-                policy_engine=PolicyEngine(self.store.path.parent / "policy.json"),
+        configured = self.conversations.model_settings.read(conversation["model_override"])[
+            "api_key_set"
+        ]
+        if configured:
+            settings = self.conversations.model_settings.runtime_settings(
+                conversation["model_override"]
             )
-            check_cancelled()
-            local = run_app_fast(task, self.app_services, run_context)
-            if local is not None:
-                if (
-                    local["status"] == "clarification_required"
-                    and self.conversations.model_settings.read()["api_key_set"]
-                ):
-                    from xiliu.providers.openai_compatible import create_chat_model
+            settings = settings.model_copy(update={"data_dir": self.store.path.parent})
+            runtime = self.runtime_factory(
+                settings, approval_mode="deny", app_services=self.app_services
+            )
+            model_id = settings.model
+        else:
+            from xiliu.runtime import Runtime
 
-                    try:
-                        intent_settings = self.conversations.model_settings.runtime_settings(
-                            conversation["model_override"]
-                        )
-                        parsed_local = run_app_fast(
-                            task,
-                            self.app_services,
-                            run_context,
-                            model=create_chat_model(intent_settings),
-                        )
-                        if parsed_local is not None:
-                            local = parsed_local
-                    except Exception:
-                        pass
-                metadata = {
-                    "model": "local",
-                    "mode": "fast",
-                    "model_calls": local["model_calls"],
-                    "app_receipts": local["receipts"],
-                    "thinking": thinking(),
-                }
-                check_cancelled()
-                message = self.store.append_message(
-                    cid, "assistant", local["text"], metadata=metadata
-                )
-                yield {
-                    "type": "final",
-                    "message_id": message["id"],
-                    "text": local["text"],
-                    "role": "assistant",
-                    "metadata": metadata,
-                }
-                return
-        settings = self.conversations.model_settings.runtime_settings(
-            conversation["model_override"]
-        )
-        settings = settings.model_copy(update={"data_dir": self.store.path.parent})
-        runtime = self.runtime_factory(
-            settings, approval_mode="deny", app_services=self.app_services
-        )
+            runtime = Runtime(
+                UnconfiguredModel(),
+                data_dir=self.store.path.parent,
+                approval_mode="deny",
+                app_services=self.app_services,
+            )
+            model_id = "local"
         prior_context = self.conversations.build_context(cid, before_seq=user["seq"])
         if context:
             prior_context += (
@@ -204,13 +169,30 @@ class ChatService:
                     session_id=cid,
                     context_summary=prior_context,
                     include_workspace_history=False,
-                    **({"mode": mode} if mode else {}),
                 )
             )
             for event in events:
                 check_cancelled()
                 if isinstance(event, FinalEvent):
-                    metadata = {"model": settings.model, "thinking": thinking()}
+                    # Finish graph checkpoint/trace cleanup before exposing success.
+                    for terminal in events:
+                        if isinstance(terminal, ErrorEvent):
+                            yield {
+                                "type": "error",
+                                "code": provider_code(terminal.code),
+                                "message": terminal.message,
+                            }
+                            return
+                        check_cancelled()
+                    state = getattr(runtime, "last_state", {})
+                    metadata = {
+                        "model": model_id,
+                        "thinking": thinking(),
+                        "execution_path": state.get("execution_path"),
+                        "execution_result": state.get("execution_result", {}),
+                        "app_receipts": state.get("app_receipts", []),
+                        "model_calls": state.get("app_model_calls", 0),
+                    }
                     message = self.store.append_message(
                         cid, "assistant", event.text, metadata=metadata
                     )
@@ -251,7 +233,13 @@ class ChatService:
                         "verifier": "正在核对结果…",
                         "checkpoint": "正在保存进度…",
                         "memory": "正在整理上下文…",
+                        "app_executor": "正在匹配工具规则…",
+                        "fast_react": "正在执行简单任务…",
                     }.get(event.stage, "正在处理…")
+                    if event.event_type == "tool_call":
+                        status = "正在调用工具…"
+                    elif event.event_type in {"tool_result", "todo_update"}:
+                        status = "正在核对工具回执…"
                 elif isinstance(event, PlannerEvent):
                     status = "正在整理思路…"
                 elif isinstance(event, VerifierEvent):
@@ -263,7 +251,7 @@ class ChatService:
                 yield {"type": "progress", "message": status}
             yield {"type": "error", "code": "provider_error", "message": "本次对话未返回回答。"}
         except TurnCancelled:
-            metadata = {"model": settings.model, "thinking": thinking(), "cancelled": True}
+            metadata = {"model": model_id, "thinking": thinking(), "cancelled": True}
             message = self.store.append_message(
                 cid, "assistant", "已停止本次回复。", metadata=metadata
             )

@@ -99,8 +99,15 @@ export const api = {
     }),
   settings: () => request<ModelSettings>('/settings/model'),
   catalog: () => request<ModelCatalog>('/models/catalog'),
-  saveSettings: (body: Omit<ModelSettings, 'api_key_set'> & { api_key: string }) =>
-    request<ModelSettings>('/settings/model', { method: 'PUT', body: JSON.stringify(body) }),
+  saveSettings: (
+    body: Pick<ModelSettings, 'provider' | 'model' | 'base_url'> & {
+      api_key: string
+      profile_id?: string
+      label?: string
+      make_default?: boolean
+      enabled?: boolean
+    }
+  ) => request<ModelSettings>('/settings/model', { method: 'PUT', body: JSON.stringify(body) }),
   commands: () => request<Command[]>('/commands'),
   skills: () => request<Capability[]>('/capabilities/skills'),
   mcp: () => request<Capability[]>('/capabilities/mcp'),

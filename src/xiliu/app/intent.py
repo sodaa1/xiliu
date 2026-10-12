@@ -8,7 +8,15 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field
 
 type Domain = Literal[
-    "tasks", "feed", "inbox", "knowledge", "preferences", "automations", "conversations", "settings"
+    "today",
+    "tasks",
+    "feed",
+    "inbox",
+    "knowledge",
+    "preferences",
+    "automations",
+    "conversations",
+    "settings",
 ]
 
 DOMAINS: dict[Domain, str] = {
@@ -49,6 +57,10 @@ class AppIntent(BaseModel):
     scope: Literal["single", "all"] = "single"
     confidence: float = Field(default=1.0, ge=0, le=1)
     clarification: str = ""
+    network_requested: bool = False
+    ai_requested: bool = False
+    title_fetch_requested: bool = False
+    authorization_quote: str = ""
 
 
 def _has(verb: str, text: str) -> bool:
@@ -90,7 +102,9 @@ def explicit_title_fetch(text: str) -> bool:
 
 
 def resolve_intent(text: str) -> AppIntent | None:
-    text = re.sub(r"^\s*/(?:fast|standard|deep)\s+", "", text, flags=re.I).strip()
+    text = text.strip()
+    if re.fullmatch(r"(?:查看|列出|看看)今天任务[。？?]?", text):
+        return AppIntent(kind="read", domain="today", action_id="today.read")
     from xiliu.graph.routing import capability_command
 
     if capability_command(text):
@@ -133,7 +147,17 @@ def resolve_intent(text: str) -> AppIntent | None:
         return AppIntent(kind="clarify", domain=domain, confidence=0.0, clarification=reason)
 
     selector = quotes[0] if quotes else None
+    if selector is None and domain == "tasks":
+        named = re.fullmatch(r"删除待办\s*([^，。！？?]+)", text)
+        if named and named.group(1).strip() not in {"全部", "所有"}:
+            selector = named.group(1).strip()
     folder_name = quotes[0] if quotes else None
+    if folder_name is None:
+        named = re.fullmatch(
+            r"(?:创建|新建)\s*(?:Knowledge|知识库)\s*文件夹\s*([^，。！？?]+)", text, re.I
+        )
+        if named:
+            folder_name = named.group(1).strip()
     if not folder_name:
         folder = re.search(r"(?:叫|名为|名称为)\s*([^，,。\s]{1,100}?)的?文件夹", text)
         folder_name = folder.group(1) if folder else None

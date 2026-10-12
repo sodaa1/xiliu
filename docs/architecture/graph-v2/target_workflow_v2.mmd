@@ -1,0 +1,34 @@
+```mermaid
+flowchart TD
+U[User Query] --> CS[ChatService]
+CS --> IR[intent_router]
+
+IR --> CMD{Command}
+CMD -->|clear/compress| CTRL[CommandControl]
+CMD -->|normal or skill/mcp| STRUCT[Structured Intent]
+
+STRUCT --> CR[capability_router]
+
+CR --> CHAT[chat_responder]
+CR --> APP[app_executor]
+CR --> FAST[fast_react]
+CR --> PLAN[planner]
+
+FAST --> REG[Capability Registry]
+PLAN --> REG
+
+REG --> TOOL[tool_execute]
+APP --> TOOL
+
+TOOL --> STATE[GraphState Evidence Results]
+
+STATE --> VER[execution_verifier]
+
+VER --> FINAL[final]
+
+VER -->|retry| FAST
+VER -->|replan| PLAN
+
+FINAL --> END
+CTRL --> END
+```

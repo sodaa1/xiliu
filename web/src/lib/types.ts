@@ -18,7 +18,18 @@ export interface Message {
   metadata_json: string
 }
 export interface ModelSettings {
-  provider: 'openai' | 'deepseek'
+  provider: 'openai' | 'deepseek' | 'mimo' | 'custom'
+  model: string
+  base_url: string
+  api_key_set: boolean
+  profiles?: Record<string, { model: string; base_url: string; api_key_set: boolean }>
+  connections?: ModelConnection[]
+}
+export interface ModelConnection {
+  enabled?: boolean
+  id: string
+  label: string
+  provider: ModelSettings['provider']
   model: string
   base_url: string
   api_key_set: boolean

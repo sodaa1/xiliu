@@ -61,7 +61,7 @@ async def chat(cid: str, body: ChatRequest, request: Request):
 
         def produce():
             turn = request.app.state.chat.stream_turn(
-                cid, body.text, context=body.context, mode=body.mode, signal=signal
+                cid, body.text, context=body.context, signal=signal
             )
             try:
                 for event in turn:
