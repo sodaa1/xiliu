@@ -13,6 +13,10 @@ def goal_failure(state, events):
     successful = [e for e in events if e.get("ok")]
     writes = [e for e in successful if e["tool"] in {"file_write", "file_edit"}]
     latest = {e["args"].get("path"): e for e in writes}
+    if re.search(r"(?:md|markdown)\s*文件|\bmarkdown\s+file\b", task, re.I) and not any(
+        str(path).lower().endswith(".md") for path in latest
+    ):
+        return "Missing requested Markdown file artifact"
     for path, event in latest.items():
         try:
             target = resolve_workspace_path(state["workspace"], path)

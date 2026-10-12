@@ -1,0 +1,50 @@
+{"id": 1, "category": "app", "query": "将回答存成一个卡片，在知识库创建一个名为“模型原理”的文件夹放进去", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": true}
+{"id": 2, "category": "app", "query": "将回答存成一个卡片，放进知识库里面的“模型原理”", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": false}
+{"id": 3, "category": "app", "query": "把上面的讲解保存到知识库“模型原理”文件夹，没有就创建", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": true}
+{"id": 4, "category": "app", "query": "知识库创建“模型原理”，再把之前那段回答收录进去", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": false}
+{"id": 5, "category": "app", "query": "请把刚才的回答做成卡片并归类到知识库“模型原理”", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": true}
+{"id": 6, "category": "app", "query": "知识库里建个“模型原理”，把前面的解释存成笔记放进去", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": false}
+{"id": 7, "category": "app", "query": "保存上面的解释为知识卡片，目标知识库文件夹“模型原理”", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": true}
+{"id": 8, "category": "app", "query": "将前面回答放入知识库“模型原理”，已有文件夹就直接用", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": false}
+{"id": 9, "category": "app", "query": "新建知识库文件夹“模型原理”，导入上文回答并归类", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": true}
+{"id": 10, "category": "app", "query": "把前面关于旋转位置编码的回答放到知识库“模型原理”", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": false}
+{"id": 11, "category": "app", "query": "知识库里创建“模型原理”文件夹，再保存回答为卡片", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": true}
+{"id": 12, "category": "app", "query": "知识库“模型原理”里收录之前的回答，正文完整保留", "expected_path": "planner", "expected_scope": "app", "expected_steps": 3, "reuse_folder": false}
+{"id": 13, "category": "fast_network", "query": "联网查一下 RoPE 的定义，再查一下它的适用场景", "expected_path": "fast_react", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 14, "category": "fast_network", "query": "网上查 LangGraph 的状态定义，再核对 checkpoint 定义", "expected_path": "fast_react", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 15, "category": "fast_network", "query": "联网了解 RAG 的检索过程，然后了解重排序", "expected_path": "fast_react", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 16, "category": "fast_network", "query": "联网查询 SQLite WAL，再查事务隔离", "expected_path": "fast_react", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 17, "category": "fast_network", "query": "网上查 Python 生成器，再查异步生成器", "expected_path": "fast_react", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 18, "category": "fast_network", "query": "联网查向量检索原理，再查关键词检索原理", "expected_path": "fast_react", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 19, "category": "fast_network", "query": "联网查 Transformer 的注意力，再查位置编码", "expected_path": "fast_react", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 20, "category": "fast_network", "query": "网上查 JSON Schema，再核对 required 字段含义", "expected_path": "fast_react", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 21, "category": "network_plan", "query": "联网从多个来源研究 RoPE，对照定义、优缺点和使用限制", "expected_path": "planner", "expected_scope": "all", "expected_steps": 3, "reuse_folder": false}
+{"id": 22, "category": "network_plan", "query": "联网从多个来源研究 RAG，整理证据和结论", "expected_path": "planner", "expected_scope": "all", "expected_steps": 3, "reuse_folder": false}
+{"id": 23, "category": "network_plan", "query": "联网从多个来源研究 SQLite 事务，核对不同说法", "expected_path": "planner", "expected_scope": "all", "expected_steps": 3, "reuse_folder": false}
+{"id": 24, "category": "network_plan", "query": "联网从多个来源研究 LangGraph 检查点，对照故障恢复方式", "expected_path": "planner", "expected_scope": "all", "expected_steps": 3, "reuse_folder": false}
+{"id": 25, "category": "network_plan", "query": "联网从多个来源研究向量索引，对照召回与速度", "expected_path": "planner", "expected_scope": "all", "expected_steps": 3, "reuse_folder": false}
+{"id": 26, "category": "network_plan", "query": "联网从多个来源研究模型上下文压缩，核对限制", "expected_path": "planner", "expected_scope": "all", "expected_steps": 3, "reuse_folder": false}
+{"id": 27, "category": "network_plan", "query": "联网从多个来源研究提示词缓存，对照适用范围", "expected_path": "planner", "expected_scope": "all", "expected_steps": 3, "reuse_folder": false}
+{"id": 28, "category": "network_plan", "query": "联网从多个来源研究结构化输出，对照 schema 支持", "expected_path": "planner", "expected_scope": "all", "expected_steps": 3, "reuse_folder": false}
+{"id": 29, "category": "network_plan", "query": "联网从多个来源研究文本切块，对照重叠策略", "expected_path": "planner", "expected_scope": "all", "expected_steps": 3, "reuse_folder": false}
+{"id": 30, "category": "network_plan", "query": "联网从多个来源研究检索重排，归纳证据与差异", "expected_path": "planner", "expected_scope": "all", "expected_steps": 3, "reuse_folder": false}
+{"id": 31, "category": "mixed", "query": "联网从多个来源研究 RoPE，将结果保存为卡片，放进知识库“模型原理”", "expected_path": "planner", "expected_scope": "all", "expected_steps": 5, "reuse_folder": false}
+{"id": 32, "category": "mixed", "query": "联网从多个来源查 RAG，建立知识库“模型原理”文件夹并保存结论", "expected_path": "planner", "expected_scope": "all", "expected_steps": 5, "reuse_folder": false}
+{"id": 33, "category": "mixed", "query": "联网从多个来源核对上下文窗口，把资料存成卡片归类到知识库“模型原理”", "expected_path": "planner", "expected_scope": "all", "expected_steps": 5, "reuse_folder": false}
+{"id": 34, "category": "mixed", "query": "联网从多个来源了解注意力缓存，保存到知识库“模型原理”", "expected_path": "planner", "expected_scope": "all", "expected_steps": 5, "reuse_folder": false}
+{"id": 35, "category": "mixed", "query": "联网从多个来源查位置编码，汇总后放进知识库“模型原理”", "expected_path": "planner", "expected_scope": "all", "expected_steps": 5, "reuse_folder": false}
+{"id": 36, "category": "mixed", "query": "联网从多个来源研究模型量化，保留结果到知识库“模型原理”", "expected_path": "planner", "expected_scope": "all", "expected_steps": 5, "reuse_folder": false}
+{"id": 37, "category": "mixed", "query": "联网从多个来源查混合专家架构，创建知识卡片放进“模型原理”", "expected_path": "planner", "expected_scope": "all", "expected_steps": 5, "reuse_folder": false}
+{"id": 38, "category": "mixed", "query": "联网从多个来源了解检索增强，把资料保存到知识库“模型原理”", "expected_path": "planner", "expected_scope": "all", "expected_steps": 5, "reuse_folder": false}
+{"id": 39, "category": "mixed", "query": "联网从多个来源核对长上下文方案，把结果放到知识库“模型原理”", "expected_path": "planner", "expected_scope": "all", "expected_steps": 5, "reuse_folder": false}
+{"id": 40, "category": "mixed", "query": "联网从多个来源研究结构化输出，保存卡片并归类到知识库“模型原理”", "expected_path": "planner", "expected_scope": "all", "expected_steps": 5, "reuse_folder": false}
+{"id": 41, "category": "workspace", "query": "编写一份报告到 result.md，再读取文件核对正文", "expected_path": "planner", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 42, "category": "workspace", "query": "创建研究报告 result.md，随后回读确认保存内容", "expected_path": "planner", "expected_scope": "all", "expected_steps": 3, "reuse_folder": false}
+{"id": 43, "category": "workspace", "query": "整理报告到 result.md，并读取检查是否完整", "expected_path": "planner", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 44, "category": "workspace", "query": "输出一份报告 result.md，保存后核对实际文件", "expected_path": "planner", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 45, "category": "workspace", "query": "请生成报告 result.md，再打开检查最终正文", "expected_path": "planner", "expected_scope": "all", "expected_steps": 2, "reuse_folder": false}
+{"id": 46, "category": "chat", "query": "解释什么是 RAG，并举一个例子", "expected_path": "chat_responder", "expected_scope": "all", "expected_steps": 0, "reuse_folder": false}
+{"id": 47, "category": "chat", "query": "什么是位置编码？先讲直觉再讲作用", "expected_path": "chat_responder", "expected_scope": "all", "expected_steps": 0, "reuse_folder": false}
+{"id": 48, "category": "chat", "query": "解释什么是事务，再说明原子性", "expected_path": "chat_responder", "expected_scope": "all", "expected_steps": 0, "reuse_folder": false}
+{"id": 49, "category": "chat", "query": "什么是向量？再解释相似度", "expected_path": "chat_responder", "expected_scope": "all", "expected_steps": 0, "reuse_folder": false}
+{"id": 50, "category": "chat", "query": "解释什么是缓存，然后举例说明", "expected_path": "chat_responder", "expected_scope": "all", "expected_steps": 0, "reuse_folder": false}

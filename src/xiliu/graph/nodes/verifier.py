@@ -14,9 +14,14 @@ from xiliu.prompts import VERIFIER_NODE_PROMPT
 
 def execution_verifier_node(state, *, model, memory_manager):
     path = state.get("execution_path")
-    events = [e for e in state.get("tool_events", []) if e["attempt"] == state["attempt"]]
+    events = [
+        e
+        for e in state.get("tool_events", [])
+        if path == "planner" or e["attempt"] == state["attempt"]
+    ]
     status = state.get("execution_result", {}).get("status", "running")
     reason = None
+    verifier_calls = 0
     context = active_run.get()
     if status in {"clarification_required", "confirmation_required"}:
         reason = state.get("result") or "需要明确对象或由用户确认。"
@@ -117,6 +122,7 @@ def execution_verifier_node(state, *, model, memory_manager):
         if reason is None:
             try:
                 memory = memory_manager.assemble(state, current_node="verifier")
+                verifier_calls += 1
                 response = model.invoke(
                     [
                         SystemMessage(content=VERIFIER_NODE_PROMPT),
@@ -124,6 +130,8 @@ def execution_verifier_node(state, *, model, memory_manager):
                             content=json.dumps(
                                 {
                                     "memory": memory,
+                                    "original_request": state["task"],
+                                    "acceptance_criteria": state.get("acceptance_criteria", []),
                                     "result": state.get("result", ""),
                                     "actual_execution_receipts": [
                                         {
@@ -149,6 +157,7 @@ def execution_verifier_node(state, *, model, memory_manager):
         status = "completed" if passed else "failed"
     explanation = reason or "Verified actual execution receipts and persisted state"
     return {
+        "app_model_calls": state.get("app_model_calls", 0) + verifier_calls,
         "graph_state": "passed" if passed else "failed",
         "verification": explanation,
         "verifier_summary": explanation,

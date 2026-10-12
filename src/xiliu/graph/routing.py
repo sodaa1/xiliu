@@ -37,6 +37,13 @@ def network_forbidden(task: str) -> bool:
 def external_scope(task: str) -> bool:
     if network_forbidden(task):
         return False
+    # A local destination must not hide an explicitly requested remote source.
+    if re.search(
+        r"(?:调研|搜索|查阅|研究|research|search).{0,30}(?:github上|github\s+(?:for|on)|网上|网络|网站)"
+        r"|(?:github上|网上|网络|网站).{0,30}(?:调研|搜索|查阅|research|search)",
+        task, re.I,
+    ):
+        return True
     if local_scope(task) and not re.search(
         r"联网|网上查|网络资料|外部|结合.*最新|\b(?:online|internet|web search)\b", task, re.I
     ):

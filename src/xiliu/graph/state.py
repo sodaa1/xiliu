@@ -69,6 +69,7 @@ class StructuredIntent(TypedDict):
 
 
 class GraphState(TypedDict):
+    tool_scope: NotRequired[str]
     execution_run_id: NotRequired[str]
     workspace_before: NotRequired[dict[str, str]]
     capability_candidates: NotRequired[list[dict[str, Any]]]

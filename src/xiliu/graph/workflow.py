@@ -50,18 +50,9 @@ def route_after_verifier(state):
         return "final"
     if state.get("execution_path") == "app_executor":
         return "clarification"
-    from xiliu.app.actions import get_registry
-
-    if any(
-        e.get("ok")
-        and e.get("tool") == "app"
-        and (spec := get_registry().get(e.get("args", {}).get("action_id", "")))
-        and spec.side_effect == "write"
-        for e in events
-    ):
-        # A new plan has new tool-call IDs. Repeating successful database writes
-        # would lose idempotency, so ask how to continue the partially completed task.
-        return "clarification"
+    if state.get("tool_scope") == "app":
+        return "planner"
+    # Planner retries retain messages and receipts, including successful writes.
     return "fast_react" if state.get("execution_path") == "fast_react" else "planner"
 
 

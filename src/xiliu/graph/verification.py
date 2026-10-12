@@ -38,7 +38,15 @@ def _persisted_automation(state) -> bool:
 def requirements_failure(state) -> str | None:
     if not state.get("execution_ok", state.get("supervisor_ok", False)):
         return "Execution did not finish a valid round"
-    from xiliu.graph.routing import app_action
+    if state.get("tool_scope") == "app":
+        return _app_action_failure(state)
+    from xiliu.graph.routing import app_action, external_scope
+
+    if external_scope(state["task"]) and not any(
+        e["tool_ok"] and e["matched"] and e["source_type"] == "web"
+        for e in evidence_from_events(state["tool_events"])
+    ):
+        return "Missing actual external research evidence"
 
     if app_action(state["task"]):
         return _app_action_failure(state)
