@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import json
+from contextlib import suppress
 from datetime import UTC, datetime
 from threading import Event
 from typing import Any
 from uuid import uuid4
 from zoneinfo import ZoneInfo
 
+from apscheduler.jobstores.base import JobLookupError
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 from apscheduler.triggers.date import DateTrigger
@@ -63,7 +65,9 @@ class AutomationScheduler:
     def sync_jobs(self) -> None:
         tasks = {task.id: task for task in self.store.list(enabled_only=True)}
         for task_id in set(self._fingerprints) - tasks.keys():
-            self._scheduler.remove_job(task_id)
+            # Date jobs are removed automatically after their only execution.
+            with suppress(JobLookupError):
+                self._scheduler.remove_job(task_id)
             del self._fingerprints[task_id]
         for task_id, task in tasks.items():
             fingerprint = json.dumps(task.model_dump(mode="json"), sort_keys=True)

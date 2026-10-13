@@ -61,6 +61,39 @@ def test_content_writes_enqueue_without_running_search(tmp_path):
     assert rag.search("background")["hits"][0]["document_id"] == item["id"]
 
 
+def test_deleting_folder_preserves_semantic_retrieval_after_indexing(tmp_path):
+    class Provider:
+        model = "folder-delete-test"
+        dimensions = 2
+
+        def embed_documents(self, texts):
+            return [[1.0, 0.0] for _ in texts]
+
+    content, rag = services(tmp_path, Provider())
+    knowledge = content.knowledge
+    folder = knowledge.create_folder({"name": "Manual", "tags": []})
+    item = content.create(
+        {
+            "content": "A guide to automobile maintenance",
+            "status": "knowledge",
+            "folder_id": folder["id"],
+        }
+    )
+    rag.worker.process_pending()
+    assert rag.search("vehicle")["hits"][0]["document_id"] == item["id"]
+
+    knowledge.delete_folder(folder["id"])
+    rag.worker.process_pending()
+
+    current = content.get(item["id"])
+    assert current["status"] == "knowledge"
+    assert current["folder_id"] is None
+    result = rag.search("vehicle")
+    assert result["matched"] is True
+    assert result["hits"][0]["document_id"] == item["id"]
+    assert result["hits"][0]["revision"] == current["revision"]
+
+
 def test_only_changed_chunks_are_embedded_and_search_does_not_embed_documents(tmp_path):
     class Provider:
         model = "chunk-test"

@@ -201,6 +201,7 @@ class KnowledgeService:
                     f"UPDATE content_items SET {assignments} WHERE id=?",
                     (*self.content._values(item)[1:], item_id),
                 )
+                self.content._index(db, item)
             db.execute("DELETE FROM folder_tags WHERE folder_id=?", (folder_id,))
             db.execute("DELETE FROM knowledge_folders WHERE id=?", (folder_id,))
             atomic_write_utf8(
