@@ -37,24 +37,136 @@ def execute(app, action_id, arguments, session_id="test"):
         active_run.reset(token)
 
 
-def test_chat_can_import_separate_links_and_save_real_knowledge_cards(tmp_path):
+def test_chat_without_credentials_cannot_import_or_archive_links(tmp_path, monkeypatch):
+    monkeypatch.delenv("XILIU_API_KEY", raising=False)
     app = create_app(data_dir=tmp_path / "data", env_file=tmp_path / ".env")
-    app.state.chat.runtime_factory = lambda *args, **kwargs: pytest.fail("Local Fast built Runtime")
-    app.state.inbox._invoke = lambda *args, **kwargs: pytest.fail("Local Fast invoked metadata AI")
+    app.state.chat.runtime_factory = lambda *args, **kwargs: pytest.fail("Configured runtime used")
+    cid = app.state.store.create()["id"]
+    for text in [
+        "将 https://example.com/a 加入 Inbox，只保存链接",
+        "将Inbox里面内容分类归入知识库",
+    ]:
+        events = list(app.state.chat.stream_turn(cid, text))
+        assert events[-1]["type"] == "error"
+        assert events[-1]["code"] == "model_not_configured"
+        assert "Settings" in events[-1]["message"]
+    assert app.state.content.list("inbox") == []
+    assert app.state.content.list("knowledge") == []
+
+
+def test_chat_can_import_separate_links_and_save_real_knowledge_cards(tmp_path):
+    from langchain_core.messages import AIMessage
+
+    from xiliu.runtime import Runtime
+
+    env_file = tmp_path / ".env"
+    env_file.write_text("XILIU_API_KEY=fake\nXILIU_MODEL=deepseek-v4-flash\n")
+    app = create_app(data_dir=tmp_path / "data", env_file=env_file)
+    app.state.inbox._invoke = lambda *args, **kwargs: pytest.fail("Unexpected metadata AI")
     urls = (
         "https://www.reactbits.dev/micro/prompt-bar?radius=3",
         "https://uiverse.io/JohnnyCSilva/jolly-elephant-67",
     )
+    models, runtimes = [], []
+    actions = [("inbox.import_url", {"url": url, "use_ai": False}) for url in urls]
+
+    class ChatModel:
+        def __init__(self, action, arguments):
+            self.action, self.arguments = action, arguments
+            self.bound = []
+            self.executed = False
+
+        def bind_tools(self, tools):
+            self.bound.append([tool.name for tool in tools])
+            return self
+
+        def invoke(self, messages):
+            system = str(messages[0].content)
+            if "intent router" in system:
+                return AIMessage(
+                    content=json.dumps(
+                        dict(
+                            intent="task",
+                            domain="inbox",
+                            action="app:match",
+                            complexity="simple",
+                            preferred_capability="",
+                            confidence=1.0,
+                        )
+                    )
+                )
+            if "actual_execution_receipts" in str(messages[-1].content):
+                return AIMessage(
+                    content=json.dumps(dict(status="passed", reason="Actual receipts verified"))
+                )
+            if not self.executed:
+                self.executed = True
+                return AIMessage(
+                    content="",
+                    tool_calls=[
+                        dict(
+                            id="app-action",
+                            name="app",
+                            args=dict(
+                                operation="execute", action_id=self.action, arguments=self.arguments
+                            ),
+                        )
+                    ],
+                )
+            return AIMessage(
+                content=json.dumps(
+                    dict(
+                        summary="已保存并核对卡片",
+                        plan_summary="执行并核对请求",
+                        acceptance_criteria=["请求的卡片已持久化"],
+                        ready_for_verification=True,
+                    )
+                )
+            )
+
+    def runtime_factory(settings, **kwargs):
+        model = ChatModel(*actions.pop(0))
+        models.append(model)
+        runtime = Runtime(
+            model, data_dir=settings.data_dir, checkpoint_mode="off", trace_mode="off", **kwargs
+        )
+        runtimes.append(runtime)
+        return runtime
+
+    app.state.chat.runtime_factory = runtime_factory
     cid = app.state.store.create()["id"]
+    imported = []
     for url in urls:
         events = list(app.state.chat.stream_turn(cid, f"将 {url} 加入 Inbox，只保存链接"))
-        assert events[-1]["metadata"]["model_calls"] == 0
-        assert all(r["verification"]["passed"] for r in events[-1]["metadata"]["app_receipts"])
+        assert events[-1]["type"] == "final", events
+        metadata = events[-1]["metadata"]
+        assert metadata["execution_path"] == "planner"
+        assert metadata["model_calls"] > 0
+        assert metadata["app_receipts"] and all(
+            r["verification"]["passed"] for r in metadata["app_receipts"]
+        )
+        imported.append(
+            next(item for item in app.state.content.list("inbox") if item["source"] == url)["id"]
+        )
+    actions.append(("inbox.classify_selected", {"item_ids": imported, "use_ai": False}))
     events = list(app.state.chat.stream_turn(cid, "将Inbox里面内容分类归入知识库"))
-    assert events[-1]["metadata"]["model_calls"] == 0
-    assert all(r["verification"]["passed"] for r in events[-1]["metadata"]["app_receipts"])
-    assert {item["source"] for item in app.state.content.list("knowledge")} == set(urls)
+    assert events[-1]["type"] == "final", events
+    metadata = events[-1]["metadata"]
+    assert metadata["model_calls"] > 0
+    assert metadata["execution_result"]["verified"]
+    assert metadata["app_receipts"] and all(
+        r["verification"]["passed"] for r in metadata["app_receipts"]
+    )
+    assert [receipt["action_id"] for receipt in metadata["app_receipts"]] == [
+        "inbox.classify_selected"
+    ]
+    assert len(metadata["app_receipts"][0]["records"]) == 2
+    cards = app.state.content.list("knowledge")
+    assert {item["source"] for item in cards} == set(urls)
+    assert {item["id"] for item in cards} == set(imported)
     assert app.state.content.list("inbox") == []
+    assert all(model.bound and all(names == ["app"] for names in model.bound) for model in models)
+    assert all("execution_verifier" in runtime.last_node_path for runtime in runtimes)
 
 
 def test_cancelled_turn_never_persists_late_answer_and_other_chat_can_finish(tmp_path):

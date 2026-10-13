@@ -1,7 +1,7 @@
 """Run real browser/HTTP flows against a disposable, keyless Xiliu database.
 
 Uses an existing Playwright package and installed browser; never downloads either.
-Only the external Feed provider boundary is replaced with deterministic fixtures.
+External Feed and model HTTP provider boundaries use deterministic fixtures.
 """
 
 from __future__ import annotations
@@ -46,28 +46,110 @@ def serve(data_dir: Path, port: int) -> None:
             pass
 
         def do_POST(self):
-            self.rfile.read(int(self.headers["Content-Length"]))
-            provider_started.set()
-            time.sleep(2)
-            chunk = {
-                "id": "browser-stop-probe",
-                "object": "chat.completion.chunk",
-                "created": 1,
-                "model": "deepseek-v4-flash",
-                "choices": [
-                    {
-                        "index": 0,
-                        "delta": {
-                            "role": "assistant",
-                            "content": "Late provider reply must not persist",
-                        },
-                        "finish_reason": "stop",
-                    }
-                ],
-            }
-            data = ("data: " + json.dumps(chunk) + "\n\ndata: [DONE]\n\n").encode()
+            request = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+            messages = request["messages"]
+            system = str(messages[0].get("content", ""))
+            task = next((m["content"] for m in reversed(messages) if m["role"] == "user"), "")
+            delayed = "Hello, wait for the delayed reply" in str(task)
+            tool_calls = None
+            if delayed:
+                provider_started.set()
+                time.sleep(2)
+                content = "Late provider reply must not persist"
+            elif "intent router" in system:
+                content = json.dumps(
+                    dict(
+                        intent="task",
+                        domain="tasks",
+                        action="app:match",
+                        complexity="simple",
+                        preferred_capability="",
+                        confidence=1.0,
+                    )
+                )
+            elif "actual_execution_receipts" in str(task):
+                content = json.dumps(dict(status="passed", reason="Actual task receipts verified"))
+            else:
+                receipts = [json.loads(m["content"]) for m in messages if m["role"] == "tool"]
+                by_action = {r.get("action_id"): r for r in receipts}
+                deleting = "删除待办“Browser Planner task”" in str(task)
+                if deleting and "tasks.list" not in by_action:
+                    action, arguments = "tasks.list", {}
+                elif deleting and "tasks.delete" not in by_action:
+                    record = next(
+                        r
+                        for r in by_action["tasks.list"]["data"]
+                        if r["title"] == "Browser Planner task"
+                    )
+                    action, arguments = "tasks.delete", {"task_id": record["id"]}
+                elif not deleting and "tasks.create" not in by_action:
+                    action, arguments = "tasks.create", {"title": "Browser Planner task"}
+                else:
+                    action = None
+                if action:
+                    content = ""
+                    tool_calls = [
+                        dict(
+                            id="browser-" + action,
+                            type="function",
+                            function=dict(
+                                name="app",
+                                arguments=json.dumps(
+                                    dict(operation="execute", action_id=action, arguments=arguments)
+                                ),
+                            ),
+                        )
+                    ]
+                else:
+                    content = json.dumps(
+                        dict(
+                            summary="Completed task request",
+                            plan_summary="Execute and verify task",
+                            acceptance_criteria=["Requested task operation persisted"],
+                            ready_for_verification=True,
+                        )
+                    )
+            message = {"role": "assistant", "content": content}
+            if tool_calls:
+                message["tool_calls"] = tool_calls
+            if request.get("stream"):
+                delta = dict(message)
+                if tool_calls:
+                    delta["tool_calls"] = [dict(index=0, **tool_calls[0])]
+                chunk = dict(
+                    id="browser-provider",
+                    object="chat.completion.chunk",
+                    created=1,
+                    model="deepseek-v4-flash",
+                    choices=[
+                        dict(
+                            index=0,
+                            delta=delta,
+                            finish_reason="tool_calls" if tool_calls else "stop",
+                        )
+                    ],
+                )
+                data = ("data: " + json.dumps(chunk) + "\n\ndata: [DONE]\n\n").encode()
+                content_type = "text/event-stream"
+            else:
+                data = json.dumps(
+                    dict(
+                        id="browser-provider",
+                        object="chat.completion",
+                        created=1,
+                        model="deepseek-v4-flash",
+                        choices=[
+                            dict(
+                                index=0,
+                                message=message,
+                                finish_reason="tool_calls" if tool_calls else "stop",
+                            )
+                        ],
+                    )
+                ).encode()
+                content_type = "application/json"
             self.send_response(200)
-            self.send_header("Content-Type", "text/event-stream")
+            self.send_header("Content-Type", content_type)
             self.send_header("Content-Length", str(len(data)))
             self.end_headers()
             try:
@@ -75,7 +157,8 @@ def serve(data_dir: Path, port: int) -> None:
             except (BrokenPipeError, ConnectionResetError):
                 pass
             finally:
-                provider_finished.set()
+                if delayed:
+                    provider_finished.set()
 
     provider = ThreadingHTTPServer(("127.0.0.1", 0), DelayedProvider)
     threading.Thread(target=provider.serve_forever, daemon=True).start()

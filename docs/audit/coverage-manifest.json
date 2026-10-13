@@ -14153,8 +14153,7 @@
         "tests/integration/test_app_registry_coverage.py::test_every_action_background_scope_rejects_writes_before_arguments",
         "tests/integration/test_app_registry_coverage.py::test_every_action_gateway_honors_its_exact_denied_permission",
         "tests/integration/test_app_runtime_modes.py::test_background_uses_same_services_but_cannot_write",
-        "tests/integration/test_app_runtime_modes.py::test_cli_registered_local_action_has_zero_model_calls_and_real_receipt",
-        "tests/integration/test_chat_app_fast.py::test_local_chat_app_action_without_api_key_never_constructs_runtime",
+        "tests/integration/test_app_runtime_modes.py::test_cli_registered_local_action_uses_planner_and_real_receipt",
         "tests/unit/test_app_dispatch.py::test_policy_and_rag_scope_reject_writes",
         "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
         "tests/unit/test_app_dispatch.py::test_unrelated_request_does_not_wait_for_slow_service",
@@ -14169,16 +14168,14 @@
           "tests/integration/test_app_fast.py::test_local_task_create_and_replay_use_zero_model_calls_and_real_service",
           "tests/integration/test_app_fast.py::test_replayed_fast_receipt_still_respects_revoked_policy",
           "tests/integration/test_app_fast.py::test_valid_typed_model_fallback_can_only_execute_the_selected_registered_action",
-          "tests/integration/test_app_runtime_modes.py::test_cli_registered_local_action_has_zero_model_calls_and_real_receipt",
-          "tests/integration/test_chat_app_fast.py::test_local_chat_app_action_without_api_key_never_constructs_runtime"
+          "tests/integration/test_app_runtime_modes.py::test_cli_registered_local_action_uses_planner_and_real_receipt"
         ],
         "successful_tests": [
           "tests/integration/test_app_fast.py::test_local_task_create_and_replay_use_zero_model_calls_and_real_service",
           "tests/integration/test_app_fast.py::test_replayed_fast_receipt_still_respects_revoked_policy",
           "tests/integration/test_app_fast.py::test_valid_typed_model_fallback_can_only_execute_the_selected_registered_action",
           "tests/integration/test_app_http.py::test_app_http_is_same_service_with_human_confirmation_and_session_binding",
-          "tests/integration/test_app_runtime_modes.py::test_cli_registered_local_action_has_zero_model_calls_and_real_receipt",
-          "tests/integration/test_chat_app_fast.py::test_local_chat_app_action_without_api_key_never_constructs_runtime",
+          "tests/integration/test_app_runtime_modes.py::test_cli_registered_local_action_uses_planner_and_real_receipt",
           "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
           "tests/unit/test_app_dispatch.py::test_unrelated_request_does_not_wait_for_slow_service"
         ],

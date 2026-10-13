@@ -63,7 +63,18 @@ def test_requested_skill_cannot_be_replaced_by_unrelated_app_tool(tmp_path):
 
 def test_background_app_write_denial_is_not_replanned_or_persisted(tmp_path):
     runtime = Runtime(
-        object(),
+        ScriptModel(
+            [
+                {
+                    "name": "app",
+                    "args": {
+                        "operation": "execute",
+                        "action_id": "tasks.create",
+                        "arguments": {"title": "后台不能写"},
+                    },
+                }
+            ]
+        ),
         data_dir=tmp_path,
         checkpoint_mode="off",
         trace_mode="off",
@@ -125,7 +136,23 @@ def test_archive_goal_cannot_pass_with_search_receipts_only(tmp_path):
 
 
 def test_interruption_after_app_execution_resumes_collection_without_repeating_write(tmp_path):
-    runtime = Runtime(object(), data_dir=tmp_path, checkpoint_mode="light", trace_mode="off")
+    runtime = Runtime(
+        ScriptModel(
+            [
+                {
+                    "name": "app",
+                    "args": {
+                        "operation": "execute",
+                        "action_id": "tasks.create",
+                        "arguments": {"title": "只写一次"},
+                    },
+                }
+            ]
+        ),
+        data_dir=tmp_path,
+        checkpoint_mode="light",
+        trace_mode="off",
+    )
     sid = str(uuid4())
     events = runtime.stream_session("创建待办“只写一次”", sid, "")
     try:
@@ -158,7 +185,23 @@ def test_runtime_clear_is_control_without_agent_graph(tmp_path):
 
 
 def test_stop_on_streamed_receipt_resumes_without_duplicate_app_write(tmp_path):
-    runtime = Runtime(object(), data_dir=tmp_path, checkpoint_mode="light", trace_mode="off")
+    runtime = Runtime(
+        ScriptModel(
+            [
+                {
+                    "name": "app",
+                    "args": {
+                        "operation": "execute",
+                        "action_id": "tasks.create",
+                        "arguments": {"title": "回执时停止"},
+                    },
+                }
+            ]
+        ),
+        data_dir=tmp_path,
+        checkpoint_mode="light",
+        trace_mode="off",
+    )
     sid = str(uuid4())
     stream = runtime.stream_session("创建待办“回执时停止”", sid, "")
     try:
@@ -227,7 +270,14 @@ def test_successful_app_write_then_model_failure_does_not_repeat_mutation(tmp_pa
             runtime.stream_session("创建一个待办后生成报告", str(uuid4()), "", max_attempts=3)
         )
         assert isinstance(events[-1], FinalEvent)
-        assert runtime.last_node_path.count("planner") == 1
+        assert (
+            sum(
+                e["ok"]
+                for e in runtime.last_state["tool_events"]
+                if e["args"].get("action_id") == "tasks.create"
+            )
+            == 1
+        )
         assert len(runtime._app_services.tasks.list()) == 1
         assert runtime.last_state["execution_result"]["verified"] is False
     finally:

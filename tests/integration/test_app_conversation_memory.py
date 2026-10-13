@@ -56,6 +56,8 @@ def test_reference_survives_intervening_turns_and_compression(tmp_path, followup
         assert item["id"] in memory
         list(runtime.stream_session(followup, cid, memory, include_workspace_history=False))
         assert runtime.last_state["execution_result"]["verified"] is True
+        assert runtime.last_state["execution_path"] == "planner"
+        assert runtime.last_state["tool_scope"] == "app"
         assert runtime._app_services.content.get(item["id"])["status"] == "knowledge"
         prompt = "\n".join(str(m.content) for m in model.rule_reads[-1])
         assert "知识管理" in prompt and item["id"] in prompt and "memory" in prompt
@@ -91,6 +93,8 @@ def test_all_completes_pending_scope_without_adding_authorization(tmp_path):
         )
         list(runtime.stream_session("全部", str(uuid4()), history, include_workspace_history=False))
         assert runtime.last_state["execution_result"]["verified"] is True
+        assert runtime.last_state["execution_path"] == "planner"
+        assert runtime.last_state["tool_scope"] == "app"
         assert not runtime._app_services.content.list("inbox")
         assert runtime.last_state["app_receipts"][-1]["action_id"] == "inbox.classify_all"
     finally:
@@ -106,6 +110,8 @@ def test_memory_does_not_turn_negative_or_explanatory_followup_into_write(tmp_pa
     )
     runtime = Runtime(model, data_dir=tmp_path, checkpoint_mode="off", trace_mode="off")
     try:
+        runtime._context(tmp_path)
+        item = runtime._app_services.content.create({"content": "保留资料", "status": "inbox"})
         history = "Previous conversation context:\n" + json.dumps(
             {
                 "messages": [
@@ -115,7 +121,15 @@ def test_memory_does_not_turn_negative_or_explanatory_followup_into_write(tmp_pa
             ensure_ascii=False,
         )
         list(runtime.stream_session(query, str(uuid4()), history, include_workspace_history=False))
-        assert not runtime.last_state.get("app_receipts")
+        assert runtime._app_services.content.get(item["id"])["status"] == "inbox"
+        assert not runtime.last_state["execution_result"]["verified"]
+        assert runtime.last_state["app_receipts"]
+        assert all(
+            not receipt["ok"]
+            and receipt["error"] == "write_not_authorized"
+            and receipt["retryable"] is False
+            for receipt in runtime.last_state["app_receipts"]
+        )
     finally:
         runtime.close()
 
@@ -157,6 +171,8 @@ def test_older_object_selection_and_clear_boundary(tmp_path):
             )
         )
         assert runtime._app_services.content.get(ids[0])["status"] == "knowledge"
+        assert runtime.last_state["execution_path"] == "planner"
+        assert runtime.last_state["tool_scope"] == "app"
         assert runtime._app_services.content.get(ids[1])["status"] == "inbox"
         store.clear_context(cid)
         model.parsed["selector"] = ids[1]

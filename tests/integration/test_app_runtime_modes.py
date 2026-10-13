@@ -21,15 +21,45 @@ def test_real_runtime_factory_accepts_shared_app_services(tmp_path, monkeypatch)
     runtime.close()
 
 
-def test_cli_registered_local_action_has_zero_model_calls_and_real_receipt(tmp_path):
+def test_cli_registered_local_action_uses_planner_and_real_receipt(tmp_path):
     application = create_app(data_dir=tmp_path, env_file=tmp_path / ".env")
 
     class Model:
-        def invoke(self, messages):
-            pytest.fail("Strong App request must not call a model")
+        calls = 0
 
         def bind_tools(self, tools):
-            pytest.fail("Strong App request must not enter ReAct")
+            assert [tool.name for tool in tools] == ["app"]
+            return self
+
+        def invoke(self, messages):
+            self.calls += 1
+            if "Verifier" in str(messages[0].content):
+                return AIMessage(content='{"status":"passed","reason":"Task persisted"}')
+            if self.calls == 1:
+                return AIMessage(
+                    content="",
+                    tool_calls=[
+                        {
+                            "id": "cli-create",
+                            "name": "app",
+                            "args": {
+                                "operation": "execute",
+                                "action_id": "tasks.create",
+                                "arguments": {"title": "CLI本地任务"},
+                            },
+                        }
+                    ],
+                )
+            return AIMessage(
+                content=json.dumps(
+                    {
+                        "summary": "Task created",
+                        "plan_summary": "Create task",
+                        "acceptance_criteria": ["Task persisted"],
+                        "ready_for_verification": True,
+                    }
+                )
+            )
 
     runtime = Runtime(
         Model(),
@@ -41,6 +71,10 @@ def test_cli_registered_local_action_has_zero_model_calls_and_real_receipt(tmp_p
     try:
         events = list(runtime.stream_session("添加待办‘CLI本地任务’", str(uuid4()), ""))
         assert application.state.tasks.list()[0]["title"] == "CLI本地任务"
+        assert runtime.last_state["execution_path"] == "planner"
+        assert runtime.last_state["tool_scope"] == "app"
+        assert runtime._model.calls > 0
+        assert runtime.last_state["app_receipts"][-1]["verification"]["passed"]
         assert events[-1].text
     finally:
         runtime.close()

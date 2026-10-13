@@ -1,3 +1,5 @@
+"""AppIntent contracts retained for checkpoint compatibility and planner boundaries."""
+
 from uuid import uuid4
 
 import pytest
@@ -7,7 +9,8 @@ from xiliu.api.app import create_app
 from xiliu.runtime import Runtime
 
 
-def run(tmp_path, parsed, query, setup=None, model=None):
+def run(tmp_path, parsed, query, setup=None, model=None, *, planner=False):
+    """Exercise checkpoint-compatible semantic contracts, or the current planner graph."""
     application = create_app(data_dir=tmp_path, env_file=tmp_path / ".env")
     if setup:
         setup(application.state)
@@ -20,8 +23,31 @@ def run(tmp_path, parsed, query, setup=None, model=None):
         trace_mode="off",
     )
     try:
-        list(runtime.stream_session(query, str(uuid4()), ""))
-        return runtime.last_state, application.state, model
+        if planner:
+            list(runtime.stream_session(query, str(uuid4()), ""))
+            state = runtime.last_state
+        else:
+            from xiliu.app.executor import execute_app_request
+            from xiliu.execution.gateway import active_run
+            from xiliu.runtime import _activate_run_context
+
+            with _activate_run_context(runtime._context(tmp_path, str(uuid4()))):
+                outcome = execute_app_request(
+                    query, application.state.app_services, active_run.get(), model=model
+                )
+            assert outcome is not None
+            # The compatibility adapter reports actual dispatcher receipts. Verify
+            # those outcomes without involving the new planner's different protocol.
+            state = {
+                "result": outcome["text"],
+                "app_receipts": outcome["receipts"],
+                "execution_result": {
+                    **outcome,
+                    "verified": outcome["status"] == "completed"
+                    and all(r["verification"]["passed"] for r in outcome["receipts"]),
+                },
+            }
+        return state, application.state, model
     finally:
         runtime.close()
 
@@ -81,7 +107,7 @@ def test_unsupported_bulk_write_stays_blocked_with_relevant_reason(tmp_path):
 
 
 def test_collection_write_uses_declared_capability_not_specific_phrase(tmp_path):
-    state, _, _ = run(
+    state, app, _ = run(
         tmp_path,
         dict(kind="write", domain="inbox", action_id="inbox.classify_all", scope="all"),
         "把 Inbox 里剩下的统一归类",
@@ -122,8 +148,9 @@ def test_invalid_or_timezone_free_dates_do_not_write(tmp_path, due):
     assert app.tasks.list() == []
 
 
-def test_model_call_itself_does_not_authorize_ai(tmp_path):
-    state, _, _ = run(
+@pytest.mark.parametrize("planner", [False, True], ids=["checkpoint-adapter", "planner"])
+def test_model_call_itself_does_not_authorize_ai(tmp_path, planner):
+    state, app, _ = run(
         tmp_path,
         dict(
             kind="write",
@@ -133,9 +160,22 @@ def test_model_call_itself_does_not_authorize_ai(tmp_path):
             arguments={"use_ai": True},
         ),
         "把 Inbox 里剩下的统一归类",
+        setup=lambda app: app.content.create({"content": "保留原文", "status": "inbox"}),
+        planner=planner,
     )
     assert not state["execution_result"]["verified"]
-    assert not state.get("app_receipts")
+    assert len(app.content.list("inbox")) == 1
+    assert not app.content.list("knowledge")
+    if planner:
+        assert state["app_receipts"]
+        assert all(
+            not receipt["ok"]
+            and receipt["error"] == "ai_metadata_not_authorized"
+            and receipt["retryable"] is False
+            for receipt in state["app_receipts"]
+        )
+    else:
+        assert not state.get("app_receipts")
 
 
 @pytest.mark.parametrize("valid", [True, False])

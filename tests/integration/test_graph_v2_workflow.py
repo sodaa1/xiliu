@@ -27,35 +27,74 @@ def test_only_one_graph_registers_all_twelve_real_nodes():
     graph = build_workflow(object(), None).get_graph()
     assert set(graph.nodes) - {"__start__", "__end__"} == NODES
     edges = {(edge.source, edge.target) for edge in graph.edges}
-    expected = {
-        ("intent_router", "capability_router"),
-        ("app_executor", "tool_execute"),
-        ("tool_execute", "state_collect"),
-        ("state_collect", "execution_verifier"),
-        ("execution_verifier", "fast_react"),
-        ("execution_verifier", "planner"),
-        ("clarification", "final"),
-        ("final", "__end__"),
-        ("intent_router", "__end__"),
-        ("chat_responder", "final"),
-        ("fast_react", "capability_discovery"),
-        ("planner", "capability_discovery"),
-        ("capability_discovery", "tool_execute"),
-        ("capability_discovery", "execution_verifier"),
-        ("state_collect", "capability_discovery"),
-        ("execution_verifier", "final"),
-        ("execution_verifier", "clarification"),
-    } | {("__start__", node) for node in NODES} | {
-        ("capability_router", node) for node in {
-            "chat_responder", "app_executor", "fast_react", "planner", "clarification"
+    expected = (
+        {
+            ("intent_router", "capability_router"),
+            ("app_executor", "tool_execute"),
+            ("tool_execute", "state_collect"),
+            ("state_collect", "execution_verifier"),
+            ("execution_verifier", "fast_react"),
+            ("execution_verifier", "planner"),
+            ("clarification", "final"),
+            ("final", "__end__"),
+            ("intent_router", "__end__"),
+            ("chat_responder", "final"),
+            ("fast_react", "capability_discovery"),
+            ("planner", "capability_discovery"),
+            ("capability_discovery", "tool_execute"),
+            ("capability_discovery", "execution_verifier"),
+            ("state_collect", "capability_discovery"),
+            ("execution_verifier", "final"),
+            ("execution_verifier", "clarification"),
         }
-    }
+        | {("__start__", node) for node in NODES}
+        | {
+            ("capability_router", node)
+            for node in {"chat_responder", "app_executor", "fast_react", "planner", "clarification"}
+        }
+    )
     assert edges == expected
 
 
 class LocalModel:
+    def __init__(self, action="tasks.create", arguments=None):
+        self.action = action
+        self.arguments = arguments or {"title": "论文提交"}
+        self.called = False
+
+    def bind_tools(self, tools):
+        assert [tool.name for tool in tools] == ["app"]
+        return self
+
     def invoke(self, messages):
-        raise AssertionError("Direct registered actions need no model call")
+        if "Verifier" in str(messages[0].content):
+            return AIMessage(content='{"status":"passed","reason":"Persisted action checked"}')
+        if not self.called:
+            self.called = True
+            return AIMessage(
+                content="",
+                tool_calls=[
+                    {
+                        "id": "local-action",
+                        "name": "app",
+                        "args": {
+                            "operation": "execute",
+                            "action_id": self.action,
+                            "arguments": self.arguments,
+                        },
+                    }
+                ],
+            )
+        return AIMessage(
+            content=json.dumps(
+                {
+                    "summary": "Requested action completed",
+                    "plan_summary": "Execute App action",
+                    "acceptance_criteria": ["Persisted receipt"],
+                    "ready_for_verification": True,
+                }
+            )
+        )
 
 
 def test_direct_action_runs_inside_graph_and_verifies_persisted_receipt(tmp_path):
@@ -66,13 +105,16 @@ def test_direct_action_runs_inside_graph_and_verifies_persisted_receipt(tmp_path
         assert any(isinstance(event, VerifierEvent) and event.passed for event in events)
         assert isinstance(events[-1], FinalEvent)
         assert [t["title"] for t in runtime._app_services.tasks.list()] == ["论文提交"]
-        assert runtime.last_state["execution_path"] == "app_executor"
+        assert runtime.last_state["execution_path"] == "planner"
+        assert runtime.last_state["tool_scope"] == "app"
         assert runtime.last_node_path == [
             "intent_router",
             "capability_router",
-            "app_executor",
+            "planner",
+            "capability_discovery",
             "tool_execute",
             "state_collect",
+            "capability_discovery",
             "execution_verifier",
             "final",
         ]
@@ -127,6 +169,7 @@ def test_confirmation_never_becomes_success_or_retries(tmp_path):
         folder = runtime._context(tmp_path).owner._app_services.knowledge.create_folder(
             {"name": "AI"}
         )
+        runtime._model = LocalModel("knowledge.folders.delete", {"folder_id": folder["id"]})
         events = list(runtime.stream_session("删除知识库文件夹“AI”", str(uuid4()), ""))
         assert isinstance(events[-1], FinalEvent)
         assert any(isinstance(e, VerifierEvent) and not e.passed for e in events)

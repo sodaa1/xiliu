@@ -53,6 +53,9 @@ class _RunContext:
     hook_failures: list[str] = field(default_factory=list)
     local_only: bool = False
     execution_run_id: str = ""
+    request_text: str | None = None
+    source_text: str = ""
+    source_outputs: list[str] = field(default_factory=list)
 
 
 @contextmanager
@@ -80,6 +83,9 @@ def _activate_run_context(context: _RunContext) -> Iterator[None]:
             hook_failures=context.hook_failures,
             local_only=context.local_only,
             app_services=context.owner._app_services,
+            request_text=context.request_text,
+            source_text=context.source_text,
+            source_outputs=context.source_outputs,
         )
     )
     try:
@@ -385,11 +391,19 @@ class Runtime:
         resumed: bool = False,
         resume_event: Any = None,
     ) -> Iterator[RuntimeEvent]:
+        from xiliu.app.authorization import conversation_sources, result_sources
         from xiliu.graph.routing import external_scope, local_scope, network_forbidden
 
         context = replace(
             context,
             execution_run_id=inputs.get("execution_run_id", ""),
+            request_text=inputs["task"],
+            source_text=conversation_sources(inputs["task"], inputs.get("context_summary", "")),
+            source_outputs=[
+                result_sources(event.get("output", ""), event.get("tool", ""))
+                for event in inputs.get("tool_events", [])
+                if event.get("ok")
+            ],
             local_only=(
                 network_forbidden(inputs["task"])
                 or local_scope(inputs["task"])

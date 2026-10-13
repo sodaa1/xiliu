@@ -145,15 +145,7 @@ class ChatService:
             )
             model_id = settings.model
         else:
-            from xiliu.runtime import Runtime
-
-            runtime = Runtime(
-                UnconfiguredModel(),
-                data_dir=self.store.path.parent,
-                approval_mode="deny",
-                app_services=self.app_services,
-            )
-            model_id = "local"
+            raise WebError("model_not_configured", "请先在 Settings 配置模型接口。", 400)
         prior_context = self.conversations.build_context(cid, before_seq=user["seq"])
         if context:
             prior_context += (

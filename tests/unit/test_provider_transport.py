@@ -1,4 +1,5 @@
 import threading
+import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from importlib import import_module
 
@@ -104,13 +105,13 @@ def test_external_model_address_uses_system_proxy(monkeypatch):
         monkeypatch.delenv(key, raising=False)
         monkeypatch.delenv(key.lower(), raising=False)
     http_package = DefaultHttpxClient.__mro__[1].__module__.split(".")[0]
-    monkeypatch.setattr(
-        import_module(f"{http_package}._utils"),
-        "getproxies",
-        lambda: {
-            "http": f"http://127.0.0.1:{proxy.server_port}",
-        },
-    )
+    def system_proxies():
+        return {"http": f"http://127.0.0.1:{proxy.server_port}"}
+
+    # LangChain checks urllib before selecting its Linux socket-tuned transport;
+    # HTTPX retains a separately imported reference to the same proxy boundary.
+    monkeypatch.setattr(urllib.request, "getproxies", system_proxies)
+    monkeypatch.setattr(import_module(f"{http_package}._utils"), "getproxies", system_proxies)
     model = create_chat_model(
         Settings.from_env(
             {

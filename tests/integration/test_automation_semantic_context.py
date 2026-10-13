@@ -27,6 +27,7 @@ def test_one_request_prepares_atomic_automation_and_keeps_confirmation(tmp_path)
             arguments={"name": "AI晨报", "prompt": PROMPT, "hour": 9, "minute": 0},
         ),
         REQUEST,
+        planner=True,
     )
     assert state["execution_result"]["status"] == "confirmation_required"
     receipt = state["app_receipts"][-1]

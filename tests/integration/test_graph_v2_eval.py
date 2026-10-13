@@ -25,6 +25,7 @@ TASKS = [
 
 # Independent oracle: intended execution class and whether missing parameters must block writes.
 APP = {3, 4, 5, 6, 7, 8, 9, 10, 27, 37, 39}
+APP_SCOPE = APP
 FAST = {11, 12, 13, 14, 15, 30, 31, 34, 35, 41, 42, 45}
 PLAN = {16, 17, 18, 19, 20, 23, 24, 25, 36, 38, 44, 46, 47, 50, 51}
 CLARIFY = {26, 28, 29, 32, 33, 40, 43, 48, 49}
@@ -57,9 +58,23 @@ class EvalModel:
         if "lightweight chat node" in prompt:
             return AIMessage(content="RAG 使用检索证据回答；State 保存工作流共享状态。")
         if "Verifier" in prompt:
-            return AIMessage(content='{"status":"passed","reason":"Actual local evidence checked"}')
+            return AIMessage(
+                content=json.dumps(
+                    {
+                        "status": "failed" if self.task["id"] in INCOMPLETE else "passed",
+                        "reason": "Required parameters or effects missing"
+                        if self.task["id"] in INCOMPLETE
+                        else "Actual local evidence checked",
+                    }
+                )
+            )
         identifier = self.task["id"]
         scripts = {
+            **{key: [{"name": "app", "args": {"operation": "catalog"}}] for key in APP_BLOCKED},
+            5: [app_call("tasks.list")],
+            6: [app_call("knowledge.search", {"query": "LangGraph"})],
+            8: [app_call("knowledge.folders.create", {"name": "AI"})],
+            37: [app_call("automations.list")],
             11: [{"name": "file_read", "args": {"path": "../Desktop/paper.pdf"}}],
             12: [app_call("knowledge.search", {"query": "Agent"})],
             13: [app_call("inbox.list")],
@@ -237,7 +252,7 @@ class EvalModel:
             call = {**sequence[self.index], "id": f"eval-{identifier}-{self.index}"}
             self.index += 1
             return AIMessage(content="", tool_calls=[call])
-        if identifier in PLAN:
+        if identifier in PLAN | APP:
             return AIMessage(
                 content=json.dumps(
                     {
@@ -362,7 +377,7 @@ def test_supplied_task_uses_real_graph_receipts_database_and_permissions(
             ),
         )
         want = (
-            "app_executor"
+            "planner"
             if identifier in APP
             else "fast_react"
             if identifier in FAST
@@ -373,12 +388,18 @@ def test_supplied_task_uses_real_graph_receipts_database_and_permissions(
             else "chat_responder"
         )
         assert state["execution_path"] == want
+        if identifier in APP_SCOPE:
+            assert state["tool_scope"] == "app"
         assert visits[0:2] == ["intent_router", "capability_router"]
         assert want in visits and visits[-1] == "final"
         if identifier not in {1, 2}:
             assert state["execution_result"]["verified"] is (identifier not in INCOMPLETE), state
         tools = state.get("tool_events", [])
         assert {e["event_id"] for e in tools} <= set(state.get("execution_ids", []))
+        if identifier in APP_BLOCKED:
+            # A missing object, approval or absolute date only permits discovery.
+            assert tools and all(e["args"].get("operation") == "catalog" for e in tools)
+            assert not state.get("app_receipts")
         if identifier in CLARIFY or identifier in APP_BLOCKED:
             assert state.get("execution_result", {}).get("verified") is not True
             assert services.content.get(knowledge["id"])["status"] == "knowledge"
@@ -389,7 +410,11 @@ def test_supplied_task_uses_real_graph_receipts_database_and_permissions(
             assert "tool_execute" in visits and "state_collect" in visits
             assert any(isinstance(e, VerifierEvent) for e in events)
         for event in tools:
-            if event["tool"] == "app" and event["ok"]:
+            if (
+                event["tool"] == "app"
+                and event["ok"]
+                and event["args"].get("operation") == "execute"
+            ):
                 receipt = json.loads(event["output"])
                 assert receipt["verification"]["passed"] is True
         if identifier == 11:

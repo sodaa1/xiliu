@@ -47,6 +47,7 @@ def test_settings_routes_keep_existing_key(tmp_path):
 
 
 def test_spa_deep_links_and_unknown_api_do_not_return_html(tmp_path):
+    from click import unstyle
     from typer.testing import CliRunner
 
     from xiliu.cli import app as cli_app
@@ -62,9 +63,9 @@ def test_spa_deep_links_and_unknown_api_do_not_return_html(tmp_path):
         assert "xiliu preview" in client.get("/settings").text
         assert client.get("/api/missing").status_code == 404
         assert client.get("/missing.js").status_code == 404
-    result = CliRunner().invoke(cli_app, ["web", "--help"])
+    result = CliRunner().invoke(cli_app, ["web", "--help"], color=True)
     assert result.exit_code == 0
-    assert "--open" in result.stdout
+    assert "--open" in unstyle(result.stdout)
 
 
 def test_foreign_host_cannot_read_private_local_api(tmp_path):

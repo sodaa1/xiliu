@@ -36,6 +36,9 @@ class RunContext:
     hook_failures: list[str] = field(default_factory=list)
     local_only: bool = False
     app_services: Any = None
+    request_text: str | None = None
+    source_text: str = ""
+    source_outputs: list[str] = field(default_factory=list)
 
 
 active_run: ContextVar[RunContext | None] = ContextVar("xiliu_capability_run", default=None)
@@ -184,6 +187,23 @@ class ExecutionGateway:
         hook_results: list[dict[str, Any]] = []
         source, capability_id, permission = self._policy_target(tool, arguments, context)
         try:
+            if (
+                tool.name == "app"
+                and arguments.get("operation") == "execute"
+                and context.request_text is not None
+                and isinstance(arguments.get("arguments", {}), dict)
+            ):
+                from xiliu.app.authorization import argument_failure
+
+                error = argument_failure(
+                    arguments.get("action_id", ""),
+                    arguments.get("arguments", {}),
+                    context.request_text,
+                    context.source_text + "\n" + "\n".join(context.source_outputs),
+                )
+                if error:
+                    decision = "deny"
+                    return json.dumps({"ok": False, "error": error, "retryable": False})
             if context.local_only and (permission == "network.read" or source == "mcp"):
                 decision = "deny"
                 return json.dumps(
@@ -289,6 +309,10 @@ class ExecutionGateway:
                     pass
                 else:
                     success = success and not (isinstance(data, dict) and data.get("ok") is False)
+            if success and context.request_text is not None:
+                from xiliu.app.authorization import result_sources
+
+                context.source_outputs.append(result_sources(result, tool.name))
             if success and context.hook_engine is not None:
                 after_events = context.hook_engine.after(
                     tool_name=tool.name,

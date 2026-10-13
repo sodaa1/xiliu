@@ -1,5 +1,6 @@
 """Real public adapters, rather than mock graph paths or verifier events."""
 
+import json
 from uuid import uuid4
 
 import pytest
@@ -33,7 +34,46 @@ def test_automation_runner_uses_verified_graph_and_background_policy(tmp_path, p
     runtimes = []
 
     def factory(settings, **kwargs):
-        runtime = Runtime(object(), data_dir=tmp_path, checkpoint_mode="off", **kwargs)
+        class Model:
+            invoked = False
+
+            def bind_tools(self, tools):
+                assert [tool.name for tool in tools] == ["app"]
+                return self
+
+            def invoke(self, messages):
+                if "Verifier" in str(messages[0].content):
+                    return AIMessage(content='{"status":"passed","reason":"Read tasks checked"}')
+                if not self.invoked:
+                    self.invoked = True
+                    return AIMessage(
+                        content="",
+                        tool_calls=[
+                            {
+                                "id": "automation-action",
+                                "name": "app",
+                                "args": {
+                                    "operation": "execute",
+                                    "action_id": "tasks.list"
+                                    if expected == "success"
+                                    else "tasks.create",
+                                    "arguments": {} if expected == "success" else {"title": "后台"},
+                                },
+                            }
+                        ],
+                    )
+                return AIMessage(
+                    content=json.dumps(
+                        {
+                            "summary": "Tasks read",
+                            "plan_summary": "App action",
+                            "acceptance_criteria": ["Task receipt"],
+                            "ready_for_verification": True,
+                        }
+                    )
+                )
+
+        runtime = Runtime(Model(), data_dir=tmp_path, checkpoint_mode="off", **kwargs)
         runtimes.append(runtime)
         return runtime
 

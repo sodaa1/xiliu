@@ -1,3 +1,5 @@
+"""Bounded semantic repair remains supported by the checkpoint-compatible adapter."""
+
 import pytest
 
 from tests.integration.test_app_semantic_boundaries import run
