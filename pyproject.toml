@@ -1,6 +1,6 @@
 [project]
 name = "xiliu"
-version = "0.4.1"
+version = "0.4.2"
 description = "A minimal, local-first Agent CLI"
 readme = "README.md"
 requires-python = ">=3.12"

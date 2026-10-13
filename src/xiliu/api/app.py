@@ -9,6 +9,7 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 
+from xiliu import __version__
 from xiliu.api.errors import WebError
 from xiliu.api.routes import (
     app as app_actions,
@@ -77,7 +78,7 @@ def create_app(
                     with suppress(asyncio.CancelledError):
                         await owner
 
-    app = FastAPI(title="息流 · xiliu", version="0.4.0", lifespan=lifespan)
+    app = FastAPI(title="息流 · xiliu", version=__version__, lifespan=lifespan)
     app.state.model_settings = ModelSettingsService(env_file)
     values = app.state.model_settings.values()
     app.state.data_dir = (data_dir or Path(values.get("XILIU_DATA_DIR", ".xiliu"))).resolve()
