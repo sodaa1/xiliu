@@ -10,6 +10,7 @@ import os
 import queue
 import secrets
 import subprocess
+import sys
 import tempfile
 import threading
 import time
@@ -20,6 +21,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def memory_bytes(pid: int) -> dict:
+    if sys.platform != "win32":
+        return {
+            "status": "unsupported",
+            "reason": "Windows process memory counters require Windows",
+        }
     from ctypes import wintypes
 
     class Counters(ctypes.Structure):
