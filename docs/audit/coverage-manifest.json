@@ -12115,12 +12115,40 @@
       }
     },
     {
-      "surface_id": "ui_button:7bd173b381487299a8a8:1",
+      "surface_id": "ui_button:2e5ff449c71d2cbe6167:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedPage.test.tsx::feed preview blocks duplicate saves and shows save failures before retry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_button:407315e532597276992a:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Keyboard-accessible title button opens the existing local preview; it performs no business mutation.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed preview opens by keyboard and returns focus when dismissed"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:fec3c1559853d27b08f8:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Opens the existing local preview from a keyboard-accessible title button; it performs no business mutation.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed preview opens by keyboard and returns focus when dismissed"
       ],
       "tests": [],
       "verification": {

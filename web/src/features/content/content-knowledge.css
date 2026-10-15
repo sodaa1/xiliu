@@ -8,20 +8,43 @@
   position: fixed;
   inset: 0;
   z-index: 120;
-  background: #25203f55;
+  background: #18243b66;
+  backdrop-filter: blur(3px);
   display: grid;
   place-items: center;
   padding: 24px;
 }
 .content-dialog {
-  width: min(560px, 100%);
+  width: min(660px, 100%);
   max-height: calc(100dvh - 48px);
   overflow: auto;
-  padding: 26px;
+  padding: 30px;
   border: 1px solid var(--line, #e7e4f2);
   border-radius: 22px;
   background: var(--surface, #fff);
   box-shadow: 0 22px 70px #3c326a22;
+}
+.content-dialog > .section-heading {
+  align-items: flex-start;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.content-dialog > .section-heading h2 {
+  color: var(--text);
+  font-size: 1.35rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+.content-dialog > .section-heading .icon-button {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: var(--muted-readable);
+}
+.content-dialog > .section-heading .icon-button:hover {
+  background: var(--surface-muted);
 }
 .content-dialog form {
   display: grid;

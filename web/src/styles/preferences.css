@@ -3,7 +3,7 @@
   --surface-muted: #f8fafc;
   --text: #18243b;
   --accent-soft: #eeedff;
-  --muted-readable: #68758b;
+  --muted-readable: #616e83;
   --app-font: Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif;
   font-family: var(--app-font);
   color-scheme: light;
@@ -17,8 +17,8 @@
   --muted: #a8b0c2;
   --muted-readable: #b2bbce;
   --line: #343b4d;
-  --accent-strong: #8e86f5;
-  --accent-grad: linear-gradient(135deg, #8d87f2 0%, #6f67d9 100%);
+  --accent-strong: #9c94f7;
+  --accent-grad: linear-gradient(135deg, #7163d4 0%, #6253c1 100%);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.28);
   --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.38);
   --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.5);
@@ -111,7 +111,6 @@
 :root[data-theme='dark']
   :is(
     .main-stage,
-    .workspace-page,
     .settings-page,
     .assistant-layout,
     .chat-main,
@@ -141,6 +140,10 @@
     .automation-runs article
   ) {
   background: var(--surface);
+  color: var(--text);
+}
+:root[data-theme='dark'] .workspace-page {
+  background: var(--surface-muted);
   color: var(--text);
 }
 :root[data-theme='dark'] .app-shell .segmented {

@@ -41,11 +41,16 @@ body,
 .today-page .today-card > .section-description {
   margin: 8px 0 10px;
 }
+.today-page .morning-brief {
+  overflow-y: auto;
+}
 .today-page .morning-brief .feed-card {
-  flex: 1;
+  flex: 1 0 auto;
   min-height: 0;
   padding: 12px 0;
-  overflow: hidden;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
 }
 .today-page .feed-card-top {
   gap: 10px;
@@ -55,7 +60,7 @@ body,
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 0.93rem;
+  font-size: 1.04rem;
   line-height: 1.5;
 }
 .today-page .feed-card > p {
@@ -63,10 +68,14 @@ body,
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 0.79rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 .today-page .feed-card-bottom {
   margin-top: 6px;
+}
+.today-page .feed-card-bottom :is(time, button, a) {
+  font-size: 0.8rem;
 }
 .today-page .morning-brief .workspace-empty {
   flex: 1;
@@ -84,8 +93,8 @@ body,
   overflow: auto;
 }
 .today-page .task-row {
-  min-height: 42px;
-  padding: 5px 0;
+  min-height: 48px;
+  padding: 8px 0;
 }
 .today-page .task-title {
   overflow: hidden;
@@ -111,7 +120,7 @@ body,
   background: transparent;
   border: 0;
   font-size: 0.79rem;
-  color: var(--accent);
+  color: var(--accent-strong);
   white-space: nowrap;
 }
 .task-modal-backdrop {

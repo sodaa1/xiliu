@@ -187,6 +187,18 @@ export function KnowledgePage() {
           <span className="eyebrow">让积累成为你的知识</span>
           <h1>Knowledge</h1>
           <p>通过标签规则自动归类，也可以随时手动调整。</p>
+          <div className="knowledge-overview" aria-label="知识库概况">
+            <span>
+              <strong>{folders.data?.length ?? '—'}</strong>
+              个文件夹
+            </span>
+            <span>
+              <strong>
+                {folders.data?.reduce((total, folder) => total + folder.item_count, 0) ?? '—'}
+              </strong>
+              项已归类内容
+            </span>
+          </div>
         </div>
         <button className="primary-button" onClick={() => setEditing(null)}>
           <Plus size={17} />

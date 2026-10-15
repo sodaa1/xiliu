@@ -3,9 +3,88 @@ import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { afterEach, expect, test, vi } from 'vitest'
-import { FeedPage } from './FeedPage'
+import { FeedCard, FeedPage } from './FeedPage'
+import type { FeedItem } from '../../lib/workspace-api'
 
 afterEach(() => vi.unstubAllGlobals())
+
+const previewItem: FeedItem = {
+  id: 'external',
+  source: 'aihot',
+  title: 'Preview story',
+  summary: 'Short summary',
+  url: 'https://example.org/news',
+  published_at: '2026-10-14T10:00:00Z',
+  tags: ['ai'],
+  metadata: {},
+}
+
+function mountFeedCard() {
+  return render(
+    <MemoryRouter>
+      <QueryClientProvider
+        client={
+          new QueryClient({
+            defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+          })
+        }
+      >
+        <FeedCard item={previewItem} />
+      </QueryClientProvider>
+    </MemoryRouter>
+  )
+}
+
+test('feed preview opens by keyboard and returns focus when dismissed', async () => {
+  mountFeedCard()
+  const user = userEvent.setup()
+  await user.tab()
+  const title = screen.getByRole('button', { name: 'Preview story' })
+  expect(title).toHaveFocus()
+  await user.keyboard('{Enter}')
+  expect(screen.getByRole('dialog', { name: 'Preview story' })).toBeVisible()
+  await user.keyboard('{Escape}')
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  expect(title).toHaveFocus()
+  await user.keyboard(' ')
+  expect(screen.getByRole('dialog', { name: 'Preview story' })).toBeVisible()
+})
+
+test('feed preview blocks duplicate saves and shows save failures before retry', async () => {
+  let finishSave!: (response: Response) => void
+  const saves: string[] = []
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (input: string, init?: RequestInit) => {
+      if (input === '/api/feed/external/save' && init?.method === 'POST') {
+        saves.push(input)
+        return new Promise<Response>((resolve) => {
+          finishSave = resolve
+        })
+      }
+      throw new Error(`Unexpected request: ${input}`)
+    })
+  )
+  mountFeedCard()
+  const user = userEvent.setup()
+  await user.click(screen.getByRole('heading', { name: 'Preview story', level: 2 }))
+  const dialog = screen.getByRole('dialog', { name: 'Preview story' })
+  const save = within(dialog).getByRole('button', { name: '收进 Inbox' })
+  await user.click(save)
+  expect(save).toBeDisabled()
+  expect(save).toHaveTextContent('保存中')
+  await user.click(save)
+  expect(saves).toHaveLength(1)
+
+  finishSave(Response.json({ error: { message: '无法保存，请重试。' } }, { status: 503 }))
+  expect(await within(dialog).findByRole('alert')).toHaveTextContent('无法保存，请重试。')
+  expect(save).toBeEnabled()
+  await user.click(save)
+  expect(saves).toHaveLength(2)
+  finishSave(Response.json({ id: 'saved' }))
+  expect(await within(dialog).findByRole('button', { name: '已收进 Inbox' })).toBeDisabled()
+  expect(within(dialog).queryByRole('alert')).not.toBeInTheDocument()
+})
 
 test('manual add edit remove restore and external hide restore remain available in Feed', async () => {
   const user = userEvent.setup()
