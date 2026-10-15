@@ -143,7 +143,7 @@ function ContentPreview({
   asking: boolean
 }) {
   const sourceUrl = safeHttpUrl(item.source)
-  const body = item.summary || item.content || item.filename || item.source
+  const body = item.content || item.summary || item.filename || item.source
   return (
     <ContentDialog title={item.title} onClose={onClose}>
       <div className="feed-preview">

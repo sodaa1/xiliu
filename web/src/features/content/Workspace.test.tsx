@@ -248,6 +248,8 @@ test('inbox card opens a preview with edit, open-original and download actions',
   const user = userEvent.setup()
   await user.click(await screen.findByRole('button', { name: 'File note' }))
   const dialog = await screen.findByRole('dialog', { name: 'File note' })
+  expect(within(dialog).getByText('Full content body')).toBeVisible()
+  expect(within(dialog).getAllByText('A short summary')).toHaveLength(1)
   expect(within(dialog).getByRole('link', { name: /打开原文/ })).toHaveAttribute(
     'href',
     'https://example.org/doc'

@@ -55,7 +55,7 @@
   min-height: 0;
   overflow-y: auto;
   padding: 34px 44px 40px;
-  background: linear-gradient(180deg, #fcfdff, #fff 260px);
+  background: var(--surface-muted, #f8fafc);
 }
 .workspace-header {
   display: flex;
@@ -77,12 +77,12 @@
 }
 .workspace-header p,
 .section-description {
-  color: #8992a3;
+  color: var(--muted-readable, #68758b);
   font-size: 0.92857rem;
   line-height: 1.65;
 }
 .workspace-count {
-  color: #8c94a5;
+  color: var(--muted-readable, #68758b);
   font-size: 0.85714rem;
   white-space: nowrap;
 }
@@ -163,7 +163,7 @@
   border-radius: 7px;
   background: transparent;
   padding: 8px 15px;
-  color: #7f889b;
+  color: var(--muted-readable, #68758b);
   font-size: 0.85714rem;
   white-space: nowrap;
 }
@@ -196,7 +196,7 @@
   font-weight: 600;
 }
 .section-heading > a {
-  color: #8b88c6;
+  color: var(--accent-strong, #6457c5);
   display: flex;
   align-items: center;
   gap: 7px;
@@ -364,11 +364,11 @@
 }
 .content-row-title time {
   flex: none;
-  color: #adb3bf;
+  color: var(--muted-readable, #68758b);
   font-size: 0.78571rem;
 }
 .content-excerpt {
-  color: #8c95a8;
+  color: var(--muted-readable, #68758b);
   font-size: 0.92857rem;
   line-height: 1.7;
   margin-top: 7px;
@@ -385,7 +385,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: #9795c6;
+  color: var(--accent-strong, #6457c5);
   font-size: 0.85714rem;
   margin-top: 6px;
 }
@@ -398,7 +398,7 @@
 .tag-list button,
 .tag-list span {
   border: 0;
-  color: #8882bd;
+  color: var(--accent-strong, #6f67d9);
   background: var(--accent-soft, #f1f0fc);
   padding: 4px 9px;
   border-radius: 7px;
@@ -427,14 +427,14 @@
   background: none;
   padding: 0;
   font-size: 0.78571rem;
-  color: #8d89bf;
+  color: var(--muted-readable, #68758b);
 }
 .row-actions button:hover,
 .row-actions a:hover {
-  color: #665cd2;
+  color: var(--accent-strong, #6457c5);
 }
 .row-actions .delete-action {
-  color: #b4a2aa;
+  color: var(--muted-readable, #68758b);
 }
 .content-editor {
   padding: 24px;
@@ -470,7 +470,7 @@
     transform 0.18s ease;
 }
 .feed-grid .feed-card:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   border-color: #d9d4f3;
   transform: translateY(-2px);
 }
@@ -486,7 +486,15 @@
   align-items: center;
   gap: 12px;
   color: var(--muted-readable, #8992a3);
-  font-size: 0.78571rem;
+  font-size: 0.86rem;
+}
+.feed-preview-meta .feed-source {
+  margin: 0;
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: var(--surface-muted);
+  color: var(--muted-readable);
+  font-size: inherit;
 }
 .feed-preview-summary {
   color: var(--text, #3a4457);
@@ -498,6 +506,15 @@
 .feed-preview .editor-actions {
   flex-wrap: wrap;
   align-items: center;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  margin-top: 6px;
+}
+.feed-preview > .feed-preview-summary:has(+ .content-preview-body) {
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--surface-muted);
 }
 .feed-preview-detail {
   border: 1px solid var(--line, #e7e4f2);
@@ -516,15 +533,15 @@
 }
 .feed-preview-detail p {
   color: var(--text, #3a4457);
-  font-size: 0.92857rem;
-  line-height: 1.85;
+  font-size: 1rem;
+  line-height: 1.95;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
 .content-preview-body {
   color: var(--text, #3a4457);
-  font-size: 0.92857rem;
-  line-height: 1.85;
+  font-size: 1rem;
+  line-height: 1.95;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   max-height: 340px;
@@ -537,7 +554,7 @@
 }
 .feed-source {
   display: block;
-  color: #a5aabc;
+  color: var(--muted-readable, #68758b);
   font-size: 0.71429rem;
   margin-bottom: 5px;
 }
@@ -549,7 +566,7 @@
 }
 .feed-card > p {
   font-size: 0.85714rem;
-  color: #949bac;
+  color: var(--muted-readable, #68758b);
   line-height: 1.8;
   margin-top: 14px;
   overflow-wrap: anywhere;
@@ -563,7 +580,7 @@
   flex-wrap: wrap;
 }
 .feed-card time {
-  color: #b2b6c4;
+  color: var(--muted-readable, #68758b);
   font-size: 0.71429rem;
 }
 .feed-card-bottom .row-actions {
@@ -579,18 +596,19 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  color: #9a9fb0;
+  color: var(--muted-readable, #68758b);
   font-size: 0.78571rem;
   padding: 9px 13px;
-  background: #f7f8fc;
+  background: var(--surface, #fff);
+  border: 1px solid var(--line);
   border-radius: 8px;
 }
 .source-status strong {
-  color: #7c8499;
+  color: var(--muted-readable, #68758b);
   font-weight: 500;
 }
 .source-status time {
-  color: #afb4c2;
+  color: var(--muted-readable, #68758b);
 }
 .today-quote {
   color: #a19cc0;

@@ -69,7 +69,7 @@
 .knowledge-folder-card footer button {
   border: 0;
   background: transparent;
-  color: #7568ad;
+  color: var(--accent-strong, #6457c5);
   padding: 4px 0;
 }
 .knowledge-page .workspace-toolbar .search-field {

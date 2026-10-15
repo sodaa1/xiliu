@@ -14,6 +14,7 @@ import {
   Plus,
   RotateCcw,
   Trash2,
+  Layers3,
 } from 'lucide-react'
 import { safeHttpUrl, workspaceApi, type FeedItem } from '../../lib/workspace-api'
 import { useAskAI } from '../content/useAskAI'
@@ -129,12 +130,18 @@ function FeedPreview({
   onAsk,
   onSave,
   saved,
+  saving,
+  saveError,
+  saveDisabled,
 }: {
   item: FeedItem
   onClose: () => void
   onAsk: () => void
   onSave: () => void
   saved: boolean
+  saving: boolean
+  saveError: Error | null
+  saveDisabled: boolean
 }) {
   const url = safeHttpUrl(item.url)
   const sourceLabel =
@@ -169,6 +176,11 @@ function FeedPreview({
             {summarize.error.message}
           </p>
         )}
+        {saveError && (
+          <p className="workspace-error" role="alert">
+            {saveError.message}
+          </p>
+        )}
         {!!item.tags.length && (
           <div className="tag-list">
             {item.tags.map((tag) => (
@@ -188,9 +200,14 @@ function FeedPreview({
               {summarize.isPending ? '生成中…' : 'AI 总结'}
             </button>
           )}
-          <button type="button" className="secondary-button" disabled={saved} onClick={onSave}>
+          <button
+            type="button"
+            className="secondary-button"
+            disabled={saveDisabled}
+            onClick={onSave}
+          >
             {saved ? <Check size={15} /> : <BookmarkPlus size={15} />}
-            {saved ? '已收进 Inbox' : '收进 Inbox'}
+            {saved ? '已收进 Inbox' : saving ? '保存中…' : '收进 Inbox'}
           </button>
           <button type="button" className="secondary-button" onClick={onAsk}>
             <Sparkles size={15} />
@@ -266,7 +283,11 @@ export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void
                 : 'AI Hot'}
             {removed && (item.deleted_at ? ' · 已删除' : ' · 已隐藏')}
           </span>
-          <h2>{item.title}</h2>
+          <h2>
+            <button type="button" className="content-row-open" onClick={() => setPreview(true)}>
+              {item.title}
+            </button>
+          </h2>
         </div>
       </div>
       <p>{item.summary || '打开原文，看看这条新发现。'}</p>
@@ -335,6 +356,9 @@ export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void
           }}
           onSave={() => save.mutate()}
           saved={save.isSuccess}
+          saving={save.isPending}
+          saveError={save.error}
+          saveDisabled={removed || save.isPending || save.isSuccess}
         />
       )}
     </article>
@@ -365,6 +389,15 @@ export function FeedPage() {
           <h1>Feed</h1>
           <p>AI 与开源世界的新发现。</p>
         </div>
+        <label className="search-field feed-header-search">
+          <Search size={17} />
+          <input
+            aria-label="搜索资讯"
+            placeholder="搜索你关心的内容"
+            value={q}
+            onChange={(event) => setQ(event.target.value)}
+          />
+        </label>
         <div className="row-actions">
           <button className="secondary-button" onClick={() => setEditor('new')}>
             <Plus size={16} />
@@ -383,96 +416,100 @@ export function FeedPage() {
       {editor && (
         <FeedEditor item={editor === 'new' ? undefined : editor} onClose={() => setEditor(null)} />
       )}
-      <div className="workspace-toolbar">
-        <div className="segmented" aria-label="资讯来源">
-          {[
-            ['', '全部'],
-            ['aihot', 'AI Hot'],
-            ['github', 'GitHub Top 5'],
-            ['manual', '我的资讯'],
-          ].map(([value, label]) => (
-            <button
-              key={value}
-              className={value === source ? 'selected' : ''}
-              aria-pressed={value === source}
-              onClick={() => setSource(value)}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-        <div className="search-field">
-          <Search size={17} />
-          <input
-            aria-label="搜索资讯"
-            placeholder="搜索你关心的内容"
-            value={q}
-            onChange={(event) => setQ(event.target.value)}
-          />
-        </div>
-      </div>
-      <label className="content-checkbox">
-        <input
-          type="checkbox"
-          checked={includeHidden}
-          onChange={(event) => setIncludeHidden(event.target.checked)}
-        />
-        显示已移除资讯
-      </label>
-      {!!feed.data?.sources.length && (
-        <div className="source-statuses">
-          {feed.data.sources
-            .filter((item) => !source || item.source === source)
-            .map((item) => (
-              <div key={item.source} className="source-status">
-                <strong>{item.label}</strong>
-                <span>
-                  {item.message ||
-                    (item.status === 'ok' || item.status === 'success'
-                      ? '已更新'
-                      : item.status === 'empty'
-                        ? '暂时没有新内容'
-                        : '暂时无法更新，请稍后重试')}
-                </span>
-                {item.updated_at && (
-                  <time dateTime={item.updated_at}>
-                    {new Date(item.updated_at).toLocaleTimeString('zh-CN', {
-                      hour: '2-digit',
-                      minute: '2-digit',
-                    })}
-                  </time>
-                )}
-              </div>
+      <div className="feed-workspace">
+        <aside className="feed-source-panel" aria-label="资讯来源与状态">
+          <h2>浏览来源</h2>
+          <div className="segmented" aria-label="资讯来源">
+            {[
+              { value: '', label: '全部资讯', icon: Layers3 },
+              { value: 'aihot', label: 'AI Hot', icon: Newspaper },
+              { value: 'github', label: 'GitHub Top 5', icon: Github },
+              { value: 'manual', label: '我的资讯', icon: BookmarkPlus },
+            ].map(({ value, label, icon: Icon }) => (
+              <button
+                key={value}
+                className={value === source ? 'selected' : ''}
+                aria-pressed={value === source}
+                onClick={() => setSource(value)}
+              >
+                <Icon size={17} aria-hidden="true" />
+                {label}
+              </button>
             ))}
-        </div>
-      )}
-      {refresh.error && (
-        <p className="workspace-error" role="alert">
-          {refresh.error.message}
-        </p>
-      )}
-      {feed.isLoading ? (
-        <p className="workspace-empty">正在汇聚资讯…</p>
-      ) : feed.error ? (
-        <div className="workspace-empty">
-          <p role="alert">{feed.error.message}</p>
-          <button className="secondary-button" onClick={() => void feed.refetch()}>
-            重新加载
-          </button>
-        </div>
-      ) : !feed.data?.items.length ? (
-        <div className="workspace-empty">
-          <Newspaper size={32} />
-          <h2>{q ? '没有找到相关资讯' : '等待下一次新发现'}</h2>
-          <p>{q ? '换个关键词试试。' : '点击刷新，获取来源中的最新内容。'}</p>
-        </div>
-      ) : (
-        <div className="feed-grid">
-          {feed.data.items.map((item) => (
-            <FeedCard key={item.id} item={item} onEdit={() => setEditor(item)} />
-          ))}
-        </div>
-      )}
+          </div>
+          <label className="content-checkbox">
+            <input
+              type="checkbox"
+              checked={includeHidden}
+              onChange={(event) => setIncludeHidden(event.target.checked)}
+            />
+            显示已移除资讯
+          </label>
+          {!!feed.data?.sources.length && (
+            <div className="source-statuses">
+              <h2>来源状态</h2>
+              {feed.data.sources
+                .filter((item) => !source || item.source === source)
+                .map((item) => (
+                  <div key={item.source} className="source-status">
+                    <strong>{item.label}</strong>
+                    <span>
+                      {item.message ||
+                        (item.status === 'ok' || item.status === 'success'
+                          ? '已更新'
+                          : item.status === 'empty'
+                            ? '暂时没有新内容'
+                            : '暂时无法更新，请稍后重试')}
+                    </span>
+                    {item.updated_at && (
+                      <time dateTime={item.updated_at}>
+                        {new Date(item.updated_at).toLocaleTimeString('zh-CN', {
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        })}
+                      </time>
+                    )}
+                  </div>
+                ))}
+            </div>
+          )}
+        </aside>
+        <section className="feed-reading" aria-label="资讯列表">
+          <div className="feed-reading-toolbar">
+            <div className="feed-reading-count">
+              <strong>{feed.data?.items.length ?? '—'}</strong>
+              <span>条资讯</span>
+            </div>
+          </div>
+          {refresh.error && (
+            <p className="workspace-error" role="alert">
+              {refresh.error.message}
+            </p>
+          )}
+          {feed.isLoading ? (
+            <p className="workspace-empty">正在汇聚资讯…</p>
+          ) : feed.error ? (
+            <div className="workspace-empty">
+              <p role="alert">{feed.error.message}</p>
+              <button className="secondary-button" onClick={() => void feed.refetch()}>
+                重新加载
+              </button>
+            </div>
+          ) : !feed.data?.items.length ? (
+            <div className="workspace-empty">
+              <Newspaper size={32} />
+              <h2>{q ? '没有找到相关资讯' : '等待下一次新发现'}</h2>
+              <p>{q ? '换个关键词试试。' : '点击刷新，获取来源中的最新内容。'}</p>
+            </div>
+          ) : (
+            <div className="feed-grid">
+              {feed.data.items.map((item) => (
+                <FeedCard key={item.id} item={item} onEdit={() => setEditor(item)} />
+              ))}
+            </div>
+          )}
+        </section>
+      </div>
     </section>
   )
 }

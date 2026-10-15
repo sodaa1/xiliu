@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from 'react'
+import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
 
 export function ContentDialog({
@@ -52,7 +53,7 @@ export function ContentDialog({
       previous?.focus()
     }
   }, [])
-  return (
+  return createPortal(
     <div
       className="content-dialog-backdrop"
       onMouseDown={(event) => {
@@ -75,6 +76,7 @@ export function ContentDialog({
         </div>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
