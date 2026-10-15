@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Literal
 
 from fastapi import APIRouter, Request, Response
 from pydantic import BaseModel, ConfigDict, Field
@@ -11,6 +11,8 @@ class TaskCreate(BaseModel):
     title: str
     completed: bool = False
     due_at: str | None = None
+    scope: Literal["day", "week", "goal"] = "day"
+    parent_id: str | None = None
 
 
 class TaskUpdate(BaseModel):
@@ -18,6 +20,8 @@ class TaskUpdate(BaseModel):
     title: str | None = None
     completed: bool | None = None
     due_at: str | None = None
+    scope: Literal["day", "week", "goal"] | None = None
+    parent_id: str | None = None
 
 
 class AutomationCreate(BaseModel):

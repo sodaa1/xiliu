@@ -6,7 +6,10 @@ use std::{
     io::{BufRead, BufReader, Read, Write},
     net::{SocketAddr, TcpStream},
     process::{Child, Command, Stdio},
-    sync::{atomic::{AtomicBool, Ordering}, mpsc, Arc, Mutex},
+    sync::{
+        atomic::{AtomicBool, Ordering},
+        mpsc, Arc, Mutex,
+    },
     time::{Duration, Instant},
 };
 use tauri::{Emitter, Manager, RunEvent, WebviewUrl, WebviewWindowBuilder};
@@ -23,20 +26,29 @@ fn save_local(app: &tauri::AppHandle, filename: &str, contents: &str) -> Result<
     let directory = app.path().app_data_dir().map_err(|_| "无法打开设置目录")?;
     let temporary = directory.join(format!("{filename}.tmp"));
     std::fs::write(&temporary, contents).map_err(|_| "无法保存本机设置")?;
-    std::fs::rename(&temporary, directory.join(filename)).map_err(|_| "无法替换本机设置".to_string())
+    std::fs::rename(&temporary, directory.join(filename))
+        .map_err(|_| "无法替换本机设置".to_string())
 }
 
 #[tauri::command]
 fn save_preferences(app: tauri::AppHandle, json: String) -> Result<(), String> {
-    if json.len() > 262144 { return Err("设置内容过长".into()); }
+    if json.len() > 262144 {
+        return Err("设置内容过长".into());
+    }
     let value: serde_json::Value = serde_json::from_str(&json).map_err(|_| "设置格式无效")?;
-    if !value.is_object() { return Err("设置格式无效".into()); }
+    if !value.is_object() {
+        return Err("设置格式无效".into());
+    }
     save_local(&app, "preferences.json", &json)
 }
 
 #[tauri::command]
 fn save_sidebar(app: tauri::AppHandle, collapsed: bool) -> Result<(), String> {
-    save_local(&app, "sidebar.json", if collapsed { "true" } else { "false" })
+    save_local(
+        &app,
+        "sidebar.json",
+        if collapsed { "true" } else { "false" },
+    )
 }
 
 fn request(port: u16, token: &str, method: &str, route: &str) -> std::io::Result<bool> {
@@ -51,7 +63,9 @@ fn request(port: u16, token: &str, method: &str, route: &str) -> std::io::Result
 }
 
 fn close(app: &tauri::AppHandle, service: &Arc<Service>) {
-    if service.closing.swap(true, Ordering::SeqCst) { return; }
+    if service.closing.swap(true, Ordering::SeqCst) {
+        return;
+    }
     let app = app.clone();
     let service = Arc::clone(service);
     std::thread::spawn(move || {
@@ -87,7 +101,8 @@ fn main() {
     let app = tauri::Builder::default()
         .manage(Arc::clone(&service))
         .invoke_handler(tauri::generate_handler![save_preferences, save_sidebar,
-            companion::companion_settings, companion::companion_configure, companion::companion_show,
+            companion::companion_settings, companion::companion_configure,
+            companion::companion_set_form, companion::companion_show,
             companion::companion_open_capture, companion::companion_close_capture, companion::companion_open_main,
             companion::companion_layout, companion::companion_drag, companion::companion_snapshot,
             companion::companion_publish, companion::companion_ready, companion::companion_submit,

@@ -18,9 +18,15 @@ class TaskService:
                 created_at TEXT NOT NULL, updated_at TEXT NOT NULL
             )""")
 
+            columns = {row["name"] for row in db.execute("PRAGMA table_info(tasks)")}
+            if "scope" not in columns:
+                db.execute("ALTER TABLE tasks ADD COLUMN scope TEXT NOT NULL DEFAULT 'day'")
+            if "parent_id" not in columns:
+                db.execute("ALTER TABLE tasks ADD COLUMN parent_id TEXT")
+
     @staticmethod
     def _validate(payload: dict[str, Any]) -> dict[str, Any]:
-        if set(payload) - {"title", "completed", "due_at"}:
+        if set(payload) - {"title", "completed", "due_at", "scope", "parent_id"}:
             raise WebError("invalid_task", "任务字段无效。")
         changes = dict(payload)
         if "title" in changes:
@@ -30,6 +36,14 @@ class TaskService:
             changes["title"] = title.strip()
         if "completed" in changes and type(changes["completed"]) is not bool:
             raise WebError("invalid_task", "任务完成状态无效。")
+        if "scope" in changes and changes["scope"] not in ("goal", "week", "day"):
+            raise WebError("invalid_task", "计划类型无效。")
+        if (
+            "parent_id" in changes
+            and changes["parent_id"] is not None
+            and (not isinstance(changes["parent_id"], str) or not changes["parent_id"])
+        ):
+            raise WebError("invalid_task", "上级计划无效。")
         due = changes.get("due_at")
         if due is not None:
             try:
@@ -49,6 +63,17 @@ class TaskService:
         task["completed"] = bool(task["completed"])
         return task
 
+    @classmethod
+    def _validate_parent(cls, db: Any, task_id: str, scope: str, parent_id: str | None) -> None:
+        rank = {"goal": 0, "week": 1, "day": 2}
+        if parent_id:
+            parent = cls._get(db, parent_id)
+            if parent_id == task_id or rank[parent["scope"]] >= rank[scope]:
+                raise WebError("invalid_task", "上级计划必须是更长期的目标或计划。")
+        for child in db.execute("SELECT scope FROM tasks WHERE parent_id=?", (task_id,)):
+            if rank[child["scope"]] <= rank[scope]:
+                raise WebError("invalid_task", "请先调整子计划，再修改计划类型。")
+
     def list(self) -> list[dict[str, Any]]:
         with self.store.connect() as db:
             ids = db.execute("SELECT id FROM tasks ORDER BY completed, created_at DESC, id")
@@ -60,8 +85,12 @@ class TaskService:
             raise WebError("invalid_task", "请输入任务名称。")
         task_id, timestamp = str(uuid4()), now()
         with self.store.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            self._validate_parent(db, task_id, values.get("scope", "day"), values.get("parent_id"))
             db.execute(
-                "INSERT INTO tasks VALUES(?,?,?,?,?,?)",
+                "INSERT INTO "
+                "tasks(id,title,completed,due_at,created_at,updated_at,scope,parent_id) "
+                "VALUES(?,?,?,?,?,?,?,?)",
                 (
                     task_id,
                     values["title"],
@@ -69,6 +98,8 @@ class TaskService:
                     values.get("due_at"),
                     timestamp,
                     timestamp,
+                    values.get("scope", "day"),
+                    values.get("parent_id"),
                 ),
             )
             return self._get(db, task_id)
@@ -77,7 +108,13 @@ class TaskService:
         changes = self._validate(changes)
         with self.store.connect() as db:
             db.execute("BEGIN IMMEDIATE")
-            self._get(db, task_id)
+            current = self._get(db, task_id)
+            self._validate_parent(
+                db,
+                task_id,
+                changes.get("scope", current["scope"]),
+                changes.get("parent_id", current["parent_id"]),
+            )
             if changes:
                 changes["updated_at"] = now()
                 assignments = ", ".join(f"{key}=?" for key in changes)
@@ -88,5 +125,9 @@ class TaskService:
 
     def delete(self, task_id: str) -> None:
         with self.store.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
             self._get(db, task_id)
+            db.execute(
+                "UPDATE tasks SET parent_id=NULL, updated_at=? WHERE parent_id=?", (now(), task_id)
+            )
             db.execute("DELETE FROM tasks WHERE id=?", (task_id,))

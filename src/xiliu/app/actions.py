@@ -35,10 +35,20 @@ FOLDER_CREATE = schema(
     priority=(int, 0),
 )
 TASK_CREATE = schema(
-    "TaskCreate", title=(str, ...), completed=(bool, False), due_at=(str | None, None)
+    "TaskCreate",
+    title=(str, ...),
+    completed=(bool, False),
+    due_at=(str | None, None),
+    scope=(Literal["day", "week", "goal"], "day"),
+    parent_id=(str | None, None),
 )
 TASK_PATCH = schema(
-    "TaskPatch", title=(str | None, None), completed=(bool | None, None), due_at=(str | None, None)
+    "TaskPatch",
+    title=(str | None, None),
+    completed=(bool | None, None),
+    due_at=(str | None, None),
+    scope=(Literal["day", "week", "goal"] | None, None),
+    parent_id=(str | None, None),
 )
 CONTENT_PATCH = schema(
     "ContentPatch",
@@ -99,7 +109,7 @@ UI_BINDINGS: dict[str, tuple[str, ...]] = {
     "knowledge.folders.update": ("workspaceApi.updateFolder",),
     "knowledge.folders.delete": ("workspaceApi.deleteFolder",),
     "knowledge.folders.items": ("workspaceApi.folderItems",),
-    "tasks.list": ("agent_only:tasks.list",),
+    "tasks.list": ("workspaceApi.tasks",),
     "tasks.create": ("workspaceApi.createTask",),
     "tasks.update": ("workspaceApi.updateTask",),
     "tasks.complete": ("workspaceApi.updateTask",),

@@ -1,3 +1,4 @@
+import { PetAvatar } from './PetAvatar'
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Inbox, MessageSquare, Sparkles, X, House } from 'lucide-react'
@@ -26,6 +27,7 @@ export function CompanionPage() {
     visible: true,
     height: DEFAULT_PET_HEIGHT,
     alwaysOnTop: true,
+    form: 'chibi',
   })
   const [snapshot, setSnapshot] = useState<CompanionSnapshot>({ ...idleStatus, revision: 0 })
   const requestId = useRef<string | null>(null)
@@ -165,6 +167,23 @@ export function CompanionPage() {
               <House size={15} />
             </button>
           </div>
+          <button
+            className="companion-form-switch"
+            aria-label="切换桌宠形态"
+            onClick={async () => {
+              const form = settings.form === 'standing' ? 'chibi' : 'standing'
+              if (isDesktop()) {
+                try {
+                  setSettings(await companionCall<CompanionSettings>('set_form', { form }))
+                  setError('')
+                } catch (failure) {
+                  setError(String(failure))
+                }
+              } else setSettings({ ...settings, form })
+            }}
+          >
+            {settings.form === 'standing' ? '切换为 Q 版' : '切换为常规比例'}
+          </button>
           {compose && (
             <form
               className="companion-compose"
@@ -229,7 +248,12 @@ export function CompanionPage() {
           if (event.detail === 0 || !pointer.current.dragging) setOpen(!open)
         }}
       >
-        <img src="/companion/chibi.png" alt="" draggable={false} width="1254" height="1254" />
+        <PetAvatar
+          key={settings.form ?? 'chibi'}
+          form={settings.form ?? 'chibi'}
+          phase={snapshot.phase}
+          onError={setError}
+        />
       </button>
     </main>
   )

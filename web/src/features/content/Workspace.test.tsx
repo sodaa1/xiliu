@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { beforeEach, expect, test, vi } from 'vitest'
 import { ContentPage } from './ContentPage'
 import { FeedPage } from '../feed/FeedPage'
-import { TodayPage } from '../today/TodayPage'
+import { PlansPage } from '../plans/PlansPage'
 import { AutomationsDrawer } from '../automations/AutomationsDrawer'
 import type { Automation, ContentItem, Task } from '../../lib/workspace-api'
 
@@ -36,6 +36,7 @@ beforeEach(() => {
         body = init?.body ? JSON.parse(String(init.body)) : {}
       requests.push({ url, method, body })
       if (url === '/api/knowledge/folders') return Response.json([])
+      if (url === '/api/tasks' && method === 'GET') return Response.json(tasks)
       if (url === '/api/inbox')
         return Response.json(content.filter((item) => item.status === 'inbox'))
       if (url === '/api/inbox/import') {
@@ -206,7 +207,7 @@ function TodayWithDrawer() {
   return (
     <>
       <button onClick={() => setOpen(true)}>Automations</button>
-      <TodayPage />
+      <PlansPage />
       {open && <AutomationsDrawer onClose={() => setOpen(false)} />}
     </>
   )

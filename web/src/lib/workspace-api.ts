@@ -72,6 +72,8 @@ export interface FeedResult {
   sources: SourceStatus[]
 }
 export interface Task {
+  scope?: 'day' | 'week' | 'goal'
+  parent_id?: string | null
   id: string
   title: string
   completed: boolean
@@ -139,7 +141,11 @@ export const workspaceApi = {
   }) => request<ContentItem>('/inbox/import', 'POST', body),
   contentItem: (id: string) => request<ContentItem>(itemPath(id)),
   classifyBatch: (item_ids: string[]) =>
-    request<{ items: ContentItem[] }>('/inbox/classify-batch', 'POST', { item_ids, save_to_knowledge: true, use_ai: false }),
+    request<{ items: ContentItem[] }>('/inbox/classify-batch', 'POST', {
+      item_ids,
+      save_to_knowledge: true,
+      use_ai: false,
+    }),
   retryContent: (id: string) =>
     request<ContentItem>(`/inbox/${encodeURIComponent(id)}/retry`, 'POST'),
   folders: () => request<KnowledgeFolder[]>('/knowledge/folders'),
@@ -186,10 +192,13 @@ export const workspaceApi = {
   summarizeFeed: (id: string) =>
     request<{ summary: string }>(`/feed/${encodeURIComponent(id)}/summarize`, 'POST'),
   today: () => request<{ feed: FeedItem[]; tasks: Task[]; inbox_count: number }>('/today'),
-  createTask: (title: string, due_at: string | null) =>
-    request<Task>('/tasks', 'POST', { title, due_at }),
-  updateTask: (id: string, body: Partial<Pick<Task, 'title' | 'completed' | 'due_at'>>) =>
-    request<Task>(`/tasks/${encodeURIComponent(id)}`, 'PATCH', body),
+  tasks: () => request<Task[]>('/tasks'),
+  createTask: (title: string, due_at: string | null, details?: Pick<Task, 'scope' | 'parent_id'>) =>
+    request<Task>('/tasks', 'POST', { title, due_at, ...details }),
+  updateTask: (
+    id: string,
+    body: Partial<Pick<Task, 'title' | 'completed' | 'due_at' | 'scope' | 'parent_id'>>
+  ) => request<Task>(`/tasks/${encodeURIComponent(id)}`, 'PATCH', body),
   deleteTask: (id: string) => request<void>(`/tasks/${encodeURIComponent(id)}`, 'DELETE'),
   automations: () => request<Automation[]>('/automations'),
   createAutomation: (body: {

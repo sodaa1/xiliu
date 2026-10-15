@@ -13,6 +13,7 @@ export type CompanionSettings = {
   visible: boolean
   height: number
   alwaysOnTop: boolean
+  form?: 'chibi' | 'standing'
 }
 export type QuickRequest = {
   requestId: string

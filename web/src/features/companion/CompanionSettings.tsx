@@ -46,6 +46,17 @@ export function CompanionSettings() {
             />
           </label>
           <label>
+            桌宠形态
+            <select
+              aria-label="桌宠形态"
+              value={settings.form ?? 'chibi'}
+              onChange={(event) => void save({ form: event.target.value as 'chibi' | 'standing' })}
+            >
+              <option value="chibi">Q 版</option>
+              <option value="standing">常规比例</option>
+            </select>
+          </label>
+          <label>
             保持置顶
             <input
               type="checkbox"

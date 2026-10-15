@@ -1,0 +1,61 @@
+.plans-page {
+  overflow: auto;
+  padding: 36px clamp(24px, 6vw, 100px);
+}
+.plans-page .workspace-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.plans-scope {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0;
+}
+.plans-scope button {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 22px;
+  background: transparent;
+  color: var(--muted-readable);
+  cursor: pointer;
+}
+.plans-scope [aria-pressed='true'] {
+  background: var(--accent-soft, #eeeaff);
+  color: var(--accent, #7960dc);
+}
+.plans-board {
+  max-width: 900px;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, #e3e6f0);
+  border-radius: 20px;
+  padding: 24px;
+}
+.plans-board .task-list {
+  min-height: 130px;
+  margin: 20px 0;
+}
+.plans-board .task-create {
+  border-top: 1px solid var(--border, #e3e6f0);
+  padding-top: 20px;
+}
+.plans-board select {
+  display: block;
+  width: 100%;
+  margin: 8px 0 14px;
+  padding: 10px;
+  border: 1px solid var(--border, #e3e6f0);
+  border-radius: 10px;
+  background: var(--surface, #fff);
+  color: inherit;
+}
+.plan-parent {
+  display: block;
+  color: var(--muted-readable);
+  font-size: 0.8rem;
+  margin-top: 3px;
+}
+.plans-board .segmented [aria-pressed='true'] {
+  color: var(--accent, #7960dc);
+  background: var(--surface, #fff);
+}

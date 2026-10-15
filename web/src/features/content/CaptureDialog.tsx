@@ -7,13 +7,15 @@ import { ContentDialog } from './ContentDialog'
 export function CaptureDialog({
   onClose,
   onSaved,
+  initialText,
 }: {
   onClose: () => void
   onSaved: (item: ContentItem) => void
+  initialText?: string
 }) {
   return (
     <ContentDialog title="添加到 Inbox" onClose={onClose}>
-      <CaptureForm onClose={onClose} onSaved={onSaved} />
+      <CaptureForm onClose={onClose} onSaved={onSaved} initialText={initialText} />
     </ContentDialog>
   )
 }
@@ -22,17 +24,19 @@ export function CaptureForm({
   onClose,
   onSaved,
   draftKey,
+  initialText = '',
 }: {
   onClose: () => void
   onSaved: (item: ContentItem) => void
   draftKey?: string
+  initialText?: string
 }) {
   const submitting = useRef(false)
   const [text, setText] = useState(() => {
       try {
-        return draftKey ? (sessionStorage.getItem(draftKey) ?? '') : ''
+        return draftKey ? (sessionStorage.getItem(draftKey) ?? initialText) : initialText
       } catch {
-        return ''
+        return initialText
       }
     }),
     [file, setFile] = useState<File | null>(null),

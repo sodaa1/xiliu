@@ -19,6 +19,7 @@ pub struct Settings {
     pub visible: bool,
     pub height: u32,
     pub always_on_top: bool,
+    pub form: String,
     right: Option<i32>,
     bottom: Option<i32>,
 }
@@ -29,6 +30,7 @@ impl Default for Settings {
             visible: true,
             height: 96,
             always_on_top: true,
+            form: "chibi".into(),
             right: None,
             bottom: None,
         }
@@ -37,6 +39,9 @@ impl Default for Settings {
 impl Settings {
     fn normalize(&mut self) {
         self.height = self.height.clamp(72, 128);
+        if self.form != "standing" {
+            self.form = "chibi".into();
+        }
     }
 }
 
@@ -419,6 +424,27 @@ pub fn companion_settings(
     Ok(state.settings.lock().unwrap().clone())
 }
 #[tauri::command]
+pub fn companion_set_form(
+    window: WebviewWindow,
+    app: tauri::AppHandle,
+    form: String,
+) -> Result<Settings, String> {
+    trusted(&window, &["main", "companion"])?;
+    if form != "chibi" && form != "standing" {
+        return Err("桌宠形态无效。".into());
+    }
+    let settings = {
+        let state = app.state::<Coordinator>();
+        let mut current = state.settings.lock().unwrap();
+        current.form = form;
+        current.clone()
+    };
+    persist(&app)?;
+    notify_settings(&app)?;
+    Ok(settings)
+}
+
+#[tauri::command]
 pub async fn companion_configure(
     window: WebviewWindow,
     app: tauri::AppHandle,
@@ -626,6 +652,24 @@ pub fn companion_captured(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn legacy_settings_default_to_chibi_and_standing_form_round_trips() {
+        let legacy: Settings = serde_json::from_str(r#"{"height":96,"enabled":true}"#).unwrap();
+        assert_eq!(legacy.form, "chibi");
+        let mut standing = Settings {
+            form: "standing".into(),
+            ..Settings::default()
+        };
+        standing.normalize();
+        let restored: Settings =
+            serde_json::from_str(&serde_json::to_string(&standing).unwrap()).unwrap();
+        assert_eq!(restored.form, "standing");
+        assert_eq!(restored.height, 96);
+        standing.form = "invalid".into();
+        standing.normalize();
+        assert_eq!(standing.form, "chibi");
+    }
 
     #[test]
     fn default_pet_is_small_and_settings_are_bounded() {

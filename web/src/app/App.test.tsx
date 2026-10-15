@@ -27,6 +27,9 @@ beforeEach(() => {
     'fetch',
     vi.fn(async (input: string, options?: RequestInit) => {
       const url = String(input)
+      if (url === '/api/appearance/backgrounds')
+        return Response.json({ settings: { mode: 'blank', selected: null }, images: [] })
+      if (url.startsWith('/api/appearance/models/')) return Response.json(null)
       if (url === '/api/settings/preferences') {
         if (options?.method === 'PUT') {
           const body = JSON.parse(String(options.body))
@@ -84,6 +87,7 @@ test('App icon rail navigates to every page', async () => {
     ['Feed', '/feed'],
     ['Inbox', '/inbox'],
     ['Knowledge', '/knowledge'],
+    ['个人计划', '/plans'],
     ['Assistant', '/assistant'],
     ['Today', '/today'],
   ]) {

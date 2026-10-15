@@ -1,6 +1,15 @@
+import { PlansPage } from '../features/plans/PlansPage'
 import { NavLink, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { useCallback, useMemo, useRef } from 'react'
-import { BookOpen, House, Inbox, MessageSquare, Newspaper, Settings } from 'lucide-react'
+import {
+  BookOpen,
+  House,
+  Inbox,
+  MessageSquare,
+  Newspaper,
+  Settings,
+  CalendarCheck2,
+} from 'lucide-react'
 import { Brand } from '../components/Brand'
 import { PillNav } from '../components/PillNav'
 import { AssistantPage } from '../features/assistant/AssistantPage'
@@ -30,6 +39,7 @@ const navigation = [
   { path: '/feed', label: 'Feed', icon: Newspaper },
   { path: '/inbox', label: 'Inbox', icon: Inbox },
   { path: '/knowledge', label: 'Knowledge', icon: BookOpen },
+  { path: '/plans', label: '个人计划', icon: CalendarCheck2 },
 ]
 export function App() {
   useApplyPreferences()
@@ -120,6 +130,7 @@ function AppLayout() {
             <Routes location={displayed}>
               <Route path="/assistant" element={<AssistantPage />} />
               <Route path="/today" element={<TodayPage />} />
+              <Route path="/plans" element={<PlansPage />} />
               <Route path="/feed" element={<FeedPage />} />
               <Route
                 path="/inbox"

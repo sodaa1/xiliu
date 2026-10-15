@@ -369,3 +369,24 @@ def test_cancelled_turn_does_not_execute_pending_unified_app_import(tmp_path):
     assert events[-1]["metadata"]["cancelled"]
     assert not app.state.content.list("inbox")
     assert not app.state.content.list("knowledge")
+
+
+def test_personal_plan_actions_preserve_scope_and_parent_relationship(tmp_path):
+    app = create_app(data_dir=tmp_path / "data", env_file=tmp_path / ".env")
+    goal = execute(app, "tasks.create", {"title": "Long goal", "scope": "goal"})
+    assert goal["ok"], goal
+    week = execute(
+        app,
+        "tasks.create",
+        {"title": "Week plan", "scope": "week", "parent_id": goal["data"]["id"]},
+    )
+    assert week["ok"], week
+    assert week["data"]["scope"] == "week"
+    day = execute(app, "tasks.create", {"title": "Daily step", "parent_id": week["data"]["id"]})
+    assert day["ok"], day
+    assert (
+        next(item for item in app.state.tasks.list() if item["id"] == day["data"]["id"])[
+            "parent_id"
+        ]
+        == week["data"]["id"]
+    )

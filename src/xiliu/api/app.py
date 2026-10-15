@@ -15,6 +15,7 @@ from xiliu.api.routes import (
     app as app_actions,
 )
 from xiliu.api.routes import (
+    appearance,
     capabilities,
     content,
     conversations,
@@ -25,6 +26,7 @@ from xiliu.api.routes import (
     preferences,
     workspace,
 )
+from xiliu.api.services.appearance import AppearanceService
 from xiliu.api.services.automations import AutomationService
 from xiliu.api.services.chat import ChatService
 from xiliu.api.services.commands import CommandService
@@ -100,10 +102,9 @@ def create_app(
     app.state.retrieval = RAGService(
         app.state.content, app.state.knowledge, embedding_provider=embedding_provider
     )
-    app.state.feed = FeedService(
-        app.state.store, app.state.content, app.state.model_settings
-    )
+    app.state.feed = FeedService(app.state.store, app.state.content, app.state.model_settings)
     app.state.tasks = TaskService(app.state.store)
+    app.state.appearance = AppearanceService(app.state.store)
     app.state.preferences = PreferencesService(app.state.store)
     app.state.automations = AutomationService(app.state.data_dir, app.state.model_settings)
     app.state.app_services = AppServices.from_state(app.state)
@@ -160,6 +161,7 @@ def create_app(
     app.include_router(inbox.router)
     app.include_router(knowledge.router)
     app.include_router(workspace.router)
+    app.include_router(appearance.router)
     dist = (static_dir or Path(__file__).resolve().parents[3] / "web" / "dist").resolve()
 
     @app.get("/{path:path}", include_in_schema=False)

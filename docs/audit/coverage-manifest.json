@@ -2964,7 +2964,7 @@
       "action_ids": [
         "inbox.archive_job"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -3208,7 +3208,7 @@
       "action_ids": [
         "conversations.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -3256,7 +3256,7 @@
       "action_ids": [
         "conversations.get"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -3304,7 +3304,7 @@
       "action_ids": [
         "conversations.messages"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -3352,7 +3352,7 @@
       "action_ids": [
         "settings.model.read"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -3400,7 +3400,7 @@
       "action_ids": [
         "settings.models.catalog"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -3448,7 +3448,7 @@
       "action_ids": [
         "capabilities.commands"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -3494,7 +3494,7 @@
       "action_ids": [
         "capabilities.skills"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -3540,7 +3540,7 @@
       "action_ids": [
         "capabilities.mcp"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -3610,7 +3610,7 @@
       "action_ids": [
         "conversations.create"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -3678,11 +3678,11 @@
     },
     {
       "surface_id": "ui_api:d5346a57f0b7836b5870:1",
-      "classification": "restricted",
+      "classification": "agent_enabled",
       "action_ids": [
         "conversations.delete"
       ],
-      "reason": "Individual ActionSpec policy, confirmation and attachment restrictions still apply.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -3781,7 +3781,7 @@
         "conversations.model",
         "conversations.update"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -4126,11 +4126,11 @@
     },
     {
       "surface_id": "ui_api:a425dae2efaa413cc037:1",
-      "classification": "restricted",
+      "classification": "agent_enabled",
       "action_ids": [
         "conversations.stop"
       ],
-      "reason": "Individual ActionSpec policy, confirmation and attachment restrictions still apply.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -4154,7 +4154,7 @@
       "action_ids": [
         "conversations.create"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/assistant/AppReceipts.test.tsx::review requires human click and refreshes persisted result",
         "web/src/features/assistant/AppReceipts.test.tsx::closing review leaves the operation untouched",
@@ -4767,7 +4767,7 @@
       "action_ids": [
         "automations.runs"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
@@ -4805,7 +4805,7 @@
       "action_ids": [
         "automations.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
@@ -4881,7 +4881,7 @@
       "action_ids": [
         "automations.create"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
@@ -4938,7 +4938,7 @@
       "action_ids": [
         "automations.toggle"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
@@ -4957,7 +4957,7 @@
       "action_ids": [
         "automations.delete"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
@@ -5301,30 +5301,6 @@
       }
     },
     {
-      "surface_id": "ui_mutation:0ae3ec663375b52a3187:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "inbox.import_file",
-        "inbox.import_text",
-        "inbox.import_url"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
-      ],
-      "tests": [
-        "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
-        "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
-        "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
-        "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
-        "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
       "surface_id": "ui_query:9683aa2611ec7398dff9:1",
       "classification": "agent_enabled",
       "action_ids": [
@@ -5356,7 +5332,7 @@
         "inbox.import_text",
         "inbox.import_url"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -5374,44 +5350,6 @@
     },
     {
       "surface_id": "ui_event:9c8b323cc0ebf95304c0:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:73c34b7f152b2d4a642c:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "inbox.import_file",
-        "inbox.import_text",
-        "inbox.import_url"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
-      ],
-      "tests": [
-        "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
-        "tests/integration/test_inbox_archive_jobs.py::test_manual_revision_change_during_metadata_is_preserved_and_job_conflicts",
-        "tests/integration/test_inbox_archive_jobs.py::test_successful_metadata_automatically_archives_to_explicit_target",
-        "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
-        "tests/unit/test_app_dispatch.py::test_bulk_inbox_archival_uses_local_rules_and_handles_empty"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:9fd63b8f93573c49709e:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
@@ -5482,20 +5420,6 @@
     },
     {
       "surface_id": "ui_event:12151313cfb2658fa6da:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:6909acd69cffda91b919:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
@@ -5636,7 +5560,7 @@
       "action_ids": [
         "knowledge.folders.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -5733,7 +5657,7 @@
         "inbox.update",
         "knowledge.items.update"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -5940,7 +5864,7 @@
       "action_ids": [
         "knowledge.folders.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -5979,7 +5903,7 @@
         "inbox.get",
         "knowledge.items.get"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -6054,7 +5978,7 @@
         "inbox.get",
         "knowledge.items.get"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -6077,7 +6001,7 @@
       "action_ids": [
         "knowledge.folders.items"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -6096,7 +6020,7 @@
       "action_ids": [
         "inbox.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -6119,7 +6043,7 @@
         "inbox.list",
         "knowledge.items.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -6143,7 +6067,7 @@
         "inbox.list",
         "knowledge.items.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -6249,7 +6173,7 @@
         "inbox.update",
         "knowledge.items.update"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -6299,7 +6223,7 @@
         "inbox.delete",
         "knowledge.items.delete"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -6370,7 +6294,7 @@
         "inbox.classify_all",
         "inbox.classify_selected"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -6415,7 +6339,7 @@
       "action_ids": [
         "inbox.retry"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -7046,7 +6970,7 @@
       "action_ids": [
         "conversations.create"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
       ],
@@ -7107,7 +7031,7 @@
       "action_ids": [
         "feed.update_manual"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
       ],
@@ -7127,7 +7051,7 @@
       "action_ids": [
         "feed.add_manual"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
       ],
@@ -7321,7 +7245,7 @@
       "action_ids": [
         "feed.save_to_inbox"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
       ],
@@ -7407,7 +7331,7 @@
       "action_ids": [
         "feed.restore_manual"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
       ],
@@ -7427,7 +7351,7 @@
       "action_ids": [
         "feed.remove_manual"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
       ],
@@ -7447,7 +7371,7 @@
       "action_ids": [
         "feed.unhide_external"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
       ],
@@ -7467,7 +7391,7 @@
       "action_ids": [
         "feed.hide_external"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
       ],
@@ -7615,7 +7539,7 @@
       "action_ids": [
         "feed.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
       ],
@@ -7675,7 +7599,7 @@
       "action_ids": [
         "feed.refresh"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
       ],
@@ -7949,7 +7873,7 @@
       "action_ids": [
         "knowledge.folders.update"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/knowledge/KnowledgePage.test.tsx::folder cards open nested contents and return to the folder homepage",
         "web/src/features/knowledge/KnowledgePage.test.tsx::folder rules are submitted with parsed tags and numeric priority"
@@ -7969,7 +7893,7 @@
       "action_ids": [
         "knowledge.folders.create"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/knowledge/KnowledgePage.test.tsx::folder cards open nested contents and return to the folder homepage",
         "web/src/features/knowledge/KnowledgePage.test.tsx::folder rules are submitted with parsed tags and numeric priority"
@@ -8136,7 +8060,7 @@
       "action_ids": [
         "knowledge.folders.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/knowledge/KnowledgePage.test.tsx::folder cards open nested contents and return to the folder homepage",
         "web/src/features/knowledge/KnowledgePage.test.tsx::folder rules are submitted with parsed tags and numeric priority"
@@ -8176,7 +8100,7 @@
       "action_ids": [
         "knowledge.search"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/knowledge/KnowledgePage.test.tsx::folder cards open nested contents and return to the folder homepage",
         "web/src/features/knowledge/KnowledgePage.test.tsx::folder rules are submitted with parsed tags and numeric priority"
@@ -8236,7 +8160,7 @@
       "action_ids": [
         "knowledge.folders.delete"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/knowledge/KnowledgePage.test.tsx::folder cards open nested contents and return to the folder homepage",
         "web/src/features/knowledge/KnowledgePage.test.tsx::folder rules are submitted with parsed tags and numeric priority"
@@ -8946,11 +8870,11 @@
     },
     {
       "surface_id": "ui_api:1dd82f4cd57ba1016916:1",
-      "classification": "restricted",
+      "classification": "agent_enabled",
       "action_ids": [
         "settings.model.update"
       ],
-      "reason": "Individual ActionSpec policy, confirmation and attachment restrictions still apply.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/settings/SettingsPage.test.tsx::settings opens above the current page; profile and appearance persist"
       ],
@@ -9068,7 +8992,7 @@
       "action_ids": [
         "settings.model.read"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/settings/SettingsPage.test.tsx::settings opens above the current page; profile and appearance persist"
       ],
@@ -9106,7 +9030,7 @@
       "action_ids": [
         "settings.models.catalog"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/settings/SettingsPage.test.tsx::settings opens above the current page; profile and appearance persist"
       ],
@@ -9184,7 +9108,7 @@
       "action_ids": [
         "settings.data.read"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/settings/SettingsPage.test.tsx::settings opens above the current page; profile and appearance persist"
       ],
@@ -9339,771 +9263,7 @@
       }
     },
     {
-      "surface_id": "ui_mutation:54638dfa1c2d15cafefb:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.complete",
-        "tasks.update"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_query:eead62e7c8344e52d67e:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.complete",
-        "tasks.update"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_api:55d8234b540311f0e03a:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.complete",
-        "tasks.update"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:e89478b7719f6fd49b37:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.complete",
-        "tasks.update"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:5d1e4f12167845857bff:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:48e7ff2c1dfed3a15c36:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:521c97f8791b4ac171cc:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.complete",
-        "tasks.update"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:8ad47962edec1a53509c:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:ef4727c23541d071962d:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_api:bbb0919bf7a19ad55dea:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "today.read"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/integration/test_completion_api.py::test_content_capture_move_search_download_and_task_today"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_query:1cb115aa6b9d636a9252:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "today.read"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/integration/test_completion_api.py::test_content_capture_move_search_download_and_task_today"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_mutation:c99edd2437261db8c4bf:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.create"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_query:eead62e7c8344e52d67e:2",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.create"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_api:c75792f04d11ceb1fe36:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.create"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_mutation:73d64aa8338678970f0d:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.complete",
-        "tasks.update"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_api:55d8234b540311f0e03a:2",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.complete",
-        "tasks.update"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_query:2c0b0f7cea6bcc0dd528:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.complete",
-        "tasks.update"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_api:351c24a4c356f2938888:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.delete"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_mutation:930601ceecdd5c84d101:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.delete"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_query:03bd0ce09493061cc3a7:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.delete"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:610b3296fa33afb09f61:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:a05034bd791c444c7f7d:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.complete",
-        "tasks.update"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:a3601de125f75d87fcd1:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:edfa52e81d06573c0248:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:ca966a3a1b2c4524571e:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.delete"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:d988f51ac89ab597e393:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.delete"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:fcabde6c6194bec5d92b:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.create"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:5d1e4f12167845857bff:2",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:48e7ff2c1dfed3a15c36:2",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:618b0172f5518c530e6c:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "tasks.create"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
-        "tests/unit/test_workspace_services.py::test_task_crud_persists_and_validates"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:9e3f2db9cde31fd08f72:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:f4982ab0fe2d708f1915:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "today.read"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/integration/test_completion_api.py::test_content_capture_move_search_download_and_task_today"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:254625ba1fec97d31dfb:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "today.read"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [
-        "tests/integration/test_completion_api.py::test_content_capture_move_search_download_and_task_today"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:1cab4bbd5e88edac8d6b:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:e5cc6eabcda6415ec965:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:00539b7c8cbd48d353a1:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:d5b706b99aad34d53d9a:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:5727974ad9b0e47be58c:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:4243fe043dd789f82af7:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:71acf035fab875e9eb1a:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:17fea3cacbcd7e7b4af4:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:16628ba847dea0bac0f5:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:8e16a560ab06eb36196c:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
       "surface_id": "ui_event:50d4302f025e62782edf:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:9a2149917b34d34f5652:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:d7f22d1a98b579f0a454:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:727386743dcc1144f165:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
@@ -10148,7 +9308,7 @@
       "action_ids": [
         "inbox.archive_job"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
@@ -10168,7 +9328,7 @@
       "action_ids": [
         "conversations.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
@@ -10185,7 +9345,7 @@
       "action_ids": [
         "conversations.create"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
@@ -10202,7 +9362,7 @@
       "action_ids": [
         "conversations.get"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
@@ -10219,7 +9379,7 @@
       "action_ids": [
         "conversations.messages"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
@@ -10237,7 +9397,7 @@
         "conversations.model",
         "conversations.update"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
@@ -10250,11 +9410,11 @@
     },
     {
       "surface_id": "api_client:81799d3ecc48885c5309:1",
-      "classification": "restricted",
+      "classification": "agent_enabled",
       "action_ids": [
         "conversations.delete"
       ],
-      "reason": "Individual ActionSpec policy, confirmation and attachment restrictions still apply.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
@@ -10267,11 +9427,11 @@
     },
     {
       "surface_id": "api_client:a26f8e6f8dafbfa4f8f1:1",
-      "classification": "restricted",
+      "classification": "agent_enabled",
       "action_ids": [
         "conversations.stop"
       ],
-      "reason": "Individual ActionSpec policy, confirmation and attachment restrictions still apply.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_conversation_api.py::test_conversation_api_and_ndjson_contract",
@@ -10288,7 +9448,7 @@
       "action_ids": [
         "settings.model.read"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted",
@@ -10305,7 +9465,7 @@
       "action_ids": [
         "settings.models.catalog"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted",
@@ -10318,11 +9478,11 @@
     },
     {
       "surface_id": "api_client:880b7b98225675b108c9:1",
-      "classification": "restricted",
+      "classification": "agent_enabled",
       "action_ids": [
         "settings.model.update"
       ],
-      "reason": "Individual ActionSpec policy, confirmation and attachment restrictions still apply.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted",
@@ -10339,7 +9499,7 @@
       "action_ids": [
         "capabilities.commands"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_conversation_api.py::test_command_catalog_metadata_and_clear_route"
@@ -10355,7 +9515,7 @@
       "action_ids": [
         "capabilities.skills"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_conversation_api.py::test_command_catalog_metadata_and_clear_route"
@@ -10371,7 +9531,7 @@
       "action_ids": [
         "capabilities.mcp"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_conversation_api.py::test_command_catalog_metadata_and_clear_route"
@@ -10448,7 +9608,7 @@
       "action_ids": [
         "inbox.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
@@ -10470,7 +9630,7 @@
         "inbox.import_text",
         "inbox.import_url"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
@@ -10491,7 +9651,7 @@
         "inbox.get",
         "knowledge.items.get"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
@@ -10513,7 +9673,7 @@
         "inbox.classify_all",
         "inbox.classify_selected"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
@@ -10533,7 +9693,7 @@
       "action_ids": [
         "inbox.retry"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
@@ -10553,7 +9713,7 @@
       "action_ids": [
         "knowledge.folders.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
@@ -10570,7 +9730,7 @@
       "action_ids": [
         "knowledge.folders.create"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
@@ -10587,7 +9747,7 @@
       "action_ids": [
         "knowledge.folders.update"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
@@ -10604,7 +9764,7 @@
       "action_ids": [
         "knowledge.folders.delete"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
@@ -10621,7 +9781,7 @@
       "action_ids": [
         "knowledge.folders.items"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
@@ -10638,7 +9798,7 @@
       "action_ids": [
         "knowledge.search"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
@@ -10656,7 +9816,7 @@
         "inbox.list",
         "knowledge.items.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
@@ -10677,7 +9837,7 @@
       "action_ids": [
         "content.create"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_completion_api.py::test_content_capture_move_search_download_and_task_today",
@@ -10697,7 +9857,7 @@
         "inbox.update",
         "knowledge.items.update"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_completion_api.py::test_content_capture_move_search_download_and_task_today",
@@ -10721,7 +9881,7 @@
         "inbox.delete",
         "knowledge.items.delete"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_inbox_archive_jobs.py::test_archive_intent_persists_and_replayed_item_revision_has_one_job",
@@ -10754,7 +9914,7 @@
       "action_ids": [
         "feed.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10772,7 +9932,7 @@
       "action_ids": [
         "feed.refresh"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10790,7 +9950,7 @@
       "action_ids": [
         "feed.add_manual"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10808,7 +9968,7 @@
       "action_ids": [
         "feed.update_manual"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10826,7 +9986,7 @@
       "action_ids": [
         "feed.remove_manual"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10844,7 +10004,7 @@
       "action_ids": [
         "feed.restore_manual"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10862,7 +10022,7 @@
       "action_ids": [
         "feed.hide_external"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10880,7 +10040,7 @@
       "action_ids": [
         "feed.unhide_external"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10898,7 +10058,7 @@
       "action_ids": [
         "feed.save_to_inbox"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10916,7 +10076,7 @@
       "action_ids": [
         "today.read"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_completion_api.py::test_content_capture_move_search_download_and_task_today"
@@ -10932,7 +10092,7 @@
       "action_ids": [
         "tasks.create"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
@@ -10950,7 +10110,7 @@
         "tasks.complete",
         "tasks.update"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
@@ -10967,7 +10127,7 @@
       "action_ids": [
         "tasks.delete"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/unit/test_app_dispatch.py::test_task_write_is_persisted_and_request_replay_is_durable",
@@ -10984,7 +10144,7 @@
       "action_ids": [
         "automations.list"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -11001,7 +10161,7 @@
       "action_ids": [
         "automations.create"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -11018,7 +10178,7 @@
       "action_ids": [
         "automations.toggle"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -11035,7 +10195,7 @@
       "action_ids": [
         "automations.delete"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -11052,7 +10212,7 @@
       "action_ids": [
         "automations.runs"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -11069,7 +10229,7 @@
       "action_ids": [
         "settings.data.read"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/unit/test_app_dispatch.py::test_sensitive_model_settings_action_is_restricted",
@@ -11205,11 +10365,11 @@
     },
     {
       "surface_id": "ui_api:1dd82f4cd57ba1016916:2",
-      "classification": "restricted",
+      "classification": "agent_enabled",
       "action_ids": [
         "settings.model.update"
       ],
-      "reason": "Human-only default save uses a stored connection ID.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/settings/ModelProfiles.test.tsx::default selection respects configuration and sends no stored key"
       ],
@@ -11330,11 +10490,11 @@
     },
     {
       "surface_id": "ui_api:1dd82f4cd57ba1016916:3",
-      "classification": "restricted",
+      "classification": "agent_enabled",
       "action_ids": [
         "settings.model.update"
       ],
-      "reason": "Human model enable/default control; preserves credentials; Agent settings write remains restricted.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/settings/ModelProfiles.test.tsx::disabled connections are hidden from picker and can be restored without sending a key"
       ],
@@ -11988,7 +11148,7 @@
       "action_ids": [
         "feed.summarize"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
         "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
       ],
@@ -12048,7 +11208,7 @@
       "action_ids": [
         "feed.summarize"
       ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -12602,6 +11762,1987 @@
       "verification": {
         "status": "not_run",
         "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "http_route:453d8bcbb84bd053369a:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "http_route:84e90aaa7e79eebf3cb1:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "http_route:2658a59ef2e12feae1a8:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "http_route:55987dd42f9f3be49477:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "http_route:9ecfa7200011e5af0405:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "http_route:159a9942c6f13d0b07b2:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "http_route:236102274b0b74d18a2c:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "http_route:804ed896c55684146ccb:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "http_route:8f7bd2c39b15e9835241:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "service_method:34dce9511826f01d2e4b:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "service_method:71d4d516ab9846617a55:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "service_method:4caaf0c1ea528dcdfa58:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "service_method:f311af48193c8c58ec19:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "service_method:6cf14b0dcd1e82be0096:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "service_method:541e66715fadc2919e53:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "service_method:9dd625b1858496f3ff84:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "service_method:94e59a258be93c2eb52b:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "service_method:204aed16c4f8db2ec63d:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local user-owned background/model binary storage; no unrestricted Agent file-import or executable SDK installation action.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it",
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [
+        "tests/unit/test_appearance_media.py::test_background_survives_service_restart_and_delete_resets_selection",
+        "tests/unit/test_appearance_media.py::test_models_are_persisted_separately_for_each_pet_form"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:c30ba8f0d926d918d4bb:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Independent native capture window presentation, acknowledgements, close and open-captured-item navigation.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:67527c9c875600af8ac4:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Independent native capture window presentation, acknowledgements, close and open-captured-item navigation.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:2136f27f62526e7faf38:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Independent native capture window presentation, acknowledgements, close and open-captured-item navigation.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:41e8dcb5d6acdc26f541:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Independent native capture window presentation, acknowledgements, close and open-captured-item navigation.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:7710eee8e3d6537bbc40:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Independent native capture window presentation, acknowledgements, close and open-captured-item navigation.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:7c03f3bea69032b6df17:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Independent native capture window presentation, acknowledgements, close and open-captured-item navigation.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_api:0d661b1521523b039519:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "conversations.create"
+      ],
+      "reason": "Exact shared API client binding to registered App actions.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:1f5603963ca8e4eb8126:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:2801769ab10a4c37e43d:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:961e2aa729f0d7eb59f2:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:fa3838685ed35aee0c60:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:a22baff7115eafd619d7:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:6334c56d44da831189d7:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:d72513e0c6b9b5bf6822:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:c57ee8a8421fefae0511:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:649ebbab0fb07b0eb72a:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:f3f75cd452d1645bcc3b:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:fcf6e6b996c164ae81e8:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:34fd7b0596e07d543dd3:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:34b920400fee5dafc3b8:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:2fc62726f171a3cc1c8c:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:274eee3add8616fa776c:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:ad3b83abd12fee5c7678:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:369b7b3c96ea4335f090:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:bdd506455b51e68e77e5:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:43202d92cb2b6e39e9cd:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:659efd4b45dbd49706a6:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:f1f3aaf8e0fbbbc604c9:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:34425f7cca5e91b3a8e6:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:3e11c88162ea7ed482fb:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:f48cbd8d5816652b7df6:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:cd11479b0c6035dd6f5b:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:7692f7f7c5833b78ebd1:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:94ea5321e19507baa534:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:3366c43f9050e5fec8b7:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:c6a61dee8ffff1a8b5ef:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:5d49a74c29adfae63cee:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Explicit local model import and native pet rendering/SDK lifecycle; no unrestricted Agent model or SDK execution action.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:d98153e4bc54d5b3baaa:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Explicit local model import and native pet rendering/SDK lifecycle; no unrestricted Agent model or SDK execution action.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:ca3aa1a6553fa1eaa435:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Explicit local model import and native pet rendering/SDK lifecycle; no unrestricted Agent model or SDK execution action.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:c0227216f00753eb9deb:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Explicit local model import and native pet rendering/SDK lifecycle; no unrestricted Agent model or SDK execution action.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:18c11cd264d647acd31a:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Explicit local model import and native pet rendering/SDK lifecycle; no unrestricted Agent model or SDK execution action.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:480cf73e5ee47b2376b3:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Explicit local model import and native pet rendering/SDK lifecycle; no unrestricted Agent model or SDK execution action.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:46a6729dc0cc0c75bb26:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Explicit local model import and native pet rendering/SDK lifecycle; no unrestricted Agent model or SDK execution action.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:f4655e5959605168705e:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Explicit local model import and native pet rendering/SDK lifecycle; no unrestricted Agent model or SDK execution action.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:387916c6835a8253ebfc:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Explicit local model import and native pet rendering/SDK lifecycle; no unrestricted Agent model or SDK execution action.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_fetch:740ca1ed0a26e858d2ff:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Explicit local model import and native pet rendering/SDK lifecycle; no unrestricted Agent model or SDK execution action.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_fetch:034d2d67090c207a5e85:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Explicit local model import and native pet rendering/SDK lifecycle; no unrestricted Agent model or SDK execution action.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::shows the live canvas after mounting and releases the renderer on unmount",
+        "web/src/features/companion/Live2DSettings.test.tsx::each Live2D form has its own preview and model import entry"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:2342c1d6ce8fe3a43560:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Capture editor file choice, draft preservation and modal state; actual import uses registered Inbox actions.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:9c8b323cc0ebf95304c0:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Capture editor file choice, draft preservation and modal state; actual import uses registered Inbox actions.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_mutation:17d735d8d1d7722e8230:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "inbox.import_file",
+        "inbox.import_text",
+        "inbox.import_url"
+      ],
+      "reason": "Explicit capture submit uses registered Inbox import services.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:956ef331f29932aa7dbf:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "inbox.import_file",
+        "inbox.import_text",
+        "inbox.import_url"
+      ],
+      "reason": "Explicit capture submit uses registered Inbox import services.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:8d9748d26aa618d6dd2a:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Capture editor file choice, draft preservation and modal state; actual import uses registered Inbox actions.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:464ce300f6c83a3d7ad9:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Capture editor file choice, draft preservation and modal state; actual import uses registered Inbox actions.",
+      "ui_tests": [
+        "web/src/features/companion/companion.test.tsx::a rapid duplicate capture submit imports only once and preserves failed input"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_mutation:27e454d1e84791f83781:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_query:89dfb61860dfb504d46f:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_api:51cea0391e7bce6335f2:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "tasks.complete",
+        "tasks.update"
+      ],
+      "reason": "Exact shared API client binding to registered App actions.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:574a98663c9352e80edf:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "tasks.update"
+      ],
+      "reason": "Personal-plan mutation uses the existing registered task service and strict scope/parent schema.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:6a97b6738a620762d0d2:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:dcaa1ad757187e444f6e:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:a07a096fe8405b0605db:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:6515917037362b322aa0:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:f0bf2d90f265b1acc8ee:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_api:72581ee6229e5b3afce1:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "tasks.list"
+      ],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_query:272c3b8c39d38c2cb710:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_mutation:3d672cdb1a8600181170:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_query:89dfb61860dfb504d46f:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_api:c5652d04c2d2ea21aff7:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "tasks.create"
+      ],
+      "reason": "Exact shared API client binding to registered App actions.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_mutation:dc4dd7e5c650f64ab342:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_api:51cea0391e7bce6335f2:2",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "tasks.complete",
+        "tasks.update"
+      ],
+      "reason": "Exact shared API client binding to registered App actions.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_query:ff7cd7caf53d380aba64:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_api:f4eaab76a7bfafa73686:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "tasks.delete"
+      ],
+      "reason": "Exact shared API client binding to registered App actions.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_mutation:d43672bbd99975ee0d48:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_query:0165b2ede6c2626017fc:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:297ec253b47569add995:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:e0e23ea86298444c8cf7:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "tasks.complete"
+      ],
+      "reason": "Personal-plan mutation uses the existing registered task service and strict scope/parent schema.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:9c2eb19451c77111d0aa:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:68df7dfb05c5533b267c:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:7d406c40cfb2a5925e36:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "tasks.delete"
+      ],
+      "reason": "Personal-plan mutation uses the existing registered task service and strict scope/parent schema.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:52ba3708228cfdb3e38b:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "tasks.delete"
+      ],
+      "reason": "Personal-plan mutation uses the existing registered task service and strict scope/parent schema.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:13ae95c862e7e09bc0ab:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "tasks.create"
+      ],
+      "reason": "Personal-plan mutation uses the existing registered task service and strict scope/parent schema.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:6a97b6738a620762d0d2:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:75e8aee244ae929ae0e2:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:dcaa1ad757187e444f6e:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:fbf2398646233ca245d0:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:3da4c11ef8fdf459d345:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:3ff5dec019762f630bfc:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:4bc7f7d3add8d9e2a559:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:d05d2587ae15842763cb:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:880383db3d1136117755:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:5e75098dab5990439a78:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:1a47efac82772b2c02f8:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:c12118a2925af6217b58:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:8d1c75a7f2941b7efdc9:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-selected local background import/selection/removal, validated as passive images; no automatic Agent asset import.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:63a4793033e68b29dfaa:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-selected local background import/selection/removal, validated as passive images; no automatic Agent asset import.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:b35c39f1a2159d7e1217:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-selected local background import/selection/removal, validated as passive images; no automatic Agent asset import.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:fda3282e86eda8e947a8:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-selected local background import/selection/removal, validated as passive images; no automatic Agent asset import.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:21205cf13d8a1fb412ee:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-selected local background import/selection/removal, validated as passive images; no automatic Agent asset import.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:6c07e5e8881a13dfaef4:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-selected local background import/selection/removal, validated as passive images; no automatic Agent asset import.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:ff105de3d580db8760ba:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-selected local background import/selection/removal, validated as passive images; no automatic Agent asset import.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:d2f0cca6ed7c2986f005:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-selected local background import/selection/removal, validated as passive images; no automatic Agent asset import.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:1fd8780e93027955328c:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-selected local background import/selection/removal, validated as passive images; no automatic Agent asset import.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:6661fb78d99e9e39f922:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Home navigation, draft state and explicit capture editor presentation.",
+      "ui_tests": [
+        "web/src/features/today/TodayPage.test.tsx::quick capture starts with the home draft and closing it keeps the draft",
+        "web/src/features/today/TodayPage.test.tsx::home sends its draft into a new assistant conversation"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_link:330bcbc27c1f4c458ceb:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Home navigation, draft state and explicit capture editor presentation.",
+      "ui_tests": [
+        "web/src/features/today/TodayPage.test.tsx::quick capture starts with the home draft and closing it keeps the draft",
+        "web/src/features/today/TodayPage.test.tsx::home sends its draft into a new assistant conversation"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:c3804672710ef8acd015:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "conversations.create"
+      ],
+      "reason": "Creates a conversation through the shared ask-AI flow, preserving the user draft.",
+      "ui_tests": [
+        "web/src/features/today/TodayPage.test.tsx::quick capture starts with the home draft and closing it keeps the draft",
+        "web/src/features/today/TodayPage.test.tsx::home sends its draft into a new assistant conversation"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:944a15bc8132b73ee70d:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Home navigation, draft state and explicit capture editor presentation.",
+      "ui_tests": [
+        "web/src/features/today/TodayPage.test.tsx::quick capture starts with the home draft and closing it keeps the draft",
+        "web/src/features/today/TodayPage.test.tsx::home sends its draft into a new assistant conversation"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:2678abe88907889c81ed:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Home navigation, draft state and explicit capture editor presentation.",
+      "ui_tests": [
+        "web/src/features/today/TodayPage.test.tsx::quick capture starts with the home draft and closing it keeps the draft",
+        "web/src/features/today/TodayPage.test.tsx::home sends its draft into a new assistant conversation"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:1786f8b78a1b86ff4b96:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Home navigation, draft state and explicit capture editor presentation.",
+      "ui_tests": [
+        "web/src/features/today/TodayPage.test.tsx::quick capture starts with the home draft and closing it keeps the draft",
+        "web/src/features/today/TodayPage.test.tsx::home sends its draft into a new assistant conversation"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:2678abe88907889c81ed:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Home navigation, draft state and explicit capture editor presentation.",
+      "ui_tests": [
+        "web/src/features/today/TodayPage.test.tsx::quick capture starts with the home draft and closing it keeps the draft",
+        "web/src/features/today/TodayPage.test.tsx::home sends its draft into a new assistant conversation"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:7466b3d3b9e98ae9b9af:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Home navigation, draft state and explicit capture editor presentation.",
+      "ui_tests": [
+        "web/src/features/today/TodayPage.test.tsx::quick capture starts with the home draft and closing it keeps the draft",
+        "web/src/features/today/TodayPage.test.tsx::home sends its draft into a new assistant conversation"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:b76bf98cf472d289a33a:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Home navigation, draft state and explicit capture editor presentation.",
+      "ui_tests": [
+        "web/src/features/today/TodayPage.test.tsx::quick capture starts with the home draft and closing it keeps the draft",
+        "web/src/features/today/TodayPage.test.tsx::home sends its draft into a new assistant conversation"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:6363fc541b861b123574:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Home navigation, draft state and explicit capture editor presentation.",
+      "ui_tests": [
+        "web/src/features/today/TodayPage.test.tsx::quick capture starts with the home draft and closing it keeps the draft",
+        "web/src/features/today/TodayPage.test.tsx::home sends its draft into a new assistant conversation"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_fetch:e90c94254d4a34eb0535:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-selected local background import/selection/removal, validated as passive images; no automatic Agent asset import.",
+      "ui_tests": [
+        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "api_client:d5491760387a3eb33b35:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "tasks.list"
+      ],
+      "reason": "Personal plans read the shared task service.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
       }
     }
   ],

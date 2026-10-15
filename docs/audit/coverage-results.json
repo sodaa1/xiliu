@@ -2,15 +2,15 @@
   "format_version": 1,
   "status": "passed",
   "scope": "final contract/surface guard",
-  "surface_count": 710,
+  "surface_count": 791,
   "registry_action_count": 67,
   "runtime_gate": "not_run",
   "pages": {
     "API / Service / Agent": {
-      "total": 78,
-      "restricted": 29,
+      "total": 97,
+      "restricted": 44,
       "ui_only": 1,
-      "agent_enabled": 48
+      "agent_enabled": 52
     },
     "Intro": {
       "total": 27,
@@ -18,21 +18,21 @@
     },
     "Assistant": {
       "total": 117,
-      "agent_enabled": 40,
-      "restricted": 29,
+      "agent_enabled": 42,
+      "restricted": 27,
       "ui_only": 48
     },
     "Settings": {
-      "total": 76,
-      "agent_enabled": 33,
-      "restricted": 22,
+      "total": 85,
+      "agent_enabled": 36,
+      "restricted": 28,
       "ui_only": 21
     },
     "Inbox / shared content": {
-      "total": 120,
+      "total": 122,
       "agent_enabled": 57,
       "restricted": 7,
-      "ui_only": 56
+      "ui_only": 58
     },
     "Feed": {
       "total": 86,
@@ -51,9 +51,10 @@
       "ui_only": 30
     },
     "Today": {
-      "total": 56,
-      "agent_enabled": 32,
-      "ui_only": 24
+      "total": 21,
+      "agent_enabled": 10,
+      "ui_only": 10,
+      "restricted": 1
     },
     "Automations": {
       "total": 44,
@@ -65,9 +66,20 @@
       "total": 20,
       "ui_only": 20
     },
+    "Companion": {
+      "total": 47,
+      "ui_only": 6,
+      "agent_enabled": 1,
+      "restricted": 40
+    },
     "Launch": {
       "total": 4,
       "ui_only": 4
+    },
+    "Plans": {
+      "total": 39,
+      "ui_only": 29,
+      "agent_enabled": 10
     }
   },
   "errors": [],
