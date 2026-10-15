@@ -2,7 +2,7 @@
   "format_version": 1,
   "status": "passed",
   "scope": "final contract/surface guard",
-  "surface_count": 791,
+  "surface_count": 799,
   "registry_action_count": 67,
   "runtime_gate": "not_run",
   "pages": {
@@ -67,10 +67,10 @@
       "ui_only": 20
     },
     "Companion": {
-      "total": 47,
+      "total": 55,
       "ui_only": 6,
       "agent_enabled": 1,
-      "restricted": 40
+      "restricted": 48
     },
     "Launch": {
       "total": 4,

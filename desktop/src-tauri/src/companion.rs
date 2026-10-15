@@ -18,6 +18,9 @@ pub struct Settings {
     pub enabled: bool,
     pub visible: bool,
     pub height: u32,
+    #[serde(default)]
+    pub chibi_scale: u32,
+    pub standing_scale: u32,
     pub always_on_top: bool,
     pub form: String,
     right: Option<i32>,
@@ -29,6 +32,8 @@ impl Default for Settings {
             enabled: true,
             visible: true,
             height: 96,
+            chibi_scale: 100,
+            standing_scale: 100,
             always_on_top: true,
             form: "chibi".into(),
             right: None,
@@ -38,11 +43,42 @@ impl Default for Settings {
 }
 impl Settings {
     fn normalize(&mut self) {
-        self.height = self.height.clamp(72, 128);
+        // A missing chibi scale marks the older pixel-height configuration.
+        if self.chibi_scale == 0 {
+            self.chibi_scale = self.height.saturating_mul(100) / 96;
+        }
+        self.chibi_scale = normalize_scale(self.chibi_scale);
+        self.standing_scale = normalize_scale(self.standing_scale);
         if self.form != "standing" {
             self.form = "chibi".into();
         }
+        self.height = if self.form == "standing" {
+            168 * self.standing_scale / 100
+        } else {
+            96 * self.chibi_scale / 100
+        };
     }
+}
+fn normalize_scale(value: u32) -> u32 {
+    ((value.clamp(100, 200) + 12) / 25) * 25
+}
+fn layout_size(height: u32, expanded: bool, bubble: bool, menu: bool) -> (f64, f64) {
+    let width = (height as f64).max(if expanded {
+        380.0
+    } else if bubble {
+        276.0
+    } else if menu {
+        146.0
+    } else {
+        112.0
+    }) + 24.0;
+    let height = height as f64
+        + 24.0
+        + 8.0
+        + if expanded { 48.0 } else { 44.0 }
+        + if bubble { 106.0 } else { 0.0 }
+        + if menu { 52.0 } else { 0.0 };
+    (width, height)
 }
 
 #[derive(Clone, Default, Serialize, Deserialize, PartialEq)]
@@ -95,7 +131,7 @@ pub struct Coordinator {
     snapshot: Mutex<Snapshot>,
     requests: Mutex<VecDeque<QuickRequest>>,
     port: Mutex<Option<u16>>,
-    layout: Mutex<(bool, bool)>,
+    layout: Mutex<(bool, bool, bool)>,
     ready: AtomicBool,
     compose: AtomicBool,
 }
@@ -115,7 +151,7 @@ impl Coordinator {
             snapshot: Mutex::new(Snapshot::default()),
             requests: Mutex::new(VecDeque::new()),
             port: Mutex::new(None),
-            layout: Mutex::new((false, false)),
+            layout: Mutex::new((false, false, false)),
             ready: AtomicBool::new(false),
             compose: AtomicBool::new(false),
         }
@@ -150,6 +186,20 @@ fn clamp_origin(x: i32, y: i32, width: u32, height: u32, area: (i32, i32, u32, u
     let max_y = area.1.saturating_add(area.3.saturating_sub(height) as i32);
     (x.clamp(area.0, max_x), y.clamp(area.1, max_y))
 }
+fn monitor_index(anchor: (i32, i32), areas: &[(i32, i32, u32, u32)]) -> usize {
+    let distance = |&(x, y, width, height): &(i32, i32, u32, u32)| {
+        let (ax, ay) = (anchor.0 as f64, anchor.1 as f64);
+        let dx = ax - ax.clamp(x as f64, x as f64 + width as f64);
+        let dy = ay - ay.clamp(y as f64, y as f64 + height as f64);
+        dx * dx + dy * dy
+    };
+    areas
+        .iter()
+        .enumerate()
+        .min_by(|(_, a), (_, b)| distance(a).total_cmp(&distance(b)))
+        .map(|(index, _)| index)
+        .unwrap_or(0)
+}
 fn layout(app: &tauri::AppHandle) -> Result<(), String> {
     let window = match app.get_webview_window("companion") {
         Some(value) => value,
@@ -157,36 +207,28 @@ fn layout(app: &tauri::AppHandle) -> Result<(), String> {
     };
     let state = app.state::<Coordinator>();
     let settings = state.settings.lock().unwrap().clone();
-    let (expanded, bubble) = *state.layout.lock().unwrap();
+    let (expanded, bubble, menu) = *state.layout.lock().unwrap();
     let monitors = window.available_monitors().map_err(|e| e.to_string())?;
-    let monitor = monitors
+    let areas: Vec<_> = monitors
         .iter()
-        .find(|m| {
-            let a = m.work_area();
-            settings.right.zip(settings.bottom).is_some_and(|(x, y)| {
-                x > a.position.x
-                    && x <= a.position.x + a.size.width as i32
-                    && y > a.position.y
-                    && y <= a.position.y + a.size.height as i32
-            })
+        .map(|monitor| {
+            let area = monitor.work_area();
+            (
+                area.position.x,
+                area.position.y,
+                area.size.width,
+                area.size.height,
+            )
         })
-        .or_else(|| monitors.first())
-        .ok_or("找不到显示器")?;
+        .collect();
+    let index = settings
+        .right
+        .zip(settings.bottom)
+        .map(|anchor| monitor_index(anchor, &areas))
+        .unwrap_or(0);
+    let monitor = monitors.get(index).ok_or("找不到显示器")?;
     let scale = monitor.scale_factor();
-    let width = if expanded || bubble {
-        300.0
-    } else {
-        settings.height as f64 + 20.0
-    };
-    let height = settings.height as f64
-        + 20.0
-        + if expanded {
-            286.0
-        } else if bubble {
-            110.0
-        } else {
-            0.0
-        };
+    let (width, height) = layout_size(settings.height, expanded, bubble, menu);
     let physical_width = (width * scale).round() as u32;
     let physical_height = (height * scale).round() as u32;
     let area = monitor.work_area();
@@ -245,7 +287,7 @@ fn ensure_window(app: &tauri::AppHandle, label: &str) -> Result<WebviewWindow, S
     if label == "companion" {
         builder = builder
             .title("息流桌宠")
-            .inner_size(116.0, 116.0)
+            .inner_size(136.0, 172.0)
             .decorations(false)
             .transparent(true)
             .shadow(false)
@@ -355,7 +397,7 @@ pub fn install_tray(app: &tauri::AppHandle) -> tauri::Result<()> {
                     .compose
                     .store(true, Ordering::SeqCst);
                 if show(app).is_ok() {
-                    *app.state::<Coordinator>().layout.lock().unwrap() = (true, false);
+                    *app.state::<Coordinator>().layout.lock().unwrap() = (true, false, false);
                     let _ = layout(app);
                     let _ = app.emit_to("companion", "companion-compose", ());
                     if let Some(window) = app.get_webview_window("companion") {
@@ -392,16 +434,18 @@ pub fn install_tray(app: &tauri::AppHandle) -> tauri::Result<()> {
     Ok(())
 }
 fn valid_main_path(path: &str) -> bool {
-    matches!(path, "/today" | "/assistant" | "/inbox")
-        || ["/assistant?c=", "/inbox?item="].iter().any(|prefix| {
-            path.strip_prefix(prefix).is_some_and(|cid| {
-                !cid.is_empty()
-                    && cid.len() <= 128
-                    && cid
-                        .chars()
-                        .all(|c| c.is_ascii_alphanumeric() || c == '-' || c == '_')
-            })
+    matches!(
+        path,
+        "/today" | "/assistant" | "/inbox" | "/settings?section=appearance"
+    ) || ["/assistant?c=", "/inbox?item="].iter().any(|prefix| {
+        path.strip_prefix(prefix).is_some_and(|cid| {
+            !cid.is_empty()
+                && cid.len() <= 128
+                && cid
+                    .chars()
+                    .all(|c| c.is_ascii_alphanumeric() || c == '-' || c == '_')
         })
+    })
 }
 fn open_main(app: &tauri::AppHandle, path: &str) -> Result<(), String> {
     if !valid_main_path(path) {
@@ -437,6 +481,7 @@ pub fn companion_set_form(
         let state = app.state::<Coordinator>();
         let mut current = state.settings.lock().unwrap();
         current.form = form;
+        current.normalize();
         current.clone()
     };
     persist(&app)?;
@@ -505,15 +550,33 @@ pub fn companion_layout(
     app: tauri::AppHandle,
     expanded: bool,
     bubble: bool,
+    menu: bool,
 ) -> Result<(), String> {
     trusted(&window, &["companion"])?;
-    *app.state::<Coordinator>().layout.lock().unwrap() = (expanded, bubble);
+    *app.state::<Coordinator>().layout.lock().unwrap() = (expanded, bubble, menu);
     layout(&app)
 }
 #[tauri::command]
-pub fn companion_drag(window: WebviewWindow) -> Result<(), String> {
+pub async fn companion_drag(window: WebviewWindow, app: tauri::AppHandle) -> Result<(), String> {
     trusted(&window, &["companion"])?;
-    window.start_dragging().map_err(|e| e.to_string())
+    window.start_dragging().map_err(|e| e.to_string())?;
+    // The OS drag call posts a message and returns before the mouse is released.
+    // Wait off the UI thread so the renderer can keep its held pose until release.
+    #[cfg(target_os = "windows")]
+    tauri::async_runtime::spawn_blocking(|| {
+        #[link(name = "user32")]
+        extern "system" {
+            fn GetAsyncKeyState(key: i32) -> i16;
+        }
+        let started = std::time::Instant::now();
+        while unsafe { GetAsyncKeyState(0x01) } < 0 && started.elapsed().as_secs() < 120 {
+            std::thread::sleep(std::time::Duration::from_millis(16));
+        }
+    })
+    .await
+    .map_err(|e| e.to_string())?;
+    layout(&app)?;
+    persist(&app)
 }
 #[tauri::command]
 pub fn companion_snapshot(
@@ -654,40 +717,50 @@ mod tests {
     use super::*;
 
     #[test]
-    fn legacy_settings_default_to_chibi_and_standing_form_round_trips() {
-        let legacy: Settings = serde_json::from_str(r#"{"height":96,"enabled":true}"#).unwrap();
-        assert_eq!(legacy.form, "chibi");
-        let mut standing = Settings {
-            form: "standing".into(),
-            ..Settings::default()
-        };
+    fn legacy_size_migrates_and_each_form_restores_its_own_scale() {
+        let mut legacy: Settings =
+            serde_json::from_str(r#"{"height":128,"enabled":true}"#).unwrap();
+        legacy.normalize();
+        assert_eq!(legacy.height, 120);
+        let saved = serde_json::to_value(&legacy).unwrap();
+        assert_eq!(saved["chibiScale"], 125);
+        assert_eq!(saved["standingScale"], 100);
+        let mut standing: Settings =
+            serde_json::from_str(r#"{"form":"standing","chibiScale":125,"standingScale":150}"#)
+                .unwrap();
         standing.normalize();
-        let restored: Settings =
+        assert_eq!(standing.height, 252);
+        standing.form = "chibi".into();
+        standing.normalize();
+        assert_eq!(standing.height, 120);
+        let mut restored: Settings =
             serde_json::from_str(&serde_json::to_string(&standing).unwrap()).unwrap();
-        assert_eq!(restored.form, "standing");
-        assert_eq!(restored.height, 96);
-        standing.form = "invalid".into();
-        standing.normalize();
-        assert_eq!(standing.form, "chibi");
+        restored.form = "standing".into();
+        restored.normalize();
+        assert_eq!(restored.height, 252);
     }
 
     #[test]
-    fn default_pet_is_small_and_settings_are_bounded() {
+    fn default_sizes_and_scale_limits_are_safe() {
         assert_eq!(Settings::default().height, 96);
-        let mut settings = Settings {
-            height: 600,
-            ..Settings::default()
-        };
+        let mut settings: Settings =
+            serde_json::from_str(r#"{"form":"standing","chibiScale":1,"standingScale":99999}"#)
+                .unwrap();
         settings.normalize();
-        assert_eq!(settings.height, 128);
-        settings.height = 0;
+        assert_eq!(settings.height, 336);
+        settings.form = "invalid".into();
         settings.normalize();
-        assert_eq!(settings.height, 72);
+        assert_eq!(settings.form, "chibi");
+        assert_eq!(settings.height, 96);
     }
 
     #[test]
     fn captured_item_navigation_is_local_and_validated() {
         assert!(valid_main_path("/inbox?item=content-123"));
+        assert!(valid_main_path("/settings?section=appearance"));
+        assert!(!valid_main_path(
+            "/settings?section=appearance&redirect=evil"
+        ));
         assert!(valid_main_path("/assistant?c=chat_123"));
         assert!(!valid_main_path("https://example.com"));
         assert!(!valid_main_path("/inbox?item=123&redirect=evil"));
@@ -710,6 +783,27 @@ mod tests {
             ..Snapshot::default()
         }));
         assert_eq!(current.revision, 9);
+    }
+
+    #[test]
+    fn compact_window_reserves_space_for_the_dock_and_expansion() {
+        assert_eq!(layout_size(96, false, false, false), (136.0, 172.0));
+        assert_eq!(layout_size(168, false, false, false), (192.0, 244.0));
+        assert_eq!(layout_size(168, true, true, true), (404.0, 406.0));
+        assert_eq!(layout_size(336, true, true, true), (404.0, 574.0));
+    }
+
+    #[test]
+    fn offscreen_anchor_uses_nearest_monitor_not_the_primary() {
+        let areas = [
+            (0, 0, 1920, 1040),
+            (1920, 0, 1920, 1040),
+            (-1920, 0, 1920, 1040),
+        ];
+        assert_eq!(monitor_index((3890, 1070), &areas), 1);
+        assert_eq!(monitor_index((-1950, 1080), &areas), 2);
+        assert_eq!(monitor_index((2900, 1050), &areas), 1);
+        assert_eq!(monitor_index((1400, 900), &areas), 0);
     }
 
     #[test]

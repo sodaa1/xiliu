@@ -1,13 +1,25 @@
 import { PetAvatar } from './PetAvatar'
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Inbox, MessageSquare, Sparkles, X, House } from 'lucide-react'
+import {
+  Inbox,
+  SquarePen,
+  MoreHorizontal,
+  ArrowUp,
+  Plus,
+  Settings,
+  RefreshCw,
+  House,
+  LoaderCircle,
+} from 'lucide-react'
 import { isDesktop } from '../../desktop/bridge'
 import {
   acceptSnapshot,
   companionCall,
   companionListen,
-  DEFAULT_PET_HEIGHT,
+  petHeight,
+  previewSettings,
+  savePreviewSettings,
   idleStatus,
   type CompanionSettings,
   type CompanionSnapshot,
@@ -17,28 +29,25 @@ import './companion.css'
 
 export function CompanionPage() {
   const navigate = useNavigate()
-  const [open, setOpen] = useState(false)
   const [compose, setCompose] = useState(false)
+  const [menu, setMenu] = useState(false)
+  const [dragging, setDragging] = useState(false)
+  const [position, setPosition] = useState({ right: 24, bottom: 24 })
+  const stage = useRef<HTMLDivElement>(null)
   const [draft, setDraft] = useState('')
   const [error, setError] = useState('')
   const [pending, setPending] = useState(false)
-  const [settings, setSettings] = useState<CompanionSettings>({
-    enabled: true,
-    visible: true,
-    height: DEFAULT_PET_HEIGHT,
-    alwaysOnTop: true,
-    form: 'chibi',
-  })
+  const [settings, setSettings] = useState<CompanionSettings>(previewSettings)
+  const height = petHeight(settings)
   const [snapshot, setSnapshot] = useState<CompanionSnapshot>({ ...idleStatus, revision: 0 })
   const requestId = useRef<string | null>(null)
   const alive = useRef(true)
-  const pointer = useRef({ x: 0, y: 0, dragging: false })
+  const pointer = useRef({ x: 0, y: 0, right: 24, bottom: 24, active: false, moved: false })
   const invoke = async (command: string, args: Record<string, unknown> = {}) => {
     try {
       return await companionCall(command, args)
     } catch (error) {
       setError(String(error))
-      setOpen(true)
     }
   }
   useEffect(() => {
@@ -58,7 +67,6 @@ export function CompanionPage() {
         )
         await listen<CompanionSettings>('settings', setSettings)
         await listen<null>('compose', () => {
-          setOpen(true)
           setCompose(true)
           void companionCall('take_compose').catch(() => {})
         })
@@ -67,14 +75,12 @@ export function CompanionPage() {
           setSnapshot((old) => acceptSnapshot(old, value))
           setSettings(await companionCall<CompanionSettings>('settings'))
           if (await companionCall<boolean>('take_compose')) {
-            setOpen(true)
             setCompose(true)
           }
         }
       })().catch((error) => {
         if (!stopped) {
           setError(String(error))
-          setOpen(true)
         }
       })
     return () => {
@@ -87,10 +93,46 @@ export function CompanionPage() {
   const bubble = snapshot.phase !== 'idle'
   useEffect(() => {
     if (isDesktop())
-      void companionCall('layout', { expanded: open, bubble }).catch((error) =>
-        setError(String(error))
+      void companionCall('layout', { expanded: compose, bubble: bubble || !!error, menu }).catch(
+        (failure) => setError(String(failure))
       )
-  }, [open, bubble, settings.height])
+  }, [compose, bubble, error, menu, height])
+  useEffect(() => {
+    if (isDesktop()) return
+    const refresh = () => setSettings(previewSettings())
+    window.addEventListener('storage', refresh)
+    window.addEventListener('companion-preview-settings', refresh)
+    return () => {
+      window.removeEventListener('storage', refresh)
+      window.removeEventListener('companion-preview-settings', refresh)
+    }
+  }, [])
+  useEffect(() => {
+    if (isDesktop()) return
+    const clamp = () => {
+      const rect = stage.current?.getBoundingClientRect()
+      if (!rect) return
+      setPosition((old) => ({
+        right: Math.max(12, Math.min(old.right, window.innerWidth - rect.width - 12)),
+        bottom: Math.max(12, Math.min(old.bottom, window.innerHeight - rect.height - 12)),
+      }))
+    }
+    clamp()
+    window.addEventListener('resize', clamp)
+    return () => window.removeEventListener('resize', clamp)
+  }, [height, compose, menu, bubble, error])
+  const switchForm = async () => {
+    const form = settings.form === 'standing' ? 'chibi' : 'standing'
+    if (isDesktop()) {
+      try {
+        setSettings(await companionCall<CompanionSettings>('set_form', { form }))
+        setError('')
+      } catch (failure) {
+        setError(String(failure))
+      }
+    } else setSettings(savePreviewSettings({ ...settings, form }))
+    setMenu(false)
+  }
   const openMain = (path: string) => {
     if (isDesktop()) void invoke('open_main', { path })
     else navigate(path)
@@ -119,7 +161,6 @@ export function CompanionPage() {
         requestId.current = null
         setDraft('')
         setCompose(false)
-        setOpen(false)
       } else if (result.status === 'failed') {
         requestId.current = null
         setError(result.error ?? '发送失败，请重试。')
@@ -133,128 +174,241 @@ export function CompanionPage() {
   return (
     <main
       className="companion-surface"
-      style={{ '--pet-height': `${settings.height}px` } as CSSProperties}
+      data-native={isDesktop()}
+      style={{ '--pet-height': `${height}px` } as CSSProperties}
       onKeyDown={(event) => {
-        if (event.key === 'Escape') setOpen(false)
+        if (event.key === 'Escape') {
+          setCompose(false)
+          setMenu(false)
+        }
       }}
     >
-      {open && (
-        <section className="companion-panel" aria-label="桌宠快捷操作">
-          <header>
-            <strong>
-              <Sparkles size={15} />
-              息流在这里
-            </strong>
-            <button aria-label="收起快捷面板" onClick={() => setOpen(false)}>
-              <X size={16} />
-            </button>
-          </header>
-          <div className="companion-shortcuts">
-            <button onClick={() => setCompose(true)}>
-              <MessageSquare size={15} />
-              新对话
-            </button>
-            <button
-              onClick={() => {
-                if (isDesktop()) void invoke('open_capture')
-                else navigate('/desktop/capture')
-              }}
-            >
-              <Inbox size={15} />
-              收进 Inbox
-            </button>
-            <button aria-label="打开息流" onClick={() => openMain('/today')}>
-              <House size={15} />
-            </button>
-          </div>
-          <button
-            className="companion-form-switch"
-            aria-label="切换桌宠形态"
-            onClick={async () => {
-              const form = settings.form === 'standing' ? 'chibi' : 'standing'
-              if (isDesktop()) {
-                try {
-                  setSettings(await companionCall<CompanionSettings>('set_form', { form }))
-                  setError('')
-                } catch (failure) {
-                  setError(String(failure))
+      <div
+        ref={stage}
+        className="companion-stage"
+        data-dragging={dragging}
+        style={!isDesktop() ? { right: position.right, bottom: position.bottom } : undefined}
+      >
+        {(bubble || error) && (
+          <div className="companion-notice">
+            {error ? (
+              <p role="alert" className="companion-error">
+                {error}
+              </p>
+            ) : (
+              <button
+                className="companion-bubble"
+                aria-live="polite"
+                title="查看对话"
+                onClick={() =>
+                  openMain(
+                    snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant'
+                  )
                 }
-              } else setSettings({ ...settings, form })
-            }}
-          >
-            {settings.form === 'standing' ? '切换为 Q 版' : '切换为常规比例'}
-          </button>
-          {compose && (
+              >
+                {snapshot.message}
+                {snapshot.count > 1 && <small>{snapshot.count} 个任务进行中</small>}
+              </button>
+            )}
+          </div>
+        )}
+        <button
+          className="companion-character"
+          aria-label="打开桌宠快捷操作"
+          aria-expanded={compose}
+          onPointerDown={(event) => {
+            if (event.button !== 0) return
+            pointer.current = {
+              x: event.clientX,
+              y: event.clientY,
+              ...position,
+              active: true,
+              moved: false,
+            }
+            if (!isDesktop()) event.currentTarget.setPointerCapture(event.pointerId)
+          }}
+          onPointerMove={(event) => {
+            const start = pointer.current
+            if (!start.active || event.buttons !== 1) return
+            const dx = event.clientX - start.x,
+              dy = event.clientY - start.y
+            if (!start.moved && Math.hypot(dx, dy) <= 5) return
+            if (!start.moved) {
+              start.moved = true
+              setDragging(true)
+              if (isDesktop()) {
+                void invoke('drag').finally(() => {
+                  pointer.current.active = false
+                  setDragging(false)
+                })
+                return
+              }
+            }
+            if (!isDesktop()) {
+              const rect = stage.current?.getBoundingClientRect()
+              if (rect)
+                setPosition({
+                  right: Math.max(
+                    12,
+                    Math.min(start.right - dx, window.innerWidth - rect.width - 12)
+                  ),
+                  bottom: Math.max(
+                    12,
+                    Math.min(start.bottom - dy, window.innerHeight - rect.height - 12)
+                  ),
+                })
+            }
+          }}
+          onPointerUp={() => {
+            pointer.current.active = false
+            if (!isDesktop()) setDragging(false)
+          }}
+          onPointerCancel={() => {
+            pointer.current.active = false
+            if (!isDesktop()) setDragging(false)
+          }}
+          onLostPointerCapture={() => {
+            if (!isDesktop()) {
+              pointer.current.active = false
+              setDragging(false)
+            }
+          }}
+          onClick={(event) => {
+            if (event.detail === 0 || !pointer.current.moved) {
+              setCompose(!compose)
+              setMenu(false)
+            }
+          }}
+        >
+          <PetAvatar
+            key={settings.form ?? 'chibi'}
+            form={settings.form ?? 'chibi'}
+            phase={snapshot.phase}
+            onError={setError}
+          />
+        </button>
+        <div className="companion-dock">
+          {compose ? (
             <form
               className="companion-compose"
+              aria-label="桌宠快速对话"
               onSubmit={(event) => {
                 event.preventDefault()
                 void send()
               }}
             >
-              <textarea
+              <button
+                type="button"
+                className="companion-icon"
+                aria-label="更多桌宠操作"
+                title="更多"
+                aria-expanded={menu}
+                onClick={() => setMenu(!menu)}
+              >
+                <Plus size={20} />
+              </button>
+              <input
                 autoFocus
                 aria-label="快速对话内容"
-                placeholder="聊聊你正在想的事…"
+                placeholder="开始新聊天"
                 value={draft}
                 disabled={pending || !!requestId.current}
                 onChange={(event) => setDraft(event.target.value)}
                 maxLength={20000}
               />
-              <button disabled={pending || !draft.trim()}>
-                {pending ? '正在发送…' : requestId.current ? '检查发送状态' : '发送新对话'}
+              <button
+                className="companion-send companion-icon"
+                aria-label={
+                  pending ? '正在发送' : requestId.current ? '检查发送状态' : '发送新对话'
+                }
+                title="发送"
+                disabled={pending || !draft.trim()}
+              >
+                {pending ? (
+                  <LoaderCircle size={18} className="companion-spinner" />
+                ) : (
+                  <ArrowUp size={20} />
+                )}
               </button>
             </form>
+          ) : (
+            <div className="companion-toolbar" role="toolbar" aria-label="桌宠快捷操作">
+              <button
+                className="companion-icon"
+                aria-label="新对话"
+                title="新对话"
+                onClick={() => {
+                  setCompose(true)
+                  setMenu(false)
+                }}
+              >
+                <SquarePen size={19} />
+              </button>
+              <button
+                className="companion-icon"
+                aria-label="收进 Inbox"
+                title="收进 Inbox"
+                onClick={() => {
+                  if (isDesktop()) void invoke('open_capture')
+                  else navigate('/desktop/capture')
+                }}
+              >
+                <Inbox size={19} />
+              </button>
+              <button
+                className="companion-icon"
+                aria-label="更多桌宠操作"
+                title="更多"
+                aria-expanded={menu}
+                onClick={() => setMenu(!menu)}
+              >
+                <MoreHorizontal size={20} />
+              </button>
+            </div>
           )}
-          {error && (
-            <p role="alert" className="companion-error">
-              {error}
-            </p>
+          {menu && (
+            <div className="companion-more" role="toolbar" aria-label="更多桌宠操作">
+              <button
+                className="companion-icon"
+                aria-label="切换桌宠形态"
+                title="切换形态"
+                onClick={() => void switchForm()}
+              >
+                <RefreshCw size={18} />
+              </button>
+              {compose && (
+                <button
+                  className="companion-icon"
+                  aria-label="收进 Inbox"
+                  title="收进 Inbox"
+                  onClick={() => {
+                    if (isDesktop()) void invoke('open_capture')
+                    else navigate('/desktop/capture')
+                  }}
+                >
+                  <Inbox size={18} />
+                </button>
+              )}
+              <button
+                className="companion-icon"
+                aria-label="打开息流"
+                title="打开息流"
+                onClick={() => openMain('/today')}
+              >
+                <House size={18} />
+              </button>
+              <button
+                className="companion-icon"
+                aria-label="桌宠设置"
+                title="设置"
+                onClick={() => openMain('/settings?section=appearance')}
+              >
+                <Settings size={18} />
+              </button>
+            </div>
           )}
-        </section>
-      )}
-      {!open && bubble && (
-        <button
-          className="companion-bubble"
-          aria-live="polite"
-          onClick={() =>
-            openMain(
-              snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant'
-            )
-          }
-        >
-          {snapshot.message}
-          <small>{snapshot.count > 1 ? `共 ${snapshot.count} 个任务 · ` : ''}点击查看对话</small>
-        </button>
-      )}
-      <button
-        className="companion-character"
-        aria-label="打开桌宠快捷操作"
-        aria-expanded={open}
-        onPointerDown={(event) => {
-          pointer.current = { x: event.clientX, y: event.clientY, dragging: false }
-        }}
-        onPointerMove={(event) => {
-          if (
-            event.buttons === 1 &&
-            !pointer.current.dragging &&
-            Math.hypot(event.clientX - pointer.current.x, event.clientY - pointer.current.y) > 5
-          ) {
-            pointer.current.dragging = true
-            if (isDesktop()) void invoke('drag')
-          }
-        }}
-        onClick={(event) => {
-          if (event.detail === 0 || !pointer.current.dragging) setOpen(!open)
-        }}
-      >
-        <PetAvatar
-          key={settings.form ?? 'chibi'}
-          form={settings.form ?? 'chibi'}
-          phase={snapshot.phase}
-          onError={setError}
-        />
-      </button>
+        </div>
+      </div>
     </main>
   )
 }

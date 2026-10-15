@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checks": [
+    "default96/168",
+    "icon-only controls",
+    "browser drag moves and restores dock without opening chat",
+    "composer draft survives Escape",
+    "settings navigation",
+    "independent125/150 scales + reload",
+    "cross-tab update",
+    "small viewport composer",
+    "reduced motion"
+  ],
+  "pageErrors": []
+}

@@ -1,6 +1,42 @@
 import type { ChatRun } from '../lib/types'
 
 export const DEFAULT_PET_HEIGHT = 96
+export const PET_SCALES = [100, 125, 150, 175, 200] as const
+export const DEFAULT_COMPANION_SETTINGS: CompanionSettings = {
+  enabled: true,
+  visible: true,
+  height: 96,
+  alwaysOnTop: true,
+  form: 'chibi',
+  chibiScale: 100,
+  standingScale: 100,
+}
+const PREVIEW_SETTINGS_KEY = 'xiliu.companion.preview-settings'
+export function petScale(settings: CompanionSettings, form: 'chibi' | 'standing') {
+  const raw =
+    form === 'chibi'
+      ? (settings.chibiScale ?? (settings.height / 96) * 100)
+      : (settings.standingScale ?? 100)
+  return Number.isFinite(raw) ? Math.round(Math.max(100, Math.min(200, raw)) / 25) * 25 : 100
+}
+export function petHeight(settings: CompanionSettings) {
+  const form = settings.form === 'standing' ? 'standing' : 'chibi'
+  return Math.round(((form === 'standing' ? 168 : 96) * petScale(settings, form)) / 100)
+}
+export function previewSettings(): CompanionSettings {
+  try {
+    const saved = JSON.parse(localStorage.getItem(PREVIEW_SETTINGS_KEY) ?? 'null')
+    return { ...DEFAULT_COMPANION_SETTINGS, ...saved }
+  } catch {
+    return { ...DEFAULT_COMPANION_SETTINGS }
+  }
+}
+export function savePreviewSettings(settings: CompanionSettings) {
+  const saved = { ...settings, height: petHeight(settings) }
+  localStorage.setItem(PREVIEW_SETTINGS_KEY, JSON.stringify(saved))
+  window.dispatchEvent(new Event('companion-preview-settings'))
+  return saved
+}
 export type CompanionStatus = {
   phase: 'idle' | 'thinking' | 'success' | 'error'
   cid: string | null
@@ -14,6 +50,8 @@ export type CompanionSettings = {
   height: number
   alwaysOnTop: boolean
   form?: 'chibi' | 'standing'
+  chibiScale?: number
+  standingScale?: number
 }
 export type QuickRequest = {
   requestId: string

@@ -4690,7 +4690,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 79,
+      "line": 80,
       "symbol": "onChange={(event) => setDraft(event.target.value)}"
     },
     {
@@ -5404,99 +5404,27 @@
       "symbol": "api.create"
     },
     {
-      "id": "ui_event:1f5603963ca8e4eb8126:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 137,
-      "symbol": "onKeyDown={(event) => { if (event.key === 'Escape') setOpen(false) }}"
-    },
-    {
-      "id": "ui_button:2801769ab10a4c37e43d:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 148,
-      "symbol": "<button aria-label=\"收起快捷面板\" onClick={() => setOpen(false)}>"
-    },
-    {
-      "id": "ui_event:961e2aa729f0d7eb59f2:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 148,
-      "symbol": "onClick={() => setOpen(false)}"
-    },
-    {
-      "id": "ui_button:fa3838685ed35aee0c60:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 153,
-      "symbol": "<button onClick={() => setCompose(true)}>"
-    },
-    {
-      "id": "ui_event:a22baff7115eafd619d7:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 153,
-      "symbol": "onClick={() => setCompose(true)}"
-    },
-    {
-      "id": "ui_button:6334c56d44da831189d7:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 157,
-      "symbol": "<button onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
-    },
-    {
       "id": "ui_event:d72513e0c6b9b5bf6822:1",
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 158,
+      "line": 351,
       "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
-    },
-    {
-      "id": "ui_button:c57ee8a8421fefae0511:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 166,
-      "symbol": "<button aria-label=\"打开息流\" onClick={() => openMain('/today')}>"
     },
     {
       "id": "ui_event:649ebbab0fb07b0eb72a:1",
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 166,
+      "line": 396,
       "symbol": "onClick={() => openMain('/today')}"
-    },
-    {
-      "id": "ui_button:f3f75cd452d1645bcc3b:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 170,
-      "symbol": "<button className=\"companion-form-switch\" aria-label=\"切换桌宠形态\" onClick={async () => { const form = settings.form === 'standing' ? 'chibi' : 'standing' if (isDesktop()) { try { setSettings(await companionCall<CompanionSettings>('set_form', { form })) setError('') } catch (failure) { setError(String(failure)) } } else setSettings({ ...settings, form }) }} >"
-    },
-    {
-      "id": "ui_event:fcf6e6b996c164ae81e8:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 173,
-      "symbol": "onClick={async () => { const form = settings.form === 'standing' ? 'chibi' : 'standing' if (isDesktop()) { try { setSettings(await companionCall<CompanionSettings>('set_form', { form })) setError('') } catch (failure) { setError(String(failure)) } } else setSettings({ ...settings, form }) }}"
     },
     {
       "id": "ui_event:34fd7b0596e07d543dd3:1",
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 190,
+      "line": 295,
       "symbol": "onSubmit={(event) => { event.preventDefault() void send() }}"
     },
     {
@@ -5504,71 +5432,23 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 201,
+      "line": 316,
       "symbol": "onChange={(event) => setDraft(event.target.value)}"
-    },
-    {
-      "id": "ui_button:2fc62726f171a3cc1c8c:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 204,
-      "symbol": "<button disabled={pending || !draft.trim()}>"
-    },
-    {
-      "id": "ui_button:274eee3add8616fa776c:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 217,
-      "symbol": "<button className=\"companion-bubble\" aria-live=\"polite\" onClick={() => openMain( snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant' ) } >"
     },
     {
       "id": "ui_event:ad3b83abd12fee5c7678:1",
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 220,
+      "line": 203,
       "symbol": "onClick={() => openMain( snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant' ) }"
-    },
-    {
-      "id": "ui_button:369b7b3c96ea4335f090:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 230,
-      "symbol": "<button className=\"companion-character\" aria-label=\"打开桌宠快捷操作\" aria-expanded={open} onPointerDown={(event) => { pointer.current = { x: event.clientX, y: event.clientY, dragging: false } }} onPointerMove={(event) => { if ( event.buttons === 1 && !pointer.current.dragging && Math.hypot(event.clientX - pointer.current.x, event.clientY - pointer.current.y) > 5 ) { pointer.current.dragging = true if (isDesktop()) void invoke('drag') } }} onClick={(event) => { if (event.detail === 0 || !pointer.current.dragging) setOpen(!open) }} >"
-    },
-    {
-      "id": "ui_event:bdd506455b51e68e77e5:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 234,
-      "symbol": "onPointerDown={(event) => { pointer.current = { x: event.clientX, y: event.clientY, dragging: false } }}"
-    },
-    {
-      "id": "ui_event:43202d92cb2b6e39e9cd:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 237,
-      "symbol": "onPointerMove={(event) => { if ( event.buttons === 1 && !pointer.current.dragging && Math.hypot(event.clientX - pointer.current.x, event.clientY - pointer.current.y) > 5 ) { pointer.current.dragging = true if (isDesktop()) void invoke('drag') } }}"
-    },
-    {
-      "id": "ui_event:659efd4b45dbd49706a6:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 247,
-      "symbol": "onClick={(event) => { if (event.detail === 0 || !pointer.current.dragging) setOpen(!open) }}"
     },
     {
       "id": "ui_event:f1f3aaf8e0fbbbc604c9:1",
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 255,
+      "line": 287,
       "symbol": "onError={setError}"
     },
     {
@@ -5576,7 +5456,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 43,
+      "line": 87,
       "symbol": "onChange={(event) => void save({ enabled: event.target.checked, visible: event.target.checked }) }"
     },
     {
@@ -5584,7 +5464,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 53,
+      "line": 98,
       "symbol": "onChange={(event) => void save({ form: event.target.value as 'chibi' | 'standing' })}"
     },
     {
@@ -5592,48 +5472,8 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 64,
+      "line": 110,
       "symbol": "onChange={(event) => void save({ alwaysOnTop: event.target.checked })}"
-    },
-    {
-      "id": "ui_event:cd11479b0c6035dd6f5b:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 76,
-      "symbol": "onChange={(event) => setSettings({ ...settings, height: Number(event.target.value) })}"
-    },
-    {
-      "id": "ui_event:7692f7f7c5833b78ebd1:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 77,
-      "symbol": "onPointerUp={() => void save({})}"
-    },
-    {
-      "id": "ui_event:94ea5321e19507baa534:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 78,
-      "symbol": "onKeyUp={() => void save({})}"
-    },
-    {
-      "id": "ui_button:3366c43f9050e5fec8b7:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 82,
-      "symbol": "<button className=\"secondary-button\" onClick={() => void save({ height: DEFAULT_PET_HEIGHT, enabled: true, visible: true }) } >"
-    },
-    {
-      "id": "ui_event:c6a61dee8ffff1a8b5ef:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 84,
-      "symbol": "onClick={() => void save({ height: DEFAULT_PET_HEIGHT, enabled: true, visible: true }) }"
     },
     {
       "id": "ui_button:5d49a74c29adfae63cee:1",
@@ -5720,7 +5560,7 @@
       "kind": "ui_fetch",
       "page": "Companion",
       "file": "web/src/features/companion/model-storage.ts",
-      "line": 16,
+      "line": 36,
       "symbol": "fetch(file.url)"
     },
     {
@@ -6488,7 +6328,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 28,
+      "line": 29,
       "symbol": "onError={(event) => { event.currentTarget.hidden = true }}"
     },
     {
@@ -6496,7 +6336,7 @@
       "kind": "ui_link",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 33,
+      "line": 34,
       "symbol": "<Link className=\"home-profile\" to=\"/settings?section=profile\" state={{ backgroundLocation: location }} aria-label={`${preferences.displayName || '你'}的个人设置`} >"
     },
     {
@@ -6504,7 +6344,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 61,
+      "line": 62,
       "symbol": "onSubmit={(event) => { event.preventDefault() if (draft.trim() && !ask.isPending) ask.mutate({ draft: draft.trim() }) }}"
     },
     {
@@ -6512,7 +6352,7 @@
       "kind": "ui_button",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 66,
+      "line": 67,
       "symbol": "<button type=\"button\" className=\"home-attach\" aria-label=\"导入文件或链接\" title=\"导入文件或链接\" onClick={() => setCapture(true)} >"
     },
     {
@@ -6520,7 +6360,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 71,
+      "line": 72,
       "symbol": "onClick={() => setCapture(true)}"
     },
     {
@@ -6528,7 +6368,7 @@
       "kind": "ui_button",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 83,
+      "line": 84,
       "symbol": "<button type=\"button\" className=\"home-capture\" aria-label=\"快速收录\" title=\"快速收录到 Inbox\" onClick={() => setCapture(true)} >"
     },
     {
@@ -6536,7 +6376,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 88,
+      "line": 89,
       "symbol": "onClick={() => setCapture(true)}"
     },
     {
@@ -6544,7 +6384,7 @@
       "kind": "ui_button",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 92,
+      "line": 93,
       "symbol": "<button className=\"home-send\" aria-label=\"在 Assistant 中继续\" title=\"开始对话\" disabled={ask.isPending || !draft.trim()} >"
     },
     {
@@ -6552,7 +6392,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 115,
+      "line": 116,
       "symbol": "onClose={() => setCapture(false)}"
     },
     {
@@ -6560,7 +6400,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 116,
+      "line": 117,
       "symbol": "onSaved={() => { setCapture(false) void cache.invalidateQueries({ queryKey: ['content'] }) void cache.invalidateQueries({ queryKey: ['inbox'] }) }}"
     },
     {
@@ -6586,13 +6426,237 @@
       "file": "web/src/lib/workspace-api.ts",
       "line": 195,
       "symbol": "tasks"
+    },
+    {
+      "id": "ui_event:1def59a86c89a8216f6b:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 179,
+      "symbol": "onKeyDown={(event) => { if (event.key === 'Escape') { setCompose(false) setMenu(false) } }}"
+    },
+    {
+      "id": "ui_button:6ac3f87bd2238f12bcba:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 199,
+      "symbol": "<button className=\"companion-bubble\" aria-live=\"polite\" title=\"查看对话\" onClick={() => openMain( snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant' ) } >"
+    },
+    {
+      "id": "ui_button:1df710c665bd6981b228:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 215,
+      "symbol": "<button className=\"companion-character\" aria-label=\"打开桌宠快捷操作\" aria-expanded={compose} onPointerDown={(event) => { if (event.button !== 0) return pointer.current = { x: event.clientX, y: event.clientY, ...position, active: true, moved: false, } if (!isDesktop()) event.currentTarget.setPointerCapture(event.pointerId) }} onPointerMove={(event) => { const start = pointer.current if (!start.active || event.buttons !== 1) return const dx = event.clientX - start.x, dy = event.clientY - start.y if (!start.moved && Math.hypot(dx, dy) <= 5) return if (!start.moved) { start.moved = true setDragging(true) if (isDesktop()) { void invoke('drag').finally(() => { pointer.current.active = false setDragging(false) }) return } } if (!isDesktop()) { const rect = stage.current?.getBoundingClientRect() if (rect) setPosition({ right: Math.max( 12, Math.min(start.right - dx, window.innerWidth - rect.width - 12) ), bottom: Math.max( 12, Math.min(start.bottom - dy, window.innerHeight - rect.height - 12) ), }) } }} onPointerUp={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }} onPointerCancel={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }} onLostPointerCapture={() => { if (!isDesktop()) { pointer.current.active = false setDragging(false) } }} onClick={(event) => { if (event.detail === 0 || !pointer.current.moved) { setCompose(!compose) setMenu(false) } }} >"
+    },
+    {
+      "id": "ui_event:aa0227185beca8ab8cbc:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 219,
+      "symbol": "onPointerDown={(event) => { if (event.button !== 0) return pointer.current = { x: event.clientX, y: event.clientY, ...position, active: true, moved: false, } if (!isDesktop()) event.currentTarget.setPointerCapture(event.pointerId) }}"
+    },
+    {
+      "id": "ui_event:58e2f10dbeaf3c2402d5:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 230,
+      "symbol": "onPointerMove={(event) => { const start = pointer.current if (!start.active || event.buttons !== 1) return const dx = event.clientX - start.x, dy = event.clientY - start.y if (!start.moved && Math.hypot(dx, dy) <= 5) return if (!start.moved) { start.moved = true setDragging(true) if (isDesktop()) { void invoke('drag').finally(() => { pointer.current.active = false setDragging(false) }) return } } if (!isDesktop()) { const rect = stage.current?.getBoundingClientRect() if (rect) setPosition({ right: Math.max( 12, Math.min(start.right - dx, window.innerWidth - rect.width - 12) ), bottom: Math.max( 12, Math.min(start.bottom - dy, window.innerHeight - rect.height - 12) ), }) } }}"
+    },
+    {
+      "id": "ui_event:c6fc66e2d452e9cdcb5e:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 262,
+      "symbol": "onPointerUp={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }}"
+    },
+    {
+      "id": "ui_event:b6476ad250222ac2f4ff:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 266,
+      "symbol": "onPointerCancel={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }}"
+    },
+    {
+      "id": "ui_event:b5fcd5fcc3d7435488f2:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 270,
+      "symbol": "onLostPointerCapture={() => { if (!isDesktop()) { pointer.current.active = false setDragging(false) } }}"
+    },
+    {
+      "id": "ui_event:ab1929ba9a006576c4ba:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 276,
+      "symbol": "onClick={(event) => { if (event.detail === 0 || !pointer.current.moved) { setCompose(!compose) setMenu(false) } }}"
+    },
+    {
+      "id": "ui_button:2ab8e163c92c28aca9cc:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 300,
+      "symbol": "<button type=\"button\" className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
+    },
+    {
+      "id": "ui_event:0d324b4c6a4706b7c4ff:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 306,
+      "symbol": "onClick={() => setMenu(!menu)}"
+    },
+    {
+      "id": "ui_button:8033c18bdf1132d4be80:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 319,
+      "symbol": "<button className=\"companion-send companion-icon\" aria-label={ pending ? '正在发送' : requestId.current ? '检查发送状态' : '发送新对话' } title=\"发送\" disabled={pending || !draft.trim()} >"
+    },
+    {
+      "id": "ui_button:ac569aabf696dc4b8da0:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 336,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"新对话\" title=\"新对话\" onClick={() => { setCompose(true) setMenu(false) }} >"
+    },
+    {
+      "id": "ui_event:6eb49f0f33be9c40cbcf:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 340,
+      "symbol": "onClick={() => { setCompose(true) setMenu(false) }}"
+    },
+    {
+      "id": "ui_button:564fd42ac62d12dbc4cd:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 347,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"收进 Inbox\" title=\"收进 Inbox\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
+    },
+    {
+      "id": "ui_button:49ad6fc76d073c852dad:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 358,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
+    },
+    {
+      "id": "ui_event:0d324b4c6a4706b7c4ff:2",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 363,
+      "symbol": "onClick={() => setMenu(!menu)}"
+    },
+    {
+      "id": "ui_button:5e8f31de2ef0e7200869:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 371,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"切换桌宠形态\" title=\"切换形态\" onClick={() => void switchForm()} >"
+    },
+    {
+      "id": "ui_event:1950f625dd6169d12b65:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 375,
+      "symbol": "onClick={() => void switchForm()}"
+    },
+    {
+      "id": "ui_button:564fd42ac62d12dbc4cd:2",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 380,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"收进 Inbox\" title=\"收进 Inbox\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
+    },
+    {
+      "id": "ui_event:d72513e0c6b9b5bf6822:2",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 384,
+      "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
+    },
+    {
+      "id": "ui_button:130671afa262c29015a0:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 392,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"打开息流\" title=\"打开息流\" onClick={() => openMain('/today')} >"
+    },
+    {
+      "id": "ui_button:d43c19ae4cb31c918337:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 400,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"桌宠设置\" title=\"设置\" onClick={() => openMain('/settings?section=appearance')} >"
+    },
+    {
+      "id": "ui_event:f1d0c511f1a8f9441f19:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 404,
+      "symbol": "onClick={() => openMain('/settings?section=appearance')}"
+    },
+    {
+      "id": "ui_button:3186277ce0468bde701e:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionSettings.tsx",
+      "line": 129,
+      "symbol": "<button type=\"button\" key={value} aria-label={`${label} ${value}%`} aria-pressed={scale === value} onClick={() => void save( form === 'chibi' ? { chibiScale: value } : { standingScale: value } ) } >"
+    },
+    {
+      "id": "ui_event:e070c29d598250507749:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionSettings.tsx",
+      "line": 134,
+      "symbol": "onClick={() => void save( form === 'chibi' ? { chibiScale: value } : { standingScale: value } ) }"
+    },
+    {
+      "id": "ui_button:7d6013d426956913b97b:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionSettings.tsx",
+      "line": 148,
+      "symbol": "<button className=\"secondary-button\" onClick={() => void save({ chibiScale: 100, standingScale: 100, enabled: true, visible: true }) } >"
+    },
+    {
+      "id": "ui_event:bc59d4097744b51ab2ed:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionSettings.tsx",
+      "line": 150,
+      "symbol": "onClick={() => void save({ chibiScale: 100, standingScale: 100, enabled: true, visible: true }) }"
     }
   ],
   "counts": {
     "http_route": 71,
     "ui_link": 37,
-    "ui_event": 255,
-    "ui_button": 116,
+    "ui_event": 259,
+    "ui_button": 120,
     "service_method": 90,
     "base_tool": 17,
     "ui_api": 66,

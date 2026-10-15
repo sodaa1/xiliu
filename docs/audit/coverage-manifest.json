@@ -12198,91 +12198,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_event:1f5603963ca8e4eb8126:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_button:2801769ab10a4c37e43d:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_event:961e2aa729f0d7eb59f2:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_button:fa3838685ed35aee0c60:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_event:a22baff7115eafd619d7:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_button:6334c56d44da831189d7:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
       ],
       "tests": [],
       "verification": {
@@ -12296,21 +12212,7 @@
       "action_ids": [],
       "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
       "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_button:c57ee8a8421fefae0511:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
       ],
       "tests": [],
       "verification": {
@@ -12324,35 +12226,7 @@
       "action_ids": [],
       "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
       "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_button:f3f75cd452d1645bcc3b:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_event:fcf6e6b996c164ae81e8:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
       ],
       "tests": [],
       "verification": {
@@ -12366,7 +12240,7 @@
       "action_ids": [],
       "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
       "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
       ],
       "tests": [],
       "verification": {
@@ -12380,35 +12254,7 @@
       "action_ids": [],
       "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
       "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_button:2fc62726f171a3cc1c8c:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_button:274eee3add8616fa776c:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
       ],
       "tests": [],
       "verification": {
@@ -12422,63 +12268,7 @@
       "action_ids": [],
       "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
       "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_button:369b7b3c96ea4335f090:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_event:bdd506455b51e68e77e5:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_event:43202d92cb2b6e39e9cd:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_event:659efd4b45dbd49706a6:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
-      "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
       ],
       "tests": [],
       "verification": {
@@ -12492,7 +12282,7 @@
       "action_ids": [],
       "reason": "User-operated independent native pet window controls, drag, form selection and cross-window chat/capture intent; not an unrestricted Agent window command.",
       "ui_tests": [
-        "web/src/features/companion/CompanionPage.test.tsx::switches the independent pet to standing form without changing the configured height"
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
       ],
       "tests": [],
       "verification": {
@@ -12506,7 +12296,7 @@
       "action_ids": [],
       "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
       "ui_tests": [
-        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings keep independent form scales across form switches"
       ],
       "tests": [],
       "verification": {
@@ -12520,7 +12310,7 @@
       "action_ids": [],
       "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
       "ui_tests": [
-        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings keep independent form scales across form switches"
       ],
       "tests": [],
       "verification": {
@@ -12534,77 +12324,7 @@
       "action_ids": [],
       "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
       "ui_tests": [
-        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_event:cd11479b0c6035dd6f5b:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
-      "ui_tests": [
-        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_event:7692f7f7c5833b78ebd1:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
-      "ui_tests": [
-        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_event:94ea5321e19507baa534:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
-      "ui_tests": [
-        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_button:3366c43f9050e5fec8b7:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
-      "ui_tests": [
-        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
-      "surface_id": "ui_event:c6a61dee8ffff1a8b5ef:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "Native pet window visibility, size and form preferences are controlled through explicit user settings.",
-      "ui_tests": [
-        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings save the selected form and preserve the small window size"
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings keep independent form scales across form switches"
       ],
       "tests": [],
       "verification": {
@@ -13743,6 +13463,398 @@
       "verification": {
         "status": "not_run",
         "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:1def59a86c89a8216f6b:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local icon toolbar, compact composer and dismissal state; real quick conversation remains governed by the existing trusted IPC request/ack contract.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::compact composer keeps its draft when dismissed and has icon-only controls"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:6ac3f87bd2238f12bcba:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated trusted desktop command or navigation; separate capture/main windows and form preferences.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:1df710c665bd6981b228:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated pointer drag and native window movement; drag completion keeps composer closed.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::native drag feedback lasts until the OS releases the drag and does not open chat"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:aa0227185beca8ab8cbc:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated pointer drag and native window movement; drag completion keeps composer closed.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::native drag feedback lasts until the OS releases the drag and does not open chat"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:58e2f10dbeaf3c2402d5:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated pointer drag and native window movement; drag completion keeps composer closed.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::native drag feedback lasts until the OS releases the drag and does not open chat"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:c6fc66e2d452e9cdcb5e:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated pointer drag and native window movement; drag completion keeps composer closed.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::native drag feedback lasts until the OS releases the drag and does not open chat"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:b6476ad250222ac2f4ff:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated pointer drag and native window movement; drag completion keeps composer closed.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::native drag feedback lasts until the OS releases the drag and does not open chat"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:b5fcd5fcc3d7435488f2:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated pointer drag and native window movement; drag completion keeps composer closed.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::native drag feedback lasts until the OS releases the drag and does not open chat"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:ab1929ba9a006576c4ba:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated pointer drag and native window movement; drag completion keeps composer closed.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::native drag feedback lasts until the OS releases the drag and does not open chat"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:2ab8e163c92c28aca9cc:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local icon toolbar, compact composer and dismissal state; real quick conversation remains governed by the existing trusted IPC request/ack contract.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::compact composer keeps its draft when dismissed and has icon-only controls"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:0d324b4c6a4706b7c4ff:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local icon toolbar, compact composer and dismissal state; real quick conversation remains governed by the existing trusted IPC request/ack contract.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::compact composer keeps its draft when dismissed and has icon-only controls"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:8033c18bdf1132d4be80:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local icon toolbar, compact composer and dismissal state; real quick conversation remains governed by the existing trusted IPC request/ack contract.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::compact composer keeps its draft when dismissed and has icon-only controls"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:ac569aabf696dc4b8da0:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local icon toolbar, compact composer and dismissal state; real quick conversation remains governed by the existing trusted IPC request/ack contract.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::compact composer keeps its draft when dismissed and has icon-only controls"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:6eb49f0f33be9c40cbcf:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local icon toolbar, compact composer and dismissal state; real quick conversation remains governed by the existing trusted IPC request/ack contract.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::compact composer keeps its draft when dismissed and has icon-only controls"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:564fd42ac62d12dbc4cd:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated trusted desktop command or navigation; separate capture/main windows and form preferences.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:49ad6fc76d073c852dad:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local icon toolbar, compact composer and dismissal state; real quick conversation remains governed by the existing trusted IPC request/ack contract.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::compact composer keeps its draft when dismissed and has icon-only controls"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:0d324b4c6a4706b7c4ff:2",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Local icon toolbar, compact composer and dismissal state; real quick conversation remains governed by the existing trusted IPC request/ack contract.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::compact composer keeps its draft when dismissed and has icon-only controls"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:5e8f31de2ef0e7200869:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated trusted desktop command or navigation; separate capture/main windows and form preferences.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:1950f625dd6169d12b65:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated trusted desktop command or navigation; separate capture/main windows and form preferences.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:564fd42ac62d12dbc4cd:2",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated trusted desktop command or navigation; separate capture/main windows and form preferences.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:d72513e0c6b9b5bf6822:2",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated trusted desktop command or navigation; separate capture/main windows and form preferences.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:130671afa262c29015a0:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated trusted desktop command or navigation; separate capture/main windows and form preferences.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:d43c19ae4cb31c918337:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated trusted desktop command or navigation; separate capture/main windows and form preferences.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:f1d0c511f1a8f9441f19:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated trusted desktop command or navigation; separate capture/main windows and form preferences.",
+      "ui_tests": [
+        "web/src/features/companion/CompanionPage.test.tsx::switches to the larger standing form using its own saved scale"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:3186277ce0468bde701e:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated per-form native preferences or local browser-preview preferences; no unrestricted Agent command.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings keep independent form scales across form switches"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:e070c29d598250507749:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated per-form native preferences or local browser-preview preferences; no unrestricted Agent command.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings keep independent form scales across form switches"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_button:7d6013d426956913b97b:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated per-form native preferences or local browser-preview preferences; no unrestricted Agent command.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings keep independent form scales across form switches"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
+      }
+    },
+    {
+      "surface_id": "ui_event:bc59d4097744b51ab2ed:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "User-operated per-form native preferences or local browser-preview preferences; no unrestricted Agent command.",
+      "ui_tests": [
+        "web/src/features/companion/Live2DSettings.test.tsx::native pet settings keep independent form scales across form switches"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
       }
     }
   ],
