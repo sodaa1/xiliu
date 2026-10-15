@@ -1,0 +1,15 @@
+# Runtime capabilities bind these command groups to the verified child service port.
+[[permission]]
+identifier = "main-commands"
+description = "Main workbench persistence and companion coordination"
+commands.allow = ["save_preferences", "save_sidebar", "companion_settings", "companion_configure", "companion_set_form", "companion_show", "companion_open_capture", "companion_open_main", "companion_snapshot", "companion_publish", "companion_ready", "companion_ack"]
+
+[[permission]]
+identifier = "companion-commands"
+description = "Pet interactions only"
+commands.allow = ["companion_settings", "companion_set_form", "companion_open_capture", "companion_open_main", "companion_layout", "companion_drag", "companion_snapshot", "companion_take_compose", "companion_submit", "companion_result"]
+
+[[permission]]
+identifier = "capture-commands"
+description = "Quick capture coordination only"
+commands.allow = ["companion_settings", "companion_close_capture", "companion_open_main", "companion_captured"]

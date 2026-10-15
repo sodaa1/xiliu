@@ -31,7 +31,8 @@ export function PetAvatar({
   const [available, setAvailable] = useState<Record<string, boolean>>({})
   const expression = usePetExpression({
     dragging,
-    active: active || hover,
+    active,
+    hover,
     phase,
     reduced,
     raster: !ready,

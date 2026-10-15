@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "origin": "http://127.0.0.1:59662",
+  "checks": [
+    "main and companion native IPC",
+    "wrong-window privileged commands rejected",
+    "pet remains visible with main minimized",
+    "settings UI synchronizes independent scales and native size",
+    "real native idle blink and smile",
+    "independent capture window saves locally without AI credentials",
+    "capture window cannot configure companion",
+    "capture draft survives close and reopen",
+    "compact composer preserves draft and hands request to main",
+    "pet navigation rejects non-pet page"
+  ],
+  "expressions": [
+    "neutral",
+    "blink",
+    "happy"
+  ],
+  "settings": {
+    "enabled": true,
+    "visible": true,
+    "height": 96,
+    "chibiScale": 100,
+    "standingScale": 100,
+    "alwaysOnTop": true,
+    "form": "chibi",
+    "right": 2536,
+    "bottom": 1344
+  },
+  "mainUrl": "http://127.0.0.1:59662/inbox?item=20b6943c-00ac-42aa-a8c1-9dfe17fedabf",
+  "limits": [
+    "OS cursor-driven native drag and cross-monitor DPI are not simulated by CDP"
+  ]
+}

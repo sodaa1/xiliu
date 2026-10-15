@@ -35,3 +35,12 @@ Source: six aligned blink/happy/surprised frames under web/public/companion/expr
 Original body artwork remains the base layer. Eye/mouth masks align in both aspect ratios; blink fully closes the eyes, happy changes eyes and mouth, surprise opens the mouth and eyes. Body pixels outside a broad manually selected facial box remain unchanged above <=8/255 compositing noise (six actual screenshot comparisons). Drag transform was disabled only for that isolated comparison.
 
 Typography/copy, icon sizing, colors and controls are unchanged. Feathered masks avoid seams; permanent raster compositing prevents expression toggles from changing body edge antialiasing materially. Existing 96/168 defaults, independent scale saves, drag/compose/capture flows and eight native-sized viewports passed browser regression checks. Reduced motion stops automatic blinks while retaining direct interaction expressions.
+
+
+## Clear drag and native follow-up (2026-10-16)
+
+final result: passed for the implemented raster companion
+
+Native startup capture inspected at actual DPR 1.5: docs/audit/browser-e2e/native-pet-restored.png. The 96px Q character and icon-only dock fit the transparent independent 136x172 CSS-pixel window. Both forms preserve the approved body art. Drag feedback uses stepped vertical lift without rotation/scaling; browser checks at four DPR values confirm the raster footprint stays fixed and lift aligns to physical pixels. Idle now includes visible 220ms blinks and 1400ms smiles; hover expires rather than holding closed eyes indefinitely.
+
+Typography, pill spacing, colors and toolbar/composer layout remain the approved composition. The native settings, minimized-main behavior and independent capture window were exercised against the real frozen service. No new actionable visual issues found. Cursor-driven OS dragging/mixed-DPI movement and genuine Cubism deformation retain the explicit limits in companion-native-2026-10-16.md.

@@ -283,6 +283,7 @@ fn ensure_window(app: &tauri::AppHandle, label: &str) -> Result<WebviewWindow, S
             url.scheme() == "http"
                 && url.host_str() == Some("127.0.0.1")
                 && url.port() == Some(port)
+                && url.path() == format!("/desktop/{path}")
         });
     if label == "companion" {
         builder = builder

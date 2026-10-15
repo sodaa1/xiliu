@@ -1,0 +1,109 @@
+{
+  "status": "passed",
+  "results": [
+    {
+      "form": "chibi",
+      "dpr": 1,
+      "status": "passed",
+      "checks": [
+        "automatic blink and idle smile",
+        "hover smile expires",
+        "no drag rotation or scale",
+        "lift snapped to physical pixels",
+        "surprise on drag",
+        "release restores dock"
+      ]
+    },
+    {
+      "form": "standing",
+      "dpr": 1,
+      "status": "passed",
+      "checks": [
+        "automatic blink and idle smile",
+        "hover smile expires",
+        "no drag rotation or scale",
+        "lift snapped to physical pixels",
+        "surprise on drag",
+        "release restores dock"
+      ]
+    },
+    {
+      "form": "chibi",
+      "dpr": 1.25,
+      "status": "passed",
+      "checks": [
+        "automatic blink and idle smile",
+        "hover smile expires",
+        "no drag rotation or scale",
+        "lift snapped to physical pixels",
+        "surprise on drag",
+        "release restores dock"
+      ]
+    },
+    {
+      "form": "standing",
+      "dpr": 1.25,
+      "status": "passed",
+      "checks": [
+        "automatic blink and idle smile",
+        "hover smile expires",
+        "no drag rotation or scale",
+        "lift snapped to physical pixels",
+        "surprise on drag",
+        "release restores dock"
+      ]
+    },
+    {
+      "form": "chibi",
+      "dpr": 1.5,
+      "status": "passed",
+      "checks": [
+        "automatic blink and idle smile",
+        "hover smile expires",
+        "no drag rotation or scale",
+        "lift snapped to physical pixels",
+        "surprise on drag",
+        "release restores dock"
+      ]
+    },
+    {
+      "form": "standing",
+      "dpr": 1.5,
+      "status": "passed",
+      "checks": [
+        "automatic blink and idle smile",
+        "hover smile expires",
+        "no drag rotation or scale",
+        "lift snapped to physical pixels",
+        "surprise on drag",
+        "release restores dock"
+      ]
+    },
+    {
+      "form": "chibi",
+      "dpr": 2,
+      "status": "passed",
+      "checks": [
+        "automatic blink and idle smile",
+        "hover smile expires",
+        "no drag rotation or scale",
+        "lift snapped to physical pixels",
+        "surprise on drag",
+        "release restores dock"
+      ]
+    },
+    {
+      "form": "standing",
+      "dpr": 2,
+      "status": "passed",
+      "checks": [
+        "automatic blink and idle smile",
+        "hover smile expires",
+        "no drag rotation or scale",
+        "lift snapped to physical pixels",
+        "surprise on drag",
+        "release restores dock"
+      ]
+    }
+  ]
+}

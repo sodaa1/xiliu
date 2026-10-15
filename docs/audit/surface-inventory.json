@@ -5408,7 +5408,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 353,
+      "line": 365,
       "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
     },
     {
@@ -5416,7 +5416,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 398,
+      "line": 410,
       "symbol": "onClick={() => openMain('/today')}"
     },
     {
@@ -5424,7 +5424,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 297,
+      "line": 309,
       "symbol": "onSubmit={(event) => { event.preventDefault() void send() }}"
     },
     {
@@ -5432,7 +5432,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 318,
+      "line": 330,
       "symbol": "onChange={(event) => setDraft(event.target.value)}"
     },
     {
@@ -5440,7 +5440,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 203,
+      "line": 215,
       "symbol": "onClick={() => openMain( snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant' ) }"
     },
     {
@@ -5448,7 +5448,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 289,
+      "line": 301,
       "symbol": "onError={setError}"
     },
     {
@@ -5544,7 +5544,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 101,
+      "line": 102,
       "symbol": "onPointerMove={(event) => { const rect = event.currentTarget.getBoundingClientRect() controller.current?.focus(event.clientX - rect.left, event.clientY - rect.top) }}"
     },
     {
@@ -6432,7 +6432,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 179,
+      "line": 191,
       "symbol": "onKeyDown={(event) => { if (event.key === 'Escape') { setCompose(false) setMenu(false) } }}"
     },
     {
@@ -6440,7 +6440,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 199,
+      "line": 211,
       "symbol": "<button className=\"companion-bubble\" aria-live=\"polite\" title=\"查看对话\" onClick={() => openMain( snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant' ) } >"
     },
     {
@@ -6448,7 +6448,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 215,
+      "line": 227,
       "symbol": "<button className=\"companion-character\" aria-label=\"打开桌宠快捷操作\" aria-expanded={compose} onPointerDown={(event) => { if (event.button !== 0) return pointer.current = { x: event.clientX, y: event.clientY, ...position, active: true, moved: false, } if (!isDesktop()) event.currentTarget.setPointerCapture(event.pointerId) }} onPointerMove={(event) => { const start = pointer.current if (!start.active || event.buttons !== 1) return const dx = event.clientX - start.x, dy = event.clientY - start.y if (!start.moved && Math.hypot(dx, dy) <= 5) return if (!start.moved) { start.moved = true setDragging(true) if (isDesktop()) { void invoke('drag').finally(() => { pointer.current.active = false setDragging(false) }) return } } if (!isDesktop()) { const rect = stage.current?.getBoundingClientRect() if (rect) setPosition({ right: Math.max( 12, Math.min(start.right - dx, window.innerWidth - rect.width - 12) ), bottom: Math.max( 12, Math.min(start.bottom - dy, window.innerHeight - rect.height - 12) ), }) } }} onPointerUp={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }} onPointerCancel={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }} onLostPointerCapture={() => { if (!isDesktop()) { pointer.current.active = false setDragging(false) } }} onClick={(event) => { if (event.detail === 0 || !pointer.current.moved) { setCompose(!compose) setMenu(false) } }} >"
     },
     {
@@ -6456,7 +6456,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 219,
+      "line": 231,
       "symbol": "onPointerDown={(event) => { if (event.button !== 0) return pointer.current = { x: event.clientX, y: event.clientY, ...position, active: true, moved: false, } if (!isDesktop()) event.currentTarget.setPointerCapture(event.pointerId) }}"
     },
     {
@@ -6464,7 +6464,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 230,
+      "line": 242,
       "symbol": "onPointerMove={(event) => { const start = pointer.current if (!start.active || event.buttons !== 1) return const dx = event.clientX - start.x, dy = event.clientY - start.y if (!start.moved && Math.hypot(dx, dy) <= 5) return if (!start.moved) { start.moved = true setDragging(true) if (isDesktop()) { void invoke('drag').finally(() => { pointer.current.active = false setDragging(false) }) return } } if (!isDesktop()) { const rect = stage.current?.getBoundingClientRect() if (rect) setPosition({ right: Math.max( 12, Math.min(start.right - dx, window.innerWidth - rect.width - 12) ), bottom: Math.max( 12, Math.min(start.bottom - dy, window.innerHeight - rect.height - 12) ), }) } }}"
     },
     {
@@ -6472,7 +6472,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 262,
+      "line": 274,
       "symbol": "onPointerUp={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }}"
     },
     {
@@ -6480,7 +6480,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 266,
+      "line": 278,
       "symbol": "onPointerCancel={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }}"
     },
     {
@@ -6488,7 +6488,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 270,
+      "line": 282,
       "symbol": "onLostPointerCapture={() => { if (!isDesktop()) { pointer.current.active = false setDragging(false) } }}"
     },
     {
@@ -6496,7 +6496,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 276,
+      "line": 288,
       "symbol": "onClick={(event) => { if (event.detail === 0 || !pointer.current.moved) { setCompose(!compose) setMenu(false) } }}"
     },
     {
@@ -6504,7 +6504,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 302,
+      "line": 314,
       "symbol": "<button type=\"button\" className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
     },
     {
@@ -6512,7 +6512,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 308,
+      "line": 320,
       "symbol": "onClick={() => setMenu(!menu)}"
     },
     {
@@ -6520,7 +6520,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 321,
+      "line": 333,
       "symbol": "<button className=\"companion-send companion-icon\" aria-label={ pending ? '正在发送' : requestId.current ? '检查发送状态' : '发送新对话' } title=\"发送\" disabled={pending || !draft.trim()} >"
     },
     {
@@ -6528,7 +6528,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 338,
+      "line": 350,
       "symbol": "<button className=\"companion-icon\" aria-label=\"新对话\" title=\"新对话\" onClick={() => { setCompose(true) setMenu(false) }} >"
     },
     {
@@ -6536,7 +6536,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 342,
+      "line": 354,
       "symbol": "onClick={() => { setCompose(true) setMenu(false) }}"
     },
     {
@@ -6544,7 +6544,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 349,
+      "line": 361,
       "symbol": "<button className=\"companion-icon\" aria-label=\"收进 Inbox\" title=\"收进 Inbox\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
     },
     {
@@ -6552,7 +6552,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 360,
+      "line": 372,
       "symbol": "<button className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
     },
     {
@@ -6560,7 +6560,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 365,
+      "line": 377,
       "symbol": "onClick={() => setMenu(!menu)}"
     },
     {
@@ -6568,7 +6568,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 373,
+      "line": 385,
       "symbol": "<button className=\"companion-icon\" aria-label=\"切换桌宠形态\" title=\"切换形态\" onClick={() => void switchForm()} >"
     },
     {
@@ -6576,7 +6576,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 377,
+      "line": 389,
       "symbol": "onClick={() => void switchForm()}"
     },
     {
@@ -6584,7 +6584,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 382,
+      "line": 394,
       "symbol": "<button className=\"companion-icon\" aria-label=\"收进 Inbox\" title=\"收进 Inbox\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
     },
     {
@@ -6592,7 +6592,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 386,
+      "line": 398,
       "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
     },
     {
@@ -6600,7 +6600,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 394,
+      "line": 406,
       "symbol": "<button className=\"companion-icon\" aria-label=\"打开息流\" title=\"打开息流\" onClick={() => openMain('/today')} >"
     },
     {
@@ -6608,7 +6608,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 402,
+      "line": 414,
       "symbol": "<button className=\"companion-icon\" aria-label=\"桌宠设置\" title=\"设置\" onClick={() => openMain('/settings?section=appearance')} >"
     },
     {
@@ -6616,7 +6616,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 406,
+      "line": 418,
       "symbol": "onClick={() => openMain('/settings?section=appearance')}"
     },
     {
@@ -6656,7 +6656,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 99,
+      "line": 100,
       "symbol": "onPointerEnter={() => setHover(true)}"
     },
     {
@@ -6664,7 +6664,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 100,
+      "line": 101,
       "symbol": "onPointerLeave={() => setHover(false)}"
     },
     {
@@ -6672,7 +6672,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 118,
+      "line": 119,
       "symbol": "onLoad={() => setAvailable((old) => ({ ...old, [key]: true }))}"
     },
     {
@@ -6680,7 +6680,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 119,
+      "line": 120,
       "symbol": "onError={() => setAvailable((old) => ({ ...old, [key]: false }))}"
     }
   ],

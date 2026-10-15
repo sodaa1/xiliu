@@ -183,8 +183,6 @@ html[data-companion='true'] #root {
   cursor: grab;
   touch-action: none;
   user-select: none;
-  transform-origin: 50% 15%;
-  transition: transform 180ms ease-out;
 }
 .companion-character img {
   width: 100%;
@@ -195,7 +193,7 @@ html[data-companion='true'] #root {
 }
 .companion-stage[data-dragging='true'] .companion-character {
   cursor: grabbing;
-  animation: companion-held 800ms ease-in-out infinite alternate;
+  animation: companion-held 800ms steps(1, end) infinite alternate;
 }
 .companion-stage[data-dragging='true'] .companion-dock,
 .companion-stage[data-dragging='true'] .companion-notice {
@@ -204,10 +202,10 @@ html[data-companion='true'] #root {
 }
 @keyframes companion-held {
   from {
-    transform: rotate(-6deg) translateY(2px) scale(0.98);
+    transform: translateY(var(--pet-lift-near, -2px));
   }
   to {
-    transform: rotate(-8deg) translateY(4px) scale(0.98);
+    transform: translateY(var(--pet-lift-far, -4px));
   }
 }
 .companion-dock {
@@ -352,7 +350,7 @@ html[data-companion='true'] #root {
   }
   .companion-stage[data-dragging='true'] .companion-character {
     animation: none;
-    transform: rotate(-6deg);
+    transform: translateY(var(--pet-lift-near, -2px));
   }
   .companion-spinner {
     animation: none;

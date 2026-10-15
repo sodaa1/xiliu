@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "previous": {
+    "port": "59662",
+    "requestedAt": 1792083932627
+  },
+  "restartOrigin": "http://127.0.0.1:57035",
+  "persisted": {
+    "enabled": false,
+    "visible": true,
+    "height": 252,
+    "chibiScale": 125,
+    "standingScale": 150,
+    "alwaysOnTop": true,
+    "form": "standing",
+    "right": 2536,
+    "bottom": 1344
+  },
+  "health": {
+    "rect": [
+      136,
+      172
+    ],
+    "dpr": 1.5,
+    "form": "chibi",
+    "renderer": "image",
+    "images": [
+      {
+        "loaded": true,
+        "hidden": false
+      },
+      {
+        "loaded": true,
+        "hidden": true
+      },
+      {
+        "loaded": true,
+        "hidden": true
+      },
+      {
+        "loaded": true,
+        "hidden": true
+      }
+    ]
+  }
+}

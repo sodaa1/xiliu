@@ -1,5 +1,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod access;
 mod companion;
 
 use std::{
@@ -188,7 +189,8 @@ fn main() {
                 if let Ok(port) = receiver.recv_timeout(Duration::from_secs(45)) {
                     *ready_owner.port.lock().unwrap() = Some(port);
                     if request(port, &ready_owner.token, "GET", "/api/desktop/ready").unwrap_or(false)
-                        && !ready_owner.closing.load(Ordering::SeqCst) {
+                        && !ready_owner.closing.load(Ordering::SeqCst)
+                        && access::install(&ready_app, port).is_ok() {
                         let url = format!("http://127.0.0.1:{port}/").parse().unwrap();
                         let _ = window.navigate(url);
                         let startup_app = ready_app.clone();

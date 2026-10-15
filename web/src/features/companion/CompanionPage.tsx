@@ -32,6 +32,7 @@ export function CompanionPage() {
   const [compose, setCompose] = useState(false)
   const [menu, setMenu] = useState(false)
   const [dragging, setDragging] = useState(false)
+  const [pixelRatio, setPixelRatio] = useState(() => window.devicePixelRatio || 1)
   const [position, setPosition] = useState({ right: 24, bottom: 24 })
   const stage = useRef<HTMLDivElement>(null)
   const [draft, setDraft] = useState('')
@@ -89,6 +90,11 @@ export function CompanionPage() {
       stops.forEach((stop) => stop())
       delete document.documentElement.dataset.companion
     }
+  }, [])
+  useEffect(() => {
+    const update = () => setPixelRatio(window.devicePixelRatio || 1)
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
   }, [])
   const bubble = snapshot.phase !== 'idle'
   useEffect(() => {
@@ -175,7 +181,13 @@ export function CompanionPage() {
     <main
       className="companion-surface"
       data-native={isDesktop()}
-      style={{ '--pet-height': `${height}px` } as CSSProperties}
+      style={
+        {
+          '--pet-height': `${height}px`,
+          '--pet-lift-near': `${-Math.round(2 * pixelRatio) / pixelRatio}px`,
+          '--pet-lift-far': `${-Math.round(4 * pixelRatio) / pixelRatio}px`,
+        } as CSSProperties
+      }
       onKeyDown={(event) => {
         if (event.key === 'Escape') {
           setCompose(false)

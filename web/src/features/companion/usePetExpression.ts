@@ -5,40 +5,57 @@ export type PetExpression = 'neutral' | 'blink' | 'happy' | 'surprised'
 export function usePetExpression({
   dragging,
   active,
+  hover = false,
   phase,
   reduced,
   raster,
 }: {
   dragging: boolean
   active: boolean
+  hover?: boolean
   phase: CompanionStatus['phase']
   reduced: boolean
   raster: boolean
 }) {
-  const [blink, setBlink] = useState(false)
-  const engaged = active || phase === 'success'
+  const [idleFace, setIdleFace] = useState<PetExpression>('neutral')
+  const [hoverSmile, setHoverSmile] = useState(false)
   useEffect(() => {
-    let wait: number | undefined, close: number | undefined
+    if (!hover) return
+    setHoverSmile(true)
+    const timeout = window.setTimeout(() => setHoverSmile(false), 1200)
+    return () => window.clearTimeout(timeout)
+  }, [hover])
+  const engaged = active || (hover && hoverSmile) || phase === 'success'
+  useEffect(() => {
+    let wait: number | undefined,
+      finish: number | undefined,
+      cycle = 0
     const stop = () => {
       window.clearTimeout(wait)
-      window.clearTimeout(close)
-      setBlink(false)
+      window.clearTimeout(finish)
+      setIdleFace('neutral')
     }
     const schedule = () => {
       if (document.hidden || reduced || !raster || dragging || engaged) return
       wait = window.setTimeout(
         () => {
-          setBlink(true)
-          close = window.setTimeout(() => {
-            setBlink(false)
-            schedule()
-          }, 140)
+          const face = cycle % 3 === 1 ? 'happy' : 'blink'
+          setIdleFace(face)
+          finish = window.setTimeout(
+            () => {
+              setIdleFace('neutral')
+              cycle++
+              schedule()
+            },
+            face === 'happy' ? 1400 : 220
+          )
         },
-        4000 + Math.random() * 2500
+        cycle === 0 ? 1500 + Math.random() * 1200 : 3500 + Math.random() * 1800
       )
     }
     const visibility = () => {
       stop()
+      cycle = 0
       schedule()
     }
     schedule()
@@ -52,8 +69,8 @@ export function usePetExpression({
     ? 'surprised'
     : engaged
       ? 'happy'
-      : blink && !reduced && raster
-        ? 'blink'
+      : !reduced && raster
+        ? idleFace
         : 'neutral'
   return expression
 }

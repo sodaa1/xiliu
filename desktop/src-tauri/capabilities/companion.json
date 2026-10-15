@@ -2,7 +2,12 @@
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "companion",
   "description": "Companion and capture window event subscriptions; native commands enforce caller labels",
-  "windows": ["companion", "capture"],
-  "remote": { "urls": ["http://127.0.0.1:*"] },
-  "permissions": ["core:event:allow-listen", "core:event:allow-unlisten"]
+  "windows": [
+    "companion",
+    "capture"
+  ],
+  "permissions": [
+    "core:event:allow-listen",
+    "core:event:allow-unlisten"
+  ]
 }

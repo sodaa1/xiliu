@@ -104,12 +104,19 @@ test('idle fallback blinks briefly, pauses when hidden, and respects reduced mot
   state.model = false
   const view = render(<PetAvatar />)
   view.container.querySelectorAll('.pet-face').forEach((image) => fireEvent.load(image))
-  act(() => vi.advanceTimersByTime(4000))
+  for (
+    let elapsed = 0;
+    elapsed < 10000 &&
+    view.container.querySelector('.pet-avatar')?.getAttribute('data-expression') !== 'blink';
+    elapsed += 100
+  ) {
+    act(() => vi.advanceTimersByTime(100))
+  }
   expect(view.container.querySelector('.pet-face:not([hidden])')).toHaveAttribute(
     'src',
     '/companion/expressions/chibi-blink.png'
   )
-  act(() => vi.advanceTimersByTime(140))
+  act(() => vi.advanceTimersByTime(500))
   expect(view.container.querySelector('.pet-face:not([hidden])')).toBeNull()
   hidden = true
   fireEvent(document, new Event('visibilitychange'))
@@ -143,4 +150,42 @@ test('a loaded Live2D model receives the interaction expression instead of a ras
   expect(view.container.querySelector('.pet-raster')).not.toBeVisible()
   view.rerender(<PetAvatar active />)
   await waitFor(() => expect(engine.expression).toHaveBeenLastCalledWith('happy'))
+})
+
+test('idle changes include a visible smile without requiring pointer interaction', () => {
+  vi.useFakeTimers()
+  vi.spyOn(Math, 'random').mockReturnValue(0)
+  state.model = false
+  const view = render(<PetAvatar />)
+  view.container.querySelectorAll('.pet-face').forEach((image) => fireEvent.load(image))
+  const expressions = new Set<string>()
+  for (let elapsed = 0; elapsed < 20000; elapsed += 100) {
+    act(() => vi.advanceTimersByTime(100))
+    expressions.add(
+      view.container.querySelector('.pet-face:not([hidden])')?.getAttribute('src') ?? 'neutral'
+    )
+  }
+  expect(expressions).toContain('/companion/expressions/chibi-blink.png')
+  expect(expressions).toContain('/companion/expressions/chibi-happy.png')
+  expect(expressions).toContain('neutral')
+})
+
+test('a pointer resting on the character does not suppress idle blinking indefinitely', () => {
+  vi.useFakeTimers()
+  vi.spyOn(Math, 'random').mockReturnValue(0)
+  state.model = false
+  const view = render(<PetAvatar />)
+  view.container.querySelectorAll('.pet-face').forEach((image) => fireEvent.load(image))
+  fireEvent.pointerEnter(view.container.querySelector('.pet-avatar')!)
+  expect(view.container.querySelector('.pet-face:not([hidden])')).toHaveAttribute(
+    'src',
+    '/companion/expressions/chibi-happy.png'
+  )
+  const expressions = new Set<string>()
+  for (let elapsed = 0; elapsed < 20000; elapsed += 100) {
+    act(() => vi.advanceTimersByTime(100))
+    expressions.add(view.container.querySelector('.pet-avatar')!.getAttribute('data-expression')!)
+  }
+  expect(expressions).toContain('neutral')
+  expect(expressions).toContain('blink')
 })
