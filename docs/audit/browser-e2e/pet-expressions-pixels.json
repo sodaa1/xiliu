@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "scope": "Actual DOM screenshots with drag transform disabled to isolate expression changes; <=8/255 edge compositing noise ignored.",
+  "results": [
+    {
+      "form": "chibi",
+      "expression": "blink",
+      "changed_face_pixels": 990,
+      "changed_pixels_outside_face_above_8_of_255": 0
+    },
+    {
+      "form": "chibi",
+      "expression": "happy",
+      "changed_face_pixels": 1122,
+      "changed_pixels_outside_face_above_8_of_255": 0
+    },
+    {
+      "form": "chibi",
+      "expression": "surprised",
+      "changed_face_pixels": 698,
+      "changed_pixels_outside_face_above_8_of_255": 0
+    },
+    {
+      "form": "standing",
+      "expression": "blink",
+      "changed_face_pixels": 351,
+      "changed_pixels_outside_face_above_8_of_255": 0
+    },
+    {
+      "form": "standing",
+      "expression": "happy",
+      "changed_face_pixels": 417,
+      "changed_pixels_outside_face_above_8_of_255": 0
+    },
+    {
+      "form": "standing",
+      "expression": "surprised",
+      "changed_face_pixels": 396,
+      "changed_pixels_outside_face_above_8_of_255": 0
+    }
+  ]
+}

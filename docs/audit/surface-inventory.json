@@ -5408,7 +5408,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 351,
+      "line": 353,
       "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
     },
     {
@@ -5416,7 +5416,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 396,
+      "line": 398,
       "symbol": "onClick={() => openMain('/today')}"
     },
     {
@@ -5424,7 +5424,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 295,
+      "line": 297,
       "symbol": "onSubmit={(event) => { event.preventDefault() void send() }}"
     },
     {
@@ -5432,7 +5432,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 316,
+      "line": 318,
       "symbol": "onChange={(event) => setDraft(event.target.value)}"
     },
     {
@@ -5448,7 +5448,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 287,
+      "line": 289,
       "symbol": "onError={setError}"
     },
     {
@@ -5544,7 +5544,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 73,
+      "line": 101,
       "symbol": "onPointerMove={(event) => { const rect = event.currentTarget.getBoundingClientRect() controller.current?.focus(event.clientX - rect.left, event.clientY - rect.top) }}"
     },
     {
@@ -5552,7 +5552,7 @@
       "kind": "ui_fetch",
       "page": "Companion",
       "file": "web/src/features/companion/live2d-runtime.ts",
-      "line": 9,
+      "line": 10,
       "symbol": "fetch(path,"
     },
     {
@@ -6504,7 +6504,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 300,
+      "line": 302,
       "symbol": "<button type=\"button\" className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
     },
     {
@@ -6512,7 +6512,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 306,
+      "line": 308,
       "symbol": "onClick={() => setMenu(!menu)}"
     },
     {
@@ -6520,7 +6520,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 319,
+      "line": 321,
       "symbol": "<button className=\"companion-send companion-icon\" aria-label={ pending ? '正在发送' : requestId.current ? '检查发送状态' : '发送新对话' } title=\"发送\" disabled={pending || !draft.trim()} >"
     },
     {
@@ -6528,7 +6528,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 336,
+      "line": 338,
       "symbol": "<button className=\"companion-icon\" aria-label=\"新对话\" title=\"新对话\" onClick={() => { setCompose(true) setMenu(false) }} >"
     },
     {
@@ -6536,7 +6536,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 340,
+      "line": 342,
       "symbol": "onClick={() => { setCompose(true) setMenu(false) }}"
     },
     {
@@ -6544,7 +6544,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 347,
+      "line": 349,
       "symbol": "<button className=\"companion-icon\" aria-label=\"收进 Inbox\" title=\"收进 Inbox\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
     },
     {
@@ -6552,7 +6552,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 358,
+      "line": 360,
       "symbol": "<button className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
     },
     {
@@ -6560,7 +6560,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 363,
+      "line": 365,
       "symbol": "onClick={() => setMenu(!menu)}"
     },
     {
@@ -6568,7 +6568,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 371,
+      "line": 373,
       "symbol": "<button className=\"companion-icon\" aria-label=\"切换桌宠形态\" title=\"切换形态\" onClick={() => void switchForm()} >"
     },
     {
@@ -6576,7 +6576,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 375,
+      "line": 377,
       "symbol": "onClick={() => void switchForm()}"
     },
     {
@@ -6584,7 +6584,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 380,
+      "line": 382,
       "symbol": "<button className=\"companion-icon\" aria-label=\"收进 Inbox\" title=\"收进 Inbox\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
     },
     {
@@ -6592,7 +6592,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 384,
+      "line": 386,
       "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
     },
     {
@@ -6600,7 +6600,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 392,
+      "line": 394,
       "symbol": "<button className=\"companion-icon\" aria-label=\"打开息流\" title=\"打开息流\" onClick={() => openMain('/today')} >"
     },
     {
@@ -6608,7 +6608,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 400,
+      "line": 402,
       "symbol": "<button className=\"companion-icon\" aria-label=\"桌宠设置\" title=\"设置\" onClick={() => openMain('/settings?section=appearance')} >"
     },
     {
@@ -6616,7 +6616,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 404,
+      "line": 406,
       "symbol": "onClick={() => openMain('/settings?section=appearance')}"
     },
     {
@@ -6650,12 +6650,44 @@
       "file": "web/src/features/companion/CompanionSettings.tsx",
       "line": 150,
       "symbol": "onClick={() => void save({ chibiScale: 100, standingScale: 100, enabled: true, visible: true }) }"
+    },
+    {
+      "id": "ui_event:43282557063caddf5a7b:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/PetAvatar.tsx",
+      "line": 99,
+      "symbol": "onPointerEnter={() => setHover(true)}"
+    },
+    {
+      "id": "ui_event:7771810103825f6770e7:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/PetAvatar.tsx",
+      "line": 100,
+      "symbol": "onPointerLeave={() => setHover(false)}"
+    },
+    {
+      "id": "ui_event:474be86c772614767d6d:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/PetAvatar.tsx",
+      "line": 118,
+      "symbol": "onLoad={() => setAvailable((old) => ({ ...old, [key]: true }))}"
+    },
+    {
+      "id": "ui_event:05bffe5ffcc8c2a1182c:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/PetAvatar.tsx",
+      "line": 119,
+      "symbol": "onError={() => setAvailable((old) => ({ ...old, [key]: false }))}"
     }
   ],
   "counts": {
     "http_route": 71,
     "ui_link": 37,
-    "ui_event": 259,
+    "ui_event": 263,
     "ui_button": 120,
     "service_method": 90,
     "base_tool": 17,

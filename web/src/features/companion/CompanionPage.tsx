@@ -284,6 +284,8 @@ export function CompanionPage() {
             key={settings.form ?? 'chibi'}
             form={settings.form ?? 'chibi'}
             phase={snapshot.phase}
+            dragging={dragging}
+            active={compose}
             onError={setError}
           />
         </button>

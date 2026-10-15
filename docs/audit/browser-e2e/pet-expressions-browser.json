@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "results": [
+    {
+      "form": "chibi",
+      "status": "passed",
+      "decodedFrames": 3,
+      "checks": [
+        "idle blink",
+        "140ms return",
+        "hover smile",
+        "drag surprise + release",
+        "reduced motion",
+        "no page errors"
+      ]
+    },
+    {
+      "form": "standing",
+      "status": "passed",
+      "decodedFrames": 3,
+      "checks": [
+        "idle blink",
+        "140ms return",
+        "hover smile",
+        "drag surprise + release",
+        "reduced motion",
+        "no page errors"
+      ]
+    }
+  ]
+}

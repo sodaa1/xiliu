@@ -1,17 +1,23 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { useReducedMotion } from '../../lib/useReducedMotion'
 import type { CompanionStatus } from '../../desktop/companion'
 import type { PetForm } from './live2d-bundle'
 import { readModel, watchModels } from './model-storage'
 import type { mountLive2D } from './live2d-runtime'
+import { usePetExpression } from './usePetExpression'
+const faces = ['blink', 'happy', 'surprised'] as const
 export function PetAvatar({
   form = 'chibi',
   phase = 'idle',
   onError,
+  dragging = false,
+  active = false,
 }: {
   form?: PetForm
   phase?: CompanionStatus['phase']
   onError?: (message: string) => void
+  dragging?: boolean
+  active?: boolean
 }) {
   const root = useRef<HTMLSpanElement>(null),
     canvas = useRef<HTMLCanvasElement>(null)
@@ -21,6 +27,15 @@ export function PetAvatar({
   const reduced = useReducedMotion()
   const renderKey = `${form}:${revision}:${reduced}`
   const ready = loaded === renderKey
+  const [hover, setHover] = useState(false)
+  const [available, setAvailable] = useState<Record<string, boolean>>({})
+  const expression = usePetExpression({
+    dragging,
+    active: active || hover,
+    phase,
+    reduced,
+    raster: !ready,
+  })
   useEffect(() => watchModels(() => setRevision((value) => value + 1)), [])
   useEffect(() => {
     let disposed = false
@@ -65,17 +80,47 @@ export function PetAvatar({
   useEffect(() => {
     if (ready) controller.current?.phase(phase)
   }, [phase, ready])
+  useEffect(() => {
+    if (ready) controller.current?.expression(expression)
+  }, [expression, ready])
   return (
     <span
       ref={root}
       className="pet-avatar"
       data-renderer={ready ? 'live2d' : 'image'}
+      data-expression={expression}
+      data-form={form}
+      style={
+        {
+          '--pet-aspect': form === 'standing' ? 2 / 3 : 1,
+          '--pet-inverse-aspect': form === 'standing' ? 1.5 : 1,
+        } as CSSProperties
+      }
+      onPointerEnter={() => setHover(true)}
+      onPointerLeave={() => setHover(false)}
       onPointerMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect()
         controller.current?.focus(event.clientX - rect.left, event.clientY - rect.top)
       }}
     >
-      <img src={`/companion/${form}.png`} alt="" draggable={false} hidden={ready} />
+      <span className="pet-raster" hidden={ready}>
+        <img src={`/companion/${form}.png`} alt="" draggable={false} />
+        {faces.map((face) => {
+          const key = `${form}-${face}`
+          return (
+            <img
+              key={key}
+              className="pet-face"
+              src={`/companion/expressions/${key}.png`}
+              alt=""
+              draggable={false}
+              hidden={expression !== face || !available[key]}
+              onLoad={() => setAvailable((old) => ({ ...old, [key]: true }))}
+              onError={() => setAvailable((old) => ({ ...old, [key]: false }))}
+            />
+          )
+        })}
+      </span>
       <canvas
         ref={canvas}
         aria-hidden="true"

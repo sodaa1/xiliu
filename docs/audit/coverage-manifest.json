@@ -13856,6 +13856,62 @@
         "status": "not_run",
         "scope": "Per-occurrence native/browser/Agent equivalence not established; representative interaction tests and browser scenarios are recorded separately."
       }
+    },
+    {
+      "surface_id": "ui_event:43282557063caddf5a7b:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local facial expression hover and decoded-artwork availability state; no business or native settings mutation.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::fallback expressions react to hover and drag while retaining the original body"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative expression tests and browser scenarios recorded separately; per-occurrence Agent equivalence not claimed."
+      }
+    },
+    {
+      "surface_id": "ui_event:7771810103825f6770e7:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local facial expression hover and decoded-artwork availability state; no business or native settings mutation.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::fallback expressions react to hover and drag while retaining the original body"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative expression tests and browser scenarios recorded separately; per-occurrence Agent equivalence not claimed."
+      }
+    },
+    {
+      "surface_id": "ui_event:474be86c772614767d6d:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local facial expression hover and decoded-artwork availability state; no business or native settings mutation.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::fallback expressions react to hover and drag while retaining the original body"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative expression tests and browser scenarios recorded separately; per-occurrence Agent equivalence not claimed."
+      }
+    },
+    {
+      "surface_id": "ui_event:05bffe5ffcc8c2a1182c:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local facial expression hover and decoded-artwork availability state; no business or native settings mutation.",
+      "ui_tests": [
+        "web/src/features/companion/PetAvatar.test.tsx::missing facial artwork leaves the visible original face intact"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Representative expression tests and browser scenarios recorded separately; per-occurrence Agent equivalence not claimed."
+      }
     }
   ],
   "specialist_tools": {

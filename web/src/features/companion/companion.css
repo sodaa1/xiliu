@@ -414,23 +414,53 @@ html[data-companion='true'] #root {
 }
 
 .pet-avatar {
+  container-type: size;
   position: relative;
   display: block;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-.pet-avatar > img,
 .pet-avatar > canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
   pointer-events: none;
 }
-.pet-avatar > img[hidden] {
+.pet-raster {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: min(100cqw, calc(100cqh * var(--pet-aspect, 1)));
+  height: min(100cqh, calc(100cqw * var(--pet-inverse-aspect, 1)));
+  pointer-events: none;
+}
+.pet-raster img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+}
+.pet-raster[hidden],
+.pet-raster img[hidden] {
   display: none;
+}
+/* Reveal only the generated facial regions; the original body never changes. */
+.pet-face {
+  mask-image:
+    radial-gradient(ellipse 6.5% 5.8% at 43.5% 36.8%, #000 70%, transparent 100%),
+    radial-gradient(ellipse 7.1% 5.8% at 59.5% 41.6%, #000 70%, transparent 100%),
+    radial-gradient(ellipse 4.6% 3.1% at 51.3% 45.2%, #000 70%, transparent 100%);
+}
+.pet-avatar[data-form='standing'] .pet-face {
+  mask-image:
+    radial-gradient(ellipse 4% 2.4% at 46.3% 12.2%, #000 70%, transparent 100%),
+    radial-gradient(ellipse 3.9% 2.5% at 53.7% 14.2%, #000 70%, transparent 100%),
+    radial-gradient(ellipse 2.7% 1.7% at 48.9% 16%, #000 70%, transparent 100%);
 }
 .live2d-preview {
   width: 120px;

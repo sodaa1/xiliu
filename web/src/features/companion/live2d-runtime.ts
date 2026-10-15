@@ -1,4 +1,5 @@
 import { prepareModel, type ModelBundle } from './live2d-bundle'
+import type { PetExpression } from './usePetExpression'
 import type { CompanionStatus } from '../../desktop/companion'
 let core: Promise<void> | undefined
 function loadCore() {
@@ -98,6 +99,27 @@ export async function mountLive2D(
         .find(Boolean)
       if (group) void model.motion(group).catch(() => {})
     }
+    const expressions =
+      (
+        prepared.source.FileReferences as {
+          Expressions?: { Name: string }[]
+        }
+      ).Expressions ?? []
+    const expression = (value: PetExpression) => {
+      if (released || !model) return
+      const manager = model.internalModel.motionManager.expressionManager
+      if (value === 'neutral' || value === 'blink') {
+        manager?.resetExpression()
+        return
+      }
+      const names =
+        value === 'happy'
+          ? ['happy', 'smile', '笑顔', '微笑']
+          : ['surprised', 'surprise', '驚き', '惊讶']
+      const match = expressions.find((entry) => names.includes(entry.Name.toLowerCase()))
+      if (match) void model.expression(match.Name).catch(() => {})
+      else manager?.resetExpression()
+    }
     const visibility = () => {
       if (!app || released) return
       if (document.hidden || reduced) app.stop()
@@ -108,6 +130,7 @@ export async function mountLive2D(
     return {
       resize,
       phase,
+      expression,
       focus: (x: number, y: number) => {
         if (!reduced && !released) model?.focus(x, y)
       },

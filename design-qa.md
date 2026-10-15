@@ -24,3 +24,14 @@ The user-approved physical defaults are 96px / 168px, so 32px desktop hit target
 No actionable P0/P1/P2 visual issues remain. Native packaged OS drag/mixed-DPI smoke testing and genuine Live2D model deformation are outside this visual pass and are explicitly recorded in the verification report.
 
 Checklist: source resolved, live implementation captured, combined comparison inspected, five fidelity surfaces checked, browser interactions tested, meaningful deviations documented.
+
+
+## Expression follow-up (2026-10-15)
+
+final result: passed
+
+Source: six aligned blink/happy/surprised frames under web/public/companion/expressions. Rendered: both forms in the running companion, 100% defaults, deviceScaleFactor 3. Combined source/render comparison captured and inspected: docs/audit/browser-e2e/pet-expressions-comparison.png. No actionable P0/P1/P2 visual issues.
+
+Original body artwork remains the base layer. Eye/mouth masks align in both aspect ratios; blink fully closes the eyes, happy changes eyes and mouth, surprise opens the mouth and eyes. Body pixels outside a broad manually selected facial box remain unchanged above <=8/255 compositing noise (six actual screenshot comparisons). Drag transform was disabled only for that isolated comparison.
+
+Typography/copy, icon sizing, colors and controls are unchanged. Feathered masks avoid seams; permanent raster compositing prevents expression toggles from changing body edge antialiasing materially. Existing 96/168 defaults, independent scale saves, drag/compose/capture flows and eight native-sized viewports passed browser regression checks. Reduced motion stops automatic blinks while retaining direct interaction expressions.
