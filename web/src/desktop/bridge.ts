@@ -8,6 +8,7 @@ declare global {
     __TAURI__?: {
       window?: { getCurrentWindow(): DesktopWindow }
       core?: { invoke(command: string, args: Record<string, unknown>): Promise<unknown> }
+      event?: { listen<T>(event: string, handler: (event: { payload: T }) => void): Promise<() => void> }
     }
   }
 }

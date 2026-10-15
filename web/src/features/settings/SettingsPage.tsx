@@ -20,6 +20,7 @@ import { PersonalSettings } from './PersonalSettings'
 import { AppearanceSettings } from './AppearanceSettings'
 import { AutomationsPanel } from '../automations/AutomationsDrawer'
 import './settings.css'
+import { CompanionSettings } from '../companion/CompanionSettings'
 
 function ModelForm({
   settings,
@@ -521,7 +522,7 @@ export function SettingsPage({ embedded = false }: { embedded?: boolean }) {
         className="settings-panel"
       >
         {current.id === 'profile' && <PersonalSettings />}
-        {current.id === 'appearance' && <AppearanceSettings />}
+        {current.id === 'appearance' && <><AppearanceSettings /><CompanionSettings /></>}
         {current.id === 'model' && <ModelSettingsPanel />}
         {current.id === 'automations' && (
           <div className="settings-card">

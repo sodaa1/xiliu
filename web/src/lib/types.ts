@@ -52,7 +52,7 @@ export interface WebEvent {
   code?: string
   role?: Message['role']
   reasoning_delta?: string
-  metadata?: { thinking?: Thinking; model?: string }
+  metadata?: { thinking?: Thinking; model?: string; cancelled?: boolean }
   reset_messages?: boolean
 }
 export interface Thinking {
@@ -68,3 +68,4 @@ export interface ChatRun {
   steps: string[]
   reasoning: string
 }
+export type ChatOutcome = 'success' | 'stopped' | 'error'

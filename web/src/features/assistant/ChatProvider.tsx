@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
 import { api } from '../../lib/api'
-import type { ChatRun, Conversation, Message } from '../../lib/types'
+import type { ChatRun, ChatOutcome, Conversation, Message } from '../../lib/types'
 import { ChatContext } from './chat-context'
 
 export function ChatProvider({ children }: { children: ReactNode }) {
   const cache = useQueryClient()
   const [runs, setRuns] = useState<Record<string, ChatRun>>({})
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const [outcomes, setOutcomes] = useState<Record<string, ChatOutcome>>({})
   const [selected, select] = useState<string | null>(null)
   const active = useRef(new Map<string, AbortController>())
   useEffect(
@@ -60,6 +61,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     active.current.set(id ?? '', controller)
     const startedAt = Date.now()
     let target = id
+    let outcome: ChatOutcome = 'error'
     dismiss(id ?? '')
     setRuns((items) => ({
       ...items,
@@ -109,6 +111,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
               [turnCid]: event.message ?? '本次对话失败，请重试。',
             }))
           } else if (event.type === 'final') {
+            outcome = event.metadata?.cancelled ? 'stopped' : 'success'
             cache.setQueryData<Message[]>(['messages', turnCid], (items = []) => {
               const previous = event.reset_messages ? [] : items
               return [
@@ -168,13 +171,20 @@ export function ChatProvider({ children }: { children: ReactNode }) {
       }
       const key = target ?? id ?? ''
       if (active.current.get(key) === controller) {
+        setOutcomes((items) => {
+          const next = { ...items }
+          delete next[key]
+          if (Object.keys(next).length >= 64) delete next[Object.keys(next)[0]]
+          next[key] = controller.signal.aborted ? 'stopped' : outcome
+          return next
+        })
         active.current.delete(key)
         clearRun(key)
       }
     }
   }
   return (
-    <ChatContext.Provider value={{ runs, errors, selected, select, dismiss, send, stop }}>
+    <ChatContext.Provider value={{ runs, errors, outcomes, selected, select, dismiss, send, stop }}>
       {children}
     </ChatContext.Provider>
   )

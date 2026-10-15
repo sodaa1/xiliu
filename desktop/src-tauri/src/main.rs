@@ -1,5 +1,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod companion;
+
 use std::{
     io::{BufRead, BufReader, Read, Write},
     net::{SocketAddr, TcpStream},
@@ -83,10 +85,19 @@ fn main() {
     });
     let owner = Arc::clone(&service);
     let app = tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![save_preferences, save_sidebar])
+        .manage(Arc::clone(&service))
+        .invoke_handler(tauri::generate_handler![save_preferences, save_sidebar,
+            companion::companion_settings, companion::companion_configure, companion::companion_show,
+            companion::companion_open_capture, companion::companion_close_capture, companion::companion_open_main,
+            companion::companion_layout, companion::companion_drag, companion::companion_snapshot,
+            companion::companion_publish, companion::companion_ready, companion::companion_submit,
+            companion::companion_result, companion::companion_ack, companion::companion_captured,
+            companion::companion_take_compose])
         .setup(move |app| {
             let data = app.path().app_data_dir()?;
             std::fs::create_dir_all(&data)?;
+            app.manage(companion::Coordinator::load(app.handle()));
+            companion::install_tray(app.handle())?;
             let navigation_owner = Arc::clone(&owner);
             let preferences = std::fs::read_to_string(data.join("preferences.json")).ok()
                 .filter(|value| value.len() <= 262144 && serde_json::from_str::<serde_json::Value>(value)
@@ -113,7 +124,10 @@ fn main() {
             window.on_window_event(move |event| {
                 if let tauri::WindowEvent::CloseRequested { api, .. } = event {
                     api.prevent_close();
-                    close(&event_app, &close_owner);
+                    if companion::enabled(&event_app) {
+                        if let Some(main) = event_app.get_webview_window("main") { let _ = main.hide(); }
+                        let _ = companion::persist(&event_app);
+                    } else { close(&event_app, &close_owner); }
                 }
             });
             let bundled = app.path().resolve("xiliu-service.exe", tauri::path::BaseDirectory::Resource)?;
@@ -154,6 +168,7 @@ fn main() {
                 }
             });
             let ready_owner = Arc::clone(&owner);
+            let ready_app = app.handle().clone();
             std::thread::spawn(move || {
                 if let Ok(port) = receiver.recv_timeout(Duration::from_secs(45)) {
                     *ready_owner.port.lock().unwrap() = Some(port);
@@ -161,6 +176,12 @@ fn main() {
                         && !ready_owner.closing.load(Ordering::SeqCst) {
                         let url = format!("http://127.0.0.1:{port}/").parse().unwrap();
                         let _ = window.navigate(url);
+                        let startup_app = ready_app.clone();
+                        let _ = ready_app.run_on_main_thread(move || {
+                            if let Err(error) = companion::start(&startup_app, port) {
+                                let _ = startup_app.emit("desktop-error", error);
+                            }
+                        });
                         return;
                     }
                 }

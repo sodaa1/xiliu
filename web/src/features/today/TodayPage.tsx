@@ -20,6 +20,7 @@ import { GlideSelect } from '../../components/GlideSelect'
 import { Avatar } from '../../components/Avatar'
 import { useLocation } from 'react-router-dom'
 import './today.css'
+import { TodayCompanion } from '../companion/TodayCompanion'
 
 function TaskEditor({ task, onDone }: { task: Task; onDone: () => void }) {
   const [title, setTitle] = useState(task.title),
@@ -226,6 +227,7 @@ export function TodayPage() {
         )}
         {today.isLoading && <p role="status">正在准备今天的空间…</p>}
       </header>
+      <TodayCompanion />
       <div className="today-grid">
         <section className="today-card morning-brief">
           <div className="section-heading">

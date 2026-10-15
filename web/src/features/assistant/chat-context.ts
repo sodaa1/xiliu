@@ -1,9 +1,10 @@
 import { createContext, useContext } from 'react'
-import type { ChatRun } from '../../lib/types'
+import type { ChatRun, ChatOutcome } from '../../lib/types'
 
 export const ChatContext = createContext<{
   runs: Record<string, ChatRun>
   errors: Record<string, string>
+  outcomes: Record<string, ChatOutcome>
   selected: string | null
   select: (id: string | null) => void
   dismiss: (id: string) => void

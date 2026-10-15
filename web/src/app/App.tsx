@@ -19,6 +19,9 @@ import '../styles/compact-workspace.css'
 import { useReducedMotion } from '../lib/useReducedMotion'
 import { usePageTransition } from './usePageTransition'
 import './page-transition.css'
+import { CompanionController } from '../features/companion/CompanionController'
+import { CompanionPage } from '../features/companion/CompanionPage'
+import { CapturePage } from '../features/companion/CapturePage'
 
 const navigation = [
   { path: '/today', label: 'Today', icon: House },
@@ -29,8 +32,18 @@ const navigation = [
 ]
 export function App() {
   useApplyPreferences()
+  const location = useLocation()
+  if (location.pathname.startsWith('/desktop/'))
+    return (
+      <Routes>
+        <Route path="/desktop/companion" element={<CompanionPage />} />
+        <Route path="/desktop/capture" element={<CapturePage />} />
+        <Route path="*" element={<Navigate to="/today" replace />} />
+      </Routes>
+    )
   return (
     <ChatProvider>
+      <CompanionController />
       <AppLayout />
     </ChatProvider>
   )
@@ -55,6 +68,7 @@ function AppLayout() {
   )
   const transitionRoot = useRef<HTMLDivElement>(null)
   const displayed = usePageTransition(target, transitionRoot, useReducedMotion())
+  const capturedItem = new URLSearchParams(displayed.search).get('item')
   const closeTarget =
     typeof backgroundUrl === 'string'
       ? backgroundUrl
@@ -106,7 +120,16 @@ function AppLayout() {
               <Route path="/assistant" element={<AssistantPage />} />
               <Route path="/today" element={<TodayPage />} />
               <Route path="/feed" element={<FeedPage />} />
-              <Route path="/inbox" element={<ContentPage key="inbox" status="inbox" />} />
+              <Route
+                path="/inbox"
+                element={
+                  <ContentPage
+                    key={`inbox:${capturedItem ?? ''}`}
+                    status="inbox"
+                    documentId={capturedItem ?? undefined}
+                  />
+                }
+              />
               <Route path="/knowledge" element={<KnowledgePage />} />
               <Route path="*" element={<Navigate to="/assistant" replace />} />
             </Routes>
