@@ -1,6 +1,6 @@
 # 息流 · xiliu
 
-![息流产品介绍](docs/assets/xiliu-intro-concept-a.png)
+![息流产品介绍](docs/web/assets/xiliu-intro-concept-a.png)
 
 [简体中文](README.zh-CN.md) · [English](README.en.md)
 
@@ -129,4 +129,4 @@ npm run build
 
 源内核来自 [sodaa1/xiliumini](https://github.com/sodaa1/xiliumini)，基线 `6d3689583f93b3fafd6381b2b65c31d9613464e5`；本项目品牌、包名、CLI 与配置使用 `xiliu`。
 
-产品介绍页由 `web/intro/index.html` 与工作台一起构建，运行后访问 `/intro/`。公开介绍：[息流 · xiliu](https://933693.xyz/projects/xiliu/)。
+产品介绍网站源码、脚本与设计资料位于 [`docs/web/`](docs/web/README.md)，应用构建继续提供 `/intro/` 入口。公开介绍：[息流 · xiliu](https://933693.xyz/projects/xiliu/)。

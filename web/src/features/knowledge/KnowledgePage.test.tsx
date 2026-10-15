@@ -47,6 +47,15 @@ test('folder cards open nested contents and return to the folder homepage', asyn
   await user.click(screen.getByRole('button', { name: '返回文件夹' }))
   expect(await screen.findByRole('link', { name: /1 项内容.*研究/ })).toBeVisible()
 })
+test('folder card edit and delete actions open their dialogs', async () => {
+  mount()
+  const user = userEvent.setup()
+  await user.click(await screen.findByRole('button', { name: '编辑规则' }))
+  expect(await screen.findByRole('heading', { name: '编辑文件夹规则' })).toBeVisible()
+  await user.click(screen.getByRole('button', { name: '取消' }))
+  await user.click(await screen.findByRole('button', { name: '删除文件夹 研究' }))
+  expect(await screen.findByRole('heading', { name: '删除文件夹 研究' })).toBeVisible()
+})
 test('folder rules are submitted with parsed tags and numeric priority', async () => {
   mount()
   const user = userEvent.setup()

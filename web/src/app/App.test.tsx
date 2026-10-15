@@ -76,7 +76,7 @@ function mount(path = '/settings') {
     </QueryClientProvider>
   )
 }
-test('App navigation renders every page and persists sidebar collapse', async () => {
+test('App icon rail navigates to every page', async () => {
   const view = mount('/today'),
     user = userEvent.setup()
   const navigation = screen.getByRole('navigation', { name: '主导航' })
@@ -97,11 +97,6 @@ test('App navigation renders every page and persists sidebar collapse', async ()
     )
     expect(link).toHaveAttribute('aria-current', 'page')
   }
-  await user.click(screen.getByRole('button', { name: '折叠侧栏' }))
-  expect(screen.getByRole('button', { name: '展开侧栏' })).toHaveAttribute('aria-expanded', 'false')
-  expect(localStorage.getItem('xiliu-sidebar-collapsed')).toBe('true')
-  await user.click(screen.getByRole('button', { name: '展开侧栏' }))
-  expect(localStorage.getItem('xiliu-sidebar-collapsed')).toBe('false')
 })
 
 test('App Settings overlay preserves page and keyboard navigation selects panels', async () => {

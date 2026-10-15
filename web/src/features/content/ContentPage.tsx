@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CaptureDialog } from './CaptureDialog'
+import { ContentDialog } from './ContentDialog'
 import './content-knowledge.css'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -9,6 +10,7 @@ import {
   Paperclip,
   Plus,
   Search,
+  Pencil,
   Sparkles,
   Trash2,
   X,
@@ -127,6 +129,79 @@ function ContentEditor({
   )
 }
 
+function ContentPreview({
+  item,
+  onClose,
+  onEdit,
+  onAsk,
+  asking,
+}: {
+  item: ContentItem
+  onClose: () => void
+  onEdit: () => void
+  onAsk: () => void
+  asking: boolean
+}) {
+  const sourceUrl = safeHttpUrl(item.source)
+  const body = item.summary || item.content || item.filename || item.source
+  return (
+    <ContentDialog title={item.title} onClose={onClose}>
+      <div className="feed-preview">
+        <div className="feed-preview-meta">
+          <span className="feed-source">
+            {item.type === 'link' ? '链接' : item.type === 'file' ? '文件' : '笔记'}
+          </span>
+          <time dateTime={item.updated_at}>
+            {new Date(item.updated_at).toLocaleDateString('zh-CN')}
+          </time>
+        </div>
+        {item.summary && item.content && item.summary !== item.content && (
+          <p className="feed-preview-summary">{item.summary}</p>
+        )}
+        <div className="content-preview-body">{body}</div>
+        {sourceUrl && (
+          <a className="source-link" href={sourceUrl} target="_blank" rel="noreferrer">
+            {item.source}
+          </a>
+        )}
+        {!!item.tags.length && (
+          <div className="tag-list">
+            {item.tags.map((tag) => (
+              <span key={tag}># {tag}</span>
+            ))}
+          </div>
+        )}
+        <div className="editor-actions">
+          <button type="button" className="secondary-button" onClick={onEdit}>
+            <Pencil size={15} />
+            编辑
+          </button>
+          <button type="button" className="secondary-button" disabled={asking} onClick={onAsk}>
+            <Sparkles size={15} />
+            Ask AI
+          </button>
+          {item.filename && (
+            <a
+              className="secondary-button"
+              href={workspaceApi.originalUrl(item.id)}
+              download={item.filename}
+            >
+              <Download size={15} />
+              下载原件
+            </a>
+          )}
+          {sourceUrl && (
+            <a className="primary-link" href={sourceUrl} target="_blank" rel="noreferrer">
+              打开原文
+              <ArrowRight size={16} />
+            </a>
+          )}
+        </div>
+      </div>
+    </ContentDialog>
+  )
+}
+
 export function ContentPage({
   status,
   folderId,
@@ -142,6 +217,7 @@ export function ContentPage({
     [tag, setTag] = useState(''),
     [type, setType] = useState(''),
     [editing, setEditing] = useState<ContentItem | null>(null),
+    [previewing, setPreviewing] = useState<ContentItem | null>(null),
     [notice, setNotice] = useState(''),
     [captureOpen, setCaptureOpen] = useState(false),
     [recentIds, setRecentIds] = useState<string[]>([]),
@@ -353,6 +429,30 @@ export function ContentPage({
           onSaved={invalidate}
         />
       )}
+      {previewing && (
+        <ContentPreview
+          key={previewing.id}
+          item={previewing}
+          asking={ask.isPending}
+          onClose={() => setPreviewing(null)}
+          onEdit={() => {
+            const item = previewing
+            setPreviewing(null)
+            setEditing(item)
+          }}
+          onAsk={() =>
+            ask.mutate({
+              draft: '请帮我梳理这份内容的要点。',
+              reference: {
+                title: previewing.title,
+                content: [previewing.content, previewing.summary, previewing.source]
+                  .filter(Boolean)
+                  .join('\n\n'),
+              },
+            })
+          }
+        />
+      )}
       {list.isLoading ? (
         <p className="workspace-empty">正在找回你的内容…</p>
       ) : list.error ? (
@@ -386,7 +486,16 @@ export function ContentPage({
             const Icon = icons[item.type],
               sourceUrl = safeHttpUrl(item.source)
             return (
-              <article className="content-row" key={item.id}>
+              <article
+                className="content-row is-openable"
+                key={item.id}
+                onClick={(event) => {
+                  // Let the card's own buttons, links, inputs and labels act on their own;
+                  // a click anywhere else opens the preview.
+                  if ((event.target as HTMLElement).closest('button, a, input, label')) return
+                  setPreviewing(item)
+                }}
+              >
                 {status === 'inbox' && (
                   <input
                     type="checkbox"
@@ -406,7 +515,15 @@ export function ContentPage({
                 </div>
                 <div className="content-row-body">
                   <div className="content-row-title">
-                    <h2>{item.title}</h2>
+                    <h2>
+                      <button
+                        type="button"
+                        className="content-row-open"
+                        onClick={() => setPreviewing(item)}
+                      >
+                        {item.title}
+                      </button>
+                    </h2>
                     <time dateTime={item.updated_at}>
                       {new Date(item.updated_at).toLocaleDateString('zh-CN')}
                     </time>
@@ -447,7 +564,6 @@ export function ContentPage({
                     ))}
                   </div>
                   <div className="row-actions">
-                    <button onClick={() => setEditing(item)}>编辑</button>
                     {status === 'inbox' && item.status === 'knowledge' ? (
                       <Link
                         to={`/knowledge?folder=${encodeURIComponent(item.folder_id ?? 'unfiled')}&document=${encodeURIComponent(item.id)}`}

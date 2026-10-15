@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { afterEach, expect, test, vi } from 'vitest'
@@ -103,4 +103,57 @@ test('manual add edit remove restore and external hide restore remain available 
   await user.click(screen.getByLabelText('显示已移除资讯'))
   await screen.findByText('Edited story')
   await screen.findByText('External story')
+})
+
+test('feed card opens a preview with AI summary, read original and save actions', async () => {
+  const user = userEvent.setup()
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (input: string, init?: RequestInit) => {
+      const url = new URL(String(input), 'http://localhost')
+      if (url.pathname === '/api/feed' && (!init?.method || init.method === 'GET')) {
+        return Response.json({
+          items: [
+            {
+              id: 'external',
+              source: 'aihot',
+              title: 'Preview story',
+              summary: 'Short summary',
+              url: 'https://example.org/news',
+              tags: ['ai'],
+              metadata: {},
+              hidden: false,
+              deleted_at: null,
+            },
+          ],
+          sources: [],
+        })
+      }
+      if (url.pathname === '/api/feed/external/summarize' && init?.method === 'POST')
+        return Response.json({ summary: '这是一段更详细的 AI 总结，解释了它为什么值得关注。' })
+      return Response.json({})
+    })
+  )
+  render(
+    <MemoryRouter>
+      <QueryClientProvider
+        client={
+          new QueryClient({
+            defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
+          })
+        }
+      >
+        <FeedPage />
+      </QueryClientProvider>
+    </MemoryRouter>
+  )
+  await user.click(await screen.findByRole('heading', { name: 'Preview story', level: 2 }))
+  const dialog = await screen.findByRole('dialog', { name: 'Preview story' })
+  expect(within(dialog).getByRole('link', { name: /阅读原文/ })).toHaveAttribute(
+    'href',
+    'https://example.org/news'
+  )
+  expect(within(dialog).getByRole('button', { name: /收进 Inbox/ })).toBeVisible()
+  await user.click(within(dialog).getByRole('button', { name: /AI 总结/ }))
+  expect(await within(dialog).findByText(/更详细的 AI 总结/)).toBeVisible()
 })

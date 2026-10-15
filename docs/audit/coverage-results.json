@@ -2,15 +2,19 @@
   "format_version": 1,
   "status": "passed",
   "scope": "final contract/surface guard",
-  "surface_count": 660,
-  "registry_action_count": 66,
-  "runtime_gate": "passed",
+  "surface_count": 708,
+  "registry_action_count": 67,
+  "runtime_gate": "not_run",
   "pages": {
     "API / Service / Agent": {
-      "total": 77,
+      "total": 78,
       "restricted": 29,
       "ui_only": 1,
-      "agent_enabled": 47
+      "agent_enabled": 48
+    },
+    "Intro": {
+      "total": 27,
+      "ui_only": 27
     },
     "Assistant": {
       "total": 117,
@@ -19,21 +23,21 @@
       "ui_only": 48
     },
     "Settings": {
-      "total": 59,
+      "total": 76,
       "agent_enabled": 33,
-      "restricted": 12,
-      "ui_only": 14
+      "restricted": 22,
+      "ui_only": 21
     },
     "Inbox / shared content": {
-      "total": 107,
+      "total": 120,
       "agent_enabled": 57,
-      "restricted": 5,
-      "ui_only": 45
+      "restricted": 7,
+      "ui_only": 56
     },
     "Feed": {
-      "total": 67,
-      "agent_enabled": 46,
-      "ui_only": 21
+      "total": 84,
+      "agent_enabled": 53,
+      "ui_only": 31
     },
     "Inbox": {
       "total": 14,
@@ -41,10 +45,10 @@
       "restricted": 3
     },
     "Knowledge": {
-      "total": 66,
+      "total": 68,
       "agent_enabled": 33,
       "restricted": 5,
-      "ui_only": 28
+      "ui_only": 30
     },
     "Today": {
       "total": 56,
@@ -58,12 +62,8 @@
       "ui_only": 10
     },
     "Launch / Navigation / shared UI": {
-      "total": 23,
-      "ui_only": 23
-    },
-    "Intro": {
-      "total": 26,
-      "ui_only": 26
+      "total": 20,
+      "ui_only": 20
     },
     "Launch": {
       "total": 4,
@@ -143,7 +143,8 @@
     "capabilities.skills": "passed",
     "capabilities.mcp": "passed",
     "settings.models.catalog": "passed",
-    "capabilities.commands": "passed"
+    "capabilities.commands": "passed",
+    "feed.summarize": "passed"
   },
   "gateway_tool_dispatcher_execution": {
     "today.read": "passed",
@@ -211,7 +212,8 @@
     "capabilities.skills": "passed",
     "capabilities.mcp": "passed",
     "settings.models.catalog": "passed",
-    "capabilities.commands": "passed"
+    "capabilities.commands": "passed",
+    "feed.summarize": "not_run"
   },
   "test_reference_execution": {
     "today.read": "passed",
@@ -279,6 +281,7 @@
     "capabilities.skills": "passed",
     "capabilities.mcp": "passed",
     "settings.models.catalog": "passed",
-    "capabilities.commands": "passed"
+    "capabilities.commands": "passed",
+    "feed.summarize": "passed"
   }
 }

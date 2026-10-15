@@ -96,6 +96,43 @@ function FolderEditor({
   )
 }
 
+function FolderCard({
+  folder,
+  onEdit,
+  onDelete,
+}: {
+  folder: KnowledgeFolder
+  onEdit: () => void
+  onDelete: () => void
+}) {
+  return (
+    <article className="knowledge-folder-card">
+      <Link className="knowledge-folder-open" to={`?folder=${encodeURIComponent(folder.id)}`}>
+        <div className="knowledge-folder-symbol">
+          <Folder size={26} />
+          <span>{folder.item_count} 项内容</span>
+        </div>
+        <h2>{folder.name}</h2>
+        <p>{folder.summary || '尚未填写规则摘要'}</p>
+      </Link>
+      <div className="tag-list">
+        {folder.tags.map((tag) => (
+          <span key={tag}># {tag}</span>
+        ))}
+      </div>
+      <footer>
+        <span>优先级 {folder.priority}</span>
+        <div>
+          <button onClick={onEdit}>编辑规则</button>
+          <button aria-label={`删除文件夹 ${folder.name}`} onClick={onDelete}>
+            删除
+          </button>
+        </div>
+      </footer>
+    </article>
+  )
+}
+
 export function KnowledgePage() {
   const cache = useQueryClient(),
     [params, setParams] = useSearchParams()
@@ -239,36 +276,12 @@ export function KnowledgePage() {
       ) : (
         <div className="knowledge-folder-grid">
           {folders.data.map((folder) => (
-            <article className="knowledge-folder-card" key={folder.id}>
-              <Link
-                className="knowledge-folder-open"
-                to={`?folder=${encodeURIComponent(folder.id)}`}
-              >
-                <div className="knowledge-folder-symbol">
-                  <Folder size={26} />
-                  <span>{folder.item_count} 项内容</span>
-                </div>
-                <h2>{folder.name}</h2>
-                <p>{folder.summary || '尚未填写规则摘要'}</p>
-              </Link>
-              <div className="tag-list">
-                {folder.tags.map((tag) => (
-                  <span key={tag}># {tag}</span>
-                ))}
-              </div>
-              <footer>
-                <span>优先级 {folder.priority}</span>
-                <div>
-                  <button onClick={() => setEditing(folder)}>编辑规则</button>
-                  <button
-                    aria-label={`删除文件夹 ${folder.name}`}
-                    onClick={() => setDeleting(folder)}
-                  >
-                    删除
-                  </button>
-                </div>
-              </footer>
-            </article>
+            <FolderCard
+              key={folder.id}
+              folder={folder}
+              onEdit={() => setEditing(folder)}
+              onDelete={() => setDeleting(folder)}
+            />
           ))}
         </div>
       )}

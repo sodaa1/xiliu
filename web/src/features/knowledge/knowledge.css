@@ -11,15 +11,18 @@
   flex-direction: column;
   border: 1px solid var(--line, #e9e5f4);
   background: var(--surface, #fff);
-  border-radius: 26px;
+  border-radius: 24px;
   padding: 24px;
+  box-shadow: var(--shadow-sm);
   transition:
-    box-shadow 0.16s,
-    border-color 0.16s;
+    box-shadow 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
 }
 .knowledge-folder-card:hover {
-  border-color: #d4ceee;
-  box-shadow: 0 10px 24px #5c4c9212;
+  border-color: #cfc8ec;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
 }
 .knowledge-folder-open {
   flex: 1;

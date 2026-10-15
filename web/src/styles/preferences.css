@@ -17,8 +17,25 @@
   --muted: #a8b0c2;
   --muted-readable: #b2bbce;
   --line: #343b4d;
+  --accent-strong: #8e86f5;
+  --accent-grad: linear-gradient(135deg, #8d87f2 0%, #6f67d9 100%);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.38);
+  --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.5);
+  --shadow-accent: 0 6px 18px rgba(118, 110, 230, 0.45);
   color: var(--text);
   background: var(--surface-muted);
+}
+:root[data-theme='dark'] * {
+  scrollbar-color: #3a4256 transparent;
+}
+:root[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: #3a4256;
+  background-clip: padding-box;
+}
+:root[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+  background: #47506a;
+  background-clip: padding-box;
 }
 .profile-avatar {
   display: inline-flex;
@@ -219,7 +236,7 @@
   color: #f5b5c4;
 }
 :root[data-theme='dark'] .primary-button {
-  background: #8276df;
+  background: var(--accent-grad);
   color: #fff;
 }
 :root[data-theme='dark'] .glide-select {

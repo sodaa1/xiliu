@@ -29,7 +29,9 @@
   object-fit: cover;
 }
 .workspace-page:is(.feed-page, .content-page, .knowledge-page) {
-  padding: 18px 32px 28px;
+  /* Cap the reading column on wide screens and centre it, while keeping the
+     page itself full-width so the background and scrollbar still span the stage. */
+  padding: 18px max(32px, calc((100% - 1180px) / 2)) 28px;
 }
 :is(.feed-page, .content-page, .knowledge-page) .workspace-header {
   margin-bottom: 12px;
@@ -152,13 +154,46 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   align-items: start;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
 }
 .content-page .content-row {
   position: relative;
   min-width: 0;
   padding: 16px;
   gap: 10px;
-  border-radius: 15px;
+  border-radius: 16px;
+  border: 1px solid var(--line, #eceef5);
+  background: var(--surface, #fff);
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+.content-page .content-row:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: #d9d4f3;
+  transform: translateY(-2px);
+}
+.content-page .content-row.is-openable {
+  cursor: pointer;
+}
+.content-row-open {
+  display: inline;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.content-row-open:hover {
+  color: var(--accent-strong, #655cd2);
 }
 .content-page .content-row > input[type='checkbox'] {
   position: absolute;

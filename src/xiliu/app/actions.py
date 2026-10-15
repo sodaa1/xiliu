@@ -107,6 +107,7 @@ UI_BINDINGS: dict[str, tuple[str, ...]] = {
     "feed.list": ("workspaceApi.feed",),
     "feed.refresh": ("workspaceApi.refreshFeed",),
     "feed.save_to_inbox": ("workspaceApi.saveFeed",),
+    "feed.summarize": ("workspaceApi.summarizeFeed",),
     "feed.add_manual": ("workspaceApi.addManualFeed",),
     "feed.update_manual": ("workspaceApi.updateManualFeed",),
     "feed.remove_manual": ("workspaceApi.removeManualFeed",),
@@ -749,6 +750,16 @@ def get_registry() -> dict[str, ActionSpec]:
         write=True,
         permission="knowledge.write",
         postcondition=lambda s, a, v: _verify("content", s, a, v),
+    )
+    add(
+        "feed.summarize",
+        ITEM,
+        lambda s, a, c: s.feed.summarize(a["item_id"]),
+        "feed.summarize",
+        network=True,
+        permission="network.read",
+        postcondition=lambda s, a, v: isinstance(v, dict) and bool(v.get("summary")),
+        description="为资讯生成 AI 详细总结（基于标题、摘要与标签）",
     )
     feed_fields = {
         "url": (str, ...),

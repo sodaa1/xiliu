@@ -2704,102 +2704,12 @@
       }
     },
     {
-      "surface_id": "ui_event:87473881123a0098094d:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:392181d0b4b499a80c9d:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:98e4d256bc5976ebd252:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:a30248251fa946ca4fd0:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:8bc3d7d5fd9631eb94cc:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:9dd215e4a79601937801:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
       "surface_id": "ui_event:d2762e3e1c8c292323bd:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2814,7 +2724,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2829,7 +2739,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2844,7 +2754,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2859,7 +2769,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2874,7 +2784,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2889,7 +2799,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2904,7 +2814,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2919,7 +2829,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2934,7 +2844,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2949,7 +2859,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2964,7 +2874,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2979,7 +2889,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -2994,7 +2904,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -3009,7 +2919,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -3024,7 +2934,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -3039,7 +2949,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse",
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
         "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
@@ -6920,34 +6830,6 @@
       }
     },
     {
-      "surface_id": "ui_button:15a1ad374146057e0699:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:dcc2b96e9298a1b298d3:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
       "surface_id": "ui_link:a3b5af0eef4c3f60e97e:1",
       "classification": "ui_only",
       "action_ids": [],
@@ -7722,34 +7604,6 @@
         "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
         "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache"
       ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:3ef2b85a7e3b8c491e90:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:21393683d3dfcd696301:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
-      ],
-      "tests": [],
       "verification": {
         "status": "not_run",
         "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
@@ -8631,81 +8485,6 @@
         "tests/integration/test_knowledge_inbox_api.py::test_offline_import_folder_edit_and_search_api",
         "tests/unit/test_content_service.py::test_move_and_edits_update_search_without_moving_original"
       ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_link:a954f1cebb619039406a:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/knowledge/KnowledgePage.test.tsx::folder cards open nested contents and return to the folder homepage",
-        "web/src/features/knowledge/KnowledgePage.test.tsx::folder rules are submitted with parsed tags and numeric priority"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:36a36e0e5e389dd568ce:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/knowledge/KnowledgePage.test.tsx::folder cards open nested contents and return to the folder homepage",
-        "web/src/features/knowledge/KnowledgePage.test.tsx::folder rules are submitted with parsed tags and numeric priority"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:ab4b645ab35ad8511007:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/knowledge/KnowledgePage.test.tsx::folder cards open nested contents and return to the folder homepage",
-        "web/src/features/knowledge/KnowledgePage.test.tsx::folder rules are submitted with parsed tags and numeric priority"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:6f7be27c069fc8bbab84:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/knowledge/KnowledgePage.test.tsx::folder cards open nested contents and return to the folder homepage",
-        "web/src/features/knowledge/KnowledgePage.test.tsx::folder rules are submitted with parsed tags and numeric priority"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:4229a258399eb7300871:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/knowledge/KnowledgePage.test.tsx::folder cards open nested contents and return to the folder homepage",
-        "web/src/features/knowledge/KnowledgePage.test.tsx::folder rules are submitted with parsed tags and numeric priority"
-      ],
-      "tests": [],
       "verification": {
         "status": "not_run",
         "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
@@ -10343,7 +10122,7 @@
       "action_ids": [],
       "reason": "Interactive authenticated API transport/chat owner; no model-generated localhost requests.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse"
+        "web/src/app/App.test.tsx::App icon rail navigates to every page"
       ],
       "tests": [],
       "verification": {
@@ -10620,7 +10399,7 @@
       "action_ids": [],
       "reason": "Interactive authenticated API transport/chat owner; no model-generated localhost requests.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse"
+        "web/src/app/App.test.tsx::App icon rail navigates to every page"
       ],
       "tests": [],
       "verification": {
@@ -10655,7 +10434,7 @@
       "action_ids": [],
       "reason": "Interactive authenticated API transport/chat owner; no model-generated localhost requests.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::App navigation renders every page and persists sidebar collapse"
+        "web/src/app/App.test.tsx::App icon rail navigates to every page"
       ],
       "tests": [],
       "verification": {
@@ -12120,6 +11899,681 @@
       "verification": {
         "status": "not_run",
         "scope": "Per-occurrence browser/Agent equivalence remains unexecuted; passing UI unit tests does not prove every occurrence."
+      }
+    },
+    {
+      "surface_id": "http_route:4104aee495460ebb356e:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "feed.summarize"
+      ],
+      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "ui_tests": [],
+      "tests": [
+        "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+        "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+        "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "service_method:3dec07b4ee831e6e3e0e:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "feed.summarize"
+      ],
+      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "ui_tests": [],
+      "tests": [
+        "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+        "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+        "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_link:ab696a43d958e0ee12cd:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Pure client navigation/scaffolding with no unrestricted App action; exercised by the named UI test.",
+      "ui_tests": [
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
+        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_link:25f3062065ff04ebe1a0:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Pure client navigation/scaffolding with no unrestricted App action; exercised by the named UI test.",
+      "ui_tests": [
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
+        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_link:364284f22611ed3ff858:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Pure client navigation/scaffolding with no unrestricted App action; exercised by the named UI test.",
+      "ui_tests": [
+        "web/src/app/App.test.tsx::App icon rail navigates to every page",
+        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_api:7ad74de8bf188be3e536:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "feed.summarize"
+      ],
+      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [
+        "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+        "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+        "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_mutation:fa1c114e1a317da963cc:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "feed.summarize"
+      ],
+      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [
+        "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+        "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+        "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_query:597839f9da40b4e937da:4",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "feed.summarize"
+      ],
+      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [
+        "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+        "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+        "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "api_client:afc29d1850829037df89:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "feed.summarize"
+      ],
+      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "ui_tests": [],
+      "tests": [
+        "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+        "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+        "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_button:f3da4675912a571994c1:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "feed.summarize"
+      ],
+      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [
+        "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+        "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+        "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:0c70dcde9e4e08464def:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "feed.summarize"
+      ],
+      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [
+        "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+        "tests/integration/test_feed_actions.py::test_hidden_external_survives_refresh_and_restart",
+        "tests/integration/test_feed_actions.py::test_manual_crud_persists_outside_provider_cache"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:769d463f0bb524f0e58a:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_button:7bd173b381487299a8a8:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:544329f08f4ac1290a2a:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_button:4ae3d172333adb67fa14:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:02e2b3b981d6273ef86c:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_link:7a1ff2fd7be03d3d0a6f:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:8dd9402ff9a874848cf6:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_button:3a5570db4743f96ff12a:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:c4464d41662682c2f77c:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:221b6699a8a8f5e36cbf:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:330843f37ff096ceb637:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:98745b6b0d821f8cfbec:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:d3cf06a24c8a48421de2:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_button:1e15b4f9e97087fc9273:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:8234255cfabcab1eb939:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_button:bb3830c4d460bea76564:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:98a43a92edd0799dce77:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_link:2c0934a2464650b5f4c6:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Original download stays inside the explicit UI/attachment boundary; no arbitrary Agent file path.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_api:017121cc84e984853358:2",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Original download stays inside the explicit UI/attachment boundary; no arbitrary Agent file path.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_link:ff289c0a9a0ae9e51dcf:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:af2100331e76899ffd73:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:82feaaee3cd2e1391225:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:f49df530e9e97cf98930:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:591a21d6a814bbb95c7f:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_button:1e8fd2b98fe48abf2be2:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:9c440a78a5ea4cbe8183:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_link:e7d8ac6e8432e2151b37:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_link:52cfb9bdd64def662d38:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder cards open nested contents and return to the folder homepage"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_button:aa2e82d12007101988d8:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:846afcc3e3d4aff60447:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_button:697ea9808e45953d9e61:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:9bf6170cd776bc75c396:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:b0ce1c01f5af5f76471d:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
+      }
+    },
+    {
+      "surface_id": "ui_event:f2924da5a16a08c1b02f:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
       }
     }
   ],
@@ -16353,6 +16807,35 @@
       ],
       "ui_e2e": "not_run",
       "ui_e2e_scope": "Selected real browser business operation only; not every button invoking the same action. See browser-e2e/report.json and remaining UI controls below."
+    },
+    "feed.summarize": {
+      "http_route_evidence": [
+        {
+          "test": "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
+          "actual_path": "/api/feed/{item_id}/summarize",
+          "route": "POST /api/feed/{item_id}/summarize",
+          "status_code": 404
+        }
+      ],
+      "http_scope": "Route exists and returns feed_not_found for a missing id; business success is proven by the agent dispatch test.",
+      "tests": [
+        "tests/integration/test_feed_agent_actions.py::test_agent_feed_summarize_uses_model_from_stored_metadata",
+        "tests/unit/test_app_surface_guard.py::test_all_registered_action_schemas_reject_unrecognized_fields"
+      ],
+      "status": "passed",
+      "scope": "Actual pytest execution observer; denied evidence proves a restriction, not business success. UI source occurrences remain separate.",
+      "actual_execution": {
+        "status": "passed",
+        "successful_tests": [
+          "tests/integration/test_feed_agent_actions.py::test_agent_feed_summarize_uses_model_from_stored_metadata"
+        ],
+        "source": "docs/audit/action-execution-results.json"
+      },
+      "negative_tests": [
+        "tests/unit/test_app_dispatch.py::test_unknown_action_and_unknown_arguments_do_not_write"
+      ],
+      "ui_e2e": "not_run",
+      "ui_e2e_scope": "Selected real browser business operation only; not every button invoking the same action."
     }
   },
   "required_capability_gaps": [],

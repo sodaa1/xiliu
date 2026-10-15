@@ -1,6 +1,6 @@
 # 息流文档 · Xiliu documentation
 
-![息流产品介绍 / Xiliu product introduction](assets/xiliu-intro-concept-a.png)
+![息流产品介绍 / Xiliu product introduction](web/assets/xiliu-intro-concept-a.png)
 
 当前主干 / Current mainline: **0.3.0** · 2026-10-09
 

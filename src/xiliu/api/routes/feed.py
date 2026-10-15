@@ -65,3 +65,8 @@ def unhide_external(item_id: str, request: Request):
 @router.post("/{item_id}/save")
 def save_feed(item_id: str, request: Request):
     return request.app.state.feed.save(item_id)
+
+
+@router.post("/{item_id}/summarize")
+def summarize_feed(item_id: str, request: Request):
+    return request.app.state.feed.summarize(item_id)

@@ -1,6 +1,6 @@
 # Xiliu · 息流
 
-![Xiliu product introduction](docs/assets/xiliu-intro-concept-a.png)
+![Xiliu product introduction](docs/web/assets/xiliu-intro-concept-a.png)
 
 [English](README.en.md) · [简体中文](README.zh-CN.md)
 
@@ -129,4 +129,4 @@ Under the current repository policy, test sources and logs remain local and are 
 
 The kernel originated from [sodaa1/xiliumini](https://github.com/sodaa1/xiliumini), baseline `6d3689583f93b3fafd6381b2b65c31d9613464e5`. This project uses `xiliu` for its brand, Python package, CLI, and configuration.
 
-The introduction page at `web/intro/index.html` builds with the workspace; visit `/intro/` after starting the app. Public introduction: [Xiliu](https://933693.xyz/projects/xiliu/).
+The introduction website source, scripts, and design records are in [`docs/web/`](docs/web/README.md); the application build still provides `/intro/`. Public introduction: [Xiliu](https://933693.xyz/projects/xiliu/).

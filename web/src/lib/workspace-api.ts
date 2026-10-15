@@ -183,6 +183,8 @@ export const workspaceApi = {
   unhideExternalFeed: (id: string) =>
     request<FeedItem>(`/feed/${encodeURIComponent(id)}/unhide`, 'POST'),
   saveFeed: (id: string) => request<ContentItem>(`/feed/${encodeURIComponent(id)}/save`, 'POST'),
+  summarizeFeed: (id: string) =>
+    request<{ summary: string }>(`/feed/${encodeURIComponent(id)}/summarize`, 'POST'),
   today: () => request<{ feed: FeedItem[]; tasks: Task[]; inbox_count: number }>('/today'),
   createTask: (title: string, due_at: string | null) =>
     request<Task>('/tasks', 'POST', { title, due_at }),

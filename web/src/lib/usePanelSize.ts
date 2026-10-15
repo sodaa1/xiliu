@@ -1,13 +1,14 @@
 import { useState } from 'react'
 
-export function usePanelSize(key: string, min: number, max: number) {
+export function usePanelSize(key: string, min: number, max: number, initial = max) {
+  const fallback = Math.max(min, Math.min(max, initial))
   const [value, setValue] = useState(() => {
     try {
       const saved = localStorage.getItem(key)
-      const size = saved === null ? max : Number(saved)
-      return Number.isFinite(size) ? Math.max(min, Math.min(max, size)) : max
+      const size = saved === null ? fallback : Number(saved)
+      return Number.isFinite(size) ? Math.max(min, Math.min(max, size)) : fallback
     } catch {
-      return max
+      return fallback
     }
   })
   return [

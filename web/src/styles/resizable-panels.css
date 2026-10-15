@@ -20,9 +20,12 @@
   height: 8px;
   cursor: row-resize;
 }
+.resize-handle {
+  transition: background 0.16s ease;
+}
 .resize-handle:hover,
 .resize-handle:focus-visible {
-  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
   border-radius: 4px;
 }
 @media (min-width: 651px) {
@@ -50,7 +53,7 @@
   padding-inline: 0;
 }
 .composer-box textarea {
-  min-height: 48px;
+  min-height: 40px;
 }
 @media (max-width: 650px) {
   .resize-width {

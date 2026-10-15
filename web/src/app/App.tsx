@@ -1,17 +1,8 @@
 import { NavLink, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
-import { useCallback, useMemo, useRef, useState, type CSSProperties } from 'react'
-import {
-  BookOpen,
-  House,
-  Inbox,
-  MessageSquare,
-  Newspaper,
-  PanelLeftClose,
-  PanelLeftOpen,
-  Settings,
-  Sparkles,
-} from 'lucide-react'
+import { useCallback, useMemo, useRef } from 'react'
+import { BookOpen, House, Inbox, MessageSquare, Newspaper, Settings } from 'lucide-react'
 import { Brand } from '../components/Brand'
+import { PillNav } from '../components/PillNav'
 import { AssistantPage } from '../features/assistant/AssistantPage'
 import { SettingsPage } from '../features/settings/SettingsPage'
 import { ChatProvider } from '../features/assistant/ChatProvider'
@@ -21,7 +12,6 @@ import { FeedPage } from '../features/feed/FeedPage'
 import { TodayPage } from '../features/today/TodayPage'
 import { Modal } from '../components/Modal'
 import { useApplyPreferences } from '../lib/preferences'
-import { persistDesktopSidebar } from '../desktop/bridge'
 import '../styles/preferences.css'
 import { LaunchPage } from '../features/launch/LaunchPage'
 import '../styles/workspace.css'
@@ -29,9 +19,6 @@ import '../styles/compact-workspace.css'
 import { useReducedMotion } from '../lib/useReducedMotion'
 import { usePageTransition } from './usePageTransition'
 import './page-transition.css'
-import { ResizeHandle } from '../components/ResizeHandle'
-import { usePanelSize } from '../lib/usePanelSize'
-import '../styles/resizable-panels.css'
 
 const navigation = [
   { path: '/today', label: 'Today', icon: House },
@@ -76,73 +63,26 @@ function AppLayout() {
     () => navigate(closeTarget, { replace: true }),
     [navigate, closeTarget]
   )
-  const [collapsed, setCollapsed] = useState(() => {
-    try {
-      const saved = localStorage.getItem('xiliu-sidebar-collapsed')
-      return saved === null ? window.innerWidth <= 900 : saved === 'true'
-    } catch {
-      return window.innerWidth <= 900
-    }
-  })
-  const sidebarMax = window.innerWidth >= 1700 ? 250 : window.innerWidth <= 1200 ? 190 : 224
-  const [sidebarWidth, setSidebarWidth] = usePanelSize('xiliu-sidebar-width', 144, sidebarMax)
   return (
     <div className="route-surface" ref={transitionRoot} data-route-path={displayed.pathname}>
       {displayed.pathname === '/' ? (
         <LaunchPage />
       ) : (
         <div className="app-shell">
-          <aside
-            inert={isSettings || undefined}
-            className={`global-sidebar ${collapsed ? 'collapsed' : ''}`}
-            style={{ '--panel-width': `${sidebarWidth}px` } as CSSProperties}
-            data-compact={sidebarWidth < 190}
-          >
-            {!collapsed && (
-              <ResizeHandle
-                label="调整主侧栏宽度"
-                value={sidebarWidth}
-                min={144}
-                max={sidebarMax}
-                onChange={setSidebarWidth}
-              />
-            )}
-            <NavLink className="brand" to="/assistant" aria-label="xiliu Assistant">
+          <aside inert={isSettings || undefined} className="global-sidebar icon-rail">
+            <NavLink className="brand" to="/assistant" aria-label="xiliu Assistant" title="xiliu">
               <Brand />
-              <span>
-                xiliu<small>息流 · 百川归海</small>
-              </span>
             </NavLink>
-            <button
-              className="icon-button sidebar-toggle"
-              aria-label={collapsed ? '展开侧栏' : '折叠侧栏'}
-              aria-expanded={!collapsed}
-              aria-controls="main-navigation"
-              onClick={() => {
-                setCollapsed(!collapsed)
-                try {
-                  localStorage.setItem('xiliu-sidebar-collapsed', String(!collapsed))
-                  void persistDesktopSidebar(!collapsed).catch(() => {
-                    /* Browser storage still preserves this window's selection. */
-                  })
-                } catch {
-                  /* Storage may be unavailable. */
-                }
-              }}
-            >
-              {collapsed ? <PanelLeftOpen size={20} /> : <PanelLeftClose size={20} />}
-            </button>
             <nav aria-label="主导航" id="main-navigation">
               {navigation.map(({ path, label, icon: Icon }) => (
                 <NavLink
                   key={path}
                   to={path}
                   aria-label={label}
-                  title={collapsed ? label : undefined}
+                  title={label}
                   className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
                 >
                   <Icon size={21} />
-                  <span>{label}</span>
                 </NavLink>
               ))}
             </nav>
@@ -152,19 +92,16 @@ function AppLayout() {
                 to="/settings"
                 state={{ backgroundLocation: isSettings ? backgroundUrl : location }}
                 aria-label="Settings"
-                title={collapsed ? 'Settings' : undefined}
+                title="Settings"
               >
                 <Settings size={20} />
-                <span>Settings</span>
               </NavLink>
-              <div className="local-label">
-                <Sparkles size={13} />
-                <span>属于你的信息空间</span>
-                <span className="version">v0.3</span>
-              </div>
             </div>
           </aside>
           <main className="main-stage" inert={isSettings || undefined}>
+            <div className="global-topbar">
+              <PillNav />
+            </div>
             <Routes location={displayed}>
               <Route path="/assistant" element={<AssistantPage />} />
               <Route path="/today" element={<TodayPage />} />

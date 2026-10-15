@@ -12,6 +12,15 @@ const fallback: Command[] = [
   { name: 'skill', description: '使用一个已安装技能' },
   { name: 'mcp', description: '使用一个已连接服务' },
 ]
+
+// Older builds persisted the composer height under these keys, defaulting to the
+// tallest size. Drop them once so the compact default applies for everyone.
+try {
+  localStorage.removeItem('xiliu-composer-height')
+  localStorage.removeItem('xiliu-composer-height-v2')
+} catch {
+  /* Storage may be unavailable. */
+}
 export function Composer({
   text,
   onText,
@@ -37,7 +46,7 @@ export function Composer({
 }) {
   const [highlight, setHighlight] = useState(0),
     [dismissed, setDismissed] = useState(false)
-  const [height, setHeight] = usePanelSize('xiliu-composer-height', 48, 98)
+  const [height, setHeight] = usePanelSize('xiliu-composer-height-v3', 40, 98, 40)
   const trimmed = text.trimStart(),
     match = /^\/(skill|mcp)\s+(\S*)$/.exec(trimmed)
   const entries = match
@@ -78,7 +87,7 @@ export function Composer({
           label="调整输入框高度"
           vertical
           value={height}
-          min={48}
+          min={40}
           max={98}
           onChange={setHeight}
         />

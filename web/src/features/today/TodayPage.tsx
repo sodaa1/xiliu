@@ -17,7 +17,6 @@ import { FeedCard } from '../feed/FeedPage'
 import { usePreferences } from '../../lib/preferences'
 import { Modal } from '../../components/Modal'
 import { GlideSelect } from '../../components/GlideSelect'
-import { PillNav } from '../../components/PillNav'
 import { Avatar } from '../../components/Avatar'
 import { useLocation } from 'react-router-dom'
 import './today.css'
@@ -200,7 +199,6 @@ export function TodayPage() {
               今天从容开始。
             </h1>
             <div className="today-header-actions">
-              <PillNav />
               <Link
                 to="/settings?section=profile"
                 state={{ backgroundLocation: location }}

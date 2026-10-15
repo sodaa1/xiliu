@@ -100,7 +100,9 @@ def create_app(
     app.state.retrieval = RAGService(
         app.state.content, app.state.knowledge, embedding_provider=embedding_provider
     )
-    app.state.feed = FeedService(app.state.store, app.state.content)
+    app.state.feed = FeedService(
+        app.state.store, app.state.content, app.state.model_settings
+    )
     app.state.tasks = TaskService(app.state.store)
     app.state.preferences = PreferencesService(app.state.store)
     app.state.automations = AutomationService(app.state.data_dir, app.state.model_settings)

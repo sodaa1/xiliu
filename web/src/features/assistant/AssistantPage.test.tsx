@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { beforeEach, expect, test, vi } from 'vitest'
@@ -266,9 +266,9 @@ test('panel handles shrink the sidebar and composer within their original maximu
   const composer = screen.getByRole('separator', { name: '调整输入框高度' })
   composer.focus()
   await user.keyboard('{Home}')
-  expect(composer).toHaveAttribute('aria-valuenow', '48')
+  expect(composer).toHaveAttribute('aria-valuenow', '40')
   await user.keyboard('{ArrowDown}')
-  expect(composer).toHaveAttribute('aria-valuenow', '48')
+  expect(composer).toHaveAttribute('aria-valuenow', '40')
   localStorage.removeItem('xiliu-conversation-width')
   localStorage.removeItem('xiliu-composer-height')
 })
@@ -403,10 +403,11 @@ test('switching pages keeps the turn alive and restores its timed thinking', asy
   expect(signal!.aborted).toBe(false)
   await user.click(screen.getByRole('button', { name: '关闭模型配置' }))
   expect(await screen.findByText(/思考中/)).toBeVisible()
-  await user.click(screen.getByRole('link', { name: 'Feed' }))
+  const rail = screen.getByRole('navigation', { name: '主导航' })
+  await user.click(within(rail).getByRole('link', { name: 'Feed' }))
   expect(await screen.findByRole('heading', { name: 'Feed' })).toBeVisible()
   expect(signal!.aborted).toBe(false)
-  await user.click(screen.getByRole('link', { name: 'Assistant' }))
+  await user.click(within(rail).getByRole('link', { name: 'Assistant' }))
   expect(await screen.findByText(/思考中/)).toBeVisible()
   expect(signal!.aborted).toBe(false)
   completed = true

@@ -67,6 +67,35 @@ def test_agent_feed_crud_replay_and_save_use_persisted_service(services, monkeyp
         assert db.execute("SELECT COUNT(*) FROM feed_manual_items").fetchone()[0] == 1
 
 
+def test_agent_feed_summarize_uses_model_from_stored_metadata(services, monkeypatch):
+    item = services.feed.add_manual(
+        {"url": "https://example.org/story", "title": "Story", "summary": "Short"}
+    )
+
+    class FakeModel:
+        max_retries = 0
+        request_timeout = 0
+        streaming = True
+
+        def __init__(self):
+            self.root_client = SimpleNamespace(
+                with_options=lambda **_: SimpleNamespace(chat=SimpleNamespace(completions=object()))
+            )
+            self.client = None
+
+        def invoke(self, messages):
+            assert "Story" in messages[1].content
+            return SimpleNamespace(content="这是一段更详细的 AI 总结，说明它为何值得关注。")
+
+    monkeypatch.setattr(
+        "xiliu.providers.openai_compatible.create_chat_model", lambda settings: FakeModel()
+    )
+    services.feed.model_settings = SimpleNamespace(runtime_settings=lambda: {})
+    result = dispatch(services).execute("feed.summarize", {"item_id": item["id"]})
+    assert result["ok"]
+    assert "AI 总结" in result["data"]["summary"]
+
+
 def test_agent_feed_policy_and_network_denials_do_not_write(services, monkeypatch):
     policy = services.store.path.parent / "policy.json"
     policy.write_text(

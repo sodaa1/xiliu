@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { useState } from 'react'
@@ -227,6 +227,34 @@ test('unified capture saves text and the AI preference', async () => {
   })
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   expect(await screen.findByText('已归类至 未分类 · 本地整理', {}, { timeout: 4000 })).toBeVisible()
+})
+test('inbox card opens a preview with edit, open-original and download actions', async () => {
+  content.push({
+    id: 'captured',
+    type: 'file',
+    status: 'inbox',
+    title: 'File note',
+    content: 'Full content body',
+    summary: 'A short summary',
+    source: 'https://example.org/doc',
+    tags: ['x'],
+    filename: 'doc.pdf',
+    created_at: stamp,
+    updated_at: stamp,
+    processing_status: 'ready',
+    ai_processed: true,
+  })
+  mount(<ContentPage status="inbox" />)
+  const user = userEvent.setup()
+  await user.click(await screen.findByRole('button', { name: 'File note' }))
+  const dialog = await screen.findByRole('dialog', { name: 'File note' })
+  expect(within(dialog).getByRole('link', { name: /打开原文/ })).toHaveAttribute(
+    'href',
+    'https://example.org/doc'
+  )
+  expect(within(dialog).getByRole('link', { name: /下载原件/ })).toBeInTheDocument()
+  await user.click(within(dialog).getByRole('button', { name: '编辑' }))
+  expect(await screen.findByRole('heading', { name: '编辑内容' })).toBeVisible()
 })
 test('deleting a recent import does not refetch the deleted ID', async () => {
   mount(<ContentPage status="inbox" />)

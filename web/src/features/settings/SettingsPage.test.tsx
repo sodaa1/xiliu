@@ -81,7 +81,6 @@ test('settings opens above the current page; profile and appearance persist', as
     user = userEvent.setup()
   await user.click(screen.getByRole('link', { name: 'Settings' }))
   expect(screen.getByRole('dialog', { name: '设置' })).toBeVisible()
-  expect(screen.queryByRole('navigation', { name: '快捷导航' })).not.toBeInTheDocument()
   await user.type(screen.getByLabelText('昵称'), '小溪')
   await user.click(screen.getByRole('button', { name: '保存个人信息' }))
   expect(await screen.findByText('个人信息已保存')).toBeVisible()
@@ -102,14 +101,16 @@ test('settings opens above the current page; profile and appearance persist', as
   expect(document.documentElement.style.fontSize).toBe('18px')
 })
 
-test('React Bits shortcuts appear only inside the Today heading', async () => {
+test('global pill navigation sits above the page, not inside the Today heading', async () => {
   mount('/today')
   const user = userEvent.setup()
+  const nav = screen.getByRole('navigation', { name: '快捷导航' })
+  expect(within(nav).getByRole('link', { name: '助手' })).toHaveAttribute('href', '/assistant')
+  expect(within(nav).getByRole('link', { name: '设置' })).toHaveAttribute('href', '/settings')
   const header = screen.getByRole('heading', { name: /今天从容开始/ }).closest('header')!
-  expect(within(header).getByRole('link', { name: '助手' })).toHaveAttribute('href', '/assistant')
-  expect(within(header).getByRole('link', { name: '设置' })).toHaveAttribute('href', '/settings')
-  await user.click(within(header).getByRole('link', { name: 'Feed' }))
-  expect(screen.queryByRole('navigation', { name: '快捷导航' })).not.toBeInTheDocument()
+  expect(within(header).queryByRole('link', { name: '助手' })).not.toBeInTheDocument()
+  await user.click(within(nav).getByRole('link', { name: 'Feed' }))
+  await waitFor(() => expect(screen.getByRole('heading', { name: 'Feed' })).toBeVisible())
 })
 test('automation management is inside Settings instead of the global toolbar', async () => {
   mount()
