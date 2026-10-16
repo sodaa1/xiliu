@@ -1,6 +1,6 @@
 [package]
 name = "xiliu-desktop"
-version = "0.4.2"
+version = "0.4.3"
 description = "息流本地桌面工作台"
 edition = "2021"
 

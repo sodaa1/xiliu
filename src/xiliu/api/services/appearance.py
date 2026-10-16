@@ -58,7 +58,7 @@ class AppearanceService:
     def backgrounds(self):
         with self.store.connect() as db:
             return {
-                "settings": self._settings(db, "background", {"mode": "blank", "selected": None}),
+                "settings": self._settings(db, "background", {"mode": "builtin", "selected": None}),
                 "images": [
                     {
                         "id": row["id"],

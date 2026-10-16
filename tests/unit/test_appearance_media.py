@@ -54,3 +54,12 @@ def test_models_are_persisted_separately_for_each_pet_form(tmp_path):
             "chibi", {**bundle, "files": [{"path": "../secret", "data_base64": "abcd"}]}
         )
     assert restarted.model("chibi")["name"] == "Pet"
+
+
+def test_new_install_defaults_to_builtin_background_and_preserves_saved_blank(tmp_path):
+    store = AppStore(tmp_path)
+    media = AppearanceService(store)
+    assert media.backgrounds()["settings"] == {"mode": "builtin", "selected": None}
+    media.select_background({"mode": "blank", "selected": None})
+    restarted = AppearanceService(store)
+    assert restarted.backgrounds()["settings"] == {"mode": "blank", "selected": None}

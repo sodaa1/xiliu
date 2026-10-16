@@ -8,7 +8,13 @@
 
 **Give information a home and ideas room to flow.** Xiliu is a local-first personal knowledge workspace and AI assistant connecting Feed, Inbox, Knowledge, Assistant, and Today.
 
-Current version: **0.4.0**. React and FastAPI share the Runtime / LangGraph kernel; the Windows desktop uses Tauri 2. Documents and conversations stay on your device. Enabled model and network tools send their requests to the services you configure.
+Current version: **0.4.3**. React and FastAPI share the Runtime / LangGraph kernel; the Windows desktop uses Tauri 2. Documents and conversations stay on your device. Enabled model and network tools send their requests to the services you configure.
+
+## What's new in 0.4.3
+
+- The home opens with the built-in background; saved blank and custom backgrounds remain unchanged.
+- The Windows package includes an independent desktop companion with Q and standing forms, per-form scaling, compact chat and Inbox capture.
+- Idle blink/smile, clear drag feedback, and native window command permissions are included. Rigged Live2D models and Cubism Core remain optional external assets.
 
 ## What's new in 0.4
 
@@ -43,7 +49,7 @@ See the [0.3 change record](docs/XILIU_03_FIXES.md) and [0.3.1 repair record](do
 
 ## Windows installation
 
-Current local installer: `dist/Xiliu-0.4.0-x64-setup.exe`, with a `.sha256` file. Installers are excluded from Git source uploads. If you obtain the source repository, build the installer using the instructions below.
+Current local installer: `dist/Xiliu-0.4.3-x64-setup.exe`, with a `.sha256` file. Installers are excluded from Git source uploads. If you obtain the source repository, build the installer using the instructions below.
 
 1. Run the installer and follow its Chinese-language wizard. Python, Node.js, and Rust are not required to use the packaged application.
 2. On first launch, configure your provider, API endpoint, model, and API key in Settings. The package includes no developer credentials, personal model configuration, databases, tests, or project documentation.

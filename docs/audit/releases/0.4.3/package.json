@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "installerBytes": 50072132,
+  "sha256": "533b2483b32875bb5f28057775c9b5f0f8b0df879536308374f447160fd542b2",
+  "companionAssets": {
+    "chibi.png": "matches source",
+    "standing.png": "matches source",
+    "home-background.png": "matches source",
+    "expressions/chibi-blink.png": "matches source",
+    "expressions/chibi-happy.png": "matches source",
+    "expressions/chibi-surprised.png": "matches source",
+    "expressions/standing-blink.png": "matches source",
+    "expressions/standing-happy.png": "matches source",
+    "expressions/standing-surprised.png": "matches source"
+  },
+  "serviceHashMatches": true,
+  "privateConfigAndDatabaseExcluded": true,
+  "unpackedExe": ".preview/v043-unpacked/xiliu-service.exe"
+}
