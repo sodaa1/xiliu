@@ -8,7 +8,7 @@ test('Intro links, workflow tabs, keyboard navigation and menu remain available'
   render(<LandingPage />)
   const user = userEvent.setup()
   expect(screen.getByRole('link', { name: '打开本地工作台' })).toHaveAttribute('href', '/today')
-  expect(screen.getByRole('link', { name: '打开 Feed' })).toHaveAttribute('href', '/feed')
+  expect(screen.getByRole('link', { name: '打开资讯' })).toHaveAttribute('href', '/feed')
   const tabs = screen.getByRole('tablist', { name: '信息流演示' })
   for (const name of ['收集', '整理', '对话', '行动']) {
     await user.click(within(tabs).getByRole('tab', { name }))

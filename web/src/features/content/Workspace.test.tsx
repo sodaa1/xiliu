@@ -97,7 +97,7 @@ beforeEach(() => {
           sources: [
             {
               source: 'github',
-              label: 'GitHub Top 5',
+              label: 'GitHub 热门项目',
               status: 'ok',
               message: '已更新',
               updated_at: stamp,
@@ -123,7 +123,7 @@ beforeEach(() => {
       if (url === '/api/conversations' && method === 'POST')
         return Response.json({
           id: 'new-chat',
-          title: 'New Chat',
+          title: '新建对话',
           created_at: stamp,
           updated_at: stamp,
         })
@@ -206,7 +206,7 @@ function TodayWithDrawer() {
   const [open, setOpen] = useState(false)
   return (
     <>
-      <button onClick={() => setOpen(true)}>Automations</button>
+      <button onClick={() => setOpen(true)}>自动任务</button>
       <PlansPage />
       {open && <AutomationsDrawer onClose={() => setOpen(false)} />}
     </>
@@ -217,10 +217,10 @@ test('unified capture saves text and the AI preference', async () => {
   mount(<ContentPage status="inbox" />)
   const user = userEvent.setup()
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-  await user.click(screen.getByRole('button', { name: '添加到 Inbox' }))
+  await user.click(screen.getByRole('button', { name: '添加到收件箱' }))
   await user.type(screen.getByLabelText('文字或链接'), '关于信息汇聚的新想法')
   await user.click(screen.getByLabelText('使用 AI 整理'))
-  await user.click(screen.getByRole('button', { name: '收进 Inbox' }))
+  await user.click(screen.getByRole('button', { name: '收进收件箱' }))
   expect(await screen.findByRole('heading', { name: '关于信息汇聚的新想法' })).toBeVisible()
   expect(requests.find((item) => item.url === '/api/inbox/import')?.body).toEqual({
     text: '关于信息汇聚的新想法',
@@ -262,10 +262,10 @@ test('inbox card opens a preview with edit, open-original and download actions',
 test('deleting a recent import does not refetch the deleted ID', async () => {
   mount(<ContentPage status="inbox" />)
   const user = userEvent.setup()
-  await user.click(screen.getByRole('button', { name: '添加到 Inbox' }))
+  await user.click(screen.getByRole('button', { name: '添加到收件箱' }))
   await user.type(screen.getByLabelText('文字或链接'), 'Temporary note')
   await user.click(screen.getByLabelText('使用 AI 整理'))
-  await user.click(screen.getByRole('button', { name: '收进 Inbox' }))
+  await user.click(screen.getByRole('button', { name: '收进收件箱' }))
   await user.click(await screen.findByRole('button', { name: '删除 Temporary note' }))
   await screen.findByText('已删除内容')
   await waitFor(() => expect(screen.queryByRole('heading', { name: 'Temporary note' })).toBeNull())
@@ -276,7 +276,7 @@ test('deleting a recent import does not refetch the deleted ID', async () => {
   ).toEqual([])
 })
 
-test('Feed saves to Inbox and carries a separate reference into a new Assistant chat', async () => {
+test('资讯 saves to 收件箱 and carries a separate reference into a new 助手 chat', async () => {
   mount(
     <Routes>
       <Route path="/feed" element={<FeedPage />} />
@@ -286,11 +286,11 @@ test('Feed saves to Inbox and carries a separate reference into a new Assistant 
   )
   const user = userEvent.setup()
   await screen.findByRole('heading', { name: news.title })
-  expect(screen.getByRole('link', { name: 'Read' })).toHaveAttribute('href', news.url)
-  await user.click(screen.getByRole('button', { name: 'Save' }))
-  expect(await screen.findByRole('button', { name: '已收进 Inbox' })).toBeDisabled()
+  expect(screen.getByRole('link', { name: '阅读原文' })).toHaveAttribute('href', news.url)
+  await user.click(screen.getByRole('button', { name: '收藏' }))
+  expect(await screen.findByRole('button', { name: '已收进收件箱' })).toBeDisabled()
   expect(content[0].status).toBe('inbox')
-  await user.click(screen.getByRole('button', { name: 'Ask AI' }))
+  await user.click(screen.getByRole('button', { name: '引用提问' }))
   const state = JSON.parse((await screen.findByRole('status')).textContent!)
   expect(state.draft).toContain('解读')
   expect(state.reference).toEqual({
@@ -302,7 +302,7 @@ test('Feed saves to Inbox and carries a separate reference into a new Assistant 
   ).toHaveLength(1)
 })
 
-test('Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape', async () => {
+test('今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape', async () => {
   mount(<TodayWithDrawer />)
   const user = userEvent.setup()
   await user.type(screen.getByLabelText('新增待办'), '读一篇论文')
@@ -314,7 +314,7 @@ test('Today manages tasks and its automation drawer creates, pauses, shows runs,
   await user.click(screen.getByRole('button', { name: /待完成/ }))
   await user.click(await screen.findByRole('button', { name: '删除待办 读一篇论文' }))
   await waitFor(() => expect(tasks).toHaveLength(0))
-  const trigger = screen.getByRole('button', { name: 'Automations' })
+  const trigger = screen.getByRole('button', { name: '自动任务' })
   await user.click(trigger)
   expect(screen.getByRole('dialog')).toHaveFocus()
   await user.click(screen.getByRole('button', { name: '创建每日任务' }))

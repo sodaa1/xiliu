@@ -261,4 +261,4 @@ class ModelSettingsService:
         try:
             return Settings.from_env(values)
         except ConfigError:
-            raise WebError("model_not_configured", "请先在 Settings 配置模型接口。", 400) from None
+            raise WebError("model_not_configured", "请先在设置中配置模型接口。", 400) from None

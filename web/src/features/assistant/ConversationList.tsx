@@ -11,10 +11,10 @@ function group(created: string) {
   yesterday.setDate(today.getDate() - 1)
   const date = new Date(created).toDateString()
   return date === today.toDateString()
-    ? 'Today'
+    ? '今日'
     : date === yesterday.toDateString()
-      ? 'Yesterday'
-      : 'Earlier'
+      ? '昨日'
+      : '更早'
 }
 export function ConversationList({
   items,
@@ -56,17 +56,12 @@ export function ConversationList({
         max={maximum}
         onChange={setWidth}
       />
-      <button
-        className="new-chat"
-        aria-label="新建 New Chat"
-        onClick={onCreate}
-        disabled={creating}
-      >
+      <button className="new-chat" aria-label="创建新对话" onClick={onCreate} disabled={creating}>
         <Plus size={20} />
-        <span>New Chat</span>
+        <span>新建对话</span>
       </button>
       <div className="conversation-scroll">
-        {['Today', 'Yesterday', 'Earlier'].map((label) => {
+        {['今日', '昨日', '更早'].map((label) => {
           const rows = items.filter((conversation) => group(conversation.created_at) === label)
           if (!rows.length) return null
           return (

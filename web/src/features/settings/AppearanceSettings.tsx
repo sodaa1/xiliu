@@ -83,7 +83,7 @@ export function AppearanceSettings() {
               showTags
               options={[
                 { value: 'system', label: '默认字体', tag: '清晰' },
-                { value: 'rounded', label: '系统 UI', tag: '柔和' },
+                { value: 'rounded', label: '系统字体', tag: '柔和' },
                 { value: 'serif', label: '宋体', tag: '阅读' },
               ]}
               onChange={(fontFamily) =>

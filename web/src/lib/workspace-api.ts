@@ -2,7 +2,10 @@ import { ApiError } from './api'
 import { appFetch } from './app-fetch'
 import { recordGuideAction } from '../features/onboarding/progress'
 
-export interface ContentItem {
+interface DemoVersion {
+  demo_revision?: string
+}
+export interface ContentItem extends DemoVersion {
   id: string
   type: 'note' | 'link' | 'file'
   status: 'inbox' | 'knowledge'
@@ -19,7 +22,7 @@ export interface ContentItem {
   processing_status?: 'pending' | 'ready' | 'failed'
   processing_error?: string | null
 }
-export interface KnowledgeFolder {
+export interface KnowledgeFolder extends DemoVersion {
   id: string
   name: string
   summary: string
@@ -40,7 +43,7 @@ export interface KnowledgeSearchResult {
     snippet: string
   }[]
 }
-export interface FeedItem {
+export interface FeedItem extends DemoVersion {
   id: string
   source: 'aihot' | 'github' | 'manual'
   title: string
@@ -55,7 +58,7 @@ export interface FeedItem {
   created_at?: string
   updated_at?: string
 }
-export interface ManualFeedInput {
+export interface ManualFeedInput extends DemoVersion {
   url: string
   title?: string
   summary?: string
@@ -73,7 +76,7 @@ export interface FeedResult {
   items: FeedItem[]
   sources: SourceStatus[]
 }
-export interface Task {
+export interface Task extends DemoVersion {
   scope?: 'day' | 'week' | 'goal'
   parent_id?: string | null
   id: string
@@ -158,7 +161,7 @@ export const workspaceApi = {
     request<KnowledgeFolder>('/knowledge/folders', 'POST', body),
   updateFolder: (
     id: string,
-    body: Partial<Pick<KnowledgeFolder, 'name' | 'summary' | 'tags' | 'priority'>>
+    body: Partial<Pick<KnowledgeFolder, 'name' | 'summary' | 'tags' | 'priority' | 'demo_revision'>>
   ) => request<KnowledgeFolder>(`/knowledge/folders/${encodeURIComponent(id)}`, 'PATCH', body),
   deleteFolder: (id: string) =>
     request<void>(`/knowledge/folders/${encodeURIComponent(id)}`, 'DELETE'),
@@ -172,7 +175,10 @@ export const workspaceApi = {
   updateContent: (
     id: string,
     body: Partial<
-      Pick<ContentItem, 'title' | 'content' | 'summary' | 'tags' | 'status' | 'folder_id'>
+      Pick<
+        ContentItem,
+        'title' | 'content' | 'summary' | 'tags' | 'status' | 'folder_id' | 'demo_revision'
+      >
     >
   ) =>
     request<ContentItem>(itemPath(id), 'PATCH', body).then((item) => {
@@ -210,7 +216,9 @@ export const workspaceApi = {
     request<Task>('/tasks', 'POST', { title, due_at, ...details }),
   updateTask: (
     id: string,
-    body: Partial<Pick<Task, 'title' | 'completed' | 'due_at' | 'scope' | 'parent_id'>>
+    body: Partial<
+      Pick<Task, 'title' | 'completed' | 'due_at' | 'scope' | 'parent_id' | 'demo_revision'>
+    >
   ) => request<Task>(`/tasks/${encodeURIComponent(id)}`, 'PATCH', body),
   deleteTask: (id: string) => request<void>(`/tasks/${encodeURIComponent(id)}`, 'DELETE'),
   automations: () => request<Automation[]>('/automations'),

@@ -53,7 +53,7 @@ export function MessageList({
       ) : !messages.length ? (
         <div className="assistant-welcome">
           <Brand large />
-          <span className="eyebrow">ASK XILIU</span>
+          <span className="eyebrow">向息流提问</span>
           <h2>让信息流动，让思路清晰。</h2>
           <p>一个问题、一段想法，或一件想一起完成的事。</p>
           <div className="prompt-suggestions">

@@ -75,13 +75,13 @@ function ModelForm({
           <p>
             {connection
               ? '独立保存此连接，可在对话中随时选择。'
-              : '默认用于新对话，也可在 Assistant 中单独选择。'}
+              : '默认用于新对话，也可在助手中单独选择。'}
           </p>
         </div>
       </div>
       <div className="settings-grid">
         <label>
-          Provider
+          提供商
           {connection ? (
             <input
               value={
@@ -97,7 +97,7 @@ function ModelForm({
             />
           ) : (
             <GlideSelect
-              ariaLabel="Provider"
+              ariaLabel="提供商"
               value={provider}
               options={Object.keys(catalog).map((value) => ({
                 value,
@@ -123,7 +123,7 @@ function ModelForm({
           )}
         </label>
         <label>
-          Model
+          模型
           {connection ? (
             <input
               required
@@ -134,7 +134,7 @@ function ModelForm({
             />
           ) : (
             <GlideSelect
-              ariaLabel="Model"
+              ariaLabel="模型"
               value={model}
               menuWidth={290}
               options={[...new Set([model, ...catalog[provider].models])].map((value) => ({
@@ -159,16 +159,16 @@ function ModelForm({
           </label>
         )}
         <label className="full-width">
-          API Key
+          API 密钥
           <div className="key-input">
             <KeyRound size={16} />
             <input
               type="password"
-              aria-label="API Key"
+              aria-label="API 密钥"
               autoComplete="new-password"
               spellCheck={false}
               value={key}
-              placeholder={keySet ? '已配置 · 留空保留已有密钥' : '输入 API Key'}
+              placeholder={keySet ? '已配置 · 留空保留已有密钥' : '输入 API 密钥'}
               onChange={(event) => setKey(event.target.value)}
             />
           </div>
@@ -177,7 +177,7 @@ function ModelForm({
           </small>
         </label>
         <label className="full-width">
-          Base URL
+          接口地址
           <input
             type="url"
             required
@@ -348,7 +348,7 @@ export function ModelSettingsPanel() {
   if (isDemo)
     return (
       <DemoNotice title="本地演示模板" guide="models">
-        这里不调用真实模型，也不接收 API Key。安装或运行正常应用后，可配置自己的模型连接。
+        这里不调用真实模型，也不接收 API 密钥。安装或运行正常应用后，可配置自己的模型连接。
       </DemoNotice>
     )
   if (settings.error || catalog.error)
@@ -472,12 +472,12 @@ export function SettingsPage({ embedded = false }: { embedded?: boolean }) {
       {!embedded && (
         <Link to="/assistant" className="back-link">
           <ArrowLeft size={17} />
-          返回 Assistant
+          返回助手
         </Link>
       )}
       {!embedded && (
         <header className="settings-heading">
-          <h1>Settings</h1>
+          <h1>设置</h1>
           <p className="page-description">让息流以你习惯的方式工作。</p>
           <span className="settings-local-label">本机设置</span>
         </header>

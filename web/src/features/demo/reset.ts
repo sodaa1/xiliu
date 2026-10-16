@@ -6,7 +6,12 @@ export async function resetDemoExperience(cache: QueryClient) {
   cancelAllDemoChats()
   await cache.cancelQueries()
   await resetDemoState()
-  for (const key of ['xiliu-demo-preferences-v1', 'xiliu-demo-guide-v1']) {
+  for (const key of [
+    'xiliu-demo-preferences-v1',
+    'xiliu-demo-guide-v1',
+    'xiliu-demo-composer-height-v3',
+    'xiliu-demo-conversation-width',
+  ]) {
     try {
       localStorage.removeItem(key)
     } catch {

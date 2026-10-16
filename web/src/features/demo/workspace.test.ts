@@ -12,6 +12,57 @@ async function call(path: string, method = 'GET', body?: unknown) {
   return value
 }
 beforeEach(resetDemoState)
+test.each([
+  ['/content/note-method', '/content/note-method', 'title', 'summary'],
+  ['/feed/manual/feed-manual', '/feed', 'title', 'summary'],
+  ['/knowledge/folders/folder-learning', '/knowledge/folders', 'name', 'summary'],
+  ['/tasks/task-week', '/tasks', 'title', 'title'],
+])(
+  'stale editing of %s cannot overwrite a newer record',
+  async (path, readPath, field, secondField) => {
+    const data = await call(readPath)
+    const original = Array.isArray(data)
+      ? data.find((item: { id: string }) => path.endsWith(item.id))
+      : data.items
+        ? data.items.find((item: { id: string }) => path.endsWith(item.id))
+        : data
+    await call(path, 'PATCH', { [field]: 'newer value', demo_revision: original.demo_revision })
+    const stale = await handleDemoRequest(`/api${path}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        [field]: original[field],
+        [secondField]: 'stale edit',
+        demo_revision: original.demo_revision,
+      }),
+    })
+    expect(stale.status).toBe(409)
+    const latest = await call(readPath)
+    const record = Array.isArray(latest)
+      ? latest.find((item: { id: string }) => item.id === original.id)
+      : latest.items
+        ? latest.items.find((item: { id: string }) => item.id === original.id)
+        : latest
+    expect(record[field]).toBe('newer value')
+  }
+)
+test('a manual link with an empty optional title uses the URL as its visible title', async () => {
+  const saved = await call('/feed/manual', 'POST', {
+    url: 'https://example.com/my-reading',
+    title: '',
+    summary: '',
+  })
+  expect(saved.title).toBe('https://example.com/my-reading')
+  const edited = await call(`/feed/manual/${saved.id}`, 'PATCH', { title: '   ' })
+  expect(edited.title).toBe('https://example.com/my-reading')
+})
+test('a request to fetch a real webpage title is not silently simulated', async () => {
+  await expect(
+    call('/feed/manual', 'POST', { url: 'https://example.com/my-reading', fetch_title: true })
+  ).rejects.toThrow('演示')
+  await expect(call('/feed/manual/feed-manual', 'PATCH', { fetch_title: true })).rejects.toThrow(
+    '演示'
+  )
+})
 test('new conversations have durable timestamps and can be renamed and deleted', async () => {
   const conversation = await call('/conversations', 'POST')
   expect(Number.isFinite(Date.parse(conversation.created_at))).toBe(true)

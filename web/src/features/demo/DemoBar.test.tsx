@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
-import { QueryClient } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { expect, test } from 'vitest'
 import { DemoBar } from './DemoBar'
 import { resetDemoExperience } from './reset'
@@ -16,9 +16,11 @@ test('reset requires confirmation and clears only demo state and queries', async
     state.tasks[0].completed = true
   })
   render(
-    <MemoryRouter>
-      <DemoBar onReset={() => resetDemoExperience(cache)} />
-    </MemoryRouter>
+    <QueryClientProvider client={cache}>
+      <MemoryRouter>
+        <DemoBar onReset={() => resetDemoExperience(cache)} />
+      </MemoryRouter>
+    </QueryClientProvider>
   )
   const user = userEvent.setup()
   expect(screen.getByText('游客演示')).toBeInTheDocument()

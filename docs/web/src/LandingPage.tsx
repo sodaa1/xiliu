@@ -50,7 +50,7 @@ const stages = [
         先留住它。
       </>
     ),
-    body: "不必一开始就想好分类。网页、文字、文件，先放进 Inbox。保留原文与来源，给稍后的思考留一个入口。",
+    body: "不必一开始就想好分类。网页、文字、文件，先放进收件箱。保留原文与来源，给稍后的思考留一个入口。",
     tags: ["文字 / 链接 / 文件", "原件保留", "后台整理"],
   },
   {
@@ -63,7 +63,7 @@ const stages = [
         慢慢成为知识。
       </>
     ),
-    body: "把值得留下的内容放入 Knowledge。用标签和规则文件夹组织，以全文、元数据和可选向量检索找回。资料变化在后台进入 RAG 索引，重新发现被你收藏的好想法。",
+    body: "把值得留下的内容放入知识库。用标签和规则文件夹组织，以全文、元数据和可选向量检索找回。资料变化在后台进入 RAG 索引，重新发现被你收藏的好想法。",
     tags: ["规则文件夹", "中文混合检索", "可选 embedding"],
   },
   {
@@ -89,7 +89,7 @@ const stages = [
         到今天的一小步。
       </>
     ),
-    body: "在 Today 看简报、回顾收集、处理待办。把重复的事情交给每日自动任务，为值得投入的思考多留一点时间。",
+    body: "在今日看简报、回顾收集、处理待办。把重复的事情交给每日自动任务，为值得投入的思考多留一点时间。",
     tags: ["今日简报", "待办事项", "每日自动任务"],
   },
 ];
@@ -116,15 +116,15 @@ const questions = [
   ],
   [
     "现在如何开始使用？",
-    "从 GitHub 获取 xiliu 源码，安装 Python 3.12+、uv 和 Node.js / npm，按下方命令运行 Web 工作台。Windows 已完成 0.3.0 安装包构建；安装包不存入 Git 源码，当前 GitHub Releases 尚无公开下载资产。",
+    "从 GitHub 获取 xiliu 源码，安装 Python 3.12+、uv 和 Node.js / npm，按下方命令运行网页工作台。Windows 已完成 0.3.0 安装包构建；安装包不存入 Git 源码，当前 GitHub Releases 尚无公开下载资产。",
   ],
   [
     "Windows 桌面版如何安装？",
-    "已有 Xiliu-0.3.0-x64-setup.exe 时，双击并按中文向导安装，无需另装 Python、Node.js 或 Rust。需要 WebView2，缺少时安装引导程序会联网下载。首次启动在设置中填写自己的模型连接与 API Key；安装包未签名。源码构建步骤见 GitHub 的 desktop/README.md。",
+    "已有 Xiliu-0.3.0-x64-setup.exe 时，双击并按中文向导安装，无需另装 Python、Node.js 或 Rust。需要 WebView2，缺少时安装引导程序会联网下载。首次启动在设置中填写自己的模型连接与 API 密钥；安装包未签名。源码构建步骤见 GitHub 的 desktop/README.md。",
   ],
   [
     "模型能联网，为什么搜索还需要配置？",
-    "对话模型、AIHot MCP 和 Search 是不同的调用链。AIHot 默认公开 MCP 配置不依赖模型 API Key；Search 使用独立的 TAVILY_API_KEY，其他 MCP 服务按各自要求配置。停止回复也不会撤销已经完成的写入。",
+    "对话模型、AIHot MCP 和 Search 是不同的调用链。AIHot 默认公开 MCP 配置不依赖模型 API 密钥；Search 使用独立的 TAVILY_API_KEY，其他 MCP 服务按各自要求配置。停止回复也不会撤销已经完成的写入。",
   ],
 ];
 
@@ -293,7 +293,7 @@ export function LandingPage({
 
         <section className="intro-manifesto intro-container" id="features">
           <div data-reveal>
-            <p className="eyebrow">LESS SCATTER. MORE CLARITY.</p>
+            <p className="eyebrow">少些散乱，多些清晰。</p>
             <h2>
               从随手收集，
               <br />
@@ -324,7 +324,7 @@ export function LandingPage({
         >
           <div className="intro-container">
             <div className="section-heading" data-reveal>
-              <p className="eyebrow">ONE CONTINUOUS FLOW</p>
+              <p className="eyebrow">让信息与行动连起来</p>
               <h2 id="workflow-heading">
                 不是更多收藏。
                 <br />
@@ -395,14 +395,14 @@ export function LandingPage({
 
         <section className="feed-section intro-container feature-split">
           <div className="feature-copy" data-reveal>
-            <p className="eyebrow">01 / A WINDOW TO WHAT'S NEXT</p>
+            <p className="eyebrow">01 / 发现下一份灵感</p>
             <h2>
               与世界连接。
               <br />
               为自己留下。
             </h2>
             <p>
-              在 Feed 发现 AI 新进展与 GitHub
+              在资讯发现 AI 新进展与 GitHub
               热门项目。读到值得保留的，收进来；遇到值得追问的，交给 AI
               一起梳理。
             </p>
@@ -410,7 +410,7 @@ export function LandingPage({
               className="text-link"
               href={publicShowcase ? "#workflow" : "/feed"}
             >
-              {publicShowcase ? "了解收集流程" : "打开 Feed"}{" "}
+              {publicShowcase ? "了解收集流程" : "打开资讯"}{" "}
               <ArrowUpRight size={17} />
             </a>
             <div className="inline-benefits">
@@ -424,7 +424,7 @@ export function LandingPage({
               </span>
               <span>
                 <MessageSquare size={15} />
-                Ask AI
+                引用提问
               </span>
             </div>
           </div>
@@ -467,7 +467,7 @@ export function LandingPage({
             </span>
           </div>
           <div className="feature-copy" data-reveal>
-            <p className="eyebrow">02 / KNOWLEDGE THAT STAYS WITH YOU</p>
+            <p className="eyebrow">02 / 让知识留在身边</p>
             <h2>
               让每次积累，
               <br />
@@ -501,7 +501,7 @@ export function LandingPage({
           aria-labelledby="ai-heading"
         >
           <div className="section-heading" data-reveal>
-            <p className="eyebrow">03 / A LITTLE HELP WITH YOUR THINKING</p>
+            <p className="eyebrow">03 / 为思考添一点助力</p>
             <h2 id="ai-heading">
               你的知识，
               <br />
@@ -512,7 +512,7 @@ export function LandingPage({
           <div className="ai-demo" data-reveal>
             <div className="ai-demo-sidebar">
               <Mark />
-              <span>MY READING NOTES</span>
+              <span>我的阅读笔记</span>
               <h3>我的阅读笔记</h3>
               <p>关于 AI、设计，以及如何更好地思考。</p>
               <div>
@@ -532,7 +532,7 @@ export function LandingPage({
             <div className="ai-demo-chat">
               <div className="chat-demo-label">
                 <Sparkles size={17} />
-                <span>Assistant</span>
+                <span>助手</span>
                 <small>交互演示 · 不调用模型</small>
               </div>
               <div className="sample-question">
@@ -568,7 +568,7 @@ export function LandingPage({
                         "从理解转向行动：为有价值的想法留一个下一步。",
                       ],
                       [
-                        "挑一篇值得重读的文章，收进 Inbox。",
+                        "挑一篇值得重读的文章，收进收件箱。",
                         "写下三个关键词，整理到自己的知识库。",
                         "带着参考问一个问题，把答案变成今天的待办。",
                       ],
@@ -604,7 +604,7 @@ export function LandingPage({
         <section className="everyday-section intro-container">
           <div className="everyday-top" data-reveal>
             <div>
-              <p className="eyebrow">04 / MAKE ROOM FOR YOUR DAY</p>
+              <p className="eyebrow">04 / 给每一天留出空间</p>
               <h2>
                 重要的事，
                 <br />
@@ -613,13 +613,13 @@ export function LandingPage({
             </div>
             <p>
               少一点来回切换。
-              <br />在 Today，知道从哪里开始。
+              <br />在今日，知道从哪里开始。
             </p>
           </div>
           <div className="everyday-grid">
             <div className="everyday-card" data-reveal>
               <div className="everyday-card-title">
-                <span>Today</span>
+                <span>今日</span>
                 <HouseIcon />
               </div>
               <h3>
@@ -638,7 +638,7 @@ export function LandingPage({
             </div>
             <div className="everyday-card" data-reveal>
               <div className="everyday-card-title">
-                <span>Automations</span>
+                <span>自动任务</span>
                 <Settings2 size={19} />
               </div>
               <h3>
@@ -680,7 +680,7 @@ export function LandingPage({
         <section className="local-section intro-container" id="local">
           <div className="local-callout" data-reveal>
             <div>
-              <p className="eyebrow">LOCAL FIRST. YOUR CHOICE.</p>
+              <p className="eyebrow">本地优先，由你选择。</p>
               <h2>
                 属于你的信息，
                 <br />
@@ -733,7 +733,7 @@ export function LandingPage({
 
         <section className="faq-section intro-container" id="questions">
           <div data-reveal>
-            <p className="eyebrow">A FEW THINGS TO KNOW</p>
+            <p className="eyebrow">你可能想了解的事</p>
             <h2>
               开始之前，
               <br />
@@ -755,7 +755,7 @@ export function LandingPage({
 
         <section className="start-section intro-container" id="start">
           <div data-reveal>
-            <p className="eyebrow">A SMALL START. A CLEARER MIND.</p>
+            <p className="eyebrow">从小处开始，让思路清晰。</p>
             <h2>
               给下一个好想法，
               <br />
@@ -778,7 +778,7 @@ export function LandingPage({
           </div>
           <div className="install-panel" id="install" data-reveal>
             <div className="install-head">
-              <span>从源码运行 · Web / Windows</span>
+              <span>从源码运行 · 网页 / Windows</span>
               <button
                 onClick={() => void copyInstall()}
                 aria-label="复制安装命令"

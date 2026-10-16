@@ -6,6 +6,7 @@ import '../today/today.css'
 import './plans.css'
 function TaskEditor({ task, onDone }: { task: Task; onDone: () => void }) {
   const [title, setTitle] = useState(task.title),
+    [demoRevision] = useState(task.demo_revision),
     [due, setDue] = useState(
       task.due_at
         ? new Date(
@@ -17,7 +18,11 @@ function TaskEditor({ task, onDone }: { task: Task; onDone: () => void }) {
     )
   const save = useMutation({
     mutationFn: () =>
-      workspaceApi.updateTask(task.id, { title, due_at: due ? new Date(due).toISOString() : null }),
+      workspaceApi.updateTask(task.id, {
+        title,
+        due_at: due ? new Date(due).toISOString() : null,
+        demo_revision: demoRevision,
+      }),
     onSuccess: onDone,
   })
   return (
@@ -204,7 +209,7 @@ export function PlansPage() {
     <section className="workspace-page plans-page">
       <header className="workspace-header">
         <div>
-          <span className="eyebrow">PERSONAL PLANS</span>
+          <span className="eyebrow">把想法落到行动</span>
           <h1>
             <CalendarCheck2 size={26} />
             个人计划

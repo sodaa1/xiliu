@@ -12,7 +12,7 @@ test('the product demo supports arrow-key navigation without sending an API requ
   fireEvent.keyDown(collect, { key: 'ArrowRight' })
   expect(screen.getByRole('tab', { name: '整理' })).toHaveAttribute('aria-selected', 'true')
   expect(screen.getByRole('tab', { name: '整理' })).toHaveFocus()
-  expect(screen.getByRole('tabpanel')).toHaveTextContent('Knowledge')
+  expect(screen.getByRole('tabpanel')).toHaveTextContent('知识库')
   fireEvent.keyDown(screen.getByRole('tab', { name: '整理' }), { key: 'End' })
   expect(screen.getByRole('tab', { name: '行动' })).toHaveAttribute('aria-selected', 'true')
   expect(fetchSpy).not.toHaveBeenCalled()

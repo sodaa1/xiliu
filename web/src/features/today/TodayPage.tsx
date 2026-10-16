@@ -85,14 +85,14 @@ export function TodayPage() {
                 type="button"
                 className="home-capture"
                 aria-label="快速收录"
-                title="快速收录到 Inbox"
+                title="快速收录到收件箱"
                 onClick={() => setCapture(true)}
               >
                 <Inbox size={23} />
               </button>
               <button
                 className="home-send"
-                aria-label="在 Assistant 中继续"
+                aria-label="在助手中继续"
                 title="开始对话"
                 disabled={ask.isPending || !draft.trim()}
               >

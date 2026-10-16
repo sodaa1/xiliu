@@ -4,6 +4,7 @@ import { ArrowUp, Square, Command as CommandIcon } from 'lucide-react'
 import type { Capability, Command } from '../../lib/types'
 import { ResizeHandle } from '../../components/ResizeHandle'
 import { usePanelSize } from '../../lib/usePanelSize'
+import { isDemo } from '../../lib/runtime-mode'
 import '../../styles/resizable-panels.css'
 
 const fallback: Command[] = [
@@ -16,8 +17,10 @@ const fallback: Command[] = [
 // Older builds persisted the composer height under these keys, defaulting to the
 // tallest size. Drop them once so the compact default applies for everyone.
 try {
-  localStorage.removeItem('xiliu-composer-height')
-  localStorage.removeItem('xiliu-composer-height-v2')
+  if (!isDemo) {
+    localStorage.removeItem('xiliu-composer-height')
+    localStorage.removeItem('xiliu-composer-height-v2')
+  }
 } catch {
   /* Storage may be unavailable. */
 }
@@ -111,7 +114,7 @@ export function Composer({
         )}
         <textarea
           aria-label="消息"
-          placeholder="Ask anything…"
+          placeholder="有什么想聊的…"
           value={text}
           disabled={disabled}
           onChange={(event) => {

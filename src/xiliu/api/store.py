@@ -70,7 +70,7 @@ class AppStore:
         with self.connect() as db:
             db.execute(
                 "INSERT INTO conversations(id,title,created_at,updated_at) VALUES(?,?,?,?)",
-                (cid, "New Chat", timestamp, timestamp),
+                (cid, "新对话", timestamp, timestamp),
             )
             return self._get(db, cid)
 

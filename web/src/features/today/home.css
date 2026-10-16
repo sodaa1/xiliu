@@ -9,9 +9,6 @@
   background: #fafbfe;
   color: #121932;
 }
-.route-surface[data-route-path='/today'] .global-topbar {
-  display: none;
-}
 .home-wallpaper {
   position: absolute;
   inset: 0;

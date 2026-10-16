@@ -22,7 +22,7 @@ export function CapturePage() {
       <header>
         <div>
           <span className="eyebrow">随手留住，每一个灵感</span>
-          <h1>收进 Inbox</h1>
+          <h1>收进收件箱</h1>
         </div>
         <button type="button" className="icon-button" aria-label="关闭收录窗口" onClick={close}>
           <X size={18} />
@@ -31,7 +31,7 @@ export function CapturePage() {
       {saved && (
         <div className="capture-saved" role="status">
           <Check size={18} />
-          <span>已收进 Inbox，可以继续收录。</span>
+          <span>已收进收件箱，可以继续收录。</span>
           <button
             type="button"
             onClick={() => {

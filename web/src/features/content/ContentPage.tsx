@@ -42,6 +42,7 @@ function ContentEditor({
   onSaved: () => void
 }) {
   const [title, setTitle] = useState(item.title),
+    [demoRevision] = useState(item.demo_revision),
     [content, setContent] = useState(item.content),
     [summary, setSummary] = useState(item.summary),
     [tags, setTags] = useState(item.tags.join(', ')),
@@ -50,6 +51,7 @@ function ContentEditor({
   const save = useMutation({
     mutationFn: () =>
       workspaceApi.updateContent(item.id, {
+        demo_revision: demoRevision,
         title,
         content,
         summary,
@@ -178,7 +180,7 @@ function ContentPreview({
           </button>
           <button type="button" className="secondary-button" disabled={asking} onClick={onAsk}>
             <Sparkles size={15} />
-            Ask AI
+            引用提问
           </button>
           {item.filename && (
             <a
@@ -259,7 +261,7 @@ export function ContentPage({
     mutationFn: (item: ContentItem) =>
       workspaceApi.updateContent(item.id, { status: status === 'inbox' ? 'knowledge' : 'inbox' }),
     onSuccess: () => {
-      setNotice(status === 'inbox' ? '已保存到 Knowledge' : '已移回 Inbox')
+      setNotice(status === 'inbox' ? '已保存到知识库' : '已移回收件箱')
       invalidate()
     },
   })
@@ -314,7 +316,7 @@ export function ContentPage({
           <span className="eyebrow">
             {status === 'inbox' ? '留住每一个灵感' : '让积累成为你的知识'}
           </span>
-          <h1>{status === 'inbox' ? 'Inbox' : 'Knowledge'}</h1>
+          <h1>{status === 'inbox' ? '收件箱' : '知识库'}</h1>
           <p>
             {status === 'inbox'
               ? '链接、笔记、文件，在这里汇聚。'
@@ -326,7 +328,7 @@ export function ContentPage({
           {status === 'inbox' && (
             <button
               className="primary-button"
-              aria-label="添加到 Inbox"
+              aria-label="添加到收件箱"
               onClick={() => setCaptureOpen(true)}
             >
               <Plus size={18} />
@@ -481,7 +483,7 @@ export function ContentPage({
               ? '换个关键词，或试试其他筛选。'
               : status === 'inbox'
                 ? '点击添加，收进一段文字、一个链接或一份文件。'
-                : '把 Inbox 中整理好的内容保存到这里。'}
+                : '把收件箱中整理好的内容保存到这里。'}
           </p>
         </div>
       ) : (
@@ -586,7 +588,7 @@ export function ContentPage({
                         }
                       >
                         <ArrowRight size={14} />
-                        {status === 'inbox' ? 'Save to Knowledge' : '移回 Inbox'}
+                        {status === 'inbox' ? '归档到知识库' : '移回收件箱'}
                       </button>
                     )}
                     <button
@@ -612,7 +614,7 @@ export function ContentPage({
                       }
                     >
                       <Sparkles size={14} />
-                      Ask AI
+                      引用提问
                     </button>
                     {item.filename && (
                       <a href={workspaceApi.originalUrl(item.id)} download={item.filename}>

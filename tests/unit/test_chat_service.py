@@ -1,4 +1,5 @@
 from threading import Event, Thread
+import pytest
 
 from xiliu.api.services.chat import ChatService
 from xiliu.api.services.conversations import ConversationService
@@ -15,7 +16,8 @@ def setup_services(tmp_path, factory):
     return store, ChatService(conversations, runtime_factory=factory)
 
 
-def test_runtime_session_context_model_and_final_persisted(tmp_path):
+@pytest.mark.parametrize("initial_title", ["新对话", "New Chat"])
+def test_runtime_session_context_model_and_final_persisted(tmp_path, initial_title):
     calls = []
 
     class FakeRuntime:
@@ -31,6 +33,7 @@ def test_runtime_session_context_model_and_final_persisted(tmp_path):
 
     store, chat = setup_services(tmp_path, factory)
     conversation = store.create()
+    store.update(conversation["id"], title=initial_title)
     store.update(conversation["id"], model_override="deepseek-v4-pro")
     store.append_message(conversation["id"], "user", "Earlier context")
     events = list(chat.stream_turn(conversation["id"], "New question"))

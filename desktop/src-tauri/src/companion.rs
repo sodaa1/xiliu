@@ -303,7 +303,7 @@ fn ensure_window(app: &tauri::AppHandle, label: &str) -> Result<WebviewWindow, S
             );
     } else {
         builder = builder
-            .title("收进 Inbox · 息流")
+            .title("收进收件箱 · 息流")
             .inner_size(440.0, 600.0)
             .min_inner_size(360.0, 420.0)
             .center();
@@ -336,6 +336,7 @@ fn ensure_window(app: &tauri::AppHandle, label: &str) -> Result<WebviewWindow, S
             }
         }
         tauri::WindowEvent::Moved(position) if event_label == "companion" => {
+            let _ = event_app.emit_to("companion", "companion-position", (position.x, position.y));
             if let Some(window) = event_app.get_webview_window("companion") {
                 if let Ok(size) = window.inner_size() {
                     let state = event_app.state::<Coordinator>();
@@ -382,7 +383,7 @@ pub fn start(app: &tauri::AppHandle, port: u16) -> Result<(), String> {
 pub fn install_tray(app: &tauri::AppHandle) -> tauri::Result<()> {
     let main = MenuItem::with_id(app, "open", "打开息流", true, None::<&str>)?;
     let chat = MenuItem::with_id(app, "chat", "新对话", true, None::<&str>)?;
-    let capture = MenuItem::with_id(app, "capture", "收进 Inbox", true, None::<&str>)?;
+    let capture = MenuItem::with_id(app, "capture", "收进收件箱", true, None::<&str>)?;
     let show_pet = MenuItem::with_id(app, "pet", "显示 / 隐藏桌宠", true, None::<&str>)?;
     let quit = MenuItem::with_id(app, "quit", "退出息流", true, None::<&str>)?;
     let menu = Menu::with_items(app, &[&main, &chat, &capture, &show_pet, &quit])?;

@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 
-const viewNames = ["Inbox", "Knowledge", "Assistant", "Today"];
+const viewNames = ["收件箱", "知识库", "助手", "今日"];
 const documents = ["AI 与个人知识管理", "设计的长期主义", "值得重读的文章"];
 
 export function Mark({ children }: { children?: ReactNode }) {
@@ -37,7 +37,7 @@ export function InboxPreview({ compact = false }: { compact?: boolean }) {
     <div className={`inbox-preview ${compact ? "compact" : ""}`}>
       <div className="preview-card-head">
         <div>
-          <strong>Inbox</strong>
+          <strong>收件箱</strong>
           <span>先收集，再整理</span>
         </div>
         <Plus size={18} />
@@ -70,7 +70,7 @@ export function KnowledgePreview({ compact = false }: { compact?: boolean }) {
     <div className="knowledge-preview">
       <div className="preview-card-head">
         <div>
-          <strong>Knowledge</strong>
+          <strong>知识库</strong>
           <span>我的知识库</span>
         </div>
         <Search size={17} />
@@ -105,7 +105,7 @@ export function TodayPreview({ compact = false }: { compact?: boolean }) {
     <div className="today-preview">
       <div className="preview-card-head">
         <div>
-          <strong>Today</strong>
+          <strong>今日</strong>
           <span>今日待办</span>
         </div>
         <MoreHorizontal size={18} />
@@ -132,7 +132,7 @@ export function AssistantPreview({ compact = false }: { compact?: boolean }) {
   return (
     <div className="assistant-preview">
       <div className="preview-card-head">
-        <strong>Assistant</strong>
+        <strong>助手</strong>
         <MoreHorizontal size={18} />
       </div>
       <div className="reference-chip">
@@ -187,11 +187,11 @@ export function ProductWindow({
             xiliu
           </div>
           {[
-            { label: "Today", icon: House },
-            { label: "Assistant", icon: MessageSquare },
-            { label: "Feed", icon: Newspaper },
-            { label: "Inbox", icon: Inbox },
-            { label: "Knowledge", icon: BookOpen },
+            { label: "今日", icon: House },
+            { label: "助手", icon: MessageSquare },
+            { label: "资讯", icon: Newspaper },
+            { label: "收件箱", icon: Inbox },
+            { label: "知识库", icon: BookOpen },
           ].map(({ label, icon: Icon }) => (
             <div
               className={`window-nav ${label === viewName ? "is-active" : ""}`}
@@ -203,7 +203,7 @@ export function ProductWindow({
           ))}
           <div className="window-local">
             <span />
-            Local first
+            本地优先
           </div>
         </aside>
         <div className="window-content">
@@ -214,7 +214,7 @@ export function ProductWindow({
           {view === 3 ? (
             <>
               <span className="preview-eyebrow">
-                A LITTLE MORE CLARITY, EVERY DAY.
+                每一天，思路都更清晰。
               </span>
               <h3>早上好，让今天更清晰。</h3>
               <p className="window-subtitle">把注意力，留给真正重要的事。</p>
@@ -227,7 +227,7 @@ export function ProductWindow({
                   </div>
                   <p>AI 的新进展，与你有关的部分。</p>
                   <div className="brief-item">
-                    <span>AI Hot</span>
+                    <span>人工智能热点</span>
                     <strong>从新的工具，到新的工作方式</strong>
                   </div>
                   <div className="brief-item">
@@ -235,7 +235,7 @@ export function ProductWindow({
                     <strong>发现值得关注的开源项目</strong>
                   </div>
                   <div className="brief-item">
-                    <span>Inbox</span>
+                    <span>收件箱</span>
                     <strong>留一点时间，整理新收集的灵感</strong>
                   </div>
                 </div>
@@ -253,7 +253,7 @@ export function ProductWindow({
             </>
           ) : view === 0 ? (
             <>
-              <span className="preview-eyebrow">A PLACE FOR EVERY IDEA.</span>
+              <span className="preview-eyebrow">让每个想法都有归处。</span>
               <h3>先留住，再慢慢想。</h3>
               <p className="window-subtitle">一段文字，一个链接，一份资料。</p>
               <div className="window-panel">
@@ -267,7 +267,7 @@ export function ProductWindow({
           ) : view === 1 ? (
             <>
               <span className="preview-eyebrow">
-                YOUR KNOWLEDGE, CONNECTED.
+                让你的知识相互连接。
               </span>
               <h3>把收藏，变成自己的知识。</h3>
               <p className="window-subtitle">
@@ -283,7 +283,7 @@ export function ProductWindow({
             </>
           ) : (
             <>
-              <span className="preview-eyebrow">THINK WITH WHAT YOU KNOW.</span>
+              <span className="preview-eyebrow">带着积累，继续思考。</span>
               <h3>带着知识，继续对话。</h3>
               <p className="window-subtitle">把参考交给 AI，把判断留给自己。</p>
               <div className="window-panel">
@@ -302,14 +302,14 @@ export function FeedPreview() {
     <div className="feed-preview">
       <div className="preview-card-head">
         <div>
-          <strong>Feed</strong>
+          <strong>资讯</strong>
           <span>与世界保持连接</span>
         </div>
         <Newspaper size={19} />
       </div>
       <div className="feed-filter">
         <span className="selected">全部</span>
-        <span>AI Hot</span>
+        <span>人工智能热点</span>
         <span>GitHub</span>
       </div>
       {[
@@ -329,10 +329,10 @@ export function FeedPreview() {
           <h4>{title}</h4>
           <p>{detail}</p>
           <div>
-            <span>Read</span>
-            <span>Save</span>
+            <span>阅读原文</span>
+            <span>收藏</span>
             <span>
-              Ask AI <ArrowUpRight size={12} />
+              引用提问 <ArrowUpRight size={12} />
             </span>
           </div>
         </div>

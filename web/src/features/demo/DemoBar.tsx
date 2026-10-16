@@ -2,15 +2,24 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { RotateCcw } from 'lucide-react'
 import { Modal } from '../../components/Modal'
+import { useQueryClient } from '@tanstack/react-query'
 import { getDemoNotice, getDemoStorageStatus, subscribeDemo } from './store'
 import './demo.css'
 
 export function DemoBar({ onReset }: { onReset: () => Promise<void> }) {
+  const cache = useQueryClient()
   const [confirm, setConfirm] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState('')
   const [, update] = useState(0)
-  useEffect(() => subscribeDemo(() => update((value) => value + 1)), [])
+  useEffect(
+    () =>
+      subscribeDemo(() => {
+        update((value) => value + 1)
+        void cache.invalidateQueries()
+      }),
+    [cache]
+  )
   async function reset() {
     setBusy(true)
     setError('')
@@ -50,7 +59,7 @@ export function DemoBar({ onReset }: { onReset: () => Promise<void> }) {
           }}
         >
           <p>
-            将清除本浏览器中的演示资料、聊天、计划、偏好与引导进度，恢复预置示例。正常 Web
+            将清除本浏览器中的演示资料、聊天、计划、偏好与引导进度，恢复预置示例。正常网页
             和桌面资料不受影响。
           </p>
           {error && <p role="alert">{error}</p>}

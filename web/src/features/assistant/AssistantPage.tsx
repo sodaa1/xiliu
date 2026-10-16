@@ -106,7 +106,7 @@ export function AssistantPage() {
       },
       context,
       (outcome) => {
-        if (reference)
+        if (reference && !text.startsWith('/'))
           recordGuideAction({
             type: 'asked',
             documentId: reference.documentId,
@@ -144,7 +144,7 @@ export function AssistantPage() {
         <section className="chat-panel">
           <header className="chat-header">
             <div>
-              <h1>Assistant</h1>
+              <h1>助手</h1>
               <p>把想法交给息流，一起往前走。</p>
             </div>
           </header>

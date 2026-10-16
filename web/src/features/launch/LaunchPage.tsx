@@ -16,7 +16,7 @@ export function LaunchPage() {
       <div className="launch-vignette" aria-hidden="true" />
       {!ready && (
         <button className="launch-skip" onClick={() => setIntroComplete(true)}>
-          Skip intro <ArrowRight size={14} />
+          跳过开场 <ArrowRight size={14} />
         </button>
       )}
       <div
@@ -31,10 +31,10 @@ export function LaunchPage() {
           <span className="launch-script-wordmark">xiliu</span>
         </h1>
         <span className="launch-signature">息流</span>
-        <p>Ideas, connected.</p>
+        <p>让灵感相连。</p>
         <Link to="/today" className="btn launch-enter">
           <span>
-            Enter
+            开始使用
             <ArrowRight size={18} />
           </span>
         </Link>

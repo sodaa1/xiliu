@@ -40,7 +40,7 @@ export function GuidePage() {
           <span className="guide-eyebrow">息流 · 使用指南</span>
           <h1>知道能做什么，也知道怎么开始。</h1>
           <p>
-            {guideFeatures.length} 项功能简介，Web 与桌面共用。按任务找入口，按步骤完成第一件事。
+            {guideFeatures.length} 项功能简介，网页与桌面共用。按任务找入口，按步骤完成第一件事。
           </p>
         </div>
         <label className="guide-search">
@@ -134,9 +134,7 @@ export function GuidePage() {
               <section className="guide-start">
                 <span className="guide-eyebrow">01 / 开始体验</span>
                 <h2>从一条资讯，开始使用息流</h2>
-                <p>
-                  收藏到 Inbox，整理进 Knowledge，再带着资料向 Assistant 提问。每一步都能回到原文。
-                </p>
+                <p>收藏到收件箱，整理进知识库，再带着资料向助手提问。每一步都能回到原文。</p>
                 <Link className="guide-primary" to="/guide/getting-started">
                   阅读快速开始 <ArrowUpRight size={16} />
                 </Link>

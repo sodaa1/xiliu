@@ -127,8 +127,17 @@ export class DemoStore {
       const apply: Change<T> = (raw) => {
         if (raw !== undefined && !valid(raw)) this.notice = '演示存档无法读取，已恢复预置示例。'
         const state = valid(raw) ? copy(raw) : createSeed()
+        // Per-record versions let open editor drafts detect changes from another tab.
+        const rows = () => [...state.content, ...state.feed, ...state.folders, ...state.tasks]
+        for (const item of rows()) item.demo_revision ??= `${state.generation}:0`
+        const before = new Map(rows().map((item) => [item.id, JSON.stringify(item)]))
         const result = change(state)
-        if (mutate) state.revision++
+        if (mutate) {
+          state.revision++
+          for (const item of rows())
+            if (before.get(item.id) !== JSON.stringify(item))
+              item.demo_revision = `${state.generation}:${state.revision}`
+        }
         if (new TextEncoder().encode(JSON.stringify(state)).byteLength > MAX_BYTES)
           throw new DemoError('演示空间已满，请删除部分资料或重置体验。', 'demo_storage_full')
         return { state, result: copy(result) }

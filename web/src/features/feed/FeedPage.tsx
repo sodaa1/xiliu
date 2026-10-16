@@ -19,6 +19,7 @@ import {
 import { safeHttpUrl, workspaceApi, type FeedItem } from '../../lib/workspace-api'
 import { useAskAI } from '../content/useAskAI'
 import { ContentDialog } from '../content/ContentDialog'
+import { isDemo } from '../../lib/runtime-mode'
 
 function FeedEditor({ item, onClose }: { item?: FeedItem; onClose: () => void }) {
   const cache = useQueryClient()
@@ -27,9 +28,11 @@ function FeedEditor({ item, onClose }: { item?: FeedItem; onClose: () => void })
   const [summary, setSummary] = useState(item?.summary ?? '')
   const [tags, setTags] = useState(item?.tags.join(', ') ?? '')
   const [fetchTitle, setFetchTitle] = useState(false)
+  const [demoRevision] = useState(item?.demo_revision)
   const save = useMutation({
     mutationFn: () => {
       const body = {
+        demo_revision: demoRevision,
         url,
         title,
         summary,
@@ -101,10 +104,12 @@ function FeedEditor({ item, onClose }: { item?: FeedItem; onClose: () => void })
           <input
             type="checkbox"
             checked={fetchTitle}
+            disabled={isDemo}
             onChange={(event) => setFetchTitle(event.target.checked)}
           />
           联网抓取网页标题
         </label>
+        {isDemo && <p>演示版不联网抓取网页标题；请手动填写，留空将使用链接。</p>}
         <p>手动资讯会持续保留，删除后可以恢复。</p>
         {save.error && (
           <p className="workspace-error" role="alert">
@@ -145,7 +150,11 @@ function FeedPreview({
 }) {
   const url = safeHttpUrl(item.url)
   const sourceLabel =
-    item.source === 'manual' ? '我的资讯' : item.source === 'github' ? 'GitHub Top 5' : 'AI Hot'
+    item.source === 'manual'
+      ? '我的资讯'
+      : item.source === 'github'
+        ? 'GitHub 热门项目'
+        : '人工智能热点'
   const summarize = useMutation({ mutationFn: () => workspaceApi.summarizeFeed(item.id) })
   const detailed = summarize.data?.summary
   return (
@@ -207,11 +216,11 @@ function FeedPreview({
             onClick={onSave}
           >
             {saved ? <Check size={15} /> : <BookmarkPlus size={15} />}
-            {saved ? '已收进 Inbox' : saving ? '保存中…' : '收进 Inbox'}
+            {saved ? '已收进收件箱' : saving ? '保存中…' : '收进收件箱'}
           </button>
           <button type="button" className="secondary-button" onClick={onAsk}>
             <Sparkles size={15} />
-            Ask AI
+            引用提问
           </button>
           {url && (
             <a className="primary-link" href={url} target="_blank" rel="noreferrer">
@@ -279,8 +288,8 @@ export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void
             {item.source === 'manual'
               ? '我的资讯'
               : item.source === 'github'
-                ? 'GitHub Top 5'
-                : 'AI Hot'}
+                ? 'GitHub 热门项目'
+                : '人工智能热点'}
             {removed && (item.deleted_at ? ' · 已删除' : ' · 已隐藏')}
           </span>
           <h2>
@@ -304,7 +313,7 @@ export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void
         <div className="row-actions">
           {url && (
             <a href={url} target="_blank" rel="noreferrer">
-              Read
+              阅读原文
               <ArrowUpRight size={14} />
             </a>
           )}
@@ -313,7 +322,7 @@ export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void
             onClick={() => save.mutate()}
           >
             {save.isSuccess ? <Check size={14} /> : <BookmarkPlus size={14} />}
-            {save.isSuccess ? '已收进 Inbox' : 'Save'}
+            {save.isSuccess ? '已收进收件箱' : '收藏'}
           </button>
           {item.source === 'manual' && onEdit && !removed && (
             <button aria-label={`编辑 ${item.title}`} onClick={onEdit}>
@@ -337,7 +346,7 @@ export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void
           </button>
           <button disabled={ask.isPending} onClick={askAI}>
             <Sparkles size={14} />
-            Ask AI
+            引用提问
           </button>
         </div>
       </div>
@@ -386,7 +395,7 @@ export function FeedPage() {
       <header className="workspace-header">
         <div>
           <span className="eyebrow">信息汇聚，思路生长</span>
-          <h1>Feed</h1>
+          <h1>资讯</h1>
           <p>AI 与开源世界的新发现。</p>
         </div>
         <label className="search-field feed-header-search">
@@ -422,8 +431,8 @@ export function FeedPage() {
           <div className="segmented" aria-label="资讯来源">
             {[
               { value: '', label: '全部资讯', icon: Layers3 },
-              { value: 'aihot', label: 'AI Hot', icon: Newspaper },
-              { value: 'github', label: 'GitHub Top 5', icon: Github },
+              { value: 'aihot', label: '人工智能热点', icon: Newspaper },
+              { value: 'github', label: 'GitHub 热门项目', icon: Github },
               { value: 'manual', label: '我的资讯', icon: BookmarkPlus },
             ].map(({ value, label, icon: Icon }) => (
               <button
@@ -452,7 +461,11 @@ export function FeedPage() {
                 .filter((item) => !source || item.source === source)
                 .map((item) => (
                   <div key={item.source} className="source-status">
-                    <strong>{item.label}</strong>
+                    <strong>
+                      {{ aihot: '人工智能热点', github: 'GitHub 热门项目', manual: '我的资讯' }[
+                        item.source
+                      ] ?? item.label}
+                    </strong>
                     <span>
                       {item.message ||
                         (item.status === 'ok' || item.status === 'success'

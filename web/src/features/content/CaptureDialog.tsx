@@ -16,7 +16,7 @@ export function CaptureDialog({
   initialText?: string
 }) {
   return (
-    <ContentDialog title="添加到 Inbox" onClose={onClose}>
+    <ContentDialog title="添加到收件箱" onClose={onClose}>
       <CaptureForm onClose={onClose} onSaved={onSaved} initialText={initialText} />
     </ContentDialog>
   )
@@ -180,7 +180,7 @@ export function CaptureForm({
           取消
         </button>
         <button className="primary-button" disabled={create.isPending || !!fileError}>
-          {create.isPending ? '保存中…' : '收进 Inbox'}
+          {create.isPending ? '保存中…' : '收进收件箱'}
         </button>
       </div>
     </form>

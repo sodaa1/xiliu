@@ -360,8 +360,8 @@ export function CompanionPage() {
               </button>
               <button
                 className="companion-icon"
-                aria-label="收进 Inbox"
-                title="收进 Inbox"
+                aria-label="收进收件箱"
+                title="收进收件箱"
                 onClick={() => {
                   if (isDesktop()) void invoke('open_capture')
                   else navigate('/desktop/capture')
@@ -393,8 +393,8 @@ export function CompanionPage() {
               {compose && (
                 <button
                   className="companion-icon"
-                  aria-label="收进 Inbox"
-                  title="收进 Inbox"
+                  aria-label="收进收件箱"
+                  title="收进收件箱"
                   onClick={() => {
                     if (isDesktop()) void invoke('open_capture')
                     else navigate('/desktop/capture')

@@ -14,8 +14,8 @@ function reply(text: string, context?: string): string {
   if (context)
     return `**演示回复**\n\n以下仅整理本轮参考，没有调用真实模型：\n\n${context.slice(0, 1800)}\n\n可以先提炼一个要点，补上自己的理解，再把下一步行动放进个人计划。`
   if (/功能|息流|怎么用|开始/.test(text))
-    return '**演示回复**\n\n息流的功能包括：Feed 发现资讯，Inbox 收集文字和链接，Knowledge 整理和检索，Assistant 围绕资料提问，个人计划安排下一步。\n\n先收藏一条资讯，再归档并点击 Ask AI。使用指南逐项介绍了所有功能。'
-  return '**演示回复**\n\n这里使用本地示例模板，无法回答任意问题或执行 AI 操作。\n\n试试“息流有哪些功能？”，或在知识库点击 Ask AI，再问“请总结这份资料”。完整应用可连接自己的模型。'
+    return '**演示回复**\n\n息流的功能包括：资讯发现资讯，收件箱收集文字和链接，知识库整理和检索，助手围绕资料提问，个人计划安排下一步。\n\n先收藏一条资讯，再归档并点击引用提问。使用指南逐项介绍了所有功能。'
+  return '**演示回复**\n\n这里使用本地示例模板，无法回答任意问题或执行 AI 操作。\n\n试试“息流有哪些功能？”，或在知识库点击引用提问，再问“请总结这份资料”。完整应用可连接自己的模型。'
 }
 export async function startDemoChat(
   cid: string,
@@ -32,11 +32,10 @@ export async function startDemoChat(
   if (active.has(cid)) throw new DemoError('当前会话正在回复，请先停止。', 'conversation_busy', 409)
   let cancelled = false,
     finished = false,
+    generation = '',
     timer: ReturnType<typeof setTimeout> | undefined
   let controller: ReadableStreamDefaultController<Uint8Array> | undefined
-  const encoder = new TextEncoder(),
-    state = await readDemoState(),
-    generation = state.generation
+  const encoder = new TextEncoder()
   const emit = (event: WebEvent) =>
     controller?.enqueue(encoder.encode(`${JSON.stringify(event)}\n`))
   const finish = async () => {
@@ -90,12 +89,15 @@ export async function startDemoChat(
   }
   const stop = () => {
     cancelled = true
-    void finish()
+    if (controller) void finish()
   }
   if (active.has(cid)) throw new DemoError('当前会话正在回复。', 'conversation_busy', 409)
   active.set(cid, stop)
   try {
+    generation = (await readDemoState()).generation
     await mutateDemo((draft) => {
+      if (cancelled || signal?.aborted || draft.generation !== generation)
+        throw new DOMException('请求已停止，请重新发送。', 'AbortError')
       const conversation = draft.conversations.find((item) => item.id === cid)
       if (!conversation) throw new DemoError('会话不存在。', 'not_found', 404)
       if (body.text.trim() === '/clear')
@@ -120,7 +122,7 @@ export async function startDemoChat(
       conversation.updated_at = new Date().toISOString()
     })
   } catch (error) {
-    active.delete(cid)
+    if (active.get(cid) === stop) active.delete(cid)
     throw error
   }
   signal?.addEventListener('abort', stop, { once: true })

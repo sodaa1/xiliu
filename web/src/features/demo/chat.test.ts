@@ -16,6 +16,23 @@ async function collect(response: Response) {
   for await (const event of readNDJSON(response)) events.push(event)
   return events
 }
+
+test('reset during chat startup rejects the old send before any write', async () => {
+  const opening = startDemoChat('chat-welcome', { text: 'old startup message' })
+  // Observe the rejection before queued persistence settles.
+  const outcome = opening.then(
+    (response) => response,
+    (error) => error
+  )
+  cancelAllDemoChats()
+  await resetDemoState()
+  const result = await outcome
+  if (result instanceof Response) await result.body?.cancel()
+  expect(
+    (await readDemoState()).messages.some((item) => item.content === 'old startup message')
+  ).toBe(false)
+  expect(result).toMatchObject({ name: 'AbortError' })
+})
 test('template replies use the supplied reference and are clearly labelled', async () => {
   const response = await startDemoChat('chat-welcome', {
     text: '总结资料',
@@ -68,10 +85,14 @@ test.each(['reset', 'delete', 'abort'])(
 
 test('stop while a conversation is still opening settles the stream', async () => {
   let opened = false
-  const opening = startDemoChat('chat-welcome', { text: '有哪些功能' }).then((response) => {
-    opened = true
-    return response
-  })
+  const opening = startDemoChat('chat-welcome', { text: '有哪些功能' })
+  const outcome = opening.then(
+    (response) => {
+      opened = true
+      return response
+    },
+    (error) => error
+  )
   let stopped = false
   for (let tick = 0; tick < 30 && !stopped; tick++) {
     await Promise.resolve()
@@ -79,7 +100,5 @@ test('stop while a conversation is still opening settles the stream', async () =
   }
   expect(stopped).toBe(true)
   expect(opened).toBe(false)
-  const pending = collect(await opening)
-  await vi.runAllTimersAsync()
-  expect((await pending).at(-1)?.metadata?.cancelled).toBe(true)
+  expect(await outcome).toMatchObject({ name: 'AbortError' })
 })

@@ -11,7 +11,7 @@ from xiliu.api.store import AppStore
 def test_durable_crud_and_cascade(tmp_path):
     store = AppStore(tmp_path)
     chat = store.create()
-    assert store.list()[0]["title"] == "New Chat"
+    assert store.list()[0]["title"] == "新对话"
     store.update(chat["id"], title="Research", model_override="gpt-5.6-sol")
     store.append_message(chat["id"], "user", "Hello")
     assert AppStore(tmp_path).get(chat["id"])["model_override"] == "gpt-5.6-sol"

@@ -9,6 +9,7 @@ const check=(name,value)=>{report.checks.push({name,passed:Boolean(value)});if(!
 (async()=>{
  const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL || 'msedge',headless:true});
  const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
+ await context.addInitScript(()=>{try{for(const [key,value] of Object.entries({'xiliu-composer-height-v3':'95','xiliu-conversation-width':'230','xiliu-composer-height':'90','xiliu-composer-height-v2':'91'}))localStorage.setItem(key,value)}catch{/* Initial about:blank documents do not have origin storage. */}});
  context.on('page',page=>{page.on('pageerror',e=>report.errors.push(e.message));page.on('request',r=>{if(new URL(r.url()).pathname.startsWith('/api/'))report.apiRequests.push(r.url())})});
  const page=await context.newPage();page.setDefaultTimeout(12000);
  async function shot(name){const file=path.join(output,name+'.png');await page.screenshot({path:file,fullPage:true});report.screenshots.push(file)}
@@ -16,9 +17,10 @@ const check=(name,value)=>{report.checks.push({name,passed:Boolean(value)});if(!
  await page.goto(base + '/today');
  await page.getByRole('button',{name:'开始快速上手'}).waitFor();
  check('static demo opens without a Python API',await page.getByText('游客演示',{exact:true}).isVisible());await shot('welcome');
+ check('shared capsule has six destinations including plans and settings',JSON.stringify(await page.getByRole('navigation',{name:'快捷导航'}).locator('.pill-list a').evaluateAll(links=>links.map(link=>link.getAttribute('href'))))===JSON.stringify(['/assistant','/feed','/inbox','/knowledge','/plans','/settings']));
  await page.getByRole('button',{name:'开始快速上手'}).click();
  const card=page.locator('.feed-card').filter({hasText:'建立一个能持续使用的个人知识库'});
- await card.getByRole('button',{name:'Save',exact:true}).click();
+ await card.getByRole('button',{name:'收藏',exact:true}).click();
  await page.getByRole('heading',{name:'添加标签，再归档'}).waitFor();
  await page.getByRole('link',{name:'前往当前步骤'}).click();
  const title='建立一个能持续使用的个人知识库';
@@ -26,11 +28,11 @@ const check=(name,value)=>{report.checks.push({name,passed:Boolean(value)});if(!
  await page.getByRole('button',{name:'编辑',exact:true}).click();
  await page.getByLabel('标签',{exact:true}).fill('学习, 演示验收');
  await page.getByRole('button',{name:'保存修改',exact:true}).click();
- await page.getByRole('button',{name:'Save to Knowledge',exact:true}).click();
+ await page.getByRole('button',{name:'归档到知识库',exact:true}).click();
  await page.getByRole('heading',{name:'带着资料提问',exact:true}).waitFor();
  check('guide advances only after save and archive',true);
  await page.getByRole('link',{name:'前往当前步骤'}).click();
- await page.getByRole('button',{name:'Ask AI',exact:true}).click();
+ await page.getByRole('button',{name:'引用提问',exact:true}).click();
  await page.getByRole('button',{name:'发送消息',exact:true}).click();
  await page.getByRole('heading',{name:'发现、整理、提问，已经连起来了。',exact:true}).waitFor();
  check('referenced demo reply completes guide',await page.locator('.messages-scroll').getByText('演示回复',{exact:true}).count()>0);await shot('assistant');
@@ -46,13 +48,25 @@ const check=(name,value)=>{report.checks.push({name,passed:Boolean(value)});if(!
  await page.getByLabel('检索知识库').press('Enter');
  await page.getByText(title,{exact:true}).first().waitFor();check('archived edits survive reload and are searchable',true);
  const pages=await Promise.all([context.newPage(),context.newPage()]);
- await Promise.all(pages.map(async(p,index)=>{await p.goto(base + '/inbox');await p.getByRole('button',{name:'添加到 Inbox',exact:true}).click();await p.getByLabel('文字或链接',{exact:true}).fill('并发浏览器笔记 '+index);await p.getByRole('button',{name:'收进 Inbox',exact:true}).click();await p.getByText('并发浏览器笔记 '+index,{exact:true}).first().waitFor()}));
+ await Promise.all(pages.map(async(p,index)=>{await p.goto(base + '/inbox');await p.getByRole('button',{name:'添加到收件箱',exact:true}).click();await p.getByLabel('文字或链接',{exact:true}).fill('并发浏览器笔记 '+index);await p.getByRole('button',{name:'收进收件箱',exact:true}).click();await p.getByText('并发浏览器笔记 '+index,{exact:true}).first().waitFor()}));
  await page.goto(base + '/inbox');
  for(let index=0;index<2;index++)await page.getByRole('button',{name:'并发浏览器笔记 '+index,exact:true}).waitFor();
  check('two tabs retain both concurrently created notes',true);
+ for(const p of pages){await p.getByRole('button',{name:'并发浏览器笔记 0',exact:true}).click();await p.getByRole('button',{name:'编辑',exact:true}).click()}
+ await pages[0].getByLabel('标题',{exact:true}).fill('其他标签页保存的新标题');
+ await pages[1].getByLabel('标签',{exact:true}).fill('尚未保存的标签');
+ await pages[0].getByRole('button',{name:'保存修改',exact:true}).click();
+ await pages[0].getByRole('button',{name:'保存修改',exact:true}).waitFor({state:'hidden'});
+ await pages[1].getByRole('button',{name:'保存修改',exact:true}).click();
+ await pages[1].getByRole('alert').filter({hasText:'内容已在其他窗口更新'}).waitFor();
+ check('stale editor save is rejected while its draft is retained',await pages[1].getByLabel('标签',{exact:true}).inputValue()==='尚未保存的标签');
+ await page.reload();await page.getByRole('button',{name:'其他标签页保存的新标题',exact:true}).waitFor();
+ check('concurrent editing preserves the latest committed title',true);
  await Promise.all(pages.map(p=>p.close()));
+ await page.evaluate(()=>{localStorage.setItem('xiliu-demo-composer-height-v3','70');localStorage.setItem('xiliu-demo-conversation-width','200')});
  await page.getByRole('button',{name:'重置体验',exact:true}).click();await page.getByRole('button',{name:'确认重置',exact:true}).click();
  await page.getByRole('button',{name:'开始快速上手',exact:true}).waitFor();check('reset restores welcome and seed state',true);
+ check('demo reset clears only demo layout preferences',await page.evaluate(()=>localStorage.getItem('xiliu-demo-composer-height-v3')===null&&localStorage.getItem('xiliu-demo-conversation-width')===null&&localStorage.getItem('xiliu-composer-height-v3')==='95'&&localStorage.getItem('xiliu-composer-height')==='90'&&localStorage.getItem('xiliu-composer-height-v2')==='91'));
  await page.getByRole('button',{name:'稍后再看',exact:true}).click();
  await page.goto(base + '/guide/assistant');
  await page.getByRole('heading',{name:'停止回复'}).waitFor();
@@ -60,6 +74,8 @@ const check=(name,value)=>{report.checks.push({name,passed:Boolean(value)});if(!
  await page.setViewportSize({width:390,height:844});
  await page.evaluate(()=>document.documentElement.dataset.theme='light');await shot('guide-mobile');
  check('guide fits mobile viewport',await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1));
+ await page.getByRole('navigation',{name:'快捷导航'}).getByRole('link',{name:'设置',exact:true}).scrollIntoViewIfNeeded();
+ check('all six mobile capsule destinations remain reachable',await page.getByRole('navigation',{name:'快捷导航'}).getByRole('link',{name:'设置',exact:true}).isVisible());
  await page.keyboard.press('Tab');check('keyboard focus remains available',await page.evaluate(()=>document.activeElement.tagName!=='BODY'));
  check('no real API network requests',report.apiRequests.length===0);check('no browser errors',report.errors.length===0);
  const memoryContext=await browser.newContext({viewport:{width:1100,height:850},reducedMotion:'reduce'});
@@ -70,10 +86,10 @@ const check=(name,value)=>{report.checks.push({name,passed:Boolean(value)});if(!
  await memoryPage.getByText(/仅在当前页面保留/).first().waitFor();
  check('blocked persistent storage has an explicit memory-only notice',true);
  await memoryPage.getByRole('button',{name:'稍后再看'}).click();
- await memoryPage.getByRole('link',{name:'Inbox',exact:true}).click();
- await memoryPage.getByRole('button',{name:'添加到 Inbox',exact:true}).click();
+ await memoryPage.getByRole('navigation',{name:'主导航'}).getByRole('link',{name:'收件箱',exact:true}).click();
+ await memoryPage.getByRole('button',{name:'添加到收件箱',exact:true}).click();
  await memoryPage.getByLabel('文字或链接',{exact:true}).fill('仅本页的临时笔记');
- await memoryPage.getByRole('button',{name:'收进 Inbox',exact:true}).click();
+ await memoryPage.getByRole('button',{name:'收进收件箱',exact:true}).click();
  await memoryPage.getByRole('button',{name:'仅本页的临时笔记',exact:true}).waitFor();
  check('memory-only demo can still collect content',true);
  await memoryPage.reload();

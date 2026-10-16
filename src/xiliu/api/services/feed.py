@@ -29,7 +29,7 @@ from xiliu.policy.engine import PolicyEngine
 if TYPE_CHECKING:
     from xiliu.api.services.content import ContentService
 
-SOURCE_LABELS = {"aihot": "AI Hot", "github": "GitHub Top 5"}
+SOURCE_LABELS = {"aihot": "人工智能热点", "github": "GitHub 热门项目"}
 
 
 def _plain(value: str) -> str:
@@ -586,7 +586,7 @@ class FeedService:
         manager = MCPManager(data_dir / "mcp")
         try:
             if "aihot" not in manager.servers():
-                raise WebError("aihot_unavailable", "AI Hot 尚未连接。")
+                raise WebError("aihot_unavailable", "人工智能热点来源尚未连接。")
             capabilities = CapabilityManager(mcp_manager=manager)
             context = RunContext(
                 run_id=str(uuid4()),
@@ -604,7 +604,7 @@ class FeedService:
             discovered = gateway.discover_mcp("aihot", context)
             capability_id = "mcp:aihot:aihot_get_latest"
             if not discovered.get("ok") or capabilities.get(capability_id) is None:
-                raise WebError("aihot_unavailable", "AI Hot 暂时不可用，请检查连接设置。")
+                raise WebError("aihot_unavailable", "人工智能热点来源暂时不可用，请检查连接设置。")
             schema = manager.schema(capability_id)
             arguments = {}
             for name in schema.get("required", []):
@@ -628,7 +628,7 @@ class FeedService:
             finally:
                 active_run.reset(token)
             if result.get("ok") is not True:
-                raise WebError("aihot_unavailable", "AI Hot 暂时不可用，请检查连接设置。")
+                raise WebError("aihot_unavailable", "人工智能热点来源暂时不可用，请检查连接设置。")
             return normalize_aihot(result.get("structured_content") or result.get("text"))
         finally:
             manager.close()

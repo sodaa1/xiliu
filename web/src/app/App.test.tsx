@@ -84,12 +84,12 @@ test('App icon rail navigates to every page', async () => {
     user = userEvent.setup()
   const navigation = screen.getByRole('navigation', { name: '主导航' })
   for (const [label, path] of [
-    ['Feed', '/feed'],
-    ['Inbox', '/inbox'],
-    ['Knowledge', '/knowledge'],
+    ['资讯', '/feed'],
+    ['收件箱', '/inbox'],
+    ['知识库', '/knowledge'],
     ['个人计划', '/plans'],
-    ['Assistant', '/assistant'],
-    ['Today', '/today'],
+    ['助手', '/assistant'],
+    ['今日', '/today'],
   ]) {
     const link = within(navigation).getByRole('link', { name: label })
     await user.click(link)
@@ -103,10 +103,12 @@ test('App icon rail navigates to every page', async () => {
   }
 })
 
-test('App Settings overlay preserves page and keyboard navigation selects panels', async () => {
+test('App 设置 overlay preserves page and keyboard navigation selects panels', async () => {
   const view = mount('/today'),
     user = userEvent.setup()
-  await user.click(screen.getByRole('link', { name: 'Settings' }))
+  await user.click(
+    within(screen.getByRole('navigation', { name: '快捷导航' })).getByRole('link', { name: '设置' })
+  )
   expect(screen.getByRole('dialog', { name: '设置' })).toBeVisible()
   await user.click(screen.getByRole('tab', { name: '个人信息' }))
   await user.keyboard('{ArrowRight}')

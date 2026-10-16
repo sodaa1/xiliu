@@ -278,11 +278,7 @@ export function AutomationsDrawer({ onClose }: { onClose: () => void }) {
         aria-modal="true"
         aria-labelledby="automations-title"
       >
-        <button
-          className="icon-button drawer-close"
-          aria-label="关闭 Automations"
-          onClick={onClose}
-        >
+        <button className="icon-button drawer-close" aria-label="关闭自动任务" onClick={onClose}>
           <X size={21} />
         </button>
         <AutomationsPanel />

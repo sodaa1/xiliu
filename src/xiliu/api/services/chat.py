@@ -17,7 +17,7 @@ from xiliu.runtime import create_runtime
 
 class UnconfiguredModel:
     def invoke(self, messages):
-        raise WebError("model_not_configured", "请先在 Settings 配置模型接口。", 400)
+        raise WebError("model_not_configured", "请先在设置中配置模型接口。", 400)
 
     def bind_tools(self, tools):
         return self
@@ -130,7 +130,7 @@ class ChatService:
                 }
                 return
             task = result.task
-        if conversation["title"] == "New Chat" and not text.startswith("/"):
+        if conversation["title"] in {"新对话", "New Chat"} and not text.startswith("/"):
             self.store.update(cid, title=text.splitlines()[0][:24])
         configured = self.conversations.model_settings.read(conversation["model_override"])[
             "api_key_set"
@@ -145,7 +145,7 @@ class ChatService:
             )
             model_id = settings.model
         else:
-            raise WebError("model_not_configured", "请先在 Settings 配置模型接口。", 400)
+            raise WebError("model_not_configured", "请先在设置中配置模型接口。", 400)
         prior_context = self.conversations.build_context(cid, before_seq=user["seq"])
         if context:
             prior_context += (

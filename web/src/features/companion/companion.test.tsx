@@ -34,5 +34,5 @@ test('a rapid duplicate capture submit imports only once and preserves failed in
   )
   expect(await screen.findByRole('alert')).toHaveTextContent('暂时无法保存')
   expect(screen.getByRole('textbox')).toHaveValue('保留这条灵感')
-  expect(screen.getByRole('button', { name: '收进 Inbox' })).toBeEnabled()
+  expect(screen.getByRole('button', { name: '收进收件箱' })).toBeEnabled()
 })

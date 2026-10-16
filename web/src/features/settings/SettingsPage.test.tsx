@@ -82,7 +82,9 @@ function mount(path = '/settings') {
 test('settings opens above the current page; profile and appearance persist', async () => {
   const view = mount('/feed'),
     user = userEvent.setup()
-  await user.click(screen.getByRole('link', { name: 'Settings' }))
+  await user.click(
+    within(screen.getByRole('navigation', { name: '快捷导航' })).getByRole('link', { name: '设置' })
+  )
   expect(screen.getByRole('dialog', { name: '设置' })).toBeVisible()
   await user.type(screen.getByLabelText('昵称'), '小溪')
   await user.click(screen.getByRole('button', { name: '保存个人信息' }))
@@ -95,7 +97,7 @@ test('settings opens above the current page; profile and appearance persist', as
   await waitFor(() => expect(document.documentElement).toHaveAttribute('data-theme', 'dark'))
   expect(document.documentElement.style.fontSize).toBe('18px')
   await user.click(screen.getByRole('button', { name: '关闭设置' }))
-  expect(screen.getByRole('heading', { name: 'Feed' })).toBeVisible()
+  expect(screen.getByRole('heading', { name: '资讯' })).toBeVisible()
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   view.unmount()
   mount()
@@ -104,7 +106,7 @@ test('settings opens above the current page; profile and appearance persist', as
   expect(document.documentElement.style.fontSize).toBe('18px')
 })
 
-test('global pill navigation sits above the page, not inside the Today heading', async () => {
+test('global pill navigation sits above the page, not inside the 今日 heading', async () => {
   mount('/today')
   const user = userEvent.setup()
   const nav = screen.getByRole('navigation', { name: '快捷导航' })
@@ -112,13 +114,13 @@ test('global pill navigation sits above the page, not inside the Today heading',
   expect(within(nav).getByRole('link', { name: '设置' })).toHaveAttribute('href', '/settings')
   const header = screen.getByRole('heading', { name: /今天从容开始/ }).closest('header')!
   expect(within(header).queryByRole('link', { name: '助手' })).not.toBeInTheDocument()
-  await user.click(within(nav).getByRole('link', { name: 'Feed' }))
-  await waitFor(() => expect(screen.getByRole('heading', { name: 'Feed' })).toBeVisible())
+  await user.click(within(nav).getByRole('link', { name: '资讯' }))
+  await waitFor(() => expect(screen.getByRole('heading', { name: '资讯' })).toBeVisible())
 })
-test('automation management is inside Settings instead of the global toolbar', async () => {
+test('automation management is inside 设置 instead of the global toolbar', async () => {
   mount()
   const user = userEvent.setup()
-  expect(screen.queryByRole('button', { name: 'Automations' })).not.toBeInTheDocument()
+  expect(screen.queryByRole('button', { name: '自动任务' })).not.toBeInTheDocument()
   await user.click(screen.getByRole('tab', { name: '自动化' }))
   const panel = screen.getByRole('tabpanel', { name: '自动化' })
   await user.click(within(panel).getByRole('button', { name: '创建每日任务' }))

@@ -31,7 +31,7 @@ test('guide searches feature introductions and offers a clear empty state', asyn
 test('deep link reads an offline article with a working feature entry', () => {
   mount('/guide/assistant')
   expect(screen.getByRole('heading', { name: '停止回复' })).toBeInTheDocument()
-  expect(screen.getByRole('link', { name: '前往 Assistant' })).toHaveAttribute('href', '/assistant')
+  expect(screen.getByRole('link', { name: '前往 助手' })).toHaveAttribute('href', '/assistant')
 })
 test('desktop-only features are labelled and invalid articles recover to the directory', () => {
   const view = mount('/guide/appearance-companion')

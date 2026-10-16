@@ -47,7 +47,7 @@ beforeEach(() => {
       if (url.startsWith('/api/capabilities/')) return Response.json([])
       if (url.startsWith('/api/feed')) return Response.json({ items: [], sources: [] })
       if (url === '/api/conversations' && init?.method === 'POST') {
-        const created = { ...first, id: 'two', title: 'New Chat' }
+        const created = { ...first, id: 'two', title: '新建对话' }
         conversations = [created, ...conversations]
         return Response.json(created)
       }
@@ -94,8 +94,8 @@ test('new conversation appears in list and selected history reloads', async () =
   mount()
   const user = userEvent.setup()
   expect(await screen.findByText('First history')).toBeVisible()
-  await user.click(screen.getByRole('button', { name: /New Chat/ }))
-  expect(await screen.findByRole('button', { name: 'New Chat' })).toBeVisible()
+  await user.click(screen.getByRole('button', { name: '创建新对话' }))
+  expect(await screen.findByRole('button', { name: '新建对话' })).toBeVisible()
   expect(await screen.findByText('Second history')).toBeVisible()
   await user.click(screen.getByRole('button', { name: 'First chat' }))
   expect(await screen.findByText('First history')).toBeVisible()
@@ -130,10 +130,10 @@ test('a running chat does not lock a new chat, deletion or a second send', async
   await user.type(screen.getByRole('textbox', { name: '消息' }), 'First turn')
   await user.click(screen.getByRole('button', { name: '发送消息' }))
   await waitFor(() => expect(streams.size).toBe(1))
-  await user.click(screen.getByRole('button', { name: /新建 New Chat/ }))
+  await user.click(screen.getByRole('button', { name: '创建新对话' }))
   await screen.findByText('Second history')
   expect(screen.getByRole('textbox', { name: '消息' })).toBeEnabled()
-  await user.click(screen.getByRole('button', { name: '对话操作：New Chat' }))
+  await user.click(screen.getByRole('button', { name: '对话操作：新建对话' }))
   expect(screen.getByRole('button', { name: '删除对话' })).toBeEnabled()
   await user.type(screen.getByRole('textbox', { name: '消息' }), 'Second turn')
   await user.click(screen.getByRole('button', { name: '发送消息' }))
@@ -225,7 +225,7 @@ test('model menu keyboard action opens a local configuration card and preserves 
   await user.keyboard('{Enter}{Tab}{Enter}')
   expect(screen.getByRole('dialog', { name: '模型配置' })).toBeVisible()
   expect(screen.queryByRole('tablist', { name: '设置分类' })).not.toBeInTheDocument()
-  await user.click(screen.getByRole('combobox', { name: 'Model' }))
+  await user.click(screen.getByRole('combobox', { name: '模型' }))
   await user.click(screen.getByRole('option', { name: 'deepseek-v4-pro' }))
   await user.click(screen.getByRole('button', { name: '保存设置' }))
   await waitFor(() =>
@@ -404,10 +404,10 @@ test('switching pages keeps the turn alive and restores its timed thinking', asy
   await user.click(screen.getByRole('button', { name: '关闭模型配置' }))
   expect(await screen.findByText(/思考中/)).toBeVisible()
   const rail = screen.getByRole('navigation', { name: '主导航' })
-  await user.click(within(rail).getByRole('link', { name: 'Feed' }))
-  expect(await screen.findByRole('heading', { name: 'Feed' })).toBeVisible()
+  await user.click(within(rail).getByRole('link', { name: '资讯' }))
+  expect(await screen.findByRole('heading', { name: '资讯' })).toBeVisible()
   expect(signal!.aborted).toBe(false)
-  await user.click(within(rail).getByRole('link', { name: 'Assistant' }))
+  await user.click(within(rail).getByRole('link', { name: '助手' }))
   expect(await screen.findByText(/思考中/)).toBeVisible()
   expect(signal!.aborted).toBe(false)
   completed = true

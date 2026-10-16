@@ -3,10 +3,11 @@ import ReactBitsPillNav from './react-bits/PillNav'
 import { usePreferences } from '../lib/preferences'
 import './pill-nav-adapter.css'
 const items = [
-  { href: '/today', label: '今日' },
   { href: '/assistant', label: '助手' },
-  { href: '/feed', label: 'Feed' },
-  { href: '/knowledge', label: '知识' },
+  { href: '/feed', label: '资讯' },
+  { href: '/inbox', label: '收件箱' },
+  { href: '/knowledge', label: '知识库' },
+  { href: '/plans', label: '个人计划' },
   { href: '/settings', label: '设置' },
 ]
 const logo =

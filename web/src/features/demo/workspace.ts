@@ -2,6 +2,18 @@ import type { ContentItem, FeedItem, Task } from '../../lib/workspace-api'
 import { mutateDemo, readDemoState } from './store'
 import { DemoError, demoUnavailable, type DemoState } from './types'
 type Body = Record<string, unknown>
+function checkRevision(item: { demo_revision?: string }, body: Body) {
+  if (body.demo_revision !== undefined && body.demo_revision !== item.demo_revision)
+    throw new DemoError(
+      '内容已在其他窗口更新。请保留当前输入，关闭编辑后刷新并重新编辑。',
+      'conflict',
+      409
+    )
+}
+function checkFetchTitle(body: Body) {
+  if (body.fetch_title === true)
+    throw new DemoError('演示版不联网抓取网页标题，请手动填写标题或留空使用链接。')
+}
 const now = () => new Date().toISOString()
 function row<T extends { id: string }>(rows: T[], id: string): T {
   const item = rows.find((entry) => entry.id === id)
@@ -65,7 +77,8 @@ function listFeed(state: DemoState, url: URL) {
     ),
     sources: ['aihot', 'github', 'manual'].map((source) => ({
       source,
-      label: source === 'github' ? 'GitHub Top 5' : source === 'aihot' ? 'AI Hot' : '我的资讯',
+      label:
+        source === 'github' ? 'GitHub 热门项目' : source === 'aihot' ? '人工智能热点' : '我的资讯',
       status: 'ok',
       message: '预置示例 · 非实时资讯',
       updated_at: now(),
@@ -93,6 +106,7 @@ export async function handleWorkspaceRequest(
   if (path === '/feed/manual' && method === 'POST')
     return Response.json(
       await mutateDemo((state) => {
+        checkFetchTitle(body)
         const address = text(body, 'url')
         if (!/^https?:\/\//.test(address)) throw new DemoError('请输入 http 或 https 链接。')
         const item: FeedItem = {
@@ -100,7 +114,7 @@ export async function handleWorkspaceRequest(
           source: 'manual',
           editable: true,
           url: address,
-          title: text(body, 'title', address, 500),
+          title: text(body, 'title', address, 500).trim() || address,
           summary: text(body, 'summary', '', 4000),
           tags: tags(body),
           metadata: { demo: true, fetch_status: 'not_requested' },
@@ -142,11 +156,14 @@ export async function handleWorkspaceRequest(
         else if (manual && action === 'restore' && method === 'POST') item.deleted_at = null
         else if (manual && !action && method === 'DELETE') item.deleted_at = now()
         else if (manual && !action && method === 'PATCH') {
+          checkRevision(item, body)
+          checkFetchTitle(body)
           if (body.url !== undefined && !/^https?:\/\//.test(text(body, 'url')))
             throw new DemoError('链接格式不正确。')
           for (const key of ['title', 'summary', 'url'] as const)
             if (body[key] !== undefined) item[key] = text(body, key)
           item.tags = tags(body, item.tags)
+          item.title = item.title.trim() || item.url
           item.updated_at = now()
         } else throw new DemoError(demoUnavailable)
         return item
@@ -207,6 +224,7 @@ export async function handleWorkspaceRequest(
       return Response.json(
         await mutateDemo((state) => {
           const item = row(state.content, id[1])
+          checkRevision(item, body)
           for (const key of ['title', 'content', 'summary'] as const)
             if (body[key] !== undefined) item[key] = text(body, key)
           item.tags = tags(body, item.tags)
@@ -286,6 +304,7 @@ export async function handleWorkspaceRequest(
                   updated_at: now(),
                 }
               : row(state.folders, id[2])
+          if (method === 'PATCH') checkRevision(folder, body)
           folder.name = text(body, 'name', folder.name, 200).trim()
           if (!folder.name) throw new DemoError('请输入文件夹名称。')
           folder.summary = text(body, 'summary', folder.summary, 4000)
@@ -330,6 +349,7 @@ export async function handleWorkspaceRequest(
                 updated_at: now(),
               }
             : row(state.tasks, id[1])
+        if (method === 'PATCH') checkRevision(task, body)
         task.title = text(body, 'title', task.title, 500).trim()
         if (!task.title) throw new DemoError('请输入计划名称。')
         if (body.completed !== undefined) {

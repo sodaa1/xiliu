@@ -41,11 +41,11 @@ import { resetDemoExperience } from '../features/demo/reset'
 import { Onboarding, PageHelp } from '../features/onboarding/Onboarding'
 
 const navigation = [
-  { path: '/today', label: 'Today', icon: House },
-  { path: '/assistant', label: 'Assistant', icon: MessageSquare },
-  { path: '/feed', label: 'Feed', icon: Newspaper },
-  { path: '/inbox', label: 'Inbox', icon: Inbox },
-  { path: '/knowledge', label: 'Knowledge', icon: BookOpen },
+  { path: '/today', label: '今日', icon: House },
+  { path: '/assistant', label: '助手', icon: MessageSquare },
+  { path: '/feed', label: '资讯', icon: Newspaper },
+  { path: '/inbox', label: '收件箱', icon: Inbox },
+  { path: '/knowledge', label: '知识库', icon: BookOpen },
   { path: '/plans', label: '个人计划', icon: CalendarCheck2 },
 ]
 export function App() {
@@ -109,7 +109,7 @@ function AppLayout() {
       ) : (
         <div className="app-shell">
           <aside inert={isSettings || undefined} className="global-sidebar icon-rail">
-            <NavLink className="brand" to="/assistant" aria-label="xiliu Assistant" title="xiliu">
+            <NavLink className="brand" to="/assistant" aria-label="xiliu 助手" title="xiliu">
               <Brand />
             </NavLink>
             <nav aria-label="主导航" id="main-navigation">
@@ -133,8 +133,8 @@ function AppLayout() {
                 className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
                 to="/settings"
                 state={{ backgroundLocation: isSettings ? backgroundUrl : location }}
-                aria-label="Settings"
-                title="Settings"
+                aria-label="设置"
+                title="设置"
               >
                 <Settings size={20} />
               </NavLink>

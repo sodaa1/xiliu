@@ -113,7 +113,7 @@ test('compact composer keeps its draft when dismissed and has icon-only controls
   )
   const chat = screen.getByRole('button', { name: '新对话' })
   expect(chat.textContent).toBe('')
-  expect(screen.getByRole('button', { name: '收进 Inbox' }).textContent).toBe('')
+  expect(screen.getByRole('button', { name: '收进收件箱' }).textContent).toBe('')
   fireEvent.click(chat)
   const input = screen.getByRole('textbox', { name: '快速对话内容' })
   expect(input).toHaveAttribute('placeholder', '开始新聊天')

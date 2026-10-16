@@ -156,7 +156,7 @@ test('subscribed UI polls and receives agent edits without a storage event', asy
   })
 })
 
-test('open Personal Settings updates pristine fields but protects unsaved drafts from agent edits', async () => {
+test('open Personal 设置 updates pristine fields but protects unsaved drafts from agent edits', async () => {
   current = { preferences: { ...initial, displayName: 'Original' }, revision: 1, initialized: true }
   const preferences = await import('./preferences')
   const { PersonalSettings } = await import('../features/settings/PersonalSettings')

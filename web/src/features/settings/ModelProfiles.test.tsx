@@ -113,12 +113,12 @@ test('switching providers isolates key draft and restores saved profile fields',
   const user = userEvent.setup()
   const key = await screen.findByPlaceholderText('已配置 · 留空保留已有密钥')
   await user.type(key, 'unsaved-test-secret')
-  await user.click(screen.getByRole('combobox', { name: 'Provider' }))
+  await user.click(screen.getByRole('combobox', { name: '提供商' }))
   await user.click(screen.getByRole('option', { name: 'OpenAI' }))
   expect(key).toHaveValue('')
-  expect(key).toHaveAttribute('placeholder', '输入 API Key')
-  expect(screen.getByLabelText('Base URL')).toHaveValue('https://saved.example.test/v1')
-  await user.click(screen.getByRole('combobox', { name: 'Provider' }))
+  expect(key).toHaveAttribute('placeholder', '输入 API 密钥')
+  expect(screen.getByLabelText('接口地址')).toHaveValue('https://saved.example.test/v1')
+  await user.click(screen.getByRole('combobox', { name: '提供商' }))
   await user.click(screen.getByRole('option', { name: 'DeepSeek' }))
   expect(key).toHaveAttribute('placeholder', '已配置 · 留空保留已有密钥')
 })
@@ -156,7 +156,7 @@ test('model picker offers configured connections across providers without saving
   await userEvent.click(screen.getByRole('combobox'))
   await userEvent.click(screen.getByRole('option', { name: /MiMo.*mimo-v2.6-pro/ }))
   expect(changed).toHaveBeenCalledWith('mimo:mimo-v2.6-pro')
-  expect(screen.queryByText('API Key')).not.toBeInTheDocument()
+  expect(screen.queryByText('API 密钥')).not.toBeInTheDocument()
 })
 
 test('connections panel opens MiMo password form and saves only its connection', async () => {
@@ -209,7 +209,7 @@ test('connections panel opens MiMo password form and saves only its connection',
     </QueryClientProvider>
   )
   await userEvent.click(await screen.findByRole('button', { name: '编辑 mimo-v2.6-pro' }))
-  const key = screen.getByPlaceholderText('输入 API Key')
+  const key = screen.getByPlaceholderText('输入 API 密钥')
   expect(screen.getByText(/普通 API 使用 api.xiaomimimo.com/)).toBeVisible()
   expect(key).toHaveAttribute('type', 'password')
   await userEvent.type(key, 'mimo-test-only')
@@ -263,10 +263,10 @@ test('custom interface draft saves an independent model and key', async () => {
   )
   const user = userEvent.setup()
   await user.click(await screen.findByRole('button', { name: '添加其他模型接口' }))
-  await user.type(screen.getByLabelText('Model'), 'private-research-model')
+  await user.type(screen.getByLabelText('模型'), 'private-research-model')
   await user.type(screen.getByLabelText('显示名称'), '研究接口')
-  await user.type(screen.getByLabelText('Base URL'), 'https://private.example.test/v1')
-  await user.type(screen.getByLabelText('API Key'), 'custom-test-only')
+  await user.type(screen.getByLabelText('接口地址'), 'https://private.example.test/v1')
+  await user.type(screen.getByLabelText('API 密钥'), 'custom-test-only')
   await user.click(screen.getByRole('button', { name: '保存设置' }))
   expect(saved).toEqual([
     {

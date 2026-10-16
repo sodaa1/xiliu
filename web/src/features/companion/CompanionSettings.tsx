@@ -74,7 +74,7 @@ export function CompanionSettings() {
     <section className="settings-card companion-controls" aria-label="桌宠设置">
       <div>
         <h2>桌面伴侣</h2>
-        <p className="settings-hint">小小一只，随时开始对话或收进 Inbox。</p>
+        <p className="settings-hint">小小一只，随时开始对话或收进收件箱。</p>
       </div>
       {settings && (
         <fieldset className="companion-settings-fields" disabled={saving}>

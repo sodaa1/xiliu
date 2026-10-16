@@ -16,12 +16,14 @@ function FolderEditor({
 }) {
   const cache = useQueryClient()
   const [name, setName] = useState(folder?.name ?? ''),
+    [demoRevision] = useState(folder?.demo_revision),
     [summary, setSummary] = useState(folder?.summary ?? ''),
     [tags, setTags] = useState(folder?.tags.join(', ') ?? ''),
     [priority, setPriority] = useState(String(folder?.priority ?? 0))
   const save = useMutation({
     mutationFn: () => {
       const body = {
+        demo_revision: demoRevision,
         name: name.trim(),
         summary: summary.trim(),
         tags: [
@@ -185,7 +187,7 @@ export function KnowledgePage() {
       <header className="workspace-header">
         <div>
           <span className="eyebrow">让积累成为你的知识</span>
-          <h1>Knowledge</h1>
+          <h1>知识库</h1>
           <p>通过标签规则自动归类，也可以随时手动调整。</p>
           <div className="knowledge-overview" aria-label="知识库概况">
             <span>

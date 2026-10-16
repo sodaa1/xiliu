@@ -1,6 +1,11 @@
-/* React Bits PillNav JS-CSS; layout adapted to the existing Today title row. */
+/* Shared workbench shortcuts; keep the six destinations reachable on narrow screens. */
 .today-shortcuts {
-  flex: none;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 4px;
+  margin: -4px;
 }
 .today-shortcuts .pill-nav-container {
   position: relative;
@@ -61,7 +66,7 @@
 }
 @media (max-width: 600px) {
   .today-shortcuts .pill-nav {
-    --pill-pad-x: 14px;
+    --pill-pad-x: 10px;
     --nav-h: 36px;
   }
 }

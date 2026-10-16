@@ -69,7 +69,7 @@ test('feed preview blocks duplicate saves and shows save failures before retry',
   const user = userEvent.setup()
   await user.click(screen.getByRole('heading', { name: 'Preview story', level: 2 }))
   const dialog = screen.getByRole('dialog', { name: 'Preview story' })
-  const save = within(dialog).getByRole('button', { name: '收进 Inbox' })
+  const save = within(dialog).getByRole('button', { name: '收进收件箱' })
   await user.click(save)
   expect(save).toBeDisabled()
   expect(save).toHaveTextContent('保存中')
@@ -82,11 +82,11 @@ test('feed preview blocks duplicate saves and shows save failures before retry',
   await user.click(save)
   expect(saves).toHaveLength(2)
   finishSave(Response.json({ id: 'saved' }))
-  expect(await within(dialog).findByRole('button', { name: '已收进 Inbox' })).toBeDisabled()
+  expect(await within(dialog).findByRole('button', { name: '已收进收件箱' })).toBeDisabled()
   expect(within(dialog).queryByRole('alert')).not.toBeInTheDocument()
 })
 
-test('manual add edit remove restore and external hide restore remain available in Feed', async () => {
+test('manual add edit remove restore and external hide restore remain available in 资讯', async () => {
   const user = userEvent.setup()
   let items = [
     {
@@ -232,7 +232,7 @@ test('feed card opens a preview with AI summary, read original and save actions'
     'href',
     'https://example.org/news'
   )
-  expect(within(dialog).getByRole('button', { name: /收进 Inbox/ })).toBeVisible()
+  expect(within(dialog).getByRole('button', { name: /收进收件箱/ })).toBeVisible()
   await user.click(within(dialog).getByRole('button', { name: /AI 总结/ }))
   expect(await within(dialog).findByText(/更详细的 AI 总结/)).toBeVisible()
 })

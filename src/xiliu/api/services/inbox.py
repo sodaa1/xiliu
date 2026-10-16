@@ -690,7 +690,7 @@ class InboxService:
             remaining = deadline - time.monotonic()
             if remaining <= 0:
                 raise WebError(
-                    "inbox_processing_timeout", "Inbox 标签生成尚未完成，请稍后重试。", 409
+                    "inbox_processing_timeout", "收件箱标签生成尚未完成，请稍后重试。", 409
                 )
             with self._condition:
                 self._condition.wait(timeout=min(remaining, 0.1))
