@@ -190,7 +190,7 @@ export function savePreferences(
     }
     accept(snapshot)
     try {
-      await saveDesktopPreferences(JSON.stringify(snapshot.preferences))
+      if (!isDemo) await saveDesktopPreferences(JSON.stringify(snapshot.preferences))
     } catch {
       throw new Error('本机偏好已保存，但桌面备份未保存，请重试保存。')
     }

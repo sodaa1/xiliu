@@ -3,6 +3,8 @@ import { useMutation } from '@tanstack/react-query'
 import { Upload, X } from 'lucide-react'
 import { fileBase64, workspaceApi, type ContentItem } from '../../lib/workspace-api'
 import { ContentDialog } from './ContentDialog'
+import { isDemo } from '../../lib/runtime-mode'
+import { Link } from 'react-router-dom'
 
 export function CaptureDialog({
   onClose,
@@ -40,7 +42,7 @@ export function CaptureForm({
       }
     }),
     [file, setFile] = useState<File | null>(null),
-    [useAI, setUseAI] = useState(true),
+    [useAI, setUseAI] = useState(!isDemo),
     [fileError, setFileError] = useState(''),
     [dragging, setDragging] = useState(false)
   useEffect(() => {
@@ -55,6 +57,10 @@ export function CaptureForm({
   const chooseFile = (value?: File) => {
     if (submitting.current) return
     if (!value) return
+    if (isDemo) {
+      setFileError('演示版不上传文件，请粘贴文字或链接。')
+      return
+    }
     if (value.size > 20 * 1024 * 1024) {
       setFileError('文件不能超过 20 MiB。')
       return
@@ -126,7 +132,7 @@ export function CaptureForm({
         <small>单个文件最多 20 MiB · 保留原件</small>
         <input
           type="file"
-          disabled={create.isPending}
+          disabled={create.isPending || isDemo}
           aria-label="选择文件"
           onChange={(event) => chooseFile(event.target.files?.[0])}
         />
@@ -148,14 +154,21 @@ export function CaptureForm({
       <label className="content-checkbox">
         <input
           type="checkbox"
-          disabled={create.isPending}
+          disabled={create.isPending || isDemo}
           checked={useAI}
           onChange={(event) => setUseAI(event.target.checked)}
         />
         使用 AI 整理
       </label>
       <p className="section-description">
-        保存后在后台生成标题、摘要与标签，并按文件夹规则归类。关闭 AI 时使用本地内容整理。
+        {isDemo ? (
+          <>
+            演示仅在浏览器保存文字与链接，不上传文件或调用模型。
+            <Link to="/guide/inbox">查看完整收集功能</Link>
+          </>
+        ) : (
+          '保存后在后台生成标题、摘要与标签，并按文件夹规则归类。关闭 AI 时使用本地内容整理。'
+        )}
       </p>
       {(fileError || create.error) && (
         <p role="alert" className="workspace-error">

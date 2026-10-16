@@ -8,6 +8,7 @@ import {
   type HomeBackground,
 } from '../today/background'
 import { useHomeBackground } from '../today/useHomeBackground'
+import { isDemo } from '../../lib/runtime-mode'
 export function HomeBackgroundSettings() {
   const { settings, images, error: loadError } = useHomeBackground()
   const [busy, setBusy] = useState(false),
@@ -88,7 +89,7 @@ export function HomeBackgroundSettings() {
           aria-label="导入主页背景"
           type="file"
           accept={BACKGROUND_ACCEPT}
-          disabled={busy}
+          disabled={busy || isDemo}
           onChange={(event) => {
             const file = event.target.files?.[0]
             event.target.value = ''
@@ -96,7 +97,11 @@ export function HomeBackgroundSettings() {
           }}
         />
       </label>
-      <p className="settings-hint">PNG、JPEG、WebP、GIF、AVIF、BMP · 最大 20 MiB · GIF 保留动画</p>
+      <p className="settings-hint">
+        {isDemo
+          ? '演示提供内置与留白背景；自定义图片请在正常应用中导入。'
+          : 'PNG、JPEG、WebP、GIF、AVIF、BMP · 最大 20 MiB · GIF 保留动画'}
+      </p>
       {busy && <p role="status">正在读取并保存图片…</p>}
       {(error || loadError) && (
         <p role="alert" className="workspace-error">

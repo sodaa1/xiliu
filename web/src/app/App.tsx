@@ -1,6 +1,7 @@
 import { PlansPage } from '../features/plans/PlansPage'
 import { NavLink, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
-import { useCallback, useMemo, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useQueryClient } from '@tanstack/react-query'
 import {
   BookOpen,
   House,
@@ -34,6 +35,9 @@ import { CompanionController } from '../features/companion/CompanionController'
 import { CompanionPage } from '../features/companion/CompanionPage'
 import { CapturePage } from '../features/companion/CapturePage'
 import { GuidePage } from '../features/help/GuidePage'
+import { isDemo } from '../lib/runtime-mode'
+import { DemoBar } from '../features/demo/DemoBar'
+import { resetDemoExperience } from '../features/demo/reset'
 
 const navigation = [
   { path: '/today', label: 'Today', icon: House },
@@ -46,7 +50,13 @@ const navigation = [
 export function App() {
   useApplyPreferences()
   const location = useLocation()
-  if (location.pathname.startsWith('/desktop/'))
+  const [demoEpoch, setDemoEpoch] = useState(0)
+  useEffect(() => {
+    const reset = () => setDemoEpoch((value) => value + 1)
+    window.addEventListener('xiliu-demo-reset', reset)
+    return () => window.removeEventListener('xiliu-demo-reset', reset)
+  }, [])
+  if (location.pathname.startsWith('/desktop/') && !isDemo)
     return (
       <Routes>
         <Route path="/desktop/companion" element={<CompanionPage />} />
@@ -55,8 +65,8 @@ export function App() {
       </Routes>
     )
   return (
-    <ChatProvider>
-      <CompanionController />
+    <ChatProvider key={demoEpoch}>
+      {!isDemo && <CompanionController />}
       <AppLayout />
     </ChatProvider>
   )
@@ -64,6 +74,7 @@ export function App() {
 function AppLayout() {
   const location = useLocation()
   const navigate = useNavigate()
+  const cache = useQueryClient()
   const isSettings = location.pathname === '/settings'
   const background = location.state?.backgroundLocation
   const backgroundUrl =
@@ -129,6 +140,14 @@ function AppLayout() {
             </div>
           </aside>
           <main className="main-stage" inert={isSettings || undefined}>
+            {isDemo && (
+              <DemoBar
+                onReset={async () => {
+                  await resetDemoExperience(cache)
+                  navigate('/today', { replace: true })
+                }}
+              />
+            )}
             <div className="global-topbar">
               <PillNav />
             </div>

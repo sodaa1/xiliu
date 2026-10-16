@@ -21,6 +21,8 @@ import { AppearanceSettings } from './AppearanceSettings'
 import { AutomationsPanel } from '../automations/AutomationsDrawer'
 import './settings.css'
 import { CompanionSettings } from '../companion/CompanionSettings'
+import { isDemo } from '../../lib/runtime-mode'
+import { DemoNotice } from '../demo/DemoNotice'
 
 function ModelForm({
   settings,
@@ -343,6 +345,12 @@ const sections = [
 export function ModelSettingsPanel() {
   const settings = useQuery({ queryKey: ['model-settings'], queryFn: api.settings })
   const catalog = useQuery({ queryKey: ['model-catalog'], queryFn: api.catalog })
+  if (isDemo)
+    return (
+      <DemoNotice title="本地演示模板" guide="models">
+        这里不调用真实模型，也不接收 API Key。安装或运行正常应用后，可配置自己的模型连接。
+      </DemoNotice>
+    )
   if (settings.error || catalog.error)
     return (
       <div className="workspace-error" role="alert">
@@ -522,11 +530,28 @@ export function SettingsPage({ embedded = false }: { embedded?: boolean }) {
         className="settings-panel"
       >
         {current.id === 'profile' && <PersonalSettings />}
-        {current.id === 'appearance' && <><AppearanceSettings /><CompanionSettings /></>}
+        {current.id === 'appearance' && (
+          <>
+            <AppearanceSettings />
+            {isDemo ? (
+              <DemoNotice title="桌面伴侣与 Live2D" guide="appearance-companion">
+                演示版不创建原生桌宠窗口或导入模型。使用指南介绍了形态、缩放、快捷聊天与使用条件。
+              </DemoNotice>
+            ) : (
+              <CompanionSettings />
+            )}
+          </>
+        )}
         {current.id === 'model' && <ModelSettingsPanel />}
         {current.id === 'automations' && (
           <div className="settings-card">
-            <AutomationsPanel />
+            {isDemo ? (
+              <DemoNotice title="自动任务与扩展" guide="automations-extensions">
+                游客演示不执行后台任务或外部工具。正常应用可按时区设置计划，并查看运行结果。
+              </DemoNotice>
+            ) : (
+              <AutomationsPanel />
+            )}
           </div>
         )}
         {current.id === 'data' && <DataSettings />}

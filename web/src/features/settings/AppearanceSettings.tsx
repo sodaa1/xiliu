@@ -1,6 +1,7 @@
 import { Live2DSettings } from '../companion/Live2DSettings'
 import { HomeBackgroundSettings } from './HomeBackgroundSettings'
 import { useState } from 'react'
+import { isDemo } from '../../lib/runtime-mode'
 import { Palette, RotateCcw } from 'lucide-react'
 import { GlideSelect } from '../../components/GlideSelect'
 import {
@@ -33,7 +34,7 @@ export function AppearanceSettings() {
   return (
     <>
       <HomeBackgroundSettings />
-      <Live2DSettings />
+      {!isDemo && <Live2DSettings />}
       <section className="settings-card">
         <div className="card-title">
           <Palette size={20} />

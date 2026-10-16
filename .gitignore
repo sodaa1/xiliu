@@ -54,6 +54,7 @@ project-showcase/
 # Web dependency/build output and local verification
 web/node_modules/
 web/dist/
+web/dist-demo/
 *.log
 *.log.*
 /logs/
