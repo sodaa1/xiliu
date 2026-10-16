@@ -1,3 +1,4 @@
+import { appFetch } from './app-fetch'
 import type {
   Capability,
   Command,
@@ -29,7 +30,7 @@ async function httpError(response: Response): Promise<ApiError> {
   }
 }
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`/api${path}`, {
+  const response = await appFetch(`/api${path}`, {
     ...init,
     headers: { ...(init?.body ? { 'Content-Type': 'application/json' } : {}), ...init?.headers },
   })
@@ -118,7 +119,7 @@ export const api = {
     onEvent: (event: WebEvent) => void,
     context?: string
   ) {
-    const response = await fetch(`/api/conversations/${encodeURIComponent(id)}/chat`, {
+    const response = await appFetch(`/api/conversations/${encodeURIComponent(id)}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text, ...(context ? { context } : {}) }),

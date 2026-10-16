@@ -1,3 +1,4 @@
+import { appFetch } from '../../lib/app-fetch'
 export const BACKGROUND_ACCEPT =
   '.png,.jpg,.jpeg,.webp,.gif,.avif,.bmp,image/png,image/jpeg,image/webp,image/gif,image/avif,image/bmp'
 export type HomeBackground = { mode: 'blank' | 'builtin' | 'custom'; selected: string | null }
@@ -20,7 +21,7 @@ export function validateBackgroundSize(size: number) {
   if (size > 20 * 1024 * 1024) throw new Error('背景图片不能超过 20 MiB。')
 }
 export async function mediaRequest(path: string, init?: RequestInit): Promise<Response> {
-  const response = await fetch(`/api/appearance/${path}`, init)
+  const response = await appFetch(`/api/appearance/${path}`, init)
   if (!response.ok) {
     let message = '本机素材未能保存或读取，请重试。'
     try {

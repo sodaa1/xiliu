@@ -1,4 +1,5 @@
 import { ApiError } from './api'
+import { appFetch } from './app-fetch'
 
 export interface ContentItem {
   id: string
@@ -107,7 +108,7 @@ export interface DataSettings {
 type ContentInput = Pick<ContentItem, 'type' | 'title' | 'content' | 'source' | 'tags'> &
   Partial<Pick<ContentItem, 'summary' | 'status'>> & { filename?: string; data_base64?: string }
 async function request<T>(path: string, method = 'GET', body?: unknown): Promise<T> {
-  const response = await fetch(`/api${path}`, {
+  const response = await appFetch(`/api${path}`, {
     method,
     ...(body !== undefined
       ? { headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }

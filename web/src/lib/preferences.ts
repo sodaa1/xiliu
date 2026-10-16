@@ -1,5 +1,7 @@
 import { useLayoutEffect, useSyncExternalStore } from 'react'
 import { saveDesktopPreferences } from '../desktop/bridge'
+import { appFetch } from './app-fetch'
+import { isDemo } from './runtime-mode'
 
 export interface Preferences {
   displayName: string
@@ -23,7 +25,7 @@ export const defaultPreferences: Preferences = {
   density: 'comfortable',
   reducedMotion: false,
 }
-const key = 'xiliu-preferences-v1'
+const key = isDemo ? 'xiliu-demo-preferences-v1' : 'xiliu-preferences-v1'
 const listeners = new Set<() => void>()
 let cachedRaw: string | null | undefined
 let cached: Preferences = defaultPreferences
@@ -107,7 +109,7 @@ function enqueue(operation: () => Promise<void>): Promise<void> {
   return next
 }
 async function request(method = 'GET', body?: unknown): Promise<Snapshot> {
-  const response = await fetch('/api/settings/preferences', {
+  const response = await appFetch('/api/settings/preferences', {
     method,
     ...(body
       ? { headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }
