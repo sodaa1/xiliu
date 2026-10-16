@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "disposable_data": true,
+  "provider_fixture_only": true,
+  "phases": [
+    {
+      "phase": "ui",
+      "status": "passed",
+      "checks": 20,
+      "browserErrors": []
+    },
+    {
+      "phase": "ui_restart",
+      "status": "passed",
+      "checks": 1,
+      "browserErrors": []
+    },
+    {
+      "phase": "agent",
+      "status": "passed",
+      "checks": 6,
+      "browserErrors": []
+    },
+    {
+      "phase": "agent_restart",
+      "status": "passed",
+      "checks": 1,
+      "browserErrors": []
+    }
+  ],
+  "database_counts": {
+    "feed_manual_items": 2,
+    "feed_hidden_items": 1,
+    "content_items": 11,
+    "tasks": 2,
+    "app_requests": 20
+  }
+}

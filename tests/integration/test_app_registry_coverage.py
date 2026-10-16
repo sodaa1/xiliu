@@ -2,6 +2,7 @@
 
 import json
 from dataclasses import replace
+from types import SimpleNamespace
 
 import pytest
 
@@ -498,3 +499,65 @@ def test_gateway_feed_visibility_restore_and_save_chains_share_actual_database(a
     assert hidden["ok"] and story["id"] not in {row["id"] for row in app.state.feed.list()["items"]}
     unhidden = invoke(app_context, "feed.unhide_external", {"item_id": story["id"]})
     assert unhidden["ok"] and story["id"] in {row["id"] for row in app.state.feed.list()["items"]}
+
+
+def test_gateway_feed_summarize_uses_stored_metadata_without_mutating_the_feed(
+    app_context, monkeypatch
+):
+    app, _, _ = app_context
+    monkeypatch.setenv("XILIU_PROVIDER", "deepseek")
+    monkeypatch.setenv("XILIU_MODEL", "deepseek-v4-flash")
+    monkeypatch.setenv("XILIU_API_KEY", "disposable-test-key")
+    item = app.state.feed.add_manual(
+        {
+            "title": "Stored story",
+            "url": "https://example.org/stored-story",
+            "summary": "Original short summary",
+            "tags": ["research"],
+        }
+    )
+    before = app.state.feed.list()
+    calls = []
+    options = []
+    summary = "A detailed interpretation based only on the stored story metadata."
+
+    class FakeModel:
+        max_retries = 0
+        request_timeout = 0
+        streaming = True
+
+        def __init__(self):
+            self.root_client = SimpleNamespace(with_options=self.with_options)
+
+        def with_options(self, **kwargs):
+            options.append(kwargs)
+            return SimpleNamespace(chat=SimpleNamespace(completions=object()))
+
+        def invoke(self, messages):
+            calls.append(messages)
+            assert self.max_retries == 0 and self.request_timeout == 45
+            assert self.streaming is False
+            return SimpleNamespace(content=f"  {summary}  ")
+
+    def create_model(settings):
+        assert settings.provider == "deepseek"
+        assert settings.model == "deepseek-v4-flash"
+        return FakeModel()
+
+    monkeypatch.setattr("xiliu.providers.openai_compatible.create_chat_model", create_model)
+    result = invoke(app_context, "feed.summarize", {"item_id": item["id"]})
+
+    assert result["ok"] and result["verification"]["passed"], result
+    assert result["data"] == {"summary": summary}
+    assert len(calls) == 1 and len(calls[0]) == 2
+    assert calls[0][0].type == "system"
+    assert calls[0][1].type == "human"
+    assert json.loads(calls[0][1].content) == {
+        "title": item["title"],
+        "summary": item["summary"],
+        "tags": item["tags"],
+        "url": item["url"],
+    }
+    assert options == [{"max_retries": 0, "timeout": 45}]
+    assert app.state.feed.list() == before
+    assert not app.state.content.list("inbox")

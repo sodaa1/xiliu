@@ -10,9 +10,9 @@
 - 无既有背景配置时默认显示内置主页背景，保留已保存的留白或自定义背景。
 - Python、Web、Tauri/Cargo 与 npm 锁文件统一为 0.4.3；安装包不包含开发者配置和用户数据库。
 
-验证：后端 832 passed / 1 skipped、前端 117 passed、Rust 8 passed；ESLint、生产构建及 803 项 surface guard 通过。默认背景回归先失败后通过，覆盖显式留白的重启保留。解包后的九张角色/表情/背景资源逐项 SHA256 一致，服务文件与本次冻结产物一致；用解包服务运行实际主页，默认背景为 builtin 且角色/背景均成功解码。冻结服务验证两种退出方式、端口释放、同资料重启，以及本地假模型驱动的聊天与业务链路。
+验证：后端 833 passed / 1 skipped、前端 117 passed、Rust 8 passed；ESLint、生产构建及 803 项 surface guard 与真实三层运行覆盖校验通过。默认背景回归先失败后通过，覆盖显式留白的重启保留。解包后的九张角色/表情/背景资源逐项 SHA256 一致，服务文件与本次冻结产物一致；用解包服务运行实际主页，默认背景为 builtin 且角色/背景均成功解码。冻结服务验证两种退出方式、端口释放、同资料重启，以及本地假模型驱动的聊天与业务链路。
 
-证据：[包资源](audit/releases/0.4.3/package.json)、[冻结服务](audit/releases/0.4.3/service.json)、[解包主页](audit/releases/0.4.3/home.json)。此前的原生窗口/最小化/设置/收录验证见 [桌宠验证记录](audit/companion-native-2026-10-16.md)。本次解包检查没有覆盖用户现有安装或资料目录；未重复进行真实安装向导和跨显示器拖动验收。真实 Live2D 形变仍需模型和许可允许的 Cubism Core，默认提供图片局部表情。
+证据：[包资源](audit/releases/0.4.3/package.json)、[冻结服务](audit/releases/0.4.3/service.json)、[解包主页](audit/releases/0.4.3/home.json)。完整浏览器验收补齐当前按钮、内容预览编辑和个人计划入口，并等待偏好保存与滚动完成后操作下拉菜单；四阶段界面/Agent/重启流程通过，见 [浏览器验收](audit/releases/0.4.3/browser.json) 与 [三层运行覆盖](audit/releases/0.4.3/actions-coverage.json)。此前的原生窗口/最小化/设置/收录验证见 [桌宠验证记录](audit/companion-native-2026-10-16.md)。本次解包检查没有覆盖用户现有安装或资料目录；未重复进行真实安装向导和跨显示器拖动验收。真实 Live2D 形变仍需模型和许可允许的 Cubism Core，默认提供图片局部表情。
 
 ## 历史交付记录
 
