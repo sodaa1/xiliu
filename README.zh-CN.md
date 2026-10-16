@@ -1,10 +1,10 @@
 # 息流 · xiliu
 
-![息流产品介绍](docs/web/assets/xiliu-intro-concept-a.png)
+![息流主页：内置背景与角色](docs/assets/xiliu-home-background.png)
 
 [简体中文](README.zh-CN.md) · [English](README.en.md)
 
-*上图为产品介绍页的视觉概念，卡片内容为设计示意。*
+*应用主页截图（已启用内置背景），可在设置中切换主页背景。*
 
 **信息有归处，思考自成流。** 息流是本地优先的个人信息与 AI 助手，把 Feed、Inbox、Knowledge、Assistant 和 Today 连接成从发现到行动的信息流。
 
@@ -130,3 +130,9 @@ npm run build
 源内核来自 [sodaa1/xiliumini](https://github.com/sodaa1/xiliumini)，基线 `6d3689583f93b3fafd6381b2b65c31d9613464e5`；本项目品牌、包名、CLI 与配置使用 `xiliu`。
 
 产品介绍网站源码、脚本与设计资料位于 [`docs/web/`](docs/web/README.md)，应用构建继续提供 `/intro/` 入口。公开介绍：[息流 · xiliu](https://933693.xyz/projects/xiliu/)。
+
+## 产品介绍概念图
+
+![息流产品介绍](docs/web/assets/xiliu-intro-concept-a.png)
+
+*上图为产品介绍页的视觉概念，卡片内容为设计示意。*

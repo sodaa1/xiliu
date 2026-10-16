@@ -1,10 +1,10 @@
 # Xiliu · 息流
 
-![Xiliu product introduction](docs/web/assets/xiliu-intro-concept-a.png)
+![Xiliu home with the built-in background](docs/assets/xiliu-home-background.png)
 
 [English](README.en.md) · [简体中文](README.zh-CN.md)
 
-*The image is a visual concept for the product introduction page; its cards contain illustrative content.*
+*Application home with the built-in background enabled. The home background can be changed in Settings.*
 
 **Give information a home and ideas room to flow.** Xiliu is a local-first personal knowledge workspace and AI assistant connecting Feed, Inbox, Knowledge, Assistant, and Today.
 
@@ -130,3 +130,9 @@ Under the current repository policy, test sources and logs remain local and are 
 The kernel originated from [sodaa1/xiliumini](https://github.com/sodaa1/xiliumini), baseline `6d3689583f93b3fafd6381b2b65c31d9613464e5`. This project uses `xiliu` for its brand, Python package, CLI, and configuration.
 
 The introduction website source, scripts, and design records are in [`docs/web/`](docs/web/README.md); the application build still provides `/intro/`. Public introduction: [Xiliu](https://933693.xyz/projects/xiliu/).
+
+## Product introduction concept
+
+![Xiliu product introduction](docs/web/assets/xiliu-intro-concept-a.png)
+
+*The image is a visual concept for the product introduction page; its cards contain illustrative content.*
