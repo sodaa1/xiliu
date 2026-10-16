@@ -9,6 +9,7 @@ import {
   Newspaper,
   Settings,
   CalendarCheck2,
+  CircleHelp,
 } from 'lucide-react'
 import { Brand } from '../components/Brand'
 import { PillNav } from '../components/PillNav'
@@ -32,6 +33,7 @@ import './page-transition.css'
 import { CompanionController } from '../features/companion/CompanionController'
 import { CompanionPage } from '../features/companion/CompanionPage'
 import { CapturePage } from '../features/companion/CapturePage'
+import { GuidePage } from '../features/help/GuidePage'
 
 const navigation = [
   { path: '/today', label: 'Today', icon: House },
@@ -112,6 +114,9 @@ function AppLayout() {
               ))}
             </nav>
             <div className="sidebar-bottom">
+              <NavLink to="/guide" className="nav-item" aria-label="使用指南" title="使用指南">
+                <CircleHelp size={20} />
+              </NavLink>
               <NavLink
                 className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
                 to="/settings"
@@ -128,6 +133,8 @@ function AppLayout() {
               <PillNav />
             </div>
             <Routes location={displayed}>
+              <Route path="/guide" element={<GuidePage />} />
+              <Route path="/guide/:slug" element={<GuidePage />} />
               <Route path="/assistant" element={<AssistantPage />} />
               <Route path="/today" element={<TodayPage />} />
               <Route path="/plans" element={<PlansPage />} />
