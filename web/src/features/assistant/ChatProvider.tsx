@@ -54,7 +54,8 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     id: string | undefined,
     text: string,
     onCreated: (id: string) => void,
-    context?: string
+    context?: string,
+    onOutcome?: (outcome: ChatOutcome) => void
   ) {
     if (active.current.has(id ?? '') || !text.trim()) return
     const controller = new AbortController()
@@ -181,6 +182,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
         active.current.delete(key)
         clearRun(key)
       }
+      onOutcome?.(controller.signal.aborted ? 'stopped' : outcome)
     }
   }
   return (

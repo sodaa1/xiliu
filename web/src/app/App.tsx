@@ -38,6 +38,7 @@ import { GuidePage } from '../features/help/GuidePage'
 import { isDemo } from '../lib/runtime-mode'
 import { DemoBar } from '../features/demo/DemoBar'
 import { resetDemoExperience } from '../features/demo/reset'
+import { Onboarding, PageHelp } from '../features/onboarding/Onboarding'
 
 const navigation = [
   { path: '/today', label: 'Today', icon: House },
@@ -151,6 +152,8 @@ function AppLayout() {
             <div className="global-topbar">
               <PillNav />
             </div>
+            {!displayed.pathname.startsWith('/guide') && <Onboarding />}
+            <PageHelp />
             <Routes location={displayed}>
               <Route path="/guide" element={<GuidePage />} />
               <Route path="/guide/:slug" element={<GuidePage />} />

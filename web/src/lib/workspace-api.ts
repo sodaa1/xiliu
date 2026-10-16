@@ -1,5 +1,6 @@
 import { ApiError } from './api'
 import { appFetch } from './app-fetch'
+import { recordGuideAction } from '../features/onboarding/progress'
 
 export interface ContentItem {
   id: string
@@ -146,6 +147,9 @@ export const workspaceApi = {
       item_ids,
       save_to_knowledge: true,
       use_ai: false,
+    }).then((result) => {
+      recordGuideAction({ type: 'archived', items: result.items })
+      return result
     }),
   retryContent: (id: string) =>
     request<ContentItem>(`/inbox/${encodeURIComponent(id)}/retry`, 'POST'),
@@ -170,7 +174,11 @@ export const workspaceApi = {
     body: Partial<
       Pick<ContentItem, 'title' | 'content' | 'summary' | 'tags' | 'status' | 'folder_id'>
     >
-  ) => request<ContentItem>(itemPath(id), 'PATCH', body),
+  ) =>
+    request<ContentItem>(itemPath(id), 'PATCH', body).then((item) => {
+      if (item.status === 'knowledge') recordGuideAction({ type: 'archived', items: [item] })
+      return item
+    }),
   deleteContent: (id: string) => request<void>(itemPath(id), 'DELETE'),
   originalUrl: (id: string) => `/api${itemPath(id)}/original`,
   feed: (source = '', q = '', includeHidden = false) =>
@@ -189,7 +197,11 @@ export const workspaceApi = {
     request<FeedItem>(`/feed/${encodeURIComponent(id)}/hide`, 'POST'),
   unhideExternalFeed: (id: string) =>
     request<FeedItem>(`/feed/${encodeURIComponent(id)}/unhide`, 'POST'),
-  saveFeed: (id: string) => request<ContentItem>(`/feed/${encodeURIComponent(id)}/save`, 'POST'),
+  saveFeed: (id: string) =>
+    request<ContentItem>(`/feed/${encodeURIComponent(id)}/save`, 'POST').then((item) => {
+      recordGuideAction({ type: 'saved', item })
+      return item
+    }),
   summarizeFeed: (id: string) =>
     request<{ summary: string }>(`/feed/${encodeURIComponent(id)}/summarize`, 'POST'),
   today: () => request<{ feed: FeedItem[]; tasks: Task[]; inbox_count: number }>('/today'),

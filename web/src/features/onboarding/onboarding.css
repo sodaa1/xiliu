@@ -1,0 +1,130 @@
+.onboarding {
+  position: relative;
+  flex: none;
+  margin: 0 22px 10px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text);
+}
+.onboarding small {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: var(--muted-readable);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.onboarding h2 {
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 6px 20px 4px 0;
+  font-weight: 600;
+  text-wrap: balance;
+}
+.onboarding p {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 4px 0;
+  color: var(--muted-readable);
+}
+.onboarding-close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: none;
+  color: var(--muted-readable);
+  border: 0;
+  padding: 5px;
+  cursor: pointer;
+}
+.onboarding-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 10px;
+}
+.onboarding-actions > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text);
+}
+.onboarding-actions > button:not(.onboarding-quiet) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  border-radius: 5px;
+  padding: 8px 12px;
+  background: var(--text);
+  color: var(--surface);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.onboarding .onboarding-quiet {
+  border: 0;
+  background: none;
+  color: var(--muted-readable);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px;
+}
+.page-guide-hint {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  flex: none;
+  padding: 0 24px 9px;
+  font-size: 11px;
+  color: var(--muted-readable);
+}
+.page-guide-hint > span {
+  max-width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.page-guide-hint a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: inherit;
+  white-space: nowrap;
+}
+.onboarding :is(a, button):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.guide-restart {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 9px 13px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+  margin: 12px 0 0;
+}
+@media (max-width: 700px) {
+  .onboarding {
+    margin: 0 12px 10px;
+    padding: 12px;
+  }
+  .onboarding h2 {
+    font-size: 17px;
+  }
+  .page-guide-hint {
+    padding: 0 14px 8px;
+  }
+  .page-guide-hint > span {
+    display: none;
+  }
+  .page-guide-hint a {
+    margin-left: auto;
+  }
+}

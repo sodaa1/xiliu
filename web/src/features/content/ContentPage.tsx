@@ -284,7 +284,10 @@ export function ContentPage({
       invalidate()
     },
   })
-  const retry = useMutation({ mutationFn: workspaceApi.retryContent, onSuccess: () => invalidate() })
+  const retry = useMutation({
+    mutationFn: workspaceApi.retryContent,
+    onSuccess: () => invalidate(),
+  })
   const tags = [...new Set((allTags.data ?? []).flatMap((item) => item.tags))].sort()
   const combined = [
     ...new Map(
@@ -444,6 +447,7 @@ export function ContentPage({
             ask.mutate({
               draft: '请帮我梳理这份内容的要点。',
               reference: {
+                documentId: previewing.id,
                 title: previewing.title,
                 content: [previewing.content, previewing.summary, previewing.source]
                   .filter(Boolean)
@@ -591,6 +595,7 @@ export function ContentPage({
                         ask.mutate({
                           draft: '请帮我梳理这份内容的要点。',
                           reference: {
+                            documentId: item.id,
                             title: item.title,
                             content: [
                               item.filename

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { api } from '../../lib/api'
 
 export interface AssistantReference {
+  documentId?: string
   title: string
   content: string
   truncated?: boolean

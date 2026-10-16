@@ -13,7 +13,8 @@ export const ChatContext = createContext<{
     id: string | undefined,
     text: string,
     onCreated: (id: string) => void,
-    context?: string
+    context?: string,
+    onOutcome?: (outcome: ChatOutcome) => void
   ) => Promise<void>
 } | null>(null)
 

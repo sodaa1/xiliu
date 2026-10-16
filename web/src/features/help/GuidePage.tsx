@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams, useNavigate } from 'react-router-dom'
+import { resetGuide, startGuide } from '../onboarding/progress'
+import '../onboarding/onboarding.css'
 import ReactMarkdown from 'react-markdown'
 import { ArrowUpRight, BookOpen, Search } from 'lucide-react'
 import { cleanHeading, guideArticles, guideFeatures, headingAnchor, searchGuide } from './catalog'
 import './guide.css'
 
 export function GuidePage() {
+  const navigate = useNavigate()
   const { slug } = useParams(),
     location = useLocation()
   const [query, setQuery] = useState('')
@@ -22,6 +25,16 @@ export function GuidePage() {
   const results = query.trim() ? searchGuide(query) : null
   return (
     <section className="guide-page" aria-label="使用指南">
+      <button
+        className="guide-restart"
+        onClick={() => {
+          resetGuide()
+          startGuide()
+          navigate('/feed')
+        }}
+      >
+        重新开始引导
+      </button>
       <header className="guide-heading">
         <div>
           <span className="guide-eyebrow">息流 · 使用指南</span>
