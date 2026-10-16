@@ -23,6 +23,7 @@ export interface GuideFeature {
   id: string
   title: string
   summary: string
+  body: string
   articleSlug: string
   anchor: string
   route: string
@@ -45,21 +46,29 @@ export const headingAnchor = (title: string) =>
     .toLowerCase()
 export const cleanHeading = (title: string) => title.replace(/<!--.*?-->/g, '').trim()
 export const guideArticles: GuideArticle[] = chapters.map(([slug, title, route]) => {
-  const markdown = Object.entries(sources).find(([path]) => path.endsWith(`/${slug}.md`))?.[1] ?? ''
-  const features = [...markdown.matchAll(/^## (.+)\n+([\s\S]*?)(?=\n## |$)/gm)].map((match) => {
-    const name = cleanHeading(match[1]),
-      anchor = headingAnchor(name)
-    return {
-      id: `${slug}/${anchor}`,
-      title: name,
-      summary: match[2].trim().split('\n\n')[0],
-      articleSlug: slug,
-      anchor,
-      route,
-      platform: match[1].includes('desktop') ? ('desktop' as const) : ('all' as const),
-      demo: match[1].includes('unavailable') ? ('unavailable' as const) : ('interactive' as const),
-    }
-  })
+  const markdown = (
+    Object.entries(sources).find(([path]) => path.endsWith(`/${slug}.md`))?.[1] ?? ''
+  ).replace(/\r\n/g, '\n')
+  const features = markdown
+    .split(/^## /m)
+    .slice(1)
+    .map((section) => {
+      const [heading, ...lines] = section.split('\n')
+      const body = lines.join('\n').trim()
+      const name = cleanHeading(heading),
+        anchor = headingAnchor(name)
+      return {
+        id: `${slug}/${anchor}`,
+        title: name,
+        summary: body.split('\n\n')[0],
+        body,
+        articleSlug: slug,
+        anchor,
+        route,
+        platform: heading.includes('desktop') ? ('desktop' as const) : ('all' as const),
+        demo: heading.includes('unavailable') ? ('unavailable' as const) : ('interactive' as const),
+      }
+    })
   return { slug, title, route, markdown, summary: markdown.split('\n\n')[1] ?? '', features }
 })
 export const guideFeatures = guideArticles.flatMap((article) => article.features)
@@ -67,7 +76,16 @@ export function searchGuide(query: string): { feature: GuideFeature; snippet: st
   const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean)
   return guideFeatures
     .filter((feature) =>
-      words.every((word) => `${feature.title} ${feature.summary}`.toLowerCase().includes(word))
+      words.every((word) => `${feature.title} ${feature.body}`.toLowerCase().includes(word))
     )
-    .map((feature) => ({ feature, snippet: feature.summary }))
+    .map((feature) => {
+      const index = words.length ? feature.body.toLowerCase().indexOf(words[0]) : 0
+      return {
+        feature,
+        snippet:
+          index > 100
+            ? `…${feature.body.slice(Math.max(0, index - 35), index + 160)}`
+            : feature.body.slice(0, 220),
+      }
+    })
 }

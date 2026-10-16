@@ -30,3 +30,9 @@ test('empty search lists features and unknown words return no matches', () => {
   expect(searchGuide('')).toHaveLength(guideFeatures.length)
   expect(searchGuide('xx-no-matching-feature-xx')).toEqual([])
 })
+
+test('search includes detailed steps after the short introduction', () => {
+  expect(
+    searchGuide('先读一遍卡片').some(({ feature }) => feature.articleSlug === 'getting-started')
+  ).toBe(true)
+})

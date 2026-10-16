@@ -79,3 +79,11 @@ test('a later persistence failure leaves the last committed state intact', async
   fail = false
   expect((await store.read()).tasks).toEqual(before.tasks)
 })
+
+test('malformed nested feed records recover rather than crashing a page', async () => {
+  const broken = { ...createSeed(), feed: [{ id: 'broken' }] }
+  const backend: DemoPersistence = { transact: async (change) => change(broken).result }
+  const store = new DemoStore(backend)
+  expect((await store.read()).feed[0].title).toBe('建立一个能持续使用的个人知识库')
+  expect(store.notice).toContain('恢复')
+})

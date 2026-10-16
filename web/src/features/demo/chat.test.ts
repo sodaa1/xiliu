@@ -65,3 +65,21 @@ test.each(['reset', 'delete', 'abort'])(
     ).toBe(false)
   }
 )
+
+test('stop while a conversation is still opening settles the stream', async () => {
+  let opened = false
+  const opening = startDemoChat('chat-welcome', { text: '有哪些功能' }).then((response) => {
+    opened = true
+    return response
+  })
+  let stopped = false
+  for (let tick = 0; tick < 30 && !stopped; tick++) {
+    await Promise.resolve()
+    stopped = stopDemoChat('chat-welcome')
+  }
+  expect(stopped).toBe(true)
+  expect(opened).toBe(false)
+  const pending = collect(await opening)
+  await vi.runAllTimersAsync()
+  expect((await pending).at(-1)?.metadata?.cancelled).toBe(true)
+})

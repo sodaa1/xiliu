@@ -23,6 +23,25 @@ function valid(raw: unknown): raw is DemoState {
       const rows = value[key as 'content']
       return Array.isArray(rows) && rows.every((row) => row && typeof row.id === 'string')
     }) &&
+    value.feed.every(
+      (item) =>
+        typeof item.title === 'string' &&
+        typeof item.summary === 'string' &&
+        typeof item.url === 'string' &&
+        Array.isArray(item.tags) &&
+        item.tags.every((tag) => typeof tag === 'string') &&
+        item.metadata &&
+        typeof item.metadata === 'object'
+    ) &&
+    value.tasks.every(
+      (item) =>
+        typeof item.title === 'string' &&
+        typeof item.completed === 'boolean' &&
+        (item.due_at === null || typeof item.due_at === 'string')
+    ) &&
+    value.conversations.every(
+      (item) => typeof item.title === 'string' && typeof item.updated_at === 'string'
+    ) &&
     value.content.every(
       (item) =>
         typeof item.title === 'string' &&
