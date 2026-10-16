@@ -34,11 +34,11 @@ import './page-transition.css'
 import { CompanionController } from '../features/companion/CompanionController'
 import { CompanionPage } from '../features/companion/CompanionPage'
 import { CapturePage } from '../features/companion/CapturePage'
-import { GuidePage } from '../features/help/GuidePage'
 import { isDemo } from '../lib/runtime-mode'
 import { DemoBar } from '../features/demo/DemoBar'
 import { resetDemoExperience } from '../features/demo/reset'
-import { Onboarding, PageHelp } from '../features/onboarding/Onboarding'
+import { Onboarding } from '../features/onboarding/Onboarding'
+import { startGuide } from '../features/onboarding/progress'
 
 const navigation = [
   { path: '/today', label: '今日', icon: House },
@@ -119,6 +119,7 @@ function AppLayout() {
                   to={path}
                   aria-label={label}
                   title={label}
+                  data-onboarding={`nav-${path.slice(1)}`}
                   className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
                 >
                   <Icon size={21} />
@@ -126,9 +127,16 @@ function AppLayout() {
               ))}
             </nav>
             <div className="sidebar-bottom">
-              <NavLink to="/guide" className="nav-item" aria-label="使用指南" title="使用指南">
+              <button
+                type="button"
+                className="nav-item"
+                aria-label="重新查看新手引导"
+                title="新手引导"
+                data-onboarding="help-entry"
+                onClick={startGuide}
+              >
                 <CircleHelp size={20} />
-              </NavLink>
+              </button>
               <NavLink
                 className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
                 to="/settings"
@@ -152,11 +160,8 @@ function AppLayout() {
             <div className="global-topbar">
               <PillNav />
             </div>
-            {!displayed.pathname.startsWith('/guide') && <Onboarding />}
-            <PageHelp />
+            <Onboarding />
             <Routes location={displayed}>
-              <Route path="/guide" element={<GuidePage />} />
-              <Route path="/guide/:slug" element={<GuidePage />} />
               <Route path="/assistant" element={<AssistantPage />} />
               <Route path="/today" element={<TodayPage />} />
               <Route path="/plans" element={<PlansPage />} />

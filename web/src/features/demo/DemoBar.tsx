@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { RotateCcw } from 'lucide-react'
 import { Modal } from '../../components/Modal'
 import { useQueryClient } from '@tanstack/react-query'
@@ -40,7 +39,6 @@ export function DemoBar({ onReset }: { onReset: () => Promise<void> }) {
           示例资讯 · 本地模板回复 ·{' '}
           {getDemoStorageStatus() === 'memory' ? '仅在当前页面保留' : '修改保存在此浏览器'}
         </span>
-        <Link to="/guide/getting-started">了解功能</Link>
         <button onClick={() => setConfirm(true)}>
           <RotateCcw size={13} />
           重置体验

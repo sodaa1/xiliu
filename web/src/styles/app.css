@@ -193,6 +193,10 @@ p {
     color 0.18s ease,
     transform 0.18s ease;
 }
+button.nav-item {
+  border: 0;
+  background: none;
+}
 .nav-item:hover {
   background: #f0f2f7;
   color: #2b3852;

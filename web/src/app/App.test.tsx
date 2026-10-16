@@ -69,6 +69,10 @@ beforeEach(() => {
   )
 })
 function mount(path = '/settings') {
+  localStorage.setItem(
+    'xiliu-guide-v1',
+    JSON.stringify({ version: 2, status: 'completed', step: 0 })
+  )
   return render(
     <QueryClientProvider
       client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}

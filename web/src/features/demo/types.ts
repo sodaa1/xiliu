@@ -24,4 +24,4 @@ export class DemoError extends Error {
     super(message)
   }
 }
-export const demoUnavailable = '演示版暂不执行这项操作。可查看使用指南，了解正常应用的使用条件。'
+export const demoUnavailable = '演示版暂不执行这项操作。请在正常应用中配置相应功能后使用。'

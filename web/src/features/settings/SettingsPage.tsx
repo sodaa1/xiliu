@@ -347,7 +347,7 @@ export function ModelSettingsPanel() {
   const catalog = useQuery({ queryKey: ['model-catalog'], queryFn: api.catalog })
   if (isDemo)
     return (
-      <DemoNotice title="本地演示模板" guide="models">
+      <DemoNotice title="本地演示模板">
         这里不调用真实模型，也不接收 API 密钥。安装或运行正常应用后，可配置自己的模型连接。
       </DemoNotice>
     )
@@ -528,14 +528,15 @@ export function SettingsPage({ embedded = false }: { embedded?: boolean }) {
         aria-labelledby={`settings-tab-${current.id}`}
         tabIndex={0}
         className="settings-panel"
+        data-onboarding={`settings-${current.id}`}
       >
         {current.id === 'profile' && <PersonalSettings />}
         {current.id === 'appearance' && (
           <>
             <AppearanceSettings />
             {isDemo ? (
-              <DemoNotice title="桌面伴侣与 Live2D" guide="appearance-companion">
-                演示版不创建原生桌宠窗口或导入模型。使用指南介绍了形态、缩放、快捷聊天与使用条件。
+              <DemoNotice title="桌面伴侣与 Live2D">
+                演示版不创建原生桌宠窗口或导入模型。桌面版支持形态、缩放、置顶、快捷聊天与收录。
               </DemoNotice>
             ) : (
               <CompanionSettings />
@@ -546,7 +547,7 @@ export function SettingsPage({ embedded = false }: { embedded?: boolean }) {
         {current.id === 'automations' && (
           <div className="settings-card">
             {isDemo ? (
-              <DemoNotice title="自动任务与扩展" guide="automations-extensions">
+              <DemoNotice title="自动任务与扩展">
                 游客演示不执行后台任务或外部工具。正常应用可按时区设置计划，并查看运行结果。
               </DemoNotice>
             ) : (

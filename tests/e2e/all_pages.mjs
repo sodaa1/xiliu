@@ -12,6 +12,10 @@ const stateFile = path.join(reportDir, 'state.json')
 let state = phase === 'ui' ? {} : JSON.parse(await fs.readFile(stateFile, 'utf8'))
 const browser = await chromium.launch({ executablePath, headless: true })
 const context = await browser.newContext({ baseURL, viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' })
+// The dedicated tour suite covers first visits; this suite exercises the underlying workflows.
+await context.addInitScript(() => {
+  try { localStorage.setItem('xiliu-guide-v1', JSON.stringify({ version: 2, status: 'completed', step: 0 })) } catch { /* about:blank has no origin storage */ }
+})
 const page = await context.newPage()
 page.setDefaultTimeout(30000)
 page.on('pageerror', error => report.browserErrors.push(error.message))

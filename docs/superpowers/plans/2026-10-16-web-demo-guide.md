@@ -1,5 +1,7 @@
 # 游客演示版与共用功能指引 Implementation Plan
 
+> 历史计划：按后续用户指定的 ForceTrack 参考，Wiki 页面与三步业务操作教学已被首次遮罩导览替代。当前实现只介绍功能，支持前进、后退、跳过、结束后回到原页面；不再交付独立说明文档。以下保留原实施记录。
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** 交付可静态托管的游客演示版，以及 Web、桌面共用、逐项介绍功能的 Wiki 和首次使用引导。

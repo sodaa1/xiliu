@@ -77,6 +77,10 @@ beforeEach(() => {
   )
 })
 function mount(path = '/assistant?c=one') {
+  localStorage.setItem(
+    'xiliu-guide-v1',
+    JSON.stringify({ version: 2, status: 'completed', step: 0 })
+  )
   const query = new QueryClient({
     defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
   })

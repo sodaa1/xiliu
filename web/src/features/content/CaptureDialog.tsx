@@ -4,7 +4,6 @@ import { Upload, X } from 'lucide-react'
 import { fileBase64, workspaceApi, type ContentItem } from '../../lib/workspace-api'
 import { ContentDialog } from './ContentDialog'
 import { isDemo } from '../../lib/runtime-mode'
-import { Link } from 'react-router-dom'
 
 export function CaptureDialog({
   onClose,
@@ -162,10 +161,7 @@ export function CaptureForm({
       </label>
       <p className="section-description">
         {isDemo ? (
-          <>
-            演示仅在浏览器保存文字与链接，不上传文件或调用模型。
-            <Link to="/guide/inbox">查看完整收集功能</Link>
-          </>
+          <>演示仅在浏览器保存文字与链接，不上传文件或调用模型。</>
         ) : (
           '保存后在后台生成标题、摘要与标签，并按文件夹规则归类。关闭 AI 时使用本地内容整理。'
         )}

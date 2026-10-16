@@ -11,7 +11,6 @@ import type { AssistantReference } from '../content/useAskAI'
 import { Modal } from '../../components/Modal'
 import { ModelSettingsPanel } from '../settings/SettingsPage'
 import { ModelPicker } from './ModelPicker'
-import { recordGuideAction } from '../onboarding/progress'
 
 export function AssistantPage() {
   const cache = useQueryClient(),
@@ -104,16 +103,7 @@ export function AssistantPage() {
       (id) => {
         if (mounted.current) setParams({ c: id })
       },
-      context,
-      (outcome) => {
-        if (reference && !text.startsWith('/'))
-          recordGuideAction({
-            type: 'asked',
-            documentId: reference.documentId,
-            referenceTitle: reference.title,
-            outcome,
-          })
-      }
+      context
     )
   }
   const failure =

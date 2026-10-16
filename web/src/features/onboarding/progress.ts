@@ -1,23 +1,15 @@
-import type { ContentItem } from '../../lib/workspace-api'
-import type { ChatOutcome } from '../../lib/types'
 import { isDemo } from '../../lib/runtime-mode'
-
+import { tourSteps } from './steps'
 export interface GuideProgress {
-  version: 1
+  version: 2
   status: 'new' | 'active' | 'dismissed' | 'completed'
-  step: 0 | 1 | 2 | 3
-  itemId?: string
-  referenceTitle?: string
+  step: number
 }
-export type GuideAction =
-  | { type: 'saved'; item: ContentItem }
-  | { type: 'archived'; items: ContentItem[] }
-  | { type: 'asked'; documentId?: string; referenceTitle: string; outcome: ChatOutcome }
 const key = isDemo ? 'xiliu-demo-guide-v1' : 'xiliu-guide-v1'
-const fresh: GuideProgress = { version: 1, status: 'new', step: 0 }
-let cached: GuideProgress = fresh,
-  rawCache: string | null | undefined,
-  memoryOnly = false
+const fresh: GuideProgress = { version: 2, status: 'new', step: 0 }
+let cached = fresh
+let rawCache: string | null | undefined
+let memoryOnly = false
 const listeners = new Set<() => void>()
 export function getGuideProgress(): GuideProgress {
   if (memoryOnly) return cached
@@ -26,14 +18,20 @@ export function getGuideProgress(): GuideProgress {
     if (raw === rawCache) return cached
     rawCache = raw
     const value = JSON.parse(raw ?? 'null')
-    cached =
-      value &&
-      value.version === 1 &&
-      ['new', 'active', 'dismissed', 'completed'].includes(value.status) &&
-      [0, 1, 2, 3].includes(value.step) &&
-      (value.itemId === undefined || typeof value.itemId === 'string')
-        ? value
+    if (value?.version === 1) {
+      cached = ['dismissed', 'completed'].includes(value.status)
+        ? { ...fresh, status: value.status }
         : fresh
+    } else {
+      cached =
+        value?.version === 2 &&
+        ['new', 'active', 'dismissed', 'completed'].includes(value.status) &&
+        Number.isInteger(value.step) &&
+        value.step >= 0 &&
+        value.step < tourSteps.length
+          ? value
+          : fresh
+    }
   } catch {
     cached = fresh
   }
@@ -66,31 +64,22 @@ export function subscribeGuide(listener: () => void) {
   }
 }
 export function startGuide() {
-  const previous = getGuideProgress()
-  write({ ...(previous.step === 3 ? fresh : previous), status: 'active' })
-}
-export function dismissGuide() {
-  write({ ...getGuideProgress(), status: 'dismissed' })
+  write({ ...fresh, status: 'active' })
 }
 export function resetGuide() {
   write({ ...fresh })
 }
-export function recordGuideAction(action: GuideAction) {
-  const state = getGuideProgress()
-  if (state.status !== 'active') return
-  if (state.step === 0 && action.type === 'saved')
-    write({ ...state, step: 1, itemId: action.item.id, referenceTitle: action.item.title })
-  if (state.step === 1 && action.type === 'archived') {
-    const item = action.items.find(
-      (item) => item.id === state.itemId && item.status === 'knowledge' && item.tags.length > 0
-    )
-    if (item) write({ ...state, step: 2, referenceTitle: item.title })
-  }
-  if (
-    state.step === 2 &&
-    action.type === 'asked' &&
-    action.documentId === state.itemId &&
-    action.outcome === 'success'
-  )
-    write({ ...state, step: 3, status: 'completed' })
+export function dismissGuide() {
+  write({ ...getGuideProgress(), status: 'dismissed' })
+}
+export function finishGuide() {
+  write({ ...getGuideProgress(), status: 'completed' })
+}
+export function moveGuide(offset: number) {
+  const previous = getGuideProgress()
+  write({
+    version: 2,
+    status: 'active',
+    step: Math.max(0, Math.min(tourSteps.length - 1, previous.step + offset)),
+  })
 }
