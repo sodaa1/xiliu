@@ -108,13 +108,16 @@ export function Onboarding() {
   }, [running, step])
   if (!running) return null
 
-  const width = Math.min(376, viewportWidth - 32)
-  const height = panel.current?.offsetHeight || 300
+  const width = Math.min(320, viewportWidth - 32)
+  const height = panel.current?.offsetHeight || 250
   let left = (viewportWidth - width) / 2
   let top = Math.max(16, (viewportHeight - height) / 2)
   if (box) {
     if (box.right + width + 28 <= viewportWidth) {
       left = box.right + 18
+      top = box.top
+    } else if (box.left - width - 18 >= 16) {
+      left = box.left - width - 18
       top = box.top
     } else {
       left = Math.max(16, Math.min(box.left, viewportWidth - width - 16))
@@ -143,7 +146,7 @@ export function Onboarding() {
         <rect
           width="100%"
           height="100%"
-          fill="rgba(9, 10, 20, .72)"
+          fill="rgba(9, 10, 20, .28)"
           mask={'url(#' + maskId + ')'}
         />
       </svg>

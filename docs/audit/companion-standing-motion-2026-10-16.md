@@ -1,0 +1,9 @@
+# Standing companion motion
+
+Approved direction: combine a subtle whole-body lean with local hair-tip and skirt inertia; pin hands and forearms. Q-form motion remains unchanged. Changes are in development only; the user deferred installer generation until development is complete.
+
+The bundled standing image uses a constrained textured mesh. Hand/forearm corridors, face, torso and legs are excluded from local deformation, with a mesh-cell margin. The raster wrapper supplies a velocity-driven lean capped near 1.4 degrees, shared by face overlays. Both lean and cloth settle after release. Native Windows movement arrives through the owned companion window's Moved event; the browser preview uses pointer movement. Hidden windows pause updates, reduced motion uses the original image, and WebGL failure/context loss restores the image. Imported Live2D models retain their own renderer and motions.
+
+Validation: 171 frontend tests passed, ESLint and production web build passed, 8 Rust tests passed. New tests cover pinned regions, bounded/reversible/settling inertia, image fallback, renderer cleanup and native event subscription/DPI conversion. Production-web browser checks cover standing scales 100/125/200 with DPR 1/1.25/2, small velocity-driven lean, release reset, toolbar restoration, no accidental conversation, reduced motion, missing WebGL and context loss. At both deformation extremes, the actual shader changed skirt pixels while sampled left/right hands, left forearm and face stayed pixel-identical. See [browser evidence](companion-standing-motion-2026-10-16.json).
+
+This verification did not repeat physical mouse dragging across native windows or monitors. Rust tests compile the native event bridge; component tests cover event handling. Source changes have not been published or packaged into a new installer. Previously started sidecar staging finished before the packaging deferral; it is an ignored intermediate, not a released EXE installer.

@@ -2710,7 +2710,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2725,7 +2725,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2740,7 +2740,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2755,7 +2755,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2770,7 +2770,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2785,7 +2785,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2800,7 +2800,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2815,7 +2815,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2830,7 +2830,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2845,7 +2845,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2860,7 +2860,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2875,7 +2875,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2890,7 +2890,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2905,7 +2905,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2920,7 +2920,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2935,7 +2935,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -2950,7 +2950,7 @@
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -4363,7 +4363,7 @@
       }
     },
     {
-      "surface_id": "ui_button:a35c8e16750bb2362d0d:1",
+      "surface_id": "ui_button:beb331c3f04e27d9f963:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
@@ -4769,7 +4769,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4788,7 +4788,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4807,7 +4807,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4826,7 +4826,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4845,7 +4845,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4864,7 +4864,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4883,7 +4883,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4902,7 +4902,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4921,7 +4921,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4940,7 +4940,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4959,7 +4959,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4978,7 +4978,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -4997,7 +4997,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -5014,7 +5014,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -5028,7 +5028,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -5044,7 +5044,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -5061,7 +5061,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -5075,7 +5075,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -5089,7 +5089,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -5105,7 +5105,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -5124,7 +5124,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -5143,7 +5143,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -5162,7 +5162,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -5181,7 +5181,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -5198,7 +5198,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -5212,7 +5212,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -5228,7 +5228,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -5247,7 +5247,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [
         "tests/integration/test_completion_api.py::test_automation_endpoints_use_existing_store_and_validation",
@@ -5264,7 +5264,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -5273,12 +5273,12 @@
       }
     },
     {
-      "surface_id": "ui_button:415fe9d378c6b39e3675:1",
+      "surface_id": "ui_button:4a2980e74eccdd2742d6:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -5292,7 +5292,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -5593,7 +5593,7 @@
       }
     },
     {
-      "surface_id": "ui_mutation:c65194e63d69584b135d:1",
+      "surface_id": "ui_mutation:2b27d900be4a651cfcbd:1",
       "classification": "agent_enabled",
       "action_ids": [
         "content.move_to_inbox",
@@ -6109,7 +6109,7 @@
       }
     },
     {
-      "surface_id": "ui_mutation:71eb8cc4a003aa779d15:1",
+      "surface_id": "ui_mutation:ac2b8469618f6a5f11e8:1",
       "classification": "agent_enabled",
       "action_ids": [
         "content.move_to_inbox",
@@ -6356,7 +6356,7 @@
       }
     },
     {
-      "surface_id": "ui_mutation:ae0b44b43abe75ec7a94:1",
+      "surface_id": "ui_mutation:2d3bcbc81f91e3b06b68:1",
       "classification": "agent_enabled",
       "action_ids": [
         "inbox.retry"
@@ -6400,7 +6400,7 @@
       }
     },
     {
-      "surface_id": "ui_button:59c895b10e01a7f1b127:1",
+      "surface_id": "ui_button:334fd8a078f96f88e40e:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
@@ -6828,7 +6828,7 @@
       }
     },
     {
-      "surface_id": "ui_button:46791fc5c34a4258d6d1:1",
+      "surface_id": "ui_button:2746a358b1015f14fe01:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
@@ -6842,7 +6842,7 @@
       }
     },
     {
-      "surface_id": "ui_event:bd4939ebe5701e09ab3a:1",
+      "surface_id": "ui_event:b047e50752710866acd0:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
@@ -6984,7 +6984,7 @@
       }
     },
     {
-      "surface_id": "ui_mutation:b43beca5a3b9030ede93:1",
+      "surface_id": "ui_mutation:1b70a4719b81f8b5128b:1",
       "classification": "agent_enabled",
       "action_ids": [
         "feed.add_manual",
@@ -6992,7 +6992,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7013,7 +7013,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7033,7 +7033,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7053,7 +7053,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7071,7 +7071,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7088,7 +7088,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7106,7 +7106,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7120,7 +7120,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7134,7 +7134,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7148,7 +7148,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7162,7 +7162,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7176,7 +7176,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7190,7 +7190,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7207,7 +7207,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7227,7 +7227,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7247,7 +7247,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7267,7 +7267,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7290,7 +7290,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7313,7 +7313,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7333,7 +7333,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7353,7 +7353,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7373,7 +7373,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7393,7 +7393,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7411,7 +7411,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7427,7 +7427,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7447,7 +7447,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7465,7 +7465,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7479,7 +7479,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7498,7 +7498,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7521,7 +7521,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7541,7 +7541,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7561,7 +7561,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7581,7 +7581,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7601,7 +7601,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7621,7 +7621,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7639,7 +7639,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7653,7 +7653,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7669,7 +7669,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7689,7 +7689,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7707,7 +7707,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7721,7 +7721,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7735,7 +7735,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7749,7 +7749,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7763,7 +7763,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7779,7 +7779,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7799,7 +7799,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -7817,7 +7817,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -7826,7 +7826,7 @@
       }
     },
     {
-      "surface_id": "ui_mutation:2c5751f450516c7eb6f8:1",
+      "surface_id": "ui_mutation:9228a4876c70fbc667fe:1",
       "classification": "agent_enabled",
       "action_ids": [
         "knowledge.folders.create",
@@ -8520,7 +8520,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/launch/LaunchPage.test.tsx::lets the user skip the introduction and enter Today"
+        "web/src/features/launch/LaunchPage.test.tsx::lets the user skip the introduction and enter 今日"
       ],
       "tests": [],
       "verification": {
@@ -8534,7 +8534,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/launch/LaunchPage.test.tsx::lets the user skip the introduction and enter Today"
+        "web/src/features/launch/LaunchPage.test.tsx::lets the user skip the introduction and enter 今日"
       ],
       "tests": [],
       "verification": {
@@ -8548,7 +8548,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/launch/LaunchPage.test.tsx::lets the user skip the introduction and enter Today"
+        "web/src/features/launch/LaunchPage.test.tsx::lets the user skip the introduction and enter 今日"
       ],
       "tests": [],
       "verification": {
@@ -8562,7 +8562,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/launch/LaunchPage.test.tsx::lets the user skip the introduction and enter Today"
+        "web/src/features/launch/LaunchPage.test.tsx::lets the user skip the introduction and enter 今日"
       ],
       "tests": [],
       "verification": {
@@ -9268,21 +9268,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_fetch:0e17141805a226101207:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "Interactive authenticated API transport/chat owner; no model-generated localhost requests.",
-      "ui_tests": [
-        "web/src/app/App.test.tsx::App icon rail navigates to every page"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -9547,55 +9533,6 @@
       "action_ids": [],
       "reason": "Human-only confirmation, interactive chat transport or original attachment download requires the UI owner.",
       "ui_tests": [],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_fetch:d1d5acda85de00596cd0:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "Interactive authenticated API transport/chat owner; no model-generated localhost requests.",
-      "ui_tests": [
-        "web/src/app/App.test.tsx::App icon rail navigates to every page"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_fetch:761909de83b6bddcec82:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "preferences.get",
-        "preferences.update"
-      ],
-      "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
-      "ui_tests": [
-        "web/src/features/settings/SettingsPage.test.tsx::settings opens above the current page; profile and appearance persist"
-      ],
-      "tests": [
-        "tests/integration/test_preferences_actions.py::test_agent_patch_and_http_read_share_persisted_preferences",
-        "tests/integration/test_preferences_actions.py::test_agent_revision_conflict_and_permission_denial_leave_preferences_intact",
-        "tests/integration/test_preferences_actions.py::test_reset_restores_appearance_and_preserves_personal_data"
-      ],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_fetch:b920e7696b9965cc3e71:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "Interactive authenticated API transport/chat owner; no model-generated localhost requests.",
-      "ui_tests": [
-        "web/src/app/App.test.tsx::App icon rail navigates to every page"
-      ],
       "tests": [],
       "verification": {
         "status": "not_run",
@@ -11098,13 +11035,13 @@
       }
     },
     {
-      "surface_id": "ui_link:ab696a43d958e0ee12cd:1",
+      "surface_id": "ui_link:d86d3a5de1a0045b6825:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Pure client navigation/scaffolding with no unrestricted App action; exercised by the named UI test.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -11113,13 +11050,13 @@
       }
     },
     {
-      "surface_id": "ui_link:25f3062065ff04ebe1a0:1",
+      "surface_id": "ui_link:51fdb11d7fe213b7335d:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Pure client navigation/scaffolding with no unrestricted App action; exercised by the named UI test.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -11128,13 +11065,13 @@
       }
     },
     {
-      "surface_id": "ui_link:364284f22611ed3ff858:1",
+      "surface_id": "ui_link:991ddb91045a69afd1d7:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Pure client navigation/scaffolding with no unrestricted App action; exercised by the named UI test.",
       "ui_tests": [
         "web/src/app/App.test.tsx::App icon rail navigates to every page",
-        "web/src/app/App.test.tsx::App Settings overlay preserves page and keyboard navigation selects panels"
+        "web/src/app/App.test.tsx::App 设置 overlay preserves page and keyboard navigation selects panels"
       ],
       "tests": [],
       "verification": {
@@ -11392,7 +11329,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -11406,7 +11343,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in Feed"
+        "web/src/features/feed/FeedPage.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
       ],
       "tests": [],
       "verification": {
@@ -11597,7 +11534,7 @@
       }
     },
     {
-      "surface_id": "ui_event:f49df530e9e97cf98930:1",
+      "surface_id": "ui_event:d08d076eea0fdc3e750c:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
@@ -11611,7 +11548,7 @@
       }
     },
     {
-      "surface_id": "ui_event:591a21d6a814bbb95c7f:1",
+      "surface_id": "ui_event:a01ab267152cd08ba7f9:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
@@ -12590,12 +12527,12 @@
       }
     },
     {
-      "surface_id": "ui_mutation:27e454d1e84791f83781:1",
+      "surface_id": "ui_mutation:8b7f01e7096a11547375:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12609,7 +12546,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12626,7 +12563,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12642,7 +12579,7 @@
       ],
       "reason": "Personal-plan mutation uses the existing registered task service and strict scope/parent schema.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12656,7 +12593,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12670,7 +12607,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12684,7 +12621,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12698,7 +12635,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12712,7 +12649,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12728,7 +12665,7 @@
       ],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12742,7 +12679,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12756,7 +12693,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12770,7 +12707,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12786,7 +12723,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12800,7 +12737,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12817,7 +12754,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12831,7 +12768,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12847,7 +12784,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12861,7 +12798,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12875,7 +12812,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12889,7 +12826,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12905,7 +12842,7 @@
       ],
       "reason": "Personal-plan mutation uses the existing registered task service and strict scope/parent schema.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12919,7 +12856,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12933,7 +12870,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12949,7 +12886,7 @@
       ],
       "reason": "Personal-plan mutation uses the existing registered task service and strict scope/parent schema.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12965,7 +12902,7 @@
       ],
       "reason": "Personal-plan mutation uses the existing registered task service and strict scope/parent schema.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12981,7 +12918,7 @@
       ],
       "reason": "Personal-plan mutation uses the existing registered task service and strict scope/parent schema.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -12995,7 +12932,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13009,7 +12946,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13023,7 +12960,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13037,7 +12974,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13051,7 +12988,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13065,7 +13002,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13079,7 +13016,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13093,7 +13030,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13107,7 +13044,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13121,7 +13058,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13135,7 +13072,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13149,7 +13086,7 @@
       "action_ids": [],
       "reason": "Personal-plan editor state, goal/week/day filtering and display; registered task mutations are classified separately.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13361,7 +13298,7 @@
       }
     },
     {
-      "surface_id": "ui_button:1786f8b78a1b86ff4b96:1",
+      "surface_id": "ui_button:275ca670d9e68e8efd7e:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Home navigation, draft state and explicit capture editor presentation.",
@@ -13391,7 +13328,7 @@
       }
     },
     {
-      "surface_id": "ui_button:7466b3d3b9e98ae9b9af:1",
+      "surface_id": "ui_button:a1b70c0ff05109dd2b29:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Home navigation, draft state and explicit capture editor presentation.",
@@ -13436,20 +13373,6 @@
       }
     },
     {
-      "surface_id": "ui_fetch:e90c94254d4a34eb0535:1",
-      "classification": "restricted",
-      "action_ids": [],
-      "reason": "User-selected local background import/selection/removal, validated as passive images; no automatic Agent asset import.",
-      "ui_tests": [
-        "web/src/features/settings/HomeBackgroundSettings.test.tsx::background selection persists through the media service and invalid imports preserve it"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Representative behavior tests are referenced; this source occurrence is not independently audited by live Agent/browser execution."
-      }
-    },
-    {
       "surface_id": "api_client:d5491760387a3eb33b35:1",
       "classification": "agent_enabled",
       "action_ids": [
@@ -13457,7 +13380,7 @@
       ],
       "reason": "Personal plans read the shared task service.",
       "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::Today manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
+        "web/src/features/content/Workspace.test.tsx::今日 manages tasks and its automation drawer creates, pauses, shows runs, deletes and closes with Escape"
       ],
       "tests": [],
       "verification": {
@@ -13662,7 +13585,7 @@
       }
     },
     {
-      "surface_id": "ui_button:564fd42ac62d12dbc4cd:1",
+      "surface_id": "ui_button:ed53ea98a2c9eec6797e:1",
       "classification": "restricted",
       "action_ids": [],
       "reason": "User-operated trusted desktop command or navigation; separate capture/main windows and form preferences.",
@@ -13732,7 +13655,7 @@
       }
     },
     {
-      "surface_id": "ui_button:564fd42ac62d12dbc4cd:2",
+      "surface_id": "ui_button:ed53ea98a2c9eec6797e:2",
       "classification": "restricted",
       "action_ids": [],
       "reason": "User-operated trusted desktop command or navigation; separate capture/main windows and form preferences.",
@@ -13911,6 +13834,311 @@
       "verification": {
         "status": "not_run",
         "scope": "Representative expression tests and browser scenarios recorded separately; per-occurrence Agent equivalence not claimed."
+      }
+    },
+    {
+      "surface_id": "ui_button:e406e9369a1d91798ab7:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Explicit replay of the local feature tour; navigation only, no business data mutation.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:57ce62087a123b5ee347:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Explicit replay of the local feature tour; navigation only, no business data mutation.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:51c81aed006f654ca737:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Confirmed reset of isolated browser-demo data and cache only; no production service or Agent action.",
+      "ui_tests": [
+        "web/src/features/demo/DemoBar.test.tsx::reset requires confirmation and clears only demo state and queries"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:6e4bf66b54341cc91e30:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Confirmed reset of isolated browser-demo data and cache only; no production service or Agent action.",
+      "ui_tests": [
+        "web/src/features/demo/DemoBar.test.tsx::reset requires confirmation and clears only demo state and queries"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:37037c20e845e3037967:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Confirmed reset of isolated browser-demo data and cache only; no production service or Agent action.",
+      "ui_tests": [
+        "web/src/features/demo/DemoBar.test.tsx::reset requires confirmation and clears only demo state and queries"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:9564177ae9f9338561bc:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Confirmed reset of isolated browser-demo data and cache only; no production service or Agent action.",
+      "ui_tests": [
+        "web/src/features/demo/DemoBar.test.tsx::reset requires confirmation and clears only demo state and queries"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:ace2d155c19236b74eb0:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Confirmed reset of isolated browser-demo data and cache only; no production service or Agent action.",
+      "ui_tests": [
+        "web/src/features/demo/DemoBar.test.tsx::reset requires confirmation and clears only demo state and queries"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:e8d81a3548ba07c6f388:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Confirmed reset of isolated browser-demo data and cache only; no production service or Agent action.",
+      "ui_tests": [
+        "web/src/features/demo/DemoBar.test.tsx::reset requires confirmation and clears only demo state and queries"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:7072f950c73dd495a43f:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Confirmed reset of isolated browser-demo data and cache only; no production service or Agent action.",
+      "ui_tests": [
+        "web/src/features/demo/DemoBar.test.tsx::reset requires confirmation and clears only demo state and queries"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:3be27b12e71f9cd0fedf:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Confirmed reset of isolated browser-demo data and cache only; no production service or Agent action.",
+      "ui_tests": [
+        "web/src/features/demo/DemoBar.test.tsx::reset requires confirmation and clears only demo state and queries"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:39ae79fbf3399501662a:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "First-visit tour navigation, dismissal and local progress storage; does not mutate business data or expose an Agent action.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit",
+        "web/src/features/onboarding/Onboarding.test.tsx::first visit opens automatically; skipping persists and restores the original route"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:63301a6cef12af43ad30:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "First-visit tour navigation, dismissal and local progress storage; does not mutate business data or expose an Agent action.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit",
+        "web/src/features/onboarding/Onboarding.test.tsx::first visit opens automatically; skipping persists and restores the original route"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:c1aa7957b4c7995b94f9:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "First-visit tour navigation, dismissal and local progress storage; does not mutate business data or expose an Agent action.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit",
+        "web/src/features/onboarding/Onboarding.test.tsx::first visit opens automatically; skipping persists and restores the original route"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:63301a6cef12af43ad30:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "First-visit tour navigation, dismissal and local progress storage; does not mutate business data or expose an Agent action.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit",
+        "web/src/features/onboarding/Onboarding.test.tsx::first visit opens automatically; skipping persists and restores the original route"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:feb0993b3f4015ea6afb:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "First-visit tour navigation, dismissal and local progress storage; does not mutate business data or expose an Agent action.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit",
+        "web/src/features/onboarding/Onboarding.test.tsx::first visit opens automatically; skipping persists and restores the original route"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:47bcfa39b3e7408ebccd:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "First-visit tour navigation, dismissal and local progress storage; does not mutate business data or expose an Agent action.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit",
+        "web/src/features/onboarding/Onboarding.test.tsx::first visit opens automatically; skipping persists and restores the original route"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:eca847ec36f08fa6ba1f:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "First-visit tour navigation, dismissal and local progress storage; does not mutate business data or expose an Agent action.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit",
+        "web/src/features/onboarding/Onboarding.test.tsx::first visit opens automatically; skipping persists and restores the original route"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:fbb67d3e4fce061e733e:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "First-visit tour navigation, dismissal and local progress storage; does not mutate business data or expose an Agent action.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit",
+        "web/src/features/onboarding/Onboarding.test.tsx::first visit opens automatically; skipping persists and restores the original route"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:0eafe8f413c403ebe042:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "First-visit tour navigation, dismissal and local progress storage; does not mutate business data or expose an Agent action.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit",
+        "web/src/features/onboarding/Onboarding.test.tsx::first visit opens automatically; skipping persists and restores the original route"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:c64adfa036afc7b44281:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "First-visit tour navigation, dismissal and local progress storage; does not mutate business data or expose an Agent action.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit",
+        "web/src/features/onboarding/Onboarding.test.tsx::first visit opens automatically; skipping persists and restores the original route"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:8e342b99ab13af036176:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "First-visit tour navigation, dismissal and local progress storage; does not mutate business data or expose an Agent action.",
+      "ui_tests": [
+        "web/src/features/onboarding/Onboarding.test.tsx::all modules can be introduced with next/back alone and replay is explicit",
+        "web/src/features/onboarding/Onboarding.test.tsx::first visit opens automatically; skipping persists and restores the original route"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
       }
     }
   ],

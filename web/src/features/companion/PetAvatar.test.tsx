@@ -7,6 +7,7 @@ const engine = vi.hoisted(() => ({
   focus: vi.fn(),
   phase: vi.fn(),
   expression: vi.fn(),
+  dragging: vi.fn(),
 }))
 const mount = vi.hoisted(() => vi.fn())
 const state = vi.hoisted(() => ({ reduced: false, model: true }))
@@ -188,4 +189,11 @@ test('a pointer resting on the character does not suppress idle blinking indefin
   }
   expect(expressions).toContain('neutral')
   expect(expressions).toContain('blink')
+})
+
+test('a loaded model receives drag motion and returns to its current phase on release', async () => {
+  const view = render(<PetAvatar dragging phase="thinking" />)
+  await waitFor(() => expect(engine.dragging).toHaveBeenLastCalledWith(true))
+  view.rerender(<PetAvatar phase="thinking" />)
+  await waitFor(() => expect(engine.dragging).toHaveBeenLastCalledWith(false))
 })

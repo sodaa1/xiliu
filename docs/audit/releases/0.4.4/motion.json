@@ -1,0 +1,197 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "form": "chibi",
+      "dpr": 1,
+      "reduced": false,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(0.994565, -0.104119, 0.104119, 0.994565, 0, -6.00589)",
+          "animation": "companion-held"
+        },
+        {
+          "matrix": "matrix(0.998329, -0.0577843, 0.0577843, 0.998329, 0, -6.67184)",
+          "animation": "companion-held"
+        }
+      ]
+    },
+    {
+      "form": "chibi",
+      "dpr": 1,
+      "reduced": true,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6)",
+          "animation": "none"
+        },
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6)",
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "form": "chibi",
+      "dpr": 1.25,
+      "reduced": false,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(0.994533, -0.104427, 0.104427, 0.994533, 0, -6.40117)",
+          "animation": "companion-held"
+        },
+        {
+          "matrix": "matrix(0.998223, -0.0595856, 0.0595856, 0.998223, 0, -6.91679)",
+          "animation": "companion-held"
+        }
+      ]
+    },
+    {
+      "form": "chibi",
+      "dpr": 1.25,
+      "reduced": true,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6.4)",
+          "animation": "none"
+        },
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6.4)",
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "form": "chibi",
+      "dpr": 2,
+      "reduced": false,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(0.994532, -0.104428, 0.104428, 0.994532, 0, -6.00144)",
+          "animation": "companion-held"
+        },
+        {
+          "matrix": "matrix(0.998328, -0.0578051, 0.0578051, 0.998328, 0, -6.67154)",
+          "animation": "companion-held"
+        }
+      ]
+    },
+    {
+      "form": "chibi",
+      "dpr": 2,
+      "reduced": true,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6)",
+          "animation": "none"
+        },
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6)",
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "form": "standing",
+      "dpr": 1,
+      "reduced": false,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(0.994546, -0.104298, 0.104298, 0.994546, 0, -6.00332)",
+          "animation": "companion-held"
+        },
+        {
+          "matrix": "matrix(0.998326, -0.0578372, 0.0578372, 0.998326, 0, -6.67108)",
+          "animation": "companion-held"
+        }
+      ]
+    },
+    {
+      "form": "standing",
+      "dpr": 1,
+      "reduced": true,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6)",
+          "animation": "none"
+        },
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6)",
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "form": "standing",
+      "dpr": 1.25,
+      "reduced": false,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(0.994546, -0.104301, 0.104301, 0.994546, 0, -6.40262)",
+          "animation": "companion-held"
+        },
+        {
+          "matrix": "matrix(0.998587, -0.0531372, 0.0531372, 0.998587, 0, -6.99081)",
+          "animation": "companion-held"
+        }
+      ]
+    },
+    {
+      "form": "standing",
+      "dpr": 1.25,
+      "reduced": true,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6.4)",
+          "animation": "none"
+        },
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6.4)",
+          "animation": "none"
+        }
+      ]
+    },
+    {
+      "form": "standing",
+      "dpr": 2,
+      "reduced": false,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(0.994533, -0.104427, 0.104427, 0.994533, 0, -6.00146)",
+          "animation": "companion-held"
+        },
+        {
+          "matrix": "matrix(0.998085, -0.0618569, 0.0618569, 0.998085, 0, -6.6134)",
+          "animation": "companion-held"
+        }
+      ]
+    },
+    {
+      "form": "standing",
+      "dpr": 2,
+      "reduced": true,
+      "result": "passed",
+      "samples": [
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6)",
+          "animation": "none"
+        },
+        {
+          "matrix": "matrix(1, 0, 0, 1, 0, -6)",
+          "animation": "none"
+        }
+      ]
+    }
+  ]
+}

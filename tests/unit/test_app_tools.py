@@ -49,7 +49,7 @@ def test_chat_without_credentials_cannot_import_or_archive_links(tmp_path, monke
         events = list(app.state.chat.stream_turn(cid, text))
         assert events[-1]["type"] == "error"
         assert events[-1]["code"] == "model_not_configured"
-        assert "Settings" in events[-1]["message"]
+        assert "设置" in events[-1]["message"]
     assert app.state.content.list("inbox") == []
     assert app.state.content.list("knowledge") == []
 

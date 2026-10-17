@@ -13,7 +13,7 @@ def test_chat_app_action_without_api_key_fails_without_mutation(tmp_path, monkey
     events = list(application.state.chat.stream_turn(cid, "添加待办「整理面试资料」"))
     assert events[-1]["type"] == "error"
     assert events[-1]["code"] == "model_not_configured"
-    assert "Settings" in events[-1]["message"]
+    assert "设置" in events[-1]["message"]
     assert application.state.tasks.list() == []
 
 

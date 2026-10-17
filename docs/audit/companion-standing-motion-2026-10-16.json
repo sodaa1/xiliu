@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "dpr": 1,
+      "scale": 100,
+      "maximumLean": 0.01598634940390266,
+      "releaseSettled": true,
+      "noAccidentalChat": true
+    },
+    {
+      "dpr": 1.25,
+      "scale": 125,
+      "maximumLean": 0.01488797764408378,
+      "releaseSettled": true,
+      "noAccidentalChat": true
+    },
+    {
+      "pixelProtection": [
+        {
+          "amount": -0.045,
+          "regions": {
+            "leftHand": 0,
+            "leftForearm": 0,
+            "rightHand": 0,
+            "face": 0
+          },
+          "changedCloth": 1553
+        },
+        {
+          "amount": 0.045,
+          "regions": {
+            "leftHand": 0,
+            "leftForearm": 0,
+            "rightHand": 0,
+            "face": 0
+          },
+          "changedCloth": 914
+        }
+      ]
+    },
+    {
+      "contextLossFallback": true
+    },
+    {
+      "dpr": 2,
+      "scale": 200,
+      "maximumLean": 0.015529088327158687,
+      "releaseSettled": true,
+      "noAccidentalChat": true
+    },
+    {
+      "mode": "reduced",
+      "fallbackVisible": true
+    },
+    {
+      "mode": "no-webgl",
+      "fallbackVisible": true
+    }
+  ],
+  "scope": "Development source and production-web browser checks; no installer built."
+}

@@ -5,6 +5,7 @@ import type { PetForm } from './live2d-bundle'
 import { readModel, watchModels } from './model-storage'
 import type { mountLive2D } from './live2d-runtime'
 import { usePetExpression } from './usePetExpression'
+import { StandingMotion } from './StandingMotion'
 const faces = ['blink', 'happy', 'surprised'] as const
 export function PetAvatar({
   form = 'chibi',
@@ -82,6 +83,9 @@ export function PetAvatar({
     if (ready) controller.current?.phase(phase)
   }, [phase, ready])
   useEffect(() => {
+    if (ready) controller.current?.dragging(dragging)
+  }, [dragging, ready])
+  useEffect(() => {
     if (ready) controller.current?.expression(expression)
   }, [expression, ready])
   return (
@@ -105,7 +109,11 @@ export function PetAvatar({
       }}
     >
       <span className="pet-raster" hidden={ready}>
-        <img src={`/companion/${form}.png`} alt="" draggable={false} />
+        {form === 'standing' ? (
+          <StandingMotion dragging={dragging} reduced={reduced} enabled={!ready} />
+        ) : (
+          <img src={`/companion/${form}.png`} alt="" draggable={false} />
+        )}
         {faces.map((face) => {
           const key = `${form}-${face}`
           return (

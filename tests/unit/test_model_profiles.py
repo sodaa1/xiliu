@@ -76,7 +76,7 @@ def test_unconfigured_provider_does_not_borrow_other_provider_key(tmp_path, monk
     service = profiles(tmp_path, monkeypatch)
     result = select(service, "openai")
     assert result["api_key_set"] is False
-    with pytest.raises(WebError, match="Settings"):
+    with pytest.raises(WebError, match="设置"):
         service.runtime_settings()
     select(service, "deepseek")
     assert service.runtime_settings().api_key.get_secret_value() == "deep-test"

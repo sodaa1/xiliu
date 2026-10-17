@@ -184,8 +184,8 @@ export function CompanionPage() {
       style={
         {
           '--pet-height': `${height}px`,
-          '--pet-lift-near': `${-Math.round(2 * pixelRatio) / pixelRatio}px`,
-          '--pet-lift-far': `${-Math.round(4 * pixelRatio) / pixelRatio}px`,
+          '--pet-lift-near': `${-Math.round(6 * pixelRatio) / pixelRatio}px`,
+          '--pet-lift-far': `${-Math.round(9 * pixelRatio) / pixelRatio}px`,
         } as CSSProperties
       }
       onKeyDown={(event) => {
@@ -199,6 +199,7 @@ export function CompanionPage() {
         ref={stage}
         className="companion-stage"
         data-dragging={dragging}
+        data-form={settings.form ?? 'chibi'}
         style={!isDesktop() ? { right: position.right, bottom: position.bottom } : undefined}
       >
         {(bubble || error) && (

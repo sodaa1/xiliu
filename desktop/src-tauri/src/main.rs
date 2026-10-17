@@ -1,4 +1,5 @@
-#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+// Desktop builds keep diagnostics in logs rather than opening a terminal window.
+#![cfg_attr(target_os = "windows", windows_subsystem = "windows")]
 
 mod access;
 mod companion;

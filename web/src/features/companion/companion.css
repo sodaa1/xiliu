@@ -193,7 +193,8 @@ html[data-companion='true'] #root {
 }
 .companion-stage[data-dragging='true'] .companion-character {
   cursor: grabbing;
-  animation: companion-held 800ms steps(1, end) infinite alternate;
+  transform-origin: 50% 20%;
+  animation: companion-held 760ms ease-in-out infinite alternate;
 }
 .companion-stage[data-dragging='true'] .companion-dock,
 .companion-stage[data-dragging='true'] .companion-notice {
@@ -202,11 +203,32 @@ html[data-companion='true'] #root {
 }
 @keyframes companion-held {
   from {
-    transform: translateY(var(--pet-lift-near, -2px));
+    transform: translateY(var(--pet-lift-near, -6px)) rotate(-6deg);
   }
   to {
-    transform: translateY(var(--pet-lift-far, -4px));
+    transform: translateY(var(--pet-lift-far, -9px)) rotate(6deg);
   }
+}
+.companion-stage[data-form='standing'] .companion-character {
+  transition: transform 200ms ease-out;
+}
+.companion-stage[data-form='standing'][data-dragging='true'] .companion-character {
+  animation: none;
+  transform: translateY(var(--pet-lift-near, -6px));
+}
+.pet-avatar[data-form='standing'] .pet-raster {
+  transform: translate3d(-50%, -50%, 0) rotate(var(--pet-lean, 0rad));
+  transform-origin: 50% 24%;
+}
+.pet-raster > .pet-cloth-motion {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.pet-raster > .pet-cloth-motion[hidden] {
+  display: none;
 }
 .companion-dock {
   position: relative;
@@ -345,7 +367,8 @@ html[data-companion='true'] #root {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .companion-character {
+  .companion-character,
+  .companion-stage[data-form='standing'] .companion-character {
     transition: none;
   }
   .companion-stage[data-dragging='true'] .companion-character {

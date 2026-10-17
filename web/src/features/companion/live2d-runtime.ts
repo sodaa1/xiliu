@@ -86,8 +86,11 @@ export async function mountLive2D(
     const groups = Object.keys(
       (prepared.source.FileReferences as { Motions?: Record<string, unknown> }).Motions ?? {}
     )
+    let held = false
+    let currentPhase: CompanionStatus['phase'] = 'idle'
     const phase = (value: CompanionStatus['phase']) => {
-      if (reduced || released || !model) return
+      currentPhase = value
+      if (held || reduced || released || !model) return
       const names =
         value === 'thinking'
           ? ['thinking', 'idle']
@@ -98,6 +101,19 @@ export async function mountLive2D(
         .map((name) => groups.find((group) => group.toLowerCase().replaceAll('_', '') === name))
         .find(Boolean)
       if (group) void model.motion(group).catch(() => {})
+    }
+    const dragging = (value: boolean) => {
+      held = value
+      if (!held) {
+        model?.internalModel.motionManager.stopAllMotions()
+        phase(currentPhase)
+        return
+      }
+      if (reduced || released || !model) return
+      const group = ['drag', 'held', 'tapbody']
+        .map((name) => groups.find((group) => group.toLowerCase().replaceAll('_', '') === name))
+        .find(Boolean)
+      if (group) void model.motion(group, undefined, 3).catch(() => {})
     }
     const expressions =
       (
@@ -130,6 +146,7 @@ export async function mountLive2D(
     return {
       resize,
       phase,
+      dragging,
       expression,
       focus: (x: number, y: number) => {
         if (!reduced && !released) model?.focus(x, y)

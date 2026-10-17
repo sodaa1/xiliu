@@ -1714,7 +1714,7 @@
       "kind": "ui_event",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/app/App.tsx",
-      "line": 150,
+      "line": 184,
       "symbol": "onClose={closeSettings}"
     },
     {
@@ -1794,7 +1794,7 @@
       "kind": "ui_event",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/components/PillNav.tsx",
-      "line": 21,
+      "line": 22,
       "symbol": "onClickCapture={(event) => { const anchor = (event.target as HTMLElement).closest('a') if (anchor?.getAttribute('href') === '/settings') { event.preventDefault() navigate('/settings', { state: { backgroundLocation: location } }) } }}"
     },
     {
@@ -2282,7 +2282,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/ChatProvider.tsx",
-      "line": 72,
+      "line": 73,
       "symbol": "api.create"
     },
     {
@@ -2290,7 +2290,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/ChatProvider.tsx",
-      "line": 102,
+      "line": 103,
       "symbol": "api.chat"
     },
     {
@@ -2298,7 +2298,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/Composer.tsx",
-      "line": 92,
+      "line": 95,
       "symbol": "onChange={setHeight}"
     },
     {
@@ -2306,7 +2306,7 @@
       "kind": "ui_button",
       "page": "Assistant",
       "file": "web/src/features/assistant/Composer.tsx",
-      "line": 97,
+      "line": 100,
       "symbol": "<button key={entry.name} role=\"option\" id={`suggestion-${index}`} aria-selected={chosen === index} className={chosen === index ? 'highlighted' : ''} onMouseDown={(event) => event.preventDefault()} onClick={() => complete(index)} >"
     },
     {
@@ -2314,7 +2314,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/Composer.tsx",
-      "line": 103,
+      "line": 106,
       "symbol": "onMouseDown={(event) => event.preventDefault()}"
     },
     {
@@ -2322,7 +2322,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/Composer.tsx",
-      "line": 104,
+      "line": 107,
       "symbol": "onClick={() => complete(index)}"
     },
     {
@@ -2330,7 +2330,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/Composer.tsx",
-      "line": 117,
+      "line": 120,
       "symbol": "onChange={(event) => { onText(event.target.value) setDismissed(false) setHighlight(0) }}"
     },
     {
@@ -2338,7 +2338,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/Composer.tsx",
-      "line": 122,
+      "line": 125,
       "symbol": "onKeyDown={keyDown}"
     },
     {
@@ -2346,7 +2346,7 @@
       "kind": "ui_button",
       "page": "Assistant",
       "file": "web/src/features/assistant/Composer.tsx",
-      "line": 134,
+      "line": 137,
       "symbol": "<button className=\"send-button\" aria-label={onStop ? (stopping ? '正在停止回复' : '停止回复') : '发送消息'} title={onStop ? '停止回复' : '发送消息'} onClick={onStop ?? onSend} disabled={onStop ? stopping : disabled || !text.trim()} >"
     },
     {
@@ -2354,7 +2354,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/Composer.tsx",
-      "line": 138,
+      "line": 141,
       "symbol": "onClick={onStop ?? onSend}"
     },
     {
@@ -2366,19 +2366,19 @@
       "symbol": "onChange={setWidth}"
     },
     {
-      "id": "ui_button:a35c8e16750bb2362d0d:1",
+      "id": "ui_button:beb331c3f04e27d9f963:1",
       "kind": "ui_button",
       "page": "Assistant",
       "file": "web/src/features/assistant/ConversationList.tsx",
       "line": 59,
-      "symbol": "<button className=\"new-chat\" aria-label=\"新建 New Chat\" onClick={onCreate} disabled={creating} >"
+      "symbol": "<button className=\"new-chat\" aria-label=\"创建新对话\" onClick={onCreate} disabled={creating}>"
     },
     {
       "id": "ui_event:1ba2c0c9326617a88d8d:1",
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/ConversationList.tsx",
-      "line": 62,
+      "line": 59,
       "symbol": "onClick={onCreate}"
     },
     {
@@ -2386,7 +2386,7 @@
       "kind": "ui_button",
       "page": "Assistant",
       "file": "web/src/features/assistant/ConversationList.tsx",
-      "line": 80,
+      "line": 75,
       "symbol": "<button className=\"conversation-select\" onClick={() => { setMenu(null) onSelect(conversation.id) }} >"
     },
     {
@@ -2394,7 +2394,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/ConversationList.tsx",
-      "line": 82,
+      "line": 77,
       "symbol": "onClick={() => { setMenu(null) onSelect(conversation.id) }}"
     },
     {
@@ -2402,7 +2402,7 @@
       "kind": "ui_button",
       "page": "Assistant",
       "file": "web/src/features/assistant/ConversationList.tsx",
-      "line": 90,
+      "line": 85,
       "symbol": "<button className=\"icon-button conversation-more\" aria-label={`对话操作：${conversation.title}`} aria-expanded={menu === conversation.id} onClick={() => setMenu(menu === conversation.id ? null : conversation.id)} >"
     },
     {
@@ -2410,7 +2410,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/ConversationList.tsx",
-      "line": 94,
+      "line": 89,
       "symbol": "onClick={() => setMenu(menu === conversation.id ? null : conversation.id)}"
     },
     {
@@ -2418,7 +2418,7 @@
       "kind": "ui_button",
       "page": "Assistant",
       "file": "web/src/features/assistant/ConversationList.tsx",
-      "line": 100,
+      "line": 95,
       "symbol": "<button disabled={busyIds.includes(conversation.id)} onClick={() => { setMenu(null) onDelete(conversation.id) }} >"
     },
     {
@@ -2426,7 +2426,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/ConversationList.tsx",
-      "line": 102,
+      "line": 97,
       "symbol": "onClick={() => { setMenu(null) onDelete(conversation.id) }}"
     },
     {
@@ -2766,19 +2766,19 @@
       "symbol": "onClick={(event) => { if (event.target === event.currentTarget) onClose() }}"
     },
     {
-      "id": "ui_button:415fe9d378c6b39e3675:1",
+      "id": "ui_button:4a2980e74eccdd2742d6:1",
       "kind": "ui_button",
       "page": "Automations",
       "file": "web/src/features/automations/AutomationsDrawer.tsx",
       "line": 281,
-      "symbol": "<button className=\"icon-button drawer-close\" aria-label=\"关闭 Automations\" onClick={onClose} >"
+      "symbol": "<button className=\"icon-button drawer-close\" aria-label=\"关闭自动任务\" onClick={onClose}>"
     },
     {
       "id": "ui_event:af970b49fc0e33e4d04e:1",
       "kind": "ui_event",
       "page": "Automations",
       "file": "web/src/features/automations/AutomationsDrawer.tsx",
-      "line": 284,
+      "line": 281,
       "symbol": "onClick={onClose}"
     },
     {
@@ -2786,7 +2786,7 @@
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 66,
+      "line": 71,
       "symbol": "mutationFn: async"
     },
     {
@@ -2794,7 +2794,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 68,
+      "line": 73,
       "symbol": "workspaceApi.importContent"
     },
     {
@@ -2802,7 +2802,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 17,
+      "line": 18,
       "symbol": "onClose={onClose}"
     },
     {
@@ -2810,7 +2810,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 102,
+      "line": 107,
       "symbol": "onPaste={(event) => { const value = event.clipboardData.files[0] if (value) { event.preventDefault() chooseFile(value) } }}"
     },
     {
@@ -2818,7 +2818,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 113,
+      "line": 118,
       "symbol": "onDragOver={(event) => { event.preventDefault() setDragging(true) }}"
     },
     {
@@ -2826,7 +2826,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 117,
+      "line": 122,
       "symbol": "onDragLeave={() => setDragging(false)}"
     },
     {
@@ -2834,7 +2834,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 118,
+      "line": 123,
       "symbol": "onDrop={(event) => { event.preventDefault() setDragging(false) chooseFile(event.dataTransfer.files[0]) }}"
     },
     {
@@ -2842,7 +2842,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 131,
+      "line": 136,
       "symbol": "onChange={(event) => chooseFile(event.target.files?.[0])}"
     },
     {
@@ -2850,7 +2850,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 139,
+      "line": 144,
       "symbol": "onClick={() => { setFile(null) setFileError('') }}"
     },
     {
@@ -2858,7 +2858,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 153,
+      "line": 158,
       "symbol": "onChange={(event) => setUseAI(event.target.checked)}"
     },
     {
@@ -2866,7 +2866,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 166,
+      "line": 175,
       "symbol": "<button className=\"secondary-button\" type=\"button\" onClick={onClose}>"
     },
     {
@@ -2874,7 +2874,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 166,
+      "line": 175,
       "symbol": "onClick={onClose}"
     },
     {
@@ -2882,7 +2882,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 169,
+      "line": 178,
       "symbol": "<button className=\"primary-button\" disabled={create.isPending || !!fileError}>"
     },
     {
@@ -2914,7 +2914,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 49,
+      "line": 50,
       "symbol": "workspaceApi.folders"
     },
     {
@@ -2922,23 +2922,23 @@
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 49,
+      "line": 50,
       "symbol": "queryFn: workspaceApi.folders"
     },
     {
-      "id": "ui_mutation:c65194e63d69584b135d:1",
+      "id": "ui_mutation:2b27d900be4a651cfcbd:1",
       "kind": "ui_mutation",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 50,
-      "symbol": "useMutation({ mutationFn: () => workspaceApi.updateContent(item.id, { title, content, summary, tags: tagsFrom(tags), ...(folder !== (item.folder_id ?? '') ? { folder_id: folder || null } : {}), }), onSuccess: () => { onSaved() onClose() }, }"
+      "line": 51,
+      "symbol": "useMutation({ mutationFn: () => workspaceApi.updateContent(item.id, { demo_revision: demoRevision, title, content, summary, tags: tagsFrom(tags), ...(folder !== (item.folder_id ?? '') ? { folder_id: folder || null } : {}), }), onSuccess: () => { onSaved() onClose() }, }"
     },
     {
       "id": "ui_query:70a4fcf873d317cdd1ef:1",
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 51,
+      "line": 52,
       "symbol": "mutationFn: ()"
     },
     {
@@ -2946,7 +2946,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 52,
+      "line": 53,
       "symbol": "workspaceApi.updateContent"
     },
     {
@@ -2954,7 +2954,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 67,
+      "line": 69,
       "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
     },
     {
@@ -2962,7 +2962,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 74,
+      "line": 76,
       "symbol": "<button type=\"button\" className=\"icon-button\" aria-label=\"取消编辑\" onClick={onClose}>"
     },
     {
@@ -2970,7 +2970,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 74,
+      "line": 76,
       "symbol": "onClick={onClose}"
     },
     {
@@ -2978,7 +2978,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 80,
+      "line": 82,
       "symbol": "onChange={(event) => setTitle(event.target.value)}"
     },
     {
@@ -2986,7 +2986,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 84,
+      "line": 86,
       "symbol": "onChange={(event) => setContent(event.target.value)}"
     },
     {
@@ -2994,7 +2994,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 88,
+      "line": 90,
       "symbol": "onChange={(event) => setSummary(event.target.value)}"
     },
     {
@@ -3002,7 +3002,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 94,
+      "line": 96,
       "symbol": "onChange={(event) => setTags(event.target.value)}"
     },
     {
@@ -3010,7 +3010,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 103,
+      "line": 105,
       "symbol": "onChange={setFolder}"
     },
     {
@@ -3018,7 +3018,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 121,
+      "line": 123,
       "symbol": "<button type=\"button\" className=\"secondary-button\" onClick={onClose}>"
     },
     {
@@ -3026,7 +3026,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 121,
+      "line": 123,
       "symbol": "onClick={onClose}"
     },
     {
@@ -3034,7 +3034,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 124,
+      "line": 126,
       "symbol": "<button className=\"primary-button\" disabled={save.isPending}>"
     },
     {
@@ -3042,7 +3042,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 225,
+      "line": 227,
       "symbol": "workspaceApi.folders"
     },
     {
@@ -3050,7 +3050,7 @@
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 225,
+      "line": 227,
       "symbol": "queryFn: workspaceApi.folders"
     },
     {
@@ -3058,7 +3058,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 228,
+      "line": 230,
       "symbol": "workspaceApi.contentItem"
     },
     {
@@ -3066,7 +3066,7 @@
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 228,
+      "line": 230,
       "symbol": "queryFn: ()"
     },
     {
@@ -3074,7 +3074,7 @@
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 235,
+      "line": 237,
       "symbol": "queryFn: ()"
     },
     {
@@ -3082,7 +3082,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 237,
+      "line": 239,
       "symbol": "workspaceApi.contentItem"
     },
     {
@@ -3090,7 +3090,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 239,
+      "line": 241,
       "symbol": "workspaceApi.folderItems"
     },
     {
@@ -3098,7 +3098,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 241,
+      "line": 243,
       "symbol": "workspaceApi.inbox"
     },
     {
@@ -3106,7 +3106,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 242,
+      "line": 244,
       "symbol": "workspaceApi.content"
     },
     {
@@ -3114,7 +3114,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 248,
+      "line": 250,
       "symbol": "workspaceApi.content"
     },
     {
@@ -3122,23 +3122,23 @@
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 248,
+      "line": 250,
       "symbol": "queryFn: ()"
     },
     {
-      "id": "ui_mutation:71eb8cc4a003aa779d15:1",
+      "id": "ui_mutation:ac2b8469618f6a5f11e8:1",
       "kind": "ui_mutation",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 258,
-      "symbol": "useMutation({ mutationFn: (item: ContentItem) => workspaceApi.updateContent(item.id, { status: status === 'inbox' ? 'knowledge' : 'inbox' }), onSuccess: () => { setNotice(status === 'inbox' ? '已保存到 Knowledge' : '已移回 Inbox') invalidate() }, }"
+      "line": 260,
+      "symbol": "useMutation({ mutationFn: (item: ContentItem) => workspaceApi.updateContent(item.id, { status: status === 'inbox' ? 'knowledge' : 'inbox' }), onSuccess: () => { setNotice(status === 'inbox' ? '已保存到知识库' : '已移回收件箱') invalidate() }, }"
     },
     {
       "id": "ui_query:7164cad0c21984924497:1",
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 259,
+      "line": 261,
       "symbol": "mutationFn: (item:"
     },
     {
@@ -3146,7 +3146,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 260,
+      "line": 262,
       "symbol": "workspaceApi.updateContent"
     },
     {
@@ -3154,7 +3154,7 @@
       "kind": "ui_mutation",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 266,
+      "line": 268,
       "symbol": "useMutation({ mutationFn: workspaceApi.deleteContent, onSuccess: async (_, id) => { await cache.cancelQueries({ queryKey: ['recent-imports'] }) cache.removeQueries({ queryKey: ['recent-imports'] }) setRecentIds((ids) => ids.filter((value) => value !== id)) setSelected((ids) => ids.filter((value) => value !== id)) setNotice('已删除内容') // React has not rendered the new IDs yet; do not refetch the old query. invalidate(false) }, }"
     },
     {
@@ -3162,7 +3162,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 267,
+      "line": 269,
       "symbol": "workspaceApi.deleteContent"
     },
     {
@@ -3170,7 +3170,7 @@
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 267,
+      "line": 269,
       "symbol": "mutationFn: workspaceApi.deleteContent,"
     },
     {
@@ -3178,7 +3178,7 @@
       "kind": "ui_mutation",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 278,
+      "line": 280,
       "symbol": "useMutation({ mutationFn: workspaceApi.classifyBatch, onSuccess: ({ items }) => { setRecentIds((ids) => [...new Set([...ids, ...items.map((item) => item.id)])]) setSelected([]) setNotice('已提交分类，结果将在下方更新') invalidate() }, }"
     },
     {
@@ -3186,7 +3186,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 279,
+      "line": 281,
       "symbol": "workspaceApi.classifyBatch"
     },
     {
@@ -3194,7 +3194,7 @@
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 279,
+      "line": 281,
       "symbol": "mutationFn: workspaceApi.classifyBatch,"
     },
     {
@@ -3202,39 +3202,39 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 287,
+      "line": 290,
       "symbol": "workspaceApi.retryContent"
     },
     {
-      "id": "ui_mutation:ae0b44b43abe75ec7a94:1",
+      "id": "ui_mutation:2d3bcbc81f91e3b06b68:1",
       "kind": "ui_mutation",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 287,
-      "symbol": "useMutation({ mutationFn: workspaceApi.retryContent, onSuccess: () => invalidate() }"
+      "line": 289,
+      "symbol": "useMutation({ mutationFn: workspaceApi.retryContent, onSuccess: () => invalidate(), }"
     },
     {
       "id": "ui_query:9259af3864a1f2823649:1",
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 287,
+      "line": 290,
       "symbol": "mutationFn: workspaceApi.retryContent,"
     },
     {
-      "id": "ui_button:59c895b10e01a7f1b127:1",
+      "id": "ui_button:334fd8a078f96f88e40e:1",
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 324,
-      "symbol": "<button className=\"primary-button\" aria-label=\"添加到 Inbox\" onClick={() => setCaptureOpen(true)} >"
+      "line": 329,
+      "symbol": "<button className=\"primary-button\" aria-label=\"添加到收件箱\" onClick={() => setCaptureOpen(true)} >"
     },
     {
       "id": "ui_event:a4f9772ebff90ba1ab4c:1",
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 327,
+      "line": 332,
       "symbol": "onClick={() => setCaptureOpen(true)}"
     },
     {
@@ -3242,7 +3242,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 337,
+      "line": 342,
       "symbol": "onClose={() => setCaptureOpen(false)}"
     },
     {
@@ -3250,7 +3250,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 338,
+      "line": 343,
       "symbol": "onSaved={(item) => { setRecentIds((ids) => [...ids, item.id]) cache.setQueryData<ContentItem[]>( ['recent-imports', [...recentIds, item.id]], [...(recent.data ?? []), item] ) setCaptureOpen(false) setNotice('已保存，正在后台整理') invalidate() }}"
     },
     {
@@ -3258,7 +3258,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 357,
+      "line": 362,
       "symbol": "onChange={(event) => setQ(event.target.value)}"
     },
     {
@@ -3266,7 +3266,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 363,
+      "line": 368,
       "symbol": "onChange={(event) => setTag(event.target.value)}"
     },
     {
@@ -3274,7 +3274,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 381,
+      "line": 386,
       "symbol": "<button key={value} className={type === value ? 'selected' : ''} aria-pressed={type === value} onClick={() => setType(value)} >"
     },
     {
@@ -3282,7 +3282,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 385,
+      "line": 390,
       "symbol": "onClick={() => setType(value)}"
     },
     {
@@ -3290,7 +3290,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 398,
+      "line": 403,
       "symbol": "onChange={(event) => setSelected(event.target.checked ? items.map((item) => item.id) : []) }"
     },
     {
@@ -3298,7 +3298,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 404,
+      "line": 409,
       "symbol": "<button className=\"secondary-button\" disabled={!selected.length || classify.isPending} onClick={() => classify.mutate(selected)} >"
     },
     {
@@ -3306,7 +3306,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 407,
+      "line": 412,
       "symbol": "onClick={() => classify.mutate(selected)}"
     },
     {
@@ -3314,7 +3314,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 428,
+      "line": 433,
       "symbol": "onClose={() => setEditing(null)}"
     },
     {
@@ -3322,7 +3322,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 429,
+      "line": 434,
       "symbol": "onSaved={invalidate}"
     },
     {
@@ -3330,7 +3330,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 461,
+      "line": 467,
       "symbol": "<button className=\"secondary-button\" onClick={() => void list.refetch()}>"
     },
     {
@@ -3338,7 +3338,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 461,
+      "line": 467,
       "symbol": "onClick={() => void list.refetch()}"
     },
     {
@@ -3346,7 +3346,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 504,
+      "line": 510,
       "symbol": "onChange={(event) => setSelected((ids) => event.target.checked ? [...ids, item.id] : ids.filter((id) => id !== item.id) ) }"
     },
     {
@@ -3354,7 +3354,7 @@
       "kind": "ui_link",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 163,
+      "line": 165,
       "symbol": "<a className=\"source-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\">"
     },
     {
@@ -3362,7 +3362,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 551,
+      "line": 557,
       "symbol": "<button className=\"secondary-button\" disabled={retry.isPending} onClick={() => retry.mutate(item.id)} >"
     },
     {
@@ -3370,7 +3370,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 554,
+      "line": 560,
       "symbol": "onClick={() => retry.mutate(item.id)}"
     },
     {
@@ -3378,7 +3378,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 561,
+      "line": 567,
       "symbol": "<button key={value} onClick={() => setTag(value)}>"
     },
     {
@@ -3386,7 +3386,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 561,
+      "line": 567,
       "symbol": "onClick={() => setTag(value)}"
     },
     {
@@ -3394,7 +3394,7 @@
       "kind": "ui_link",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 568,
+      "line": 574,
       "symbol": "<Link to={`/knowledge?folder=${encodeURIComponent(item.folder_id ?? 'unfiled')}&document=${encodeURIComponent(item.id)}`} >"
     },
     {
@@ -3402,7 +3402,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 574,
+      "line": 580,
       "symbol": "<button disabled={ update.isPending || classify.isPending || item.processing_status === 'pending' } onClick={() => status === 'inbox' ? classify.mutate([item.id]) : update.mutate(item) } >"
     },
     {
@@ -3410,31 +3410,31 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 580,
+      "line": 586,
       "symbol": "onClick={() => status === 'inbox' ? classify.mutate([item.id]) : update.mutate(item) }"
     },
     {
-      "id": "ui_button:46791fc5c34a4258d6d1:1",
+      "id": "ui_button:2746a358b1015f14fe01:1",
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 588,
-      "symbol": "<button disabled={ask.isPending} onClick={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { title: item.title, content: [ item.filename ? `文件：${item.filename}\\n以下参考仅包含文件名与备注，原文件内容未展开。` : '', item.content, item.summary, item.source, ] .filter(Boolean) .join('\\n\\n'), }, }) } >"
+      "line": 594,
+      "symbol": "<button disabled={ask.isPending} onClick={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { documentId: item.id, title: item.title, content: [ item.filename ? `文件：${item.filename}\\n以下参考仅包含文件名与备注，原文件内容未展开。` : '', item.content, item.summary, item.source, ] .filter(Boolean) .join('\\n\\n'), }, }) } >"
     },
     {
-      "id": "ui_event:bd4939ebe5701e09ab3a:1",
+      "id": "ui_event:b047e50752710866acd0:1",
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 590,
-      "symbol": "onClick={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { title: item.title, content: [ item.filename ? `文件：${item.filename}\\n以下参考仅包含文件名与备注，原文件内容未展开。` : '', item.content, item.summary, item.source, ] .filter(Boolean) .join('\\n\\n'), }, }) }"
+      "line": 596,
+      "symbol": "onClick={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { documentId: item.id, title: item.title, content: [ item.filename ? `文件：${item.filename}\\n以下参考仅包含文件名与备注，原文件内容未展开。` : '', item.content, item.summary, item.source, ] .filter(Boolean) .join('\\n\\n'), }, }) }"
     },
     {
       "id": "ui_api:017121cc84e984853358:1",
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 186,
+      "line": 188,
       "symbol": "workspaceApi.originalUrl"
     },
     {
@@ -3442,7 +3442,7 @@
       "kind": "ui_link",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 613,
+      "line": 620,
       "symbol": "<a href={workspaceApi.originalUrl(item.id)} download={item.filename}>"
     },
     {
@@ -3450,7 +3450,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 618,
+      "line": 625,
       "symbol": "<button className=\"delete-action\" disabled={remove.isPending} aria-label={`删除 ${item.title}`} onClick={() => remove.mutate(item.id)} >"
     },
     {
@@ -3458,7 +3458,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 622,
+      "line": 629,
       "symbol": "onClick={() => remove.mutate(item.id)}"
     },
     {
@@ -3466,7 +3466,7 @@
       "kind": "ui_mutation",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/useAskAI.ts",
-      "line": 13,
+      "line": 14,
       "symbol": "useMutation({ mutationFn: async ({ draft, reference, }: { draft: string reference?: AssistantReference }) => ({ conversation: await api.create(), draft, reference: reference ? { ...reference, title: reference.title.slice(0, 300), content: reference.content.slice(0, 38000), ...(reference.content.length > 38000 || reference.title.length > 300 ? { truncated: true } : {}), } : undefined, }), onSuccess: async ({ conversation, draft, reference }) => { await cache.invalidateQueries({ queryKey: ['conversations'] }) navigate(`/assistant?c=${encodeURIComponent(conversation.id)}`, { state: { draft, reference }, }) }, }"
     },
     {
@@ -3474,7 +3474,7 @@
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/useAskAI.ts",
-      "line": 14,
+      "line": 15,
       "symbol": "mutationFn: async"
     },
     {
@@ -3482,23 +3482,23 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/useAskAI.ts",
-      "line": 21,
+      "line": 22,
       "symbol": "api.create"
     },
     {
-      "id": "ui_mutation:b43beca5a3b9030ede93:1",
+      "id": "ui_mutation:1b70a4719b81f8b5128b:1",
       "kind": "ui_mutation",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 30,
-      "symbol": "useMutation({ mutationFn: () => { const body = { url, title, summary, tags: [ ...new Set( tags .split(/[,，]/) .map((tag) => tag.trim()) .filter(Boolean) ), ], fetch_title: fetchTitle, } return item ? workspaceApi.updateManualFeed(item.id, body) : workspaceApi.addManualFeed(body) }, onSuccess: () => { void cache.invalidateQueries({ queryKey: ['feed'] }) void cache.invalidateQueries({ queryKey: ['today'] }) onClose() }, }"
+      "line": 32,
+      "symbol": "useMutation({ mutationFn: () => { const body = { demo_revision: demoRevision, url, title, summary, tags: [ ...new Set( tags .split(/[,，]/) .map((tag) => tag.trim()) .filter(Boolean) ), ], fetch_title: fetchTitle, } return item ? workspaceApi.updateManualFeed(item.id, body) : workspaceApi.addManualFeed(body) }, onSuccess: () => { void cache.invalidateQueries({ queryKey: ['feed'] }) void cache.invalidateQueries({ queryKey: ['today'] }) onClose() }, }"
     },
     {
       "id": "ui_query:597839f9da40b4e937da:1",
       "kind": "ui_query",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 31,
+      "line": 33,
       "symbol": "mutationFn: ()"
     },
     {
@@ -3506,7 +3506,7 @@
       "kind": "ui_api",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 46,
+      "line": 49,
       "symbol": "workspaceApi.updateManualFeed"
     },
     {
@@ -3514,7 +3514,7 @@
       "kind": "ui_api",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 46,
+      "line": 49,
       "symbol": "workspaceApi.addManualFeed"
     },
     {
@@ -3522,7 +3522,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 55,
+      "line": 58,
       "symbol": "onClose={onClose}"
     },
     {
@@ -3530,7 +3530,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 57,
+      "line": 60,
       "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
     },
     {
@@ -3538,7 +3538,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 70,
+      "line": 73,
       "symbol": "onChange={(event) => setUrl(event.target.value)}"
     },
     {
@@ -3546,7 +3546,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 79,
+      "line": 82,
       "symbol": "onChange={(event) => setTitle(event.target.value)}"
     },
     {
@@ -3554,7 +3554,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 89,
+      "line": 92,
       "symbol": "onChange={(event) => setSummary(event.target.value)}"
     },
     {
@@ -3562,7 +3562,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 96,
+      "line": 99,
       "symbol": "onChange={(event) => setTags(event.target.value)}"
     },
     {
@@ -3570,7 +3570,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 104,
+      "line": 108,
       "symbol": "onChange={(event) => setFetchTitle(event.target.checked)}"
     },
     {
@@ -3578,7 +3578,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 115,
+      "line": 120,
       "symbol": "<button type=\"button\" className=\"secondary-button\" onClick={onClose}>"
     },
     {
@@ -3586,7 +3586,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 115,
+      "line": 120,
       "symbol": "onClick={onClose}"
     },
     {
@@ -3594,7 +3594,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 118,
+      "line": 123,
       "symbol": "<button className=\"primary-button\" disabled={save.isPending}>"
     },
     {
@@ -3602,7 +3602,7 @@
       "kind": "ui_mutation",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 232,
+      "line": 241,
       "symbol": "useMutation({ mutationFn: () => workspaceApi.saveFeed(item.id), onSuccess: () => { void cache.invalidateQueries({ queryKey: ['content'] }) void cache.invalidateQueries({ queryKey: ['content-tags'] }) void cache.invalidateQueries({ queryKey: ['today'] }) void cache.invalidateQueries({ queryKey: ['data-settings'] }) }, }"
     },
     {
@@ -3610,7 +3610,7 @@
       "kind": "ui_api",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 233,
+      "line": 242,
       "symbol": "workspaceApi.saveFeed"
     },
     {
@@ -3618,7 +3618,7 @@
       "kind": "ui_query",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 149,
+      "line": 158,
       "symbol": "mutationFn: ()"
     },
     {
@@ -3626,7 +3626,7 @@
       "kind": "ui_mutation",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 241,
+      "line": 250,
       "symbol": "useMutation({ mutationFn: () => item.source === 'manual' ? item.deleted_at ? workspaceApi.restoreManualFeed(item.id) : workspaceApi.removeManualFeed(item.id) : item.hidden ? workspaceApi.unhideExternalFeed(item.id) : workspaceApi.hideExternalFeed(item.id), onSuccess: () => { void cache.invalidateQueries({ queryKey: ['feed'] }) void cache.invalidateQueries({ queryKey: ['today'] }) }, }"
     },
     {
@@ -3634,7 +3634,7 @@
       "kind": "ui_query",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 233,
+      "line": 242,
       "symbol": "mutationFn: ()"
     },
     {
@@ -3642,7 +3642,7 @@
       "kind": "ui_api",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 245,
+      "line": 254,
       "symbol": "workspaceApi.restoreManualFeed"
     },
     {
@@ -3650,7 +3650,7 @@
       "kind": "ui_api",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 246,
+      "line": 255,
       "symbol": "workspaceApi.removeManualFeed"
     },
     {
@@ -3658,7 +3658,7 @@
       "kind": "ui_api",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 248,
+      "line": 257,
       "symbol": "workspaceApi.unhideExternalFeed"
     },
     {
@@ -3666,7 +3666,7 @@
       "kind": "ui_api",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 249,
+      "line": 258,
       "symbol": "workspaceApi.hideExternalFeed"
     },
     {
@@ -3674,7 +3674,7 @@
       "kind": "ui_link",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 306,
+      "line": 315,
       "symbol": "<a href={url} target=\"_blank\" rel=\"noreferrer\">"
     },
     {
@@ -3682,7 +3682,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 311,
+      "line": 320,
       "symbol": "<button disabled={removed || save.isPending || save.isSuccess} onClick={() => save.mutate()} >"
     },
     {
@@ -3690,7 +3690,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 313,
+      "line": 322,
       "symbol": "onClick={() => save.mutate()}"
     },
     {
@@ -3698,7 +3698,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 319,
+      "line": 328,
       "symbol": "<button aria-label={`编辑 ${item.title}`} onClick={onEdit}>"
     },
     {
@@ -3706,7 +3706,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 319,
+      "line": 328,
       "symbol": "onClick={onEdit}"
     },
     {
@@ -3714,7 +3714,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 324,
+      "line": 333,
       "symbol": "<button disabled={visibility.isPending} aria-label={`${visibilityLabel} ${item.title}`} onClick={() => visibility.mutate()} >"
     },
     {
@@ -3722,7 +3722,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 327,
+      "line": 336,
       "symbol": "onClick={() => visibility.mutate()}"
     },
     {
@@ -3730,7 +3730,7 @@
       "kind": "ui_api",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 375,
+      "line": 384,
       "symbol": "workspaceApi.feed"
     },
     {
@@ -3738,7 +3738,7 @@
       "kind": "ui_query",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 375,
+      "line": 384,
       "symbol": "queryFn: ()"
     },
     {
@@ -3746,7 +3746,7 @@
       "kind": "ui_mutation",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 377,
+      "line": 386,
       "symbol": "useMutation({ mutationFn: workspaceApi.refreshFeed, onSuccess: () => { void cache.invalidateQueries({ queryKey: ['feed'] }) void cache.invalidateQueries({ queryKey: ['today'] }) }, }"
     },
     {
@@ -3754,7 +3754,7 @@
       "kind": "ui_api",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 378,
+      "line": 387,
       "symbol": "workspaceApi.refreshFeed"
     },
     {
@@ -3762,7 +3762,7 @@
       "kind": "ui_query",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 378,
+      "line": 387,
       "symbol": "mutationFn: workspaceApi.refreshFeed,"
     },
     {
@@ -3770,7 +3770,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 402,
+      "line": 411,
       "symbol": "<button className=\"secondary-button\" onClick={() => setEditor('new')}>"
     },
     {
@@ -3778,7 +3778,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 402,
+      "line": 411,
       "symbol": "onClick={() => setEditor('new')}"
     },
     {
@@ -3786,7 +3786,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 406,
+      "line": 415,
       "symbol": "<button className=\"secondary-button\" disabled={refresh.isPending} onClick={() => refresh.mutate()} >"
     },
     {
@@ -3794,7 +3794,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 409,
+      "line": 418,
       "symbol": "onClick={() => refresh.mutate()}"
     },
     {
@@ -3802,7 +3802,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 417,
+      "line": 426,
       "symbol": "onClose={() => setEditor(null)}"
     },
     {
@@ -3810,7 +3810,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 429,
+      "line": 438,
       "symbol": "<button key={value} className={value === source ? 'selected' : ''} aria-pressed={value === source} onClick={() => setSource(value)} >"
     },
     {
@@ -3818,7 +3818,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 433,
+      "line": 442,
       "symbol": "onClick={() => setSource(value)}"
     },
     {
@@ -3826,7 +3826,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 398,
+      "line": 407,
       "symbol": "onChange={(event) => setQ(event.target.value)}"
     },
     {
@@ -3834,7 +3834,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 444,
+      "line": 453,
       "symbol": "onChange={(event) => setIncludeHidden(event.target.checked)}"
     },
     {
@@ -3842,7 +3842,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 494,
+      "line": 507,
       "symbol": "<button className=\"secondary-button\" onClick={() => void feed.refetch()}>"
     },
     {
@@ -3850,7 +3850,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 494,
+      "line": 507,
       "symbol": "onClick={() => void feed.refetch()}"
     },
     {
@@ -3858,23 +3858,23 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 507,
+      "line": 520,
       "symbol": "onEdit={() => setEditor(item)}"
     },
     {
-      "id": "ui_mutation:2c5751f450516c7eb6f8:1",
+      "id": "ui_mutation:9228a4876c70fbc667fe:1",
       "kind": "ui_mutation",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 22,
-      "symbol": "useMutation({ mutationFn: () => { const body = { name: name.trim(), summary: summary.trim(), tags: [ ...new Set( tags .split(/[,，]/) .map((tag) => tag.trim()) .filter(Boolean) ), ], priority: Number(priority), } return folder ? workspaceApi.updateFolder(folder.id, body) : workspaceApi.createFolder(body) }, onSuccess: () => { void cache.invalidateQueries({ queryKey: ['knowledge-folders'] }) onClose() }, }"
+      "line": 23,
+      "symbol": "useMutation({ mutationFn: () => { const body = { demo_revision: demoRevision, name: name.trim(), summary: summary.trim(), tags: [ ...new Set( tags .split(/[,，]/) .map((tag) => tag.trim()) .filter(Boolean) ), ], priority: Number(priority), } return folder ? workspaceApi.updateFolder(folder.id, body) : workspaceApi.createFolder(body) }, onSuccess: () => { void cache.invalidateQueries({ queryKey: ['knowledge-folders'] }) onClose() }, }"
     },
     {
       "id": "ui_query:47c2f8e2dbf02e3d5d2b:1",
       "kind": "ui_query",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 23,
+      "line": 24,
       "symbol": "mutationFn: ()"
     },
     {
@@ -3882,7 +3882,7 @@
       "kind": "ui_api",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 37,
+      "line": 39,
       "symbol": "workspaceApi.updateFolder"
     },
     {
@@ -3890,7 +3890,7 @@
       "kind": "ui_api",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 37,
+      "line": 39,
       "symbol": "workspaceApi.createFolder"
     },
     {
@@ -3898,7 +3898,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 45,
+      "line": 47,
       "symbol": "onClose={onClose}"
     },
     {
@@ -3906,7 +3906,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 47,
+      "line": 49,
       "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
     },
     {
@@ -3914,7 +3914,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 54,
+      "line": 56,
       "symbol": "onChange={(event) => setName(event.target.value)}"
     },
     {
@@ -3922,7 +3922,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 58,
+      "line": 60,
       "symbol": "onChange={(event) => setSummary(event.target.value)}"
     },
     {
@@ -3930,7 +3930,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 64,
+      "line": 66,
       "symbol": "onChange={(event) => setTags(event.target.value)}"
     },
     {
@@ -3938,7 +3938,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 75,
+      "line": 77,
       "symbol": "onChange={(event) => setPriority(event.target.value)}"
     },
     {
@@ -3946,7 +3946,7 @@
       "kind": "ui_button",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 87,
+      "line": 89,
       "symbol": "<button className=\"secondary-button\" type=\"button\" onClick={onClose}>"
     },
     {
@@ -3954,7 +3954,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 87,
+      "line": 89,
       "symbol": "onClick={onClose}"
     },
     {
@@ -3962,7 +3962,7 @@
       "kind": "ui_button",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 90,
+      "line": 92,
       "symbol": "<button className=\"primary-button\" disabled={save.isPending || !name.trim()}>"
     },
     {
@@ -3970,7 +3970,7 @@
       "kind": "ui_api",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 144,
+      "line": 146,
       "symbol": "workspaceApi.folders"
     },
     {
@@ -3978,7 +3978,7 @@
       "kind": "ui_query",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 144,
+      "line": 146,
       "symbol": "queryFn: workspaceApi.folders"
     },
     {
@@ -3986,7 +3986,7 @@
       "kind": "ui_api",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 147,
+      "line": 149,
       "symbol": "workspaceApi.searchKnowledge"
     },
     {
@@ -3994,7 +3994,7 @@
       "kind": "ui_query",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 147,
+      "line": 149,
       "symbol": "queryFn: ()"
     },
     {
@@ -4002,7 +4002,7 @@
       "kind": "ui_mutation",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 150,
+      "line": 152,
       "symbol": "useMutation({ mutationFn: workspaceApi.deleteFolder, onSuccess: () => { setDeleting(null) void cache.invalidateQueries({ queryKey: ['knowledge-folders'] }) void cache.invalidateQueries({ queryKey: ['content'] }) }, }"
     },
     {
@@ -4010,7 +4010,7 @@
       "kind": "ui_api",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 151,
+      "line": 153,
       "symbol": "workspaceApi.deleteFolder"
     },
     {
@@ -4018,7 +4018,7 @@
       "kind": "ui_query",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 151,
+      "line": 153,
       "symbol": "mutationFn: workspaceApi.deleteFolder,"
     },
     {
@@ -4026,7 +4026,7 @@
       "kind": "ui_button",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 163,
+      "line": 165,
       "symbol": "<button className=\"secondary-button\" onClick={() => setParams({})}>"
     },
     {
@@ -4034,7 +4034,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 163,
+      "line": 165,
       "symbol": "onClick={() => setParams({})}"
     },
     {
@@ -4042,7 +4042,7 @@
       "kind": "ui_button",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 203,
+      "line": 205,
       "symbol": "<button className=\"primary-button\" onClick={() => setEditing(null)}>"
     },
     {
@@ -4050,7 +4050,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 203,
+      "line": 205,
       "symbol": "onClick={() => setEditing(null)}"
     },
     {
@@ -4058,7 +4058,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 210,
+      "line": 212,
       "symbol": "onSubmit={(event) => { event.preventDefault() setSearch(q.trim()) }}"
     },
     {
@@ -4066,7 +4066,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 220,
+      "line": 222,
       "symbol": "onChange={(event) => setQ(event.target.value)}"
     },
     {
@@ -4074,7 +4074,7 @@
       "kind": "ui_button",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 224,
+      "line": 226,
       "symbol": "<button className=\"secondary-button\">"
     },
     {
@@ -4082,7 +4082,7 @@
       "kind": "ui_button",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 226,
+      "line": 228,
       "symbol": "<button className=\"secondary-button\" type=\"button\" onClick={() => { setSearch('') setQ('') }} >"
     },
     {
@@ -4090,7 +4090,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 229,
+      "line": 231,
       "symbol": "onClick={() => { setSearch('') setQ('') }}"
     },
     {
@@ -4098,7 +4098,7 @@
       "kind": "ui_link",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 239,
+      "line": 241,
       "symbol": "<Link to=\"?folder=all\">"
     },
     {
@@ -4106,7 +4106,7 @@
       "kind": "ui_link",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 240,
+      "line": 242,
       "symbol": "<Link to=\"?folder=unfiled\">"
     },
     {
@@ -4114,7 +4114,7 @@
       "kind": "ui_link",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 258,
+      "line": 260,
       "symbol": "<Link to={`?folder=all&document=${encodeURIComponent(item.document_id)}`}>"
     },
     {
@@ -4122,7 +4122,7 @@
       "kind": "ui_button",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 278,
+      "line": 280,
       "symbol": "<button className=\"secondary-button\" onClick={() => void folders.refetch()}>"
     },
     {
@@ -4130,7 +4130,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 278,
+      "line": 280,
       "symbol": "onClick={() => void folders.refetch()}"
     },
     {
@@ -4138,7 +4138,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 304,
+      "line": 306,
       "symbol": "onClose={() => setEditing(undefined)}"
     },
     {
@@ -4146,7 +4146,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 308,
+      "line": 310,
       "symbol": "onClose={() => setDeleting(null)}"
     },
     {
@@ -4154,7 +4154,7 @@
       "kind": "ui_button",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 318,
+      "line": 320,
       "symbol": "<button className=\"secondary-button\" onClick={() => setDeleting(null)}>"
     },
     {
@@ -4162,7 +4162,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 318,
+      "line": 320,
       "symbol": "onClick={() => setDeleting(null)}"
     },
     {
@@ -4170,7 +4170,7 @@
       "kind": "ui_button",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 321,
+      "line": 323,
       "symbol": "<button className=\"primary-button\" disabled={remove.isPending} onClick={() => remove.mutate(deleting.id)} >"
     },
     {
@@ -4178,7 +4178,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 324,
+      "line": 326,
       "symbol": "onClick={() => remove.mutate(deleting.id)}"
     },
     {
@@ -4218,7 +4218,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/AppearanceSettings.tsx",
-      "line": 58,
+      "line": 59,
       "symbol": "onChange={(theme) => change({ theme: theme as Preferences['theme'] })}"
     },
     {
@@ -4226,7 +4226,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/AppearanceSettings.tsx",
-      "line": 73,
+      "line": 74,
       "symbol": "onChange={(fontSize) => change({ fontSize: fontSize as Preferences['fontSize'] })}"
     },
     {
@@ -4234,7 +4234,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/AppearanceSettings.tsx",
-      "line": 88,
+      "line": 89,
       "symbol": "onChange={(fontFamily) => change({ fontFamily: fontFamily as Preferences['fontFamily'] }) }"
     },
     {
@@ -4242,7 +4242,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/AppearanceSettings.tsx",
-      "line": 104,
+      "line": 105,
       "symbol": "onChange={(density) => change({ density: density as Preferences['density'] })}"
     },
     {
@@ -4250,7 +4250,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/AppearanceSettings.tsx",
-      "line": 113,
+      "line": 114,
       "symbol": "<button role=\"switch\" disabled={saving} aria-label=\"减少动态效果\" aria-checked={preferences.reducedMotion} className={`automation-switch ${preferences.reducedMotion ? 'enabled' : ''}`} onClick={() => change({ reducedMotion: !preferences.reducedMotion })} >"
     },
     {
@@ -4258,7 +4258,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/AppearanceSettings.tsx",
-      "line": 119,
+      "line": 120,
       "symbol": "onClick={() => change({ reducedMotion: !preferences.reducedMotion })}"
     },
     {
@@ -4266,7 +4266,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/AppearanceSettings.tsx",
-      "line": 137,
+      "line": 138,
       "symbol": "<button className=\"secondary-button\" disabled={saving} onClick={() => change({ theme: defaultPreferences.theme, fontSize: defaultPreferences.fontSize, fontFamily: defaultPreferences.fontFamily, density: defaultPreferences.density, reducedMotion: defaultPreferences.reducedMotion, }) } >"
     },
     {
@@ -4274,7 +4274,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/AppearanceSettings.tsx",
-      "line": 140,
+      "line": 141,
       "symbol": "onClick={() => change({ theme: defaultPreferences.theme, fontSize: defaultPreferences.fontSize, fontFamily: defaultPreferences.fontFamily, density: defaultPreferences.density, reducedMotion: defaultPreferences.reducedMotion, }) }"
     },
     {
@@ -4354,7 +4354,7 @@
       "kind": "ui_mutation",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 44,
+      "line": 46,
       "symbol": "useMutation({ mutationFn: () => api.saveSettings({ provider, model, base_url: address, api_key: key, ...(connection ? { ...(connection.id ? { profile_id: connection.id } : {}), label, make_default: false } : {}), }), onSuccess: async (updated) => { setKey('') cache.setQueryData(['model-settings'], updated) await cache.invalidateQueries({ queryKey: ['conversation'] }) }, }"
     },
     {
@@ -4362,7 +4362,7 @@
       "kind": "ui_query",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 45,
+      "line": 47,
       "symbol": "mutationFn: ()"
     },
     {
@@ -4370,7 +4370,7 @@
       "kind": "ui_api",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 46,
+      "line": 48,
       "symbol": "api.saveSettings"
     },
     {
@@ -4378,7 +4378,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 64,
+      "line": 66,
       "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
     },
     {
@@ -4386,7 +4386,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 111,
+      "line": 113,
       "symbol": "onChange={(value) => { const selected = value as ModelSettings['provider'] const profile = settings.profiles?.[selected] setProvider(selected) setModel(profile?.model ?? catalog[selected].models[0]) setAddress(profile?.base_url ?? catalog[selected].base_url) setKey('') save.reset() }}"
     },
     {
@@ -4394,7 +4394,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 130,
+      "line": 132,
       "symbol": "onChange={(event) => setModel(event.target.value)}"
     },
     {
@@ -4402,7 +4402,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 142,
+      "line": 144,
       "symbol": "onChange={(value) => { setModel(value) save.reset() }}"
     },
     {
@@ -4410,7 +4410,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 154,
+      "line": 156,
       "symbol": "onChange={(event) => setLabel(event.target.value)}"
     },
     {
@@ -4418,7 +4418,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 170,
+      "line": 172,
       "symbol": "onChange={(event) => setKey(event.target.value)}"
     },
     {
@@ -4426,7 +4426,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 183,
+      "line": 185,
       "symbol": "onChange={(event) => setAddress(event.target.value)}"
     },
     {
@@ -4434,7 +4434,7 @@
       "kind": "ui_api",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 186,
+      "line": 188,
       "symbol": "api.xiaomimimo"
     },
     {
@@ -4442,7 +4442,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 198,
+      "line": 200,
       "symbol": "<button className=\"primary-button\" disabled={save.isPending}>"
     },
     {
@@ -4450,7 +4450,7 @@
       "kind": "ui_mutation",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 218,
+      "line": 220,
       "symbol": "useMutation({ mutationFn: (connection: ModelConnection) => api.saveSettings({ provider: connection.provider, model: connection.model, base_url: connection.base_url, profile_id: connection.id, label: connection.label, api_key: '', }), onSuccess: (updated) => cache.setQueryData(['model-settings'], updated), }"
     },
     {
@@ -4458,7 +4458,7 @@
       "kind": "ui_query",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 219,
+      "line": 221,
       "symbol": "mutationFn: (connection:"
     },
     {
@@ -4466,7 +4466,7 @@
       "kind": "ui_api",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 220,
+      "line": 222,
       "symbol": "api.saveSettings"
     },
     {
@@ -4474,7 +4474,7 @@
       "kind": "ui_mutation",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 230,
+      "line": 232,
       "symbol": "useMutation({ mutationFn: (item: ModelConnection) => api.saveSettings({ provider: item.provider, model: item.model, base_url: item.base_url, profile_id: item.id, label: item.label, api_key: '', make_default: false, enabled: item.enabled === false, }), onSuccess: (updated) => cache.setQueryData(['model-settings'], updated), }"
     },
     {
@@ -4482,7 +4482,7 @@
       "kind": "ui_query",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 231,
+      "line": 233,
       "symbol": "mutationFn: (item:"
     },
     {
@@ -4490,7 +4490,7 @@
       "kind": "ui_api",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 232,
+      "line": 234,
       "symbol": "api.saveSettings"
     },
     {
@@ -4498,7 +4498,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 250,
+      "line": 252,
       "symbol": "<button type=\"button\" className=\"connection-edit\" aria-label={`编辑 ${item.label}`} aria-expanded={editing === item.id} onClick={() => setEditing(item.id)} >"
     },
     {
@@ -4506,7 +4506,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 255,
+      "line": 257,
       "symbol": "onClick={() => setEditing(item.id)}"
     },
     {
@@ -4514,7 +4514,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 263,
+      "line": 265,
       "symbol": "<button type=\"button\" role=\"switch\" aria-checked={item.enabled !== false} aria-label={`启用 ${item.label}`} className=\"secondary-button\" title={isDefault(item) ? '请先更换默认模型，再停用' : '停用后隐藏，保留密钥和配置'} disabled={isDefault(item) || toggle.isPending} onClick={() => toggle.mutate(item)} >"
     },
     {
@@ -4522,7 +4522,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 271,
+      "line": 273,
       "symbol": "onClick={() => toggle.mutate(item)}"
     },
     {
@@ -4530,7 +4530,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 275,
+      "line": 277,
       "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={!item.api_key_set || item.enabled === false || makeDefault.isPending} onClick={() => makeDefault.mutate(item)} aria-label={`设为默认 ${item.label}`} >"
     },
     {
@@ -4538,7 +4538,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 279,
+      "line": 281,
       "symbol": "onClick={() => makeDefault.mutate(item)}"
     },
     {
@@ -4546,7 +4546,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 317,
+      "line": 319,
       "symbol": "<button type=\"button\" className=\"secondary-button add-connection\" onClick={() => setEditing('new')} >"
     },
     {
@@ -4554,7 +4554,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 320,
+      "line": 322,
       "symbol": "onClick={() => setEditing('new')}"
     },
     {
@@ -4562,7 +4562,7 @@
       "kind": "ui_api",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 344,
+      "line": 346,
       "symbol": "api.settings"
     },
     {
@@ -4570,7 +4570,7 @@
       "kind": "ui_query",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 344,
+      "line": 346,
       "symbol": "queryFn: api.settings"
     },
     {
@@ -4578,7 +4578,7 @@
       "kind": "ui_api",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 345,
+      "line": 347,
       "symbol": "api.catalog"
     },
     {
@@ -4586,7 +4586,7 @@
       "kind": "ui_query",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 345,
+      "line": 347,
       "symbol": "queryFn: api.catalog"
     },
     {
@@ -4594,7 +4594,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 350,
+      "line": 358,
       "symbol": "<button className=\"secondary-button\" onClick={() => { void settings.refetch() void catalog.refetch() }} >"
     },
     {
@@ -4602,7 +4602,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 352,
+      "line": 360,
       "symbol": "onClick={() => { void settings.refetch() void catalog.refetch() }}"
     },
     {
@@ -4610,7 +4610,7 @@
       "kind": "ui_api",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 374,
+      "line": 382,
       "symbol": "workspaceApi.dataSettings"
     },
     {
@@ -4618,7 +4618,7 @@
       "kind": "ui_query",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 374,
+      "line": 382,
       "symbol": "queryFn: workspaceApi.dataSettings"
     },
     {
@@ -4626,7 +4626,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 390,
+      "line": 398,
       "symbol": "<button className=\"secondary-button\" onClick={() => void data.refetch()}>"
     },
     {
@@ -4634,7 +4634,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 390,
+      "line": 398,
       "symbol": "onClick={() => void data.refetch()}"
     },
     {
@@ -4642,7 +4642,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 418,
+      "line": 426,
       "symbol": "<button className=\"secondary-button copy-data-path\" onClick={async () => { try { await navigator.clipboard.writeText(data.data!.data_dir) setNotice('数据位置已复制') } catch { setNotice('无法自动复制，请选中上方路径手动复制。') } }} >"
     },
     {
@@ -4650,7 +4650,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 420,
+      "line": 428,
       "symbol": "onClick={async () => { try { await navigator.clipboard.writeText(data.data!.data_dir) setNotice('数据位置已复制') } catch { setNotice('无法自动复制，请选中上方路径手动复制。') } }}"
     },
     {
@@ -4658,7 +4658,7 @@
       "kind": "ui_link",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 465,
+      "line": 473,
       "symbol": "<Link to=\"/assistant\" className=\"back-link\">"
     },
     {
@@ -4666,7 +4666,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 485,
+      "line": 493,
       "symbol": "<button key={id} type=\"button\" role=\"tab\" id={`settings-tab-${id}`} aria-selected={position === index} aria-controls={`settings-panel-${id}`} tabIndex={position === index ? 0 : -1} onClick={() => select(position)} onKeyDown={(event) => { const target = event.key === 'ArrowRight' ? (index + 1) % sections.length : event.key === 'ArrowLeft' ? (index + sections.length - 1) % sections.length : event.key === 'Home' ? 0 : event.key === 'End' ? sections.length - 1 : -1 if (target >= 0) { event.preventDefault() select(target) document.getElementById(`settings-tab-${sections[target].id}`)?.focus() } }} >"
     },
     {
@@ -4674,7 +4674,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 493,
+      "line": 501,
       "symbol": "onClick={() => select(position)}"
     },
     {
@@ -4682,7 +4682,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/SettingsPage.tsx",
-      "line": 494,
+      "line": 502,
       "symbol": "onKeyDown={(event) => { const target = event.key === 'ArrowRight' ? (index + 1) % sections.length : event.key === 'ArrowLeft' ? (index + sections.length - 1) % sections.length : event.key === 'Home' ? 0 : event.key === 'End' ? sections.length - 1 : -1 if (target >= 0) { event.preventDefault() select(target) document.getElementById(`settings-tab-${sections[target].id}`)?.focus() } }}"
     },
     {
@@ -4694,19 +4694,11 @@
       "symbol": "onChange={(event) => setDraft(event.target.value)}"
     },
     {
-      "id": "ui_fetch:0e17141805a226101207:1",
-      "kind": "ui_fetch",
-      "page": "API / Service / Agent",
-      "file": "web/src/lib/api.ts",
-      "line": 32,
-      "symbol": "fetch(`/api${path}`,"
-    },
-    {
       "id": "api_client:4536489fa3ec557c4025:1",
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 76,
+      "line": 77,
       "symbol": "confirmAction"
     },
     {
@@ -4714,7 +4706,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 81,
+      "line": 82,
       "symbol": "archiveJob"
     },
     {
@@ -4722,7 +4714,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 85,
+      "line": 86,
       "symbol": "conversations"
     },
     {
@@ -4730,7 +4722,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 86,
+      "line": 87,
       "symbol": "create"
     },
     {
@@ -4738,7 +4730,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 87,
+      "line": 88,
       "symbol": "conversation"
     },
     {
@@ -4746,7 +4738,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 88,
+      "line": 89,
       "symbol": "messages"
     },
     {
@@ -4754,7 +4746,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 89,
+      "line": 90,
       "symbol": "patch"
     },
     {
@@ -4762,7 +4754,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 94,
+      "line": 95,
       "symbol": "remove"
     },
     {
@@ -4770,7 +4762,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 96,
+      "line": 97,
       "symbol": "stop"
     },
     {
@@ -4778,7 +4770,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 100,
+      "line": 101,
       "symbol": "settings"
     },
     {
@@ -4786,7 +4778,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 101,
+      "line": 102,
       "symbol": "catalog"
     },
     {
@@ -4794,7 +4786,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 102,
+      "line": 103,
       "symbol": "saveSettings"
     },
     {
@@ -4802,7 +4794,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 111,
+      "line": 112,
       "symbol": "commands"
     },
     {
@@ -4810,7 +4802,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 112,
+      "line": 113,
       "symbol": "skills"
     },
     {
@@ -4818,7 +4810,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 113,
+      "line": 114,
       "symbol": "mcp"
     },
     {
@@ -4826,39 +4818,15 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 114,
+      "line": 115,
       "symbol": "chat"
-    },
-    {
-      "id": "ui_fetch:d1d5acda85de00596cd0:1",
-      "kind": "ui_fetch",
-      "page": "API / Service / Agent",
-      "file": "web/src/lib/api.ts",
-      "line": 121,
-      "symbol": "fetch(`/api/conversations/${encodeURIComponent(id)}/chat`,"
-    },
-    {
-      "id": "ui_fetch:761909de83b6bddcec82:1",
-      "kind": "ui_fetch",
-      "page": "Settings",
-      "file": "web/src/lib/preferences.ts",
-      "line": 110,
-      "symbol": "fetch('/api/settings/preferences',"
-    },
-    {
-      "id": "ui_fetch:b920e7696b9965cc3e71:1",
-      "kind": "ui_fetch",
-      "page": "API / Service / Agent",
-      "file": "web/src/lib/workspace-api.ts",
-      "line": 110,
-      "symbol": "fetch(`/api${path}`,"
     },
     {
       "id": "api_client:65fffbc732955c3b2939:1",
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 135,
+      "line": 139,
       "symbol": "inbox"
     },
     {
@@ -4866,7 +4834,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 136,
+      "line": 140,
       "symbol": "importContent"
     },
     {
@@ -4874,7 +4842,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 142,
+      "line": 146,
       "symbol": "contentItem"
     },
     {
@@ -4882,7 +4850,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 143,
+      "line": 147,
       "symbol": "classifyBatch"
     },
     {
@@ -4890,7 +4858,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 149,
+      "line": 153,
       "symbol": "retryContent"
     },
     {
@@ -4898,7 +4866,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 151,
+      "line": 155,
       "symbol": "folders"
     },
     {
@@ -4906,7 +4874,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 152,
+      "line": 156,
       "symbol": "createFolder"
     },
     {
@@ -4914,7 +4882,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 154,
+      "line": 158,
       "symbol": "updateFolder"
     },
     {
@@ -4922,7 +4890,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 158,
+      "line": 162,
       "symbol": "deleteFolder"
     },
     {
@@ -4930,7 +4898,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 160,
+      "line": 164,
       "symbol": "folderItems"
     },
     {
@@ -4938,7 +4906,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 162,
+      "line": 166,
       "symbol": "searchKnowledge"
     },
     {
@@ -4946,7 +4914,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 164,
+      "line": 168,
       "symbol": "content"
     },
     {
@@ -4954,7 +4922,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 166,
+      "line": 170,
       "symbol": "createContent"
     },
     {
@@ -4962,7 +4930,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 167,
+      "line": 171,
       "symbol": "updateContent"
     },
     {
@@ -4970,7 +4938,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 173,
+      "line": 180,
       "symbol": "deleteContent"
     },
     {
@@ -4978,7 +4946,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 174,
+      "line": 181,
       "symbol": "originalUrl"
     },
     {
@@ -4986,7 +4954,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 175,
+      "line": 182,
       "symbol": "feed"
     },
     {
@@ -4994,7 +4962,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 179,
+      "line": 186,
       "symbol": "refreshFeed"
     },
     {
@@ -5002,7 +4970,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 180,
+      "line": 187,
       "symbol": "addManualFeed"
     },
     {
@@ -5010,7 +4978,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 181,
+      "line": 188,
       "symbol": "updateManualFeed"
     },
     {
@@ -5018,7 +4986,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 183,
+      "line": 190,
       "symbol": "removeManualFeed"
     },
     {
@@ -5026,7 +4994,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 185,
+      "line": 192,
       "symbol": "restoreManualFeed"
     },
     {
@@ -5034,7 +5002,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 187,
+      "line": 194,
       "symbol": "hideExternalFeed"
     },
     {
@@ -5042,7 +5010,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 189,
+      "line": 196,
       "symbol": "unhideExternalFeed"
     },
     {
@@ -5050,7 +5018,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 191,
+      "line": 198,
       "symbol": "saveFeed"
     },
     {
@@ -5058,7 +5026,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 194,
+      "line": 201,
       "symbol": "today"
     },
     {
@@ -5066,7 +5034,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 196,
+      "line": 203,
       "symbol": "createTask"
     },
     {
@@ -5074,7 +5042,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 198,
+      "line": 205,
       "symbol": "updateTask"
     },
     {
@@ -5082,7 +5050,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 202,
+      "line": 211,
       "symbol": "deleteTask"
     },
     {
@@ -5090,7 +5058,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 203,
+      "line": 212,
       "symbol": "automations"
     },
     {
@@ -5098,7 +5066,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 204,
+      "line": 213,
       "symbol": "createAutomation"
     },
     {
@@ -5106,7 +5074,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 211,
+      "line": 220,
       "symbol": "toggleAutomation"
     },
     {
@@ -5114,7 +5082,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 213,
+      "line": 222,
       "symbol": "deleteAutomation"
     },
     {
@@ -5122,7 +5090,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 215,
+      "line": 224,
       "symbol": "runs"
     },
     {
@@ -5130,7 +5098,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 216,
+      "line": 225,
       "symbol": "dataSettings"
     },
     {
@@ -5324,28 +5292,28 @@
       "symbol": "FeedService.summarize"
     },
     {
-      "id": "ui_link:ab696a43d958e0ee12cd:1",
+      "id": "ui_link:d86d3a5de1a0045b6825:1",
       "kind": "ui_link",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/app/App.tsx",
-      "line": 98,
-      "symbol": "<NavLink className=\"brand\" to=\"/assistant\" aria-label=\"xiliu Assistant\" title=\"xiliu\">"
+      "line": 112,
+      "symbol": "<NavLink className=\"brand\" to=\"/assistant\" aria-label=\"xiliu 助手\" title=\"xiliu\">"
     },
     {
-      "id": "ui_link:25f3062065ff04ebe1a0:1",
+      "id": "ui_link:51fdb11d7fe213b7335d:1",
       "kind": "ui_link",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/app/App.tsx",
-      "line": 103,
-      "symbol": "<NavLink key={path} to={path} aria-label={label} title={label} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} >"
+      "line": 117,
+      "symbol": "<NavLink key={path} to={path} aria-label={label} title={label} data-onboarding={`nav-${path.slice(1)}`} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} >"
     },
     {
-      "id": "ui_link:364284f22611ed3ff858:1",
+      "id": "ui_link:991ddb91045a69afd1d7:1",
       "kind": "ui_link",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/app/App.tsx",
-      "line": 115,
-      "symbol": "<NavLink className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} to=\"/settings\" state={{ backgroundLocation: isSettings ? backgroundUrl : location }} aria-label=\"Settings\" title=\"Settings\" >"
+      "line": 140,
+      "symbol": "<NavLink className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} to=\"/settings\" state={{ backgroundLocation: isSettings ? backgroundUrl : location }} aria-label=\"设置\" title=\"设置\" >"
     },
     {
       "id": "ui_button:c30ba8f0d926d918d4bb:1",
@@ -5408,7 +5376,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 365,
+      "line": 366,
       "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
     },
     {
@@ -5416,7 +5384,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 410,
+      "line": 411,
       "symbol": "onClick={() => openMain('/today')}"
     },
     {
@@ -5424,7 +5392,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 309,
+      "line": 310,
       "symbol": "onSubmit={(event) => { event.preventDefault() void send() }}"
     },
     {
@@ -5432,7 +5400,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 330,
+      "line": 331,
       "symbol": "onChange={(event) => setDraft(event.target.value)}"
     },
     {
@@ -5440,7 +5408,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 215,
+      "line": 216,
       "symbol": "onClick={() => openMain( snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant' ) }"
     },
     {
@@ -5448,7 +5416,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 301,
+      "line": 302,
       "symbol": "onError={setError}"
     },
     {
@@ -5544,7 +5512,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 102,
+      "line": 106,
       "symbol": "onPointerMove={(event) => { const rect = event.currentTarget.getBoundingClientRect() controller.current?.focus(event.clientX - rect.left, event.clientY - rect.top) }}"
     },
     {
@@ -5568,7 +5536,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 18,
+      "line": 19,
       "symbol": "onSaved={onSaved}"
     },
     {
@@ -5576,7 +5544,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 18,
+      "line": 19,
       "symbol": "onClose={onClose}"
     },
     {
@@ -5584,7 +5552,7 @@
       "kind": "ui_mutation",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 65,
+      "line": 70,
       "symbol": "useMutation({ mutationFn: async () => { if (!text.trim() && !file) throw new Error('请粘贴文字、链接，或选择一个文件。') return workspaceApi.importContent({ ...(text.trim() ? { text: text.trim() } : {}), ...(file ? { filename: file.name, data_base64: await fileBase64(file) } : {}), use_ai: useAI, }) }, onSuccess: (item) => { setText('') setFile(null) onSaved(item) }, onSettled: () => { submitting.current = false }, }"
     },
     {
@@ -5592,7 +5560,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 85,
+      "line": 90,
       "symbol": "onSubmit={(event) => { event.preventDefault() if (submitting.current) return submitting.current = true create.mutate() }}"
     },
     {
@@ -5600,7 +5568,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 98,
+      "line": 103,
       "symbol": "onChange={(event) => { if (!submitting.current) setText(event.target.value) }}"
     },
     {
@@ -5608,7 +5576,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 135,
+      "line": 140,
       "symbol": "<button className=\"secondary-button\" type=\"button\" disabled={create.isPending} onClick={() => { setFile(null) setFileError('') }} >"
     },
     {
@@ -5616,7 +5584,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 148,
+      "line": 150,
       "symbol": "onClose={onClose}"
     },
     {
@@ -5624,7 +5592,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 175,
+      "line": 177,
       "symbol": "<button type=\"button\" className=\"secondary-button\" onClick={onEdit}>"
     },
     {
@@ -5632,7 +5600,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 175,
+      "line": 177,
       "symbol": "onClick={onEdit}"
     },
     {
@@ -5640,7 +5608,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 179,
+      "line": 181,
       "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={asking} onClick={onAsk}>"
     },
     {
@@ -5648,7 +5616,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 179,
+      "line": 181,
       "symbol": "onClick={onAsk}"
     },
     {
@@ -5656,7 +5624,7 @@
       "kind": "ui_link",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 184,
+      "line": 186,
       "symbol": "<a className=\"secondary-button\" href={workspaceApi.originalUrl(item.id)} download={item.filename} >"
     },
     {
@@ -5664,7 +5632,7 @@
       "kind": "ui_link",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 194,
+      "line": 196,
       "symbol": "<a className=\"primary-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\">"
     },
     {
@@ -5672,7 +5640,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 437,
+      "line": 442,
       "symbol": "onClose={() => setPreviewing(null)}"
     },
     {
@@ -5680,31 +5648,31 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 438,
+      "line": 443,
       "symbol": "onEdit={() => { const item = previewing setPreviewing(null) setEditing(item) }}"
     },
     {
-      "id": "ui_event:f49df530e9e97cf98930:1",
+      "id": "ui_event:d08d076eea0fdc3e750c:1",
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 443,
-      "symbol": "onAsk={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { title: previewing.title, content: [previewing.content, previewing.summary, previewing.source] .filter(Boolean) .join('\\n\\n'), }, }) }"
+      "line": 448,
+      "symbol": "onAsk={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { documentId: previewing.id, title: previewing.title, content: [previewing.content, previewing.summary, previewing.source] .filter(Boolean) .join('\\n\\n'), }, }) }"
     },
     {
-      "id": "ui_event:591a21d6a814bbb95c7f:1",
+      "id": "ui_event:a01ab267152cd08ba7f9:1",
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 492,
-      "symbol": "onClick={(event) => { // Let the card's own buttons, links, inputs and labels act on their own; // a click anywhere else opens the preview. if ((event.target as HTMLElement).closest('button, a, input, label')) return setPreviewing(item) }} > {status === 'inbox' && ( <input type=\"checkbox\" aria-label={`选择 ${item.title}`} checked={selected.includes(item.id)} onChange={(event) => setSelected((ids) => event.target.checked ? [...ids, item.id] : ids.filter((id) => id !== item.id) ) } /> )} <div className={`item-symbol ${item.type}`}> <Icon size={24} /> </div> <div className=\"content-row-body\"> <div className=\"content-row-title\"> <h2> <button type=\"button\" className=\"content-row-open\" onClick={() => setPreviewing(item)} > {item.title} </button> </h2> <time dateTime={item.updated_at}> {new Date(item.updated_at).toLocaleDateString('zh-CN')} </time> </div> <p className=\"content-excerpt\"> {item.summary || item.content || item.filename || item.source} </p> {sourceUrl && ( <a className=\"source-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\"> {item.source} </a> )} <div className=\"content-processing\" role=\"status\"> {item.processing_status === 'pending' ? '正在整理标题、摘要与标签…' : item.processing_status === 'failed' ? `整理失败 · 原始内容已保留${item.processing_error ? `：${item.processing_error}` : ''}` : item.status === 'knowledge' ? `已归类至 ${folders.data?.find((folder) => folder.id === item.folder_id)?.name ?? '未分类'} · ${item.ai_processed ? 'AI 已整理' : '本地整理'}` : item.ai_processed ? 'AI 已整理 · 待归类' : '待整理'} </div> {item.processing_status === 'failed' && ( <button className=\"secondary-button\" disabled={retry.isPending} onClick={() => retry.mutate(item.id)} > 重新整理 </button> )} <div className=\"tag-list\"> {item.tags.map((value) => ( <button key={value} onClick={() => setTag(value)}> # {value} </button> ))} </div> <div className=\"row-actions\"> {status === 'inbox' && item.status === 'knowledge' ? ( <Link to={`/knowledge?folder=${encodeURIComponent(item.folder_id ?? 'unfiled')}&document=${encodeURIComponent(item.id)}`} > 查看归类结果 </Link> ) : ( <button disabled={ update.isPending || classify.isPending || item.processing_status === 'pending' } onClick={() => status === 'inbox' ? classify.mutate([item.id]) : update.mutate(item) } > <ArrowRight size={14} /> {status === 'inbox' ? 'Save to Knowledge' : '移回 Inbox'} </button> )} <button disabled={ask.isPending} onClick={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { title: item.title, content: [ item.filename ? `文件：${item.filename}\\n以下参考仅包含文件名与备注，原文件内容未展开。` : '', item.content, item.summary, item.source, ] .filter(Boolean) .join('\\n\\n'), }, }) } > <Sparkles size={14} /> Ask AI </button> {item.filename && ( <a href={workspaceApi.originalUrl(item.id)} download={item.filename}> <Download size={14} /> 下载原件 </a> )} <button className=\"delete-action\" disabled={remove.isPending} aria-label={`删除 ${item.title}`} onClick={() => remove.mutate(item.id)} > <Trash2 size={14} /> 删除 </button> </div> </div> </article> ) })} </div> )} </section> ) }"
+      "line": 498,
+      "symbol": "onClick={(event) => { // Let the card's own buttons, links, inputs and labels act on their own; // a click anywhere else opens the preview. if ((event.target as HTMLElement).closest('button, a, input, label')) return setPreviewing(item) }} > {status === 'inbox' && ( <input type=\"checkbox\" aria-label={`选择 ${item.title}`} checked={selected.includes(item.id)} onChange={(event) => setSelected((ids) => event.target.checked ? [...ids, item.id] : ids.filter((id) => id !== item.id) ) } /> )} <div className={`item-symbol ${item.type}`}> <Icon size={24} /> </div> <div className=\"content-row-body\"> <div className=\"content-row-title\"> <h2> <button type=\"button\" className=\"content-row-open\" onClick={() => setPreviewing(item)} > {item.title} </button> </h2> <time dateTime={item.updated_at}> {new Date(item.updated_at).toLocaleDateString('zh-CN')} </time> </div> <p className=\"content-excerpt\"> {item.summary || item.content || item.filename || item.source} </p> {sourceUrl && ( <a className=\"source-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\"> {item.source} </a> )} <div className=\"content-processing\" role=\"status\"> {item.processing_status === 'pending' ? '正在整理标题、摘要与标签…' : item.processing_status === 'failed' ? `整理失败 · 原始内容已保留${item.processing_error ? `：${item.processing_error}` : ''}` : item.status === 'knowledge' ? `已归类至 ${folders.data?.find((folder) => folder.id === item.folder_id)?.name ?? '未分类'} · ${item.ai_processed ? 'AI 已整理' : '本地整理'}` : item.ai_processed ? 'AI 已整理 · 待归类' : '待整理'} </div> {item.processing_status === 'failed' && ( <button className=\"secondary-button\" disabled={retry.isPending} onClick={() => retry.mutate(item.id)} > 重新整理 </button> )} <div className=\"tag-list\"> {item.tags.map((value) => ( <button key={value} onClick={() => setTag(value)}> # {value} </button> ))} </div> <div className=\"row-actions\"> {status === 'inbox' && item.status === 'knowledge' ? ( <Link to={`/knowledge?folder=${encodeURIComponent(item.folder_id ?? 'unfiled')}&document=${encodeURIComponent(item.id)}`} > 查看归类结果 </Link> ) : ( <button disabled={ update.isPending || classify.isPending || item.processing_status === 'pending' } onClick={() => status === 'inbox' ? classify.mutate([item.id]) : update.mutate(item) } > <ArrowRight size={14} /> {status === 'inbox' ? '归档到知识库' : '移回收件箱'} </button> )} <button disabled={ask.isPending} onClick={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { documentId: item.id, title: item.title, content: [ item.filename ? `文件：${item.filename}\\n以下参考仅包含文件名与备注，原文件内容未展开。` : '', item.content, item.summary, item.source, ] .filter(Boolean) .join('\\n\\n'), }, }) } > <Sparkles size={14} /> 引用提问 </button> {item.filename && ( <a href={workspaceApi.originalUrl(item.id)} download={item.filename}> <Download size={14} /> 下载原件 </a> )} <button className=\"delete-action\" disabled={remove.isPending} aria-label={`删除 ${item.title}`} onClick={() => remove.mutate(item.id)} > <Trash2 size={14} /> 删除 </button> </div> </div> </article> ) })} </div> )} </section> ) }"
     },
     {
       "id": "ui_button:1e8fd2b98fe48abf2be2:1",
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 519,
+      "line": 525,
       "symbol": "<button type=\"button\" className=\"content-row-open\" onClick={() => setPreviewing(item)} >"
     },
     {
@@ -5712,7 +5680,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 522,
+      "line": 528,
       "symbol": "onClick={() => setPreviewing(item)}"
     },
     {
@@ -5720,7 +5688,7 @@
       "kind": "ui_link",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 535,
+      "line": 541,
       "symbol": "<a className=\"source-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\">"
     },
     {
@@ -5728,7 +5696,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 613,
+      "line": 620,
       "symbol": "workspaceApi.originalUrl"
     },
     {
@@ -5736,7 +5704,7 @@
       "kind": "ui_api",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 149,
+      "line": 158,
       "symbol": "workspaceApi.summarizeFeed"
     },
     {
@@ -5744,7 +5712,7 @@
       "kind": "ui_mutation",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 149,
+      "line": 158,
       "symbol": "useMutation({ mutationFn: () => workspaceApi.summarizeFeed(item.id) }"
     },
     {
@@ -5752,7 +5720,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 152,
+      "line": 161,
       "symbol": "onClose={onClose}"
     },
     {
@@ -5760,7 +5728,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 193,
+      "line": 202,
       "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={summarize.isPending} onClick={() => summarize.mutate()} >"
     },
     {
@@ -5768,7 +5736,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 197,
+      "line": 206,
       "symbol": "onClick={() => summarize.mutate()}"
     },
     {
@@ -5776,7 +5744,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 203,
+      "line": 212,
       "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={saveDisabled} onClick={onSave} >"
     },
     {
@@ -5784,7 +5752,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 207,
+      "line": 216,
       "symbol": "onClick={onSave}"
     },
     {
@@ -5792,7 +5760,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 212,
+      "line": 221,
       "symbol": "<button type=\"button\" className=\"secondary-button\" onClick={onAsk}>"
     },
     {
@@ -5800,7 +5768,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 212,
+      "line": 221,
       "symbol": "onClick={onAsk}"
     },
     {
@@ -5808,7 +5776,7 @@
       "kind": "ui_link",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 217,
+      "line": 226,
       "symbol": "<a className=\"primary-link\" href={url} target=\"_blank\" rel=\"noreferrer\">"
     },
     {
@@ -5816,7 +5784,7 @@
       "kind": "ui_query",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 242,
+      "line": 251,
       "symbol": "mutationFn: ()"
     },
     {
@@ -5824,7 +5792,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 268,
+      "line": 277,
       "symbol": "onClick={(event) => { if ((event.target as HTMLElement).closest('button, a, input, label')) return setPreview(true) }}"
     },
     {
@@ -5832,7 +5800,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 287,
+      "line": 296,
       "symbol": "<button type=\"button\" className=\"content-row-open\" onClick={() => setPreview(true)}>"
     },
     {
@@ -5840,7 +5808,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 287,
+      "line": 296,
       "symbol": "onClick={() => setPreview(true)}"
     },
     {
@@ -5848,7 +5816,7 @@
       "kind": "ui_button",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 338,
+      "line": 347,
       "symbol": "<button disabled={ask.isPending} onClick={askAI}>"
     },
     {
@@ -5856,7 +5824,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 338,
+      "line": 347,
       "symbol": "onClick={askAI}"
     },
     {
@@ -5864,7 +5832,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 352,
+      "line": 361,
       "symbol": "onClose={() => setPreview(false)}"
     },
     {
@@ -5872,7 +5840,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 353,
+      "line": 362,
       "symbol": "onAsk={() => { setPreview(false) askAI() }}"
     },
     {
@@ -5880,7 +5848,7 @@
       "kind": "ui_event",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 357,
+      "line": 366,
       "symbol": "onSave={() => save.mutate()}"
     },
     {
@@ -5888,7 +5856,7 @@
       "kind": "ui_link",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 110,
+      "line": 112,
       "symbol": "<Link className=\"knowledge-folder-open\" to={`?folder=${encodeURIComponent(folder.id)}`}>"
     },
     {
@@ -5896,7 +5864,7 @@
       "kind": "ui_button",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 126,
+      "line": 128,
       "symbol": "<button onClick={onEdit}>"
     },
     {
@@ -5904,7 +5872,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 126,
+      "line": 128,
       "symbol": "onClick={onEdit}"
     },
     {
@@ -5912,7 +5880,7 @@
       "kind": "ui_button",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 127,
+      "line": 129,
       "symbol": "<button aria-label={`删除文件夹 ${folder.name}`} onClick={onDelete}>"
     },
     {
@@ -5920,7 +5888,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 127,
+      "line": 129,
       "symbol": "onClick={onDelete}"
     },
     {
@@ -5928,7 +5896,7 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 294,
+      "line": 296,
       "symbol": "onEdit={() => setEditing(folder)}"
     },
     {
@@ -5936,23 +5904,23 @@
       "kind": "ui_event",
       "page": "Knowledge",
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 295,
+      "line": 297,
       "symbol": "onDelete={() => setDeleting(folder)}"
     },
     {
-      "id": "ui_mutation:27e454d1e84791f83781:1",
+      "id": "ui_mutation:8b7f01e7096a11547375:1",
       "kind": "ui_mutation",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 18,
-      "symbol": "useMutation({ mutationFn: () => workspaceApi.updateTask(task.id, { title, due_at: due ? new Date(due).toISOString() : null }), onSuccess: onDone, }"
+      "line": 19,
+      "symbol": "useMutation({ mutationFn: () => workspaceApi.updateTask(task.id, { title, due_at: due ? new Date(due).toISOString() : null, demo_revision: demoRevision, }), onSuccess: onDone, }"
     },
     {
       "id": "ui_query:89dfb61860dfb504d46f:1",
       "kind": "ui_query",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 19,
+      "line": 20,
       "symbol": "mutationFn: ()"
     },
     {
@@ -5960,7 +5928,7 @@
       "kind": "ui_api",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 20,
+      "line": 21,
       "symbol": "workspaceApi.updateTask"
     },
     {
@@ -5968,7 +5936,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 26,
+      "line": 31,
       "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
     },
     {
@@ -5976,7 +5944,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 35,
+      "line": 40,
       "symbol": "onChange={(event) => setTitle(event.target.value)}"
     },
     {
@@ -5984,7 +5952,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 41,
+      "line": 46,
       "symbol": "onChange={(event) => setDue(event.target.value)}"
     },
     {
@@ -5992,7 +5960,7 @@
       "kind": "ui_button",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 44,
+      "line": 49,
       "symbol": "<button disabled={save.isPending}>"
     },
     {
@@ -6000,7 +5968,7 @@
       "kind": "ui_button",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 45,
+      "line": 50,
       "symbol": "<button type=\"button\" onClick={onDone}>"
     },
     {
@@ -6008,7 +5976,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 45,
+      "line": 50,
       "symbol": "onClick={onDone}"
     },
     {
@@ -6016,7 +5984,7 @@
       "kind": "ui_api",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 65,
+      "line": 70,
       "symbol": "workspaceApi.tasks"
     },
     {
@@ -6024,7 +5992,7 @@
       "kind": "ui_query",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 65,
+      "line": 70,
       "symbol": "queryFn: workspaceApi.tasks"
     },
     {
@@ -6032,7 +6000,7 @@
       "kind": "ui_mutation",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 73,
+      "line": 78,
       "symbol": "useMutation({ mutationFn: () => workspaceApi.createTask(title.trim(), due ? new Date(due).toISOString() : null, { scope, parent_id: parent || null, }), onSuccess: () => { setTitle('') setDue('') setParent('') invalidate() }, }"
     },
     {
@@ -6040,7 +6008,7 @@
       "kind": "ui_query",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 74,
+      "line": 79,
       "symbol": "mutationFn: ()"
     },
     {
@@ -6048,7 +6016,7 @@
       "kind": "ui_api",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 75,
+      "line": 80,
       "symbol": "workspaceApi.createTask"
     },
     {
@@ -6056,7 +6024,7 @@
       "kind": "ui_mutation",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 86,
+      "line": 91,
       "symbol": "useMutation({ mutationFn: (task: Task) => workspaceApi.updateTask(task.id, { completed: !task.completed }), onSuccess: invalidate, }"
     },
     {
@@ -6064,7 +6032,7 @@
       "kind": "ui_api",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 87,
+      "line": 92,
       "symbol": "workspaceApi.updateTask"
     },
     {
@@ -6072,7 +6040,7 @@
       "kind": "ui_query",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 87,
+      "line": 92,
       "symbol": "mutationFn: (task:"
     },
     {
@@ -6080,7 +6048,7 @@
       "kind": "ui_api",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 90,
+      "line": 95,
       "symbol": "workspaceApi.deleteTask"
     },
     {
@@ -6088,7 +6056,7 @@
       "kind": "ui_mutation",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 90,
+      "line": 95,
       "symbol": "useMutation({ mutationFn: workspaceApi.deleteTask, onSuccess: invalidate }"
     },
     {
@@ -6096,7 +6064,7 @@
       "kind": "ui_query",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 90,
+      "line": 95,
       "symbol": "mutationFn: workspaceApi.deleteTask,"
     },
     {
@@ -6104,7 +6072,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 99,
+      "line": 104,
       "symbol": "onDone={() => { setEditing(null) invalidate() }}"
     },
     {
@@ -6112,7 +6080,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 111,
+      "line": 116,
       "symbol": "onChange={() => toggle.mutate(task)}"
     },
     {
@@ -6120,7 +6088,7 @@
       "kind": "ui_button",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 113,
+      "line": 118,
       "symbol": "<button className=\"task-title\" title=\"编辑待办\" onClick={() => setEditing(task.id)}>"
     },
     {
@@ -6128,7 +6096,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 113,
+      "line": 118,
       "symbol": "onClick={() => setEditing(task.id)}"
     },
     {
@@ -6136,7 +6104,7 @@
       "kind": "ui_button",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 131,
+      "line": 136,
       "symbol": "<button className=\"icon-button\" disabled={remove.isPending} aria-label={`删除待办 ${task.title}`} onClick={() => remove.mutate(task.id)} >"
     },
     {
@@ -6144,7 +6112,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 135,
+      "line": 140,
       "symbol": "onClick={() => remove.mutate(task.id)}"
     },
     {
@@ -6152,7 +6120,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 146,
+      "line": 151,
       "symbol": "onSubmit={(event) => { event.preventDefault() if (title.trim()) create.mutate() }}"
     },
     {
@@ -6160,7 +6128,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 160,
+      "line": 165,
       "symbol": "onChange={(event) => setTitle(event.target.value)}"
     },
     {
@@ -6168,7 +6136,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 176,
+      "line": 181,
       "symbol": "onChange={(event) => setParent(event.target.value)}"
     },
     {
@@ -6176,7 +6144,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 194,
+      "line": 199,
       "symbol": "onChange={(event) => setDue(event.target.value)}"
     },
     {
@@ -6184,7 +6152,7 @@
       "kind": "ui_button",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 197,
+      "line": 202,
       "symbol": "<button className=\"primary-button\" disabled={create.isPending || !title.trim()}>"
     },
     {
@@ -6192,7 +6160,7 @@
       "kind": "ui_button",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 223,
+      "line": 228,
       "symbol": "<button key={item.value} aria-pressed={scope === item.value} onClick={() => { setScope(item.value) setParent('') setEditing(null) }} >"
     },
     {
@@ -6200,7 +6168,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 226,
+      "line": 231,
       "symbol": "onClick={() => { setScope(item.value) setParent('') setEditing(null) }}"
     },
     {
@@ -6208,7 +6176,7 @@
       "kind": "ui_button",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 238,
+      "line": 243,
       "symbol": "<button aria-pressed={tab === 'active'} onClick={() => setTab('active')}>"
     },
     {
@@ -6216,7 +6184,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 238,
+      "line": 243,
       "symbol": "onClick={() => setTab('active')}"
     },
     {
@@ -6224,7 +6192,7 @@
       "kind": "ui_button",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 241,
+      "line": 246,
       "symbol": "<button aria-pressed={tab === 'done'} onClick={() => setTab('done')}>"
     },
     {
@@ -6232,7 +6200,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 241,
+      "line": 246,
       "symbol": "onClick={() => setTab('done')}"
     },
     {
@@ -6240,7 +6208,7 @@
       "kind": "ui_button",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 259,
+      "line": 264,
       "symbol": "<button className=\"secondary-button\" onClick={() => void plans.refetch()}>"
     },
     {
@@ -6248,7 +6216,7 @@
       "kind": "ui_event",
       "page": "Plans",
       "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 259,
+      "line": 264,
       "symbol": "onClick={() => void plans.refetch()}"
     },
     {
@@ -6256,7 +6224,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 40,
+      "line": 41,
       "symbol": "<button disabled={busy} aria-pressed={settings.mode === 'blank'} onClick={() => choose({ mode: 'blank', selected: null })} >"
     },
     {
@@ -6264,7 +6232,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 43,
+      "line": 44,
       "symbol": "onClick={() => choose({ mode: 'blank', selected: null })}"
     },
     {
@@ -6272,7 +6240,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 48,
+      "line": 49,
       "symbol": "<button disabled={busy} aria-pressed={settings.mode === 'builtin'} onClick={() => choose({ mode: 'builtin', selected: null })} >"
     },
     {
@@ -6280,7 +6248,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 51,
+      "line": 52,
       "symbol": "onClick={() => choose({ mode: 'builtin', selected: null })}"
     },
     {
@@ -6288,7 +6256,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 58,
+      "line": 59,
       "symbol": "<button disabled={busy} aria-pressed={settings.mode === 'custom' && settings.selected === image.id} onClick={() => choose({ mode: 'custom', selected: image.id })} >"
     },
     {
@@ -6296,7 +6264,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 61,
+      "line": 62,
       "symbol": "onClick={() => choose({ mode: 'custom', selected: image.id })}"
     },
     {
@@ -6304,7 +6272,7 @@
       "kind": "ui_button",
       "page": "Settings",
       "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 66,
+      "line": 67,
       "symbol": "<button className=\"icon-button\" disabled={busy} aria-label={`删除背景 ${image.name}`} onClick={() => void perform(() => saveBackground( settings.selected === image.id ? { mode: 'blank', selected: null } : settings, undefined, image.id ) ) } >"
     },
     {
@@ -6312,7 +6280,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 70,
+      "line": 71,
       "symbol": "onClick={() => void perform(() => saveBackground( settings.selected === image.id ? { mode: 'blank', selected: null } : settings, undefined, image.id ) ) }"
     },
     {
@@ -6320,7 +6288,7 @@
       "kind": "ui_event",
       "page": "Settings",
       "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 92,
+      "line": 93,
       "symbol": "onChange={(event) => { const file = event.target.files?.[0] event.target.value = '' if (file) void perform(() => importBackground(file)) }}"
     },
     {
@@ -6364,12 +6332,12 @@
       "symbol": "onClick={() => setCapture(true)}"
     },
     {
-      "id": "ui_button:1786f8b78a1b86ff4b96:1",
+      "id": "ui_button:275ca670d9e68e8efd7e:1",
       "kind": "ui_button",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
       "line": 84,
-      "symbol": "<button type=\"button\" className=\"home-capture\" aria-label=\"快速收录\" title=\"快速收录到 Inbox\" onClick={() => setCapture(true)} >"
+      "symbol": "<button type=\"button\" className=\"home-capture\" aria-label=\"快速收录\" title=\"快速收录到收件箱\" onClick={() => setCapture(true)} >"
     },
     {
       "id": "ui_event:2678abe88907889c81ed:2",
@@ -6380,12 +6348,12 @@
       "symbol": "onClick={() => setCapture(true)}"
     },
     {
-      "id": "ui_button:7466b3d3b9e98ae9b9af:1",
+      "id": "ui_button:a1b70c0ff05109dd2b29:1",
       "kind": "ui_button",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
       "line": 93,
-      "symbol": "<button className=\"home-send\" aria-label=\"在 Assistant 中继续\" title=\"开始对话\" disabled={ask.isPending || !draft.trim()} >"
+      "symbol": "<button className=\"home-send\" aria-label=\"在助手中继续\" title=\"开始对话\" disabled={ask.isPending || !draft.trim()} >"
     },
     {
       "id": "ui_event:b76bf98cf472d289a33a:1",
@@ -6404,19 +6372,11 @@
       "symbol": "onSaved={() => { setCapture(false) void cache.invalidateQueries({ queryKey: ['content'] }) void cache.invalidateQueries({ queryKey: ['inbox'] }) }}"
     },
     {
-      "id": "ui_fetch:e90c94254d4a34eb0535:1",
-      "kind": "ui_fetch",
-      "page": "Today",
-      "file": "web/src/features/today/background.ts",
-      "line": 23,
-      "symbol": "fetch(`/api/appearance/${path}`,"
-    },
-    {
       "id": "api_client:afc29d1850829037df89:1",
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 192,
+      "line": 199,
       "symbol": "summarizeFeed"
     },
     {
@@ -6424,7 +6384,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 195,
+      "line": 202,
       "symbol": "tasks"
     },
     {
@@ -6440,7 +6400,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 211,
+      "line": 212,
       "symbol": "<button className=\"companion-bubble\" aria-live=\"polite\" title=\"查看对话\" onClick={() => openMain( snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant' ) } >"
     },
     {
@@ -6448,7 +6408,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 227,
+      "line": 228,
       "symbol": "<button className=\"companion-character\" aria-label=\"打开桌宠快捷操作\" aria-expanded={compose} onPointerDown={(event) => { if (event.button !== 0) return pointer.current = { x: event.clientX, y: event.clientY, ...position, active: true, moved: false, } if (!isDesktop()) event.currentTarget.setPointerCapture(event.pointerId) }} onPointerMove={(event) => { const start = pointer.current if (!start.active || event.buttons !== 1) return const dx = event.clientX - start.x, dy = event.clientY - start.y if (!start.moved && Math.hypot(dx, dy) <= 5) return if (!start.moved) { start.moved = true setDragging(true) if (isDesktop()) { void invoke('drag').finally(() => { pointer.current.active = false setDragging(false) }) return } } if (!isDesktop()) { const rect = stage.current?.getBoundingClientRect() if (rect) setPosition({ right: Math.max( 12, Math.min(start.right - dx, window.innerWidth - rect.width - 12) ), bottom: Math.max( 12, Math.min(start.bottom - dy, window.innerHeight - rect.height - 12) ), }) } }} onPointerUp={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }} onPointerCancel={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }} onLostPointerCapture={() => { if (!isDesktop()) { pointer.current.active = false setDragging(false) } }} onClick={(event) => { if (event.detail === 0 || !pointer.current.moved) { setCompose(!compose) setMenu(false) } }} >"
     },
     {
@@ -6456,7 +6416,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 231,
+      "line": 232,
       "symbol": "onPointerDown={(event) => { if (event.button !== 0) return pointer.current = { x: event.clientX, y: event.clientY, ...position, active: true, moved: false, } if (!isDesktop()) event.currentTarget.setPointerCapture(event.pointerId) }}"
     },
     {
@@ -6464,7 +6424,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 242,
+      "line": 243,
       "symbol": "onPointerMove={(event) => { const start = pointer.current if (!start.active || event.buttons !== 1) return const dx = event.clientX - start.x, dy = event.clientY - start.y if (!start.moved && Math.hypot(dx, dy) <= 5) return if (!start.moved) { start.moved = true setDragging(true) if (isDesktop()) { void invoke('drag').finally(() => { pointer.current.active = false setDragging(false) }) return } } if (!isDesktop()) { const rect = stage.current?.getBoundingClientRect() if (rect) setPosition({ right: Math.max( 12, Math.min(start.right - dx, window.innerWidth - rect.width - 12) ), bottom: Math.max( 12, Math.min(start.bottom - dy, window.innerHeight - rect.height - 12) ), }) } }}"
     },
     {
@@ -6472,7 +6432,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 274,
+      "line": 275,
       "symbol": "onPointerUp={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }}"
     },
     {
@@ -6480,7 +6440,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 278,
+      "line": 279,
       "symbol": "onPointerCancel={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }}"
     },
     {
@@ -6488,7 +6448,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 282,
+      "line": 283,
       "symbol": "onLostPointerCapture={() => { if (!isDesktop()) { pointer.current.active = false setDragging(false) } }}"
     },
     {
@@ -6496,7 +6456,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 288,
+      "line": 289,
       "symbol": "onClick={(event) => { if (event.detail === 0 || !pointer.current.moved) { setCompose(!compose) setMenu(false) } }}"
     },
     {
@@ -6504,7 +6464,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 314,
+      "line": 315,
       "symbol": "<button type=\"button\" className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
     },
     {
@@ -6512,7 +6472,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 320,
+      "line": 321,
       "symbol": "onClick={() => setMenu(!menu)}"
     },
     {
@@ -6520,7 +6480,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 333,
+      "line": 334,
       "symbol": "<button className=\"companion-send companion-icon\" aria-label={ pending ? '正在发送' : requestId.current ? '检查发送状态' : '发送新对话' } title=\"发送\" disabled={pending || !draft.trim()} >"
     },
     {
@@ -6528,7 +6488,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 350,
+      "line": 351,
       "symbol": "<button className=\"companion-icon\" aria-label=\"新对话\" title=\"新对话\" onClick={() => { setCompose(true) setMenu(false) }} >"
     },
     {
@@ -6536,23 +6496,23 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 354,
+      "line": 355,
       "symbol": "onClick={() => { setCompose(true) setMenu(false) }}"
     },
     {
-      "id": "ui_button:564fd42ac62d12dbc4cd:1",
+      "id": "ui_button:ed53ea98a2c9eec6797e:1",
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 361,
-      "symbol": "<button className=\"companion-icon\" aria-label=\"收进 Inbox\" title=\"收进 Inbox\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
+      "line": 362,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"收进收件箱\" title=\"收进收件箱\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
     },
     {
       "id": "ui_button:49ad6fc76d073c852dad:1",
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 372,
+      "line": 373,
       "symbol": "<button className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
     },
     {
@@ -6560,7 +6520,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 377,
+      "line": 378,
       "symbol": "onClick={() => setMenu(!menu)}"
     },
     {
@@ -6568,7 +6528,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 385,
+      "line": 386,
       "symbol": "<button className=\"companion-icon\" aria-label=\"切换桌宠形态\" title=\"切换形态\" onClick={() => void switchForm()} >"
     },
     {
@@ -6576,23 +6536,23 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 389,
+      "line": 390,
       "symbol": "onClick={() => void switchForm()}"
     },
     {
-      "id": "ui_button:564fd42ac62d12dbc4cd:2",
+      "id": "ui_button:ed53ea98a2c9eec6797e:2",
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 394,
-      "symbol": "<button className=\"companion-icon\" aria-label=\"收进 Inbox\" title=\"收进 Inbox\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
+      "line": 395,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"收进收件箱\" title=\"收进收件箱\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
     },
     {
       "id": "ui_event:d72513e0c6b9b5bf6822:2",
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 398,
+      "line": 399,
       "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
     },
     {
@@ -6600,7 +6560,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 406,
+      "line": 407,
       "symbol": "<button className=\"companion-icon\" aria-label=\"打开息流\" title=\"打开息流\" onClick={() => openMain('/today')} >"
     },
     {
@@ -6608,7 +6568,7 @@
       "kind": "ui_button",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 414,
+      "line": 415,
       "symbol": "<button className=\"companion-icon\" aria-label=\"桌宠设置\" title=\"设置\" onClick={() => openMain('/settings?section=appearance')} >"
     },
     {
@@ -6616,7 +6576,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 418,
+      "line": 419,
       "symbol": "onClick={() => openMain('/settings?section=appearance')}"
     },
     {
@@ -6656,7 +6616,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 100,
+      "line": 104,
       "symbol": "onPointerEnter={() => setHover(true)}"
     },
     {
@@ -6664,7 +6624,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 101,
+      "line": 105,
       "symbol": "onPointerLeave={() => setHover(false)}"
     },
     {
@@ -6672,7 +6632,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 119,
+      "line": 127,
       "symbol": "onLoad={() => setAvailable((old) => ({ ...old, [key]: true }))}"
     },
     {
@@ -6680,21 +6640,189 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 120,
+      "line": 128,
       "symbol": "onError={() => setAvailable((old) => ({ ...old, [key]: false }))}"
+    },
+    {
+      "id": "ui_button:e406e9369a1d91798ab7:1",
+      "kind": "ui_button",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 130,
+      "symbol": "<button type=\"button\" className=\"nav-item\" aria-label=\"重新查看新手引导\" title=\"新手引导\" data-onboarding=\"help-entry\" onClick={startGuide} >"
+    },
+    {
+      "id": "ui_event:57ce62087a123b5ee347:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 136,
+      "symbol": "onClick={startGuide}"
+    },
+    {
+      "id": "ui_event:51c81aed006f654ca737:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 154,
+      "symbol": "onReset={async () => { await resetDemoExperience(cache) navigate('/today', { replace: true }) }}"
+    },
+    {
+      "id": "ui_button:6e4bf66b54341cc91e30:1",
+      "kind": "ui_button",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 42,
+      "symbol": "<button onClick={() => setConfirm(true)}>"
+    },
+    {
+      "id": "ui_event:37037c20e845e3037967:1",
+      "kind": "ui_event",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 42,
+      "symbol": "onClick={() => setConfirm(true)}"
+    },
+    {
+      "id": "ui_event:9564177ae9f9338561bc:1",
+      "kind": "ui_event",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 55,
+      "symbol": "onClose={() => { if (!busy) setConfirm(false) }}"
+    },
+    {
+      "id": "ui_button:ace2d155c19236b74eb0:1",
+      "kind": "ui_button",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 65,
+      "symbol": "<button className=\"secondary-button\" disabled={busy} onClick={() => setConfirm(false)}>"
+    },
+    {
+      "id": "ui_event:e8d81a3548ba07c6f388:1",
+      "kind": "ui_event",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 65,
+      "symbol": "onClick={() => setConfirm(false)}"
+    },
+    {
+      "id": "ui_button:7072f950c73dd495a43f:1",
+      "kind": "ui_button",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 68,
+      "symbol": "<button className=\"primary-button\" disabled={busy} onClick={() => void reset()}>"
+    },
+    {
+      "id": "ui_event:3be27b12e71f9cd0fedf:1",
+      "kind": "ui_event",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 68,
+      "symbol": "onClick={() => void reset()}"
+    },
+    {
+      "id": "ui_button:39ae79fbf3399501662a:1",
+      "kind": "ui_button",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 179,
+      "symbol": "<button className=\"onboarding-close\" aria-label=\"关闭引导\" onClick={() => end(true)}>"
+    },
+    {
+      "id": "ui_event:63301a6cef12af43ad30:1",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 179,
+      "symbol": "onClick={() => end(true)}"
+    },
+    {
+      "id": "ui_button:c1aa7957b4c7995b94f9:1",
+      "kind": "ui_button",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 191,
+      "symbol": "<button className=\"onboarding-skip\" onClick={() => end(true)}>"
+    },
+    {
+      "id": "ui_event:63301a6cef12af43ad30:2",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 191,
+      "symbol": "onClick={() => end(true)}"
+    },
+    {
+      "id": "ui_button:feb0993b3f4015ea6afb:1",
+      "kind": "ui_button",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 196,
+      "symbol": "<button className=\"secondary-button\" onClick={() => moveGuide(-1)}>"
+    },
+    {
+      "id": "ui_event:47bcfa39b3e7408ebccd:1",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 196,
+      "symbol": "onClick={() => moveGuide(-1)}"
+    },
+    {
+      "id": "ui_button:eca847ec36f08fa6ba1f:1",
+      "kind": "ui_button",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 201,
+      "symbol": "<button className=\"primary-button\" onClick={() => end(false)}>"
+    },
+    {
+      "id": "ui_event:fbb67d3e4fce061e733e:1",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 201,
+      "symbol": "onClick={() => end(false)}"
+    },
+    {
+      "id": "ui_button:0eafe8f413c403ebe042:1",
+      "kind": "ui_button",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 205,
+      "symbol": "<button className=\"primary-button\" onClick={() => moveGuide(1)}>"
+    },
+    {
+      "id": "ui_event:c64adfa036afc7b44281:1",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 205,
+      "symbol": "onClick={() => moveGuide(1)}"
+    },
+    {
+      "id": "ui_event:8e342b99ab13af036176:1",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/progress.ts",
+      "line": 55,
+      "symbol": "onStorage = (event:"
     }
   ],
   "counts": {
     "http_route": 71,
     "ui_link": 37,
-    "ui_event": 263,
-    "ui_button": 120,
+    "ui_event": 275,
+    "ui_button": 129,
     "service_method": 90,
     "base_tool": 17,
     "ui_api": 66,
     "ui_query": 51,
     "ui_mutation": 28,
-    "ui_fetch": 7,
+    "ui_fetch": 2,
     "api_client": 53
   }
 }
