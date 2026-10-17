@@ -1,0 +1,72 @@
+name: xiliu-cloud
+services:
+  egress:
+    build:
+      context: ../..
+      dockerfile: deploy/cloud/Dockerfile
+      target: egress
+    cap_drop: [ALL]
+    cap_add: [NET_ADMIN]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    tmpfs: [/run:size=1m]
+    ports: ["127.0.0.1:8765:8765"]
+    mem_limit: 48m
+    pids_limit: 16
+    healthcheck:
+      test: [CMD, test, -f, /run/egress-ready]
+      interval: 2s
+      timeout: 2s
+      retries: 15
+    restart: unless-stopped
+  app:
+    build:
+      context: ../..
+      dockerfile: deploy/cloud/Dockerfile
+      target: app
+    network_mode: service:egress
+    depends_on:
+      egress: {condition: service_healthy}
+    environment:
+      XILIU_CLOUD_ORIGIN: ${XILIU_CLOUD_ORIGIN:?Set the exact public origin}
+      XILIU_CLOUD_MASTER_KEY: ${XILIU_CLOUD_MASTER_KEY:?Generate a persistent encryption key}
+      XILIU_CLOUD_LOCAL_HTTP: ${XILIU_CLOUD_LOCAL_HTTP:-0}
+      XILIU_CLOUD_SIGNUP: ${XILIU_CLOUD_SIGNUP:-1}
+      XILIU_CLOUD_MAX_USERS: ${XILIU_CLOUD_MAX_USERS:-100}
+      XILIU_CLOUD_TRIAL_API_KEY: ${XILIU_CLOUD_TRIAL_API_KEY:-}
+      XILIU_CLOUD_TRIAL_MODEL: ${XILIU_CLOUD_TRIAL_MODEL:-}
+      XILIU_CLOUD_TRIAL_BASE_URL: ${XILIU_CLOUD_TRIAL_BASE_URL:-https://api.openai.com/v1}
+      XILIU_CLOUD_TRIAL_DAILY_LIMIT: ${XILIU_CLOUD_TRIAL_DAILY_LIMIT:-100}
+    volumes: [data:/data]
+    tmpfs: [/tmp:size=128m,mode=1777]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    read_only: true
+    mem_limit: 1536m
+    cpus: 2
+    pids_limit: 128
+    stop_grace_period: 120s
+    healthcheck:
+      test: [CMD, python, -c, "import os,urllib.request,urllib.parse; origin=os.environ['XILIU_CLOUD_ORIGIN']; req=urllib.request.Request('http://127.0.0.1:8765/api/health',headers={'Host':urllib.parse.urlsplit(origin).netloc}); assert urllib.request.urlopen(req,timeout=3).status==200"]
+      interval: 10s
+      timeout: 5s
+      start_period: 20s
+      retries: 6
+    restart: unless-stopped
+  caddy:
+    image: caddy:2-alpine
+    profiles: [https]
+    depends_on:
+      app: {condition: service_healthy}
+    environment:
+      XILIU_CLOUD_DOMAIN: ${XILIU_CLOUD_DOMAIN:-localhost}
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+volumes:
+  data:
+  caddy_data:
+  caddy_config:

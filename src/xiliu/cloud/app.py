@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import os
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -112,6 +113,13 @@ def create_cloud_app(config: CloudConfig | None = None, *, static_dir: Path | No
 
     include_business_routes(app)
     install_frontend(
-        app, (static_dir or Path(__file__).resolve().parents[3] / "web/dist").resolve()
+        app,
+        (
+            static_dir
+            or Path(
+                os.environ.get("XILIU_CLOUD_STATIC_DIR")
+                or Path(__file__).resolve().parents[3] / "web/dist"
+            )
+        ).resolve(),
     )
     return app

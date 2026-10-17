@@ -2,6 +2,7 @@
 .env
 .env.*
 !/.env.example
+!/deploy/cloud/.env.example
 
 # Local agent instructions and test reports
 AGENTS.md

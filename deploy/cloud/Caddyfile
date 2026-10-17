@@ -1,0 +1,13 @@
+{$XILIU_CLOUD_DOMAIN} {
+  encode zstd gzip
+  request_body {
+    max_size 30MB
+  }
+  reverse_proxy egress:8765 {
+    flush_interval -1
+  }
+  header {
+    X-Content-Type-Options nosniff
+    Referrer-Policy same-origin
+  }
+}

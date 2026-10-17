@@ -58,6 +58,7 @@ class OutboundPolicy:
             headers = request.headers.copy()
             headers["host"] = url.netloc.decode("ascii")
             headers["accept-encoding"] = "identity"
+            addresses = sorted(addresses, key=lambda address: ipaddress.ip_address(address).version)
             return httpx.Request(
                 request.method,
                 url.copy_with(host=addresses[0]),
