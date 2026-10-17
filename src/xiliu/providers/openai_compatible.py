@@ -20,10 +20,29 @@ from xiliu.errors import (
 class CancellableChatOpenAI(ChatOpenAI):
     cloud_mode: bool = False
 
+    async def _astream(self, *args, **kwargs):
+        from xiliu.execution.cancellation import check_cancelled
+
+        async for chunk in super()._astream(*args, **kwargs):
+            if self.cloud_mode:
+                from xiliu.cloud.budget import active_budget
+
+                budget = active_budget.get()
+                if budget is not None:
+                    budget.started()
+            check_cancelled()
+            yield chunk
+
     def _stream(self, *args, **kwargs):
         from xiliu.execution.cancellation import check_cancelled
 
         for chunk in super()._stream(*args, **kwargs):
+            if self.cloud_mode:
+                from xiliu.cloud.budget import active_budget
+
+                budget = active_budget.get()
+                if budget is not None:
+                    budget.started()
             check_cancelled()
             content = chunk.message.content
             if isinstance(content, list):
@@ -53,6 +72,11 @@ class CancellableChatOpenAI(ChatOpenAI):
 
             if len(json.dumps(payload, ensure_ascii=False)) > 128_000:
                 raise WebError("context_too_large", "上下文过长，请压缩或新建对话。", 413)
+            from xiliu.cloud.budget import active_budget
+
+            budget = active_budget.get()
+            if budget is not None:
+                budget.before_request()
         return payload
 
     def _convert_chunk_to_generation_chunk(self, chunk, default_chunk_class, base_generation_info):
@@ -130,6 +154,7 @@ def create_chat_model(settings: Settings) -> ChatOpenAI:
         kwargs["http_client"], kwargs["http_async_client"] = cloud_http_clients()
         kwargs["max_tokens"] = 4096
         kwargs["cloud_mode"] = True
+        kwargs["timeout"] = min(settings.timeout_seconds, 20)
     if (
         settings.provider == "openai"
         and settings.model.startswith(("gpt-5", "gpt-6", "o1", "o3", "o4"))

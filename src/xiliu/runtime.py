@@ -60,6 +60,11 @@ class _RunContext:
 
 @contextmanager
 def _activate_run_context(context: _RunContext) -> Iterator[None]:
+    from xiliu.cloud.budget import active_budget
+
+    budget_token = None
+    if getattr(context.owner, "_cloud_budget", None) is not None:
+        budget_token = active_budget.set(active_budget.get() or context.owner._cloud_budget)
     embedding_token = embedding_provider.set(context.owner._embedding_provider)
     model_token = model_factory.set(context.owner._agent_model_factory)
     search_token = search_api_key.set(context.owner._tavily_api_key)
@@ -91,6 +96,8 @@ def _activate_run_context(context: _RunContext) -> Iterator[None]:
     try:
         yield
     finally:
+        if budget_token is not None:
+            active_budget.reset(budget_token)
         embedding_provider.reset(embedding_token)
         active_run.reset(capability_token)
         approval_config.reset(approval_token)
@@ -160,6 +167,11 @@ class Runtime:
         self._approval_handler = approval_handler
         self._actor_type = actor_type
         self._policy_profile = "cloud" if cloud_mode else policy_profile
+        self._cloud_budget = None
+        if cloud_mode:
+            from xiliu.cloud.budget import CloudCallBudget
+
+            self._cloud_budget = CloudCallBudget(maximum_calls=16)
         self.last_trace_id: str | None = None
         self.last_state: dict[str, Any] = {}
         self.last_node_path: list[str] = []

@@ -67,9 +67,18 @@ async def chat(cid: str, body: ChatRequest, request: Request):
             try:
                 lease = request.scope.get("xiliu.workspace_lease")
                 with lease() if lease else nullcontext():
-                    turn = request_services(request).chat.stream_turn(
-                        cid, body.text, context=body.context, signal=signal
-                    )
+                    if getattr(request.app.state, "cloud_mode", False):
+                        turn = request.app.state.cloud_turns.stream(
+                            request_services(request),
+                            request.scope["xiliu.user"]["id"],
+                            cid,
+                            body,
+                            signal,
+                        )
+                    else:
+                        turn = request_services(request).chat.stream_turn(
+                            cid, body.text, context=body.context, signal=signal
+                        )
                     try:
                         for event in turn:
                             publish(event)

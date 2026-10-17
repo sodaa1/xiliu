@@ -13,6 +13,8 @@ from xiliu.cloud.auth import COOKIE, create_auth_app, error_response
 from xiliu.cloud.config import CloudConfig
 from xiliu.cloud.jobs import CloudJobCoordinator
 from xiliu.cloud.limits import BodyLimit, RequestSlots, check_storage
+from xiliu.cloud.trials import TrialLedger
+from xiliu.cloud.turns import CloudChatTurns
 from xiliu.cloud.workspaces import WorkspaceRegistry
 
 _IDENTITY_PATHS = {
@@ -74,6 +76,8 @@ def create_cloud_app(config: CloudConfig | None = None, *, static_dir: Path | No
     app = create_auth_app(config)
     registry = WorkspaceRegistry(config)
     app.state.cloud_mode = True
+    app.state.trial_ledger = TrialLedger(app.state.identity, daily_limit=config.trial_daily_limit)
+    app.state.cloud_turns = CloudChatTurns(config, app.state.trial_ledger)
     app.state.workspaces = registry
     jobs = CloudJobCoordinator(app.state.identity, registry)
     app.state.cloud_jobs = jobs

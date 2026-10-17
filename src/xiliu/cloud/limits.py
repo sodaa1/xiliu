@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import stat
 from collections import Counter
 from contextlib import contextmanager
 from pathlib import Path
@@ -25,8 +26,13 @@ def check_storage(
     count = 0
     for path in directory.rglob("*"):
         count += 1
-        if path.is_file():
-            total += path.stat().st_size
+        try:
+            info = path.stat()
+        except FileNotFoundError:
+            # SQLite checkpoints may remove a WAL file during directory traversal.
+            continue
+        if stat.S_ISREG(info.st_mode):
+            total += info.st_size
     if (
         not measure
         and (total > limit or count > 20_000)

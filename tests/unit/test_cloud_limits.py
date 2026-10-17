@@ -1,9 +1,19 @@
 from contextlib import ExitStack
+from types import SimpleNamespace
 
 import pytest
 
 from xiliu.api.errors import WebError
-from xiliu.cloud.limits import BodyLimit, RequestSlots
+from xiliu.cloud.limits import BodyLimit, RequestSlots, check_storage
+
+
+def test_storage_scan_tolerates_sqlite_wal_disappearing():
+    def gone():
+        raise FileNotFoundError()
+
+    path = SimpleNamespace(is_file=lambda: True, stat=gone)
+    directory = SimpleNamespace(rglob=lambda pattern: [path])
+    assert check_storage(directory) == 0
 
 
 def test_slots_bound_per_account_and_release_on_failure():

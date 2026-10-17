@@ -46,6 +46,8 @@ class ChatRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     text: str = Field(min_length=1, max_length=100_000)
     context: str = Field(default="", max_length=40_000)
+    source: Literal["own", "trial"] = "own"
+    request_id: str | None = Field(default=None, pattern=r"^[A-Za-z0-9_-]{8,100}$")
 
     @field_validator("text")
     @classmethod

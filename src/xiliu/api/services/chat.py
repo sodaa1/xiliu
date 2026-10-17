@@ -9,6 +9,7 @@ from typing import Any
 
 from xiliu.api.errors import WebError, provider_code
 from xiliu.api.services.conversations import ConversationService
+from xiliu.config import Settings
 from xiliu.events import ErrorEvent, FinalEvent, PlannerEvent, ProgressEvent, VerifierEvent
 from xiliu.execution.cancellation import TurnCancelled, cancel_signal, check_cancelled
 from xiliu.providers.openai_compatible import classify_provider_error
@@ -72,6 +73,8 @@ class ChatService:
         *,
         context: str = "",
         signal: Event | None = None,
+        settings_override: Settings | None = None,
+        response_filter: Callable[[str], str] | None = None,
     ) -> Generator[dict[str, Any], None, None]:
         if (
             getattr(self.conversations.model_settings, "cloud_mode", False)
@@ -86,7 +89,13 @@ class ChatService:
                     self._cancellations[conversation_id] = signal
                 token = cancel_signal.set(signal)
                 try:
-                    yield from self._turn(conversation_id, text, context=context)
+                    yield from self._turn(
+                        conversation_id,
+                        text,
+                        context=context,
+                        settings_override=settings_override,
+                        response_filter=response_filter,
+                    )
                 finally:
                     cancel_signal.reset(token)
                     with self._lock:
@@ -108,7 +117,15 @@ class ChatService:
             error = classify_provider_error(exc)
             yield {"type": "error", "code": provider_code(error.code), "message": str(error)}
 
-    def _turn(self, cid: str, text: str, *, context: str = "") -> Iterator[dict[str, Any]]:
+    def _turn(
+        self,
+        cid: str,
+        text: str,
+        *,
+        context: str = "",
+        settings_override: Settings | None = None,
+        response_filter: Callable[[str], str] | None = None,
+    ) -> Iterator[dict[str, Any]]:
         started = monotonic()
         steps = ["正在处理"]
         reasoning = ""
@@ -117,7 +134,7 @@ class ChatService:
             return {
                 "elapsed_ms": round((monotonic() - started) * 1000),
                 "steps": steps.copy(),
-                "reasoning": reasoning,
+                "reasoning": response_filter(reasoning) if response_filter else reasoning,
             }
 
         conversation = self.conversations.get(cid)
@@ -143,11 +160,12 @@ class ChatService:
             task = result.task
         if conversation["title"] in {"新对话", "New Chat"} and not text.startswith("/"):
             self.store.update(cid, title=text.splitlines()[0][:24])
-        configured = self.conversations.model_settings.read(conversation["model_override"])[
-            "api_key_set"
-        ]
+        configured = (
+            settings_override is not None
+            or self.conversations.model_settings.read(conversation["model_override"])["api_key_set"]
+        )
         if configured:
-            settings = self.conversations.model_settings.runtime_settings(
+            settings = settings_override or self.conversations.model_settings.runtime_settings(
                 conversation["model_override"]
             )
             settings = settings.model_copy(update={"data_dir": self.store.path.parent})
@@ -196,13 +214,12 @@ class ChatService:
                         "app_receipts": state.get("app_receipts", []),
                         "model_calls": state.get("app_model_calls", 0),
                     }
-                    message = self.store.append_message(
-                        cid, "assistant", event.text, metadata=metadata
-                    )
+                    answer = response_filter(event.text) if response_filter else event.text
+                    message = self.store.append_message(cid, "assistant", answer, metadata=metadata)
                     yield {
                         "type": "final",
                         "message_id": message["id"],
-                        "text": event.text,
+                        "text": answer,
                         "role": "assistant",
                         "metadata": metadata,
                     }

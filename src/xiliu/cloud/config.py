@@ -19,6 +19,13 @@ class CloudConfig:
     login_limit: int = 10
     signup_limit: int = 5
     trial_daily_limit: int = 100
+    trial_api_key: str = field(default="", repr=False)
+    trial_model: str = ""
+    trial_base_url: str = "https://api.openai.com/v1"
+
+    @property
+    def trial_enabled(self):
+        return bool(self.trial_api_key and self.trial_model)
 
     def __post_init__(self):
         parsed = urlsplit(self.public_origin)
@@ -66,4 +73,10 @@ class CloudConfig:
             session_seconds=int(os.environ.get("XILIU_CLOUD_SESSION_SECONDS", "86400")),
             signup_enabled=os.environ.get("XILIU_CLOUD_SIGNUP", "1") == "1",
             max_users=int(os.environ.get("XILIU_CLOUD_MAX_USERS", "100")),
+            trial_daily_limit=int(os.environ.get("XILIU_CLOUD_TRIAL_DAILY_LIMIT", "100")),
+            trial_api_key=os.environ.get("XILIU_CLOUD_TRIAL_API_KEY", ""),
+            trial_model=os.environ.get("XILIU_CLOUD_TRIAL_MODEL", ""),
+            trial_base_url=os.environ.get(
+                "XILIU_CLOUD_TRIAL_BASE_URL", "https://api.openai.com/v1"
+            ),
         )

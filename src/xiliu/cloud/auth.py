@@ -96,11 +96,13 @@ def current_user(request: Request) -> dict:
 
 
 def session_payload(request: Request, user: dict, token: str) -> dict:
+    ledger = getattr(request.app.state, "trial_ledger", None)
+    trial = ledger.balance(user["id"]) if ledger else {"limit": 5, "remaining": 5}
     return {
         "user": {"id": user["id"], "username": user["username"]},
         "workspace": {"id": user["workspace_id"]},
         "csrf_token": csrf_token(request.app.state.cloud_config, token),
-        "trial": {"enabled": False, "limit": 5, "remaining": 5},
+        "trial": {"enabled": request.app.state.cloud_config.trial_enabled, **trial},
     }
 
 
