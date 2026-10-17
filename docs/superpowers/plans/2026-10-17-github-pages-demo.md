@@ -27,14 +27,14 @@
 
 ## Task 1: Build a portable Pages demo
 
-- [ ] Add regression coverage for prefixed runtime assets and route selection.
-- [ ] Add opt-in hash navigation and base-aware bundled resource paths.
-- [ ] Add an Actions workflow using the actual Pages base path and upload only web/dist-demo.
-- [ ] Run frontend tests, lint, a Pages build, and browser checks under /xiliu/.
+- [x] Add regression coverage for prefixed runtime assets and route selection.
+- [x] Add opt-in hash navigation and base-aware bundled resource paths.
+- [x] Add an Actions workflow using the actual Pages base path and upload only web/dist-demo.
+- [x] Run frontend tests, lint, a Pages build, and browser checks under /xiliu/.
 
 ## Task 2: Publish and verify
 
-- [ ] Inspect remote main and existing Pages settings; commit and integrate without overwriting remote work.
-- [ ] Enable Actions-based Pages publication if no existing site would be replaced, and push the reviewed change.
-- [ ] Wait for deployment and verify the public demo, assets, tour and copied route refresh.
-- [ ] Record the real public URL and any remaining external blockers.
+- [x] Inspect remote main and existing Pages settings; commit and integrate without overwriting remote work.
+- [x] Enable Actions-based Pages publication if no existing site would be replaced, and push the reviewed change.
+- [x] Wait for deployment and verify the public demo, assets, tour and copied route refresh.
+- [x] Record the real public URL and any remaining external blockers.

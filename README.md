@@ -4,6 +4,8 @@
 
 [简体中文](README.zh-CN.md) · [English](README.en.md)
 
+[在线体验游客演示](https://sodaa1.github.io/xiliu/#/today) · 免安装、免 API Key，使用示例数据和演示回复。
+
 *应用主页截图（已启用内置背景），可在设置中切换主页背景。*
 
 **信息有归处，思考自成流。** 息流是本地优先的个人信息与 AI 助手，把 Feed、Inbox、Knowledge、Assistant 和 Today 连接成从发现到行动的信息流。

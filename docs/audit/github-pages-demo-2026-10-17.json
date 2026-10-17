@@ -1,0 +1,108 @@
+{
+  "url": "https://sodaa1.github.io/xiliu/",
+  "checks": [
+    {
+      "name": "Pages entry returns 200 without a server rewrite",
+      "passed": true
+    },
+    {
+      "name": "first visit opens the guide",
+      "passed": true
+    },
+    {
+      "name": "today bundled images load under the repository path",
+      "passed": true
+    },
+    {
+      "name": "guide follows hash navigation",
+      "passed": true
+    },
+    {
+      "name": "today copied route loads",
+      "passed": true
+    },
+    {
+      "name": "today refresh returns 200",
+      "passed": true
+    },
+    {
+      "name": "assistant copied route loads",
+      "passed": true
+    },
+    {
+      "name": "assistant refresh returns 200",
+      "passed": true
+    },
+    {
+      "name": "feed copied route loads",
+      "passed": true
+    },
+    {
+      "name": "feed refresh returns 200",
+      "passed": true
+    },
+    {
+      "name": "inbox copied route loads",
+      "passed": true
+    },
+    {
+      "name": "inbox refresh returns 200",
+      "passed": true
+    },
+    {
+      "name": "knowledge copied route loads",
+      "passed": true
+    },
+    {
+      "name": "knowledge refresh returns 200",
+      "passed": true
+    },
+    {
+      "name": "plans copied route loads",
+      "passed": true
+    },
+    {
+      "name": "plans refresh returns 200",
+      "passed": true
+    },
+    {
+      "name": "settings copied route loads",
+      "passed": true
+    },
+    {
+      "name": "settings refresh returns 200",
+      "passed": true
+    },
+    {
+      "name": "replayed mobile guide fits the viewport",
+      "passed": true
+    },
+    {
+      "name": "no real API network requests",
+      "passed": true
+    },
+    {
+      "name": "no missing static assets",
+      "passed": true
+    },
+    {
+      "name": "no page errors",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "failedResponses": [],
+  "apiRequests": [],
+  "status": "passed",
+  "date": "2026-10-17",
+  "deployedCommit": "1e23279de668dac9ed8e648b1acfab6142898ad5",
+  "workflowRun": "https://github.com/sodaa1/xiliu/actions/runs/39010562627",
+  "workflowBuild": "success",
+  "workflowDeploy": "success",
+  "frontendTests": 161,
+  "surfaceGuardTests": 20,
+  "eslint": "passed",
+  "normalDesktopWebBuild": "passed",
+  "customDomainConfigured": false,
+  "accountsAndCloudSyncImplemented": false
+}

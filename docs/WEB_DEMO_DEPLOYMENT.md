@@ -2,7 +2,7 @@
 
 评估日期：2026-10-16。工作分支：`codex/web-demo-deployment`。
 
-当前分支已实现静态游客演示，以及网页和桌面共用的首次功能导览。按最新需求，应用不再提供独立 Wiki 页面。本文仅记录构建与发布步骤；尚未向公网发布，真实 AI 容器部署仍属于后续改造。
+已实现静态游客演示，以及网页和桌面共用的首次功能导览。按最新需求，应用不再提供独立 Wiki 页面。2026-10-17 已通过 GitHub Pages 发布：[在线体验](https://sodaa1.github.io/xiliu/#/today)。真实 AI、账号登录及网页/桌面数据同步仍属于后续改造。
 
 ## 已实现：构建与预览演示版
 
@@ -26,6 +26,8 @@ npm --prefix web run preview:demo
 ### GitHub Pages 自动发布
 
 仓库提供 `.github/workflows/demo-pages.yml`：向 `main` 推送相关网页改动，或手动运行该工作流时，构建并发布 `web/dist-demo/`。首次需要在仓库 Settings → Pages 中将来源设为 GitHub Actions。
+
+当前仓库已启用 GitHub Actions 来源。首个发布提交为 `1e23279`，[部署工作流](https://github.com/sodaa1/xiliu/actions/runs/39010562627) 构建和发布成功；公网完成 22 项浏览器检查，见 [验收记录](audit/github-pages-demo-2026-10-17.json)。
 
 工作流读取 Pages 的实际部署路径，并设置 `VITE_DEMO_ROUTER=hash`，使仓库子路径（例如 `/xiliu/`）下的字体、背景和角色图片正常加载；分享链接形如 `/xiliu/#/today`，刷新无需服务器重写。默认本地演示与桌面版继续使用原有路由。
 
@@ -54,7 +56,7 @@ Remove-Item Env:VITE_DEMO_ROUTER
 
 5. 验证 `/today`、`/assistant` 直接打开和刷新均正常，新浏览器首次进入时显示导览，跳过或完成后不再弹出，且浏览器网络面板没有 `/api` 请求，再把介绍站的“在线体验”入口链接到新地址。
 
-演示不需要反向代理到现有本机 FastAPI，也不需要开放其端口。首次静态上线无需修改后端的本机访问保护。当前尚未创建托管项目、配置域名或上传发布产物。
+演示不需要反向代理到现有本机 FastAPI，也不需要开放其端口。静态上线无需修改后端的本机访问保护。当前已发布到 GitHub Pages 默认域名，尚未绑定自定义域名。
 
 本机已经有 Playwright 和 Edge 时，可在预览运行期间执行 `node scripts/qa/web-demo-guide.cjs` 复验主要流程。`PLAYWRIGHT_MODULE` 可指定 Playwright 包路径，`DEMO_URL` 可覆盖预览地址，`BROWSER_CHANNEL` 可选择已安装的浏览器；脚本不会安装依赖或下载浏览器。
 
@@ -91,7 +93,7 @@ Remove-Item Env:VITE_DEMO_ROUTER
 
 ## 后续上线安排
 
-1. 选择静态托管和域名，按上文发布演示产物。
+1. GitHub Pages 演示已发布；按需绑定自己的域名，或按上文迁移到其他静态托管。
 2. 确认体验地址和实际可用的安装包地址，再更新介绍站的体验/下载入口。
 3. 有必要时再接入限额真实 AI：访客会话隔离、服务端配额、超时与成本上限先落地，再开放模型请求。
 
