@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "sourceCommit": "9fc05e59faa0297012bf187729f2bb2733e4d1b6",
+  "backend": {
+    "passed": 834,
+    "skipped": 1,
+    "command": ".venv/Scripts/python.exe -m pytest -q"
+  },
+  "frontend": {
+    "passed": 159,
+    "files": 36,
+    "command": "npm --prefix web test -- --run"
+  },
+  "rust": {
+    "passed": 8,
+    "command": "cargo test --manifest-path desktop/src-tauri/Cargo.toml --locked"
+  },
+  "eslint": "passed",
+  "productionBuild": "passed",
+  "demoBuild": "passed",
+  "mergedBranchTargetedTests": 29,
+  "browserTourChecks": 16,
+  "surfaceInventoryCount": 819,
+  "buildCommand": "powershell -ExecutionPolicy Bypass -File scripts/build-windows.ps1 -SkipDependencyInstall",
+  "installerIntegrity": "package.json",
+  "extractedService": "service.json",
+  "browserTour": "browser-tour.json",
+  "realModelApiUsed": false,
+  "nativeInstallerWizardExecuted": false,
+  "nativeCrossMonitorDragRepeated": false
+}

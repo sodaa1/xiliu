@@ -1,0 +1,17 @@
+{
+  "version": "0.4.4",
+  "buildCommit": "9fc05e59faa0297012bf187729f2bb2733e4d1b6",
+  "installer": "dist/Xiliu-0.4.4-x64-setup.exe",
+  "installerBytes": 50075734,
+  "installerSha256": "1a5649601d40370ae148883c17eaff4626cc6245850de97821f8d5a47c35890b",
+  "guiSubsystem": 2,
+  "architecture": "x64",
+  "matchingFrontendFiles": 27,
+  "matchingCompanionAssets": 9,
+  "serviceExecutableMatchesBuild": true,
+  "developerEnvAndDatabasesAbsent": true,
+  "installerWizardExecuted": false,
+  "nativeCrossMonitorDragRepeated": false,
+  "status": "passed",
+  "frozenServiceEvidence": "service.json"
+}

@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "name": "first visit opens welcome automatically",
+      "passed": true
+    },
+    {
+      "name": "background is inert during tour",
+      "passed": true
+    },
+    {
+      "name": "tour reveals the actual module and spotlight",
+      "passed": true
+    },
+    {
+      "name": "skipping restores the starting route",
+      "passed": true
+    },
+    {
+      "name": "skipped tour stays closed on reload",
+      "passed": true
+    },
+    {
+      "name": "no independent wiki navigation remains",
+      "passed": true
+    },
+    {
+      "name": "resizing to mobile keeps the tooltip inside viewport",
+      "passed": true
+    },
+    {
+      "name": "keyboard focus stays in the tour",
+      "passed": true
+    },
+    {
+      "name": "next alone introduces all main modules and settings",
+      "passed": true
+    },
+    {
+      "name": "finish restores original route and releases focus lock",
+      "passed": true
+    },
+    {
+      "name": "completed tour stays closed on reload",
+      "passed": true
+    },
+    {
+      "name": "Escape dismisses the tour",
+      "passed": true
+    },
+    {
+      "name": "demo save edit archive and referenced reply remain usable",
+      "passed": true
+    },
+    {
+      "name": "normal guide progress is untouched",
+      "passed": true
+    },
+    {
+      "name": "no real API network requests",
+      "passed": true
+    },
+    {
+      "name": "no browser errors",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "apiRequests": [],
+  "status": "passed"
+}
