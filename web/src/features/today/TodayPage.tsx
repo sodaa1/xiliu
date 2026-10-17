@@ -7,6 +7,7 @@ import { usePreferences } from '../../lib/preferences'
 import { useAskAI } from '../content/useAskAI'
 import { CaptureDialog } from '../content/CaptureDialog'
 import { useHomeBackground } from './useHomeBackground'
+import { publicAsset } from '../../lib/deployment'
 import './home.css'
 export function TodayPage() {
   const location = useLocation(),
@@ -107,7 +108,7 @@ export function TodayPage() {
           )}
         </div>
         <div className="home-character" aria-hidden="true">
-          <img src="/companion/standing.png" alt="" draggable={false} width="1024" height="1536" />
+          <img src={publicAsset('companion/standing.png')} alt="" draggable={false} width="1024" height="1536" />
         </div>
       </div>
       {capture && (

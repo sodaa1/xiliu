@@ -1,3 +1,4 @@
+import { publicAsset } from '../../lib/deployment'
 export type PetForm = 'chibi' | 'standing'
 export type ModelBundle = {
   form: PetForm
@@ -118,7 +119,7 @@ export async function prepareModel(bundle: ModelBundle) {
         urls.set(path, URL.createObjectURL(bundle.files.find((file) => file.path === path)!.blob))
       return urls.get(path)!
     }) as Record<string, unknown>
-    source.url = `${location.origin}/companion/live2d/local.model3.json`
+    source.url = `${location.origin}${publicAsset('companion/live2d/local.model3.json')}`
     return { source, release: () => urls.forEach(URL.revokeObjectURL) }
   } catch (failure) {
     urls.forEach(URL.revokeObjectURL)

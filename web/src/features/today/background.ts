@@ -1,10 +1,11 @@
 import { appFetch } from '../../lib/app-fetch'
+import { publicAsset } from '../../lib/deployment'
 export const BACKGROUND_ACCEPT =
   '.png,.jpg,.jpeg,.webp,.gif,.avif,.bmp,image/png,image/jpeg,image/webp,image/gif,image/avif,image/bmp'
 export type HomeBackground = { mode: 'blank' | 'builtin' | 'custom'; selected: string | null }
 export type BackgroundAsset = { id: string; name: string; blob: Blob }
 export const blankBackground: HomeBackground = { mode: 'blank', selected: null }
-export const builtinBackground = '/companion/home-background.png'
+export const builtinBackground = publicAsset('companion/home-background.png')
 const changed = 'xiliu-home-background'
 export function backgroundMime(bytes: Uint8Array): string {
   const text = new TextDecoder('ascii').decode(bytes)

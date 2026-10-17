@@ -1,12 +1,13 @@
 import { prepareModel, type ModelBundle } from './live2d-bundle'
 import type { PetExpression } from './usePetExpression'
 import type { CompanionStatus } from '../../desktop/companion'
+import { publicAsset } from '../../lib/deployment'
 let core: Promise<void> | undefined
 function loadCore() {
   if ('Live2DCubismCore' in window) return Promise.resolve()
   if (!core)
     core = (async () => {
-      const path = '/companion/live2d/live2dcubismcore.min.js'
+      const path = publicAsset('companion/live2d/live2dcubismcore.min.js')
       const response = await fetch(path, { method: 'HEAD' })
       if (!response.ok || response.headers.get('content-type')?.includes('text/html'))
         throw new Error('Live2D 运行库尚未安装，当前显示角色图片。')

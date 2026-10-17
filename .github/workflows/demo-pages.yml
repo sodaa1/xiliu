@@ -1,0 +1,52 @@
+name: Deploy visitor demo to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'docs/web/scripts/config.mjs'
+      - '.github/workflows/demo-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages-demo
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - uses: actions/configure-pages@v5
+        id: pages
+      - run: npm --prefix web ci
+      - name: Build isolated static demo
+        env:
+          VITE_DEMO_ROUTER: hash
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: npm --prefix web run build:demo -- --base="${PAGES_BASE_PATH}/"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: web/dist-demo
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

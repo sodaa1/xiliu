@@ -6,6 +6,7 @@ import { readModel, watchModels } from './model-storage'
 import type { mountLive2D } from './live2d-runtime'
 import { usePetExpression } from './usePetExpression'
 import { StandingMotion } from './StandingMotion'
+import { publicAsset } from '../../lib/deployment'
 const faces = ['blink', 'happy', 'surprised'] as const
 export function PetAvatar({
   form = 'chibi',
@@ -112,7 +113,7 @@ export function PetAvatar({
         {form === 'standing' ? (
           <StandingMotion dragging={dragging} reduced={reduced} enabled={!ready} />
         ) : (
-          <img src={`/companion/${form}.png`} alt="" draggable={false} />
+          <img src={publicAsset(`companion/${form}.png`)} alt="" draggable={false} />
         )}
         {faces.map((face) => {
           const key = `${form}-${face}`
@@ -120,7 +121,7 @@ export function PetAvatar({
             <img
               key={key}
               className="pet-face"
-              src={`/companion/expressions/${key}.png`}
+              src={publicAsset(`companion/expressions/${key}.png`)}
               alt=""
               draggable={false}
               hidden={expression !== face || !available[key]}

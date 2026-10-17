@@ -23,6 +23,24 @@ npm --prefix web run preview:demo
 
 ## 静态发布步骤
 
+### GitHub Pages 自动发布
+
+仓库提供 `.github/workflows/demo-pages.yml`：向 `main` 推送相关网页改动，或手动运行该工作流时，构建并发布 `web/dist-demo/`。首次需要在仓库 Settings → Pages 中将来源设为 GitHub Actions。
+
+工作流读取 Pages 的实际部署路径，并设置 `VITE_DEMO_ROUTER=hash`，使仓库子路径（例如 `/xiliu/`）下的字体、背景和角色图片正常加载；分享链接形如 `/xiliu/#/today`，刷新无需服务器重写。默认本地演示与桌面版继续使用原有路由。
+
+本地复验 Pages 构建：
+
+```powershell
+$env:VITE_DEMO_ROUTER='hash'
+npm --prefix web run build:demo -- --base=/xiliu/
+Remove-Item Env:VITE_DEMO_ROUTER
+```
+
+将产物放在静态服务器的 `/xiliu/` 目录，再执行 `node scripts/qa/web-demo-pages.cjs`。默认验收地址为 `http://127.0.0.1:5185/xiliu/`；可通过 `DEMO_URL` 和 `DEMO_REPORT` 指定公网地址与结果文件。检查包括直接打开和刷新主要页面、首次引导、手机尺寸、资源加载及演示不请求真实 API。
+
+### 其他静态托管
+
 1. 执行上面的 `build:demo`，发布目录为 **`web/dist-demo/`**。不要把项目根目录、`.env`、数据库或正常构建目录当作发布内容。
 2. 将该目录中的文件上传到支持 SPA 的静态托管，或放到现有 Nginx 静态目录。首次采用独立子域名的根路径，例如 `demo.<你的域名>`；资源路径按根路径构建。
 3. 配置未命中文件的路径回退到 `/index.html`。产物自带 `_redirects`，支持该格式的平台可识别 `/* /index.html 200`；其他平台需在控制台或服务器配置等效规则。

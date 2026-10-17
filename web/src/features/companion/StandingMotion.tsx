@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { isDesktop } from '../../desktop/bridge'
 import { companionListen } from '../../desktop/companion'
 import { createStandingMotion } from './standing-motion'
+import { publicAsset } from '../../lib/deployment'
 
 export function StandingMotion({
   dragging,
@@ -50,7 +51,7 @@ export function StandingMotion({
         setReady(false)
       }
     }
-    image.src = '/companion/standing.png'
+    image.src = publicAsset('companion/standing.png')
     return () => {
       disposed = true
       image.onload = null
@@ -86,7 +87,7 @@ export function StandingMotion({
   const visible = ready && enabled && !reduced
   return (
     <>
-      <img src="/companion/standing.png" alt="" draggable={false} hidden={visible} />
+      <img src={publicAsset('companion/standing.png')} alt="" draggable={false} hidden={visible} />
       <canvas ref={canvas} className="pet-cloth-motion" aria-hidden="true" hidden={!visible} />
     </>
   )
