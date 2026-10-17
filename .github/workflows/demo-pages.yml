@@ -6,6 +6,7 @@ on:
     paths:
       - 'web/**'
       - 'docs/web/scripts/config.mjs'
+      - 'docs/web/src/**'
       - '.github/workflows/demo-pages.yml'
   workflow_dispatch:
 

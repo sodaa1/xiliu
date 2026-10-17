@@ -95,6 +95,7 @@ const stages = [
 ];
 
 const repositoryUrl = "https://github.com/sodaa1/xiliu";
+const demoUrl = "https://sodaa1.github.io/xiliu/#/today";
 const installCommands =
   "git clone https://github.com/sodaa1/xiliu.git\ncd xiliu\nuv sync --dev\ncd web\nnpm ci\nnpm run build\ncd ..\nuv run xiliu web --open";
 const questions = [
@@ -116,11 +117,11 @@ const questions = [
   ],
   [
     "现在如何开始使用？",
-    "从 GitHub 获取 xiliu 源码，安装 Python 3.12+、uv 和 Node.js / npm，按下方命令运行网页工作台。Windows 已完成 0.3.0 安装包构建；安装包不存入 Git 源码，当前 GitHub Releases 尚无公开下载资产。",
+    "可以先在线体验游客演示，无需安装或 API Key，使用示例数据和演示回复。完整应用可从 GitHub Releases 下载 Windows 0.4.4 安装包，或按下方命令从源码运行。账号与跨端同步尚未提供。",
   ],
   [
     "Windows 桌面版如何安装？",
-    "已有 Xiliu-0.3.0-x64-setup.exe 时，双击并按中文向导安装，无需另装 Python、Node.js 或 Rust。需要 WebView2，缺少时安装引导程序会联网下载。首次启动在设置中填写自己的模型连接与 API 密钥；安装包未签名。源码构建步骤见 GitHub 的 desktop/README.md。",
+    "从 GitHub Releases 下载 Xiliu-0.4.4-x64-setup.exe，双击并按中文向导安装，无需另装 Python、Node.js 或 Rust。需要 WebView2，缺少时安装引导程序会联网下载。首次启动在设置中填写自己的模型连接与 API 密钥；安装包未签名。源码构建步骤见 GitHub 的 desktop/README.md。",
   ],
   [
     "模型能联网，为什么搜索还需要配置？",
@@ -250,7 +251,7 @@ export function LandingPage({
           <div className="hero-stage">
             <div className="hero-copy">
               <div className="hero-center">
-                <p className="eyebrow">个人信息与 AI 助手 · 0.3.0</p>
+                <p className="eyebrow">个人信息与 AI 助手 · 0.4.4</p>
                 <h1 id="intro-heading">
                   信息有归处，
                   <br />
@@ -263,8 +264,8 @@ export function LandingPage({
                 </p>
                 <div className="button-pair">
                   <Action />
-                  <Action secondary href="#workflow">
-                    了解息流
+                  <Action secondary href={demoUrl}>
+                    在线体验
                   </Action>
                 </div>
               </div>

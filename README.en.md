@@ -4,11 +4,19 @@
 
 [English](README.en.md) · [简体中文](README.zh-CN.md)
 
+[Try the online demo](https://sodaa1.github.io/xiliu/#/today) · No installation or API key required. Uses sample data and simulated replies.
+
 *Application home with the built-in background enabled. The home background can be changed in Settings.*
 
 **Give information a home and ideas room to flow.** Xiliu is a local-first personal knowledge workspace and AI assistant connecting Feed, Inbox, Knowledge, Assistant, and Today.
 
-Current version: **0.4.3**. React and FastAPI share the Runtime / LangGraph kernel; the Windows desktop uses Tauri 2. Documents and conversations stay on your device. Enabled model and network tools send their requests to the services you configure.
+Current version: **0.4.4**. React and FastAPI share the Runtime / LangGraph kernel; the Windows desktop uses Tauri 2. Documents and conversations stay on your device. Enabled model and network tools send their requests to the services you configure.
+
+## What's new in 0.4.4
+
+- A shared first-visit feature tour for Web and desktop, with skip and replay controls.
+- Chinese interface and six navigation shortcuts; companion drag feedback and standing hair/skirt inertia.
+- [Online demo](https://sodaa1.github.io/xiliu/#/today) with sample data and simulated replies. Accounts and cloud synchronization are not yet available.
 
 ## What's new in 0.4.3
 
@@ -49,7 +57,7 @@ See the [0.3 change record](docs/XILIU_03_FIXES.md) and [0.3.1 repair record](do
 
 ## Windows installation
 
-Current local installer: `dist/Xiliu-0.4.3-x64-setup.exe`, with a `.sha256` file. Installers are excluded from Git source uploads. If you obtain the source repository, build the installer using the instructions below.
+Download `Xiliu-0.4.4-x64-setup.exe` and its SHA256 file from [GitHub Release v0.4.4](https://github.com/sodaa1/xiliu/releases/tag/v0.4.4). Installers are published as release assets rather than committed to Git source.
 
 1. Run the installer and follow its Chinese-language wizard. Python, Node.js, and Rust are not required to use the packaged application.
 2. On first launch, configure your provider, API endpoint, model, and API key in Settings. The package includes no developer credentials, personal model configuration, databases, tests, or project documentation.
@@ -121,7 +129,7 @@ npm run lint
 npm run build
 ```
 
-Under the current repository policy, test sources and logs remain local and are excluded from GitHub and installers. Source users need to obtain the local test suite separately. The offline proof script uses a fake model and needs no real provider credentials.
+Tests are maintained with the source. Development logs, temporary data and test tooling are excluded from the installer. The offline proof script uses a fake model and needs no real provider credentials.
 
 - Text extraction supports PDF / DOCX; scanned documents have no OCR. Saving a URL does not automatically fetch its full article.
 - Stop response does not undo completed writes or provide resume-from-checkpoint. Blocking external calls may release only after more streamed data or a timeout.
