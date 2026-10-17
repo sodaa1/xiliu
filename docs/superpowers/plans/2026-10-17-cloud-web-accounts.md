@@ -30,6 +30,15 @@
 4. HTTP、Agent、自动任务、重定向及网络库不得绕过云端策略：任务 3 的真实调用路径与容器出口测试覆盖。
 5. 只验证宿主机源码不等于镜像可用；容器内配置、依赖、目录权限、持久卷和优雅退出由任务 7、8 实测。
 
+## 跨任务接口约定
+
+- `GET /api/cloud/bootstrap` 公开返回云端模式、注册是否开放和 `guest_url: "/demo/#/today"`，不返回账号或模型凭据。
+- `GET /api/auth/session` 返回 `{user: {id, username}, workspace: {id}, csrf_token, trial: {enabled, limit: 5, remaining}}`；登录/注册设置会话 Cookie，退出撤销会话。
+- 写请求统一采用 `X-CSRF-Token`；错误保持 `{error: {code, message}}` 格式。未认证 401，CSRF/来源拒绝 403，限额 429，暂不可用 503。
+- 云端聊天扩展 `model_source: "own" | "trial"` 和唯一 `request_id`；试用强制要求请求 ID。本机模式不允许通过该字段调用管理员试用模型。
+- 默认关闭公共试用，只有管理员配置了有效提供方参数后才将 `trial.enabled` 设为 true。账号额度为累计 5 次，全站每日额度为可配置项，默认 100 次；不能据此宣称已接通真实模型。
+- 工作区服务、公开来源、云端权限和模型配置以服务端对象显式传递，不通过修改进程环境、全局单例或未传播到线程的隐式上下文来切换。
+
 ## Task 1：账号、配置与可撤销会话
 
 **Files:** 新增 `src/xiliu/cloud/config.py`、`identity.py`、`auth.py`、`admin.py`、`__init__.py`；新增 `tests/unit/test_cloud_identity.py`、`tests/integration/test_cloud_auth.py`；修改 `pyproject.toml`、`uv.lock`。
@@ -48,18 +57,20 @@
 
 ## Task 2：云端入口与工作区服务生命周期
 
-**Files:** 新增 `src/xiliu/cloud/app.py`、`workspaces.py`、`model_settings.py`；新增公共服务解析模块 `src/xiliu/api/context.py`；修改 `src/xiliu/api/app.py` 及业务路由中的服务获取；新增 `tests/integration/test_cloud_workspaces.py`、`tests/unit/test_cloud_model_settings.py`。
+**Files:** 新增 `src/xiliu/cloud/app.py`、`workspaces.py`、`jobs.py`、`model_settings.py`；新增公共服务解析模块 `src/xiliu/api/context.py`；修改 `src/xiliu/api/app.py` 及业务路由中的服务获取；新增 `tests/integration/test_cloud_workspaces.py`、`tests/integration/test_cloud_jobs.py`、`tests/unit/test_cloud_model_settings.py`。
 
 **Interfaces:**
 
 - `create_cloud_app(config: CloudConfig)`：独立 ASGI 工厂；公开健康/身份/静态资源，正式业务全部认证。
 - `request_services(request)`：本机模式返回原有服务，云模式仅返回认证后绑定到请求的工作区服务，缺失身份时拒绝；禁止全局切换 `app.state`。
 - `WorkspaceRegistry.acquire(workspace_id)`：受容量和活动租约保护的服务上下文，流式响应关闭后才释放；应用退出排空任务并关闭服务。
+- `CloudJobCoordinator`：单个云端调度所有已登记账号的任务，作业执行时获取工作区租约；重启读取持久任务，不能要求用户先打开网页才恢复调度。云端工作区不另外启动不受资源池控制的永久调度线程；本机调度保持原样。
 - 云端 `ModelSettingsService` 适配器：用户配置加密落盘；屏蔽服务器环境中的个人模型值，读取仍兼容现有模型设置响应。
 
 - [ ] 先写失败测试：A/B 账号对同类业务的并发读写、猜测对方 ID、下载附件、停止聊天、模型及偏好隔离；环境中注入诱饵 Key 时不被用户继承。
 - [ ] 抽取可复用服务构造与生命周期，不改变本机应用的公开接口和测试约定；给后台作业显式绑定工作区。
 - [ ] 实现资源上限和生命周期；容量不足时返回可理解的忙碌错误，不能关闭正在流式回复或执行后台作业的对象；重启恢复所有已登记的定时任务。
+- [ ] 用受控时钟验证离线账号的定时作业、重启恢复、执行中淘汰保护及公平获取租约；待处理的导入/索引任务必须恢复，不能只恢复 HTTP 请求可见的服务。
 - [ ] 验证配置文件不含明文 Key，重启可解密，换账号不能引用别人的配置密文；错误主密钥明确失败。
 - [ ] 运行新增工作区/模型测试及既有路由回归，通过后提交。
 
