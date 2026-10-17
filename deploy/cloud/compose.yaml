@@ -38,7 +38,7 @@ services:
       XILIU_CLOUD_TRIAL_BASE_URL: ${XILIU_CLOUD_TRIAL_BASE_URL:-https://api.openai.com/v1}
       XILIU_CLOUD_TRIAL_DAILY_LIMIT: ${XILIU_CLOUD_TRIAL_DAILY_LIMIT:-100}
     volumes: [data:/data]
-    tmpfs: [/tmp:size=128m,mode=1777]
+    tmpfs: ["/tmp:size=128m,mode=1777"]
     cap_drop: [ALL]
     security_opt: [no-new-privileges:true]
     read_only: true
