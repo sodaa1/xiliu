@@ -32,6 +32,19 @@ class WebSearchTool(BaseTool):
     args_schema: ArgsSchema | None = SearchInput
 
     def _run(self, query: str, max_results: int = 5) -> str:
+        from xiliu.execution.gateway import active_run
+
+        run = active_run.get()
+        if run is not None and run.policy_profile == "cloud":
+            return json.dumps(
+                {
+                    "ok": False,
+                    "query": query,
+                    "error": "云端联网搜索暂未配置。",
+                    "retryable": False,
+                },
+                ensure_ascii=False,
+            )
         key = os.getenv("TAVILY_API_KEY", "").strip()
         configured = search_api_key.get()
         if "TAVILY_API_KEY" not in os.environ and configured is not None:

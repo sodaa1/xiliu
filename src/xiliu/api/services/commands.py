@@ -37,6 +37,8 @@ class CommandService:
         self.data_dir = self.store.path.parent
 
     def skills(self) -> list[dict[str, str]]:
+        if getattr(self.conversations.model_settings, "cloud_mode", False):
+            return []
         try:
             return [
                 {"name": spec.name, "description": spec.description}
@@ -46,6 +48,8 @@ class CommandService:
             raise WebError("capabilities_unavailable", "技能配置无法读取。", 503) from None
 
     def mcp(self) -> list[dict[str, str]]:
+        if getattr(self.conversations.model_settings, "cloud_mode", False):
+            return []
         manager = None
         try:
             manager = MCPManager(self.data_dir / "mcp")

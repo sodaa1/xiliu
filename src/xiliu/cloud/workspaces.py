@@ -72,9 +72,15 @@ class WorkspaceRegistry:
                     del self.entries[identifier]
                 directory = self.directory(workspace_id)
                 models = CloudModelSettings(directory, self.config.master_key, workspace_id)
-                state = SimpleNamespace(workspace_id=workspace_id)
+                state = SimpleNamespace(workspace_id=workspace_id, cloud_mode=True)
                 try:
                     initialize_services(state, data_dir=directory, model_settings=models)
+                    from xiliu.cloud.limits import check_storage
+
+                    state.content.storage_guard = lambda **kwargs: check_storage(
+                        directory, **kwargs
+                    )
+                    state.automations.store.task_limit = 20
                     state.retrieval.worker.start()
                     state.inbox.start()
                 except BaseException:

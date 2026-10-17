@@ -156,6 +156,7 @@ class ContentService:
         if empty and next(self.root.glob("*/item.md"), None) is not None:
             self.rebuild_index()
         from xiliu.rag.ingestion import migrate
+
         migrate(store)
 
     @staticmethod
@@ -240,11 +241,17 @@ class ContentService:
         )
 
     @contextmanager
-    def _transaction(self, restore: Callable[[], None]) -> Iterator[sqlite3.Connection]:
+    def _transaction(
+        self, restore: Callable[[], None], *, enforce_storage: bool = True
+    ) -> Iterator[sqlite3.Connection]:
         with self.store.connect() as db:
             db.execute("BEGIN IMMEDIATE")
+            guard = getattr(self, "storage_guard", None) if enforce_storage else None
+            previous = guard(measure=True) if guard is not None else None
             try:
                 yield db
+                if guard is not None:
+                    guard(previous=previous)
                 # Commit here so failed commits restore files before releasing the write lock.
                 db.commit()
             except BaseException:
@@ -270,7 +277,8 @@ class ContentService:
         )
         if db.execute("SELECT 1 FROM sqlite_master WHERE name='rag_index_jobs'").fetchone():
             from xiliu.rag.ingestion import enqueue, remove_chunks
-            remove_chunks(db, item['id'])
+
+            remove_chunks(db, item["id"])
             enqueue(db, item)
 
     def create(self, payload: dict[str, Any], *, dedupe_key: str | None = None) -> dict[str, Any]:
@@ -496,7 +504,7 @@ class ContentService:
             if moved:
                 trash.rename(directory)
 
-        with self._transaction(restore) as db:
+        with self._transaction(restore, enforce_storage=False) as db:
             self._get(db, item_id)
             if directory.exists():
                 directory.rename(trash)
@@ -513,8 +521,9 @@ class ContentService:
                         db.execute(f"DELETE FROM {table} WHERE {key}=?", (item_id,))
             db.execute("DELETE FROM content_items WHERE id=?", (item_id,))
             from xiliu.rag.ingestion import remove_chunks
+
             remove_chunks(db, item_id)
-            db.execute('DELETE FROM rag_chunk_vectors WHERE document_id=?', (item_id,))
+            db.execute("DELETE FROM rag_chunk_vectors WHERE document_id=?", (item_id,))
             db.execute("UPDATE rag_index_jobs SET state='deleted' WHERE document_id=?", (item_id,))
         if moved:
             shutil.rmtree(trash)

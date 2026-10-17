@@ -18,6 +18,8 @@ from xiliu.errors import (
 
 
 class CancellableChatOpenAI(ChatOpenAI):
+    cloud_mode: bool = False
+
     def _stream(self, *args, **kwargs):
         from xiliu.execution.cancellation import check_cancelled
 
@@ -43,7 +45,15 @@ class CancellableChatOpenAI(ChatOpenAI):
         from xiliu.execution.cancellation import check_cancelled
 
         check_cancelled()
-        return super()._get_request_payload(input_, stop=stop, **kwargs)
+        payload = super()._get_request_payload(input_, stop=stop, **kwargs)
+        if self.cloud_mode:
+            import json
+
+            from xiliu.api.errors import WebError
+
+            if len(json.dumps(payload, ensure_ascii=False)) > 128_000:
+                raise WebError("context_too_large", "上下文过长，请压缩或新建对话。", 413)
+        return payload
 
     def _convert_chunk_to_generation_chunk(self, chunk, default_chunk_class, base_generation_info):
         from xiliu.execution.cancellation import check_cancelled
@@ -114,6 +124,12 @@ def create_chat_model(settings: Settings) -> ChatOpenAI:
         if urlsplit(settings.base_url).hostname in {"localhost", "127.0.0.1", "::1"}:
             kwargs["http_client"] = DefaultHttpxClient(trust_env=False)
             kwargs["http_async_client"] = DefaultAsyncHttpxClient(trust_env=False)
+    if getattr(settings, "cloud_mode", False):
+        from xiliu.cloud.network import cloud_http_clients
+
+        kwargs["http_client"], kwargs["http_async_client"] = cloud_http_clients()
+        kwargs["max_tokens"] = 4096
+        kwargs["cloud_mode"] = True
     if (
         settings.provider == "openai"
         and settings.model.startswith(("gpt-5", "gpt-6", "o1", "o3", "o4"))
@@ -126,8 +142,7 @@ def create_chat_model(settings: Settings) -> ChatOpenAI:
         )
     adapter = (
         DeepSeekChatOpenAI
-        if settings.provider in {"deepseek", "mimo"}
-        or settings.model.startswith("deepseek-")
+        if settings.provider in {"deepseek", "mimo"} or settings.model.startswith("deepseek-")
         else CancellableChatOpenAI
     )
     return adapter(**kwargs)

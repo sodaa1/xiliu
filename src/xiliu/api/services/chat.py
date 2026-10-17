@@ -43,6 +43,11 @@ class ChatService:
     @contextmanager
     def reserve(self, cid: str) -> Iterator[None]:
         with self._lock:
+            if (
+                getattr(self.conversations.model_settings, "cloud_mode", False)
+                and len(self._active) >= 2
+            ):
+                raise WebError("chat_limit", "最多同时处理两段对话，请稍后再试。", 429)
             if cid in self._active:
                 raise WebError("conversation_busy", "这段对话正在处理中，请稍后再试。", 409)
             self._active.add(cid)
@@ -68,6 +73,12 @@ class ChatService:
         context: str = "",
         signal: Event | None = None,
     ) -> Generator[dict[str, Any], None, None]:
+        if (
+            getattr(self.conversations.model_settings, "cloud_mode", False)
+            and len(text) + len(context) > 24_000
+        ):
+            yield {"type": "error", "code": "context_too_large", "message": "本次输入过长。"}
+            return
         try:
             with self.reserve(conversation_id):
                 signal = signal if signal is not None else Event()

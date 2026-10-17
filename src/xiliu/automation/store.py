@@ -66,6 +66,15 @@ class AutomationStore:
         now = _now()
         try:
             with self._connect() as db:
+                db.execute("BEGIN IMMEDIATE")
+                limit = getattr(self, "task_limit", None)
+                if (
+                    limit is not None
+                    and db.execute("SELECT count(*) FROM automations").fetchone()[0] >= limit
+                ):
+                    from xiliu.api.errors import WebError
+
+                    raise WebError("automation_limit", "最多创建 20 个自动任务。", 429)
                 db.execute(
                     """
                     INSERT INTO automations VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)

@@ -467,7 +467,12 @@ class InboxService:
             filename = payload.get("filename")
             if not isinstance(filename, str):
                 raise _invalid("附件必须提供 filename。")
-            extracted, extraction_error = extract_text(filename, data)
+            if getattr(self.model_settings, "cloud_mode", False):
+                from xiliu.cloud.extraction import extract_cloud_text
+
+                extracted, extraction_error = extract_cloud_text(filename, data)
+            else:
+                extracted, extraction_error = extract_text(filename, data)
             body = "\n\n".join(part for part in (text, extracted) if part)[:200_000]
             content_payload = {
                 "type": "file",

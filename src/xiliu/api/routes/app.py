@@ -26,13 +26,21 @@ class Confirmation(BaseModel):
 def _dispatcher(request: Request, session_id: str) -> AppDispatcher:
     state = request_services(request)
     state.store.get(session_id)
+    cloud = getattr(state, "cloud_mode", False)
+    if cloud:
+        from xiliu.cloud.policy import CloudPolicyEngine
+
+        policy = CloudPolicyEngine()
+    else:
+        policy = PolicyEngine(state.data_dir / "policy.json")
     context = RunContext(
         "http:" + session_id,
         session_id,
         state.data_dir,
         data_dir=state.data_dir,
         app_services=state.app_services,
-        policy_engine=PolicyEngine(state.data_dir / "policy.json"),
+        policy_engine=policy,
+        policy_profile="cloud" if cloud else "interactive",
     )
     return AppDispatcher(state.app_services, context)
 

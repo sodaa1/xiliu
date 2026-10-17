@@ -15,6 +15,8 @@ from xiliu.tools.workspace import atomic_write_utf8
 
 
 class CloudRuntimeSettings(Settings):
+    cloud_mode: bool = True
+
     @classmethod
     def settings_customise_sources(
         cls, settings_cls, init_settings, env_settings, dotenv_settings, file_secret_settings
@@ -23,6 +25,8 @@ class CloudRuntimeSettings(Settings):
 
 
 class CloudModelSettings(ModelSettingsService):
+    cloud_mode = True
+
     def __init__(self, directory: Path, master_key: str, workspace_id: str):
         super().__init__(directory / "model-settings.enc")
         derived = hmac.new(

@@ -121,6 +121,7 @@ class Runtime:
         knowledge_embedding_provider: Any = None,
         app_services: Any = None,
         intent_embedding_matcher: Any = None,
+        cloud_mode: bool = False,
     ) -> None:
         self._model = model
         self._app_services = app_services
@@ -130,16 +131,23 @@ class Runtime:
         self._data_dir = data_dir
         self._mcp_manager = MCPManager(data_dir / "mcp")
         self._capabilities = CapabilityManager(
-            skill_registry=SkillRegistry(data_dir / "skills"), mcp_manager=self._mcp_manager
+            skill_registry=None if cloud_mode else SkillRegistry(data_dir / "skills"),
+            mcp_manager=None if cloud_mode else self._mcp_manager,
         )
         from xiliu.capabilities.agent_registry import AgentRegistry
 
         for spec in AgentRegistry(data_dir).specs():
             self._capabilities.register(spec)
-        self._policy_engine = PolicyEngine(
-            data_dir / "policy.json", trusted_mcp_servers=set(self._mcp_manager.servers())
-        )
-        self._hook_engine = HookEngine(data_dir / "hooks.json")
+        if cloud_mode:
+            from xiliu.cloud.policy import CloudPolicyEngine, NoCloudHooks
+
+            self._policy_engine = CloudPolicyEngine()
+            self._hook_engine = NoCloudHooks()
+        else:
+            self._policy_engine = PolicyEngine(
+                data_dir / "policy.json", trusted_mcp_servers=set(self._mcp_manager.servers())
+            )
+            self._hook_engine = HookEngine(data_dir / "hooks.json")
         self._agent_model_factory = agent_model_factory
         self._tavily_api_key = tavily_api_key
         self._memory_limits = memory_limits or MemoryLimits(64_000, 0.8, 8_000)
@@ -151,7 +159,7 @@ class Runtime:
         self._approval_mode = normalize_approval_mode(approval_mode)
         self._approval_handler = approval_handler
         self._actor_type = actor_type
-        self._policy_profile = policy_profile
+        self._policy_profile = "cloud" if cloud_mode else policy_profile
         self.last_trace_id: str | None = None
         self.last_state: dict[str, Any] = {}
         self.last_node_path: list[str] = []
@@ -488,4 +496,5 @@ def create_runtime(
         actor_type=actor_type,
         policy_profile=policy_profile,
         app_services=app_services,
+        cloud_mode=getattr(settings, "cloud_mode", False),
     )

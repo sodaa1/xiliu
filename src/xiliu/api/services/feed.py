@@ -336,7 +336,13 @@ class FeedService:
         }
         resolved = [ipaddress.ip_address(address) for address in addresses]
         if not resolved or any(
-            not address.is_global or address.is_multicast or address.is_reserved
+            not address.is_global
+            or address.is_multicast
+            or address.is_reserved
+            or (
+                isinstance(address, ipaddress.IPv6Address)
+                and (address.ipv4_mapped or address.sixtofour or address.teredo)
+            )
             for address in resolved
         ):
             raise ValueError("non-public address")
@@ -574,7 +580,17 @@ class FeedService:
         )
 
     def _fetch_github(self) -> list[dict[str, Any]]:
-        with httpx.Client(timeout=15, follow_redirects=True) as client:
+        transport = None
+        if getattr(self.model_settings, "cloud_mode", False):
+            from xiliu.cloud.network import SafeTransport
+
+            transport = SafeTransport()
+        with httpx.Client(
+            timeout=15,
+            follow_redirects=True,
+            transport=transport,
+            trust_env=transport is None,
+        ) as client:
             response = client.get(
                 "https://github.com/trending?since=daily", headers={"User-Agent": "xiliu/0.1"}
             )
@@ -582,6 +598,8 @@ class FeedService:
             return normalize_github(response.text)
 
     def _fetch_aihot(self) -> list[dict[str, Any]]:
+        if getattr(self.model_settings, "cloud_mode", False):
+            raise WebError("aihot_unavailable", "云端尚未配置人工智能热点来源。", 503)
         data_dir = self.store.path.parent
         manager = MCPManager(data_dir / "mcp")
         try:

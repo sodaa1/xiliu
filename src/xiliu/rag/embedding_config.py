@@ -12,6 +12,16 @@ def embedding_provider_from_settings(settings: Any) -> Any:
         return None
     from langchain_openai import OpenAIEmbeddings
 
+    clients = {}
+    if getattr(settings, "cloud_mode", False):
+        from xiliu.cloud.network import cloud_http_clients
+
+        clients["http_client"], clients["http_async_client"] = cloud_http_clients()
     return OpenAIEmbeddings(
-        model=model, api_key=settings.api_key, base_url=settings.base_url, timeout=10, max_retries=0
+        model=model,
+        api_key=settings.api_key,
+        base_url=settings.base_url,
+        timeout=10,
+        max_retries=0,
+        **clients,
     )
