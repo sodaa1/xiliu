@@ -81,35 +81,7 @@ def create_app(
                         await owner
 
     app = FastAPI(title="息流 · xiliu", version=__version__, lifespan=lifespan)
-    app.state.model_settings = ModelSettingsService(env_file)
-    values = app.state.model_settings.values()
-    app.state.data_dir = (data_dir or Path(values.get("XILIU_DATA_DIR", ".xiliu"))).resolve()
-
-    app.state.store = AppStore(app.state.data_dir)
-    app.state.conversations = ConversationService(app.state.store, app.state.model_settings)
-    app.state.chat = ChatService(app.state.conversations)
-    app.state.commands = CommandService(app.state.conversations)
-    app.state.chat.commands = app.state.commands
-    app.state.content = ContentService(app.state.store)
-    app.state.knowledge = KnowledgeService(app.state.content)
-    app.state.inbox = InboxService(app.state.content, app.state.knowledge, app.state.model_settings)
-    app.state.chat.inbox = app.state.inbox
-    embedding_provider = None
-    if values.get("XILIU_EMBEDDING_MODEL", "").strip():
-        embedding_provider = embedding_provider_from_settings(
-            app.state.model_settings.runtime_settings()
-        )
-    app.state.retrieval = RAGService(
-        app.state.content, app.state.knowledge, embedding_provider=embedding_provider
-    )
-    app.state.feed = FeedService(app.state.store, app.state.content, app.state.model_settings)
-    app.state.tasks = TaskService(app.state.store)
-    app.state.appearance = AppearanceService(app.state.store)
-    app.state.preferences = PreferencesService(app.state.store)
-    app.state.automations = AutomationService(app.state.data_dir, app.state.model_settings)
-    app.state.app_services = AppServices.from_state(app.state)
-    app.state.chat.app_services = app.state.app_services
-    app.state.automations.app_services = app.state.app_services
+    initialize_services(app.state, data_dir=data_dir, model_settings=ModelSettingsService(env_file))
 
     @app.exception_handler(WebError)
     async def web_error(_request: Request, exc: WebError):
@@ -151,6 +123,47 @@ def create_app(
     def health():
         return {"status": "ok"}
 
+    include_business_routes(app)
+    dist = (static_dir or Path(__file__).resolve().parents[3] / "web" / "dist").resolve()
+
+    install_frontend(app, dist)
+
+    return app
+
+
+def initialize_services(state, *, data_dir: Path | None, model_settings: ModelSettingsService):
+    state.model_settings = model_settings
+    values = state.model_settings.values()
+    state.data_dir = (data_dir or Path(values.get("XILIU_DATA_DIR", ".xiliu"))).resolve()
+
+    state.store = AppStore(state.data_dir)
+    state.conversations = ConversationService(state.store, state.model_settings)
+    state.chat = ChatService(state.conversations)
+    state.commands = CommandService(state.conversations)
+    state.chat.commands = state.commands
+    state.content = ContentService(state.store)
+    state.knowledge = KnowledgeService(state.content)
+    state.inbox = InboxService(state.content, state.knowledge, state.model_settings)
+    state.chat.inbox = state.inbox
+    embedding_provider = None
+    if values.get("XILIU_EMBEDDING_MODEL", "").strip():
+        embedding_provider = embedding_provider_from_settings(
+            state.model_settings.runtime_settings()
+        )
+    state.retrieval = RAGService(
+        state.content, state.knowledge, embedding_provider=embedding_provider
+    )
+    state.feed = FeedService(state.store, state.content, state.model_settings)
+    state.tasks = TaskService(state.store)
+    state.appearance = AppearanceService(state.store)
+    state.preferences = PreferencesService(state.store)
+    state.automations = AutomationService(state.data_dir, state.model_settings)
+    state.app_services = AppServices.from_state(state)
+    state.chat.app_services = state.app_services
+    state.automations.app_services = state.app_services
+
+
+def include_business_routes(app: FastAPI) -> None:
     app.include_router(models.router)
     app.include_router(app_actions.router)
     app.include_router(preferences.router)
@@ -162,8 +175,9 @@ def create_app(
     app.include_router(knowledge.router)
     app.include_router(workspace.router)
     app.include_router(appearance.router)
-    dist = (static_dir or Path(__file__).resolve().parents[3] / "web" / "dist").resolve()
 
+
+def install_frontend(app: FastAPI, dist: Path) -> None:
     @app.get("/{path:path}", include_in_schema=False)
     def frontend(path: str):
         if path == "api" or path.startswith("api/"):
@@ -183,5 +197,3 @@ def create_app(
         if (dist / "index.html").is_file():
             return FileResponse(dist / "index.html", headers={"Cache-Control": "no-cache"})
         raise WebError("frontend_not_built", "请先在 web 目录运行 npm run build。", 503)
-
-    return app

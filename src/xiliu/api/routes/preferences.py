@@ -3,6 +3,8 @@ from typing import Any
 from fastapi import APIRouter, Request
 from pydantic import BaseModel, ConfigDict, Field
 
+from xiliu.api.context import request_services
+
 router = APIRouter(prefix="/api/settings/preferences")
 
 
@@ -17,14 +19,14 @@ class PreferenceUpdate(PreferenceRevision):
 
 @router.get("")
 def get_preferences(request: Request):
-    return request.app.state.preferences.get()
+    return request_services(request).preferences.get()
 
 
 @router.put("")
 def update_preferences(body: PreferenceUpdate, request: Request):
-    return request.app.state.preferences.update(body.changes, body.expected_revision)
+    return request_services(request).preferences.update(body.changes, body.expected_revision)
 
 
 @router.post("/reset")
 def reset_preferences(body: PreferenceRevision, request: Request):
-    return request.app.state.preferences.reset(body.expected_revision)
+    return request_services(request).preferences.reset(body.expected_revision)

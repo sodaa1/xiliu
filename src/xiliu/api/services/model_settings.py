@@ -230,21 +230,27 @@ class ModelSettingsService:
                         },
                     }
                 )
-            self.env_file.parent.mkdir(parents=True, exist_ok=True)
-            fd, temporary = tempfile.mkstemp(prefix=".env-", dir=self.env_file.parent)
-            os.close(fd)
-            staged = Path(temporary)
-            try:
-                staged.write_text(
-                    self.env_file.read_text(encoding="utf-8") if self.env_file.exists() else "",
-                    encoding="utf-8",
-                )
-                for key, value in changes.items():
-                    set_key(staged, key, value, quote_mode="always")
-                os.replace(staged, self.env_file)
-            finally:
-                staged.unlink(missing_ok=True)
+            self._write_values(changes)
         return self.read()
+
+    def _write_values(self, changes: dict[str, str]) -> None:
+        self.env_file.parent.mkdir(parents=True, exist_ok=True)
+        fd, temporary = tempfile.mkstemp(prefix=".env-", dir=self.env_file.parent)
+        os.close(fd)
+        staged = Path(temporary)
+        try:
+            staged.write_text(
+                self.env_file.read_text(encoding="utf-8") if self.env_file.exists() else "",
+                encoding="utf-8",
+            )
+            for key, value in changes.items():
+                set_key(staged, key, value, quote_mode="always")
+            os.replace(staged, self.env_file)
+        finally:
+            staged.unlink(missing_ok=True)
+
+    def _settings_from_values(self, values: dict[str, str]) -> Settings:
+        return Settings.from_env(values)
 
     def runtime_settings(self, model: str | None = None) -> Settings:
         values = self.values()
@@ -259,6 +265,6 @@ class ModelSettingsService:
         if model and not selected:
             values["XILIU_MODEL"] = model
         try:
-            return Settings.from_env(values)
+            return self._settings_from_values(values)
         except ConfigError:
             raise WebError("model_not_configured", "请先在设置中配置模型接口。", 400) from None

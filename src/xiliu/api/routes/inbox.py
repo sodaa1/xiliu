@@ -3,6 +3,8 @@ from typing import Any
 from fastapi import APIRouter, Request
 from pydantic import BaseModel, ConfigDict, Field
 
+from xiliu.api.context import request_services
+
 router = APIRouter(prefix="/api/inbox")
 
 
@@ -16,17 +18,17 @@ class BatchClassification(BaseModel):
 
 @router.get("")
 def list_inbox(request: Request, q: str = "", tag: str = ""):
-    return request.app.state.content.list(status="inbox", q=q, tag=tag)
+    return request_services(request).content.list(status="inbox", q=q, tag=tag)
 
 
 @router.post("/import", status_code=201)
 def import_item(body: dict[str, Any], request: Request):
-    return request.app.state.inbox.import_item(body)
+    return request_services(request).inbox.import_item(body)
 
 
 @router.post("/classify-batch")
 def classify_batch(body: BatchClassification, request: Request):
-    return request.app.state.inbox.classify_batch(
+    return request_services(request).inbox.classify_batch(
         body.item_ids,
         save_to_knowledge=body.save_to_knowledge,
         use_ai=body.use_ai,
@@ -36,9 +38,9 @@ def classify_batch(body: BatchClassification, request: Request):
 
 @router.post("/{item_id}/retry")
 def retry(item_id: str, request: Request):
-    return request.app.state.inbox.retry(item_id)
+    return request_services(request).inbox.retry(item_id)
 
 
 @router.get("/archive-jobs/{job_id}")
 def archive_job(job_id: str, request: Request):
-    return request.app.state.inbox.get_archive_job(job_id)
+    return request_services(request).inbox.get_archive_job(job_id)

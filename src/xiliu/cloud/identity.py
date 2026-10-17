@@ -153,6 +153,10 @@ class IdentityStore:
         with self.connect() as db:
             db.execute("DELETE FROM sessions WHERE token_hash=?", (self._digest(token),))
 
+    def workspaces(self) -> list[str]:
+        with self.connect() as db:
+            return [row[0] for row in db.execute("SELECT workspace_id FROM users ORDER BY id")]
+
     def reset_password(self, username: str, password: str) -> None:
         self._validate(username, password)
         hashed = self._hash(password)

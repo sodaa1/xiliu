@@ -3,6 +3,7 @@
 from fastapi import APIRouter, Request
 from pydantic import BaseModel, ConfigDict
 
+from xiliu.api.context import request_services
 from xiliu.api.errors import WebError
 from xiliu.app.dispatch import AppDispatcher
 from xiliu.execution.gateway import RunContext
@@ -23,7 +24,7 @@ class Confirmation(BaseModel):
 
 
 def _dispatcher(request: Request, session_id: str) -> AppDispatcher:
-    state = request.app.state
+    state = request_services(request)
     state.store.get(session_id)
     context = RunContext(
         "http:" + session_id,
@@ -58,7 +59,7 @@ def confirm_action(body: Confirmation, request: Request):
         raise WebError("confirmation_invalid", "确认已失效或不属于当前对话。", 403)
     text = "已确认并完成操作。" if result["ok"] else "操作未完成，请检查结果。"
     result.update(confirmation_id=body.confirmation_id, confirmation_resolved=True)
-    request.app.state.store.append_message(
+    request_services(request).store.append_message(
         body.session_id, "assistant", text, metadata={"app_receipts": [result]}
     )
     return result
