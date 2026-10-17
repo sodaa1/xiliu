@@ -10,6 +10,7 @@
 !docs/web/
 !docs/web/scripts/
 !docs/web/scripts/config.mjs
+!docs/web/scripts/config.d.mts
 !deploy/
 !deploy/cloud/
 !deploy/cloud/Dockerfile

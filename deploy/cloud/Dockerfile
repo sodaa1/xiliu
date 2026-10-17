@@ -5,6 +5,7 @@ COPY web/package*.json ./
 RUN npm ci
 COPY web/ ./
 COPY docs/web/scripts/config.mjs /build/docs/web/scripts/config.mjs
+COPY docs/web/scripts/config.d.mts /build/docs/web/scripts/config.d.mts
 RUN npm run build:cloud && npm run build:guest
 
 FROM ghcr.io/astral-sh/uv:0.9.3 AS uv
