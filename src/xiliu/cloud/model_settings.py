@@ -4,6 +4,7 @@ import base64
 import hashlib
 import hmac
 import json
+from collections.abc import Callable
 from pathlib import Path
 
 from cryptography.fernet import Fernet, InvalidToken
@@ -29,6 +30,7 @@ class CloudModelSettings(ModelSettingsService):
 
     def __init__(self, directory: Path, master_key: str, workspace_id: str):
         super().__init__(directory / "model-settings.enc")
+        self.on_changed: Callable[[], None] | None = None
         derived = hmac.new(
             base64.urlsafe_b64decode(master_key),
             b"workspace-models:" + workspace_id.encode(),
@@ -56,7 +58,18 @@ class CloudModelSettings(ModelSettingsService):
     def _write_values(self, changes: dict[str, str]) -> None:
         values = {**self.values(), **changes}
         encrypted = self.cipher.encrypt(json.dumps(values, ensure_ascii=False).encode()).decode()
+        previous = self.env_file.read_text(encoding="utf-8") if self.env_file.exists() else None
         atomic_write_utf8(self.env_file, encrypted)
+        callback = getattr(self, "on_changed", None)
+        if callback is not None:
+            try:
+                callback()
+            except BaseException:
+                if previous is None:
+                    self.env_file.unlink(missing_ok=True)
+                else:
+                    atomic_write_utf8(self.env_file, previous)
+                raise
 
     def _settings_from_values(self, values: dict[str, str]) -> Settings:
         return CloudRuntimeSettings.from_env(values)

@@ -75,6 +75,13 @@ class WorkspaceRegistry:
                 state = SimpleNamespace(workspace_id=workspace_id, cloud_mode=True)
                 try:
                     initialize_services(state, data_dir=directory, model_settings=models)
+                    from xiliu.cloud.changes import ChangeJournal
+
+                    state.changes = ChangeJournal(directory, workspace_id)
+                    state.changes.install()
+                    if models.env_file.exists():
+                        state.changes.record_file(initial=True)
+                    models.on_changed = state.changes.record_file
                     from xiliu.cloud.limits import check_storage
 
                     state.content.storage_guard = lambda **kwargs: check_storage(
