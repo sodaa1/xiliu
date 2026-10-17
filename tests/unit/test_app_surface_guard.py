@@ -30,6 +30,9 @@ def test_inventory_finds_ui_route_service_and_business_tool(tmp_path):
             "class FeedService:\n    def add_manual(self, payload):\n        pass\n"
         ),
         "src/xiliu/tools/feed.py": "class FeedAddTool(BaseTool):\n    name = 'feed_add'\n",
+        "src/xiliu/cloud/auth.py": (
+            "@app.post('/api/auth/login')\ndef login():\n    return {}\n"
+        ),
     }
     for filename, source in files.items():
         path = tmp_path / filename
@@ -46,6 +49,7 @@ def test_inventory_finds_ui_route_service_and_business_tool(tmp_path):
         "base_tool",
     } <= {item["kind"] for item in items}
     assert any(item["symbol"] == "POST /api/feed/manual" for item in items)
+    assert any(item["symbol"] == "POST /api/auth/login" for item in items)
     assert any(item["symbol"] == "FeedService.add_manual" for item in items)
 
 

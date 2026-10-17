@@ -14140,6 +14140,418 @@
         "status": "not_run",
         "scope": "Named tests establish local UI behavior, not per-occurrence live browser/Agent equivalence."
       }
+    },
+    {
+      "surface_id": "http_route:0bd774bd20a9eaf0f487:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Cloud identity, revocable sessions, bootstrap and deployment health are a restricted control plane, never unrestricted Agent business actions.",
+      "ui_tests": [],
+      "tests": [
+        "tests/integration/test_cloud_auth.py::test_auth_cookie_csrf_origin_and_no_secret_echo"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "http_route:f24f8d3336709a839111:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Cloud identity, revocable sessions, bootstrap and deployment health are a restricted control plane, never unrestricted Agent business actions.",
+      "ui_tests": [],
+      "tests": [
+        "tests/integration/test_cloud_auth.py::test_auth_cookie_csrf_origin_and_no_secret_echo"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "http_route:712cf85c1a48e75a5bd2:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Cloud identity, revocable sessions, bootstrap and deployment health are a restricted control plane, never unrestricted Agent business actions.",
+      "ui_tests": [],
+      "tests": [
+        "tests/integration/test_cloud_auth.py::test_auth_cookie_csrf_origin_and_no_secret_echo"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "http_route:ef7dc08044b9d827ea96:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Cloud identity, revocable sessions, bootstrap and deployment health are a restricted control plane, never unrestricted Agent business actions.",
+      "ui_tests": [],
+      "tests": [
+        "tests/integration/test_cloud_auth.py::test_auth_cookie_csrf_origin_and_no_secret_echo"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "http_route:14197661108042cdd35d:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Cloud identity, revocable sessions, bootstrap and deployment health are a restricted control plane, never unrestricted Agent business actions.",
+      "ui_tests": [],
+      "tests": [
+        "tests/integration/test_cloud_auth.py::test_auth_cookie_csrf_origin_and_no_secret_echo"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "http_route:c45c2660ee76605eab97:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Cloud identity, revocable sessions, bootstrap and deployment health are a restricted control plane, never unrestricted Agent business actions.",
+      "ui_tests": [],
+      "tests": [
+        "tests/integration/test_cloud_auth.py::test_auth_cookie_csrf_origin_and_no_secret_echo"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:d03e587b5f2b2075f1ce:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Open the existing model configuration dialog; model connection editing remains manual and restricted.",
+      "ui_tests": [
+        "web/src/features/assistant/AssistantPage.test.tsx::model menu keyboard action opens a local configuration card and preserves the draft"
+      ],
+      "tests": [
+        "web/src/features/assistant/AssistantPage.test.tsx::model menu keyboard action opens a local configuration card and preserves the draft"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:d87d844df68655241a5f:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/controls.test.tsx::logs out and removes the visible account"
+      ],
+      "tests": [
+        "web/src/features/auth/controls.test.tsx::logs out and removes the visible account"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:98d6bf28cae94072e2d5:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/controls.test.tsx::logs out and removes the visible account"
+      ],
+      "tests": [
+        "web/src/features/auth/controls.test.tsx::logs out and removes the visible account"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:6d7874df9bee6dd7fb7a:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:3952526d13a9363b3bab:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:0e4dc9cddab8ade6d735:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:9f1f160b893ebeeff945:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:b51865a6cacae727690b:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:bbe7aae0538c4353d0f2:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:94c5fa30f3fe644fdb92:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_link:1c3f1f9ea88bd88c555e:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:4fd1f56534682952b3b7:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:14e20759d7f68373c316:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "tests": [
+        "web/src/features/auth/AuthRoot.test.tsx::offers a separate guest build and shows real login errors",
+        "web/src/features/auth/AuthRoot.test.tsx::registers and hands off to a full-page authenticated navigation",
+        "web/src/features/auth/AuthRoot.test.tsx::offers reload on connection failure without mounting business data"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:a09fb59ac7e055cab5ca:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/controls.test.tsx::selects own API and renders the authoritative exhausted trial state"
+      ],
+      "tests": [
+        "web/src/features/auth/controls.test.tsx::selects own API and renders the authoritative exhausted trial state"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:321435fb726d853fd595:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/controls.test.tsx::selects own API and renders the authoritative exhausted trial state"
+      ],
+      "tests": [
+        "web/src/features/auth/controls.test.tsx::selects own API and renders the authoritative exhausted trial state"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_button:4f41d745d1932f350d7d:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/controls.test.tsx::selects own API and renders the authoritative exhausted trial state"
+      ],
+      "tests": [
+        "web/src/features/auth/controls.test.tsx::selects own API and renders the authoritative exhausted trial state"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_event:0bf504cf804bf9e95890:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/controls.test.tsx::selects own API and renders the authoritative exhausted trial state"
+      ],
+      "tests": [
+        "web/src/features/auth/controls.test.tsx::selects own API and renders the authoritative exhausted trial state"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
+    },
+    {
+      "surface_id": "ui_fetch:68d086664ef5e5c731b4:1",
+      "classification": "restricted",
+      "action_ids": [],
+      "reason": "Manual identity, guest navigation or per-turn model funding control; never delegated as an Agent business action.",
+      "ui_tests": [
+        "web/src/features/auth/client.test.ts::sends credentials only to the same-origin identity endpoint"
+      ],
+      "tests": [
+        "web/src/features/auth/client.test.ts::sends credentials only to the same-origin identity endpoint"
+      ],
+      "verification": {
+        "status": "not_run",
+        "scope": "Named targeted tests and separate browser acceptance; not a claim of per-occurrence Agent equivalence."
+      }
     }
   ],
   "specialist_tools": {

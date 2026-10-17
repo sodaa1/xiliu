@@ -66,7 +66,7 @@ export function AuthForm({
           />
           {mode === 'register' && (
             <p className="cloud-auth-hint">
-              账号使用 3–32 位英文字母、数字、下划线或短横线；密码至少 12 位。
+              账号使用 3–32 位英文字母、数字或下划线；密码至少 12 位。
             </p>
           )}
           {error && (

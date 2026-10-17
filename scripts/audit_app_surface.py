@@ -169,6 +169,7 @@ def scan_surface(root: Path) -> list[dict]:
     python_paths = list((root / "src/xiliu/api/routes").glob("*.py"))
     python_paths += list((root / "src/xiliu/api/services").glob("*.py"))
     python_paths += list((root / "src/xiliu/tools").glob("*.py"))
+    python_paths += list((root / "src/xiliu/cloud").glob("*.py"))
     python_paths += [
         root / "src/xiliu/api/app.py",
         root / "src/xiliu/api/store.py",
@@ -280,6 +281,7 @@ def scan_surface(root: Path) -> list[dict]:
                                 and (
                                     "state." in ast.unparse(call.func)
                                     or "service." in ast.unparse(call.func)
+                                    or ast.unparse(call.func).startswith("request_services(")
                                 )
                             }
                         )

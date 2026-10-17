@@ -8,6 +8,54 @@ ORIGIN = "https://cloud.example.test"
 PASSWORD = "correct horse battery staple"
 
 
+def test_auth_body_deadline_concurrency_and_release(tmp_path):
+    import asyncio
+
+    from xiliu.cloud.auth import CloudRequestGuard
+    from xiliu.cloud.identity import IdentityStore
+
+    async def scenario():
+        called = []
+
+        async def inner(scope, receive, send):
+            called.append(True)
+
+        guard = CloudRequestGuard(inner, config=config(tmp_path), identity=IdentityStore(tmp_path))
+        guard.body_timeout = 0.05
+        scope = {
+            "type": "http",
+            "method": "POST",
+            "path": "/api/auth/login",
+            "headers": [(b"host", b"cloud.example.test"), (b"origin", ORIGIN.encode())],
+        }
+        responses = [[] for _ in range(5)]
+
+        async def stalled():
+            await asyncio.Event().wait()
+
+        async def run(index):
+            async def send(message):
+                responses[index].append(message)
+
+            await guard(dict(scope), stalled, send)
+
+        pending = [asyncio.create_task(run(index)) for index in range(4)]
+        await asyncio.sleep(0)
+        await asyncio.wait_for(run(4), timeout=0.2)
+        assert responses[4][0]["status"] == 429
+        await asyncio.wait_for(asyncio.gather(*pending), timeout=0.2)
+        assert all(response[0]["status"] == 408 for response in responses[:4])
+        assert not called
+
+        async def complete():
+            return {"type": "http.request", "body": b"{}", "more_body": False}
+
+        await guard(dict(scope), complete, run)
+        assert called == [True]
+
+    asyncio.run(scenario())
+
+
 def config(tmp_path, **changes):
     return CloudConfig(
         data_dir=tmp_path,

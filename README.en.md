@@ -12,11 +12,19 @@
 
 Current version: **0.4.4**. React and FastAPI share the Runtime / LangGraph kernel; the Windows desktop uses Tauri 2. Documents and conversations stay on your device. Enabled model and network tools send their requests to the services you configure.
 
+## Full Web deployment package
+
+The self-hosted Web app supports accounts, isolated workspaces, user-owned model API keys, and an optional lifetime allowance of five operator-funded AI replies per account. Guests can try sample data and simulated replies without signing in.
+
+Follow the [Docker deployment guide](docs/CLOUD_WEB_DEPLOYMENT.md); account data lives in the server's persistent volume. See [operations](docs/cloud-operations.md) for backups and account recovery. This is a deployable source package; a public full-service instance is not yet hosted. GitHub Pages remains the guest demo. Desktop sign-in and bidirectional synchronization are planned for a later phase.
+
+Cloud mode disables local files, processes, Skills / MCP and shared search credentials; AI Hot and Web search are unavailable. The Windows 0.4.4 installer remains the local desktop edition.
+
 ## What's new in 0.4.4
 
 - A shared first-visit feature tour for Web and desktop, with skip and replay controls.
 - Chinese interface and six navigation shortcuts; companion drag feedback and standing hair/skirt inertia.
-- [Online demo](https://sodaa1.github.io/xiliu/#/today) with sample data and simulated replies. Accounts and cloud synchronization are not yet available.
+- [Online demo](https://sodaa1.github.io/xiliu/#/today) with sample data and simulated replies. This static site has no accounts or cloud synchronization.
 
 ## What's new in 0.4.3
 

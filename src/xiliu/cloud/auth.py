@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+import asyncio
 import base64
 import hashlib
 import hmac
 import secrets
+from threading import BoundedSemaphore
 
 from fastapi import FastAPI, Request, Response
 from fastapi.exceptions import RequestValidationError
@@ -35,6 +37,28 @@ class CloudRequestGuard:
 
     def __init__(self, app, *, config: CloudConfig, identity: IdentityStore):
         self.app, self.config, self.identity = app, config, identity
+        self.body_slots = BoundedSemaphore(4)
+        self.body_timeout = 30
+
+    async def _auth_body(self, receive):
+        if not self.body_slots.acquire(blocking=False):
+            raise WebError("upload_busy", "登录请求繁忙，请稍后再试。", 429)
+        try:
+            raw = bytearray()
+            async with asyncio.timeout(self.body_timeout):
+                while True:
+                    message = await receive()
+                    if message["type"] == "http.disconnect":
+                        return None
+                    raw.extend(message.get("body", b""))
+                    if len(raw) > 4096:
+                        raise WebError("body_too_large", "请求内容过大。", 413)
+                    if not message.get("more_body"):
+                        return raw
+        except TimeoutError:
+            raise WebError("request_timeout", "请求上传超时。", 408) from None
+        finally:
+            self.body_slots.release()
 
     async def __call__(self, scope, receive, send):
         if scope["type"] != "http":
@@ -60,16 +84,9 @@ class CloudRequestGuard:
                         raise WebError("invalid_csrf", "登录验证已失效，请刷新后重试。", 403)
                     scope["xiliu.user"] = user
             if path in {"/api/auth/login", "/api/auth/register"} and scope["method"] == "POST":
-                raw = bytearray()
-                while True:
-                    message = await receive()
-                    if message["type"] == "http.disconnect":
-                        return
-                    raw.extend(message.get("body", b""))
-                    if len(raw) > 4096:
-                        raise WebError("body_too_large", "请求内容过大。", 413)
-                    if not message.get("more_body"):
-                        break
+                raw = await self._auth_body(receive)
+                if raw is None:
+                    return
                 consumed = False
 
                 async def bounded_receive():

@@ -64,3 +64,16 @@ it('keeps business components unmounted until identity loads, then clears them o
   expect(screen.queryByText('private workspace')).not.toBeInTheDocument()
   expect(screen.getByRole('button', { name: '登录' })).toBeInTheDocument()
 })
+
+it('offers reload on connection failure without mounting business data', async () => {
+  vi.mocked(loadBootstrap).mockRejectedValue(new Error('offline'))
+  vi.mocked(loadSession).mockResolvedValue(null)
+  render(
+    <AuthRoot>
+      <div>private workspace</div>
+    </AuthRoot>
+  )
+  expect(await screen.findByRole('alert')).toHaveTextContent('无法连接服务器')
+  expect(screen.getByRole('button', { name: '重新加载' })).toBeInTheDocument()
+  expect(screen.queryByText('private workspace')).not.toBeInTheDocument()
+})

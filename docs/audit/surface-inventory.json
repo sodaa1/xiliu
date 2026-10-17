@@ -24,7 +24,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 141,
+      "line": 142,
       "symbol": "<a className={`intro-button ${secondary ? \"outline\" : \"\"}`} href={href}>"
     },
     {
@@ -32,7 +32,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 196,
+      "line": 197,
       "symbol": "<a className=\"skip-link\" href=\"#features\">"
     },
     {
@@ -40,7 +40,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 200,
+      "line": 201,
       "symbol": "<a className=\"intro-brand\" href=\"#top\" aria-label=\"息流 xiliu 首页\">"
     },
     {
@@ -48,7 +48,7 @@
       "kind": "ui_event",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 210,
+      "line": 211,
       "symbol": "onClick={() => setMenuOpen(false)}"
     },
     {
@@ -56,7 +56,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 212,
+      "line": 213,
       "symbol": "<a href=\"#features\">"
     },
     {
@@ -64,7 +64,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 216,
+      "line": 217,
       "symbol": "<a href=\"#workflow\">"
     },
     {
@@ -72,7 +72,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 220,
+      "line": 221,
       "symbol": "<a href=\"#local\">"
     },
     {
@@ -80,7 +80,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 224,
+      "line": 225,
       "symbol": "<a href=\"#questions\">"
     },
     {
@@ -88,7 +88,7 @@
       "kind": "ui_button",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 231,
+      "line": 232,
       "symbol": "<button className=\"mobile-menu\" ref={menuButton} aria-label={menuOpen ? \"关闭导航\" : \"打开导航\"} aria-controls=\"intro-navigation\" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} >"
     },
     {
@@ -96,7 +96,7 @@
       "kind": "ui_event",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 237,
+      "line": 238,
       "symbol": "onClick={() => setMenuOpen(!menuOpen)}"
     },
     {
@@ -104,7 +104,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 287,
+      "line": 288,
       "symbol": "<a className=\"hero-scroll-cue\" href=\"#features\">"
     },
     {
@@ -112,7 +112,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 314,
+      "line": 315,
       "symbol": "<a className=\"text-link\" href=\"#workflow\">"
     },
     {
@@ -120,7 +120,7 @@
       "kind": "ui_button",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 364,
+      "line": 365,
       "symbol": "<button key={stage.name} role=\"tab\" id={`flow-tab-${i}`} aria-controls=\"flow-panel\" aria-selected={active === i} tabIndex={active === i ? 0 : -1} onClick={() => setActive(i)} onKeyDown={(event) => onTabKey(event, i)} >"
     },
     {
@@ -128,7 +128,7 @@
       "kind": "ui_event",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 371,
+      "line": 372,
       "symbol": "onClick={() => setActive(i)}"
     },
     {
@@ -136,7 +136,7 @@
       "kind": "ui_event",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 372,
+      "line": 373,
       "symbol": "onKeyDown={(event) => onTabKey(event, i)}"
     },
     {
@@ -144,7 +144,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 409,
+      "line": 410,
       "symbol": "<a className=\"text-link\" href={publicShowcase ? \"#workflow\" : \"/feed\"} >"
     },
     {
@@ -152,7 +152,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 479,
+      "line": 480,
       "symbol": "<a className=\"text-link\" href={publicShowcase ? \"#workflow\" : \"/knowledge\"} >"
     },
     {
@@ -160,7 +160,7 @@
       "kind": "ui_button",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 589,
+      "line": 590,
       "symbol": "<button key={label} aria-pressed={question === i} onClick={() => setQuestion(i)} >"
     },
     {
@@ -168,7 +168,7 @@
       "kind": "ui_event",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 592,
+      "line": 593,
       "symbol": "onClick={() => setQuestion(i)}"
     },
     {
@@ -176,7 +176,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 694,
+      "line": 695,
       "symbol": "<a className=\"text-link\" href=\"#start\">"
     },
     {
@@ -184,7 +184,7 @@
       "kind": "ui_button",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 782,
+      "line": 783,
       "symbol": "<button onClick={() => void copyInstall()} aria-label=\"复制安装命令\" >"
     },
     {
@@ -192,7 +192,7 @@
       "kind": "ui_event",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 783,
+      "line": 784,
       "symbol": "onClick={() => void copyInstall()}"
     },
     {
@@ -200,7 +200,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 800,
+      "line": 801,
       "symbol": "<a className=\"text-link\" href={`${repositoryUrl}/blob/main/desktop/README.md`} target=\"_blank\" rel=\"noreferrer\" >"
     },
     {
@@ -208,7 +208,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 818,
+      "line": 819,
       "symbol": "<a className=\"intro-brand\" href=\"#top\">"
     },
     {
@@ -216,7 +216,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 825,
+      "line": 826,
       "symbol": "<a className=\"text-link\" href=\"#top\">"
     },
     {
@@ -224,7 +224,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 832,
+      "line": 833,
       "symbol": "<a href=\"https://933693.xyz/\">"
     },
     {
@@ -232,7 +232,7 @@
       "kind": "ui_link",
       "page": "Intro",
       "file": "docs/web/src/LandingPage.tsx",
-      "line": 835,
+      "line": 836,
       "symbol": "<a href={repositoryUrl} target=\"_blank\" rel=\"noreferrer\">"
     },
     {
@@ -240,7 +240,7 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/app.py",
-      "line": 151,
+      "line": 123,
       "symbol": "GET /api/health",
       "service_calls": []
     },
@@ -249,7 +249,7 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/app.py",
-      "line": 168,
+      "line": 182,
       "symbol": "GET /{path:path}",
       "service_calls": []
     },
@@ -258,7 +258,7 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/routes/app.py",
-      "line": 40,
+      "line": 49,
       "symbol": "POST /api/app",
       "service_calls": []
     },
@@ -267,10 +267,10 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/routes/app.py",
-      "line": 55,
+      "line": 64,
       "symbol": "POST /api/app/confirm",
       "service_calls": [
-        "request.app.state.store.append_message"
+        "request_services(request).store.append_message"
       ]
     },
     {
@@ -278,7 +278,7 @@
       "kind": "http_route",
       "page": "Assistant",
       "file": "src/xiliu/api/routes/capabilities.py",
-      "line": 9,
+      "line": 10,
       "symbol": "GET /api/commands",
       "service_calls": []
     },
@@ -287,10 +287,10 @@
       "kind": "http_route",
       "page": "Settings",
       "file": "src/xiliu/api/routes/capabilities.py",
-      "line": 14,
+      "line": 15,
       "symbol": "GET /api/capabilities/skills",
       "service_calls": [
-        "request.app.state.commands.skills"
+        "request_services(request).commands.skills"
       ]
     },
     {
@@ -298,10 +298,10 @@
       "kind": "http_route",
       "page": "Settings",
       "file": "src/xiliu/api/routes/capabilities.py",
-      "line": 19,
+      "line": 20,
       "symbol": "GET /api/capabilities/mcp",
       "service_calls": [
-        "request.app.state.commands.mcp"
+        "request_services(request).commands.mcp"
       ]
     },
     {
@@ -309,10 +309,10 @@
       "kind": "http_route",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/routes/content.py",
-      "line": 10,
+      "line": 12,
       "symbol": "GET /api/content",
       "service_calls": [
-        "request.app.state.content.list"
+        "request_services(request).content.list"
       ]
     },
     {
@@ -320,10 +320,10 @@
       "kind": "http_route",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/routes/content.py",
-      "line": 15,
+      "line": 17,
       "symbol": "POST /api/content",
       "service_calls": [
-        "request.app.state.content.create"
+        "request_services(request).content.create"
       ]
     },
     {
@@ -331,10 +331,10 @@
       "kind": "http_route",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/routes/content.py",
-      "line": 20,
+      "line": 22,
       "symbol": "GET /api/content/{item_id}",
       "service_calls": [
-        "request.app.state.content.get"
+        "request_services(request).content.get"
       ]
     },
     {
@@ -342,10 +342,10 @@
       "kind": "http_route",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/routes/content.py",
-      "line": 25,
+      "line": 27,
       "symbol": "PATCH /api/content/{item_id}",
       "service_calls": [
-        "request.app.state.content.update"
+        "request_services(request).content.update"
       ]
     },
     {
@@ -353,10 +353,10 @@
       "kind": "http_route",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/routes/content.py",
-      "line": 30,
+      "line": 32,
       "symbol": "DELETE /api/content/{item_id}",
       "service_calls": [
-        "request.app.state.content.delete"
+        "request_services(request).content.delete"
       ]
     },
     {
@@ -364,7 +364,7 @@
       "kind": "http_route",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/routes/content.py",
-      "line": 36,
+      "line": 38,
       "symbol": "GET /api/content/{item_id}/original",
       "service_calls": [
         "service.get",
@@ -376,10 +376,10 @@
       "kind": "http_route",
       "page": "Assistant",
       "file": "src/xiliu/api/routes/conversations.py",
-      "line": 15,
+      "line": 17,
       "symbol": "GET /api/conversations",
       "service_calls": [
-        "request.app.state.store.list"
+        "request_services(request).store.list"
       ]
     },
     {
@@ -387,10 +387,10 @@
       "kind": "http_route",
       "page": "Assistant",
       "file": "src/xiliu/api/routes/conversations.py",
-      "line": 20,
+      "line": 22,
       "symbol": "POST /api/conversations",
       "service_calls": [
-        "request.app.state.store.create"
+        "request_services(request).store.create"
       ]
     },
     {
@@ -398,10 +398,10 @@
       "kind": "http_route",
       "page": "Assistant",
       "file": "src/xiliu/api/routes/conversations.py",
-      "line": 25,
+      "line": 27,
       "symbol": "GET /api/conversations/{cid}",
       "service_calls": [
-        "request.app.state.conversations.get"
+        "request_services(request).conversations.get"
       ]
     },
     {
@@ -409,11 +409,11 @@
       "kind": "http_route",
       "page": "Assistant",
       "file": "src/xiliu/api/routes/conversations.py",
-      "line": 30,
+      "line": 32,
       "symbol": "PATCH /api/conversations/{cid}",
       "service_calls": [
-        "request.app.state.chat.reserve",
-        "request.app.state.conversations.update"
+        "request_services(request).chat.reserve",
+        "request_services(request).conversations.update"
       ]
     },
     {
@@ -421,11 +421,11 @@
       "kind": "http_route",
       "page": "Assistant",
       "file": "src/xiliu/api/routes/conversations.py",
-      "line": 36,
+      "line": 40,
       "symbol": "DELETE /api/conversations/{cid}",
       "service_calls": [
-        "request.app.state.chat.reserve",
-        "request.app.state.store.delete"
+        "request_services(request).chat.reserve",
+        "request_services(request).store.delete"
       ]
     },
     {
@@ -433,10 +433,10 @@
       "kind": "http_route",
       "page": "Assistant",
       "file": "src/xiliu/api/routes/conversations.py",
-      "line": 43,
+      "line": 47,
       "symbol": "GET /api/conversations/{cid}/messages",
       "service_calls": [
-        "request.app.state.store.messages"
+        "request_services(request).store.messages"
       ]
     },
     {
@@ -444,11 +444,12 @@
       "kind": "http_route",
       "page": "Assistant",
       "file": "src/xiliu/api/routes/conversations.py",
-      "line": 48,
+      "line": 52,
       "symbol": "POST /api/conversations/{cid}/chat",
       "service_calls": [
-        "request.app.state.chat.stream_turn",
-        "request.app.state.store.get"
+        "request.app.state.cloud_turns.stream",
+        "request_services(request).chat.stream_turn",
+        "request_services(request).store.get"
       ]
     },
     {
@@ -456,10 +457,10 @@
       "kind": "http_route",
       "page": "Assistant",
       "file": "src/xiliu/api/routes/conversations.py",
-      "line": 97,
+      "line": 124,
       "symbol": "POST /api/conversations/{cid}/stop",
       "service_calls": [
-        "request.app.state.chat.cancel"
+        "request_services(request).chat.cancel"
       ]
     },
     {
@@ -467,10 +468,10 @@
       "kind": "http_route",
       "page": "Feed",
       "file": "src/xiliu/api/routes/feed.py",
-      "line": 26,
+      "line": 28,
       "symbol": "GET /api/feed",
       "service_calls": [
-        "request.app.state.feed.list"
+        "request_services(request).feed.list"
       ]
     },
     {
@@ -478,10 +479,10 @@
       "kind": "http_route",
       "page": "Feed",
       "file": "src/xiliu/api/routes/feed.py",
-      "line": 31,
+      "line": 33,
       "symbol": "POST /api/feed/refresh",
       "service_calls": [
-        "request.app.state.feed.refresh"
+        "request_services(request).feed.refresh"
       ]
     },
     {
@@ -489,10 +490,10 @@
       "kind": "http_route",
       "page": "Feed",
       "file": "src/xiliu/api/routes/feed.py",
-      "line": 36,
+      "line": 38,
       "symbol": "POST /api/feed/manual",
       "service_calls": [
-        "request.app.state.feed.add_manual"
+        "request_services(request).feed.add_manual"
       ]
     },
     {
@@ -500,10 +501,10 @@
       "kind": "http_route",
       "page": "Feed",
       "file": "src/xiliu/api/routes/feed.py",
-      "line": 41,
+      "line": 43,
       "symbol": "PATCH /api/feed/manual/{item_id}",
       "service_calls": [
-        "request.app.state.feed.update_manual"
+        "request_services(request).feed.update_manual"
       ]
     },
     {
@@ -511,10 +512,10 @@
       "kind": "http_route",
       "page": "Feed",
       "file": "src/xiliu/api/routes/feed.py",
-      "line": 46,
+      "line": 50,
       "symbol": "DELETE /api/feed/manual/{item_id}",
       "service_calls": [
-        "request.app.state.feed.remove_manual"
+        "request_services(request).feed.remove_manual"
       ]
     },
     {
@@ -522,10 +523,10 @@
       "kind": "http_route",
       "page": "Feed",
       "file": "src/xiliu/api/routes/feed.py",
-      "line": 51,
+      "line": 55,
       "symbol": "POST /api/feed/manual/{item_id}/restore",
       "service_calls": [
-        "request.app.state.feed.restore_manual"
+        "request_services(request).feed.restore_manual"
       ]
     },
     {
@@ -533,10 +534,10 @@
       "kind": "http_route",
       "page": "Feed",
       "file": "src/xiliu/api/routes/feed.py",
-      "line": 56,
+      "line": 60,
       "symbol": "POST /api/feed/{item_id}/hide",
       "service_calls": [
-        "request.app.state.feed.hide_external"
+        "request_services(request).feed.hide_external"
       ]
     },
     {
@@ -544,10 +545,10 @@
       "kind": "http_route",
       "page": "Feed",
       "file": "src/xiliu/api/routes/feed.py",
-      "line": 61,
+      "line": 65,
       "symbol": "POST /api/feed/{item_id}/unhide",
       "service_calls": [
-        "request.app.state.feed.unhide_external"
+        "request_services(request).feed.unhide_external"
       ]
     },
     {
@@ -555,10 +556,10 @@
       "kind": "http_route",
       "page": "Feed",
       "file": "src/xiliu/api/routes/feed.py",
-      "line": 66,
+      "line": 70,
       "symbol": "POST /api/feed/{item_id}/save",
       "service_calls": [
-        "request.app.state.feed.save"
+        "request_services(request).feed.save"
       ]
     },
     {
@@ -566,10 +567,10 @@
       "kind": "http_route",
       "page": "Inbox",
       "file": "src/xiliu/api/routes/inbox.py",
-      "line": 18,
+      "line": 20,
       "symbol": "GET /api/inbox",
       "service_calls": [
-        "request.app.state.content.list"
+        "request_services(request).content.list"
       ]
     },
     {
@@ -577,10 +578,10 @@
       "kind": "http_route",
       "page": "Inbox",
       "file": "src/xiliu/api/routes/inbox.py",
-      "line": 23,
+      "line": 25,
       "symbol": "POST /api/inbox/import",
       "service_calls": [
-        "request.app.state.inbox.import_item"
+        "request_services(request).inbox.import_item"
       ]
     },
     {
@@ -588,10 +589,10 @@
       "kind": "http_route",
       "page": "Inbox",
       "file": "src/xiliu/api/routes/inbox.py",
-      "line": 28,
+      "line": 30,
       "symbol": "POST /api/inbox/classify-batch",
       "service_calls": [
-        "request.app.state.inbox.classify_batch"
+        "request_services(request).inbox.classify_batch"
       ]
     },
     {
@@ -599,10 +600,10 @@
       "kind": "http_route",
       "page": "Inbox",
       "file": "src/xiliu/api/routes/inbox.py",
-      "line": 38,
+      "line": 40,
       "symbol": "POST /api/inbox/{item_id}/retry",
       "service_calls": [
-        "request.app.state.inbox.retry"
+        "request_services(request).inbox.retry"
       ]
     },
     {
@@ -610,10 +611,10 @@
       "kind": "http_route",
       "page": "Inbox",
       "file": "src/xiliu/api/routes/inbox.py",
-      "line": 43,
+      "line": 45,
       "symbol": "GET /api/inbox/archive-jobs/{job_id}",
       "service_calls": [
-        "request.app.state.inbox.get_archive_job"
+        "request_services(request).inbox.get_archive_job"
       ]
     },
     {
@@ -621,10 +622,10 @@
       "kind": "http_route",
       "page": "Knowledge",
       "file": "src/xiliu/api/routes/knowledge.py",
-      "line": 11,
+      "line": 12,
       "symbol": "GET /api/knowledge/folders",
       "service_calls": [
-        "request.app.state.knowledge.list_folders"
+        "request_services(request).knowledge.list_folders"
       ]
     },
     {
@@ -632,10 +633,10 @@
       "kind": "http_route",
       "page": "Knowledge",
       "file": "src/xiliu/api/routes/knowledge.py",
-      "line": 16,
+      "line": 17,
       "symbol": "POST /api/knowledge/folders",
       "service_calls": [
-        "request.app.state.knowledge.create_folder"
+        "request_services(request).knowledge.create_folder"
       ]
     },
     {
@@ -643,10 +644,10 @@
       "kind": "http_route",
       "page": "Knowledge",
       "file": "src/xiliu/api/routes/knowledge.py",
-      "line": 21,
+      "line": 22,
       "symbol": "GET /api/knowledge/folders/{folder_id}",
       "service_calls": [
-        "request.app.state.knowledge.get_folder"
+        "request_services(request).knowledge.get_folder"
       ]
     },
     {
@@ -654,10 +655,10 @@
       "kind": "http_route",
       "page": "Knowledge",
       "file": "src/xiliu/api/routes/knowledge.py",
-      "line": 26,
+      "line": 27,
       "symbol": "PATCH /api/knowledge/folders/{folder_id}",
       "service_calls": [
-        "request.app.state.knowledge.update_folder"
+        "request_services(request).knowledge.update_folder"
       ]
     },
     {
@@ -665,10 +666,10 @@
       "kind": "http_route",
       "page": "Knowledge",
       "file": "src/xiliu/api/routes/knowledge.py",
-      "line": 31,
+      "line": 32,
       "symbol": "DELETE /api/knowledge/folders/{folder_id}",
       "service_calls": [
-        "request.app.state.knowledge.delete_folder"
+        "request_services(request).knowledge.delete_folder"
       ]
     },
     {
@@ -676,10 +677,10 @@
       "kind": "http_route",
       "page": "Knowledge",
       "file": "src/xiliu/api/routes/knowledge.py",
-      "line": 37,
+      "line": 38,
       "symbol": "GET /api/knowledge/folders/{folder_id}/items",
       "service_calls": [
-        "request.app.state.knowledge.folder_items"
+        "request_services(request).knowledge.folder_items"
       ]
     },
     {
@@ -687,10 +688,10 @@
       "kind": "http_route",
       "page": "Knowledge",
       "file": "src/xiliu/api/routes/knowledge.py",
-      "line": 42,
+      "line": 43,
       "symbol": "GET /api/knowledge/search",
       "service_calls": [
-        "request.app.state.retrieval.search"
+        "request_services(request).retrieval.search"
       ]
     },
     {
@@ -698,7 +699,7 @@
       "kind": "http_route",
       "page": "Settings",
       "file": "src/xiliu/api/routes/models.py",
-      "line": 10,
+      "line": 11,
       "symbol": "GET /api/models/catalog",
       "service_calls": []
     },
@@ -707,10 +708,10 @@
       "kind": "http_route",
       "page": "Settings",
       "file": "src/xiliu/api/routes/models.py",
-      "line": 15,
+      "line": 16,
       "symbol": "GET /api/settings/model",
       "service_calls": [
-        "request.app.state.model_settings.read"
+        "request_services(request).model_settings.read"
       ]
     },
     {
@@ -718,10 +719,10 @@
       "kind": "http_route",
       "page": "Settings",
       "file": "src/xiliu/api/routes/models.py",
-      "line": 20,
+      "line": 21,
       "symbol": "PUT /api/settings/model",
       "service_calls": [
-        "request.app.state.model_settings.update"
+        "request_services(request).model_settings.update"
       ]
     },
     {
@@ -729,10 +730,10 @@
       "kind": "http_route",
       "page": "Settings",
       "file": "src/xiliu/api/routes/preferences.py",
-      "line": 19,
+      "line": 21,
       "symbol": "GET /api/settings/preferences",
       "service_calls": [
-        "request.app.state.preferences.get"
+        "request_services(request).preferences.get"
       ]
     },
     {
@@ -740,10 +741,10 @@
       "kind": "http_route",
       "page": "Settings",
       "file": "src/xiliu/api/routes/preferences.py",
-      "line": 24,
+      "line": 26,
       "symbol": "PUT /api/settings/preferences",
       "service_calls": [
-        "request.app.state.preferences.update"
+        "request_services(request).preferences.update"
       ]
     },
     {
@@ -751,10 +752,10 @@
       "kind": "http_route",
       "page": "Settings",
       "file": "src/xiliu/api/routes/preferences.py",
-      "line": 29,
+      "line": 31,
       "symbol": "POST /api/settings/preferences/reset",
       "service_calls": [
-        "request.app.state.preferences.reset"
+        "request_services(request).preferences.reset"
       ]
     },
     {
@@ -762,10 +763,10 @@
       "kind": "http_route",
       "page": "Today",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 42,
+      "line": 44,
       "symbol": "GET /api/tasks",
       "service_calls": [
-        "request.app.state.tasks.list"
+        "request_services(request).tasks.list"
       ]
     },
     {
@@ -773,10 +774,10 @@
       "kind": "http_route",
       "page": "Today",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 47,
+      "line": 49,
       "symbol": "POST /api/tasks",
       "service_calls": [
-        "request.app.state.tasks.create"
+        "request_services(request).tasks.create"
       ]
     },
     {
@@ -784,10 +785,10 @@
       "kind": "http_route",
       "page": "Today",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 52,
+      "line": 54,
       "symbol": "PATCH /api/tasks/{task_id}",
       "service_calls": [
-        "request.app.state.tasks.update"
+        "request_services(request).tasks.update"
       ]
     },
     {
@@ -795,10 +796,10 @@
       "kind": "http_route",
       "page": "Today",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 57,
+      "line": 59,
       "symbol": "DELETE /api/tasks/{task_id}",
       "service_calls": [
-        "request.app.state.tasks.delete"
+        "request_services(request).tasks.delete"
       ]
     },
     {
@@ -806,10 +807,10 @@
       "kind": "http_route",
       "page": "Automations",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 63,
+      "line": 65,
       "symbol": "GET /api/automations",
       "service_calls": [
-        "request.app.state.automations.list"
+        "request_services(request).automations.list"
       ]
     },
     {
@@ -817,10 +818,10 @@
       "kind": "http_route",
       "page": "Automations",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 68,
+      "line": 70,
       "symbol": "POST /api/automations",
       "service_calls": [
-        "request.app.state.automations.create"
+        "request_services(request).automations.create"
       ]
     },
     {
@@ -828,10 +829,10 @@
       "kind": "http_route",
       "page": "Automations",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 73,
+      "line": 75,
       "symbol": "PATCH /api/automations/{task_id}",
       "service_calls": [
-        "request.app.state.automations.toggle"
+        "request_services(request).automations.toggle"
       ]
     },
     {
@@ -839,10 +840,10 @@
       "kind": "http_route",
       "page": "Automations",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 78,
+      "line": 80,
       "symbol": "DELETE /api/automations/{task_id}",
       "service_calls": [
-        "request.app.state.automations.delete"
+        "request_services(request).automations.delete"
       ]
     },
     {
@@ -850,10 +851,10 @@
       "kind": "http_route",
       "page": "Automations",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 84,
+      "line": 86,
       "symbol": "GET /api/automations/{task_id}/runs",
       "service_calls": [
-        "request.app.state.automations.runs"
+        "request_services(request).automations.runs"
       ]
     },
     {
@@ -861,7 +862,7 @@
       "kind": "http_route",
       "page": "Today",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 89,
+      "line": 91,
       "symbol": "GET /api/today",
       "service_calls": [
         "state.content.list",
@@ -874,7 +875,7 @@
       "kind": "http_route",
       "page": "Settings",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 99,
+      "line": 101,
       "symbol": "GET /api/settings/data",
       "service_calls": [
         "state.content.list",
@@ -951,7 +952,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/chat.py",
-      "line": 44,
+      "line": 45,
       "symbol": "ChatService.reserve"
     },
     {
@@ -959,7 +960,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/chat.py",
-      "line": 55,
+      "line": 61,
       "symbol": "ChatService.cancel"
     },
     {
@@ -967,7 +968,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/chat.py",
-      "line": 63,
+      "line": 69,
       "symbol": "ChatService.stream_turn"
     },
     {
@@ -983,7 +984,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/commands.py",
-      "line": 48,
+      "line": 50,
       "symbol": "CommandService.mcp"
     },
     {
@@ -991,7 +992,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/commands.py",
-      "line": 61,
+      "line": 65,
       "symbol": "CommandService.resolve"
     },
     {
@@ -999,7 +1000,7 @@
       "kind": "service_method",
       "page": "Assistant",
       "file": "src/xiliu/api/services/commands.py",
-      "line": 115,
+      "line": 119,
       "symbol": "CommandService.compress"
     },
     {
@@ -1007,7 +1008,7 @@
       "kind": "service_method",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/services/content.py",
-      "line": 276,
+      "line": 284,
       "symbol": "ContentService.create"
     },
     {
@@ -1015,7 +1016,7 @@
       "kind": "service_method",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/services/content.py",
-      "line": 367,
+      "line": 375,
       "symbol": "ContentService.list"
     },
     {
@@ -1023,7 +1024,7 @@
       "kind": "service_method",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/services/content.py",
-      "line": 409,
+      "line": 417,
       "symbol": "ContentService.get"
     },
     {
@@ -1031,7 +1032,7 @@
       "kind": "service_method",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/services/content.py",
-      "line": 413,
+      "line": 421,
       "symbol": "ContentService.update"
     },
     {
@@ -1039,7 +1040,7 @@
       "kind": "service_method",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/services/content.py",
-      "line": 490,
+      "line": 498,
       "symbol": "ContentService.delete"
     },
     {
@@ -1047,7 +1048,7 @@
       "kind": "service_method",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/services/content.py",
-      "line": 527,
+      "line": 536,
       "symbol": "ContentService.original"
     },
     {
@@ -1055,7 +1056,7 @@
       "kind": "service_method",
       "page": "Inbox / shared content",
       "file": "src/xiliu/api/services/content.py",
-      "line": 536,
+      "line": 545,
       "symbol": "ContentService.rebuild_index"
     },
     {
@@ -1103,7 +1104,7 @@
       "kind": "service_method",
       "page": "Feed",
       "file": "src/xiliu/api/services/feed.py",
-      "line": 412,
+      "line": 418,
       "symbol": "FeedService.add_manual"
     },
     {
@@ -1111,7 +1112,7 @@
       "kind": "service_method",
       "page": "Feed",
       "file": "src/xiliu/api/services/feed.py",
-      "line": 454,
+      "line": 460,
       "symbol": "FeedService.update_manual"
     },
     {
@@ -1119,7 +1120,7 @@
       "kind": "service_method",
       "page": "Feed",
       "file": "src/xiliu/api/services/feed.py",
-      "line": 500,
+      "line": 506,
       "symbol": "FeedService.remove_manual"
     },
     {
@@ -1127,7 +1128,7 @@
       "kind": "service_method",
       "page": "Feed",
       "file": "src/xiliu/api/services/feed.py",
-      "line": 503,
+      "line": 509,
       "symbol": "FeedService.restore_manual"
     },
     {
@@ -1135,7 +1136,7 @@
       "kind": "service_method",
       "page": "Feed",
       "file": "src/xiliu/api/services/feed.py",
-      "line": 517,
+      "line": 523,
       "symbol": "FeedService.hide_external"
     },
     {
@@ -1143,7 +1144,7 @@
       "kind": "service_method",
       "page": "Feed",
       "file": "src/xiliu/api/services/feed.py",
-      "line": 520,
+      "line": 526,
       "symbol": "FeedService.unhide_external"
     },
     {
@@ -1151,7 +1152,7 @@
       "kind": "service_method",
       "page": "Feed",
       "file": "src/xiliu/api/services/feed.py",
-      "line": 636,
+      "line": 654,
       "symbol": "FeedService.refresh"
     },
     {
@@ -1159,7 +1160,7 @@
       "kind": "service_method",
       "page": "Feed",
       "file": "src/xiliu/api/services/feed.py",
-      "line": 661,
+      "line": 679,
       "symbol": "FeedService.save"
     },
     {
@@ -1215,7 +1216,7 @@
       "kind": "service_method",
       "page": "Inbox",
       "file": "src/xiliu/api/services/inbox.py",
-      "line": 507,
+      "line": 512,
       "symbol": "InboxService.retry"
     },
     {
@@ -1223,7 +1224,7 @@
       "kind": "service_method",
       "page": "Inbox",
       "file": "src/xiliu/api/services/inbox.py",
-      "line": 680,
+      "line": 685,
       "symbol": "InboxService.wait_for_metadata"
     },
     {
@@ -1231,7 +1232,7 @@
       "kind": "service_method",
       "page": "Inbox",
       "file": "src/xiliu/api/services/inbox.py",
-      "line": 698,
+      "line": 703,
       "symbol": "InboxService.classify_batch"
     },
     {
@@ -1335,7 +1336,7 @@
       "kind": "service_method",
       "page": "Settings",
       "file": "src/xiliu/api/services/model_settings.py",
-      "line": 249,
+      "line": 255,
       "symbol": "ModelSettingsService.runtime_settings"
     },
     {
@@ -1714,7 +1715,7 @@
       "kind": "ui_event",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/app/App.tsx",
-      "line": 184,
+      "line": 186,
       "symbol": "onClose={closeSettings}"
     },
     {
@@ -1946,7 +1947,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 38,
+      "line": 43,
       "symbol": "api.conversations"
     },
     {
@@ -1954,7 +1955,7 @@
       "kind": "ui_query",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 38,
+      "line": 43,
       "symbol": "queryFn: api.conversations"
     },
     {
@@ -1962,7 +1963,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 46,
+      "line": 51,
       "symbol": "api.conversation"
     },
     {
@@ -1970,7 +1971,7 @@
       "kind": "ui_query",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 46,
+      "line": 51,
       "symbol": "queryFn: ()"
     },
     {
@@ -1978,7 +1979,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 51,
+      "line": 56,
       "symbol": "api.messages"
     },
     {
@@ -1986,7 +1987,7 @@
       "kind": "ui_query",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 51,
+      "line": 56,
       "symbol": "queryFn: ()"
     },
     {
@@ -1994,7 +1995,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 54,
+      "line": 59,
       "symbol": "api.settings"
     },
     {
@@ -2002,7 +2003,7 @@
       "kind": "ui_query",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 54,
+      "line": 59,
       "symbol": "queryFn: api.settings"
     },
     {
@@ -2010,7 +2011,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 55,
+      "line": 60,
       "symbol": "api.catalog"
     },
     {
@@ -2018,7 +2019,7 @@
       "kind": "ui_query",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 55,
+      "line": 60,
       "symbol": "queryFn: api.catalog"
     },
     {
@@ -2026,7 +2027,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 56,
+      "line": 61,
       "symbol": "api.commands"
     },
     {
@@ -2034,7 +2035,7 @@
       "kind": "ui_query",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 56,
+      "line": 61,
       "symbol": "queryFn: api.commands,"
     },
     {
@@ -2042,7 +2043,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 57,
+      "line": 62,
       "symbol": "api.skills"
     },
     {
@@ -2050,7 +2051,7 @@
       "kind": "ui_query",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 57,
+      "line": 62,
       "symbol": "queryFn: api.skills,"
     },
     {
@@ -2058,7 +2059,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 58,
+      "line": 63,
       "symbol": "api.mcp"
     },
     {
@@ -2066,7 +2067,7 @@
       "kind": "ui_query",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 58,
+      "line": 63,
       "symbol": "queryFn: api.mcp,"
     },
     {
@@ -2074,7 +2075,7 @@
       "kind": "ui_mutation",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 59,
+      "line": 64,
       "symbol": "useMutation({ mutationFn: api.create, onSuccess: async (created) => { await cache.invalidateQueries({ queryKey: ['conversations'] }) select(created.id) setParams({ c: created.id }) setDraft('') setReference(undefined) setError(null) }, onError: (error) => setError(error.message), }"
     },
     {
@@ -2082,7 +2083,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 60,
+      "line": 65,
       "symbol": "api.create"
     },
     {
@@ -2090,7 +2091,7 @@
       "kind": "ui_query",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 60,
+      "line": 65,
       "symbol": "mutationFn: api.create,"
     },
     {
@@ -2098,7 +2099,7 @@
       "kind": "ui_mutation",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 71,
+      "line": 76,
       "symbol": "useMutation({ mutationFn: api.remove, onSuccess: async (_, id) => { cache.removeQueries({ queryKey: ['messages', id] }) cache.removeQueries({ queryKey: ['conversation', id] }) if (id === cid) { select(null) setParams({}) } await cache.invalidateQueries({ queryKey: ['conversations'] }) }, onError: (error) => setError(error.message), }"
     },
     {
@@ -2106,7 +2107,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 72,
+      "line": 77,
       "symbol": "api.remove"
     },
     {
@@ -2114,7 +2115,7 @@
       "kind": "ui_query",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 72,
+      "line": 77,
       "symbol": "mutationFn: api.remove,"
     },
     {
@@ -2122,7 +2123,7 @@
       "kind": "ui_mutation",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 84,
+      "line": 89,
       "symbol": "useMutation({ mutationFn: ({ id, value }: { id: string; value: string }) => api.patch(id, { model_override: value || null }), onSuccess: async (updated) => { cache.setQueryData(['conversation', updated.id], updated) await cache.invalidateQueries({ queryKey: ['conversations'] }) }, onError: (error) => setError(error.message), }"
     },
     {
@@ -2130,7 +2131,7 @@
       "kind": "ui_query",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 85,
+      "line": 90,
       "symbol": "mutationFn: ({"
     },
     {
@@ -2138,7 +2139,7 @@
       "kind": "ui_api",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 86,
+      "line": 91,
       "symbol": "api.patch"
     },
     {
@@ -2146,7 +2147,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 125,
+      "line": 130,
       "symbol": "onCreate={() => create.mutate()}"
     },
     {
@@ -2154,7 +2155,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 126,
+      "line": 131,
       "symbol": "onSelect={(id) => { setParams({ c: id }) setDraft('') setReference(undefined) setError(null) }}"
     },
     {
@@ -2162,7 +2163,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 132,
+      "line": 137,
       "symbol": "onDelete={(id) => remove.mutate(id)}"
     },
     {
@@ -2170,7 +2171,7 @@
       "kind": "ui_button",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 144,
+      "line": 149,
       "symbol": "<button className=\"icon-button\" aria-label=\"关闭提示\" onClick={() => { setError(null) dismiss(cid ?? '') void cache.invalidateQueries() }} >"
     },
     {
@@ -2178,7 +2179,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 147,
+      "line": 152,
       "symbol": "onClick={() => { setError(null) dismiss(cid ?? '') void cache.invalidateQueries() }}"
     },
     {
@@ -2186,7 +2187,7 @@
       "kind": "ui_button",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 160,
+      "line": 166,
       "symbol": "<button type=\"button\" onClick={() => setConfigOpen(true)}>"
     },
     {
@@ -2194,7 +2195,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 160,
+      "line": 166,
       "symbol": "onClick={() => setConfigOpen(true)}"
     },
     {
@@ -2202,7 +2203,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 169,
+      "line": 175,
       "symbol": "onPrompt={setDraft}"
     },
     {
@@ -2210,7 +2211,7 @@
       "kind": "ui_button",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 178,
+      "line": 184,
       "symbol": "<button className=\"icon-button\" aria-label=\"移除参考内容\" onClick={() => setReference(undefined)} >"
     },
     {
@@ -2218,7 +2219,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 181,
+      "line": 187,
       "symbol": "onClick={() => setReference(undefined)}"
     },
     {
@@ -2226,7 +2227,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 189,
+      "line": 195,
       "symbol": "onText={setDraft}"
     },
     {
@@ -2234,7 +2235,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 190,
+      "line": 196,
       "symbol": "onSend={() => void send()}"
     },
     {
@@ -2242,7 +2243,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 192,
+      "line": 205,
       "symbol": "onStop={run ? () => void stop(run.cid) : undefined}"
     },
     {
@@ -2250,7 +2251,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 205,
+      "line": 218,
       "symbol": "onChange={(value) => model.mutate({ id: cid!, value })}"
     },
     {
@@ -2258,7 +2259,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 206,
+      "line": 162,
       "symbol": "onConfigure={() => setConfigOpen(true)}"
     },
     {
@@ -2266,7 +2267,7 @@
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 215,
+      "line": 228,
       "symbol": "onClose={closeConfig}"
     },
     {
@@ -2786,7 +2787,7 @@
       "kind": "ui_query",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 71,
+      "line": 73,
       "symbol": "mutationFn: async"
     },
     {
@@ -2794,7 +2795,7 @@
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 73,
+      "line": 75,
       "symbol": "workspaceApi.importContent"
     },
     {
@@ -2802,7 +2803,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 18,
+      "line": 19,
       "symbol": "onClose={onClose}"
     },
     {
@@ -2810,7 +2811,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 107,
+      "line": 109,
       "symbol": "onPaste={(event) => { const value = event.clipboardData.files[0] if (value) { event.preventDefault() chooseFile(value) } }}"
     },
     {
@@ -2818,7 +2819,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 118,
+      "line": 120,
       "symbol": "onDragOver={(event) => { event.preventDefault() setDragging(true) }}"
     },
     {
@@ -2826,7 +2827,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 122,
+      "line": 124,
       "symbol": "onDragLeave={() => setDragging(false)}"
     },
     {
@@ -2834,7 +2835,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 123,
+      "line": 125,
       "symbol": "onDrop={(event) => { event.preventDefault() setDragging(false) chooseFile(event.dataTransfer.files[0]) }}"
     },
     {
@@ -2842,7 +2843,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 136,
+      "line": 138,
       "symbol": "onChange={(event) => chooseFile(event.target.files?.[0])}"
     },
     {
@@ -2850,7 +2851,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 144,
+      "line": 146,
       "symbol": "onClick={() => { setFile(null) setFileError('') }}"
     },
     {
@@ -2858,7 +2859,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 158,
+      "line": 160,
       "symbol": "onChange={(event) => setUseAI(event.target.checked)}"
     },
     {
@@ -2866,7 +2867,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 175,
+      "line": 177,
       "symbol": "<button className=\"secondary-button\" type=\"button\" onClick={onClose}>"
     },
     {
@@ -2874,7 +2875,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 175,
+      "line": 177,
       "symbol": "onClick={onClose}"
     },
     {
@@ -2882,7 +2883,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 178,
+      "line": 180,
       "symbol": "<button className=\"primary-button\" disabled={create.isPending || !!fileError}>"
     },
     {
@@ -4690,7 +4691,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 80,
+      "line": 81,
       "symbol": "onChange={(event) => setDraft(event.target.value)}"
     },
     {
@@ -4698,7 +4699,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 77,
+      "line": 79,
       "symbol": "confirmAction"
     },
     {
@@ -4706,7 +4707,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 82,
+      "line": 84,
       "symbol": "archiveJob"
     },
     {
@@ -4714,7 +4715,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 86,
+      "line": 88,
       "symbol": "conversations"
     },
     {
@@ -4722,7 +4723,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 87,
+      "line": 89,
       "symbol": "create"
     },
     {
@@ -4730,7 +4731,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 88,
+      "line": 90,
       "symbol": "conversation"
     },
     {
@@ -4738,7 +4739,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 89,
+      "line": 91,
       "symbol": "messages"
     },
     {
@@ -4746,7 +4747,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 90,
+      "line": 92,
       "symbol": "patch"
     },
     {
@@ -4754,7 +4755,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 95,
+      "line": 97,
       "symbol": "remove"
     },
     {
@@ -4762,7 +4763,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 97,
+      "line": 99,
       "symbol": "stop"
     },
     {
@@ -4770,7 +4771,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 101,
+      "line": 103,
       "symbol": "settings"
     },
     {
@@ -4778,7 +4779,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 102,
+      "line": 104,
       "symbol": "catalog"
     },
     {
@@ -4786,7 +4787,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 103,
+      "line": 105,
       "symbol": "saveSettings"
     },
     {
@@ -4794,7 +4795,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 112,
+      "line": 114,
       "symbol": "commands"
     },
     {
@@ -4802,7 +4803,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 113,
+      "line": 115,
       "symbol": "skills"
     },
     {
@@ -4810,7 +4811,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 114,
+      "line": 116,
       "symbol": "mcp"
     },
     {
@@ -4818,7 +4819,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/api.ts",
-      "line": 115,
+      "line": 117,
       "symbol": "chat"
     },
     {
@@ -5106,10 +5107,10 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/routes/appearance.py",
-      "line": 28,
+      "line": 29,
       "symbol": "GET /api/appearance/backgrounds",
       "service_calls": [
-        "request.app.state.appearance.backgrounds"
+        "request_services(request).appearance.backgrounds"
       ]
     },
     {
@@ -5117,10 +5118,10 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/routes/appearance.py",
-      "line": 33,
+      "line": 34,
       "symbol": "POST /api/appearance/backgrounds",
       "service_calls": [
-        "request.app.state.appearance.add_background"
+        "request_services(request).appearance.add_background"
       ]
     },
     {
@@ -5128,10 +5129,10 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/routes/appearance.py",
-      "line": 40,
+      "line": 41,
       "symbol": "PUT /api/appearance/backgrounds/selection",
       "service_calls": [
-        "request.app.state.appearance.select_background"
+        "request_services(request).appearance.select_background"
       ]
     },
     {
@@ -5139,10 +5140,10 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/routes/appearance.py",
-      "line": 45,
+      "line": 46,
       "symbol": "GET /api/appearance/backgrounds/{identifier}",
       "service_calls": [
-        "request.app.state.appearance.background"
+        "request_services(request).appearance.background"
       ]
     },
     {
@@ -5150,10 +5151,10 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/routes/appearance.py",
-      "line": 58,
+      "line": 59,
       "symbol": "DELETE /api/appearance/backgrounds/{identifier}",
       "service_calls": [
-        "request.app.state.appearance.delete_background"
+        "request_services(request).appearance.delete_background"
       ]
     },
     {
@@ -5161,10 +5162,10 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/routes/appearance.py",
-      "line": 64,
+      "line": 65,
       "symbol": "GET /api/appearance/models/{form}",
       "service_calls": [
-        "request.app.state.appearance.model"
+        "request_services(request).appearance.model"
       ]
     },
     {
@@ -5172,10 +5173,10 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/routes/appearance.py",
-      "line": 69,
+      "line": 70,
       "symbol": "PUT /api/appearance/models/{form}",
       "service_calls": [
-        "request.app.state.appearance.save_model"
+        "request_services(request).appearance.save_model"
       ]
     },
     {
@@ -5183,10 +5184,10 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/routes/appearance.py",
-      "line": 76,
+      "line": 77,
       "symbol": "DELETE /api/appearance/models/{form}",
       "service_calls": [
-        "request.app.state.appearance.delete_model"
+        "request_services(request).appearance.delete_model"
       ]
     },
     {
@@ -5194,10 +5195,10 @@
       "kind": "http_route",
       "page": "API / Service / Agent",
       "file": "src/xiliu/api/routes/appearance.py",
-      "line": 82,
+      "line": 83,
       "symbol": "GET /api/appearance/model-assets/{form}",
       "service_calls": [
-        "request.app.state.appearance.model_file"
+        "request_services(request).appearance.model_file"
       ]
     },
     {
@@ -5205,10 +5206,10 @@
       "kind": "http_route",
       "page": "Feed",
       "file": "src/xiliu/api/routes/feed.py",
-      "line": 71,
+      "line": 75,
       "symbol": "POST /api/feed/{item_id}/summarize",
       "service_calls": [
-        "request.app.state.feed.summarize"
+        "request_services(request).feed.summarize"
       ]
     },
     {
@@ -5288,7 +5289,7 @@
       "kind": "service_method",
       "page": "Feed",
       "file": "src/xiliu/api/services/feed.py",
-      "line": 694,
+      "line": 712,
       "symbol": "FeedService.summarize"
     },
     {
@@ -5296,7 +5297,7 @@
       "kind": "ui_link",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/app/App.tsx",
-      "line": 112,
+      "line": 113,
       "symbol": "<NavLink className=\"brand\" to=\"/assistant\" aria-label=\"xiliu 助手\" title=\"xiliu\">"
     },
     {
@@ -5304,7 +5305,7 @@
       "kind": "ui_link",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/app/App.tsx",
-      "line": 117,
+      "line": 118,
       "symbol": "<NavLink key={path} to={path} aria-label={label} title={label} data-onboarding={`nav-${path.slice(1)}`} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} >"
     },
     {
@@ -5312,7 +5313,7 @@
       "kind": "ui_link",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/app/App.tsx",
-      "line": 140,
+      "line": 141,
       "symbol": "<NavLink className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} to=\"/settings\" state={{ backgroundLocation: isSettings ? backgroundUrl : location }} aria-label=\"设置\" title=\"设置\" >"
     },
     {
@@ -5512,7 +5513,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 106,
+      "line": 107,
       "symbol": "onPointerMove={(event) => { const rect = event.currentTarget.getBoundingClientRect() controller.current?.focus(event.clientX - rect.left, event.clientY - rect.top) }}"
     },
     {
@@ -5520,7 +5521,7 @@
       "kind": "ui_fetch",
       "page": "Companion",
       "file": "web/src/features/companion/live2d-runtime.ts",
-      "line": 10,
+      "line": 11,
       "symbol": "fetch(path,"
     },
     {
@@ -5536,7 +5537,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 19,
+      "line": 20,
       "symbol": "onSaved={onSaved}"
     },
     {
@@ -5544,7 +5545,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 19,
+      "line": 20,
       "symbol": "onClose={onClose}"
     },
     {
@@ -5552,7 +5553,7 @@
       "kind": "ui_mutation",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 70,
+      "line": 72,
       "symbol": "useMutation({ mutationFn: async () => { if (!text.trim() && !file) throw new Error('请粘贴文字、链接，或选择一个文件。') return workspaceApi.importContent({ ...(text.trim() ? { text: text.trim() } : {}), ...(file ? { filename: file.name, data_base64: await fileBase64(file) } : {}), use_ai: useAI, }) }, onSuccess: (item) => { setText('') setFile(null) onSaved(item) }, onSettled: () => { submitting.current = false }, }"
     },
     {
@@ -5560,7 +5561,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 90,
+      "line": 92,
       "symbol": "onSubmit={(event) => { event.preventDefault() if (submitting.current) return submitting.current = true create.mutate() }}"
     },
     {
@@ -5568,7 +5569,7 @@
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 103,
+      "line": 105,
       "symbol": "onChange={(event) => { if (!submitting.current) setText(event.target.value) }}"
     },
     {
@@ -5576,7 +5577,7 @@
       "kind": "ui_button",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 140,
+      "line": 142,
       "symbol": "<button className=\"secondary-button\" type=\"button\" disabled={create.isPending} onClick={() => { setFile(null) setFileError('') }} >"
     },
     {
@@ -6296,7 +6297,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 29,
+      "line": 30,
       "symbol": "onError={(event) => { event.currentTarget.hidden = true }}"
     },
     {
@@ -6304,7 +6305,7 @@
       "kind": "ui_link",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 34,
+      "line": 35,
       "symbol": "<Link className=\"home-profile\" to=\"/settings?section=profile\" state={{ backgroundLocation: location }} aria-label={`${preferences.displayName || '你'}的个人设置`} >"
     },
     {
@@ -6312,7 +6313,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 62,
+      "line": 63,
       "symbol": "onSubmit={(event) => { event.preventDefault() if (draft.trim() && !ask.isPending) ask.mutate({ draft: draft.trim() }) }}"
     },
     {
@@ -6320,7 +6321,7 @@
       "kind": "ui_button",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 67,
+      "line": 68,
       "symbol": "<button type=\"button\" className=\"home-attach\" aria-label=\"导入文件或链接\" title=\"导入文件或链接\" onClick={() => setCapture(true)} >"
     },
     {
@@ -6328,7 +6329,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 72,
+      "line": 73,
       "symbol": "onClick={() => setCapture(true)}"
     },
     {
@@ -6336,7 +6337,7 @@
       "kind": "ui_button",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 84,
+      "line": 85,
       "symbol": "<button type=\"button\" className=\"home-capture\" aria-label=\"快速收录\" title=\"快速收录到收件箱\" onClick={() => setCapture(true)} >"
     },
     {
@@ -6344,7 +6345,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 89,
+      "line": 90,
       "symbol": "onClick={() => setCapture(true)}"
     },
     {
@@ -6352,7 +6353,7 @@
       "kind": "ui_button",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 93,
+      "line": 94,
       "symbol": "<button className=\"home-send\" aria-label=\"在助手中继续\" title=\"开始对话\" disabled={ask.isPending || !draft.trim()} >"
     },
     {
@@ -6360,7 +6361,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 116,
+      "line": 117,
       "symbol": "onClose={() => setCapture(false)}"
     },
     {
@@ -6368,7 +6369,7 @@
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
-      "line": 117,
+      "line": 118,
       "symbol": "onSaved={() => { setCapture(false) void cache.invalidateQueries({ queryKey: ['content'] }) void cache.invalidateQueries({ queryKey: ['inbox'] }) }}"
     },
     {
@@ -6616,7 +6617,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 104,
+      "line": 105,
       "symbol": "onPointerEnter={() => setHover(true)}"
     },
     {
@@ -6624,7 +6625,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 105,
+      "line": 106,
       "symbol": "onPointerLeave={() => setHover(false)}"
     },
     {
@@ -6632,7 +6633,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 127,
+      "line": 128,
       "symbol": "onLoad={() => setAvailable((old) => ({ ...old, [key]: true }))}"
     },
     {
@@ -6640,7 +6641,7 @@
       "kind": "ui_event",
       "page": "Companion",
       "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 128,
+      "line": 129,
       "symbol": "onError={() => setAvailable((old) => ({ ...old, [key]: false }))}"
     },
     {
@@ -6648,7 +6649,7 @@
       "kind": "ui_button",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/app/App.tsx",
-      "line": 130,
+      "line": 131,
       "symbol": "<button type=\"button\" className=\"nav-item\" aria-label=\"重新查看新手引导\" title=\"新手引导\" data-onboarding=\"help-entry\" onClick={startGuide} >"
     },
     {
@@ -6656,7 +6657,7 @@
       "kind": "ui_event",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/app/App.tsx",
-      "line": 136,
+      "line": 137,
       "symbol": "onClick={startGuide}"
     },
     {
@@ -6664,7 +6665,7 @@
       "kind": "ui_event",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/app/App.tsx",
-      "line": 154,
+      "line": 155,
       "symbol": "onReset={async () => { await resetDemoExperience(cache) navigate('/today', { replace: true }) }}"
     },
     {
@@ -6808,21 +6809,219 @@
       "kind": "ui_event",
       "page": "Onboarding",
       "file": "web/src/features/onboarding/progress.ts",
-      "line": 55,
+      "line": 63,
       "symbol": "onStorage = (event:"
+    },
+    {
+      "id": "http_route:0bd774bd20a9eaf0f487:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/app.py",
+      "line": 111,
+      "symbol": "GET /api/health",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:f24f8d3336709a839111:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/auth.py",
+      "line": 124,
+      "symbol": "GET /api/cloud/bootstrap",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:712cf85c1a48e75a5bd2:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/auth.py",
+      "line": 132,
+      "symbol": "GET /api/auth/session",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:ef7dc08044b9d827ea96:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/auth.py",
+      "line": 150,
+      "symbol": "POST /api/auth/register",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:14197661108042cdd35d:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/auth.py",
+      "line": 163,
+      "symbol": "POST /api/auth/login",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:c45c2660ee76605eab97:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/auth.py",
+      "line": 176,
+      "symbol": "POST /api/auth/logout",
+      "service_calls": []
+    },
+    {
+      "id": "ui_event:d03e587b5f2b2075f1ce:2",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 219,
+      "symbol": "onConfigure={() => setConfigOpen(true)}"
+    },
+    {
+      "id": "ui_button:d87d844df68655241a5f:1",
+      "kind": "ui_button",
+      "page": "Auth",
+      "file": "web/src/features/auth/AccountControl.tsx",
+      "line": 13,
+      "symbol": "<button type=\"button\" disabled={busy} onClick={async () => { setBusy(true) setError('') try { await logout() } catch { setError('退出失败，请重试。') setBusy(false) } }} >"
+    },
+    {
+      "id": "ui_event:98d6bf28cae94072e2d5:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AccountControl.tsx",
+      "line": 16,
+      "symbol": "onClick={async () => { setBusy(true) setError('') try { await logout() } catch { setError('退出失败，请重试。') setBusy(false) } }}"
+    },
+    {
+      "id": "ui_event:6d7874df9bee6dd7fb7a:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 9,
+      "symbol": "onSuccess = ()"
+    },
+    {
+      "id": "ui_event:3952526d13a9363b3bab:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 43,
+      "symbol": "onSubmit={submit}"
+    },
+    {
+      "id": "ui_event:0e4dc9cddab8ade6d735:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 52,
+      "symbol": "onChange={(event) => setUsername(event.target.value)}"
+    },
+    {
+      "id": "ui_event:9f1f160b893ebeeff945:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 64,
+      "symbol": "onChange={(event) => setPassword(event.target.value)}"
+    },
+    {
+      "id": "ui_button:b51865a6cacae727690b:1",
+      "kind": "ui_button",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 77,
+      "symbol": "<button className=\"cloud-auth-submit\" disabled={busy}>"
+    },
+    {
+      "id": "ui_button:bbe7aae0538c4353d0f2:1",
+      "kind": "ui_button",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 82,
+      "symbol": "<button type=\"button\" className=\"cloud-auth-switch\" disabled={busy} onClick={() => { setMode(mode === 'login' ? 'register' : 'login') setError('') setPassword('') }} >"
+    },
+    {
+      "id": "ui_event:94c5fa30f3fe644fdb92:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 86,
+      "symbol": "onClick={() => { setMode(mode === 'login' ? 'register' : 'login') setError('') setPassword('') }}"
+    },
+    {
+      "id": "ui_link:1c3f1f9ea88bd88c555e:1",
+      "kind": "ui_link",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 95,
+      "symbol": "<a className=\"cloud-auth-guest\" href=\"/demo/#/today\">"
+    },
+    {
+      "id": "ui_button:4fd1f56534682952b3b7:1",
+      "kind": "ui_button",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 147,
+      "symbol": "<button onClick={() => window.location.reload()}>"
+    },
+    {
+      "id": "ui_event:14e20759d7f68373c316:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 147,
+      "symbol": "onClick={() => window.location.reload()}"
+    },
+    {
+      "id": "ui_event:a09fb59ac7e055cab5ca:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/TrialSelector.tsx",
+      "line": 16,
+      "symbol": "onChange={() => setChatSource('own')}"
+    },
+    {
+      "id": "ui_event:321435fb726d853fd595:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/TrialSelector.tsx",
+      "line": 26,
+      "symbol": "onChange={() => setChatSource('trial')}"
+    },
+    {
+      "id": "ui_button:4f41d745d1932f350d7d:1",
+      "kind": "ui_button",
+      "page": "Auth",
+      "file": "web/src/features/auth/TrialSelector.tsx",
+      "line": 30,
+      "symbol": "<button type=\"button\" onClick={onConfigure}>"
+    },
+    {
+      "id": "ui_event:0bf504cf804bf9e95890:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/TrialSelector.tsx",
+      "line": 30,
+      "symbol": "onClick={onConfigure}"
+    },
+    {
+      "id": "ui_fetch:68d086664ef5e5c731b4:1",
+      "kind": "ui_fetch",
+      "page": "Auth",
+      "file": "web/src/features/auth/client.ts",
+      "line": 4,
+      "symbol": "fetch(`/api${path}`,"
     }
   ],
   "counts": {
-    "http_route": 71,
-    "ui_link": 37,
-    "ui_event": 275,
-    "ui_button": 129,
+    "http_route": 77,
+    "ui_link": 38,
+    "ui_event": 286,
+    "ui_button": 134,
     "service_method": 90,
     "base_tool": 17,
     "ui_api": 66,
     "ui_query": 51,
     "ui_mutation": 28,
-    "ui_fetch": 2,
+    "ui_fetch": 3,
     "api_client": 53
   }
 }
