@@ -1,4 +1,6 @@
 import { appFetch } from './app-fetch'
+import { isCloud } from './runtime-mode'
+import { chatSource, updateTrial } from '../features/auth/session'
 import type {
   Capability,
   Command,
@@ -47,7 +49,7 @@ export async function* readNDJSON(response: Response): AsyncGenerator<WebEvent> 
   function parse(line: string): WebEvent {
     try {
       const event = JSON.parse(line)
-      if (!['status', 'progress', 'final', 'error'].includes(event.type)) throw new Error()
+      if (!['status', 'progress', 'final', 'error', 'usage'].includes(event.type)) throw new Error()
       return event as WebEvent
     } catch {
       throw new ApiError('invalid_stream', '对话流格式不正确，请重试。')
@@ -122,11 +124,19 @@ export const api = {
     const response = await appFetch(`/api/conversations/${encodeURIComponent(id)}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text, ...(context ? { context } : {}) }),
+      body: JSON.stringify({
+        text,
+        ...(context ? { context } : {}),
+        ...(isCloud ? { source: chatSource(), request_id: crypto.randomUUID() } : {}),
+      }),
       signal,
     })
     let final = false
     for await (const event of readNDJSON(response)) {
+      if (event.type === 'usage') {
+        if (isCloud && event.trial) updateTrial(event.trial)
+        continue
+      }
       onEvent(event)
       if (event.type === 'final' || event.type === 'error') final = true
     }

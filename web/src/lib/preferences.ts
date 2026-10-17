@@ -2,6 +2,7 @@ import { useLayoutEffect, useSyncExternalStore } from 'react'
 import { saveDesktopPreferences } from '../desktop/bridge'
 import { appFetch } from './app-fetch'
 import { isDemo } from './runtime-mode'
+import { storageKey } from '../features/auth/session'
 
 export interface Preferences {
   displayName: string
@@ -25,17 +26,25 @@ export const defaultPreferences: Preferences = {
   density: 'comfortable',
   reducedMotion: false,
 }
-const key = isDemo ? 'xiliu-demo-preferences-v1' : 'xiliu-preferences-v1'
+const key = () => storageKey(isDemo ? 'xiliu-demo-preferences-v1' : 'xiliu-preferences-v1')
+let cachedKey = ''
 const listeners = new Set<() => void>()
 let cachedRaw: string | null | undefined
 let cached: Preferences = defaultPreferences
 let revision: number | null = null
 let storageUnavailable = false
 function read(): Preferences {
+  if (cachedKey !== key()) {
+    cachedKey = key()
+    cachedRaw = undefined
+    cached = defaultPreferences
+    revision = null
+    storageUnavailable = false
+  }
   if (storageUnavailable) return cached
   let raw: string | null
   try {
-    raw = localStorage.getItem(key)
+    raw = localStorage.getItem(key())
   } catch {
     return cached
   }
@@ -82,7 +91,7 @@ function subscribe(listener: () => void) {
     window.addEventListener('focus', refresh)
   }
   const storage = (event: StorageEvent) => {
-    if (event.key === key || event.key === null) {
+    if (event.key === key() || event.key === null) {
       emit()
       refresh()
     }
@@ -140,7 +149,7 @@ function accept(snapshot: Snapshot) {
   }
   const json = JSON.stringify(snapshot.preferences)
   try {
-    localStorage.setItem(key, json)
+    localStorage.setItem(key(), json)
     storageUnavailable = false
   } catch {
     // The authoritative SQLite write remains durable without browser storage.

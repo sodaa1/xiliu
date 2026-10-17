@@ -44,7 +44,8 @@ export interface Capability {
   description: string
 }
 export interface WebEvent {
-  type: 'status' | 'progress' | 'final' | 'error'
+  type: 'status' | 'progress' | 'final' | 'error' | 'usage'
+  trial?: { enabled: boolean; limit: number; remaining: number }
   stage?: string
   message?: string
   text?: string

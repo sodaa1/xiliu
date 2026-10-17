@@ -11,8 +11,13 @@ import type { AssistantReference } from '../content/useAskAI'
 import { Modal } from '../../components/Modal'
 import { ModelSettingsPanel } from '../settings/SettingsPage'
 import { ModelPicker } from './ModelPicker'
+import { isCloud } from '../../lib/runtime-mode'
+import { TrialSelector } from '../auth/TrialSelector'
+import { useCloudSession, useChatSource } from '../auth/session'
 
 export function AssistantPage() {
+  const session = useCloudSession()
+  const source = useChatSource()
   const cache = useQueryClient(),
     [params, setParams] = useSearchParams()
   const location = useLocation(),
@@ -154,7 +159,8 @@ export function AssistantPage() {
               </button>
             </div>
           )}
-          {settings.data && !settings.data.api_key_set && (
+          {isCloud && <TrialSelector busy={!!run} onConfigure={() => setConfigOpen(true)} />}
+          {settings.data && !settings.data.api_key_set && (!isCloud || source === 'own') && (
             <div className="setup-banner">
               开始前，先连接你使用的模型。
               <button type="button" onClick={() => setConfigOpen(true)}>
@@ -188,7 +194,14 @@ export function AssistantPage() {
             text={draft}
             onText={setDraft}
             onSend={() => void send()}
-            disabled={!!run || create.isPending}
+            disabled={
+              !!run ||
+              create.isPending ||
+              (isCloud &&
+                (source === 'trial'
+                  ? !session?.trial.enabled || session.trial.remaining < 1
+                  : !settings.data?.api_key_set))
+            }
             onStop={run ? () => void stop(run.cid) : undefined}
             stopping={run?.stopping}
             commands={commands.data}

@@ -43,6 +43,23 @@ def register(client, name):
     return response.json()
 
 
+def test_stale_tab_cannot_write_to_newly_selected_account(tmp_path):
+    cfg = CloudConfig(
+        data_dir=tmp_path, public_origin=ORIGIN, master_key=Fernet.generate_key().decode()
+    )
+    with TestClient(create_cloud_app(cfg), base_url=ORIGIN) as client:
+        alice = register(client, "alice")
+        register(client, "bobby")
+        response = client.post(
+            "/api/tasks",
+            json={"title": "Alice draft"},
+            headers={"X-Workspace-ID": alice["workspace"]["id"]},
+        )
+        assert response.status_code == 409
+        assert response.headers["X-Session-Changed"] == "1"
+        assert "Alice draft" not in client.get("/api/tasks").text
+
+
 def test_two_accounts_isolate_business_objects_and_restart(tmp_path):
     cfg = CloudConfig(
         data_dir=tmp_path / "data", public_origin=ORIGIN, master_key=Fernet.generate_key().decode()

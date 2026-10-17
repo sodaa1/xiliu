@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { storageKey } from '../auth/session'
 import { useMutation } from '@tanstack/react-query'
 import { Upload, X } from 'lucide-react'
 import { fileBase64, workspaceApi, type ContentItem } from '../../lib/workspace-api'
@@ -24,7 +25,7 @@ export function CaptureDialog({
 export function CaptureForm({
   onClose,
   onSaved,
-  draftKey,
+  draftKey: unscopedDraftKey,
   initialText = '',
 }: {
   onClose: () => void
@@ -32,6 +33,7 @@ export function CaptureForm({
   draftKey?: string
   initialText?: string
 }) {
+  const draftKey = unscopedDraftKey ? storageKey(unscopedDraftKey) : undefined
   const submitting = useRef(false)
   const [text, setText] = useState(() => {
       try {

@@ -34,7 +34,8 @@ import './page-transition.css'
 import { CompanionController } from '../features/companion/CompanionController'
 import { CompanionPage } from '../features/companion/CompanionPage'
 import { CapturePage } from '../features/companion/CapturePage'
-import { isDemo } from '../lib/runtime-mode'
+import { isCloud, isDemo } from '../lib/runtime-mode'
+import { AccountControl } from '../features/auth/AccountControl'
 import { DemoBar } from '../features/demo/DemoBar'
 import { resetDemoExperience } from '../features/demo/reset'
 import { Onboarding } from '../features/onboarding/Onboarding'
@@ -159,6 +160,7 @@ function AppLayout() {
             )}
             <div className="global-topbar">
               <PillNav />
+              {isCloud && <AccountControl />}
             </div>
             <Onboarding />
             <Routes location={displayed}>

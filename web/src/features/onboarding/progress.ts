@@ -1,20 +1,28 @@
 import { isDemo } from '../../lib/runtime-mode'
 import { tourSteps } from './steps'
+import { storageKey } from '../auth/session'
 export interface GuideProgress {
   version: 2
   status: 'new' | 'active' | 'dismissed' | 'completed'
   step: number
 }
-const key = isDemo ? 'xiliu-demo-guide-v1' : 'xiliu-guide-v1'
+const key = () => storageKey(isDemo ? 'xiliu-demo-guide-v1' : 'xiliu-guide-v1')
+let cachedKey = ''
 const fresh: GuideProgress = { version: 2, status: 'new', step: 0 }
 let cached = fresh
 let rawCache: string | null | undefined
 let memoryOnly = false
 const listeners = new Set<() => void>()
 export function getGuideProgress(): GuideProgress {
+  if (cachedKey !== key()) {
+    cachedKey = key()
+    rawCache = undefined
+    cached = fresh
+    memoryOnly = false
+  }
   if (memoryOnly) return cached
   try {
-    const raw = localStorage.getItem(key)
+    const raw = localStorage.getItem(key())
     if (raw === rawCache) return cached
     rawCache = raw
     const value = JSON.parse(raw ?? 'null')
@@ -44,7 +52,7 @@ function write(value: GuideProgress) {
   cached = value
   try {
     rawCache = JSON.stringify(value)
-    localStorage.setItem(key, rawCache)
+    localStorage.setItem(key(), rawCache)
   } catch {
     memoryOnly = true
   }
@@ -53,7 +61,7 @@ function write(value: GuideProgress) {
 export function subscribeGuide(listener: () => void) {
   listeners.add(listener)
   const onStorage = (event: StorageEvent) => {
-    if (event.key === key || event.key === null) emit()
+    if (event.key === key() || event.key === null) emit()
   }
   window.addEventListener('storage', onStorage)
   window.addEventListener('xiliu-demo-reset', emit)

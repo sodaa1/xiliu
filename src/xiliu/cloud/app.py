@@ -42,6 +42,13 @@ class WorkspaceBinding:
         slot = None
         try:
             user = self.identity.session(Request(scope).cookies.get(COOKIE, ""))
+            expected = Request(scope).headers.get("x-workspace-id")
+            if expected is not None and expected != user["workspace_id"]:
+                response = error_response(
+                    WebError("account_changed", "账号已在其他窗口切换，请重新登录。", 409)
+                )
+                response.headers["X-Session-Changed"] = "1"
+                return await response(scope, receive, send)
             scope["xiliu.user"] = user
             slot = self.slots.acquire(user["workspace_id"])
             slot.__enter__()

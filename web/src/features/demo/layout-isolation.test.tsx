@@ -2,7 +2,7 @@ import { act, renderHook } from '@testing-library/react'
 import { expect, test, vi } from 'vitest'
 import { usePanelSize } from '../../lib/usePanelSize'
 
-vi.mock('../../lib/runtime-mode', () => ({ isDemo: true }))
+vi.mock('../../lib/runtime-mode', () => ({ isDemo: true, isCloud: false }))
 
 test('demo resizing neither reads nor changes normal workspace layout', () => {
   localStorage.clear()

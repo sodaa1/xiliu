@@ -1,4 +1,5 @@
 import type { ChatRun } from '../lib/types'
+import { storageKey } from '../features/auth/session'
 
 export const DEFAULT_PET_HEIGHT = 96
 export const PET_SCALES = [100, 125, 150, 175, 200] as const
@@ -25,7 +26,7 @@ export function petHeight(settings: CompanionSettings) {
 }
 export function previewSettings(): CompanionSettings {
   try {
-    const saved = JSON.parse(localStorage.getItem(PREVIEW_SETTINGS_KEY) ?? 'null')
+    const saved = JSON.parse(localStorage.getItem(storageKey(PREVIEW_SETTINGS_KEY)) ?? 'null')
     return { ...DEFAULT_COMPANION_SETTINGS, ...saved }
   } catch {
     return { ...DEFAULT_COMPANION_SETTINGS }
@@ -33,7 +34,7 @@ export function previewSettings(): CompanionSettings {
 }
 export function savePreviewSettings(settings: CompanionSettings) {
   const saved = { ...settings, height: petHeight(settings) }
-  localStorage.setItem(PREVIEW_SETTINGS_KEY, JSON.stringify(saved))
+  localStorage.setItem(storageKey(PREVIEW_SETTINGS_KEY), JSON.stringify(saved))
   window.dispatchEvent(new Event('companion-preview-settings'))
   return saved
 }

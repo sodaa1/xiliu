@@ -4,7 +4,7 @@ import hooks from 'eslint-plugin-react-hooks'
 import refresh from 'eslint-plugin-react-refresh'
 import globals from 'globals'
 export default tseslint.config(
-  { ignores: ['dist', 'dist-demo', 'node_modules', '.preview'] },
+  { ignores: ['dist', 'dist-demo', 'dist-cloud', 'dist-guest', 'node_modules', '.preview'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {

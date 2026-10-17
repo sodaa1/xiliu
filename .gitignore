@@ -55,6 +55,8 @@ project-showcase/
 web/node_modules/
 web/dist/
 web/dist-demo/
+web/dist-cloud/
+web/dist-guest/
 *.log
 *.log.*
 /logs/

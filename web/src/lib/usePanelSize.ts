@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { isDemo } from './runtime-mode'
+import { storageKey as scopedKey } from '../features/auth/session'
 
 export function usePanelSize(key: string, min: number, max: number, initial = max) {
-  const storageKey = isDemo ? key.replace(/^xiliu-/, 'xiliu-demo-') : key
+  const storageKey = scopedKey(isDemo ? key.replace(/^xiliu-/, 'xiliu-demo-') : key)
   const fallback = Math.max(min, Math.min(max, initial))
   const [value, setValue] = useState(() => {
     try {
