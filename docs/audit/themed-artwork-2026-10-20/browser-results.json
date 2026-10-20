@@ -1,0 +1,68 @@
+{
+  "checks": [
+    "home: second visit differs; controls do not reroll background",
+    "feed: second visit differs; controls do not reroll background",
+    "knowledge: second visit differs; controls do not reroll background",
+    "launch: second visit differs; controls do not reroll background",
+    "DPR 2 browser selects a real high-resolution source",
+    "390px and 768px layouts and responsive images fit",
+    "Dark/large-font pages retain readable hierarchy",
+    "Local artwork loads with external HTTPS requests blocked; local application server stays available"
+  ],
+  "rotations": [
+    {
+      "label": "home",
+      "first": "quiet-water",
+      "second": "alpine-huts"
+    },
+    {
+      "label": "feed",
+      "first": "city-skyline",
+      "second": "london-skyline"
+    },
+    {
+      "label": "knowledge",
+      "first": "quiet-water",
+      "second": "alpine-huts"
+    },
+    {
+      "label": "launch",
+      "first": "quiet-water",
+      "second": "winter-lake"
+    }
+  ],
+  "resolution": {
+    "source": "http://127.0.0.1:5200/artwork/winter-lake-3840.webp",
+    "rendered": 956,
+    "natural": 1007,
+    "dpr": 2
+  },
+  "imageRequests": [
+    "http://127.0.0.1:5200/artwork/quiet-water-3840.webp",
+    "http://127.0.0.1:5200/artwork/desktop-display-960.webp",
+    "http://127.0.0.1:5200/artwork/alpine-huts-3840.webp",
+    "http://127.0.0.1:5200/artwork/digital-workspace-960.webp",
+    "http://127.0.0.1:5200/artwork/laptop-mouse-960.webp",
+    "http://127.0.0.1:5200/artwork/city-skyline-1920.webp",
+    "http://127.0.0.1:5200/artwork/winter-lake-960.webp",
+    "http://127.0.0.1:5200/artwork/creative-notes-960.webp",
+    "http://127.0.0.1:5200/artwork/city-skyline-960.webp",
+    "http://127.0.0.1:5200/artwork/open-notebook-960.webp",
+    "http://127.0.0.1:5200/artwork/london-skyline-1920.webp",
+    "http://127.0.0.1:5200/artwork/turquoise-peaks-960.webp",
+    "http://127.0.0.1:5200/artwork/minimal-tools-960.webp",
+    "http://127.0.0.1:5200/artwork/london-skyline-960.webp",
+    "http://127.0.0.1:5200/artwork/library-shelves-960.webp",
+    "http://127.0.0.1:5200/artwork/white-library-960.webp",
+    "http://127.0.0.1:5200/artwork/winter-lake-3840.webp",
+    "http://127.0.0.1:5200/artwork/baku-architecture-960.webp",
+    "http://127.0.0.1:5200/artwork/winter-lake-480.webp",
+    "http://127.0.0.1:5200/artwork/library-shelves-480.webp",
+    "http://127.0.0.1:5200/artwork/winter-lake-1920.webp",
+    "http://127.0.0.1:5200/artwork/baku-architecture-1920.webp",
+    "http://127.0.0.1:5200/artwork/quiet-water-960.webp",
+    "http://127.0.0.1:5200/artwork/reading-room-960.webp"
+  ],
+  "errors": [],
+  "fixture": "Real isolated temporary API; only deliberate QA articles/documents were added."
+}

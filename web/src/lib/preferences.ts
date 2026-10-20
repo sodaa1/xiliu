@@ -229,7 +229,8 @@ export function useApplyPreferences() {
       root.style.setProperty(
         '--app-font',
         {
-          system: "Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif",
+          system:
+            "'PingFang SC', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC', 'Segoe UI', sans-serif",
           rounded: "'Microsoft YaHei UI', 'Yu Gothic UI', 'Segoe UI', sans-serif",
           serif: "'Noto Serif SC', 'Songti SC', SimSun, serif",
         }[preferences.fontFamily]

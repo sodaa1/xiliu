@@ -1,7 +1,7 @@
 from typing import Any, Literal
 
 from fastapi import APIRouter, Request, Response
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 
 from xiliu.api.context import request_services
 
@@ -15,6 +15,14 @@ class TaskCreate(BaseModel):
     due_at: str | None = None
     scope: Literal["day", "week", "goal"] = "day"
     parent_id: str | None = None
+    status: Literal["not_started", "in_progress", "completed"] = "not_started"
+    completed_at: str | None = None
+    starts_at: str | None = None
+    description: str = ""
+    category: str = ""
+    priority: Literal["normal", "important", "urgent", "low"] = "normal"
+    tags: list[str] = Field(default_factory=list)
+    reminder_minutes: StrictInt | None = None
 
 
 class TaskUpdate(BaseModel):
@@ -24,6 +32,14 @@ class TaskUpdate(BaseModel):
     due_at: str | None = None
     scope: Literal["day", "week", "goal"] | None = None
     parent_id: str | None = None
+    status: Literal["not_started", "in_progress", "completed"] | None = None
+    completed_at: str | None = None
+    starts_at: str | None = None
+    description: str | None = None
+    category: str | None = None
+    priority: Literal["normal", "important", "urgent", "low"] | None = None
+    tags: list[str] | None = None
+    reminder_minutes: StrictInt | None = None
 
 
 class AutomationCreate(BaseModel):
@@ -47,7 +63,7 @@ def tasks(request: Request):
 
 @router.post("/tasks", status_code=201)
 def create_task(body: TaskCreate, request: Request):
-    return request_services(request).tasks.create(body.model_dump())
+    return request_services(request).tasks.create(body.model_dump(exclude_unset=True))
 
 
 @router.patch("/tasks/{task_id}")

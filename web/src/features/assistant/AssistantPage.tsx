@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { PageToolbar } from '../../components/WorkspaceChrome'
+import './assistant-workbench.css'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { X, FileText } from 'lucide-react'
@@ -121,7 +123,7 @@ export function AssistantPage() {
   const models = settings.data ? (catalog.data?.[settings.data.provider]?.models ?? []) : []
   return (
     <>
-      <div className="assistant-layout" inert={configOpen || undefined}>
+      <div className="assistant-layout assistant-workbench" inert={configOpen || undefined}>
         <ConversationList
           items={list.data ?? []}
           selected={cid}
@@ -138,6 +140,7 @@ export function AssistantPage() {
         />
         <section className="chat-panel">
           <header className="chat-header">
+            <PageToolbar />
             <div>
               <h1>助手</h1>
               <p>把想法交给息流，一起往前走。</p>

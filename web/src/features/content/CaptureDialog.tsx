@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { storageKey } from '../auth/session'
 import { useMutation } from '@tanstack/react-query'
-import { Upload, X } from 'lucide-react'
+import { Upload, X, FileText, Paperclip } from 'lucide-react'
 import { fileBase64, workspaceApi, type ContentItem } from '../../lib/workspace-api'
 import { ContentDialog } from './ContentDialog'
 import { isDemo } from '../../lib/runtime-mode'
@@ -45,7 +45,8 @@ export function CaptureForm({
     [file, setFile] = useState<File | null>(null),
     [useAI, setUseAI] = useState(!isDemo),
     [fileError, setFileError] = useState(''),
-    [dragging, setDragging] = useState(false)
+    [dragging, setDragging] = useState(false),
+    [mode, setMode] = useState<'text' | 'file'>('text')
   useEffect(() => {
     if (!draftKey) return
     try {
@@ -67,6 +68,7 @@ export function CaptureForm({
       return
     }
     setFile(value)
+    setMode('file')
     setFileError('')
   }
   const create = useMutation({
@@ -89,6 +91,7 @@ export function CaptureForm({
   })
   return (
     <form
+      className="capture-form"
       onSubmit={(event) => {
         event.preventDefault()
         if (submitting.current) return
@@ -96,10 +99,14 @@ export function CaptureForm({
         create.mutate()
       }}
     >
+      <div className="capture-mode-tabs" role="group" aria-label="收集方式">
+        <button type="button" aria-pressed={mode === 'text'} onClick={() => setMode('text')}><FileText size={16} />文字与链接</button>
+        <button type="button" aria-pressed={mode === 'file'} onClick={() => setMode('file')}><Paperclip size={16} />文件</button>
+      </div>
       <label>
         文字或链接
         <textarea
-          rows={5}
+          rows={6}
           disabled={create.isPending}
           value={text}
           onChange={(event) => {
@@ -115,7 +122,9 @@ export function CaptureForm({
           }}
         />
       </label>
+      <span className="capture-character-count">{text.length} 字</span>
       <label
+        hidden={mode !== 'file' && !file}
         className={`content-dropzone ${dragging ? 'dragging' : ''}`}
         onDragOver={(event) => {
           event.preventDefault()

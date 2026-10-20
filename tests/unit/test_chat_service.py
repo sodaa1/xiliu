@@ -1,4 +1,5 @@
 from threading import Event, Thread
+
 import pytest
 
 from xiliu.api.services.chat import ChatService

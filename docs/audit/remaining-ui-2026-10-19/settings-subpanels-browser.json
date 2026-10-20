@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "主页背景 desktop visible without horizontal overflow",
+    "Live2D 模型 desktop visible without horizontal overflow",
+    "桌宠设置 desktop visible without horizontal overflow",
+    "New model form opens at desktop and 320px without writing credentials"
+  ],
+  "errors": []
+}

@@ -36,6 +36,96 @@ function tags(body: Body, fallback: string[] = []): string[] {
     throw new DemoError('标签格式不正确。')
   return [...new Set(body.tags as string[])]
 }
+function taskWithMetadata(task: Task): Task {
+  const status = task.status ?? (task.completed ? 'completed' : 'not_started')
+  return {
+    ...task,
+    status,
+    completed: status === 'completed',
+    completed_at: task.completed_at ?? null,
+    starts_at: task.starts_at ?? null,
+    description: task.description ?? '',
+    category: task.category ?? '',
+    priority: task.priority ?? 'normal',
+    tags: task.tags ?? [],
+    reminder_minutes: task.reminder_minutes ?? null,
+  }
+}
+function taskDate(value: unknown): string | null {
+  if (value === null) return null
+  if (typeof value !== 'string' || !Number.isFinite(Date.parse(value)))
+    throw new DemoError('日期不正确。')
+  return value
+}
+function updateTaskMetadata(task: Task, body: Body) {
+  Object.assign(task, taskWithMetadata(task))
+  const wasCompleted = task.completed
+  if (body.completed !== undefined && typeof body.completed !== 'boolean')
+    throw new DemoError('完成状态不正确。')
+  if (body.status !== undefined) {
+    if (
+      typeof body.status !== 'string' ||
+      !['not_started', 'in_progress', 'completed'].includes(body.status)
+    )
+      throw new DemoError('计划状态不正确。')
+    if (body.completed !== undefined && body.completed !== (body.status === 'completed'))
+      throw new DemoError('完成状态与计划状态不一致。')
+    task.status = body.status as Task['status']
+    task.completed = body.status === 'completed'
+  } else if (body.completed !== undefined) {
+    task.completed = body.completed as boolean
+    task.status = task.completed ? 'completed' : 'not_started'
+  }
+  if (body.completed_at !== undefined) {
+    const completedAt = taskDate(body.completed_at)
+    if (
+      completedAt !== null &&
+      (!task.completed ||
+        !/^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:\d{2})?)?$/.test(
+          completedAt
+        ))
+    )
+      throw new DemoError('完成日期不正确。')
+    task.completed_at = completedAt
+  }
+  if (!task.completed) task.completed_at = null
+  else if (!wasCompleted && task.completed_at === null) task.completed_at = now()
+  if (body.starts_at !== undefined) task.starts_at = taskDate(body.starts_at)
+  if (body.due_at !== undefined) task.due_at = taskDate(body.due_at)
+  task.description = text(body, 'description', task.description, 500)
+  task.category = text(body, 'category', task.category, 32)
+  if (body.priority !== undefined) {
+    if (
+      typeof body.priority !== 'string' ||
+      !['normal', 'important', 'urgent', 'low'].includes(body.priority)
+    )
+      throw new DemoError('优先级不正确。')
+    task.priority = body.priority as Task['priority']
+  }
+  if (body.tags !== undefined) {
+    if (
+      !Array.isArray(body.tags) ||
+      body.tags.length > 10 ||
+      body.tags.some((tag) => typeof tag !== 'string' || tag.trim().length > 32)
+    )
+      throw new DemoError('标签格式不正确。')
+    task.tags = [...new Set((body.tags as string[]).map((tag) => tag.trim()).filter(Boolean))]
+  }
+  if (body.reminder_minutes !== undefined) {
+    if (
+      body.reminder_minutes !== null &&
+      ![0, 5, 15, 30, 60, 1440].includes(body.reminder_minutes as number)
+    )
+      throw new DemoError('提醒时间不正确。')
+    task.reminder_minutes = body.reminder_minutes as number | null
+  }
+  const startsAt = taskDate(task.starts_at),
+    dueAt = taskDate(task.due_at)
+  if (startsAt && dueAt && Date.parse(startsAt) > Date.parse(dueAt))
+    throw new DemoError('开始时间不能晚于结束时间。')
+  if (task.reminder_minutes !== null && !startsAt && !dueAt)
+    throw new DemoError('请先设置计划时间再添加提醒。')
+}
 function classify(state: DemoState, item: ContentItem) {
   item.status = 'knowledge'
   item.folder_id =
@@ -99,7 +189,7 @@ export async function handleWorkspaceRequest(
     const state = await readDemoState()
     return Response.json({
       feed: listFeed(state, url).items,
-      tasks: state.tasks,
+      tasks: state.tasks.map(taskWithMetadata),
       inbox_count: state.content.filter((item) => item.status === 'inbox').length,
     })
   }
@@ -329,7 +419,8 @@ export async function handleWorkspaceRequest(
       return new Response(null, { status: 204 })
     }
   }
-  if (path === '/tasks' && get) return Response.json((await readDemoState()).tasks)
+  if (path === '/tasks' && get)
+    return Response.json((await readDemoState()).tasks.map(taskWithMetadata))
   if (
     (path === '/tasks' && method === 'POST') ||
     (id[0] === 'tasks' && id.length === 2 && method === 'PATCH')
@@ -352,22 +443,11 @@ export async function handleWorkspaceRequest(
         if (method === 'PATCH') checkRevision(task, body)
         task.title = text(body, 'title', task.title, 500).trim()
         if (!task.title) throw new DemoError('请输入计划名称。')
-        if (body.completed !== undefined) {
-          if (typeof body.completed !== 'boolean') throw new DemoError('完成状态不正确。')
-          task.completed = body.completed
-        }
+        updateTaskMetadata(task, body)
         if (body.scope !== undefined) {
           if (!['day', 'week', 'goal'].includes(String(body.scope)))
             throw new DemoError('计划范围不正确。')
           task.scope = body.scope as Task['scope']
-        }
-        if (body.due_at !== undefined) {
-          if (
-            body.due_at !== null &&
-            (typeof body.due_at !== 'string' || !Number.isFinite(Date.parse(body.due_at)))
-          )
-            throw new DemoError('日期不正确。')
-          task.due_at = body.due_at as string | null
         }
         if (body.parent_id !== undefined) {
           let parent = body.parent_id === null ? null : row(state.tasks, String(body.parent_id))

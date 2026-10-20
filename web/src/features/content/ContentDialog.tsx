@@ -27,6 +27,10 @@ export function ContentDialog({
     ;(focusable()[1] ?? element).focus()
     const keydown = (event: KeyboardEvent) => {
       if (event.defaultPrevented) return
+      // A pending action can disable the focused control and move focus to body.
+      // Keep keyboard handling attached to the topmost dialog in that state.
+      const dialogs = document.querySelectorAll('[role="dialog"][aria-modal="true"]')
+      if (dialogs[dialogs.length - 1] !== element) return
       if (event.key === 'Escape') {
         event.preventDefault()
         close.current()
@@ -35,6 +39,11 @@ export function ContentDialog({
         const nodes = focusable(),
           first = nodes[0],
           last = nodes.at(-1)
+        if (!element.contains(document.activeElement)) {
+          event.preventDefault()
+          ;(event.shiftKey ? last : first)?.focus()
+          return
+        }
         if (
           event.shiftKey &&
           (document.activeElement === first || document.activeElement === element)
@@ -47,9 +56,9 @@ export function ContentDialog({
         }
       }
     }
-    element.addEventListener('keydown', keydown)
+    document.addEventListener('keydown', keydown)
     return () => {
-      element.removeEventListener('keydown', keydown)
+      document.removeEventListener('keydown', keydown)
       previous?.focus()
     }
   }, [])

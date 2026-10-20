@@ -1,0 +1,8 @@
+
+ RUN  v4.1.11 E:/Learning/xiliu/web
+
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  12:47:26
+   Duration  1.13s (transform 129ms, setup 207ms, import 254ms, tests 31ms, environment 480ms)

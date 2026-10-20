@@ -1,0 +1,6 @@
+src/features/settings/SettingsPage.tsx 133ms
+src/features/settings/AppearanceSettings.tsx 19ms
+src/features/settings/PersonalSettings.tsx 11ms
+src/features/settings/SettingsPage.test.tsx 15ms
+src/features/settings/settings-workbench.css 67ms
+src/main.tsx 3ms (unchanged)

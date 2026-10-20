@@ -1,0 +1,116 @@
+{
+  "errors": [],
+  "rectangles": [
+    {
+      "route": "today",
+      "toolbar": {
+        "x": 934.046875,
+        "y": 24,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "route": "workbench",
+      "toolbar": {
+        "x": 909.046875,
+        "y": 14.5,
+        "width": 419.953125,
+        "height": 36
+      },
+      "search": {
+        "x": 145.59375,
+        "y": 22.90625,
+        "width": 326.5,
+        "height": 19.1875
+      }
+    },
+    {
+      "route": "assistant",
+      "toolbar": {
+        "x": 992.046875,
+        "y": 26.015625,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "route": "feed",
+      "toolbar": {
+        "x": 986.046875,
+        "y": 40.203125,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "route": "inbox",
+      "toolbar": {
+        "x": 927.046875,
+        "y": 39.109375,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "route": "knowledge",
+      "toolbar": {
+        "x": 927.046875,
+        "y": 51.046875,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "route": "plans",
+      "toolbar": {
+        "x": 985.5,
+        "y": 39.109375,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    }
+  ]
+}

@@ -26,7 +26,7 @@ export function PersonalSettings() {
   }, [preferences, revision, dirty])
   return (
     <form
-      className="settings-card"
+      className="settings-card profile-settings"
       onSubmit={async (event) => {
         event.preventDefault()
         setSaving(true)

@@ -76,6 +76,14 @@ export interface FeedResult {
   sources: SourceStatus[]
 }
 export interface Task extends DemoVersion {
+  status?: 'not_started' | 'in_progress' | 'completed'
+  completed_at?: string | null
+  starts_at?: string | null
+  description?: string
+  category?: string
+  priority?: 'normal' | 'important' | 'urgent' | 'low'
+  tags?: string[]
+  reminder_minutes?: number | null
   scope?: 'day' | 'week' | 'goal'
   parent_id?: string | null
   id: string
@@ -85,6 +93,7 @@ export interface Task extends DemoVersion {
   created_at: string
   updated_at: string
 }
+export type TaskInput = Partial<Omit<Task, 'id' | 'created_at' | 'updated_at'>>
 export interface Automation {
   id: string
   name: string
@@ -200,14 +209,10 @@ export const workspaceApi = {
     request<{ summary: string }>(`/feed/${encodeURIComponent(id)}/summarize`, 'POST'),
   today: () => request<{ feed: FeedItem[]; tasks: Task[]; inbox_count: number }>('/today'),
   tasks: () => request<Task[]>('/tasks'),
-  createTask: (title: string, due_at: string | null, details?: Pick<Task, 'scope' | 'parent_id'>) =>
+  createTask: (title: string, due_at: string | null, details?: TaskInput) =>
     request<Task>('/tasks', 'POST', { title, due_at, ...details }),
-  updateTask: (
-    id: string,
-    body: Partial<
-      Pick<Task, 'title' | 'completed' | 'due_at' | 'scope' | 'parent_id' | 'demo_revision'>
-    >
-  ) => request<Task>(`/tasks/${encodeURIComponent(id)}`, 'PATCH', body),
+  updateTask: (id: string, body: TaskInput) =>
+    request<Task>(`/tasks/${encodeURIComponent(id)}`, 'PATCH', body),
   deleteTask: (id: string) => request<void>(`/tasks/${encodeURIComponent(id)}`, 'DELETE'),
   automations: () => request<Automation[]>('/automations'),
   createAutomation: (body: {

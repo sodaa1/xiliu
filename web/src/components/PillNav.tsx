@@ -23,7 +23,14 @@ export function PillNav() {
         const anchor = (event.target as HTMLElement).closest('a')
         if (anchor?.getAttribute('href') === '/settings') {
           event.preventDefault()
-          navigate('/settings', { state: { backgroundLocation: location } })
+          navigate('/settings', {
+            state: {
+              backgroundLocation:
+                location.pathname === '/settings'
+                  ? (location.state?.backgroundLocation ?? { pathname: '/today' })
+                  : location,
+            },
+          })
         }
       }}
     >

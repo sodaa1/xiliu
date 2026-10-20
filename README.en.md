@@ -10,7 +10,7 @@
 
 **Give information a home and ideas room to flow.** Xiliu is a local-first personal knowledge workspace and AI assistant connecting Feed, Inbox, Knowledge, Assistant, and Today.
 
-Current version: **0.4.4**. React and FastAPI share the Runtime / LangGraph kernel; the Windows desktop uses Tauri 2. Documents and conversations stay on your device. Enabled model and network tools send their requests to the services you configure.
+Current version: **0.4.5**. React and FastAPI share the Runtime / LangGraph kernel; the Windows desktop uses Tauri 2. Documents and conversations stay on your device. Enabled model and network tools send their requests to the services you configure.
 
 ## Full Web deployment package
 
@@ -18,7 +18,15 @@ The self-hosted Web app supports accounts, isolated workspaces, user-owned model
 
 Follow the [Docker deployment guide](docs/CLOUD_WEB_DEPLOYMENT.md); account data lives in the server's persistent volume. See [operations](docs/cloud-operations.md) for backups and account recovery. This is a deployable source package; a public full-service instance is not yet hosted. GitHub Pages remains the guest demo. Desktop sign-in and bidirectional synchronization are planned for a later phase.
 
-Cloud mode disables local files, processes, Skills / MCP and shared search credentials; AI Hot and Web search are unavailable. The Windows 0.4.4 installer remains the local desktop edition.
+Cloud mode disables local files, processes, Skills / MCP and shared search credentials; AI Hot and Web search are unavailable. The Windows 0.4.5 installer remains the local desktop edition.
+
+## What's new in 0.4.5
+
+- A unified white/gray/lilac workspace with both original and landscape home themes; redesigned Assistant, Feed, Inbox, Knowledge and Settings.
+- Explicit pending, in-progress and completed task states with hover, keyboard and touch overflow menus.
+- Sixteen credited, locally bundled HD photographs rotate by topic, with responsive/high-DPI variants; original article images and uploaded backgrounds remain available.
+- Refined capture, reading, editing, automations and onboarding, including mobile, dark, larger-font and reduced-motion support.
+- [Windows installer and SHA256](https://github.com/sodaa1/xiliu/releases/tag/v0.4.5); see [delivery evidence and limits](docs/WINDOWS_RELEASE.md).
 
 ## What's new in 0.4.4
 

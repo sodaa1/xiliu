@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Switch original/workbench theme",
+    "Theme persists after reload",
+    "Task checkbox persists through existing API",
+    "Escape closes capture and retains draft",
+    "Ctrl+Enter saves note through real inbox API",
+    "Search finds task and Escape closes dialog",
+    "Focus timer starts and pauses",
+    "Article preview opens and closes",
+    "390px mobile has no horizontal overflow",
+    "Mobile bottom navigation opens capture",
+    "Existing dark/large font/reduced motion preferences render"
+  ],
+  "errors": [],
+  "fixture": "Temporary real API database, reference-like content; local focus timer seeded 1.5h for layout verification."
+}

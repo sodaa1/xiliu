@@ -1,0 +1,1 @@
+{"status": "passed", "surface_count": 1073, "errors": 0, "output": "docs\\audit\\remaining-ui-2026-10-19\\coverage-results.json"}

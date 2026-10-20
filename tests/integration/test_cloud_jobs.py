@@ -35,9 +35,8 @@ def test_partial_service_initialization_is_cleaned_without_masking_the_error(tmp
         raise WebError("workspace_failed", "工作区无法初始化。", 503)
 
     monkeypatch.setattr("xiliu.cloud.workspaces.initialize_services", broken)
-    with pytest.raises(WebError) as error:
-        with registry.acquire(a["workspace_id"]):
-            pass
+    with pytest.raises(WebError) as error, registry.acquire(a["workspace_id"]):
+        pass
     assert error.value.code == "workspace_failed" and closed == [True]
     assert not registry.entries
 

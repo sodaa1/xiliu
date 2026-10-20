@@ -1,0 +1,12 @@
+
+> xiliu-web@0.4.4 test
+> vitest --run src/features/assistant src/features/plans src/app
+
+
+ RUN  v4.1.11 E:/Learning/xiliu/web
+
+
+ Test Files  7 passed (7)
+      Tests  48 passed (48)
+   Start at  18:01:46
+   Duration  6.93s (transform 2.24s, setup 2.37s, import 5.62s, tests 14.15s, environment 4.91s)

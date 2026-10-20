@@ -1,9 +1,10 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { render, screen, waitFor, within } from '@testing-library/react'
+import { act, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { beforeEach, expect, test, vi } from 'vitest'
 import { App } from './App'
+import { startGuide } from '../features/onboarding/progress'
 
 beforeEach(() => {
   localStorage.clear()
@@ -107,6 +108,27 @@ test('App icon rail navigates to every page', async () => {
   }
 })
 
+test('tour keeps its origin when the workbench homepage changes the shell', async () => {
+  localStorage.setItem('xiliu-home-theme-v1', 'workbench')
+  const view = mount('/inbox'),
+    user = userEvent.setup()
+  act(() => startGuide())
+  await user.click(screen.getByRole('button', { name: '下一步' }))
+  await waitFor(() =>
+    expect(view.container.querySelector('[data-route-path]')).toHaveAttribute(
+      'data-route-path',
+      '/today'
+    )
+  )
+  await user.click(screen.getByRole('button', { name: '跳过引导' }))
+  await waitFor(() =>
+    expect(view.container.querySelector('[data-route-path]')).toHaveAttribute(
+      'data-route-path',
+      '/inbox'
+    )
+  )
+})
+
 test('App 设置 overlay preserves page and keyboard navigation selects panels', async () => {
   const view = mount('/today'),
     user = userEvent.setup()
@@ -126,5 +148,29 @@ test('App 设置 overlay preserves page and keyboard navigation selects panels',
   expect(view.container.querySelector('[data-route-path]')).toHaveAttribute(
     'data-route-path',
     '/today'
+  )
+})
+
+test('settings capsule inside the overlay preserves the original feed return route', async () => {
+  const user = userEvent.setup()
+  const view = render(
+    <QueryClientProvider
+      client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}
+    >
+      <MemoryRouter initialEntries={['/feed?source=manual']}>
+        <App />
+      </MemoryRouter>
+    </QueryClientProvider>
+  )
+  const rail = screen.getByRole('navigation', { name: '主导航' })
+  await user.click(within(rail.closest('aside')!).getByRole('link', { name: '设置' }))
+  const dialog = await screen.findByRole('dialog', { name: '设置' })
+  await user.click(within(dialog).getByRole('link', { name: '设置' }))
+  await user.click(screen.getByRole('button', { name: '关闭设置' }))
+  await waitFor(() =>
+    expect(view.container.querySelector('[data-route-path]')).toHaveAttribute(
+      'data-route-path',
+      '/feed'
+    )
   )
 })

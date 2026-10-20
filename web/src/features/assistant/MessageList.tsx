@@ -1,3 +1,5 @@
+import { FileText, BookOpen, CalendarCheck2, Blocks } from 'lucide-react'
+import { useReducedMotion } from '../../lib/useReducedMotion'
 import { useEffect, useRef } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -42,24 +44,67 @@ export function MessageList({
       return []
     }
   })
+  const reduced = useReducedMotion()
   const bottom = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    bottom.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
-  }, [messages, run?.status])
+    bottom.current?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'end' })
+  }, [messages, run?.status, reduced])
   return (
     <div className="messages-scroll" aria-label="对话内容">
       {loading ? (
         <div className="loading-copy">正在加载对话…</div>
       ) : !messages.length ? (
         <div className="assistant-welcome">
-          <Brand large />
-          <span className="eyebrow">向息流提问</span>
-          <h2>让信息流动，让思路清晰。</h2>
-          <p>一个问题、一段想法，或一件想一起完成的事。</p>
+          <div className="assistant-welcome-heading">
+            <Brand large />
+            <div>
+              <h2>息流 AI 助手</h2>
+              <p>让信息流动，让思路清晰。</p>
+            </div>
+          </div>
+          <div className="assistant-introduction">
+            <div className="message-avatar">
+              <Brand />
+            </div>
+            <div>
+              <strong>你好，我是息流，很高兴和你一起思考。</strong>
+              <p>梳理零散想法，理解手边的资料，把目标拆成可执行的下一步。</p>
+              <p>从一个问题、一段想法，或一件想一起完成的事开始。</p>
+            </div>
+          </div>
           <div className="prompt-suggestions">
-            {['帮我整理一个思路', '解释一个概念', '制定今日计划'].map((text) => (
-              <button key={text} onClick={() => onPrompt(text)}>
-                {text}
+            {[
+              {
+                title: '梳理材料',
+                detail: '提取要点，找到内容之间的联系',
+                icon: FileText,
+                draft: '请帮我整理以下材料，提取要点、结论和待确认的问题：\n\n',
+              },
+              {
+                title: '知识问答',
+                detail: '把问题说清楚，让理解更进一步',
+                icon: BookOpen,
+                draft: '请帮我解释一个概念，并结合具体例子说明：',
+              },
+              {
+                title: '拆解计划',
+                detail: '从一个目标，走到具体的行动',
+                icon: CalendarCheck2,
+                draft: '请帮我把以下目标拆成可以执行的计划：',
+              },
+              {
+                title: '工具与连接',
+                detail: '查看已经接入的工具与能力',
+                icon: Blocks,
+                draft: '/mcp ',
+              },
+            ].map(({ title, detail, icon: Icon, draft }) => (
+              <button key={title} onClick={() => onPrompt(draft)}>
+                <span className="suggestion-icon">
+                  <Icon size={22} />
+                </span>
+                <strong>{title}</strong>
+                <small>{detail}</small>
               </button>
             ))}
           </div>

@@ -1,3 +1,4 @@
+import { HomeThemeSwitch } from '../today/HomeThemeSwitch'
 import { Live2DSettings } from '../companion/Live2DSettings'
 import { HomeBackgroundSettings } from './HomeBackgroundSettings'
 import { useState } from 'react'
@@ -33,8 +34,6 @@ export function AppearanceSettings() {
   }
   return (
     <>
-      <HomeBackgroundSettings />
-      {!isDemo && <Live2DSettings />}
       <section className="settings-card">
         <div className="card-title">
           <Palette size={20} />
@@ -46,18 +45,50 @@ export function AppearanceSettings() {
         <div className="settings-grid">
           <div className="settings-field">
             <span>主题</span>
-            <GlideSelect
-              ariaLabel="主题"
-              disabled={saving}
-              value={preferences.theme}
-              showTags
-              options={[
-                { value: 'light', label: '浅色', tag: '默认' },
-                { value: 'dark', label: '深色', tag: '夜间' },
-                { value: 'system', label: '跟随系统', tag: '自动' },
-              ]}
-              onChange={(theme) => change({ theme: theme as Preferences['theme'] })}
-            />
+            <div className="settings-theme-options" role="radiogroup" aria-label="主题">
+              {(
+                [
+                  ['light', '浅色模式'],
+                  ['dark', '深色模式'],
+                  ['system', '跟随系统'],
+                ] as const
+              ).map(([value, label], index, choices) => (
+                <button
+                  key={value}
+                  type="button"
+                  role="radio"
+                  aria-label={label}
+                  aria-checked={preferences.theme === value}
+                  tabIndex={preferences.theme === value ? 0 : -1}
+                  aria-disabled={saving}
+                  onClick={() => {
+                    if (!saving) void change({ theme: value })
+                  }}
+                  onKeyDown={(event) => {
+                    const target =
+                      event.key === 'ArrowRight' || event.key === 'ArrowDown'
+                        ? (index + 1) % 3
+                        : event.key === 'ArrowLeft' || event.key === 'ArrowUp'
+                          ? (index + 2) % 3
+                          : -1
+                    if (target >= 0) {
+                      event.preventDefault()
+                      if (saving) return
+                      const next = choices[target][0]
+                      ;(event.currentTarget.parentElement?.children[target] as HTMLElement)?.focus()
+                      void change({ theme: next })
+                    }
+                  }}
+                >
+                  <span className={`theme-option-preview theme-${value}`} aria-hidden="true">
+                    <i />
+                    <i />
+                    <i />
+                  </span>
+                  <span>{label}</span>
+                </button>
+              ))}
+            </div>
           </div>
           <div className="settings-field">
             <span>字体大小</span>
@@ -153,6 +184,18 @@ export function AppearanceSettings() {
           </button>
         </div>
       </section>
+      <section className="settings-card">
+        <div className="card-title">
+          <Palette size={20} />
+          <div>
+            <h2>首页主题</h2>
+            <p>原有首页与山水工作台，随心切换。</p>
+          </div>
+        </div>
+        <HomeThemeSwitch />
+      </section>
+      <HomeBackgroundSettings />
+      {!isDemo && <Live2DSettings />}
     </>
   )
 }

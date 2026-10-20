@@ -1,11 +1,53 @@
+import { PageToolbar } from '../../components/WorkspaceChrome'
+import { ActionMenu } from '../../components/ActionMenu'
 import { useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Link, useSearchParams } from 'react-router-dom'
-import { ArrowLeft, Folder, Plus, Search } from 'lucide-react'
-import { workspaceApi, type KnowledgeFolder } from '../../lib/workspace-api'
+import {
+  ArrowLeft,
+  Folder,
+  Plus,
+  Search,
+  BookOpen,
+  ArrowUpRight,
+  FileText,
+  Pencil,
+  Trash2,
+} from 'lucide-react'
+import { workspaceApi, type KnowledgeFolder, type ContentItem } from '../../lib/workspace-api'
 import { ContentPage } from '../content/ContentPage'
 import { ContentDialog } from '../content/ContentDialog'
 import './knowledge.css'
+import { ArtworkImage } from '../../components/ArtworkImage'
+import { topicForContent } from '../../lib/artwork'
+
+function RecentDocument({ item }: { item: ContentItem }) {
+  return (
+    <Link
+      className="knowledge-recent-card"
+      to={`?folder=all&document=${encodeURIComponent(item.id)}`}
+    >
+      <ArtworkImage
+        topic={topicForContent(item.title, item.tags)}
+        slot={`knowledge:${item.id}`}
+        sizes="(max-width: 760px) 82px, (max-width: 1100px) 40vw, 24vw"
+        loading="lazy"
+      />
+      <div>
+        <h3>{item.title}</h3>
+        <p>{item.summary || item.content || item.filename || item.source}</p>
+        <div className="tag-list">
+          {item.tags.slice(0, 3).map((tag) => (
+            <span key={tag}># {tag}</span>
+          ))}
+        </div>
+        <time dateTime={item.updated_at}>
+          {new Date(item.updated_at).toLocaleDateString('zh-CN')}
+        </time>
+      </div>
+    </Link>
+  )
+}
 
 function FolderEditor({
   folder,
@@ -109,6 +151,22 @@ function FolderCard({
 }) {
   return (
     <article className="knowledge-folder-card">
+      <div className="knowledge-folder-menu">
+        <ActionMenu label={`文件夹操作：${folder.name}`}>
+          <button onClick={onEdit}>
+            <Pencil size={15} />
+            编辑规则
+          </button>
+          <button
+            className="delete-action"
+            aria-label={`删除文件夹 ${folder.name}`}
+            onClick={onDelete}
+          >
+            <Trash2 size={15} />
+            删除
+          </button>
+        </ActionMenu>
+      </div>
       <Link className="knowledge-folder-open" to={`?folder=${encodeURIComponent(folder.id)}`}>
         <div className="knowledge-folder-symbol">
           <Folder size={26} />
@@ -124,12 +182,6 @@ function FolderCard({
       </div>
       <footer>
         <span>优先级 {folder.priority}</span>
-        <div>
-          <button onClick={onEdit}>编辑规则</button>
-          <button aria-label={`删除文件夹 ${folder.name}`} onClick={onDelete}>
-            删除
-          </button>
-        </div>
       </footer>
     </article>
   )
@@ -144,6 +196,10 @@ export function KnowledgePage() {
     [q, setQ] = useState(''),
     [search, setSearch] = useState('')
   const folders = useQuery({ queryKey: ['knowledge-folders'], queryFn: workspaceApi.folders })
+  const recent = useQuery({
+    queryKey: ['content', 'knowledge'],
+    queryFn: () => workspaceApi.content('knowledge'),
+  })
   const results = useQuery({
     queryKey: ['knowledge-search', search],
     queryFn: () => workspaceApi.searchKnowledge(search),
@@ -160,8 +216,9 @@ export function KnowledgePage() {
   const activeFolder = folders.data?.find((folder) => folder.id === folderId)
   if (folderId)
     return (
-      <div className="knowledge-detail">
+      <div className="knowledge-detail library-workbench-detail">
         <div className="knowledge-detail-heading">
+          <PageToolbar />
           <button className="secondary-button" onClick={() => setParams({})}>
             <ArrowLeft size={16} />
             返回文件夹
@@ -177,14 +234,16 @@ export function KnowledgePage() {
         <ContentPage
           key={folderId}
           status="knowledge"
+          showPageToolbar={false}
           documentId={params.get('document') ?? undefined}
           folderId={folderId === 'all' ? undefined : folderId}
         />
       </div>
     )
   return (
-    <section className="workspace-page knowledge-page">
+    <section className="workspace-page knowledge-page ui-page library-workbench">
       <header className="workspace-header">
+        <PageToolbar />
         <div>
           <span className="eyebrow">让积累成为你的知识</span>
           <h1>知识库</h1>
@@ -238,8 +297,18 @@ export function KnowledgePage() {
         )}
       </form>
       <nav className="knowledge-links" aria-label="知识库浏览">
-        <Link to="?folder=all">全部资料</Link>
-        <Link to="?folder=unfiled">未分类</Link>
+        <span className="knowledge-current">
+          <Folder size={16} />
+          文件夹
+        </span>
+        <Link to="?folder=all">
+          <BookOpen size={16} />
+          全部资料
+        </Link>
+        <Link to="?folder=unfiled">
+          <FileText size={16} />
+          未分类
+        </Link>
       </nav>
       {search && (
         <section className="knowledge-results" aria-label="知识库检索结果">
@@ -298,6 +367,40 @@ export function KnowledgePage() {
             />
           ))}
         </div>
+      )}
+      {!search && (
+        <section className="knowledge-recent" aria-label="最近内容">
+          <header>
+            <div>
+              <h2>最近内容</h2>
+              <p>从最近的积累，接续下一次思考。</p>
+            </div>
+            <Link to="?folder=all">
+              查看全部
+              <ArrowUpRight size={16} />
+            </Link>
+          </header>
+          {recent.isLoading ? (
+            <p role="status">正在加载最近内容…</p>
+          ) : recent.error ? (
+            <p role="alert" className="workspace-error">
+              {recent.error.message}
+            </p>
+          ) : recent.data?.length ? (
+            <div className="knowledge-recent-grid">
+              {[...recent.data]
+                .sort((a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at))
+                .slice(0, 4)
+                .map((item) => (
+                  <RecentDocument key={item.id} item={item} />
+                ))}
+            </div>
+          ) : (
+            <p className="knowledge-recent-empty">
+              整理好的内容会出现在这里，打开收件箱，留下第一条积累。
+            </p>
+          )}
+        </section>
       )}
       {editing !== undefined && (
         <FolderEditor

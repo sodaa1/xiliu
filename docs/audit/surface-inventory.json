@@ -274,6 +274,105 @@
       ]
     },
     {
+      "id": "http_route:453d8bcbb84bd053369a:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/routes/appearance.py",
+      "line": 29,
+      "symbol": "GET /api/appearance/backgrounds",
+      "service_calls": [
+        "request_services(request).appearance.backgrounds"
+      ]
+    },
+    {
+      "id": "http_route:84e90aaa7e79eebf3cb1:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/routes/appearance.py",
+      "line": 34,
+      "symbol": "POST /api/appearance/backgrounds",
+      "service_calls": [
+        "request_services(request).appearance.add_background"
+      ]
+    },
+    {
+      "id": "http_route:2658a59ef2e12feae1a8:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/routes/appearance.py",
+      "line": 41,
+      "symbol": "PUT /api/appearance/backgrounds/selection",
+      "service_calls": [
+        "request_services(request).appearance.select_background"
+      ]
+    },
+    {
+      "id": "http_route:55987dd42f9f3be49477:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/routes/appearance.py",
+      "line": 46,
+      "symbol": "GET /api/appearance/backgrounds/{identifier}",
+      "service_calls": [
+        "request_services(request).appearance.background"
+      ]
+    },
+    {
+      "id": "http_route:9ecfa7200011e5af0405:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/routes/appearance.py",
+      "line": 59,
+      "symbol": "DELETE /api/appearance/backgrounds/{identifier}",
+      "service_calls": [
+        "request_services(request).appearance.delete_background"
+      ]
+    },
+    {
+      "id": "http_route:159a9942c6f13d0b07b2:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/routes/appearance.py",
+      "line": 65,
+      "symbol": "GET /api/appearance/models/{form}",
+      "service_calls": [
+        "request_services(request).appearance.model"
+      ]
+    },
+    {
+      "id": "http_route:236102274b0b74d18a2c:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/routes/appearance.py",
+      "line": 70,
+      "symbol": "PUT /api/appearance/models/{form}",
+      "service_calls": [
+        "request_services(request).appearance.save_model"
+      ]
+    },
+    {
+      "id": "http_route:804ed896c55684146ccb:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/routes/appearance.py",
+      "line": 77,
+      "symbol": "DELETE /api/appearance/models/{form}",
+      "service_calls": [
+        "request_services(request).appearance.delete_model"
+      ]
+    },
+    {
+      "id": "http_route:8f7bd2c39b15e9835241:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/routes/appearance.py",
+      "line": 83,
+      "symbol": "GET /api/appearance/model-assets/{form}",
+      "service_calls": [
+        "request_services(request).appearance.model_file"
+      ]
+    },
+    {
       "id": "http_route:0d0c7bbfcbf1321500a7:1",
       "kind": "http_route",
       "page": "Assistant",
@@ -563,6 +662,17 @@
       ]
     },
     {
+      "id": "http_route:4104aee495460ebb356e:1",
+      "kind": "http_route",
+      "page": "Feed",
+      "file": "src/xiliu/api/routes/feed.py",
+      "line": 75,
+      "symbol": "POST /api/feed/{item_id}/summarize",
+      "service_calls": [
+        "request_services(request).feed.summarize"
+      ]
+    },
+    {
       "id": "http_route:3b1cdb854bb00a097d48:1",
       "kind": "http_route",
       "page": "Inbox",
@@ -763,7 +873,7 @@
       "kind": "http_route",
       "page": "Today",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 44,
+      "line": 60,
       "symbol": "GET /api/tasks",
       "service_calls": [
         "request_services(request).tasks.list"
@@ -774,7 +884,7 @@
       "kind": "http_route",
       "page": "Today",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 49,
+      "line": 65,
       "symbol": "POST /api/tasks",
       "service_calls": [
         "request_services(request).tasks.create"
@@ -785,7 +895,7 @@
       "kind": "http_route",
       "page": "Today",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 54,
+      "line": 70,
       "symbol": "PATCH /api/tasks/{task_id}",
       "service_calls": [
         "request_services(request).tasks.update"
@@ -796,7 +906,7 @@
       "kind": "http_route",
       "page": "Today",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 59,
+      "line": 75,
       "symbol": "DELETE /api/tasks/{task_id}",
       "service_calls": [
         "request_services(request).tasks.delete"
@@ -807,7 +917,7 @@
       "kind": "http_route",
       "page": "Automations",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 65,
+      "line": 81,
       "symbol": "GET /api/automations",
       "service_calls": [
         "request_services(request).automations.list"
@@ -818,7 +928,7 @@
       "kind": "http_route",
       "page": "Automations",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 70,
+      "line": 86,
       "symbol": "POST /api/automations",
       "service_calls": [
         "request_services(request).automations.create"
@@ -829,7 +939,7 @@
       "kind": "http_route",
       "page": "Automations",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 75,
+      "line": 91,
       "symbol": "PATCH /api/automations/{task_id}",
       "service_calls": [
         "request_services(request).automations.toggle"
@@ -840,7 +950,7 @@
       "kind": "http_route",
       "page": "Automations",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 80,
+      "line": 96,
       "symbol": "DELETE /api/automations/{task_id}",
       "service_calls": [
         "request_services(request).automations.delete"
@@ -851,7 +961,7 @@
       "kind": "http_route",
       "page": "Automations",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 86,
+      "line": 102,
       "symbol": "GET /api/automations/{task_id}/runs",
       "service_calls": [
         "request_services(request).automations.runs"
@@ -862,7 +972,7 @@
       "kind": "http_route",
       "page": "Today",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 91,
+      "line": 107,
       "symbol": "GET /api/today",
       "service_calls": [
         "state.content.list",
@@ -875,13 +985,85 @@
       "kind": "http_route",
       "page": "Settings",
       "file": "src/xiliu/api/routes/workspace.py",
-      "line": 101,
+      "line": 117,
       "symbol": "GET /api/settings/data",
       "service_calls": [
         "state.content.list",
         "state.store.path.parent.resolve",
         "state.store.path.resolve"
       ]
+    },
+    {
+      "id": "service_method:34dce9511826f01d2e4b:1",
+      "kind": "service_method",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/services/appearance.py",
+      "line": 58,
+      "symbol": "AppearanceService.backgrounds"
+    },
+    {
+      "id": "service_method:71d4d516ab9846617a55:1",
+      "kind": "service_method",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/services/appearance.py",
+      "line": 75,
+      "symbol": "AppearanceService.add_background"
+    },
+    {
+      "id": "service_method:4caaf0c1ea528dcdfa58:1",
+      "kind": "service_method",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/services/appearance.py",
+      "line": 90,
+      "symbol": "AppearanceService.select_background"
+    },
+    {
+      "id": "service_method:f311af48193c8c58ec19:1",
+      "kind": "service_method",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/services/appearance.py",
+      "line": 112,
+      "symbol": "AppearanceService.background"
+    },
+    {
+      "id": "service_method:6cf14b0dcd1e82be0096:1",
+      "kind": "service_method",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/services/appearance.py",
+      "line": 122,
+      "symbol": "AppearanceService.delete_background"
+    },
+    {
+      "id": "service_method:541e66715fadc2919e53:1",
+      "kind": "service_method",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/services/appearance.py",
+      "line": 138,
+      "symbol": "AppearanceService.model"
+    },
+    {
+      "id": "service_method:9dd625b1858496f3ff84:1",
+      "kind": "service_method",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/services/appearance.py",
+      "line": 158,
+      "symbol": "AppearanceService.save_model"
+    },
+    {
+      "id": "service_method:94e59a258be93c2eb52b:1",
+      "kind": "service_method",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/services/appearance.py",
+      "line": 228,
+      "symbol": "AppearanceService.model_file"
+    },
+    {
+      "id": "service_method:204aed16c4f8db2ec63d:1",
+      "kind": "service_method",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/api/services/appearance.py",
+      "line": 238,
+      "symbol": "AppearanceService.delete_model"
     },
     {
       "id": "service_method:8372570736676b94d0dd:1",
@@ -1164,6 +1346,14 @@
       "symbol": "FeedService.save"
     },
     {
+      "id": "service_method:3dec07b4ee831e6e3e0e:1",
+      "kind": "service_method",
+      "page": "Feed",
+      "file": "src/xiliu/api/services/feed.py",
+      "line": 712,
+      "symbol": "FeedService.summarize"
+    },
+    {
       "id": "service_method:6c1b3d44b851dd54997b:1",
       "kind": "service_method",
       "page": "Inbox",
@@ -1376,7 +1566,7 @@
       "kind": "service_method",
       "page": "Today",
       "file": "src/xiliu/api/services/tasks.py",
-      "line": 77,
+      "line": 176,
       "symbol": "TaskService.list"
     },
     {
@@ -1384,7 +1574,7 @@
       "kind": "service_method",
       "page": "Today",
       "file": "src/xiliu/api/services/tasks.py",
-      "line": 82,
+      "line": 181,
       "symbol": "TaskService.create"
     },
     {
@@ -1392,7 +1582,7 @@
       "kind": "service_method",
       "page": "Today",
       "file": "src/xiliu/api/services/tasks.py",
-      "line": 107,
+      "line": 217,
       "symbol": "TaskService.update"
     },
     {
@@ -1400,7 +1590,7 @@
       "kind": "service_method",
       "page": "Today",
       "file": "src/xiliu/api/services/tasks.py",
-      "line": 126,
+      "line": 239,
       "symbol": "TaskService.delete"
     },
     {
@@ -1490,6 +1680,60 @@
       "file": "src/xiliu/api/store.py",
       "line": 176,
       "symbol": "AppStore.save_summary"
+    },
+    {
+      "id": "http_route:0bd774bd20a9eaf0f487:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/app.py",
+      "line": 111,
+      "symbol": "GET /api/health",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:f24f8d3336709a839111:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/auth.py",
+      "line": 141,
+      "symbol": "GET /api/cloud/bootstrap",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:712cf85c1a48e75a5bd2:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/auth.py",
+      "line": 149,
+      "symbol": "GET /api/auth/session",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:ef7dc08044b9d827ea96:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/auth.py",
+      "line": 167,
+      "symbol": "POST /api/auth/register",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:14197661108042cdd35d:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/auth.py",
+      "line": 180,
+      "symbol": "POST /api/auth/login",
+      "service_calls": []
+    },
+    {
+      "id": "http_route:c45c2660ee76605eab97:1",
+      "kind": "http_route",
+      "page": "API / Service / Agent",
+      "file": "src/xiliu/cloud/auth.py",
+      "line": 193,
+      "symbol": "POST /api/auth/logout",
+      "service_calls": []
     },
     {
       "id": "service_method:915d6aebaea9c466c9b4:1",
@@ -1711,6 +1955,54 @@
       ]
     },
     {
+      "id": "ui_link:d86d3a5de1a0045b6825:1",
+      "kind": "ui_link",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 113,
+      "symbol": "<NavLink className=\"brand\" to=\"/assistant\" aria-label=\"xiliu 助手\" title=\"xiliu\">"
+    },
+    {
+      "id": "ui_link:51fdb11d7fe213b7335d:1",
+      "kind": "ui_link",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 118,
+      "symbol": "<NavLink key={path} to={path} aria-label={label} title={label} data-onboarding={`nav-${path.slice(1)}`} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} >"
+    },
+    {
+      "id": "ui_button:e406e9369a1d91798ab7:1",
+      "kind": "ui_button",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 131,
+      "symbol": "<button type=\"button\" className=\"nav-item\" aria-label=\"重新查看新手引导\" title=\"新手引导\" data-onboarding=\"help-entry\" onClick={startGuide} >"
+    },
+    {
+      "id": "ui_event:57ce62087a123b5ee347:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 137,
+      "symbol": "onClick={startGuide}"
+    },
+    {
+      "id": "ui_link:991ddb91045a69afd1d7:1",
+      "kind": "ui_link",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 141,
+      "symbol": "<NavLink className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} to=\"/settings\" state={{ backgroundLocation: isSettings ? backgroundUrl : location }} aria-label=\"设置\" title=\"设置\" >"
+    },
+    {
+      "id": "ui_event:51c81aed006f654ca737:1",
+      "kind": "ui_event",
+      "page": "Launch / Navigation / shared UI",
+      "file": "web/src/app/App.tsx",
+      "line": 155,
+      "symbol": "onReset={async () => { await resetDemoExperience(cache) navigate('/today', { replace: true }) }}"
+    },
+    {
       "id": "ui_event:d2762e3e1c8c292323bd:1",
       "kind": "ui_event",
       "page": "Launch / Navigation / shared UI",
@@ -1771,7 +2063,7 @@
       "kind": "ui_event",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/components/Modal.tsx",
-      "line": 57,
+      "line": 59,
       "symbol": "onClick={(event) => { if (event.target === event.currentTarget) onClose() }}"
     },
     {
@@ -1779,7 +2071,7 @@
       "kind": "ui_button",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/components/Modal.tsx",
-      "line": 71,
+      "line": 73,
       "symbol": "<button className=\"icon-button\" aria-label={`关闭${title}`} onClick={onClose}>"
     },
     {
@@ -1787,7 +2079,7 @@
       "kind": "ui_event",
       "page": "Launch / Navigation / shared UI",
       "file": "web/src/components/Modal.tsx",
-      "line": 71,
+      "line": 73,
       "symbol": "onClick={onClose}"
     },
     {
@@ -2183,6 +2475,14 @@
       "symbol": "onClick={() => { setError(null) dismiss(cid ?? '') void cache.invalidateQueries() }}"
     },
     {
+      "id": "ui_event:d03e587b5f2b2075f1ce:1",
+      "kind": "ui_event",
+      "page": "Assistant",
+      "file": "web/src/features/assistant/AssistantPage.tsx",
+      "line": 162,
+      "symbol": "onConfigure={() => setConfigOpen(true)}"
+    },
+    {
       "id": "ui_button:e5f71d761e274ca81499:1",
       "kind": "ui_button",
       "page": "Assistant",
@@ -2255,11 +2555,11 @@
       "symbol": "onChange={(value) => model.mutate({ id: cid!, value })}"
     },
     {
-      "id": "ui_event:d03e587b5f2b2075f1ce:1",
+      "id": "ui_event:d03e587b5f2b2075f1ce:2",
       "kind": "ui_event",
       "page": "Assistant",
       "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 162,
+      "line": 219,
       "symbol": "onConfigure={() => setConfigOpen(true)}"
     },
     {
@@ -2535,6 +2835,142 @@
       "symbol": "onClick={() => { close(true) onConfigure() }}"
     },
     {
+      "id": "ui_button:d87d844df68655241a5f:1",
+      "kind": "ui_button",
+      "page": "Auth",
+      "file": "web/src/features/auth/AccountControl.tsx",
+      "line": 13,
+      "symbol": "<button type=\"button\" disabled={busy} onClick={async () => { setBusy(true) setError('') try { await logout() } catch { setError('退出失败，请重试。') setBusy(false) } }} >"
+    },
+    {
+      "id": "ui_event:98d6bf28cae94072e2d5:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AccountControl.tsx",
+      "line": 16,
+      "symbol": "onClick={async () => { setBusy(true) setError('') try { await logout() } catch { setError('退出失败，请重试。') setBusy(false) } }}"
+    },
+    {
+      "id": "ui_event:6d7874df9bee6dd7fb7a:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 9,
+      "symbol": "onSuccess = ()"
+    },
+    {
+      "id": "ui_event:3952526d13a9363b3bab:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 43,
+      "symbol": "onSubmit={submit}"
+    },
+    {
+      "id": "ui_event:0e4dc9cddab8ade6d735:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 52,
+      "symbol": "onChange={(event) => setUsername(event.target.value)}"
+    },
+    {
+      "id": "ui_event:9f1f160b893ebeeff945:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 64,
+      "symbol": "onChange={(event) => setPassword(event.target.value)}"
+    },
+    {
+      "id": "ui_button:b51865a6cacae727690b:1",
+      "kind": "ui_button",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 77,
+      "symbol": "<button className=\"cloud-auth-submit\" disabled={busy}>"
+    },
+    {
+      "id": "ui_button:bbe7aae0538c4353d0f2:1",
+      "kind": "ui_button",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 82,
+      "symbol": "<button type=\"button\" className=\"cloud-auth-switch\" disabled={busy} onClick={() => { setMode(mode === 'login' ? 'register' : 'login') setError('') setPassword('') }} >"
+    },
+    {
+      "id": "ui_event:94c5fa30f3fe644fdb92:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 86,
+      "symbol": "onClick={() => { setMode(mode === 'login' ? 'register' : 'login') setError('') setPassword('') }}"
+    },
+    {
+      "id": "ui_link:1c3f1f9ea88bd88c555e:1",
+      "kind": "ui_link",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 95,
+      "symbol": "<a className=\"cloud-auth-guest\" href=\"/demo/#/today\">"
+    },
+    {
+      "id": "ui_button:4fd1f56534682952b3b7:1",
+      "kind": "ui_button",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 147,
+      "symbol": "<button onClick={() => window.location.reload()}>"
+    },
+    {
+      "id": "ui_event:14e20759d7f68373c316:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/AuthRoot.tsx",
+      "line": 147,
+      "symbol": "onClick={() => window.location.reload()}"
+    },
+    {
+      "id": "ui_event:a09fb59ac7e055cab5ca:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/TrialSelector.tsx",
+      "line": 16,
+      "symbol": "onChange={() => setChatSource('own')}"
+    },
+    {
+      "id": "ui_event:321435fb726d853fd595:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/TrialSelector.tsx",
+      "line": 26,
+      "symbol": "onChange={() => setChatSource('trial')}"
+    },
+    {
+      "id": "ui_button:4f41d745d1932f350d7d:1",
+      "kind": "ui_button",
+      "page": "Auth",
+      "file": "web/src/features/auth/TrialSelector.tsx",
+      "line": 30,
+      "symbol": "<button type=\"button\" onClick={onConfigure}>"
+    },
+    {
+      "id": "ui_event:0bf504cf804bf9e95890:1",
+      "kind": "ui_event",
+      "page": "Auth",
+      "file": "web/src/features/auth/TrialSelector.tsx",
+      "line": 30,
+      "symbol": "onClick={onConfigure}"
+    },
+    {
+      "id": "ui_fetch:68d086664ef5e5c731b4:1",
+      "kind": "ui_fetch",
+      "page": "Auth",
+      "file": "web/src/features/auth/client.ts",
+      "line": 4,
+      "symbol": "fetch(`/api${path}`,"
+    },
+    {
       "id": "ui_api:85a061a6a6d2a51340c6:1",
       "kind": "ui_api",
       "page": "Automations",
@@ -2783,6 +3219,510 @@
       "symbol": "onClick={onClose}"
     },
     {
+      "id": "ui_button:c30ba8f0d926d918d4bb:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CapturePage.tsx",
+      "line": 27,
+      "symbol": "<button type=\"button\" className=\"icon-button\" aria-label=\"关闭收录窗口\" onClick={close}>"
+    },
+    {
+      "id": "ui_event:67527c9c875600af8ac4:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CapturePage.tsx",
+      "line": 27,
+      "symbol": "onClick={close}"
+    },
+    {
+      "id": "ui_button:2136f27f62526e7faf38:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CapturePage.tsx",
+      "line": 35,
+      "symbol": "<button type=\"button\" onClick={() => { if (isDesktop()) void companionCall('open_main', { path: `/inbox?item=${encodeURIComponent(saved.id)}`, }).catch((error: Error) => setError(error.message)) else navigate(`/inbox?item=${encodeURIComponent(saved.id)}`) }} >"
+    },
+    {
+      "id": "ui_event:41e8dcb5d6acdc26f541:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CapturePage.tsx",
+      "line": 37,
+      "symbol": "onClick={() => { if (isDesktop()) void companionCall('open_main', { path: `/inbox?item=${encodeURIComponent(saved.id)}`, }).catch((error: Error) => setError(error.message)) else navigate(`/inbox?item=${encodeURIComponent(saved.id)}`) }}"
+    },
+    {
+      "id": "ui_event:7710eee8e3d6537bbc40:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CapturePage.tsx",
+      "line": 51,
+      "symbol": "onClose={close}"
+    },
+    {
+      "id": "ui_event:7c03f3bea69032b6df17:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CapturePage.tsx",
+      "line": 52,
+      "symbol": "onSaved={(item) => { setSaved(item) if (isDesktop()) void companionCall('captured', { id: item.id }).catch((error: Error) => setError(error.message) ) }}"
+    },
+    {
+      "id": "ui_api:0d661b1521523b039519:1",
+      "kind": "ui_api",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionController.tsx",
+      "line": 51,
+      "symbol": "api.create"
+    },
+    {
+      "id": "ui_event:1def59a86c89a8216f6b:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 191,
+      "symbol": "onKeyDown={(event) => { if (event.key === 'Escape') { setCompose(false) setMenu(false) } }}"
+    },
+    {
+      "id": "ui_button:6ac3f87bd2238f12bcba:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 212,
+      "symbol": "<button className=\"companion-bubble\" aria-live=\"polite\" title=\"查看对话\" onClick={() => openMain( snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant' ) } >"
+    },
+    {
+      "id": "ui_event:ad3b83abd12fee5c7678:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 216,
+      "symbol": "onClick={() => openMain( snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant' ) }"
+    },
+    {
+      "id": "ui_button:1df710c665bd6981b228:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 228,
+      "symbol": "<button className=\"companion-character\" aria-label=\"打开桌宠快捷操作\" aria-expanded={compose} onPointerDown={(event) => { if (event.button !== 0) return pointer.current = { x: event.clientX, y: event.clientY, ...position, active: true, moved: false, } if (!isDesktop()) event.currentTarget.setPointerCapture(event.pointerId) }} onPointerMove={(event) => { const start = pointer.current if (!start.active || event.buttons !== 1) return const dx = event.clientX - start.x, dy = event.clientY - start.y if (!start.moved && Math.hypot(dx, dy) <= 5) return if (!start.moved) { start.moved = true setDragging(true) if (isDesktop()) { void invoke('drag').finally(() => { pointer.current.active = false setDragging(false) }) return } } if (!isDesktop()) { const rect = stage.current?.getBoundingClientRect() if (rect) setPosition({ right: Math.max( 12, Math.min(start.right - dx, window.innerWidth - rect.width - 12) ), bottom: Math.max( 12, Math.min(start.bottom - dy, window.innerHeight - rect.height - 12) ), }) } }} onPointerUp={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }} onPointerCancel={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }} onLostPointerCapture={() => { if (!isDesktop()) { pointer.current.active = false setDragging(false) } }} onClick={(event) => { if (event.detail === 0 || !pointer.current.moved) { setCompose(!compose) setMenu(false) } }} >"
+    },
+    {
+      "id": "ui_event:aa0227185beca8ab8cbc:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 232,
+      "symbol": "onPointerDown={(event) => { if (event.button !== 0) return pointer.current = { x: event.clientX, y: event.clientY, ...position, active: true, moved: false, } if (!isDesktop()) event.currentTarget.setPointerCapture(event.pointerId) }}"
+    },
+    {
+      "id": "ui_event:58e2f10dbeaf3c2402d5:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 243,
+      "symbol": "onPointerMove={(event) => { const start = pointer.current if (!start.active || event.buttons !== 1) return const dx = event.clientX - start.x, dy = event.clientY - start.y if (!start.moved && Math.hypot(dx, dy) <= 5) return if (!start.moved) { start.moved = true setDragging(true) if (isDesktop()) { void invoke('drag').finally(() => { pointer.current.active = false setDragging(false) }) return } } if (!isDesktop()) { const rect = stage.current?.getBoundingClientRect() if (rect) setPosition({ right: Math.max( 12, Math.min(start.right - dx, window.innerWidth - rect.width - 12) ), bottom: Math.max( 12, Math.min(start.bottom - dy, window.innerHeight - rect.height - 12) ), }) } }}"
+    },
+    {
+      "id": "ui_event:c6fc66e2d452e9cdcb5e:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 275,
+      "symbol": "onPointerUp={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }}"
+    },
+    {
+      "id": "ui_event:b6476ad250222ac2f4ff:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 279,
+      "symbol": "onPointerCancel={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }}"
+    },
+    {
+      "id": "ui_event:b5fcd5fcc3d7435488f2:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 283,
+      "symbol": "onLostPointerCapture={() => { if (!isDesktop()) { pointer.current.active = false setDragging(false) } }}"
+    },
+    {
+      "id": "ui_event:ab1929ba9a006576c4ba:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 289,
+      "symbol": "onClick={(event) => { if (event.detail === 0 || !pointer.current.moved) { setCompose(!compose) setMenu(false) } }}"
+    },
+    {
+      "id": "ui_event:f1f3aaf8e0fbbbc604c9:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 302,
+      "symbol": "onError={setError}"
+    },
+    {
+      "id": "ui_event:34fd7b0596e07d543dd3:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 310,
+      "symbol": "onSubmit={(event) => { event.preventDefault() void send() }}"
+    },
+    {
+      "id": "ui_button:2ab8e163c92c28aca9cc:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 315,
+      "symbol": "<button type=\"button\" className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
+    },
+    {
+      "id": "ui_event:0d324b4c6a4706b7c4ff:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 321,
+      "symbol": "onClick={() => setMenu(!menu)}"
+    },
+    {
+      "id": "ui_event:34b920400fee5dafc3b8:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 331,
+      "symbol": "onChange={(event) => setDraft(event.target.value)}"
+    },
+    {
+      "id": "ui_button:8033c18bdf1132d4be80:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 334,
+      "symbol": "<button className=\"companion-send companion-icon\" aria-label={ pending ? '正在发送' : requestId.current ? '检查发送状态' : '发送新对话' } title=\"发送\" disabled={pending || !draft.trim()} >"
+    },
+    {
+      "id": "ui_button:ac569aabf696dc4b8da0:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 351,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"新对话\" title=\"新对话\" onClick={() => { setCompose(true) setMenu(false) }} >"
+    },
+    {
+      "id": "ui_event:6eb49f0f33be9c40cbcf:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 355,
+      "symbol": "onClick={() => { setCompose(true) setMenu(false) }}"
+    },
+    {
+      "id": "ui_button:ed53ea98a2c9eec6797e:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 362,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"收进收件箱\" title=\"收进收件箱\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
+    },
+    {
+      "id": "ui_event:d72513e0c6b9b5bf6822:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 366,
+      "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
+    },
+    {
+      "id": "ui_button:49ad6fc76d073c852dad:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 373,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
+    },
+    {
+      "id": "ui_event:0d324b4c6a4706b7c4ff:2",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 378,
+      "symbol": "onClick={() => setMenu(!menu)}"
+    },
+    {
+      "id": "ui_button:5e8f31de2ef0e7200869:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 386,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"切换桌宠形态\" title=\"切换形态\" onClick={() => void switchForm()} >"
+    },
+    {
+      "id": "ui_event:1950f625dd6169d12b65:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 390,
+      "symbol": "onClick={() => void switchForm()}"
+    },
+    {
+      "id": "ui_button:ed53ea98a2c9eec6797e:2",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 395,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"收进收件箱\" title=\"收进收件箱\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
+    },
+    {
+      "id": "ui_event:d72513e0c6b9b5bf6822:2",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 399,
+      "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
+    },
+    {
+      "id": "ui_button:130671afa262c29015a0:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 407,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"打开息流\" title=\"打开息流\" onClick={() => openMain('/today')} >"
+    },
+    {
+      "id": "ui_event:649ebbab0fb07b0eb72a:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 411,
+      "symbol": "onClick={() => openMain('/today')}"
+    },
+    {
+      "id": "ui_button:d43c19ae4cb31c918337:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 415,
+      "symbol": "<button className=\"companion-icon\" aria-label=\"桌宠设置\" title=\"设置\" onClick={() => openMain('/settings?section=appearance')} >"
+    },
+    {
+      "id": "ui_event:f1d0c511f1a8f9441f19:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionPage.tsx",
+      "line": 419,
+      "symbol": "onClick={() => openMain('/settings?section=appearance')}"
+    },
+    {
+      "id": "ui_event:34425f7cca5e91b3a8e6:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionSettings.tsx",
+      "line": 87,
+      "symbol": "onChange={(event) => void save({ enabled: event.target.checked, visible: event.target.checked }) }"
+    },
+    {
+      "id": "ui_event:3e11c88162ea7ed482fb:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionSettings.tsx",
+      "line": 98,
+      "symbol": "onChange={(event) => void save({ form: event.target.value as 'chibi' | 'standing' })}"
+    },
+    {
+      "id": "ui_event:f48cbd8d5816652b7df6:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionSettings.tsx",
+      "line": 110,
+      "symbol": "onChange={(event) => void save({ alwaysOnTop: event.target.checked })}"
+    },
+    {
+      "id": "ui_button:3186277ce0468bde701e:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionSettings.tsx",
+      "line": 129,
+      "symbol": "<button type=\"button\" key={value} aria-label={`${label} ${value}%`} aria-pressed={scale === value} onClick={() => void save( form === 'chibi' ? { chibiScale: value } : { standingScale: value } ) } >"
+    },
+    {
+      "id": "ui_event:e070c29d598250507749:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionSettings.tsx",
+      "line": 134,
+      "symbol": "onClick={() => void save( form === 'chibi' ? { chibiScale: value } : { standingScale: value } ) }"
+    },
+    {
+      "id": "ui_button:7d6013d426956913b97b:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionSettings.tsx",
+      "line": 148,
+      "symbol": "<button className=\"secondary-button\" onClick={() => void save({ chibiScale: 100, standingScale: 100, enabled: true, visible: true }) } >"
+    },
+    {
+      "id": "ui_event:bc59d4097744b51ab2ed:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/CompanionSettings.tsx",
+      "line": 150,
+      "symbol": "onClick={() => void save({ chibiScale: 100, standingScale: 100, enabled: true, visible: true }) }"
+    },
+    {
+      "id": "ui_button:5d49a74c29adfae63cee:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/Live2DSettings.tsx",
+      "line": 31,
+      "symbol": "<button disabled={busy} aria-pressed={form === 'chibi'} onClick={() => { setForm('chibi') setError('') setNotice('') }} >"
+    },
+    {
+      "id": "ui_event:d98153e4bc54d5b3baaa:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/Live2DSettings.tsx",
+      "line": 34,
+      "symbol": "onClick={() => { setForm('chibi') setError('') setNotice('') }}"
+    },
+    {
+      "id": "ui_button:ca3aa1a6553fa1eaa435:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/Live2DSettings.tsx",
+      "line": 42,
+      "symbol": "<button disabled={busy} aria-pressed={form === 'standing'} onClick={() => { setForm('standing') setError('') setNotice('') }} >"
+    },
+    {
+      "id": "ui_event:c0227216f00753eb9deb:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/Live2DSettings.tsx",
+      "line": 45,
+      "symbol": "onClick={() => { setForm('standing') setError('') setNotice('') }}"
+    },
+    {
+      "id": "ui_event:18c11cd264d647acd31a:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/Live2DSettings.tsx",
+      "line": 55,
+      "symbol": "onError={setError}"
+    },
+    {
+      "id": "ui_event:480cf73e5ee47b2376b3:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/Live2DSettings.tsx",
+      "line": 66,
+      "symbol": "onChange={async (event) => { const files = Array.from(event.target.files ?? []) event.target.value = '' if (!files.length) return setBusy(true) setError('') setNotice('') try { const bundle = await collectModelBundle(form, files) await saveModel(form, bundle) setNotice('模型已保存，桌宠将自动更新。') } catch (failure) { setError((failure as Error).message) } finally { setBusy(false) } }}"
+    },
+    {
+      "id": "ui_button:46a6729dc0cc0c75bb26:1",
+      "kind": "ui_button",
+      "page": "Companion",
+      "file": "web/src/features/companion/Live2DSettings.tsx",
+      "line": 87,
+      "symbol": "<button className=\"secondary-button\" disabled={busy} onClick={async () => { setBusy(true) try { await saveModel(form) setNotice('已恢复角色图片。') setError('') } catch (failure) { setError((failure as Error).message) } finally { setBusy(false) } }} >"
+    },
+    {
+      "id": "ui_event:f4655e5959605168705e:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/Live2DSettings.tsx",
+      "line": 90,
+      "symbol": "onClick={async () => { setBusy(true) try { await saveModel(form) setNotice('已恢复角色图片。') setError('') } catch (failure) { setError((failure as Error).message) } finally { setBusy(false) } }}"
+    },
+    {
+      "id": "ui_event:43282557063caddf5a7b:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/PetAvatar.tsx",
+      "line": 105,
+      "symbol": "onPointerEnter={() => setHover(true)}"
+    },
+    {
+      "id": "ui_event:7771810103825f6770e7:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/PetAvatar.tsx",
+      "line": 106,
+      "symbol": "onPointerLeave={() => setHover(false)}"
+    },
+    {
+      "id": "ui_event:387916c6835a8253ebfc:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/PetAvatar.tsx",
+      "line": 107,
+      "symbol": "onPointerMove={(event) => { const rect = event.currentTarget.getBoundingClientRect() controller.current?.focus(event.clientX - rect.left, event.clientY - rect.top) }}"
+    },
+    {
+      "id": "ui_event:474be86c772614767d6d:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/PetAvatar.tsx",
+      "line": 128,
+      "symbol": "onLoad={() => setAvailable((old) => ({ ...old, [key]: true }))}"
+    },
+    {
+      "id": "ui_event:05bffe5ffcc8c2a1182c:1",
+      "kind": "ui_event",
+      "page": "Companion",
+      "file": "web/src/features/companion/PetAvatar.tsx",
+      "line": 129,
+      "symbol": "onError={() => setAvailable((old) => ({ ...old, [key]: false }))}"
+    },
+    {
+      "id": "ui_fetch:740ca1ed0a26e858d2ff:1",
+      "kind": "ui_fetch",
+      "page": "Companion",
+      "file": "web/src/features/companion/live2d-runtime.ts",
+      "line": 11,
+      "symbol": "fetch(path,"
+    },
+    {
+      "id": "ui_fetch:034d2d67090c207a5e85:1",
+      "kind": "ui_fetch",
+      "page": "Companion",
+      "file": "web/src/features/companion/model-storage.ts",
+      "line": 36,
+      "symbol": "fetch(file.url)"
+    },
+    {
+      "id": "ui_event:9c8b323cc0ebf95304c0:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 19,
+      "symbol": "onClose={onClose}"
+    },
+    {
+      "id": "ui_event:2342c1d6ce8fe3a43560:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 20,
+      "symbol": "onSaved={onSaved}"
+    },
+    {
+      "id": "ui_event:9c8b323cc0ebf95304c0:2",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 20,
+      "symbol": "onClose={onClose}"
+    },
+    {
+      "id": "ui_mutation:17d735d8d1d7722e8230:1",
+      "kind": "ui_mutation",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 72,
+      "symbol": "useMutation({ mutationFn: async () => { if (!text.trim() && !file) throw new Error('请粘贴文字、链接，或选择一个文件。') return workspaceApi.importContent({ ...(text.trim() ? { text: text.trim() } : {}), ...(file ? { filename: file.name, data_base64: await fileBase64(file) } : {}), use_ai: useAI, }) }, onSuccess: (item) => { setText('') setFile(null) onSaved(item) }, onSettled: () => { submitting.current = false }, }"
+    },
+    {
       "id": "ui_query:9683aa2611ec7398dff9:1",
       "kind": "ui_query",
       "page": "Inbox / shared content",
@@ -2799,12 +3739,20 @@
       "symbol": "workspaceApi.importContent"
     },
     {
-      "id": "ui_event:9c8b323cc0ebf95304c0:1",
+      "id": "ui_event:956ef331f29932aa7dbf:1",
       "kind": "ui_event",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 19,
-      "symbol": "onClose={onClose}"
+      "line": 92,
+      "symbol": "onSubmit={(event) => { event.preventDefault() if (submitting.current) return submitting.current = true create.mutate() }}"
+    },
+    {
+      "id": "ui_event:8d9748d26aa618d6dd2a:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 105,
+      "symbol": "onChange={(event) => { if (!submitting.current) setText(event.target.value) }}"
     },
     {
       "id": "ui_event:32449bcd4320260050a5:1",
@@ -2845,6 +3793,14 @@
       "file": "web/src/features/content/CaptureDialog.tsx",
       "line": 138,
       "symbol": "onChange={(event) => chooseFile(event.target.files?.[0])}"
+    },
+    {
+      "id": "ui_button:464ce300f6c83a3d7ad9:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/CaptureDialog.tsx",
+      "line": 142,
+      "symbol": "<button className=\"secondary-button\" type=\"button\" disabled={create.isPending} onClick={() => { setFile(null) setFileError('') }} >"
     },
     {
       "id": "ui_event:4d866c2964d85c447799:1",
@@ -3039,6 +3995,78 @@
       "symbol": "<button className=\"primary-button\" disabled={save.isPending}>"
     },
     {
+      "id": "ui_event:d3cf06a24c8a48421de2:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 150,
+      "symbol": "onClose={onClose}"
+    },
+    {
+      "id": "ui_link:e7d8ac6e8432e2151b37:1",
+      "kind": "ui_link",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 165,
+      "symbol": "<a className=\"source-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\">"
+    },
+    {
+      "id": "ui_button:1e15b4f9e97087fc9273:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 177,
+      "symbol": "<button type=\"button\" className=\"secondary-button\" onClick={onEdit}>"
+    },
+    {
+      "id": "ui_event:8234255cfabcab1eb939:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 177,
+      "symbol": "onClick={onEdit}"
+    },
+    {
+      "id": "ui_button:bb3830c4d460bea76564:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 181,
+      "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={asking} onClick={onAsk}>"
+    },
+    {
+      "id": "ui_event:98a43a92edd0799dce77:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 181,
+      "symbol": "onClick={onAsk}"
+    },
+    {
+      "id": "ui_link:2c0934a2464650b5f4c6:1",
+      "kind": "ui_link",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 186,
+      "symbol": "<a className=\"secondary-button\" href={workspaceApi.originalUrl(item.id)} download={item.filename} >"
+    },
+    {
+      "id": "ui_api:017121cc84e984853358:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 188,
+      "symbol": "workspaceApi.originalUrl"
+    },
+    {
+      "id": "ui_link:ff289c0a9a0ae9e51dcf:1",
+      "kind": "ui_link",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 196,
+      "symbol": "<a className=\"primary-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\">"
+    },
+    {
       "id": "ui_api:a8274a222e3f00a676ab:2",
       "kind": "ui_api",
       "page": "Inbox / shared content",
@@ -3199,20 +4227,20 @@
       "symbol": "mutationFn: workspaceApi.classifyBatch,"
     },
     {
-      "id": "ui_api:f5f79fc70468e2530ef4:1",
-      "kind": "ui_api",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 290,
-      "symbol": "workspaceApi.retryContent"
-    },
-    {
       "id": "ui_mutation:2d3bcbc81f91e3b06b68:1",
       "kind": "ui_mutation",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
       "line": 289,
       "symbol": "useMutation({ mutationFn: workspaceApi.retryContent, onSuccess: () => invalidate(), }"
+    },
+    {
+      "id": "ui_api:f5f79fc70468e2530ef4:1",
+      "kind": "ui_api",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 290,
+      "symbol": "workspaceApi.retryContent"
     },
     {
       "id": "ui_query:9259af3864a1f2823649:1",
@@ -3327,6 +4355,30 @@
       "symbol": "onSaved={invalidate}"
     },
     {
+      "id": "ui_event:af2100331e76899ffd73:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 442,
+      "symbol": "onClose={() => setPreviewing(null)}"
+    },
+    {
+      "id": "ui_event:82feaaee3cd2e1391225:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 443,
+      "symbol": "onEdit={() => { const item = previewing setPreviewing(null) setEditing(item) }}"
+    },
+    {
+      "id": "ui_event:d08d076eea0fdc3e750c:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 448,
+      "symbol": "onAsk={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { documentId: previewing.id, title: previewing.title, content: [previewing.content, previewing.summary, previewing.source] .filter(Boolean) .join('\\n\\n'), }, }) }"
+    },
+    {
       "id": "ui_button:d1e05c576e0e2de72aa4:1",
       "kind": "ui_button",
       "page": "Inbox / shared content",
@@ -3343,6 +4395,14 @@
       "symbol": "onClick={() => void list.refetch()}"
     },
     {
+      "id": "ui_event:a01ab267152cd08ba7f9:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 498,
+      "symbol": "onClick={(event) => { // Let the card's own buttons, links, inputs and labels act on their own; // a click anywhere else opens the preview. if ((event.target as HTMLElement).closest('button, a, input, label')) return setPreviewing(item) }} > {status === 'inbox' && ( <input type=\"checkbox\" aria-label={`选择 ${item.title}`} checked={selected.includes(item.id)} onChange={(event) => setSelected((ids) => event.target.checked ? [...ids, item.id] : ids.filter((id) => id !== item.id) ) } /> )} <div className={`item-symbol ${item.type}`}> <Icon size={24} /> </div> <div className=\"content-row-body\"> <div className=\"content-row-title\"> <h2> <button type=\"button\" className=\"content-row-open\" onClick={() => setPreviewing(item)} > {item.title} </button> </h2> <time dateTime={item.updated_at}> {new Date(item.updated_at).toLocaleDateString('zh-CN')} </time> </div> <p className=\"content-excerpt\"> {item.summary || item.content || item.filename || item.source} </p> {sourceUrl && ( <a className=\"source-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\"> {item.source} </a> )} <div className=\"content-processing\" role=\"status\"> {item.processing_status === 'pending' ? '正在整理标题、摘要与标签…' : item.processing_status === 'failed' ? `整理失败 · 原始内容已保留${item.processing_error ? `：${item.processing_error}` : ''}` : item.status === 'knowledge' ? `已归类至 ${folders.data?.find((folder) => folder.id === item.folder_id)?.name ?? '未分类'} · ${item.ai_processed ? 'AI 已整理' : '本地整理'}` : item.ai_processed ? 'AI 已整理 · 待归类' : '待整理'} </div> {item.processing_status === 'failed' && ( <button className=\"secondary-button\" disabled={retry.isPending} onClick={() => retry.mutate(item.id)} > 重新整理 </button> )} <div className=\"tag-list\"> {item.tags.map((value) => ( <button key={value} onClick={() => setTag(value)}> # {value} </button> ))} </div> <div className=\"row-actions\"> {status === 'inbox' && item.status === 'knowledge' ? ( <Link to={`/knowledge?folder=${encodeURIComponent(item.folder_id ?? 'unfiled')}&document=${encodeURIComponent(item.id)}`} > 查看归类结果 </Link> ) : ( <button disabled={ update.isPending || classify.isPending || item.processing_status === 'pending' } onClick={() => status === 'inbox' ? classify.mutate([item.id]) : update.mutate(item) } > <ArrowRight size={14} /> {status === 'inbox' ? '归档到知识库' : '移回收件箱'} </button> )} <button disabled={ask.isPending} onClick={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { documentId: item.id, title: item.title, content: [ item.filename ? `文件：${item.filename}\\n以下参考仅包含文件名与备注，原文件内容未展开。` : '', item.content, item.summary, item.source, ] .filter(Boolean) .join('\\n\\n'), }, }) } > <Sparkles size={14} /> 引用提问 </button> {item.filename && ( <a href={workspaceApi.originalUrl(item.id)} download={item.filename}> <Download size={14} /> 下载原件 </a> )} <button className=\"delete-action\" disabled={remove.isPending} aria-label={`删除 ${item.title}`} onClick={() => remove.mutate(item.id)} > <Trash2 size={14} /> 删除 </button> </div> </div> </article> ) })} </div> )} </section> ) }"
+    },
+    {
       "id": "ui_event:e39c0caf563ca2cada90:1",
       "kind": "ui_event",
       "page": "Inbox / shared content",
@@ -3351,11 +4411,27 @@
       "symbol": "onChange={(event) => setSelected((ids) => event.target.checked ? [...ids, item.id] : ids.filter((id) => id !== item.id) ) }"
     },
     {
-      "id": "ui_link:e7d8ac6e8432e2151b37:1",
+      "id": "ui_button:1e8fd2b98fe48abf2be2:1",
+      "kind": "ui_button",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 525,
+      "symbol": "<button type=\"button\" className=\"content-row-open\" onClick={() => setPreviewing(item)} >"
+    },
+    {
+      "id": "ui_event:9c440a78a5ea4cbe8183:1",
+      "kind": "ui_event",
+      "page": "Inbox / shared content",
+      "file": "web/src/features/content/ContentPage.tsx",
+      "line": 528,
+      "symbol": "onClick={() => setPreviewing(item)}"
+    },
+    {
+      "id": "ui_link:e7d8ac6e8432e2151b37:2",
       "kind": "ui_link",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 165,
+      "line": 541,
       "symbol": "<a className=\"source-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\">"
     },
     {
@@ -3431,11 +4507,11 @@
       "symbol": "onClick={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { documentId: item.id, title: item.title, content: [ item.filename ? `文件：${item.filename}\\n以下参考仅包含文件名与备注，原文件内容未展开。` : '', item.content, item.summary, item.source, ] .filter(Boolean) .join('\\n\\n'), }, }) }"
     },
     {
-      "id": "ui_api:017121cc84e984853358:1",
+      "id": "ui_api:017121cc84e984853358:2",
       "kind": "ui_api",
       "page": "Inbox / shared content",
       "file": "web/src/features/content/ContentPage.tsx",
-      "line": 188,
+      "line": 620,
       "symbol": "workspaceApi.originalUrl"
     },
     {
@@ -3485,6 +4561,62 @@
       "file": "web/src/features/content/useAskAI.ts",
       "line": 22,
       "symbol": "api.create"
+    },
+    {
+      "id": "ui_button:6e4bf66b54341cc91e30:1",
+      "kind": "ui_button",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 42,
+      "symbol": "<button onClick={() => setConfirm(true)}>"
+    },
+    {
+      "id": "ui_event:37037c20e845e3037967:1",
+      "kind": "ui_event",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 42,
+      "symbol": "onClick={() => setConfirm(true)}"
+    },
+    {
+      "id": "ui_event:9564177ae9f9338561bc:1",
+      "kind": "ui_event",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 55,
+      "symbol": "onClose={() => { if (!busy) setConfirm(false) }}"
+    },
+    {
+      "id": "ui_button:ace2d155c19236b74eb0:1",
+      "kind": "ui_button",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 65,
+      "symbol": "<button className=\"secondary-button\" disabled={busy} onClick={() => setConfirm(false)}>"
+    },
+    {
+      "id": "ui_event:e8d81a3548ba07c6f388:1",
+      "kind": "ui_event",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 65,
+      "symbol": "onClick={() => setConfirm(false)}"
+    },
+    {
+      "id": "ui_button:7072f950c73dd495a43f:1",
+      "kind": "ui_button",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 68,
+      "symbol": "<button className=\"primary-button\" disabled={busy} onClick={() => void reset()}>"
+    },
+    {
+      "id": "ui_event:3be27b12e71f9cd0fedf:1",
+      "kind": "ui_event",
+      "page": "Demo",
+      "file": "web/src/features/demo/DemoBar.tsx",
+      "line": 68,
+      "symbol": "onClick={() => void reset()}"
     },
     {
       "id": "ui_mutation:1b70a4719b81f8b5128b:1",
@@ -3599,6 +4731,94 @@
       "symbol": "<button className=\"primary-button\" disabled={save.isPending}>"
     },
     {
+      "id": "ui_api:7ad74de8bf188be3e536:1",
+      "kind": "ui_api",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 158,
+      "symbol": "workspaceApi.summarizeFeed"
+    },
+    {
+      "id": "ui_mutation:fa1c114e1a317da963cc:1",
+      "kind": "ui_mutation",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 158,
+      "symbol": "useMutation({ mutationFn: () => workspaceApi.summarizeFeed(item.id) }"
+    },
+    {
+      "id": "ui_query:597839f9da40b4e937da:2",
+      "kind": "ui_query",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 158,
+      "symbol": "mutationFn: ()"
+    },
+    {
+      "id": "ui_event:769d463f0bb524f0e58a:2",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 161,
+      "symbol": "onClose={onClose}"
+    },
+    {
+      "id": "ui_button:f3da4675912a571994c1:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 202,
+      "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={summarize.isPending} onClick={() => summarize.mutate()} >"
+    },
+    {
+      "id": "ui_event:0c70dcde9e4e08464def:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 206,
+      "symbol": "onClick={() => summarize.mutate()}"
+    },
+    {
+      "id": "ui_button:2e5ff449c71d2cbe6167:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 212,
+      "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={saveDisabled} onClick={onSave} >"
+    },
+    {
+      "id": "ui_event:544329f08f4ac1290a2a:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 216,
+      "symbol": "onClick={onSave}"
+    },
+    {
+      "id": "ui_button:4ae3d172333adb67fa14:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 221,
+      "symbol": "<button type=\"button\" className=\"secondary-button\" onClick={onAsk}>"
+    },
+    {
+      "id": "ui_event:02e2b3b981d6273ef86c:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 221,
+      "symbol": "onClick={onAsk}"
+    },
+    {
+      "id": "ui_link:7a1ff2fd7be03d3d0a6f:1",
+      "kind": "ui_link",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 226,
+      "symbol": "<a className=\"primary-link\" href={url} target=\"_blank\" rel=\"noreferrer\">"
+    },
+    {
       "id": "ui_mutation:f9afc0d7f4a7a9e1fc3c:1",
       "kind": "ui_mutation",
       "page": "Feed",
@@ -3615,11 +4835,11 @@
       "symbol": "workspaceApi.saveFeed"
     },
     {
-      "id": "ui_query:597839f9da40b4e937da:2",
+      "id": "ui_query:597839f9da40b4e937da:3",
       "kind": "ui_query",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 158,
+      "line": 242,
       "symbol": "mutationFn: ()"
     },
     {
@@ -3631,11 +4851,11 @@
       "symbol": "useMutation({ mutationFn: () => item.source === 'manual' ? item.deleted_at ? workspaceApi.restoreManualFeed(item.id) : workspaceApi.removeManualFeed(item.id) : item.hidden ? workspaceApi.unhideExternalFeed(item.id) : workspaceApi.hideExternalFeed(item.id), onSuccess: () => { void cache.invalidateQueries({ queryKey: ['feed'] }) void cache.invalidateQueries({ queryKey: ['today'] }) }, }"
     },
     {
-      "id": "ui_query:597839f9da40b4e937da:3",
+      "id": "ui_query:597839f9da40b4e937da:4",
       "kind": "ui_query",
       "page": "Feed",
       "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 242,
+      "line": 251,
       "symbol": "mutationFn: ()"
     },
     {
@@ -3669,6 +4889,30 @@
       "file": "web/src/features/feed/FeedPage.tsx",
       "line": 258,
       "symbol": "workspaceApi.hideExternalFeed"
+    },
+    {
+      "id": "ui_event:8dd9402ff9a874848cf6:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 277,
+      "symbol": "onClick={(event) => { if ((event.target as HTMLElement).closest('button, a, input, label')) return setPreview(true) }}"
+    },
+    {
+      "id": "ui_button:407315e532597276992a:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 296,
+      "symbol": "<button type=\"button\" className=\"content-row-open\" onClick={() => setPreview(true)}>"
+    },
+    {
+      "id": "ui_event:fec3c1559853d27b08f8:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 296,
+      "symbol": "onClick={() => setPreview(true)}"
     },
     {
       "id": "ui_link:ea7cb84a94bab9339add:1",
@@ -3727,6 +4971,46 @@
       "symbol": "onClick={() => visibility.mutate()}"
     },
     {
+      "id": "ui_button:3a5570db4743f96ff12a:1",
+      "kind": "ui_button",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 347,
+      "symbol": "<button disabled={ask.isPending} onClick={askAI}>"
+    },
+    {
+      "id": "ui_event:c4464d41662682c2f77c:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 347,
+      "symbol": "onClick={askAI}"
+    },
+    {
+      "id": "ui_event:221b6699a8a8f5e36cbf:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 361,
+      "symbol": "onClose={() => setPreview(false)}"
+    },
+    {
+      "id": "ui_event:330843f37ff096ceb637:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 362,
+      "symbol": "onAsk={() => { setPreview(false) askAI() }}"
+    },
+    {
+      "id": "ui_event:98745b6b0d821f8cfbec:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 366,
+      "symbol": "onSave={() => save.mutate()}"
+    },
+    {
       "id": "ui_api:19785fe8d43d9680ea7b:1",
       "kind": "ui_api",
       "page": "Feed",
@@ -3765,6 +5049,14 @@
       "file": "web/src/features/feed/FeedPage.tsx",
       "line": 387,
       "symbol": "mutationFn: workspaceApi.refreshFeed,"
+    },
+    {
+      "id": "ui_event:98258cf98b2e99562456:1",
+      "kind": "ui_event",
+      "page": "Feed",
+      "file": "web/src/features/feed/FeedPage.tsx",
+      "line": 407,
+      "symbol": "onChange={(event) => setQ(event.target.value)}"
     },
     {
       "id": "ui_button:4f3f22898c9c33bf7e2d:1",
@@ -3821,14 +5113,6 @@
       "file": "web/src/features/feed/FeedPage.tsx",
       "line": 442,
       "symbol": "onClick={() => setSource(value)}"
-    },
-    {
-      "id": "ui_event:98258cf98b2e99562456:1",
-      "kind": "ui_event",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 407,
-      "symbol": "onChange={(event) => setQ(event.target.value)}"
     },
     {
       "id": "ui_event:387172e254b754d497c3:1",
@@ -3965,6 +5249,46 @@
       "file": "web/src/features/knowledge/KnowledgePage.tsx",
       "line": 92,
       "symbol": "<button className=\"primary-button\" disabled={save.isPending || !name.trim()}>"
+    },
+    {
+      "id": "ui_link:52cfb9bdd64def662d38:1",
+      "kind": "ui_link",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 112,
+      "symbol": "<Link className=\"knowledge-folder-open\" to={`?folder=${encodeURIComponent(folder.id)}`}>"
+    },
+    {
+      "id": "ui_button:aa2e82d12007101988d8:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 128,
+      "symbol": "<button onClick={onEdit}>"
+    },
+    {
+      "id": "ui_event:846afcc3e3d4aff60447:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 128,
+      "symbol": "onClick={onEdit}"
+    },
+    {
+      "id": "ui_button:697ea9808e45953d9e61:1",
+      "kind": "ui_button",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 129,
+      "symbol": "<button aria-label={`删除文件夹 ${folder.name}`} onClick={onDelete}>"
+    },
+    {
+      "id": "ui_event:9bf6170cd776bc75c396:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 129,
+      "symbol": "onClick={onDelete}"
     },
     {
       "id": "ui_api:0c1bcf9c7b2c4708b7c0:1",
@@ -4135,6 +5459,22 @@
       "symbol": "onClick={() => void folders.refetch()}"
     },
     {
+      "id": "ui_event:b0ce1c01f5af5f76471d:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 296,
+      "symbol": "onEdit={() => setEditing(folder)}"
+    },
+    {
+      "id": "ui_event:f2924da5a16a08c1b02f:1",
+      "kind": "ui_event",
+      "page": "Knowledge",
+      "file": "web/src/features/knowledge/KnowledgePage.tsx",
+      "line": 297,
+      "symbol": "onDelete={() => setDeleting(folder)}"
+    },
+    {
       "id": "ui_event:ed364d6ab3b6514b4f1c:1",
       "kind": "ui_event",
       "page": "Knowledge",
@@ -4215,6 +5555,870 @@
       "symbol": "<Link to=\"/today\" className=\"btn launch-enter\">"
     },
     {
+      "id": "ui_button:39ae79fbf3399501662a:1",
+      "kind": "ui_button",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 179,
+      "symbol": "<button className=\"onboarding-close\" aria-label=\"关闭引导\" onClick={() => end(true)}>"
+    },
+    {
+      "id": "ui_event:63301a6cef12af43ad30:1",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 179,
+      "symbol": "onClick={() => end(true)}"
+    },
+    {
+      "id": "ui_button:c1aa7957b4c7995b94f9:1",
+      "kind": "ui_button",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 191,
+      "symbol": "<button className=\"onboarding-skip\" onClick={() => end(true)}>"
+    },
+    {
+      "id": "ui_event:63301a6cef12af43ad30:2",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 191,
+      "symbol": "onClick={() => end(true)}"
+    },
+    {
+      "id": "ui_button:feb0993b3f4015ea6afb:1",
+      "kind": "ui_button",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 196,
+      "symbol": "<button className=\"secondary-button\" onClick={() => moveGuide(-1)}>"
+    },
+    {
+      "id": "ui_event:47bcfa39b3e7408ebccd:1",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 196,
+      "symbol": "onClick={() => moveGuide(-1)}"
+    },
+    {
+      "id": "ui_button:eca847ec36f08fa6ba1f:1",
+      "kind": "ui_button",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 201,
+      "symbol": "<button className=\"primary-button\" onClick={() => end(false)}>"
+    },
+    {
+      "id": "ui_event:fbb67d3e4fce061e733e:1",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 201,
+      "symbol": "onClick={() => end(false)}"
+    },
+    {
+      "id": "ui_button:0eafe8f413c403ebe042:1",
+      "kind": "ui_button",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 205,
+      "symbol": "<button className=\"primary-button\" onClick={() => moveGuide(1)}>"
+    },
+    {
+      "id": "ui_event:c64adfa036afc7b44281:1",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/Onboarding.tsx",
+      "line": 205,
+      "symbol": "onClick={() => moveGuide(1)}"
+    },
+    {
+      "id": "ui_event:8e342b99ab13af036176:1",
+      "kind": "ui_event",
+      "page": "Onboarding",
+      "file": "web/src/features/onboarding/progress.ts",
+      "line": 63,
+      "symbol": "onStorage = (event:"
+    },
+    {
+      "id": "ui_api:72581ee6229e5b3afce1:1",
+      "kind": "ui_api",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 53,
+      "symbol": "workspaceApi.tasks"
+    },
+    {
+      "id": "ui_query:272c3b8c39d38c2cb710:1",
+      "kind": "ui_query",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 53,
+      "symbol": "queryFn: workspaceApi.tasks"
+    },
+    {
+      "id": "ui_mutation:476e0e4a6525b1787cae:1",
+      "kind": "ui_mutation",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 77,
+      "symbol": "useMutation({ mutationFn: ({ draft, task }: { draft: PlanDraft; task?: Task }) => task ? workspaceApi.updateTask(task.id, draft) : workspaceApi.createTask(draft.title, draft.due_at, draft), onSuccess: (_task, variables) => { const date = taskDate(_task) if ( date && (variables.draft.scope === 'day' || (variables.draft.scope === 'week' && !plansInWeek([_task], selected).length)) ) setSelected(date) setForm(null) setDraftTitle('') setScope(variables.draft.scope) setStatus('all') setSearch('') setParentFilter((current) => (current === variables.draft.parent_id ? current : null)) invalidate() }, }"
+    },
+    {
+      "id": "ui_query:29c1e61c7e09bbe941a0:1",
+      "kind": "ui_query",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 78,
+      "symbol": "mutationFn: ({"
+    },
+    {
+      "id": "ui_api:51cea0391e7bce6335f2:1",
+      "kind": "ui_api",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 80,
+      "symbol": "workspaceApi.updateTask"
+    },
+    {
+      "id": "ui_api:c5652d04c2d2ea21aff7:1",
+      "kind": "ui_api",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 81,
+      "symbol": "workspaceApi.createTask"
+    },
+    {
+      "id": "ui_mutation:dc4dd7e5c650f64ab342:1",
+      "kind": "ui_mutation",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 99,
+      "symbol": "useMutation({ mutationFn: (task: Task) => workspaceApi.updateTask(task.id, { completed: !task.completed }), onSuccess: invalidate, }"
+    },
+    {
+      "id": "ui_api:51cea0391e7bce6335f2:2",
+      "kind": "ui_api",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 100,
+      "symbol": "workspaceApi.updateTask"
+    },
+    {
+      "id": "ui_query:ff7cd7caf53d380aba64:1",
+      "kind": "ui_query",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 100,
+      "symbol": "mutationFn: (task:"
+    },
+    {
+      "id": "ui_mutation:4ba92d0e73dd679ab3c2:1",
+      "kind": "ui_mutation",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 103,
+      "symbol": "useMutation({ mutationFn: (task: Task) => workspaceApi.deleteTask(task.id), onSuccess: invalidate, }"
+    },
+    {
+      "id": "ui_api:f4eaab76a7bfafa73686:1",
+      "kind": "ui_api",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 104,
+      "symbol": "workspaceApi.deleteTask"
+    },
+    {
+      "id": "ui_query:ff7cd7caf53d380aba64:2",
+      "kind": "ui_query",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 104,
+      "symbol": "mutationFn: (task:"
+    },
+    {
+      "id": "ui_event:dc6703c02c0aa79ad14a:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 207,
+      "symbol": "onChange={(event) => setSearch(event.target.value)}"
+    },
+    {
+      "id": "ui_button:8365586405fdadab7506:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 210,
+      "symbol": "<button className=\"plan-primary\" onClick={() => openForm({})} disabled={save.isPending}>"
+    },
+    {
+      "id": "ui_event:780490458243b35f2c73:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 210,
+      "symbol": "onClick={() => openForm({})}"
+    },
+    {
+      "id": "ui_event:f25f957bc0fa1ff69bd8:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 223,
+      "symbol": "onOpenScope={(value) => { setParentFilter(null) changeScope(value) setSearch('') }}"
+    },
+    {
+      "id": "ui_button:4d4d16312d967e4cfde0:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 233,
+      "symbol": "<button onClick={() => void plans.refetch()}>"
+    },
+    {
+      "id": "ui_event:c12118a2925af6217b58:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 233,
+      "symbol": "onClick={() => void plans.refetch()}"
+    },
+    {
+      "id": "ui_button:3ccd8050e46b6a2d1f7f:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 239,
+      "symbol": "<button onClick={() => { toggle.reset() remove.reset() }} >"
+    },
+    {
+      "id": "ui_event:ca3ad6b207c685829729:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 240,
+      "symbol": "onClick={() => { toggle.reset() remove.reset() }}"
+    },
+    {
+      "id": "ui_event:eb38fa4c8cb915624fe3:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 255,
+      "symbol": "onSelect={(date) => { setSelected(date) setParentFilter(null) }}"
+    },
+    {
+      "id": "ui_button:043129a1ce9b26887aa1:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 270,
+      "symbol": "<button key={value} type=\"button\" id={`plan-tab-${value}`} role=\"tab\" aria-selected={scope === value} aria-controls=\"plan-task-panel\" tabIndex={scope === value ? 0 : -1} onClick={() => changeScope(value)} onKeyDown={(event) => { let next = scopes.indexOf(value) if (event.key === 'ArrowRight') next = (next + 1) % 3 else if (event.key === 'ArrowLeft') next = (next + 2) % 3 else if (event.key === 'Home') next = 0 else if (event.key === 'End') next = 2 else return event.preventDefault() changeScope(scopes[next]) document.getElementById(`plan-tab-${scopes[next]}`)?.focus() }} >"
+    },
+    {
+      "id": "ui_event:3e228c98cd6dca5fd4bf:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 278,
+      "symbol": "onClick={() => changeScope(value)}"
+    },
+    {
+      "id": "ui_event:0b69ed7f010c0dd5c83a:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 279,
+      "symbol": "onKeyDown={(event) => { let next = scopes.indexOf(value) if (event.key === 'ArrowRight') next = (next + 1) % 3 else if (event.key === 'ArrowLeft') next = (next + 2) % 3 else if (event.key === 'Home') next = 0 else if (event.key === 'End') next = 2 else return event.preventDefault() changeScope(scopes[next]) document.getElementById(`plan-tab-${scopes[next]}`)?.focus() }}"
+    },
+    {
+      "id": "ui_button:e264f4425d5d7f1f0c8c:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 314,
+      "symbol": "<button key={item.value} aria-pressed={status === item.value} className={`state-${item.value}`} aria-label={item.label} onClick={() => setStatus(item.value)} >"
+    },
+    {
+      "id": "ui_event:6a963e4912022e799e87:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 319,
+      "symbol": "onClick={() => setStatus(item.value)}"
+    },
+    {
+      "id": "ui_button:8cd031d9d6151f988adc:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 334,
+      "symbol": "<button aria-label=\"清除上级计划筛选\" onClick={() => setParentFilter(null)}>"
+    },
+    {
+      "id": "ui_event:3c683acf1fad8d8816c8:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 334,
+      "symbol": "onClick={() => setParentFilter(null)}"
+    },
+    {
+      "id": "ui_event:5fc2f155313c004d1d5e:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 383,
+      "symbol": "onSubmit={(event) => { event.preventDefault() if (draftTitle.trim()) openForm({ title: draftTitle.trim() }) }}"
+    },
+    {
+      "id": "ui_event:216905f78200d493a50b:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 393,
+      "symbol": "onChange={(event) => setDraftTitle(event.target.value)}"
+    },
+    {
+      "id": "ui_button:f91c49d56e2812a78a22:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 395,
+      "symbol": "<button type=\"submit\" aria-label=\"添加任务详情\" disabled={!draftTitle.trim() || busy}>"
+    },
+    {
+      "id": "ui_event:ccca94fb6b1362be3d47:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 401,
+      "symbol": "onOpen={openRelated}"
+    },
+    {
+      "id": "ui_event:674459c611b352994769:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 406,
+      "symbol": "onClose={closeForm}"
+    },
+    {
+      "id": "ui_event:3ce7821c739287b14939:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 429,
+      "symbol": "onCancel={closeForm}"
+    },
+    {
+      "id": "ui_event:9f1b6ee4a7a876edbb81:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/PlansPage.tsx",
+      "line": 430,
+      "symbol": "onSubmit={(draft) => save.mutate({ draft, task: form.task })}"
+    },
+    {
+      "id": "ui_button:9ca78fd23a6594ad1ad0:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanCalendar.tsx",
+      "line": 55,
+      "symbol": "<button aria-label={mode === 'month' ? '上个月' : mode === 'week' ? '上一周' : '前一天'} onClick={() => navigate(-1)} >"
+    },
+    {
+      "id": "ui_event:659e590d1ff95c9fe223:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanCalendar.tsx",
+      "line": 57,
+      "symbol": "onClick={() => navigate(-1)}"
+    },
+    {
+      "id": "ui_button:caaab7812dad321abca6:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanCalendar.tsx",
+      "line": 61,
+      "symbol": "<button aria-label={mode === 'month' ? '下个月' : mode === 'week' ? '下一周' : '后一天'} onClick={() => navigate(1)} >"
+    },
+    {
+      "id": "ui_event:e381a72c9d0428dc1d8c:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanCalendar.tsx",
+      "line": 63,
+      "symbol": "onClick={() => navigate(1)}"
+    },
+    {
+      "id": "ui_button:3ea3e7206ea4521edfdf:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanCalendar.tsx",
+      "line": 68,
+      "symbol": "<button className=\"plan-today-button\" onClick={() => onSelect(new Date(today.getFullYear(), today.getMonth(), today.getDate()))} >"
+    },
+    {
+      "id": "ui_event:eba4780a15bd478a695f:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanCalendar.tsx",
+      "line": 70,
+      "symbol": "onClick={() => onSelect(new Date(today.getFullYear(), today.getMonth(), today.getDate()))}"
+    },
+    {
+      "id": "ui_button:27e465c32dd5e0f963b5:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanCalendar.tsx",
+      "line": 76,
+      "symbol": "<button key={value} aria-label={`${['日', '周', '月'][i]}视图`} aria-pressed={mode === value} onClick={() => setMode(value)} >"
+    },
+    {
+      "id": "ui_event:00bbe12ec653f27e42de:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanCalendar.tsx",
+      "line": 80,
+      "symbol": "onClick={() => setMode(value)}"
+    },
+    {
+      "id": "ui_button:b1fed57c00d272beb57f:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanCalendar.tsx",
+      "line": 107,
+      "symbol": "<button key={dateKey(date)} className={`plan-date ${selectedDay ? 'selected' : ''} ${isToday ? 'is-today' : ''} ${date.getMonth() !== selected.getMonth() ? 'outside-month' : ''}`} aria-label={dateLabel(date)} aria-pressed={selectedDay} aria-current={isToday ? 'date' : undefined} tabIndex={selectedDay ? 0 : -1} onClick={() => onSelect(date)} onKeyDown={(event) => { const offset = ( { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 } as Record< string, number > )[event.key] let next: Date | undefined if (offset) next = addDays(date, offset) if (event.key === 'Home') next = startOfWeek(date) if (event.key === 'End') next = addDays(startOfWeek(date), 6) if (event.key === 'PageUp' || event.key === 'PageDown') next = moveMonth(date, event.key === 'PageUp' ? -1 : 1) if (next) { event.preventDefault() onSelect(next) const label = dateLabel(next) requestAnimationFrame(() => grid.current ?.querySelector<HTMLButtonElement>(`[aria-label=\"${label}\"]`) ?.focus() ) } }} >"
+    },
+    {
+      "id": "ui_event:a4f4ff8d3d62102778a6:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanCalendar.tsx",
+      "line": 114,
+      "symbol": "onClick={() => onSelect(date)}"
+    },
+    {
+      "id": "ui_event:01507d6677cdc1a9162a:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanCalendar.tsx",
+      "line": 115,
+      "symbol": "onKeyDown={(event) => { const offset = ( { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 } as Record< string, number > )[event.key] let next: Date | undefined if (offset) next = addDays(date, offset) if (event.key === 'Home') next = startOfWeek(date) if (event.key === 'End') next = addDays(startOfWeek(date), 6) if (event.key === 'PageUp' || event.key === 'PageDown') next = moveMonth(date, event.key === 'PageUp' ? -1 : 1) if (next) { event.preventDefault() onSelect(next) const label = dateLabel(next) requestAnimationFrame(() => grid.current ?.querySelector<HTMLButtonElement>(`[aria-label=\"${label}\"]`) ?.focus() ) } }}"
+    },
+    {
+      "id": "ui_button:0ab474139e36ed56aea2:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanProgress.tsx",
+      "line": 64,
+      "symbol": "<button onClick={() => onOpen('week')}>"
+    },
+    {
+      "id": "ui_event:a7e86d8ab6e06b540bb4:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanProgress.tsx",
+      "line": 64,
+      "symbol": "onClick={() => onOpen('week')}"
+    },
+    {
+      "id": "ui_button:6acab639bef803d42466:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanProgress.tsx",
+      "line": 75,
+      "symbol": "<button onClick={() => onOpen('day', plan.id)}>"
+    },
+    {
+      "id": "ui_event:b0ce07df3668702735c0:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanProgress.tsx",
+      "line": 75,
+      "symbol": "onClick={() => onOpen('day', plan.id)}"
+    },
+    {
+      "id": "ui_button:0103294e598feae1416f:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanProgress.tsx",
+      "line": 87,
+      "symbol": "<button onClick={() => onOpen('goal')}>"
+    },
+    {
+      "id": "ui_event:01e4aba751f48c9fe0d7:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanProgress.tsx",
+      "line": 87,
+      "symbol": "onClick={() => onOpen('goal')}"
+    },
+    {
+      "id": "ui_button:29689acb065d604a1f54:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanProgress.tsx",
+      "line": 102,
+      "symbol": "<button onClick={() => onOpen('week', goal.id)}>"
+    },
+    {
+      "id": "ui_event:4914bf7e2910fdb2085f:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanProgress.tsx",
+      "line": 102,
+      "symbol": "onClick={() => onOpen('week', goal.id)}"
+    },
+    {
+      "id": "ui_button:2b4ed83cb07f0c571f07:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanReminders.tsx",
+      "line": 38,
+      "symbol": "<button aria-label={`关闭提醒 ${task.title}`} onClick={() => setDismissed([ ...dismissed, `${task.id}:${task.starts_at ?? task.due_at}:${task.reminder_minutes}`, ]) } >"
+    },
+    {
+      "id": "ui_event:038f3c9f37cf13e76fd2:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanReminders.tsx",
+      "line": 40,
+      "symbol": "onClick={() => setDismissed([ ...dismissed, `${task.id}:${task.starts_at ?? task.due_at}:${task.reminder_minutes}`, ]) }"
+    },
+    {
+      "id": "ui_event:dfa2b4fcf298422e8cd5:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanStats.tsx",
+      "line": 79,
+      "symbol": "onClick={() => onOpenScope?.('day')}"
+    },
+    {
+      "id": "ui_event:6053292cf6b507f5e17c:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanStats.tsx",
+      "line": 80,
+      "symbol": "onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault() onOpenScope?.('day') } }}"
+    },
+    {
+      "id": "ui_event:c3f5f2cc3ba9680e84e8:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanStats.tsx",
+      "line": 129,
+      "symbol": "onClick={() => onOpenScope?.('week')}"
+    },
+    {
+      "id": "ui_event:c0d42238001f9e8392ce:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanStats.tsx",
+      "line": 130,
+      "symbol": "onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault() onOpenScope?.('week') } }}"
+    },
+    {
+      "id": "ui_event:d9c173348477c006476c:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanStats.tsx",
+      "line": 175,
+      "symbol": "onClick={() => onOpenScope?.('goal')}"
+    },
+    {
+      "id": "ui_event:603edaf550659d8e9f26:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanStats.tsx",
+      "line": 176,
+      "symbol": "onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault() onOpenScope?.('goal') } }}"
+    },
+    {
+      "id": "ui_event:7d0cd850c8bfc4d29cb8:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanTaskItem.tsx",
+      "line": 33,
+      "symbol": "onChange={() => onToggle(task)}"
+    },
+    {
+      "id": "ui_button:4aff5f8ed16687da8677:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanTaskItem.tsx",
+      "line": 40,
+      "symbol": "<button className=\"plan-task-title\" disabled={busy} onClick={() => onEdit(task)} title={`编辑 ${task.title}`} >"
+    },
+    {
+      "id": "ui_event:430fd6c09cb503701972:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanTaskItem.tsx",
+      "line": 43,
+      "symbol": "onClick={() => onEdit(task)}"
+    },
+    {
+      "id": "ui_button:8bd83766d529f6d25d6e:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanTaskItem.tsx",
+      "line": 88,
+      "symbol": "<button type=\"button\" aria-label={`编辑 ${task.title}`} onClick={() => onEdit(task)} disabled={busy} >"
+    },
+    {
+      "id": "ui_event:430fd6c09cb503701972:2",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanTaskItem.tsx",
+      "line": 91,
+      "symbol": "onClick={() => onEdit(task)}"
+    },
+    {
+      "id": "ui_button:5f872e7997dcb5edf44b:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanTaskItem.tsx",
+      "line": 96,
+      "symbol": "<button type=\"button\" aria-label={`删除 ${task.title}`} onClick={() => onDelete(task)} disabled={busy} >"
+    },
+    {
+      "id": "ui_event:29ea761af744de0b4150:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/PlanTaskItem.tsx",
+      "line": 99,
+      "symbol": "onClick={() => onDelete(task)}"
+    },
+    {
+      "id": "ui_event:05753a98b5952880c81e:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 118,
+      "symbol": "onSubmit={(event) => { event.preventDefault() if (!title.trim() || busy) return const from = scope === 'day' ? day ? new Date(`${day}T${time || '00:00'}`).toISOString() : null : starts ? new Date(starts).toISOString() : null const to = scope === 'day' ? day ? new Date(`${endDay || day}T${endTime || time || '00:00'}`).toISOString() : null : ends ? new Date(ends).toISOString() : null if (from && to && Date.parse(to) < Date.parse(from)) { setLocalError('截止时间不能早于开始时间。') return } if (reminder && !from && !to) { setLocalError('请先设置任务时间，再添加提醒。') return } setLocalError('') const pendingTag = tagText.trim().slice(0, 32) onSubmit({ title: title.trim(), scope, parent_id: validParent || null, starts_at: from, due_at: to, description: description.trim(), category: category.trim(), priority, tags: [...new Set([...tags, ...(pendingTag ? [pendingTag] : [])])].slice(0, 10), reminder_minutes: reminder === '' ? null : Number(reminder), status, completed: status === 'completed', completed_at: status === 'completed' && completedAt ? new Date(completedAt).toISOString() : null, ...(task?.demo_revision ? { demo_revision: task.demo_revision } : {}), }) }}"
+    },
+    {
+      "id": "ui_event:ca2a3fdfa6a446450f54:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 175,
+      "symbol": "onChange={(event) => setTitle(event.target.value)}"
+    },
+    {
+      "id": "ui_event:ddf3178748afec0d8ebd:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 194,
+      "symbol": "onChange={() => { setScope(value) setParent('') if (!task && value !== 'day') { const from = value === 'week' ? startOfWeek(initialDate) : initialDate setStarts(`${dateKey(from)}T09:00`) setEnds(`${dateKey(addDays(from, value === 'week' ? 6 : 30))}T18:00`) } }}"
+    },
+    {
+      "id": "ui_event:17087830dc5d0cae05fd:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 222,
+      "symbol": "onChange={(event) => setDescription(event.target.value)}"
+    },
+    {
+      "id": "ui_event:594be5e14621cbe155d7:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 238,
+      "symbol": "onChange={(event) => setDay(event.target.value)}"
+    },
+    {
+      "id": "ui_button:283454f9e725e9b238e5:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 240,
+      "symbol": "<button type=\"button\" aria-label=\"清除任务日期\" onClick={() => setDay('')}>"
+    },
+    {
+      "id": "ui_event:0df66371a253b1a6ec2e:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 240,
+      "symbol": "onClick={() => setDay('')}"
+    },
+    {
+      "id": "ui_event:0260f315e6bfb79b807f:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 250,
+      "symbol": "onChange={(event) => setTime(event.target.value)}"
+    },
+    {
+      "id": "ui_button:b82bb8ec3e838259e067:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 252,
+      "symbol": "<button type=\"button\" aria-label=\"清除开始时间\" onClick={() => setTime('')}>"
+    },
+    {
+      "id": "ui_event:bd1c263938c88322f278:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 252,
+      "symbol": "onClick={() => setTime('')}"
+    },
+    {
+      "id": "ui_event:c93ea341dddd5bf1cc4d:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 264,
+      "symbol": "onChange={(event) => setStarts(event.target.value)}"
+    },
+    {
+      "id": "ui_event:b6249b48fd0f1c07428e:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 273,
+      "symbol": "onChange={(event) => setEnds(event.target.value)}"
+    },
+    {
+      "id": "ui_event:492822adb78ee98f79ab:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 285,
+      "symbol": "onChange={(event) => setParent(event.target.value)}"
+    },
+    {
+      "id": "ui_event:fff753f0fd04ea31010f:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 301,
+      "symbol": "onChange={(event) => setCompletedAt(event.target.value)}"
+    },
+    {
+      "id": "ui_event:9b2349d027f9981f5a6a:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 323,
+      "symbol": "onChange={() => setPriority(item.value)}"
+    },
+    {
+      "id": "ui_event:2f5b5d135793f553baa2:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 343,
+      "symbol": "onChange={() => { setStatus(value) if (value === 'completed' && !completedAt && !task?.completed) setCompletedAt(inputDate(new Date())) }}"
+    },
+    {
+      "id": "ui_event:a2e094193f9bd8af9a2c:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 373,
+      "symbol": "onChange={() => setCategory(value)}"
+    },
+    {
+      "id": "ui_event:b8a6ed90ac77fcb6513f:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 386,
+      "symbol": "onChange={(event) => setTagText(event.target.value)}"
+    },
+    {
+      "id": "ui_event:385700689f31c041c6b0:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 387,
+      "symbol": "onKeyDown={(event) => { if (event.key === 'Enter') { event.preventDefault() addTag() } }}"
+    },
+    {
+      "id": "ui_button:52ce3c8a2ca2d713a53c:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 401,
+      "symbol": "<button type=\"button\" aria-label={`移除标签 ${tag}`} onClick={() => setTags(tags.filter((value) => value !== tag))} >"
+    },
+    {
+      "id": "ui_event:d8ef0f02e7d4af0c63d5:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 404,
+      "symbol": "onClick={() => setTags(tags.filter((value) => value !== tag))}"
+    },
+    {
+      "id": "ui_event:c103568f64eb297c391f:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 417,
+      "symbol": "onChange={(event) => setReminder(event.target.value)}"
+    },
+    {
+      "id": "ui_event:4d2a8b04ffd4683a659e:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 451,
+      "symbol": "onChange={(event) => setEndDay(event.target.value)}"
+    },
+    {
+      "id": "ui_event:5e73f184b74f45a37e1d:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 461,
+      "symbol": "onChange={(event) => setEndTime(event.target.value)}"
+    },
+    {
+      "id": "ui_event:35674ff5f077e9cff034:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 470,
+      "symbol": "onChange={(event) => setCategory(event.target.value)}"
+    },
+    {
+      "id": "ui_button:0f13e6cd7720f2d7e6a6:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 482,
+      "symbol": "<button type=\"button\" className=\"plan-secondary\" onClick={onCancel} disabled={busy}>"
+    },
+    {
+      "id": "ui_event:a36ed0ffefb9eff9c88b:1",
+      "kind": "ui_event",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 482,
+      "symbol": "onClick={onCancel}"
+    },
+    {
+      "id": "ui_button:6f1283974b9244d7b931:1",
+      "kind": "ui_button",
+      "page": "Plans",
+      "file": "web/src/features/plans/components/TaskForm.tsx",
+      "line": 485,
+      "symbol": "<button className=\"plan-primary\" disabled={busy || !title.trim()}>"
+    },
+    {
       "id": "ui_event:bdce9f300637311ebbec:1",
       "kind": "ui_event",
       "page": "Settings",
@@ -4277,6 +6481,78 @@
       "file": "web/src/features/settings/AppearanceSettings.tsx",
       "line": 141,
       "symbol": "onClick={() => change({ theme: defaultPreferences.theme, fontSize: defaultPreferences.fontSize, fontFamily: defaultPreferences.fontFamily, density: defaultPreferences.density, reducedMotion: defaultPreferences.reducedMotion, }) }"
+    },
+    {
+      "id": "ui_button:8d1c75a7f2941b7efdc9:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
+      "line": 41,
+      "symbol": "<button disabled={busy} aria-pressed={settings.mode === 'blank'} onClick={() => choose({ mode: 'blank', selected: null })} >"
+    },
+    {
+      "id": "ui_event:63a4793033e68b29dfaa:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
+      "line": 44,
+      "symbol": "onClick={() => choose({ mode: 'blank', selected: null })}"
+    },
+    {
+      "id": "ui_button:b35c39f1a2159d7e1217:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
+      "line": 49,
+      "symbol": "<button disabled={busy} aria-pressed={settings.mode === 'builtin'} onClick={() => choose({ mode: 'builtin', selected: null })} >"
+    },
+    {
+      "id": "ui_event:fda3282e86eda8e947a8:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
+      "line": 52,
+      "symbol": "onClick={() => choose({ mode: 'builtin', selected: null })}"
+    },
+    {
+      "id": "ui_button:21205cf13d8a1fb412ee:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
+      "line": 59,
+      "symbol": "<button disabled={busy} aria-pressed={settings.mode === 'custom' && settings.selected === image.id} onClick={() => choose({ mode: 'custom', selected: image.id })} >"
+    },
+    {
+      "id": "ui_event:6c07e5e8881a13dfaef4:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
+      "line": 62,
+      "symbol": "onClick={() => choose({ mode: 'custom', selected: image.id })}"
+    },
+    {
+      "id": "ui_button:ff105de3d580db8760ba:1",
+      "kind": "ui_button",
+      "page": "Settings",
+      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
+      "line": 67,
+      "symbol": "<button className=\"icon-button\" disabled={busy} aria-label={`删除背景 ${image.name}`} onClick={() => void perform(() => saveBackground( settings.selected === image.id ? { mode: 'blank', selected: null } : settings, undefined, image.id ) ) } >"
+    },
+    {
+      "id": "ui_event:d2f0cca6ed7c2986f005:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
+      "line": 71,
+      "symbol": "onClick={() => void perform(() => saveBackground( settings.selected === image.id ? { mode: 'blank', selected: null } : settings, undefined, image.id ) ) }"
+    },
+    {
+      "id": "ui_event:1fd8780e93027955328c:1",
+      "kind": "ui_event",
+      "page": "Settings",
+      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
+      "line": 93,
+      "symbol": "onChange={(event) => { const file = event.target.files?.[0] event.target.value = '' if (file) void perform(() => importBackground(file)) }}"
     },
     {
       "id": "ui_event:f3074b07e568e08ee134:1",
@@ -4687,12 +6963,92 @@
       "symbol": "onKeyDown={(event) => { const target = event.key === 'ArrowRight' ? (index + 1) % sections.length : event.key === 'ArrowLeft' ? (index + sections.length - 1) % sections.length : event.key === 'Home' ? 0 : event.key === 'End' ? sections.length - 1 : -1 if (target >= 0) { event.preventDefault() select(target) document.getElementById(`settings-tab-${sections[target].id}`)?.focus() } }}"
     },
     {
+      "id": "ui_event:6661fb78d99e9e39f922:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 30,
+      "symbol": "onError={(event) => { event.currentTarget.hidden = true }}"
+    },
+    {
+      "id": "ui_link:330bcbc27c1f4c458ceb:1",
+      "kind": "ui_link",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 35,
+      "symbol": "<Link className=\"home-profile\" to=\"/settings?section=profile\" state={{ backgroundLocation: location }} aria-label={`${preferences.displayName || '你'}的个人设置`} >"
+    },
+    {
+      "id": "ui_event:c3804672710ef8acd015:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 63,
+      "symbol": "onSubmit={(event) => { event.preventDefault() if (draft.trim() && !ask.isPending) ask.mutate({ draft: draft.trim() }) }}"
+    },
+    {
+      "id": "ui_button:944a15bc8132b73ee70d:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 68,
+      "symbol": "<button type=\"button\" className=\"home-attach\" aria-label=\"导入文件或链接\" title=\"导入文件或链接\" onClick={() => setCapture(true)} >"
+    },
+    {
+      "id": "ui_event:2678abe88907889c81ed:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 73,
+      "symbol": "onClick={() => setCapture(true)}"
+    },
+    {
       "id": "ui_event:50d4302f025e62782edf:1",
       "kind": "ui_event",
       "page": "Today",
       "file": "web/src/features/today/TodayPage.tsx",
       "line": 81,
       "symbol": "onChange={(event) => setDraft(event.target.value)}"
+    },
+    {
+      "id": "ui_button:275ca670d9e68e8efd7e:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 85,
+      "symbol": "<button type=\"button\" className=\"home-capture\" aria-label=\"快速收录\" title=\"快速收录到收件箱\" onClick={() => setCapture(true)} >"
+    },
+    {
+      "id": "ui_event:2678abe88907889c81ed:2",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 90,
+      "symbol": "onClick={() => setCapture(true)}"
+    },
+    {
+      "id": "ui_button:a1b70c0ff05109dd2b29:1",
+      "kind": "ui_button",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 94,
+      "symbol": "<button className=\"home-send\" aria-label=\"在助手中继续\" title=\"开始对话\" disabled={ask.isPending || !draft.trim()} >"
+    },
+    {
+      "id": "ui_event:b76bf98cf472d289a33a:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 117,
+      "symbol": "onClose={() => setCapture(false)}"
+    },
+    {
+      "id": "ui_event:6363fc541b861b123574:1",
+      "kind": "ui_event",
+      "page": "Today",
+      "file": "web/src/features/today/TodayPage.tsx",
+      "line": 118,
+      "symbol": "onSaved={() => { setCapture(false) void cache.invalidateQueries({ queryKey: ['content'] }) void cache.invalidateQueries({ queryKey: ['inbox'] }) }}"
     },
     {
       "id": "api_client:4536489fa3ec557c4025:1",
@@ -4827,7 +7183,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 139,
+      "line": 148,
       "symbol": "inbox"
     },
     {
@@ -4835,7 +7191,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 140,
+      "line": 149,
       "symbol": "importContent"
     },
     {
@@ -4843,7 +7199,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 146,
+      "line": 155,
       "symbol": "contentItem"
     },
     {
@@ -4851,7 +7207,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 147,
+      "line": 156,
       "symbol": "classifyBatch"
     },
     {
@@ -4859,7 +7215,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 153,
+      "line": 162,
       "symbol": "retryContent"
     },
     {
@@ -4867,7 +7223,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 155,
+      "line": 164,
       "symbol": "folders"
     },
     {
@@ -4875,7 +7231,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 156,
+      "line": 165,
       "symbol": "createFolder"
     },
     {
@@ -4883,7 +7239,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 158,
+      "line": 167,
       "symbol": "updateFolder"
     },
     {
@@ -4891,7 +7247,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 162,
+      "line": 171,
       "symbol": "deleteFolder"
     },
     {
@@ -4899,7 +7255,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 164,
+      "line": 173,
       "symbol": "folderItems"
     },
     {
@@ -4907,7 +7263,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 166,
+      "line": 175,
       "symbol": "searchKnowledge"
     },
     {
@@ -4915,7 +7271,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 168,
+      "line": 177,
       "symbol": "content"
     },
     {
@@ -4923,7 +7279,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 170,
+      "line": 179,
       "symbol": "createContent"
     },
     {
@@ -4931,7 +7287,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 171,
+      "line": 180,
       "symbol": "updateContent"
     },
     {
@@ -4939,7 +7295,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 180,
+      "line": 189,
       "symbol": "deleteContent"
     },
     {
@@ -4947,7 +7303,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 181,
+      "line": 190,
       "symbol": "originalUrl"
     },
     {
@@ -4955,7 +7311,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 182,
+      "line": 191,
       "symbol": "feed"
     },
     {
@@ -4963,7 +7319,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 186,
+      "line": 195,
       "symbol": "refreshFeed"
     },
     {
@@ -4971,7 +7327,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 187,
+      "line": 196,
       "symbol": "addManualFeed"
     },
     {
@@ -4979,7 +7335,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 188,
+      "line": 197,
       "symbol": "updateManualFeed"
     },
     {
@@ -4987,7 +7343,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 190,
+      "line": 199,
       "symbol": "removeManualFeed"
     },
     {
@@ -4995,7 +7351,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 192,
+      "line": 201,
       "symbol": "restoreManualFeed"
     },
     {
@@ -5003,7 +7359,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 194,
+      "line": 203,
       "symbol": "hideExternalFeed"
     },
     {
@@ -5011,7 +7367,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 196,
+      "line": 205,
       "symbol": "unhideExternalFeed"
     },
     {
@@ -5019,23 +7375,39 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 198,
+      "line": 207,
       "symbol": "saveFeed"
+    },
+    {
+      "id": "api_client:afc29d1850829037df89:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 208,
+      "symbol": "summarizeFeed"
     },
     {
       "id": "api_client:aee191a7c26321a3daf8:1",
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 201,
+      "line": 210,
       "symbol": "today"
+    },
+    {
+      "id": "api_client:d5491760387a3eb33b35:1",
+      "kind": "api_client",
+      "page": "API / Service / Agent",
+      "file": "web/src/lib/workspace-api.ts",
+      "line": 211,
+      "symbol": "tasks"
     },
     {
       "id": "api_client:2e99c5d5e509675614d6:1",
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 203,
+      "line": 212,
       "symbol": "createTask"
     },
     {
@@ -5043,7 +7415,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 205,
+      "line": 214,
       "symbol": "updateTask"
     },
     {
@@ -5051,7 +7423,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 211,
+      "line": 216,
       "symbol": "deleteTask"
     },
     {
@@ -5059,7 +7431,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 212,
+      "line": 217,
       "symbol": "automations"
     },
     {
@@ -5067,7 +7439,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 213,
+      "line": 218,
       "symbol": "createAutomation"
     },
     {
@@ -5075,7 +7447,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 220,
+      "line": 225,
       "symbol": "toggleAutomation"
     },
     {
@@ -5083,7 +7455,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 222,
+      "line": 227,
       "symbol": "deleteAutomation"
     },
     {
@@ -5091,7 +7463,7 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 224,
+      "line": 229,
       "symbol": "runs"
     },
     {
@@ -5099,1928 +7471,20 @@
       "kind": "api_client",
       "page": "API / Service / Agent",
       "file": "web/src/lib/workspace-api.ts",
-      "line": 225,
+      "line": 230,
       "symbol": "dataSettings"
-    },
-    {
-      "id": "http_route:453d8bcbb84bd053369a:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/routes/appearance.py",
-      "line": 29,
-      "symbol": "GET /api/appearance/backgrounds",
-      "service_calls": [
-        "request_services(request).appearance.backgrounds"
-      ]
-    },
-    {
-      "id": "http_route:84e90aaa7e79eebf3cb1:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/routes/appearance.py",
-      "line": 34,
-      "symbol": "POST /api/appearance/backgrounds",
-      "service_calls": [
-        "request_services(request).appearance.add_background"
-      ]
-    },
-    {
-      "id": "http_route:2658a59ef2e12feae1a8:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/routes/appearance.py",
-      "line": 41,
-      "symbol": "PUT /api/appearance/backgrounds/selection",
-      "service_calls": [
-        "request_services(request).appearance.select_background"
-      ]
-    },
-    {
-      "id": "http_route:55987dd42f9f3be49477:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/routes/appearance.py",
-      "line": 46,
-      "symbol": "GET /api/appearance/backgrounds/{identifier}",
-      "service_calls": [
-        "request_services(request).appearance.background"
-      ]
-    },
-    {
-      "id": "http_route:9ecfa7200011e5af0405:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/routes/appearance.py",
-      "line": 59,
-      "symbol": "DELETE /api/appearance/backgrounds/{identifier}",
-      "service_calls": [
-        "request_services(request).appearance.delete_background"
-      ]
-    },
-    {
-      "id": "http_route:159a9942c6f13d0b07b2:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/routes/appearance.py",
-      "line": 65,
-      "symbol": "GET /api/appearance/models/{form}",
-      "service_calls": [
-        "request_services(request).appearance.model"
-      ]
-    },
-    {
-      "id": "http_route:236102274b0b74d18a2c:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/routes/appearance.py",
-      "line": 70,
-      "symbol": "PUT /api/appearance/models/{form}",
-      "service_calls": [
-        "request_services(request).appearance.save_model"
-      ]
-    },
-    {
-      "id": "http_route:804ed896c55684146ccb:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/routes/appearance.py",
-      "line": 77,
-      "symbol": "DELETE /api/appearance/models/{form}",
-      "service_calls": [
-        "request_services(request).appearance.delete_model"
-      ]
-    },
-    {
-      "id": "http_route:8f7bd2c39b15e9835241:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/routes/appearance.py",
-      "line": 83,
-      "symbol": "GET /api/appearance/model-assets/{form}",
-      "service_calls": [
-        "request_services(request).appearance.model_file"
-      ]
-    },
-    {
-      "id": "http_route:4104aee495460ebb356e:1",
-      "kind": "http_route",
-      "page": "Feed",
-      "file": "src/xiliu/api/routes/feed.py",
-      "line": 75,
-      "symbol": "POST /api/feed/{item_id}/summarize",
-      "service_calls": [
-        "request_services(request).feed.summarize"
-      ]
-    },
-    {
-      "id": "service_method:34dce9511826f01d2e4b:1",
-      "kind": "service_method",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/services/appearance.py",
-      "line": 58,
-      "symbol": "AppearanceService.backgrounds"
-    },
-    {
-      "id": "service_method:71d4d516ab9846617a55:1",
-      "kind": "service_method",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/services/appearance.py",
-      "line": 75,
-      "symbol": "AppearanceService.add_background"
-    },
-    {
-      "id": "service_method:4caaf0c1ea528dcdfa58:1",
-      "kind": "service_method",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/services/appearance.py",
-      "line": 90,
-      "symbol": "AppearanceService.select_background"
-    },
-    {
-      "id": "service_method:f311af48193c8c58ec19:1",
-      "kind": "service_method",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/services/appearance.py",
-      "line": 112,
-      "symbol": "AppearanceService.background"
-    },
-    {
-      "id": "service_method:6cf14b0dcd1e82be0096:1",
-      "kind": "service_method",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/services/appearance.py",
-      "line": 122,
-      "symbol": "AppearanceService.delete_background"
-    },
-    {
-      "id": "service_method:541e66715fadc2919e53:1",
-      "kind": "service_method",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/services/appearance.py",
-      "line": 138,
-      "symbol": "AppearanceService.model"
-    },
-    {
-      "id": "service_method:9dd625b1858496f3ff84:1",
-      "kind": "service_method",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/services/appearance.py",
-      "line": 158,
-      "symbol": "AppearanceService.save_model"
-    },
-    {
-      "id": "service_method:94e59a258be93c2eb52b:1",
-      "kind": "service_method",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/services/appearance.py",
-      "line": 228,
-      "symbol": "AppearanceService.model_file"
-    },
-    {
-      "id": "service_method:204aed16c4f8db2ec63d:1",
-      "kind": "service_method",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/api/services/appearance.py",
-      "line": 238,
-      "symbol": "AppearanceService.delete_model"
-    },
-    {
-      "id": "service_method:3dec07b4ee831e6e3e0e:1",
-      "kind": "service_method",
-      "page": "Feed",
-      "file": "src/xiliu/api/services/feed.py",
-      "line": 712,
-      "symbol": "FeedService.summarize"
-    },
-    {
-      "id": "ui_link:d86d3a5de1a0045b6825:1",
-      "kind": "ui_link",
-      "page": "Launch / Navigation / shared UI",
-      "file": "web/src/app/App.tsx",
-      "line": 113,
-      "symbol": "<NavLink className=\"brand\" to=\"/assistant\" aria-label=\"xiliu 助手\" title=\"xiliu\">"
-    },
-    {
-      "id": "ui_link:51fdb11d7fe213b7335d:1",
-      "kind": "ui_link",
-      "page": "Launch / Navigation / shared UI",
-      "file": "web/src/app/App.tsx",
-      "line": 118,
-      "symbol": "<NavLink key={path} to={path} aria-label={label} title={label} data-onboarding={`nav-${path.slice(1)}`} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} >"
-    },
-    {
-      "id": "ui_link:991ddb91045a69afd1d7:1",
-      "kind": "ui_link",
-      "page": "Launch / Navigation / shared UI",
-      "file": "web/src/app/App.tsx",
-      "line": 141,
-      "symbol": "<NavLink className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} to=\"/settings\" state={{ backgroundLocation: isSettings ? backgroundUrl : location }} aria-label=\"设置\" title=\"设置\" >"
-    },
-    {
-      "id": "ui_button:c30ba8f0d926d918d4bb:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CapturePage.tsx",
-      "line": 27,
-      "symbol": "<button type=\"button\" className=\"icon-button\" aria-label=\"关闭收录窗口\" onClick={close}>"
-    },
-    {
-      "id": "ui_event:67527c9c875600af8ac4:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CapturePage.tsx",
-      "line": 27,
-      "symbol": "onClick={close}"
-    },
-    {
-      "id": "ui_button:2136f27f62526e7faf38:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CapturePage.tsx",
-      "line": 35,
-      "symbol": "<button type=\"button\" onClick={() => { if (isDesktop()) void companionCall('open_main', { path: `/inbox?item=${encodeURIComponent(saved.id)}`, }).catch((error: Error) => setError(error.message)) else navigate(`/inbox?item=${encodeURIComponent(saved.id)}`) }} >"
-    },
-    {
-      "id": "ui_event:41e8dcb5d6acdc26f541:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CapturePage.tsx",
-      "line": 37,
-      "symbol": "onClick={() => { if (isDesktop()) void companionCall('open_main', { path: `/inbox?item=${encodeURIComponent(saved.id)}`, }).catch((error: Error) => setError(error.message)) else navigate(`/inbox?item=${encodeURIComponent(saved.id)}`) }}"
-    },
-    {
-      "id": "ui_event:7710eee8e3d6537bbc40:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CapturePage.tsx",
-      "line": 51,
-      "symbol": "onClose={close}"
-    },
-    {
-      "id": "ui_event:7c03f3bea69032b6df17:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CapturePage.tsx",
-      "line": 52,
-      "symbol": "onSaved={(item) => { setSaved(item) if (isDesktop()) void companionCall('captured', { id: item.id }).catch((error: Error) => setError(error.message) ) }}"
-    },
-    {
-      "id": "ui_api:0d661b1521523b039519:1",
-      "kind": "ui_api",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionController.tsx",
-      "line": 51,
-      "symbol": "api.create"
-    },
-    {
-      "id": "ui_event:d72513e0c6b9b5bf6822:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 366,
-      "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
-    },
-    {
-      "id": "ui_event:649ebbab0fb07b0eb72a:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 411,
-      "symbol": "onClick={() => openMain('/today')}"
-    },
-    {
-      "id": "ui_event:34fd7b0596e07d543dd3:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 310,
-      "symbol": "onSubmit={(event) => { event.preventDefault() void send() }}"
-    },
-    {
-      "id": "ui_event:34b920400fee5dafc3b8:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 331,
-      "symbol": "onChange={(event) => setDraft(event.target.value)}"
-    },
-    {
-      "id": "ui_event:ad3b83abd12fee5c7678:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 216,
-      "symbol": "onClick={() => openMain( snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant' ) }"
-    },
-    {
-      "id": "ui_event:f1f3aaf8e0fbbbc604c9:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 302,
-      "symbol": "onError={setError}"
-    },
-    {
-      "id": "ui_event:34425f7cca5e91b3a8e6:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 87,
-      "symbol": "onChange={(event) => void save({ enabled: event.target.checked, visible: event.target.checked }) }"
-    },
-    {
-      "id": "ui_event:3e11c88162ea7ed482fb:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 98,
-      "symbol": "onChange={(event) => void save({ form: event.target.value as 'chibi' | 'standing' })}"
-    },
-    {
-      "id": "ui_event:f48cbd8d5816652b7df6:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 110,
-      "symbol": "onChange={(event) => void save({ alwaysOnTop: event.target.checked })}"
-    },
-    {
-      "id": "ui_button:5d49a74c29adfae63cee:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/Live2DSettings.tsx",
-      "line": 31,
-      "symbol": "<button disabled={busy} aria-pressed={form === 'chibi'} onClick={() => { setForm('chibi') setError('') setNotice('') }} >"
-    },
-    {
-      "id": "ui_event:d98153e4bc54d5b3baaa:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/Live2DSettings.tsx",
-      "line": 34,
-      "symbol": "onClick={() => { setForm('chibi') setError('') setNotice('') }}"
-    },
-    {
-      "id": "ui_button:ca3aa1a6553fa1eaa435:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/Live2DSettings.tsx",
-      "line": 42,
-      "symbol": "<button disabled={busy} aria-pressed={form === 'standing'} onClick={() => { setForm('standing') setError('') setNotice('') }} >"
-    },
-    {
-      "id": "ui_event:c0227216f00753eb9deb:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/Live2DSettings.tsx",
-      "line": 45,
-      "symbol": "onClick={() => { setForm('standing') setError('') setNotice('') }}"
-    },
-    {
-      "id": "ui_event:18c11cd264d647acd31a:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/Live2DSettings.tsx",
-      "line": 55,
-      "symbol": "onError={setError}"
-    },
-    {
-      "id": "ui_event:480cf73e5ee47b2376b3:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/Live2DSettings.tsx",
-      "line": 66,
-      "symbol": "onChange={async (event) => { const files = Array.from(event.target.files ?? []) event.target.value = '' if (!files.length) return setBusy(true) setError('') setNotice('') try { const bundle = await collectModelBundle(form, files) await saveModel(form, bundle) setNotice('模型已保存，桌宠将自动更新。') } catch (failure) { setError((failure as Error).message) } finally { setBusy(false) } }}"
-    },
-    {
-      "id": "ui_button:46a6729dc0cc0c75bb26:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/Live2DSettings.tsx",
-      "line": 87,
-      "symbol": "<button className=\"secondary-button\" disabled={busy} onClick={async () => { setBusy(true) try { await saveModel(form) setNotice('已恢复角色图片。') setError('') } catch (failure) { setError((failure as Error).message) } finally { setBusy(false) } }} >"
-    },
-    {
-      "id": "ui_event:f4655e5959605168705e:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/Live2DSettings.tsx",
-      "line": 90,
-      "symbol": "onClick={async () => { setBusy(true) try { await saveModel(form) setNotice('已恢复角色图片。') setError('') } catch (failure) { setError((failure as Error).message) } finally { setBusy(false) } }}"
-    },
-    {
-      "id": "ui_event:387916c6835a8253ebfc:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 107,
-      "symbol": "onPointerMove={(event) => { const rect = event.currentTarget.getBoundingClientRect() controller.current?.focus(event.clientX - rect.left, event.clientY - rect.top) }}"
-    },
-    {
-      "id": "ui_fetch:740ca1ed0a26e858d2ff:1",
-      "kind": "ui_fetch",
-      "page": "Companion",
-      "file": "web/src/features/companion/live2d-runtime.ts",
-      "line": 11,
-      "symbol": "fetch(path,"
-    },
-    {
-      "id": "ui_fetch:034d2d67090c207a5e85:1",
-      "kind": "ui_fetch",
-      "page": "Companion",
-      "file": "web/src/features/companion/model-storage.ts",
-      "line": 36,
-      "symbol": "fetch(file.url)"
-    },
-    {
-      "id": "ui_event:2342c1d6ce8fe3a43560:1",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 20,
-      "symbol": "onSaved={onSaved}"
-    },
-    {
-      "id": "ui_event:9c8b323cc0ebf95304c0:2",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 20,
-      "symbol": "onClose={onClose}"
-    },
-    {
-      "id": "ui_mutation:17d735d8d1d7722e8230:1",
-      "kind": "ui_mutation",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 72,
-      "symbol": "useMutation({ mutationFn: async () => { if (!text.trim() && !file) throw new Error('请粘贴文字、链接，或选择一个文件。') return workspaceApi.importContent({ ...(text.trim() ? { text: text.trim() } : {}), ...(file ? { filename: file.name, data_base64: await fileBase64(file) } : {}), use_ai: useAI, }) }, onSuccess: (item) => { setText('') setFile(null) onSaved(item) }, onSettled: () => { submitting.current = false }, }"
-    },
-    {
-      "id": "ui_event:956ef331f29932aa7dbf:1",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 92,
-      "symbol": "onSubmit={(event) => { event.preventDefault() if (submitting.current) return submitting.current = true create.mutate() }}"
-    },
-    {
-      "id": "ui_event:8d9748d26aa618d6dd2a:1",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 105,
-      "symbol": "onChange={(event) => { if (!submitting.current) setText(event.target.value) }}"
-    },
-    {
-      "id": "ui_button:464ce300f6c83a3d7ad9:1",
-      "kind": "ui_button",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/CaptureDialog.tsx",
-      "line": 142,
-      "symbol": "<button className=\"secondary-button\" type=\"button\" disabled={create.isPending} onClick={() => { setFile(null) setFileError('') }} >"
-    },
-    {
-      "id": "ui_event:d3cf06a24c8a48421de2:1",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 150,
-      "symbol": "onClose={onClose}"
-    },
-    {
-      "id": "ui_button:1e15b4f9e97087fc9273:1",
-      "kind": "ui_button",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 177,
-      "symbol": "<button type=\"button\" className=\"secondary-button\" onClick={onEdit}>"
-    },
-    {
-      "id": "ui_event:8234255cfabcab1eb939:1",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 177,
-      "symbol": "onClick={onEdit}"
-    },
-    {
-      "id": "ui_button:bb3830c4d460bea76564:1",
-      "kind": "ui_button",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 181,
-      "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={asking} onClick={onAsk}>"
-    },
-    {
-      "id": "ui_event:98a43a92edd0799dce77:1",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 181,
-      "symbol": "onClick={onAsk}"
-    },
-    {
-      "id": "ui_link:2c0934a2464650b5f4c6:1",
-      "kind": "ui_link",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 186,
-      "symbol": "<a className=\"secondary-button\" href={workspaceApi.originalUrl(item.id)} download={item.filename} >"
-    },
-    {
-      "id": "ui_link:ff289c0a9a0ae9e51dcf:1",
-      "kind": "ui_link",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 196,
-      "symbol": "<a className=\"primary-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\">"
-    },
-    {
-      "id": "ui_event:af2100331e76899ffd73:1",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 442,
-      "symbol": "onClose={() => setPreviewing(null)}"
-    },
-    {
-      "id": "ui_event:82feaaee3cd2e1391225:1",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 443,
-      "symbol": "onEdit={() => { const item = previewing setPreviewing(null) setEditing(item) }}"
-    },
-    {
-      "id": "ui_event:d08d076eea0fdc3e750c:1",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 448,
-      "symbol": "onAsk={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { documentId: previewing.id, title: previewing.title, content: [previewing.content, previewing.summary, previewing.source] .filter(Boolean) .join('\\n\\n'), }, }) }"
-    },
-    {
-      "id": "ui_event:a01ab267152cd08ba7f9:1",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 498,
-      "symbol": "onClick={(event) => { // Let the card's own buttons, links, inputs and labels act on their own; // a click anywhere else opens the preview. if ((event.target as HTMLElement).closest('button, a, input, label')) return setPreviewing(item) }} > {status === 'inbox' && ( <input type=\"checkbox\" aria-label={`选择 ${item.title}`} checked={selected.includes(item.id)} onChange={(event) => setSelected((ids) => event.target.checked ? [...ids, item.id] : ids.filter((id) => id !== item.id) ) } /> )} <div className={`item-symbol ${item.type}`}> <Icon size={24} /> </div> <div className=\"content-row-body\"> <div className=\"content-row-title\"> <h2> <button type=\"button\" className=\"content-row-open\" onClick={() => setPreviewing(item)} > {item.title} </button> </h2> <time dateTime={item.updated_at}> {new Date(item.updated_at).toLocaleDateString('zh-CN')} </time> </div> <p className=\"content-excerpt\"> {item.summary || item.content || item.filename || item.source} </p> {sourceUrl && ( <a className=\"source-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\"> {item.source} </a> )} <div className=\"content-processing\" role=\"status\"> {item.processing_status === 'pending' ? '正在整理标题、摘要与标签…' : item.processing_status === 'failed' ? `整理失败 · 原始内容已保留${item.processing_error ? `：${item.processing_error}` : ''}` : item.status === 'knowledge' ? `已归类至 ${folders.data?.find((folder) => folder.id === item.folder_id)?.name ?? '未分类'} · ${item.ai_processed ? 'AI 已整理' : '本地整理'}` : item.ai_processed ? 'AI 已整理 · 待归类' : '待整理'} </div> {item.processing_status === 'failed' && ( <button className=\"secondary-button\" disabled={retry.isPending} onClick={() => retry.mutate(item.id)} > 重新整理 </button> )} <div className=\"tag-list\"> {item.tags.map((value) => ( <button key={value} onClick={() => setTag(value)}> # {value} </button> ))} </div> <div className=\"row-actions\"> {status === 'inbox' && item.status === 'knowledge' ? ( <Link to={`/knowledge?folder=${encodeURIComponent(item.folder_id ?? 'unfiled')}&document=${encodeURIComponent(item.id)}`} > 查看归类结果 </Link> ) : ( <button disabled={ update.isPending || classify.isPending || item.processing_status === 'pending' } onClick={() => status === 'inbox' ? classify.mutate([item.id]) : update.mutate(item) } > <ArrowRight size={14} /> {status === 'inbox' ? '归档到知识库' : '移回收件箱'} </button> )} <button disabled={ask.isPending} onClick={() => ask.mutate({ draft: '请帮我梳理这份内容的要点。', reference: { documentId: item.id, title: item.title, content: [ item.filename ? `文件：${item.filename}\\n以下参考仅包含文件名与备注，原文件内容未展开。` : '', item.content, item.summary, item.source, ] .filter(Boolean) .join('\\n\\n'), }, }) } > <Sparkles size={14} /> 引用提问 </button> {item.filename && ( <a href={workspaceApi.originalUrl(item.id)} download={item.filename}> <Download size={14} /> 下载原件 </a> )} <button className=\"delete-action\" disabled={remove.isPending} aria-label={`删除 ${item.title}`} onClick={() => remove.mutate(item.id)} > <Trash2 size={14} /> 删除 </button> </div> </div> </article> ) })} </div> )} </section> ) }"
-    },
-    {
-      "id": "ui_button:1e8fd2b98fe48abf2be2:1",
-      "kind": "ui_button",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 525,
-      "symbol": "<button type=\"button\" className=\"content-row-open\" onClick={() => setPreviewing(item)} >"
-    },
-    {
-      "id": "ui_event:9c440a78a5ea4cbe8183:1",
-      "kind": "ui_event",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 528,
-      "symbol": "onClick={() => setPreviewing(item)}"
-    },
-    {
-      "id": "ui_link:e7d8ac6e8432e2151b37:2",
-      "kind": "ui_link",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 541,
-      "symbol": "<a className=\"source-link\" href={sourceUrl} target=\"_blank\" rel=\"noreferrer\">"
-    },
-    {
-      "id": "ui_api:017121cc84e984853358:2",
-      "kind": "ui_api",
-      "page": "Inbox / shared content",
-      "file": "web/src/features/content/ContentPage.tsx",
-      "line": 620,
-      "symbol": "workspaceApi.originalUrl"
-    },
-    {
-      "id": "ui_api:7ad74de8bf188be3e536:1",
-      "kind": "ui_api",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 158,
-      "symbol": "workspaceApi.summarizeFeed"
-    },
-    {
-      "id": "ui_mutation:fa1c114e1a317da963cc:1",
-      "kind": "ui_mutation",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 158,
-      "symbol": "useMutation({ mutationFn: () => workspaceApi.summarizeFeed(item.id) }"
-    },
-    {
-      "id": "ui_event:769d463f0bb524f0e58a:2",
-      "kind": "ui_event",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 161,
-      "symbol": "onClose={onClose}"
-    },
-    {
-      "id": "ui_button:f3da4675912a571994c1:1",
-      "kind": "ui_button",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 202,
-      "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={summarize.isPending} onClick={() => summarize.mutate()} >"
-    },
-    {
-      "id": "ui_event:0c70dcde9e4e08464def:1",
-      "kind": "ui_event",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 206,
-      "symbol": "onClick={() => summarize.mutate()}"
-    },
-    {
-      "id": "ui_button:2e5ff449c71d2cbe6167:1",
-      "kind": "ui_button",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 212,
-      "symbol": "<button type=\"button\" className=\"secondary-button\" disabled={saveDisabled} onClick={onSave} >"
-    },
-    {
-      "id": "ui_event:544329f08f4ac1290a2a:1",
-      "kind": "ui_event",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 216,
-      "symbol": "onClick={onSave}"
-    },
-    {
-      "id": "ui_button:4ae3d172333adb67fa14:1",
-      "kind": "ui_button",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 221,
-      "symbol": "<button type=\"button\" className=\"secondary-button\" onClick={onAsk}>"
-    },
-    {
-      "id": "ui_event:02e2b3b981d6273ef86c:1",
-      "kind": "ui_event",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 221,
-      "symbol": "onClick={onAsk}"
-    },
-    {
-      "id": "ui_link:7a1ff2fd7be03d3d0a6f:1",
-      "kind": "ui_link",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 226,
-      "symbol": "<a className=\"primary-link\" href={url} target=\"_blank\" rel=\"noreferrer\">"
-    },
-    {
-      "id": "ui_query:597839f9da40b4e937da:4",
-      "kind": "ui_query",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 251,
-      "symbol": "mutationFn: ()"
-    },
-    {
-      "id": "ui_event:8dd9402ff9a874848cf6:1",
-      "kind": "ui_event",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 277,
-      "symbol": "onClick={(event) => { if ((event.target as HTMLElement).closest('button, a, input, label')) return setPreview(true) }}"
-    },
-    {
-      "id": "ui_button:407315e532597276992a:1",
-      "kind": "ui_button",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 296,
-      "symbol": "<button type=\"button\" className=\"content-row-open\" onClick={() => setPreview(true)}>"
-    },
-    {
-      "id": "ui_event:fec3c1559853d27b08f8:1",
-      "kind": "ui_event",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 296,
-      "symbol": "onClick={() => setPreview(true)}"
-    },
-    {
-      "id": "ui_button:3a5570db4743f96ff12a:1",
-      "kind": "ui_button",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 347,
-      "symbol": "<button disabled={ask.isPending} onClick={askAI}>"
-    },
-    {
-      "id": "ui_event:c4464d41662682c2f77c:1",
-      "kind": "ui_event",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 347,
-      "symbol": "onClick={askAI}"
-    },
-    {
-      "id": "ui_event:221b6699a8a8f5e36cbf:1",
-      "kind": "ui_event",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 361,
-      "symbol": "onClose={() => setPreview(false)}"
-    },
-    {
-      "id": "ui_event:330843f37ff096ceb637:1",
-      "kind": "ui_event",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 362,
-      "symbol": "onAsk={() => { setPreview(false) askAI() }}"
-    },
-    {
-      "id": "ui_event:98745b6b0d821f8cfbec:1",
-      "kind": "ui_event",
-      "page": "Feed",
-      "file": "web/src/features/feed/FeedPage.tsx",
-      "line": 366,
-      "symbol": "onSave={() => save.mutate()}"
-    },
-    {
-      "id": "ui_link:52cfb9bdd64def662d38:1",
-      "kind": "ui_link",
-      "page": "Knowledge",
-      "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 112,
-      "symbol": "<Link className=\"knowledge-folder-open\" to={`?folder=${encodeURIComponent(folder.id)}`}>"
-    },
-    {
-      "id": "ui_button:aa2e82d12007101988d8:1",
-      "kind": "ui_button",
-      "page": "Knowledge",
-      "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 128,
-      "symbol": "<button onClick={onEdit}>"
-    },
-    {
-      "id": "ui_event:846afcc3e3d4aff60447:1",
-      "kind": "ui_event",
-      "page": "Knowledge",
-      "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 128,
-      "symbol": "onClick={onEdit}"
-    },
-    {
-      "id": "ui_button:697ea9808e45953d9e61:1",
-      "kind": "ui_button",
-      "page": "Knowledge",
-      "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 129,
-      "symbol": "<button aria-label={`删除文件夹 ${folder.name}`} onClick={onDelete}>"
-    },
-    {
-      "id": "ui_event:9bf6170cd776bc75c396:1",
-      "kind": "ui_event",
-      "page": "Knowledge",
-      "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 129,
-      "symbol": "onClick={onDelete}"
-    },
-    {
-      "id": "ui_event:b0ce1c01f5af5f76471d:1",
-      "kind": "ui_event",
-      "page": "Knowledge",
-      "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 296,
-      "symbol": "onEdit={() => setEditing(folder)}"
-    },
-    {
-      "id": "ui_event:f2924da5a16a08c1b02f:1",
-      "kind": "ui_event",
-      "page": "Knowledge",
-      "file": "web/src/features/knowledge/KnowledgePage.tsx",
-      "line": 297,
-      "symbol": "onDelete={() => setDeleting(folder)}"
-    },
-    {
-      "id": "ui_mutation:8b7f01e7096a11547375:1",
-      "kind": "ui_mutation",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 19,
-      "symbol": "useMutation({ mutationFn: () => workspaceApi.updateTask(task.id, { title, due_at: due ? new Date(due).toISOString() : null, demo_revision: demoRevision, }), onSuccess: onDone, }"
-    },
-    {
-      "id": "ui_query:89dfb61860dfb504d46f:1",
-      "kind": "ui_query",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 20,
-      "symbol": "mutationFn: ()"
-    },
-    {
-      "id": "ui_api:51cea0391e7bce6335f2:1",
-      "kind": "ui_api",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 21,
-      "symbol": "workspaceApi.updateTask"
-    },
-    {
-      "id": "ui_event:574a98663c9352e80edf:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 31,
-      "symbol": "onSubmit={(event) => { event.preventDefault() save.mutate() }}"
-    },
-    {
-      "id": "ui_event:6a97b6738a620762d0d2:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 40,
-      "symbol": "onChange={(event) => setTitle(event.target.value)}"
-    },
-    {
-      "id": "ui_event:dcaa1ad757187e444f6e:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 46,
-      "symbol": "onChange={(event) => setDue(event.target.value)}"
-    },
-    {
-      "id": "ui_button:a07a096fe8405b0605db:1",
-      "kind": "ui_button",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 49,
-      "symbol": "<button disabled={save.isPending}>"
-    },
-    {
-      "id": "ui_button:6515917037362b322aa0:1",
-      "kind": "ui_button",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 50,
-      "symbol": "<button type=\"button\" onClick={onDone}>"
-    },
-    {
-      "id": "ui_event:f0bf2d90f265b1acc8ee:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 50,
-      "symbol": "onClick={onDone}"
-    },
-    {
-      "id": "ui_api:72581ee6229e5b3afce1:1",
-      "kind": "ui_api",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 70,
-      "symbol": "workspaceApi.tasks"
-    },
-    {
-      "id": "ui_query:272c3b8c39d38c2cb710:1",
-      "kind": "ui_query",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 70,
-      "symbol": "queryFn: workspaceApi.tasks"
-    },
-    {
-      "id": "ui_mutation:3d672cdb1a8600181170:1",
-      "kind": "ui_mutation",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 78,
-      "symbol": "useMutation({ mutationFn: () => workspaceApi.createTask(title.trim(), due ? new Date(due).toISOString() : null, { scope, parent_id: parent || null, }), onSuccess: () => { setTitle('') setDue('') setParent('') invalidate() }, }"
-    },
-    {
-      "id": "ui_query:89dfb61860dfb504d46f:2",
-      "kind": "ui_query",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 79,
-      "symbol": "mutationFn: ()"
-    },
-    {
-      "id": "ui_api:c5652d04c2d2ea21aff7:1",
-      "kind": "ui_api",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 80,
-      "symbol": "workspaceApi.createTask"
-    },
-    {
-      "id": "ui_mutation:dc4dd7e5c650f64ab342:1",
-      "kind": "ui_mutation",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 91,
-      "symbol": "useMutation({ mutationFn: (task: Task) => workspaceApi.updateTask(task.id, { completed: !task.completed }), onSuccess: invalidate, }"
-    },
-    {
-      "id": "ui_api:51cea0391e7bce6335f2:2",
-      "kind": "ui_api",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 92,
-      "symbol": "workspaceApi.updateTask"
-    },
-    {
-      "id": "ui_query:ff7cd7caf53d380aba64:1",
-      "kind": "ui_query",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 92,
-      "symbol": "mutationFn: (task:"
-    },
-    {
-      "id": "ui_api:f4eaab76a7bfafa73686:1",
-      "kind": "ui_api",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 95,
-      "symbol": "workspaceApi.deleteTask"
-    },
-    {
-      "id": "ui_mutation:d43672bbd99975ee0d48:1",
-      "kind": "ui_mutation",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 95,
-      "symbol": "useMutation({ mutationFn: workspaceApi.deleteTask, onSuccess: invalidate }"
-    },
-    {
-      "id": "ui_query:0165b2ede6c2626017fc:1",
-      "kind": "ui_query",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 95,
-      "symbol": "mutationFn: workspaceApi.deleteTask,"
-    },
-    {
-      "id": "ui_event:297ec253b47569add995:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 104,
-      "symbol": "onDone={() => { setEditing(null) invalidate() }}"
-    },
-    {
-      "id": "ui_event:e0e23ea86298444c8cf7:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 116,
-      "symbol": "onChange={() => toggle.mutate(task)}"
-    },
-    {
-      "id": "ui_button:9c2eb19451c77111d0aa:1",
-      "kind": "ui_button",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 118,
-      "symbol": "<button className=\"task-title\" title=\"编辑待办\" onClick={() => setEditing(task.id)}>"
-    },
-    {
-      "id": "ui_event:68df7dfb05c5533b267c:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 118,
-      "symbol": "onClick={() => setEditing(task.id)}"
-    },
-    {
-      "id": "ui_button:7d406c40cfb2a5925e36:1",
-      "kind": "ui_button",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 136,
-      "symbol": "<button className=\"icon-button\" disabled={remove.isPending} aria-label={`删除待办 ${task.title}`} onClick={() => remove.mutate(task.id)} >"
-    },
-    {
-      "id": "ui_event:52ba3708228cfdb3e38b:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 140,
-      "symbol": "onClick={() => remove.mutate(task.id)}"
-    },
-    {
-      "id": "ui_event:13ae95c862e7e09bc0ab:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 151,
-      "symbol": "onSubmit={(event) => { event.preventDefault() if (title.trim()) create.mutate() }}"
-    },
-    {
-      "id": "ui_event:6a97b6738a620762d0d2:2",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 165,
-      "symbol": "onChange={(event) => setTitle(event.target.value)}"
-    },
-    {
-      "id": "ui_event:75e8aee244ae929ae0e2:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 181,
-      "symbol": "onChange={(event) => setParent(event.target.value)}"
-    },
-    {
-      "id": "ui_event:dcaa1ad757187e444f6e:2",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 199,
-      "symbol": "onChange={(event) => setDue(event.target.value)}"
-    },
-    {
-      "id": "ui_button:fbf2398646233ca245d0:1",
-      "kind": "ui_button",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 202,
-      "symbol": "<button className=\"primary-button\" disabled={create.isPending || !title.trim()}>"
-    },
-    {
-      "id": "ui_button:3da4c11ef8fdf459d345:1",
-      "kind": "ui_button",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 228,
-      "symbol": "<button key={item.value} aria-pressed={scope === item.value} onClick={() => { setScope(item.value) setParent('') setEditing(null) }} >"
-    },
-    {
-      "id": "ui_event:3ff5dec019762f630bfc:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 231,
-      "symbol": "onClick={() => { setScope(item.value) setParent('') setEditing(null) }}"
-    },
-    {
-      "id": "ui_button:4bc7f7d3add8d9e2a559:1",
-      "kind": "ui_button",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 243,
-      "symbol": "<button aria-pressed={tab === 'active'} onClick={() => setTab('active')}>"
-    },
-    {
-      "id": "ui_event:d05d2587ae15842763cb:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 243,
-      "symbol": "onClick={() => setTab('active')}"
-    },
-    {
-      "id": "ui_button:880383db3d1136117755:1",
-      "kind": "ui_button",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 246,
-      "symbol": "<button aria-pressed={tab === 'done'} onClick={() => setTab('done')}>"
-    },
-    {
-      "id": "ui_event:5e75098dab5990439a78:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 246,
-      "symbol": "onClick={() => setTab('done')}"
-    },
-    {
-      "id": "ui_button:1a47efac82772b2c02f8:1",
-      "kind": "ui_button",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 264,
-      "symbol": "<button className=\"secondary-button\" onClick={() => void plans.refetch()}>"
-    },
-    {
-      "id": "ui_event:c12118a2925af6217b58:1",
-      "kind": "ui_event",
-      "page": "Plans",
-      "file": "web/src/features/plans/PlansPage.tsx",
-      "line": 264,
-      "symbol": "onClick={() => void plans.refetch()}"
-    },
-    {
-      "id": "ui_button:8d1c75a7f2941b7efdc9:1",
-      "kind": "ui_button",
-      "page": "Settings",
-      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 41,
-      "symbol": "<button disabled={busy} aria-pressed={settings.mode === 'blank'} onClick={() => choose({ mode: 'blank', selected: null })} >"
-    },
-    {
-      "id": "ui_event:63a4793033e68b29dfaa:1",
-      "kind": "ui_event",
-      "page": "Settings",
-      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 44,
-      "symbol": "onClick={() => choose({ mode: 'blank', selected: null })}"
-    },
-    {
-      "id": "ui_button:b35c39f1a2159d7e1217:1",
-      "kind": "ui_button",
-      "page": "Settings",
-      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 49,
-      "symbol": "<button disabled={busy} aria-pressed={settings.mode === 'builtin'} onClick={() => choose({ mode: 'builtin', selected: null })} >"
-    },
-    {
-      "id": "ui_event:fda3282e86eda8e947a8:1",
-      "kind": "ui_event",
-      "page": "Settings",
-      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 52,
-      "symbol": "onClick={() => choose({ mode: 'builtin', selected: null })}"
-    },
-    {
-      "id": "ui_button:21205cf13d8a1fb412ee:1",
-      "kind": "ui_button",
-      "page": "Settings",
-      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 59,
-      "symbol": "<button disabled={busy} aria-pressed={settings.mode === 'custom' && settings.selected === image.id} onClick={() => choose({ mode: 'custom', selected: image.id })} >"
-    },
-    {
-      "id": "ui_event:6c07e5e8881a13dfaef4:1",
-      "kind": "ui_event",
-      "page": "Settings",
-      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 62,
-      "symbol": "onClick={() => choose({ mode: 'custom', selected: image.id })}"
-    },
-    {
-      "id": "ui_button:ff105de3d580db8760ba:1",
-      "kind": "ui_button",
-      "page": "Settings",
-      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 67,
-      "symbol": "<button className=\"icon-button\" disabled={busy} aria-label={`删除背景 ${image.name}`} onClick={() => void perform(() => saveBackground( settings.selected === image.id ? { mode: 'blank', selected: null } : settings, undefined, image.id ) ) } >"
-    },
-    {
-      "id": "ui_event:d2f0cca6ed7c2986f005:1",
-      "kind": "ui_event",
-      "page": "Settings",
-      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 71,
-      "symbol": "onClick={() => void perform(() => saveBackground( settings.selected === image.id ? { mode: 'blank', selected: null } : settings, undefined, image.id ) ) }"
-    },
-    {
-      "id": "ui_event:1fd8780e93027955328c:1",
-      "kind": "ui_event",
-      "page": "Settings",
-      "file": "web/src/features/settings/HomeBackgroundSettings.tsx",
-      "line": 93,
-      "symbol": "onChange={(event) => { const file = event.target.files?.[0] event.target.value = '' if (file) void perform(() => importBackground(file)) }}"
-    },
-    {
-      "id": "ui_event:6661fb78d99e9e39f922:1",
-      "kind": "ui_event",
-      "page": "Today",
-      "file": "web/src/features/today/TodayPage.tsx",
-      "line": 30,
-      "symbol": "onError={(event) => { event.currentTarget.hidden = true }}"
-    },
-    {
-      "id": "ui_link:330bcbc27c1f4c458ceb:1",
-      "kind": "ui_link",
-      "page": "Today",
-      "file": "web/src/features/today/TodayPage.tsx",
-      "line": 35,
-      "symbol": "<Link className=\"home-profile\" to=\"/settings?section=profile\" state={{ backgroundLocation: location }} aria-label={`${preferences.displayName || '你'}的个人设置`} >"
-    },
-    {
-      "id": "ui_event:c3804672710ef8acd015:1",
-      "kind": "ui_event",
-      "page": "Today",
-      "file": "web/src/features/today/TodayPage.tsx",
-      "line": 63,
-      "symbol": "onSubmit={(event) => { event.preventDefault() if (draft.trim() && !ask.isPending) ask.mutate({ draft: draft.trim() }) }}"
-    },
-    {
-      "id": "ui_button:944a15bc8132b73ee70d:1",
-      "kind": "ui_button",
-      "page": "Today",
-      "file": "web/src/features/today/TodayPage.tsx",
-      "line": 68,
-      "symbol": "<button type=\"button\" className=\"home-attach\" aria-label=\"导入文件或链接\" title=\"导入文件或链接\" onClick={() => setCapture(true)} >"
-    },
-    {
-      "id": "ui_event:2678abe88907889c81ed:1",
-      "kind": "ui_event",
-      "page": "Today",
-      "file": "web/src/features/today/TodayPage.tsx",
-      "line": 73,
-      "symbol": "onClick={() => setCapture(true)}"
-    },
-    {
-      "id": "ui_button:275ca670d9e68e8efd7e:1",
-      "kind": "ui_button",
-      "page": "Today",
-      "file": "web/src/features/today/TodayPage.tsx",
-      "line": 85,
-      "symbol": "<button type=\"button\" className=\"home-capture\" aria-label=\"快速收录\" title=\"快速收录到收件箱\" onClick={() => setCapture(true)} >"
-    },
-    {
-      "id": "ui_event:2678abe88907889c81ed:2",
-      "kind": "ui_event",
-      "page": "Today",
-      "file": "web/src/features/today/TodayPage.tsx",
-      "line": 90,
-      "symbol": "onClick={() => setCapture(true)}"
-    },
-    {
-      "id": "ui_button:a1b70c0ff05109dd2b29:1",
-      "kind": "ui_button",
-      "page": "Today",
-      "file": "web/src/features/today/TodayPage.tsx",
-      "line": 94,
-      "symbol": "<button className=\"home-send\" aria-label=\"在助手中继续\" title=\"开始对话\" disabled={ask.isPending || !draft.trim()} >"
-    },
-    {
-      "id": "ui_event:b76bf98cf472d289a33a:1",
-      "kind": "ui_event",
-      "page": "Today",
-      "file": "web/src/features/today/TodayPage.tsx",
-      "line": 117,
-      "symbol": "onClose={() => setCapture(false)}"
-    },
-    {
-      "id": "ui_event:6363fc541b861b123574:1",
-      "kind": "ui_event",
-      "page": "Today",
-      "file": "web/src/features/today/TodayPage.tsx",
-      "line": 118,
-      "symbol": "onSaved={() => { setCapture(false) void cache.invalidateQueries({ queryKey: ['content'] }) void cache.invalidateQueries({ queryKey: ['inbox'] }) }}"
-    },
-    {
-      "id": "api_client:afc29d1850829037df89:1",
-      "kind": "api_client",
-      "page": "API / Service / Agent",
-      "file": "web/src/lib/workspace-api.ts",
-      "line": 199,
-      "symbol": "summarizeFeed"
-    },
-    {
-      "id": "api_client:d5491760387a3eb33b35:1",
-      "kind": "api_client",
-      "page": "API / Service / Agent",
-      "file": "web/src/lib/workspace-api.ts",
-      "line": 202,
-      "symbol": "tasks"
-    },
-    {
-      "id": "ui_event:1def59a86c89a8216f6b:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 191,
-      "symbol": "onKeyDown={(event) => { if (event.key === 'Escape') { setCompose(false) setMenu(false) } }}"
-    },
-    {
-      "id": "ui_button:6ac3f87bd2238f12bcba:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 212,
-      "symbol": "<button className=\"companion-bubble\" aria-live=\"polite\" title=\"查看对话\" onClick={() => openMain( snapshot.cid ? `/assistant?c=${encodeURIComponent(snapshot.cid)}` : '/assistant' ) } >"
-    },
-    {
-      "id": "ui_button:1df710c665bd6981b228:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 228,
-      "symbol": "<button className=\"companion-character\" aria-label=\"打开桌宠快捷操作\" aria-expanded={compose} onPointerDown={(event) => { if (event.button !== 0) return pointer.current = { x: event.clientX, y: event.clientY, ...position, active: true, moved: false, } if (!isDesktop()) event.currentTarget.setPointerCapture(event.pointerId) }} onPointerMove={(event) => { const start = pointer.current if (!start.active || event.buttons !== 1) return const dx = event.clientX - start.x, dy = event.clientY - start.y if (!start.moved && Math.hypot(dx, dy) <= 5) return if (!start.moved) { start.moved = true setDragging(true) if (isDesktop()) { void invoke('drag').finally(() => { pointer.current.active = false setDragging(false) }) return } } if (!isDesktop()) { const rect = stage.current?.getBoundingClientRect() if (rect) setPosition({ right: Math.max( 12, Math.min(start.right - dx, window.innerWidth - rect.width - 12) ), bottom: Math.max( 12, Math.min(start.bottom - dy, window.innerHeight - rect.height - 12) ), }) } }} onPointerUp={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }} onPointerCancel={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }} onLostPointerCapture={() => { if (!isDesktop()) { pointer.current.active = false setDragging(false) } }} onClick={(event) => { if (event.detail === 0 || !pointer.current.moved) { setCompose(!compose) setMenu(false) } }} >"
-    },
-    {
-      "id": "ui_event:aa0227185beca8ab8cbc:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 232,
-      "symbol": "onPointerDown={(event) => { if (event.button !== 0) return pointer.current = { x: event.clientX, y: event.clientY, ...position, active: true, moved: false, } if (!isDesktop()) event.currentTarget.setPointerCapture(event.pointerId) }}"
-    },
-    {
-      "id": "ui_event:58e2f10dbeaf3c2402d5:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 243,
-      "symbol": "onPointerMove={(event) => { const start = pointer.current if (!start.active || event.buttons !== 1) return const dx = event.clientX - start.x, dy = event.clientY - start.y if (!start.moved && Math.hypot(dx, dy) <= 5) return if (!start.moved) { start.moved = true setDragging(true) if (isDesktop()) { void invoke('drag').finally(() => { pointer.current.active = false setDragging(false) }) return } } if (!isDesktop()) { const rect = stage.current?.getBoundingClientRect() if (rect) setPosition({ right: Math.max( 12, Math.min(start.right - dx, window.innerWidth - rect.width - 12) ), bottom: Math.max( 12, Math.min(start.bottom - dy, window.innerHeight - rect.height - 12) ), }) } }}"
-    },
-    {
-      "id": "ui_event:c6fc66e2d452e9cdcb5e:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 275,
-      "symbol": "onPointerUp={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }}"
-    },
-    {
-      "id": "ui_event:b6476ad250222ac2f4ff:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 279,
-      "symbol": "onPointerCancel={() => { pointer.current.active = false if (!isDesktop()) setDragging(false) }}"
-    },
-    {
-      "id": "ui_event:b5fcd5fcc3d7435488f2:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 283,
-      "symbol": "onLostPointerCapture={() => { if (!isDesktop()) { pointer.current.active = false setDragging(false) } }}"
-    },
-    {
-      "id": "ui_event:ab1929ba9a006576c4ba:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 289,
-      "symbol": "onClick={(event) => { if (event.detail === 0 || !pointer.current.moved) { setCompose(!compose) setMenu(false) } }}"
-    },
-    {
-      "id": "ui_button:2ab8e163c92c28aca9cc:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 315,
-      "symbol": "<button type=\"button\" className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
-    },
-    {
-      "id": "ui_event:0d324b4c6a4706b7c4ff:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 321,
-      "symbol": "onClick={() => setMenu(!menu)}"
-    },
-    {
-      "id": "ui_button:8033c18bdf1132d4be80:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 334,
-      "symbol": "<button className=\"companion-send companion-icon\" aria-label={ pending ? '正在发送' : requestId.current ? '检查发送状态' : '发送新对话' } title=\"发送\" disabled={pending || !draft.trim()} >"
-    },
-    {
-      "id": "ui_button:ac569aabf696dc4b8da0:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 351,
-      "symbol": "<button className=\"companion-icon\" aria-label=\"新对话\" title=\"新对话\" onClick={() => { setCompose(true) setMenu(false) }} >"
-    },
-    {
-      "id": "ui_event:6eb49f0f33be9c40cbcf:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 355,
-      "symbol": "onClick={() => { setCompose(true) setMenu(false) }}"
-    },
-    {
-      "id": "ui_button:ed53ea98a2c9eec6797e:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 362,
-      "symbol": "<button className=\"companion-icon\" aria-label=\"收进收件箱\" title=\"收进收件箱\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
-    },
-    {
-      "id": "ui_button:49ad6fc76d073c852dad:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 373,
-      "symbol": "<button className=\"companion-icon\" aria-label=\"更多桌宠操作\" title=\"更多\" aria-expanded={menu} onClick={() => setMenu(!menu)} >"
-    },
-    {
-      "id": "ui_event:0d324b4c6a4706b7c4ff:2",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 378,
-      "symbol": "onClick={() => setMenu(!menu)}"
-    },
-    {
-      "id": "ui_button:5e8f31de2ef0e7200869:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 386,
-      "symbol": "<button className=\"companion-icon\" aria-label=\"切换桌宠形态\" title=\"切换形态\" onClick={() => void switchForm()} >"
-    },
-    {
-      "id": "ui_event:1950f625dd6169d12b65:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 390,
-      "symbol": "onClick={() => void switchForm()}"
-    },
-    {
-      "id": "ui_button:ed53ea98a2c9eec6797e:2",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 395,
-      "symbol": "<button className=\"companion-icon\" aria-label=\"收进收件箱\" title=\"收进收件箱\" onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }} >"
-    },
-    {
-      "id": "ui_event:d72513e0c6b9b5bf6822:2",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 399,
-      "symbol": "onClick={() => { if (isDesktop()) void invoke('open_capture') else navigate('/desktop/capture') }}"
-    },
-    {
-      "id": "ui_button:130671afa262c29015a0:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 407,
-      "symbol": "<button className=\"companion-icon\" aria-label=\"打开息流\" title=\"打开息流\" onClick={() => openMain('/today')} >"
-    },
-    {
-      "id": "ui_button:d43c19ae4cb31c918337:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 415,
-      "symbol": "<button className=\"companion-icon\" aria-label=\"桌宠设置\" title=\"设置\" onClick={() => openMain('/settings?section=appearance')} >"
-    },
-    {
-      "id": "ui_event:f1d0c511f1a8f9441f19:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionPage.tsx",
-      "line": 419,
-      "symbol": "onClick={() => openMain('/settings?section=appearance')}"
-    },
-    {
-      "id": "ui_button:3186277ce0468bde701e:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 129,
-      "symbol": "<button type=\"button\" key={value} aria-label={`${label} ${value}%`} aria-pressed={scale === value} onClick={() => void save( form === 'chibi' ? { chibiScale: value } : { standingScale: value } ) } >"
-    },
-    {
-      "id": "ui_event:e070c29d598250507749:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 134,
-      "symbol": "onClick={() => void save( form === 'chibi' ? { chibiScale: value } : { standingScale: value } ) }"
-    },
-    {
-      "id": "ui_button:7d6013d426956913b97b:1",
-      "kind": "ui_button",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 148,
-      "symbol": "<button className=\"secondary-button\" onClick={() => void save({ chibiScale: 100, standingScale: 100, enabled: true, visible: true }) } >"
-    },
-    {
-      "id": "ui_event:bc59d4097744b51ab2ed:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/CompanionSettings.tsx",
-      "line": 150,
-      "symbol": "onClick={() => void save({ chibiScale: 100, standingScale: 100, enabled: true, visible: true }) }"
-    },
-    {
-      "id": "ui_event:43282557063caddf5a7b:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 105,
-      "symbol": "onPointerEnter={() => setHover(true)}"
-    },
-    {
-      "id": "ui_event:7771810103825f6770e7:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 106,
-      "symbol": "onPointerLeave={() => setHover(false)}"
-    },
-    {
-      "id": "ui_event:474be86c772614767d6d:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 128,
-      "symbol": "onLoad={() => setAvailable((old) => ({ ...old, [key]: true }))}"
-    },
-    {
-      "id": "ui_event:05bffe5ffcc8c2a1182c:1",
-      "kind": "ui_event",
-      "page": "Companion",
-      "file": "web/src/features/companion/PetAvatar.tsx",
-      "line": 129,
-      "symbol": "onError={() => setAvailable((old) => ({ ...old, [key]: false }))}"
-    },
-    {
-      "id": "ui_button:e406e9369a1d91798ab7:1",
-      "kind": "ui_button",
-      "page": "Launch / Navigation / shared UI",
-      "file": "web/src/app/App.tsx",
-      "line": 131,
-      "symbol": "<button type=\"button\" className=\"nav-item\" aria-label=\"重新查看新手引导\" title=\"新手引导\" data-onboarding=\"help-entry\" onClick={startGuide} >"
-    },
-    {
-      "id": "ui_event:57ce62087a123b5ee347:1",
-      "kind": "ui_event",
-      "page": "Launch / Navigation / shared UI",
-      "file": "web/src/app/App.tsx",
-      "line": 137,
-      "symbol": "onClick={startGuide}"
-    },
-    {
-      "id": "ui_event:51c81aed006f654ca737:1",
-      "kind": "ui_event",
-      "page": "Launch / Navigation / shared UI",
-      "file": "web/src/app/App.tsx",
-      "line": 155,
-      "symbol": "onReset={async () => { await resetDemoExperience(cache) navigate('/today', { replace: true }) }}"
-    },
-    {
-      "id": "ui_button:6e4bf66b54341cc91e30:1",
-      "kind": "ui_button",
-      "page": "Demo",
-      "file": "web/src/features/demo/DemoBar.tsx",
-      "line": 42,
-      "symbol": "<button onClick={() => setConfirm(true)}>"
-    },
-    {
-      "id": "ui_event:37037c20e845e3037967:1",
-      "kind": "ui_event",
-      "page": "Demo",
-      "file": "web/src/features/demo/DemoBar.tsx",
-      "line": 42,
-      "symbol": "onClick={() => setConfirm(true)}"
-    },
-    {
-      "id": "ui_event:9564177ae9f9338561bc:1",
-      "kind": "ui_event",
-      "page": "Demo",
-      "file": "web/src/features/demo/DemoBar.tsx",
-      "line": 55,
-      "symbol": "onClose={() => { if (!busy) setConfirm(false) }}"
-    },
-    {
-      "id": "ui_button:ace2d155c19236b74eb0:1",
-      "kind": "ui_button",
-      "page": "Demo",
-      "file": "web/src/features/demo/DemoBar.tsx",
-      "line": 65,
-      "symbol": "<button className=\"secondary-button\" disabled={busy} onClick={() => setConfirm(false)}>"
-    },
-    {
-      "id": "ui_event:e8d81a3548ba07c6f388:1",
-      "kind": "ui_event",
-      "page": "Demo",
-      "file": "web/src/features/demo/DemoBar.tsx",
-      "line": 65,
-      "symbol": "onClick={() => setConfirm(false)}"
-    },
-    {
-      "id": "ui_button:7072f950c73dd495a43f:1",
-      "kind": "ui_button",
-      "page": "Demo",
-      "file": "web/src/features/demo/DemoBar.tsx",
-      "line": 68,
-      "symbol": "<button className=\"primary-button\" disabled={busy} onClick={() => void reset()}>"
-    },
-    {
-      "id": "ui_event:3be27b12e71f9cd0fedf:1",
-      "kind": "ui_event",
-      "page": "Demo",
-      "file": "web/src/features/demo/DemoBar.tsx",
-      "line": 68,
-      "symbol": "onClick={() => void reset()}"
-    },
-    {
-      "id": "ui_button:39ae79fbf3399501662a:1",
-      "kind": "ui_button",
-      "page": "Onboarding",
-      "file": "web/src/features/onboarding/Onboarding.tsx",
-      "line": 179,
-      "symbol": "<button className=\"onboarding-close\" aria-label=\"关闭引导\" onClick={() => end(true)}>"
-    },
-    {
-      "id": "ui_event:63301a6cef12af43ad30:1",
-      "kind": "ui_event",
-      "page": "Onboarding",
-      "file": "web/src/features/onboarding/Onboarding.tsx",
-      "line": 179,
-      "symbol": "onClick={() => end(true)}"
-    },
-    {
-      "id": "ui_button:c1aa7957b4c7995b94f9:1",
-      "kind": "ui_button",
-      "page": "Onboarding",
-      "file": "web/src/features/onboarding/Onboarding.tsx",
-      "line": 191,
-      "symbol": "<button className=\"onboarding-skip\" onClick={() => end(true)}>"
-    },
-    {
-      "id": "ui_event:63301a6cef12af43ad30:2",
-      "kind": "ui_event",
-      "page": "Onboarding",
-      "file": "web/src/features/onboarding/Onboarding.tsx",
-      "line": 191,
-      "symbol": "onClick={() => end(true)}"
-    },
-    {
-      "id": "ui_button:feb0993b3f4015ea6afb:1",
-      "kind": "ui_button",
-      "page": "Onboarding",
-      "file": "web/src/features/onboarding/Onboarding.tsx",
-      "line": 196,
-      "symbol": "<button className=\"secondary-button\" onClick={() => moveGuide(-1)}>"
-    },
-    {
-      "id": "ui_event:47bcfa39b3e7408ebccd:1",
-      "kind": "ui_event",
-      "page": "Onboarding",
-      "file": "web/src/features/onboarding/Onboarding.tsx",
-      "line": 196,
-      "symbol": "onClick={() => moveGuide(-1)}"
-    },
-    {
-      "id": "ui_button:eca847ec36f08fa6ba1f:1",
-      "kind": "ui_button",
-      "page": "Onboarding",
-      "file": "web/src/features/onboarding/Onboarding.tsx",
-      "line": 201,
-      "symbol": "<button className=\"primary-button\" onClick={() => end(false)}>"
-    },
-    {
-      "id": "ui_event:fbb67d3e4fce061e733e:1",
-      "kind": "ui_event",
-      "page": "Onboarding",
-      "file": "web/src/features/onboarding/Onboarding.tsx",
-      "line": 201,
-      "symbol": "onClick={() => end(false)}"
-    },
-    {
-      "id": "ui_button:0eafe8f413c403ebe042:1",
-      "kind": "ui_button",
-      "page": "Onboarding",
-      "file": "web/src/features/onboarding/Onboarding.tsx",
-      "line": 205,
-      "symbol": "<button className=\"primary-button\" onClick={() => moveGuide(1)}>"
-    },
-    {
-      "id": "ui_event:c64adfa036afc7b44281:1",
-      "kind": "ui_event",
-      "page": "Onboarding",
-      "file": "web/src/features/onboarding/Onboarding.tsx",
-      "line": 205,
-      "symbol": "onClick={() => moveGuide(1)}"
-    },
-    {
-      "id": "ui_event:8e342b99ab13af036176:1",
-      "kind": "ui_event",
-      "page": "Onboarding",
-      "file": "web/src/features/onboarding/progress.ts",
-      "line": 63,
-      "symbol": "onStorage = (event:"
-    },
-    {
-      "id": "http_route:0bd774bd20a9eaf0f487:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/cloud/app.py",
-      "line": 111,
-      "symbol": "GET /api/health",
-      "service_calls": []
-    },
-    {
-      "id": "http_route:f24f8d3336709a839111:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/cloud/auth.py",
-      "line": 124,
-      "symbol": "GET /api/cloud/bootstrap",
-      "service_calls": []
-    },
-    {
-      "id": "http_route:712cf85c1a48e75a5bd2:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/cloud/auth.py",
-      "line": 132,
-      "symbol": "GET /api/auth/session",
-      "service_calls": []
-    },
-    {
-      "id": "http_route:ef7dc08044b9d827ea96:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/cloud/auth.py",
-      "line": 150,
-      "symbol": "POST /api/auth/register",
-      "service_calls": []
-    },
-    {
-      "id": "http_route:14197661108042cdd35d:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/cloud/auth.py",
-      "line": 163,
-      "symbol": "POST /api/auth/login",
-      "service_calls": []
-    },
-    {
-      "id": "http_route:c45c2660ee76605eab97:1",
-      "kind": "http_route",
-      "page": "API / Service / Agent",
-      "file": "src/xiliu/cloud/auth.py",
-      "line": 176,
-      "symbol": "POST /api/auth/logout",
-      "service_calls": []
-    },
-    {
-      "id": "ui_event:d03e587b5f2b2075f1ce:2",
-      "kind": "ui_event",
-      "page": "Assistant",
-      "file": "web/src/features/assistant/AssistantPage.tsx",
-      "line": 219,
-      "symbol": "onConfigure={() => setConfigOpen(true)}"
-    },
-    {
-      "id": "ui_button:d87d844df68655241a5f:1",
-      "kind": "ui_button",
-      "page": "Auth",
-      "file": "web/src/features/auth/AccountControl.tsx",
-      "line": 13,
-      "symbol": "<button type=\"button\" disabled={busy} onClick={async () => { setBusy(true) setError('') try { await logout() } catch { setError('退出失败，请重试。') setBusy(false) } }} >"
-    },
-    {
-      "id": "ui_event:98d6bf28cae94072e2d5:1",
-      "kind": "ui_event",
-      "page": "Auth",
-      "file": "web/src/features/auth/AccountControl.tsx",
-      "line": 16,
-      "symbol": "onClick={async () => { setBusy(true) setError('') try { await logout() } catch { setError('退出失败，请重试。') setBusy(false) } }}"
-    },
-    {
-      "id": "ui_event:6d7874df9bee6dd7fb7a:1",
-      "kind": "ui_event",
-      "page": "Auth",
-      "file": "web/src/features/auth/AuthRoot.tsx",
-      "line": 9,
-      "symbol": "onSuccess = ()"
-    },
-    {
-      "id": "ui_event:3952526d13a9363b3bab:1",
-      "kind": "ui_event",
-      "page": "Auth",
-      "file": "web/src/features/auth/AuthRoot.tsx",
-      "line": 43,
-      "symbol": "onSubmit={submit}"
-    },
-    {
-      "id": "ui_event:0e4dc9cddab8ade6d735:1",
-      "kind": "ui_event",
-      "page": "Auth",
-      "file": "web/src/features/auth/AuthRoot.tsx",
-      "line": 52,
-      "symbol": "onChange={(event) => setUsername(event.target.value)}"
-    },
-    {
-      "id": "ui_event:9f1f160b893ebeeff945:1",
-      "kind": "ui_event",
-      "page": "Auth",
-      "file": "web/src/features/auth/AuthRoot.tsx",
-      "line": 64,
-      "symbol": "onChange={(event) => setPassword(event.target.value)}"
-    },
-    {
-      "id": "ui_button:b51865a6cacae727690b:1",
-      "kind": "ui_button",
-      "page": "Auth",
-      "file": "web/src/features/auth/AuthRoot.tsx",
-      "line": 77,
-      "symbol": "<button className=\"cloud-auth-submit\" disabled={busy}>"
-    },
-    {
-      "id": "ui_button:bbe7aae0538c4353d0f2:1",
-      "kind": "ui_button",
-      "page": "Auth",
-      "file": "web/src/features/auth/AuthRoot.tsx",
-      "line": 82,
-      "symbol": "<button type=\"button\" className=\"cloud-auth-switch\" disabled={busy} onClick={() => { setMode(mode === 'login' ? 'register' : 'login') setError('') setPassword('') }} >"
-    },
-    {
-      "id": "ui_event:94c5fa30f3fe644fdb92:1",
-      "kind": "ui_event",
-      "page": "Auth",
-      "file": "web/src/features/auth/AuthRoot.tsx",
-      "line": 86,
-      "symbol": "onClick={() => { setMode(mode === 'login' ? 'register' : 'login') setError('') setPassword('') }}"
-    },
-    {
-      "id": "ui_link:1c3f1f9ea88bd88c555e:1",
-      "kind": "ui_link",
-      "page": "Auth",
-      "file": "web/src/features/auth/AuthRoot.tsx",
-      "line": 95,
-      "symbol": "<a className=\"cloud-auth-guest\" href=\"/demo/#/today\">"
-    },
-    {
-      "id": "ui_button:4fd1f56534682952b3b7:1",
-      "kind": "ui_button",
-      "page": "Auth",
-      "file": "web/src/features/auth/AuthRoot.tsx",
-      "line": 147,
-      "symbol": "<button onClick={() => window.location.reload()}>"
-    },
-    {
-      "id": "ui_event:14e20759d7f68373c316:1",
-      "kind": "ui_event",
-      "page": "Auth",
-      "file": "web/src/features/auth/AuthRoot.tsx",
-      "line": 147,
-      "symbol": "onClick={() => window.location.reload()}"
-    },
-    {
-      "id": "ui_event:a09fb59ac7e055cab5ca:1",
-      "kind": "ui_event",
-      "page": "Auth",
-      "file": "web/src/features/auth/TrialSelector.tsx",
-      "line": 16,
-      "symbol": "onChange={() => setChatSource('own')}"
-    },
-    {
-      "id": "ui_event:321435fb726d853fd595:1",
-      "kind": "ui_event",
-      "page": "Auth",
-      "file": "web/src/features/auth/TrialSelector.tsx",
-      "line": 26,
-      "symbol": "onChange={() => setChatSource('trial')}"
-    },
-    {
-      "id": "ui_button:4f41d745d1932f350d7d:1",
-      "kind": "ui_button",
-      "page": "Auth",
-      "file": "web/src/features/auth/TrialSelector.tsx",
-      "line": 30,
-      "symbol": "<button type=\"button\" onClick={onConfigure}>"
-    },
-    {
-      "id": "ui_event:0bf504cf804bf9e95890:1",
-      "kind": "ui_event",
-      "page": "Auth",
-      "file": "web/src/features/auth/TrialSelector.tsx",
-      "line": 30,
-      "symbol": "onClick={onConfigure}"
-    },
-    {
-      "id": "ui_fetch:68d086664ef5e5c731b4:1",
-      "kind": "ui_fetch",
-      "page": "Auth",
-      "file": "web/src/features/auth/client.ts",
-      "line": 4,
-      "symbol": "fetch(`/api${path}`,"
     }
   ],
   "counts": {
     "http_route": 77,
     "ui_link": 38,
-    "ui_event": 286,
-    "ui_button": 134,
+    "ui_event": 330,
+    "ui_button": 150,
     "service_method": 90,
     "base_tool": 17,
     "ui_api": 66,
-    "ui_query": 51,
-    "ui_mutation": 28,
+    "ui_query": 50,
+    "ui_mutation": 27,
     "ui_fetch": 3,
     "api_client": 53
   }

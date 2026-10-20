@@ -1,0 +1,213 @@
+/* Shared chrome lives in each page's own header, never in a separate navigation row. */
+.page-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  min-width: 0;
+  max-width: 100%;
+  flex: 0 1 auto;
+  margin-left: auto;
+  order: 10;
+}
+.page-toolbar .today-shortcuts {
+  padding: 3px;
+  margin: -3px;
+}
+.page-toolbar .today-shortcuts .pill-nav {
+  --nav-h: 32px;
+  --pill-pad-x: 11px;
+}
+.page-toolbar .today-shortcuts .pill {
+  font-size: 0.82rem;
+}
+.page-toolbar .home-theme-switch {
+  flex: none;
+  margin: 0;
+  gap: 2px;
+  padding: 2px;
+  background: color-mix(in srgb, var(--surface, #fff) 65%, transparent);
+}
+.page-toolbar .home-theme-switch button {
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+  padding: 6px;
+}
+.page-toolbar .home-theme-switch button svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.page-toolbar .home-theme-switch button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.original-home-toolbar {
+  position: absolute;
+  top: 24px;
+  right: 86px;
+  left: 28px;
+  z-index: 3;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+.original-home-toolbar .page-toolbar {
+  pointer-events: auto;
+}
+.workspace-header > .page-toolbar,
+.plan-header > .page-toolbar {
+  order: 10;
+}
+.workspace-header:has(> .page-toolbar),
+.plan-header:has(> .page-toolbar) {
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.workspace-header:has(> .page-toolbar)
+  > div:not(.page-toolbar):not(.row-actions):not(.content-header-actions) {
+  flex: 1;
+  min-width: 160px;
+}
+.workspace-header:has(> .page-toolbar) .feed-header-search {
+  flex: 0 1 190px;
+  min-width: 140px;
+}
+.plan-header:has(> .page-toolbar) > div:not(.page-toolbar):not(.plan-header-actions) {
+  margin-right: auto;
+}
+.plan-header:has(> .page-toolbar) .plan-header-actions {
+  flex: 0 1 auto;
+  gap: 10px;
+}
+.plan-header:has(> .page-toolbar) .plan-search {
+  width: 170px;
+}
+.settings-page-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+.knowledge-detail-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.workbench-shell .workbench-topbar {
+  background: transparent;
+  border-bottom: 0;
+  padding-inline: 28px;
+  gap: 18px;
+}
+.workbench-shell .wb-global-search {
+  flex: 1 1 220px;
+  width: auto;
+  max-width: 430px;
+  min-width: 150px;
+}
+.workbench-shell .wb-top-actions {
+  margin-left: auto;
+  min-width: 0;
+  gap: 12px;
+}
+.workbench-shell .wb-top-actions .page-toolbar {
+  order: 0;
+}
+.plans-page select.plan-inline-status {
+  width: auto;
+  max-width: 90px;
+  min-width: 76px;
+  flex: none;
+  padding: 4px 5px;
+  border: 1px solid #e7e0f5;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 0.78rem;
+  color: var(--accent-strong, #7755b9);
+  background: var(--surface, #fff);
+}
+.plan-task-row.state-in_progress .plan-inline-status {
+  background: var(--accent-soft, #f0eaff);
+  border-color: #cbb9ee;
+}
+@media (max-width: 1100px) {
+  .page-toolbar {
+    gap: 5px;
+  }
+  .page-toolbar .today-shortcuts .pill-nav {
+    --pill-pad-x: 8px;
+    --nav-h: 30px;
+  }
+  .page-toolbar .today-shortcuts .pill {
+    font-size: 0.75rem;
+  }
+  .workspace-header:has(> .page-toolbar) .row-actions {
+    order: 11;
+    margin-left: auto;
+  }
+  .workbench-shell .wb-top-actions > .wb-icon-button {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .original-home-toolbar {
+    top: 14px;
+    right: 65px;
+    left: 10px;
+  }
+  .page-toolbar .today-shortcuts {
+    max-width: calc(100vw - 160px);
+  }
+  .page-toolbar .home-theme-switch button {
+    width: 26px;
+    height: 28px;
+    min-height: 28px;
+    padding: 5px;
+  }
+  .page-toolbar .today-shortcuts .pill-nav {
+    --nav-h: 29px;
+    --pill-pad-x: 8px;
+  }
+  .workspace-header:has(> .page-toolbar) > .page-toolbar,
+  .plan-header:has(> .page-toolbar) > .page-toolbar {
+    width: 100%;
+    order: 0;
+    margin: 0;
+  }
+  .workbench-shell .workbench-topbar {
+    height: auto;
+    min-height: 52px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .workbench-shell .wb-global-search {
+    flex: 1;
+    min-width: 88px;
+    max-width: none;
+  }
+  .workbench-shell .wb-top-actions {
+    flex: 0 1 auto;
+  }
+  .workbench-shell .wb-top-actions .today-shortcuts {
+    max-width: 140px;
+  }
+  .workbench-shell .global-sidebar.icon-rail {
+    display: flex;
+  }
+  .workbench-shell .main-stage {
+    width: calc(100% - 74px);
+  }
+  .workbench-shell .wb-mobile-nav {
+    left: 74px;
+  }
+  .workbench-shell .wb-landscape {
+    mask-image: linear-gradient(to right, transparent 28%, #000 100%);
+  }
+  .plans-page select.plan-inline-status {
+    min-width: 70px;
+    max-width: 76px;
+    font-size: 0.72rem;
+  }
+}

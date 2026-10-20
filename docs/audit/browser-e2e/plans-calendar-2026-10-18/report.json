@@ -1,0 +1,110 @@
+{
+  "data": "Isolated simulated browser fixtures; no real backend writes. Anchor 2026-10-18 Asia/Shanghai.",
+  "checks": [
+    "today and weekly totals computed",
+    "undated tasks visible in list only",
+    "search filters center and calendar agenda",
+    "completion synced in both panels",
+    "week mode renders seven dates",
+    "day mode renders one date",
+    "calendar keyboard advances and focuses date",
+    "create task joins both panels using same query",
+    "edit and delete synchronized",
+    "modal Escape restores focus",
+    "no horizontal overflow at 1440",
+    {
+      "width": 1440,
+      "overflow": 0,
+      "columns": "453.75px 453.75px 353.406px",
+      "bodyOverflow": 0,
+      "calendar": 407.75,
+      "pageWidth": 1366
+    },
+    "no horizontal overflow at 1200",
+    {
+      "width": 1200,
+      "overflow": 0,
+      "columns": "371.078px 371.078px 298.25px",
+      "bodyOverflow": 0,
+      "calendar": 333.078125,
+      "pageWidth": 1126
+    },
+    "no horizontal overflow at 1024",
+    {
+      "width": 1024,
+      "overflow": 0,
+      "columns": "311.312px 311.328px 250.234px",
+      "bodyOverflow": 0,
+      "calendar": 273.3125,
+      "pageWidth": 950
+    },
+    "no horizontal overflow at 900",
+    {
+      "width": 900,
+      "overflow": 0,
+      "columns": "382px 382px",
+      "bodyOverflow": 0,
+      "calendar": 344,
+      "pageWidth": 826
+    },
+    "no horizontal overflow at 768",
+    {
+      "width": 768,
+      "overflow": 0,
+      "columns": "316px 316px",
+      "bodyOverflow": 0,
+      "calendar": 278,
+      "pageWidth": 694
+    },
+    "no horizontal overflow at 767",
+    {
+      "width": 767,
+      "overflow": 0,
+      "columns": "minmax(0px, 1fr) minmax(0px, 1fr)",
+      "bodyOverflow": 0,
+      "calendar": 631,
+      "pageWidth": 693
+    },
+    "no horizontal overflow at 390",
+    {
+      "width": 390,
+      "overflow": 0,
+      "columns": "minmax(0px, 1fr) minmax(0px, 1fr)",
+      "bodyOverflow": 0,
+      "calendar": 254,
+      "pageWidth": 316
+    },
+    "no horizontal overflow at 320",
+    {
+      "width": 320,
+      "overflow": 0,
+      "columns": "minmax(0px, 1fr) minmax(0px, 1fr)",
+      "bodyOverflow": 0,
+      "calendar": 184,
+      "pageWidth": 246
+    },
+    "mobile edit and delete are visible touch controls",
+    "mobile dialog fits viewport",
+    "reduced motion honored",
+    "empty data has no fabricated scheduled tasks",
+    "normal-motion list animation settles",
+    "read errors are announced and statistics unavailable",
+    "no page runtime errors"
+  ],
+  "errors": [],
+  "screenshots": [
+    "desktop-initial.png",
+    "task-form.png",
+    "viewport-1440.png",
+    "viewport-1024.png",
+    "viewport-900.png",
+    "viewport-390.png",
+    "mobile-tasks.png",
+    "mobile-goals.png",
+    "mobile-form.png",
+    "dark-desktop.png",
+    "empty-state.png",
+    "normal-motion-week.png",
+    "error-state.png"
+  ]
+}

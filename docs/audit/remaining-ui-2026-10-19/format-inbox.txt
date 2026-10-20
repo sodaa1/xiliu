@@ -1,0 +1,12 @@
+src/components/ActionMenu.tsx 83ms
+src/components/ActionMenu.test.tsx 9ms
+src/features/content/ContentPage.tsx 98ms
+[error] Unable to write file "src/features/content/ContentPage.tsx":
+[error] UNKNOWN: unknown error, open 'E:\Learning\xiliu\web\src\features\content\ContentPage.tsx'
+src/features/content/CaptureDialog.tsx 23ms
+[error] Unable to write file "src/features/content/CaptureDialog.tsx":
+[error] UNKNOWN: unknown error, open 'E:\Learning\xiliu\web\src\features\content\CaptureDialog.tsx'
+src/features/content/Workspace.test.tsx 35ms (unchanged)
+src/styles/ui-workbench.css 45ms
+src/features/content/collection-workbench.css 32ms
+src/main.tsx 3ms (unchanged)

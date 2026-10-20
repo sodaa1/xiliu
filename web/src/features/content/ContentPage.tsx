@@ -1,3 +1,5 @@
+import { PageToolbar } from '../../components/WorkspaceChrome'
+import { ActionMenu } from '../../components/ActionMenu'
 import { useState } from 'react'
 import { CaptureDialog } from './CaptureDialog'
 import { ContentDialog } from './ContentDialog'
@@ -13,9 +15,10 @@ import {
   Pencil,
   Sparkles,
   Trash2,
-  X,
   Download,
   ArrowRight,
+  LayoutGrid,
+  List,
 } from 'lucide-react'
 import { safeHttpUrl, workspaceApi, type ContentItem } from '../../lib/workspace-api'
 import { useAskAI } from './useAskAI'
@@ -71,12 +74,6 @@ function ContentEditor({
         save.mutate()
       }}
     >
-      <div className="section-heading">
-        <h2>编辑内容</h2>
-        <button type="button" className="icon-button" aria-label="取消编辑" onClick={onClose}>
-          <X size={18} />
-        </button>
-      </div>
       <label>
         标题
         <input required value={title} onChange={(event) => setTitle(event.target.value)} />
@@ -137,18 +134,46 @@ function ContentPreview({
   onEdit,
   onAsk,
   asking,
+  standalone = false,
 }: {
   item: ContentItem
   onClose: () => void
   onEdit: () => void
   onAsk: () => void
   asking: boolean
+  standalone?: boolean
 }) {
   const sourceUrl = safeHttpUrl(item.source)
   const body = item.content || item.summary || item.filename || item.source
-  return (
-    <ContentDialog title={item.title} onClose={onClose}>
-      <div className="feed-preview">
+  const reading = (
+    <div className="content-reading">
+      <aside className="content-reading-facts" aria-label="内容信息">
+        <dl>
+          <div>
+            <dt>类型</dt>
+            <dd>
+              {item.type === 'link' ? '网页链接' : item.type === 'file' ? '文件' : '文字笔记'}
+            </dd>
+          </div>
+          <div>
+            <dt>收录时间</dt>
+            <dd>{new Date(item.created_at).toLocaleDateString('zh-CN')}</dd>
+          </div>
+          <div>
+            <dt>整理状态</dt>
+            <dd>
+              {item.processing_status === 'failed'
+                ? '整理失败，原件已保留'
+                : item.processing_status === 'pending'
+                  ? '正在整理'
+                  : item.ai_processed
+                    ? 'AI 已整理'
+                    : '本地整理'}
+            </dd>
+          </div>
+        </dl>
+      </aside>
+      <div className="content-reading-main">
         <div className="feed-preview-meta">
           <span className="feed-source">
             {item.type === 'link' ? '链接' : item.type === 'file' ? '文件' : '笔记'}
@@ -200,6 +225,16 @@ function ContentPreview({
           )}
         </div>
       </div>
+    </div>
+  )
+  return standalone ? (
+    <section className="document-reading-page">
+      <h2>{item.title}</h2>
+      {reading}
+    </section>
+  ) : (
+    <ContentDialog title={item.title} onClose={onClose}>
+      {reading}
     </ContentDialog>
   )
 }
@@ -208,10 +243,12 @@ export function ContentPage({
   status,
   folderId,
   documentId,
+  showPageToolbar = true,
 }: {
   status: ContentItem['status']
   folderId?: string
   documentId?: string
+  showPageToolbar?: boolean
 }) {
   const cache = useQueryClient(),
     ask = useAskAI()
@@ -223,7 +260,8 @@ export function ContentPage({
     [notice, setNotice] = useState(''),
     [captureOpen, setCaptureOpen] = useState(false),
     [recentIds, setRecentIds] = useState<string[]>([]),
-    [selected, setSelected] = useState<string[]>([])
+    [selected, setSelected] = useState<string[]>([]),
+    [view, setView] = useState<'list' | 'grid'>('list')
   const folders = useQuery({ queryKey: ['knowledge-folders'], queryFn: workspaceApi.folders })
   const recent = useQuery({
     queryKey: ['recent-imports', recentIds],
@@ -310,8 +348,11 @@ export function ContentPage({
   const error =
     update.error ?? remove.error ?? classify.error ?? retry.error ?? recent.error ?? ask.error
   return (
-    <section className="workspace-page content-page">
+    <section
+      className={`workspace-page content-page ui-page collection-workbench content-view-${view} ${documentId ? 'is-document' : ''}`}
+    >
       <header className="workspace-header">
+        {showPageToolbar && <PageToolbar />}
         <div>
           <span className="eyebrow">
             {status === 'inbox' ? '留住每一个灵感' : '让积累成为你的知识'}
@@ -332,7 +373,7 @@ export function ContentPage({
               onClick={() => setCaptureOpen(true)}
             >
               <Plus size={18} />
-              添加
+              收集内容
             </button>
           )}
         </div>
@@ -390,8 +431,27 @@ export function ContentPage({
               onClick={() => setType(value)}
             >
               {label}
+              <span className="content-type-count">
+                {combined.filter((item) => !value || item.type === value).length}
+              </span>
             </button>
           ))}
+        </div>
+        <div className="collection-view-switch" role="group" aria-label="内容布局">
+          <button
+            aria-label="内容列表视图"
+            aria-pressed={view === 'list'}
+            onClick={() => setView('list')}
+          >
+            <List size={17} />
+          </button>
+          <button
+            aria-label="内容卡片视图"
+            aria-pressed={view === 'grid'}
+            onClick={() => setView('grid')}
+          >
+            <LayoutGrid size={17} />
+          </button>
         </div>
         {status === 'inbox' && items.length > 0 && (
           <div className="content-bulk">
@@ -427,12 +487,14 @@ export function ContentPage({
         </p>
       )}
       {editing && (
-        <ContentEditor
-          key={editing.id}
-          item={editing}
-          onClose={() => setEditing(null)}
-          onSaved={invalidate}
-        />
+        <ContentDialog title="编辑内容" onClose={() => setEditing(null)}>
+          <ContentEditor
+            key={editing.id}
+            item={editing}
+            onClose={() => setEditing(null)}
+            onSaved={invalidate}
+          />
+        </ContentDialog>
       )}
       {previewing && (
         <ContentPreview
@@ -485,6 +547,83 @@ export function ContentPage({
                 ? '点击添加，收进一段文字、一个链接或一份文件。'
                 : '把收件箱中整理好的内容保存到这里。'}
           </p>
+          {!q && !tag && !type && status === 'inbox' && (
+            <button className="primary-button" onClick={() => setCaptureOpen(true)}>
+              <Plus size={16} />
+              收集第一条内容
+            </button>
+          )}
+        </div>
+      ) : documentId && items[0] ? (
+        <div className="document-reading-layout">
+          <div className="document-more">
+            <ActionMenu label={`内容操作：${items[0].title}`}>
+              {status === 'inbox' && items[0].status === 'knowledge' ? (
+                <Link
+                  to={`/knowledge?folder=${encodeURIComponent(items[0].folder_id ?? 'unfiled')}&document=${encodeURIComponent(items[0].id)}`}
+                >
+                  查看归类结果
+                </Link>
+              ) : (
+                <button
+                  disabled={
+                    update.isPending ||
+                    classify.isPending ||
+                    items[0].processing_status === 'pending'
+                  }
+                  onClick={() =>
+                    status === 'inbox' ? classify.mutate([items[0].id]) : update.mutate(items[0])
+                  }
+                >
+                  <ArrowRight size={15} />
+                  {status === 'inbox' ? '归档到知识库' : '移回收件箱'}
+                </button>
+              )}
+              <button
+                className="delete-action"
+                aria-label={`删除 ${items[0].title}`}
+                disabled={remove.isPending}
+                onClick={() => remove.mutate(items[0].id)}
+              >
+                <Trash2 size={15} />
+                删除
+              </button>
+            </ActionMenu>
+          </div>
+          {items[0].processing_status === 'failed' && (
+            <div className="document-processing-error" role="alert">
+              <p>
+                整理失败 · 原始内容已保留
+                {items[0].processing_error ? `：${items[0].processing_error}` : ''}
+              </p>
+              <button
+                className="secondary-button"
+                disabled={retry.isPending}
+                onClick={() => retry.mutate(items[0].id)}
+              >
+                重新整理
+              </button>
+            </div>
+          )}
+          <ContentPreview
+            standalone
+            item={items[0]}
+            onClose={() => setPreviewing(null)}
+            onEdit={() => setEditing(items[0])}
+            asking={ask.isPending}
+            onAsk={() =>
+              ask.mutate({
+                draft: '请帮我梳理这份内容的要点。',
+                reference: {
+                  documentId: items[0].id,
+                  title: items[0].title,
+                  content: [items[0].content, items[0].summary, items[0].source]
+                    .filter(Boolean)
+                    .join('\n\n'),
+                },
+              })
+            }
+          />
         </div>
       ) : (
         <div className="content-list">
@@ -569,68 +708,74 @@ export function ContentPage({
                       </button>
                     ))}
                   </div>
-                  <div className="row-actions">
-                    {status === 'inbox' && item.status === 'knowledge' ? (
-                      <Link
-                        to={`/knowledge?folder=${encodeURIComponent(item.folder_id ?? 'unfiled')}&document=${encodeURIComponent(item.id)}`}
-                      >
-                        查看归类结果
-                      </Link>
-                    ) : (
-                      <button
-                        disabled={
-                          update.isPending ||
-                          classify.isPending ||
-                          item.processing_status === 'pending'
-                        }
-                        onClick={() =>
-                          status === 'inbox' ? classify.mutate([item.id]) : update.mutate(item)
-                        }
-                      >
-                        <ArrowRight size={14} />
-                        {status === 'inbox' ? '归档到知识库' : '移回收件箱'}
+                  <div className="content-row-menu">
+                    <ActionMenu label={`内容操作：${item.title}`}>
+                      <button onClick={() => setEditing(item)}>
+                        <Pencil size={14} />
+                        编辑内容
                       </button>
-                    )}
-                    <button
-                      disabled={ask.isPending}
-                      onClick={() =>
-                        ask.mutate({
-                          draft: '请帮我梳理这份内容的要点。',
-                          reference: {
-                            documentId: item.id,
-                            title: item.title,
-                            content: [
-                              item.filename
-                                ? `文件：${item.filename}\n以下参考仅包含文件名与备注，原文件内容未展开。`
-                                : '',
-                              item.content,
-                              item.summary,
-                              item.source,
-                            ]
-                              .filter(Boolean)
-                              .join('\n\n'),
-                          },
-                        })
-                      }
-                    >
-                      <Sparkles size={14} />
-                      引用提问
-                    </button>
-                    {item.filename && (
-                      <a href={workspaceApi.originalUrl(item.id)} download={item.filename}>
-                        <Download size={14} />
-                        下载原件
-                      </a>
-                    )}
-                    <button
-                      className="delete-action"
-                      disabled={remove.isPending}
-                      aria-label={`删除 ${item.title}`}
-                      onClick={() => remove.mutate(item.id)}
-                    >
-                      <Trash2 size={14} />
-                      删除
-                    </button>
+                      {status === 'inbox' && item.status === 'knowledge' ? (
+                        <Link
+                          to={`/knowledge?folder=${encodeURIComponent(item.folder_id ?? 'unfiled')}&document=${encodeURIComponent(item.id)}`}
+                        >
+                          查看归类结果
+                        </Link>
+                      ) : (
+                        <button
+                          disabled={
+                            update.isPending ||
+                            classify.isPending ||
+                            item.processing_status === 'pending'
+                          }
+                          onClick={() =>
+                            status === 'inbox' ? classify.mutate([item.id]) : update.mutate(item)
+                          }
+                        >
+                          <ArrowRight size={14} />
+                          {status === 'inbox' ? '归档到知识库' : '移回收件箱'}
+                        </button>
+                      )}
+                      <button
+                        disabled={ask.isPending}
+                        onClick={() =>
+                          ask.mutate({
+                            draft: '请帮我梳理这份内容的要点。',
+                            reference: {
+                              documentId: item.id,
+                              title: item.title,
+                              content: [
+                                item.filename
+                                  ? `文件：${item.filename}\n以下参考仅包含文件名与备注，原文件内容未展开。`
+                                  : '',
+                                item.content,
+                                item.summary,
+                                item.source,
+                              ]
+                                .filter(Boolean)
+                                .join('\n\n'),
+                            },
+                          })
+                        }
+                      >
+                        <Sparkles size={14} />
+                        引用提问
+                      </button>
+                      {item.filename && (
+                        <a href={workspaceApi.originalUrl(item.id)} download={item.filename}>
+                          <Download size={14} />
+                          下载原件
+                        </a>
+                      )}
+                      <button
+                        className="delete-action"
+                        disabled={remove.isPending}
+                        aria-label={`删除 ${item.title}`}
+                        onClick={() => remove.mutate(item.id)}
+                      >
+                        <Trash2 size={14} />
+                        删除
+                      </button>
+                    </ActionMenu>
                   </div>
                 </div>
               </article>

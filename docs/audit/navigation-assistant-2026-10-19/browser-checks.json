@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "Task changes not_started → in_progress → completed → not_started through real API",
+    "In-progress state persists and appears in plan filter",
+    "Welcome prompt fills existing composer",
+    "Conversation search filters actual list",
+    "Conversation date filter and selection work",
+    "Recorded UI fixture renders markdown and expandable execution trace (not a live model call)",
+    "Existing model picker opens and closes by keyboard",
+    "Assistant 390px layout has no horizontal document overflow",
+    "Assistant tablet layout captured",
+    "Existing conversation delete works",
+    "Settings capsule preserves feed return path and query",
+    "Knowledge detail renders one shared toolbar",
+    "Dark, large font and reduced motion preferences preserved"
+  ],
+  "errors": [],
+  "historyFixture": "Only message GET response intercepted for visual trace fixture; task and conversation CRUD used isolated real API. No live AI call."
+}

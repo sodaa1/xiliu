@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "Settings profile saves through real preferences API",
+    "Vertical category arrows and theme card keyboard selection preserve focus and real preferences",
+    "Model, automation and storage panels open; copy path reports its result",
+    "Automation create, toggle, history and delete use real existing API; no scheduled run or model call",
+    "All five settings categories fit 390px and preserve background URL on close"
+  ],
+  "errors": []
+}

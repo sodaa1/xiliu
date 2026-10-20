@@ -1,0 +1,246 @@
+{
+  "checks": [
+    {
+      "name": "inbox",
+      "width": 320,
+      "theme": "light",
+      "size": "small",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "knowledge",
+      "width": 320,
+      "theme": "light",
+      "size": "small",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "knowledge-all",
+      "width": 320,
+      "theme": "light",
+      "size": "small",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-profile",
+      "width": 320,
+      "theme": "light",
+      "size": "small",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-appearance",
+      "width": 320,
+      "theme": "light",
+      "size": "small",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-model",
+      "width": 320,
+      "theme": "light",
+      "size": "small",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-automations",
+      "width": 320,
+      "theme": "light",
+      "size": "small",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-data",
+      "width": 320,
+      "theme": "light",
+      "size": "small",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "launch",
+      "width": 320,
+      "theme": "light",
+      "size": "small",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "capture",
+      "width": 320,
+      "theme": "light",
+      "size": "small",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "inbox",
+      "width": 390,
+      "theme": "dark",
+      "size": "large",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "knowledge",
+      "width": 390,
+      "theme": "dark",
+      "size": "large",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "knowledge-all",
+      "width": 390,
+      "theme": "dark",
+      "size": "large",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-profile",
+      "width": 390,
+      "theme": "dark",
+      "size": "large",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-appearance",
+      "width": 390,
+      "theme": "dark",
+      "size": "large",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-model",
+      "width": 390,
+      "theme": "dark",
+      "size": "large",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-automations",
+      "width": 390,
+      "theme": "dark",
+      "size": "large",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-data",
+      "width": 390,
+      "theme": "dark",
+      "size": "large",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "launch",
+      "width": 390,
+      "theme": "dark",
+      "size": "large",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "capture",
+      "width": 390,
+      "theme": "dark",
+      "size": "large",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "inbox",
+      "width": 768,
+      "theme": "light",
+      "size": "medium",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "knowledge",
+      "width": 768,
+      "theme": "light",
+      "size": "medium",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "knowledge-all",
+      "width": 768,
+      "theme": "light",
+      "size": "medium",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-profile",
+      "width": 768,
+      "theme": "light",
+      "size": "medium",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-appearance",
+      "width": 768,
+      "theme": "light",
+      "size": "medium",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-model",
+      "width": 768,
+      "theme": "light",
+      "size": "medium",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-automations",
+      "width": 768,
+      "theme": "light",
+      "size": "medium",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "settings-data",
+      "width": 768,
+      "theme": "light",
+      "size": "medium",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "launch",
+      "width": 768,
+      "theme": "light",
+      "size": "medium",
+      "document": 0,
+      "panel": 0
+    },
+    {
+      "name": "capture",
+      "width": 768,
+      "theme": "light",
+      "size": "medium",
+      "document": 0,
+      "panel": 0
+    }
+  ],
+  "errors": [],
+  "fixtures": "Only empty-state GETs and failed-save POST intercepted for those two visual states; standard routes use actual isolated API."
+}

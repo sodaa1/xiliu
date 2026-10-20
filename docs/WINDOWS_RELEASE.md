@@ -1,6 +1,22 @@
 # 息流 Windows 交付记录
 
-## 当前版本：0.4.4（2026-10-17）
+## 当前版本：0.4.5（2026-10-20）
+
+[GitHub Release v0.4.5](https://github.com/sodaa1/xiliu/releases/tag/v0.4.5) 提供 Windows x64 中文安装包与 SHA256 校验文件。
+
+安装包：`dist/Xiliu-0.4.5-x64-setup.exe`，66,747,710 字节（63.66 MiB）。SHA256：`0455b3b582512c5d69f68fe7e9ae089d49a1843bb8d72a06b4236983a9b67b35`。
+
+本版统一白灰/淡紫工作台，保留原版和山水首页切换；更新 Assistant、Feed、Inbox、Knowledge、全部设置、自动化、引导和桌宠控制表面。个人计划包含三态任务和三点菜单；16 张有来源的高清摄影按主题轮换，最高 3840px，本地响应式加载。保留用户数据、模型配置和自定义背景。
+
+验证：后端 931 通过 / 1 跳过（101 条既有警告）、前端 248 通过、Rust 8 通过；ESLint、TypeScript、Ruff、Pyright、生产构建与 1073 项 surface guard 通过。两处既有测试格式修正后额外 13 项回归通过。
+
+解包后 90 个前端文件与本次构建逐项哈希一致，其中包含全部 52 个高清 WebP 版本；冻结服务一致，x64 GUI 壳仅有预期的 Tauri NSIS 三字节标记差异。包内未发现开发者 `.env`、用户数据库或桌宠用户配置。解包服务实际验证了本地模拟模型对话/思考流、Knowledge 检索、Feed→Inbox→Knowledge→Today/自动化业务链、资料重启保留、真实 stdio MCP 发现/调用/检查点，以及私有接口与 stdin EOF 两种退出和端口释放。
+
+验收脚本对齐当前 ChatRequest：移除旧 `mode` 字段；MCP 专用探针遵守 `/mcp` 的能力限制，验证真实回执、标记与检查点，不依赖固定生成文案。未修改 Agent 后端来适应测试。旧版可选 `--app-folder` 零模型验收在源码与冻结服务均未通过：当前聊天入口需要配置模型，旧模拟模型未实现当前 App Planner 协议；此项未计入通过结果，不作零模型聊天归档保证。
+
+未运行会改写现有安装注册信息的安装向导，也未实测跨屏混合 DPI 拖动或真实外部模型。未改变既有代码签名状态。证据：[包内核对](audit/releases/0.4.5/package.json)、[冻结服务](audit/releases/0.4.5/service.json)、[完整验证与边界](audit/releases/0.4.5/validation.json)、[更新说明](audit/releases/0.4.5/release-notes.md)。
+
+## 历史版本：0.4.4（2026-10-17）
 
 [GitHub Release v0.4.4](https://github.com/sodaa1/xiliu/releases/tag/v0.4.4) 提供 Windows x64 安装包与 SHA256 文件；[在线演示](https://sodaa1.github.io/xiliu/#/today) 可免安装试用示例资料与演示回复。
 

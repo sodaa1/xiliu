@@ -1,0 +1,32 @@
+
+> xiliu-web@0.4.4 build
+> tsc -b && vite build && node ../docs/web/scripts/build-intro-showcase.mjs build --app
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 2122 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                           0.77 kB │ gzip:   0.41 kB
+dist/assets/app-BFcuHYAh.css            237.33 kB │ gzip:  44.64 kB
+dist/assets/live2d-runtime-Bz9HM_RG.js    3.11 kB │ gzip:   1.67 kB
+dist/assets/cubism4.es-C9G-zj6J.js      119.66 kB │ gzip:  30.16 kB
+dist/assets/pixi-C0apaBOj.js            239.27 kB │ gzip:  66.14 kB
+dist/assets/core-BbP905m-.js            269.96 kB │ gzip:  79.15 kB
+dist/assets/app-DAJtxrts.js             777.77 kB │ gzip: 250.40 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 7.05s
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 1586 modules transformed.
+rendering chunks...
+computing gzip size...
+../../web/dist/intro/index.html                   0.81 kB │ gzip:   0.53 kB
+../../web/dist/intro/assets/index-CuEjGbN0.css   38.27 kB │ gzip:   8.15 kB
+../../web/dist/intro/assets/index-CL6VnqMB.js   374.70 kB │ gzip: 128.47 kB
+✓ built in 3.62s
+Introduction website: E:\Learning\xiliu\web\dist\intro

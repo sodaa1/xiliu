@@ -108,7 +108,7 @@ export function Onboarding() {
   }, [running, step])
   if (!running) return null
 
-  const width = Math.min(320, viewportWidth - 32)
+  const width = Math.min(360, viewportWidth - 32)
   const height = panel.current?.offsetHeight || 250
   let left = (viewportWidth - width) / 2
   let top = Math.max(16, (viewportHeight - height) / 2)
@@ -180,9 +180,21 @@ export function Onboarding() {
             <X size={16} />
           </button>
         </div>
-        <div className="onboarding-dots" aria-hidden="true">
+        <div
+          className="onboarding-dots"
+          role="progressbar"
+          aria-label="导览进度"
+          aria-valuemin={1}
+          aria-valuemax={tourSteps.length}
+          aria-valuenow={progress.step + 1}
+        >
           {tourSteps.map((entry, index) => (
-            <i key={entry.title} className={progress.step === index ? 'is-current' : ''} />
+            <i
+              key={entry.title}
+              className={
+                progress.step === index ? 'is-current' : index < progress.step ? 'is-complete' : ''
+              }
+            />
           ))}
         </div>
         <h2>{step.title}</h2>

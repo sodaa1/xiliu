@@ -1,0 +1,12 @@
+
+> xiliu-web@0.4.5 test
+> vitest --run
+
+
+ RUN  v4.1.11 E:/Learning/xiliu/web
+
+
+ Test Files  57 passed (57)
+      Tests  248 passed (248)
+   Start at  14:17:02
+   Duration  15.06s (transform 9.41s, setup 30.51s, import 28.41s, tests 62.47s, environment 71.71s)

@@ -1,0 +1,95 @@
+/* Uses the approved light dialog/card system; existing tour navigation is unchanged. */
+.onboarding-tooltip {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 18px 65px #30204430;
+  font-family: var(--app-font);
+  backdrop-filter: none;
+}
+.onboarding-progress {
+  font-size: var(--type-caption);
+  line-height: 1.6;
+  color: var(--muted-readable);
+}
+.onboarding-close {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  padding: 5px;
+  background: var(--surface-muted);
+  color: var(--muted-readable);
+}
+.onboarding-tooltip h2 {
+  font-size: 1.42857rem;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 18px 0 10px;
+  color: var(--text);
+}
+.onboarding-tooltip p {
+  font-size: var(--type-label);
+  line-height: 1.9;
+  color: var(--muted-readable);
+}
+.onboarding-dots {
+  gap: 4px;
+  margin: 14px 0 0;
+}
+.onboarding-dots i {
+  height: 4px;
+  background: var(--line);
+  transition: background 180ms;
+}
+.onboarding-dots .is-current {
+  background: var(--accent);
+}
+.onboarding-dots .is-complete {
+  background: color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+.onboarding-actions {
+  margin-top: 22px;
+  gap: 10px;
+}
+.onboarding-actions button {
+  font-size: var(--type-label);
+  min-height: 36px;
+  border-radius: 9px;
+  padding: 8px 12px;
+}
+.onboarding-actions .onboarding-skip {
+  font-size: var(--type-caption);
+}
+.onboarding-spotlight {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 12%, transparent);
+  border-radius: 14px;
+}
+@media (max-width: 760px) {
+  .onboarding-tooltip {
+    padding: 18px;
+  }
+  .onboarding-tooltip h2 {
+    font-size: var(--type-title);
+  }
+  .onboarding-actions {
+    flex-wrap: wrap;
+  }
+  .onboarding-actions > div {
+    margin-left: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .onboarding-layer * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+:root[data-motion='reduced'] .onboarding-layer * {
+  transition: none !important;
+  animation: none !important;
+}

@@ -1,0 +1,8 @@
+Tool: built-in imagegen. One production asset, generated from a reference for composition and palette.
+Reference: web/public/themes/workbench-panorama.webp (the earlier crop from the user's homepage design).
+Native output: 2039 x 771 PNG. No enlargement was used to claim a higher resolution.
+Project asset: web/public/themes/workbench-panorama-hd.webp (quality 94 WebP).
+Original: C:/Users/Sodaa/.codex/generated_images/01a152dc-106a-7832-8444-e21b6bdf3578/exec-88de7e5b-8d98-4398-9792-014b9117765b.png
+
+Final prompt:
+Create a NEW high-resolution production website hero illustration inspired by the attached panoramic reference. Reference image role: composition and palette guide only; redraw all landscape detail sharply, do not enlarge the blurry source. Output one very wide landscape banner, ideally 4096 x 1024 or highest supported resolution, approximately 4:1 ratio. Pale white/lavender morning sky, layered blue-violet distant mountains, tranquil reflective lake, detailed dark lavender wooded shoreline concentrated on the right third, warm subtle sunrise upper right. Left third mostly white mist and empty sky for a UI greeting overlay. Preserve delicate restrained Chinese landscape mood, soft atmospheric depth but crisp clean tree silhouettes in near foreground, detailed photographic-watercolor hybrid. NO text, lettering, calligraphy, logo, UI, icons, frames or watermarks. This must remain legible behind white/gray/pale-purple productivity dashboard. Do not draw the dashboard itself.

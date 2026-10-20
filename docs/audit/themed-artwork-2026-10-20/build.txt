@@ -1,0 +1,27 @@
+
+> xiliu-web@0.4.4 build
+> tsc -b && vite build && node ../docs/web/scripts/build-intro-showcase.mjs build --app
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 2129 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                           0.77 kB │ gzip:   0.40 kB
+dist/assets/app-Cizu_y19.css            263.59 kB │ gzip:  48.56 kB
+dist/assets/live2d-runtime-BFZcvjgo.js    3.11 kB │ gzip:   1.68 kB
+dist/assets/cubism4.es-BxPh5qbQ.js      119.66 kB │ gzip:  30.16 kB
+dist/assets/pixi-DZsK5Xub.js            239.27 kB │ gzip:  66.14 kB
+dist/assets/core-B8tpgqJ7.js            269.96 kB │ gzip:  79.15 kB
+dist/assets/app-D_c1Opo8.js             786.71 kB │ gzip: 251.92 kB
+✓ built in 5.94s
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 1586 modules transformed.
+rendering chunks...
+computing gzip size...
+../../web/dist/intro/index.html                   0.81 kB │ gzip:   0.53 kB
+../../web/dist/intro/assets/index-CuEjGbN0.css   38.27 kB │ gzip:   8.15 kB
+../../web/dist/intro/assets/index-CL6VnqMB.js   374.70 kB │ gzip: 128.47 kB
+✓ built in 2.99s
+Introduction website: E:\Learning\xiliu\web\dist\intro

@@ -1,3 +1,7 @@
+import { PageToolbar } from '../../components/WorkspaceChrome'
+import { useHomeTheme } from './home-theme'
+import { WorkbenchHome } from './WorkbenchHome'
+import { useHomeDraft } from './useHomeDraft'
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useQueryClient } from '@tanstack/react-query'
@@ -10,12 +14,16 @@ import { useHomeBackground } from './useHomeBackground'
 import { publicAsset } from '../../lib/deployment'
 import './home.css'
 export function TodayPage() {
+  const theme = useHomeTheme()
+  return theme === 'workbench' ? <WorkbenchHome /> : <OriginalHome />
+}
+function OriginalHome() {
   const location = useLocation(),
     preferences = usePreferences(),
     ask = useAskAI(),
     cache = useQueryClient()
-  const [draft, setDraft] = useState(''),
-    [capture, setCapture] = useState(false)
+  const [draft, setDraft] = useHomeDraft()
+  const [capture, setCapture] = useState(false)
   const { url } = useHomeBackground()
   const hour = new Date().getHours()
   const greeting = hour < 12 ? '早上好' : hour < 18 ? '下午好' : '晚上好'
@@ -32,6 +40,9 @@ export function TodayPage() {
           }}
         />
       )}
+      <div className="original-home-toolbar">
+        <PageToolbar />
+      </div>
       <Link
         className="home-profile"
         to="/settings?section=profile"
@@ -108,7 +119,13 @@ export function TodayPage() {
           )}
         </div>
         <div className="home-character" aria-hidden="true">
-          <img src={publicAsset('companion/standing.png')} alt="" draggable={false} width="1024" height="1536" />
+          <img
+            src={publicAsset('companion/standing.png')}
+            alt=""
+            draggable={false}
+            width="1024"
+            height="1536"
+          />
         </div>
       </div>
       {capture && (

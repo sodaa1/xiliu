@@ -1,0 +1,82 @@
+[
+  {
+    "file": "web/public/feed/city.webp",
+    "size": [
+      239,
+      175
+    ],
+    "bytes": 4744
+  },
+  {
+    "file": "web/public/feed/design.webp",
+    "size": [
+      243,
+      175
+    ],
+    "bytes": 2492
+  },
+  {
+    "file": "web/public/feed/mountain.webp",
+    "size": [
+      863,
+      262
+    ],
+    "bytes": 20756
+  },
+  {
+    "file": "web/public/feed/technology.webp",
+    "size": [
+      243,
+      174
+    ],
+    "bytes": 3740
+  },
+  {
+    "file": "web/public/themes/home-desk.webp",
+    "size": [
+      289,
+      133
+    ],
+    "bytes": 4294
+  },
+  {
+    "file": "web/public/themes/home-lake.webp",
+    "size": [
+      290,
+      133
+    ],
+    "bytes": 7322
+  },
+  {
+    "file": "web/public/themes/home-seaside.webp",
+    "size": [
+      289,
+      133
+    ],
+    "bytes": 9674
+  },
+  {
+    "file": "web/public/themes/workbench-panorama-hd.webp",
+    "size": [
+      2039,
+      771
+    ],
+    "bytes": 188976
+  },
+  {
+    "file": "web/public/themes/workbench-panorama-mobile.webp",
+    "size": [
+      1250,
+      155
+    ],
+    "bytes": 14566
+  },
+  {
+    "file": "web/public/themes/workbench-panorama.webp",
+    "size": [
+      1250,
+      250
+    ],
+    "bytes": 28220
+  }
+]

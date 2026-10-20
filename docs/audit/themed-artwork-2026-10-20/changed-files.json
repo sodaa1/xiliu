@@ -1,0 +1,18 @@
+{
+  "modified": [
+    "docs/audit/coverage-manifest.json",
+    "web/src/features/feed/FeedDiscovery.tsx",
+    "web/src/features/feed/FeedPage.tsx",
+    "web/src/features/knowledge/KnowledgePage.tsx",
+    "web/src/features/launch/LaunchPage.tsx",
+    "web/src/features/today/WorkbenchHome.tsx"
+  ],
+  "added": [
+    "web/src/lib/artwork.ts",
+    "web/src/lib/artwork.test.tsx",
+    "web/src/lib/artwork-catalog.json",
+    "web/src/components/ArtworkImage.tsx",
+    "web/public/artwork/"
+  ],
+  "baseline": "Exact pre-turn bytes; unrelated uncommitted changes retained."
+}

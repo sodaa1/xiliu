@@ -1,0 +1,39 @@
+{
+  "baseline": "Exact current file bytes captured before this turn; not Git HEAD.",
+  "modified": [
+    "docs/audit/coverage-manifest.json",
+    "web/src/app/App.test.tsx",
+    "web/src/app/App.tsx",
+    "web/src/features/automations/AutomationsDrawer.tsx",
+    "web/src/features/content/CaptureDialog.tsx",
+    "web/src/features/content/ContentPage.tsx",
+    "web/src/features/content/Workspace.test.tsx",
+    "web/src/features/knowledge/KnowledgePage.test.tsx",
+    "web/src/features/knowledge/KnowledgePage.tsx",
+    "web/src/features/launch/LaunchPage.tsx",
+    "web/src/features/onboarding/Onboarding.tsx",
+    "web/src/features/settings/AppearanceSettings.tsx",
+    "web/src/features/settings/PersonalSettings.tsx",
+    "web/src/features/settings/SettingsPage.test.tsx",
+    "web/src/features/settings/SettingsPage.tsx",
+    "web/src/main.tsx"
+  ],
+  "added": [
+    "web/src/components/ActionMenu.tsx",
+    "web/src/components/ActionMenu.test.tsx",
+    "web/src/styles/ui-workbench.css",
+    "web/src/features/content/collection-workbench.css",
+    "web/src/features/content/ContentDocument.test.tsx",
+    "web/src/features/knowledge/library-workbench.css",
+    "web/src/features/settings/settings-workbench.css",
+    "web/src/features/automations/automations-workbench.css",
+    "web/src/features/onboarding/onboarding-workbench.css",
+    "web/src/features/launch/launch-workbench.css",
+    "web/src/features/companion/companion-workbench.css"
+  ],
+  "documentation": [
+    "design-qa.md",
+    "docs/superpowers/plans/2026-10-19-remaining-ui.md",
+    "docs/audit/remaining-ui-2026-10-19/"
+  ]
+}

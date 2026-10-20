@@ -1,0 +1,13 @@
+{
+  "touchMenu": "Always visible, popup fits 390px viewport",
+  "fonts": {
+    "fonts": [
+      {
+        "familyName": "Microsoft YaHei UI",
+        "postScriptName": "MicrosoftYaHeiUI-Bold",
+        "isCustomFont": false,
+        "glyphCount": 24
+      }
+    ]
+  }
+}

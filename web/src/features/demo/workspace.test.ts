@@ -1,6 +1,6 @@
 import { beforeEach, expect, test } from 'vitest'
 import { handleDemoRequest } from './handler'
-import { readDemoState, resetDemoState } from './store'
+import { mutateDemo, readDemoState, resetDemoState } from './store'
 
 async function call(path: string, method = 'GET', body?: unknown) {
   const response = await handleDemoRequest(`/api${path}`, {
@@ -134,4 +134,150 @@ test('preference revision conflicts do not overwrite the new settings', async ()
   })
   expect(response.status).toBe(409)
   expect((await readDemoState()).preferences.preferences.displayName).toBe('游客')
+})
+
+test('old boolean-only demo tasks expose metadata defaults without inventing completion dates', async () => {
+  await mutateDemo((state) => {
+    state.tasks[0].completed = true
+  })
+  const tasks = await call('/tasks')
+  expect(tasks[0]).toMatchObject({
+    status: 'completed',
+    completed: true,
+    completed_at: null,
+    starts_at: null,
+    description: '',
+    category: '',
+    priority: 'normal',
+    tags: [],
+    reminder_minutes: null,
+  })
+  expect(tasks[1].status).toBe('not_started')
+  expect((await call('/today')).tasks[0].completed_at).toBeNull()
+  const edited = await call(`/tasks/${tasks[0].id}`, 'PATCH', { title: '历史完成任务' })
+  expect(edited.completed_at).toBeNull()
+  expect((await readDemoState()).tasks[0]).toMatchObject({
+    status: 'completed',
+    completed_at: null,
+  })
+})
+
+test('demo task metadata is normalized and persisted alongside hierarchy', async () => {
+  const task = await call('/tasks', 'POST', {
+    title: '新计划',
+    status: 'in_progress',
+    starts_at: '2026-10-18T09:00:00+08:00',
+    due_at: '2026-10-18T11:00:00+08:00',
+    description: '说明',
+    category: '学习',
+    priority: 'important',
+    tags: [' 阅读 ', '阅读', '', '笔记'],
+    reminder_minutes: 15,
+    parent_id: 'task-week',
+  })
+  expect(task).toMatchObject({
+    status: 'in_progress',
+    completed: false,
+    completed_at: null,
+    starts_at: '2026-10-18T09:00:00+08:00',
+    due_at: '2026-10-18T11:00:00+08:00',
+    description: '说明',
+    category: '学习',
+    priority: 'important',
+    tags: ['阅读', '笔记'],
+    reminder_minutes: 15,
+    parent_id: 'task-week',
+  })
+  expect((await readDemoState()).tasks.find((item) => item.id === task.id)).toMatchObject(task)
+  expect(
+    (await call('/today')).tasks.find((item: { id: string }) => item.id === task.id)
+  ).toMatchObject(task)
+})
+
+test('demo completion transitions synchronize status and preserve completion history', async () => {
+  const task = await call('/tasks', 'POST', { title: '完成计划' })
+  const completed = await call(`/tasks/${task.id}`, 'PATCH', { completed: true })
+  expect(completed.status).toBe('completed')
+  expect(Number.isFinite(Date.parse(completed.completed_at))).toBe(true)
+  const edited = await call(`/tasks/${task.id}`, 'PATCH', {
+    completed: true,
+    description: '修改说明',
+  })
+  expect(edited.completed_at).toBe(completed.completed_at)
+  const reopened = await call(`/tasks/${task.id}`, 'PATCH', { status: 'in_progress' })
+  expect(reopened).toMatchObject({ completed: false, status: 'in_progress', completed_at: null })
+  const timestamp = '2026-10-18T10:00:00Z'
+  const explicit = await call(`/tasks/${task.id}`, 'PATCH', {
+    status: 'completed',
+    completed_at: timestamp,
+  })
+  expect(explicit).toMatchObject({ completed: true, status: 'completed', completed_at: timestamp })
+  expect(await call(`/tasks/${task.id}`, 'PATCH', { completed: false })).toMatchObject({
+    completed: false,
+    status: 'not_started',
+    completed_at: null,
+  })
+})
+
+test.each(['2026-10-18', '2026-10-18T10:00:00', null])(
+  'demo completion accepts ISO dates and generates a missing new completion time: %j',
+  async (completed_at) => {
+    const task = await call('/tasks', 'POST', {
+      title: '已完成',
+      status: 'completed',
+      completed_at,
+    })
+    expect(task.completed).toBe(true)
+    if (completed_at === null) expect(Number.isFinite(Date.parse(task.completed_at))).toBe(true)
+    else expect(task.completed_at).toBe(completed_at)
+  }
+)
+
+test.each([
+  { status: 'paused' },
+  { status: ['completed'] },
+  { completed: 'yes' },
+  { status: 'in_progress', completed: true },
+  { status: 'completed', completed: false },
+  { completed_at: 'not-a-date' },
+  { completed_at: '2026-10-18T10:00:00Z' },
+  { completed: true, completed_at: '10/18/2026' },
+  { starts_at: 'not-a-date' },
+  { starts_at: 10 },
+  { due_at: 'not-a-date' },
+  { starts_at: '2026-10-19T10:00:00Z', due_at: '2026-10-18T10:00:00Z' },
+  { description: 'x'.repeat(501) },
+  { category: 'x'.repeat(33) },
+  { priority: 'high' },
+  { priority: ['urgent'] },
+  { tags: ['x'.repeat(33)] },
+  { tags: [3] },
+  { tags: Array.from({ length: 11 }, (_, i) => `tag${i}`) },
+  { reminder_minutes: 10 },
+  { reminder_minutes: '15' },
+  { reminder_minutes: 0 },
+])('invalid demo task metadata is rejected atomically: %j', async (body) => {
+  const before = await readDemoState()
+  await expect(call('/tasks/task-day', 'PATCH', { title: '不能保存', ...body })).rejects.toThrow()
+  expect(await readDemoState()).toEqual(before)
+})
+
+test('demo task edits validate the merged date and reminder state', async () => {
+  const task = await call('/tasks', 'POST', {
+    title: '时间计划',
+    starts_at: '2026-10-18T10:00:00Z',
+    due_at: '2026-10-18T11:00:00Z',
+    reminder_minutes: 0,
+  })
+  await expect(
+    call(`/tasks/${task.id}`, 'PATCH', { due_at: '2026-10-18T09:00:00Z' })
+  ).rejects.toThrow()
+  expect(await call(`/tasks/${task.id}`, 'PATCH', { due_at: null })).toMatchObject({
+    due_at: null,
+    starts_at: '2026-10-18T10:00:00Z',
+    reminder_minutes: 0,
+  })
+  await expect(call(`/tasks/${task.id}`, 'PATCH', { starts_at: null })).rejects.toThrow()
+  const cleared = await call(`/tasks/${task.id}`, 'PATCH', { due_at: null, reminder_minutes: null })
+  expect(cleared).toMatchObject({ due_at: null, reminder_minutes: null })
 })

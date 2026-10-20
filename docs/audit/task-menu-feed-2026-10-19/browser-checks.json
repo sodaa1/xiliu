@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "Task row has no select; hover/focus reveals menu; all three statuses persist through real API; Escape restores focus",
+    "Task editor closes back to the original three-dot trigger",
+    "Feed hero, compact picks, full manageable list, carousel, grid/list and sort work",
+    "Source status dialog uses actual data; reading dialog opens and saves to real inbox",
+    "Real API manual create/edit/search/delete/restore retained",
+    "Failed request preserves editor draft and shows error",
+    "390/768px layouts, dark theme, 18px user setting and reduced motion verified"
+  ],
+  "errors": [],
+  "font": {
+    "root": "14px",
+    "body": "\"PingFang SC\", \"Microsoft YaHei UI\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif",
+    "heading": "\"PingFang SC\", \"Microsoft YaHei UI\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", \"Noto Sans SC\", \"Segoe UI\", sans-serif",
+    "title": "17.9999px",
+    "heroHeight": 350,
+    "compactDisplay": "grid"
+  },
+  "database": "Isolated xiliu-home-workbench temporary server; no live model calls"
+}

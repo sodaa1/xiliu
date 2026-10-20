@@ -1,0 +1,182 @@
+
+> xiliu-web@0.4.4 test
+> vitest --run src/app/App.test.tsx
+
+
+ RUN  v4.1.11 E:/Learning/xiliu/web
+
+ ❯ src/app/App.test.tsx (4 tests | 1 failed) 3667ms
+   × tour keeps its origin when the workbench homepage changes the shell 1476ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/app/App.test.tsx > tour keeps its origin when the workbench homepage changes the shell
+Error: expect(element).toHaveAttribute("data-route-path", "/inbox") // element.getAttribute("data-route-path") === "/inbox"
+
+Expected the element to have attribute:
+  data-route-path="/inbox"
+Received:
+  data-route-path="/today"
+
+Ignored nodes: comments, script, style
+<html
+  class=""
+  data-density="comfortable"
+  data-motion="system"
+  data-theme="light"
+  style="color-scheme: light; font-size: 14px; --app-font: 'PingFang SC', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC', 'Segoe UI', sans-serif;"
+>
+  <head />
+  <body
+    class=""
+  >
+    <div>
+      <div
+        class="route-surface"
+        data-route-path="/today"
+      >
+        <div
+          class="app-shell workbench-shell"
+        >
+          <aside
+            class="global-sidebar icon-rail"
+          >
+            <a
+              aria-label="xiliu 助手"
+              class="brand"
+              data-discover="true"
+              href="/assistant"
+              title="xiliu"
+            >
+              <span
+                aria-hidden="true"
+                class="brand-mark "
+              >
+                <svg
+                  class="lucide lucide-sparkles"
+                  fill="none"
+                  height="24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"
+                  />
+                  <path
+                    d="M20 3v4"
+                  />
+                  <path
+                    d="M22 5h-4"
+                  />
+                  <path
+                    d="M4 17v2"
+                  />
+                  <path
+                    d="M5 18H3"
+                  />
+                </svg>
+              </span>
+            </a>
+            <nav
+              aria-label="主导航"
+              id="main-navigation"
+            >
+              <a
+                aria-current="page"
+                aria-label="今日"
+                class="nav-item active"
+                data-discover="true"
+                data-onboarding="nav-today"
+                href="/today"
+                title="今日"
+              >
+                <svg
+                  class="lucide lucide-house"
+                  fill="none"
+                  height="21"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="21"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"
+                  />
+                  <path
+                    d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  />
+                </svg>
+              </a>
+              <a
+                aria-label="助手"
+                class="nav-item "
+                data-discover="true"
+                data-onboarding="nav-assistant"
+                href="/assistant"
+                title="助手"
+              >
+                <svg
+                  class="lucide lucide-message-square"
+                  fill="none"
+                  height="21"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="21"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  />
+                </svg>
+              </a>
+              <a
+                aria-label="资讯"
+                class="nav-item "
+                data-discover="true"
+                data-onboarding="nav-feed"
+                href="/feed"
+                title="资讯"
+              >
+                <svg
+                  class="lucide lucide-newspaper"
+                  fill="none"
+                  height="21"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="21"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 ...
+ ❯ src/app/App.test.tsx:118:81
+    116|   await waitFor(() => expect(view.container.querySelector('[data-route…
+    117|   await user.click(screen.getByRole('button', { name: '跳过引导' }))
+    118|   await waitFor(() => expect(view.container.querySelector('[data-route…
+       |                                                                                 ^
+    119| })
+    120|
+ ❯ runWithExpensiveErrorDiagnosticsDisabled node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  22:03:55
+   Duration  8.26s (transform 1.36s, setup 312ms, import 3.28s, tests 3.67s, environment 799ms)

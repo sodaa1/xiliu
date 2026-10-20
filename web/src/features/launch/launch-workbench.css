@@ -1,0 +1,171 @@
+/* Launch adapts the approved workbench landscape and spacious lilac palette. */
+.launch-page .launch-enter.btn > span {
+  padding: 0;
+  background: none;
+}
+.launch-page .launch-enter.btn::before,
+.launch-page .launch-enter.btn::after,
+.launch-page .launch-enter.btn > span::before,
+.launch-page .launch-enter.btn > span::after {
+  display: none;
+}
+.launch-page .launch-enter.btn svg {
+  margin: 0;
+  vertical-align: initial;
+}
+.launch-page {
+  min-height: 480px;
+  background: var(--surface-muted);
+  color: var(--text);
+  isolation: isolate;
+}
+.launch-landscape {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 56%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: -2;
+}
+.launch-page .launch-vignette {
+  background: linear-gradient(
+    180deg,
+    var(--surface-muted) 0%,
+    var(--surface-muted) 35%,
+    color-mix(in srgb, var(--surface-muted) 85%, transparent) 56%,
+    transparent 100%
+  );
+  z-index: -1;
+}
+.launch-page .launch-content {
+  padding: 38px 30px 64px;
+  gap: 17px;
+  text-shadow: none;
+  animation-duration: 650ms;
+  animation-delay: 50ms;
+}
+.launch-page .launch-content .brand-large {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 22px;
+  padding: 10px;
+  filter: none;
+  box-shadow: 0 10px 30px #7766c416;
+}
+.launch-page .launch-content .launch-title {
+  height: 130px;
+  width: min(400px, 80vw);
+}
+.launch-page .launch-content h1 .launch-script-wordmark {
+  color: var(--accent-strong);
+  font-size: clamp(108px, 12vw, 150px);
+  text-shadow: none;
+}
+.launch-page .launch-content .launch-signature {
+  font-family: var(--app-font);
+  font-size: 21px;
+  letter-spacing: 0.35em;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: -10px;
+}
+.launch-page .launch-content > p {
+  font-size: var(--type-reading);
+  color: var(--muted-readable);
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+  margin: 2px 0 12px;
+}
+.launch-page .launch-enter {
+  min-width: 170px;
+  padding: 13px 22px;
+  border: 1px solid color-mix(in srgb, var(--accent) 65%, transparent);
+  border-radius: 12px;
+  background: var(--accent-grad);
+  color: #fff;
+  box-shadow: 0 8px 24px #7664c524;
+  font-size: var(--type-body);
+  text-shadow: none;
+}
+.launch-page .launch-enter:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px #7664c52e;
+}
+.launch-page .launch-enter > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+}
+.launch-page .launch-skip {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--muted-readable);
+  font-size: var(--type-label);
+  padding: 9px 13px;
+  backdrop-filter: none;
+}
+.launch-page .launch-skip:hover {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  border-color: var(--accent);
+}
+.launch-page .launch-version {
+  color: var(--muted-readable);
+  font-size: var(--type-caption);
+  letter-spacing: 0.08em;
+  bottom: 24px;
+}
+.launch-page .launch-enter:focus-visible,
+.launch-page .launch-skip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+:root[data-theme='dark'] .launch-landscape {
+  opacity: 0.22;
+}
+@media (max-width: 760px) {
+  .launch-page .launch-content {
+    padding: 24px 24px 45px;
+    gap: 14px;
+  }
+  .launch-page .launch-content .launch-title {
+    height: 115px;
+  }
+  .launch-page .launch-content h1 .launch-script-wordmark {
+    font-size: 110px;
+  }
+  .launch-page .launch-skip {
+    top: 18px;
+    right: 18px;
+  }
+  .launch-landscape {
+    height: 48%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .launch-page * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .launch-page .launch-content {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}
+:root[data-motion='reduced'] .launch-page * {
+  animation: none !important;
+  transition: none !important;
+}
+:root[data-motion='reduced'] .launch-page .launch-content {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}

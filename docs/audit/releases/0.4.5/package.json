@@ -1,0 +1,467 @@
+{
+  "version": "0.4.5",
+  "installer": "Xiliu-0.4.5-x64-setup.exe",
+  "bytes": 66747710,
+  "sha256": "0455b3b582512c5d69f68fe7e9ae089d49a1843bb8d72a06b4236983a9b67b35",
+  "shell_x64_gui": true,
+  "shell_matches_build": true,
+  "shell_bundle_marker": "Only the expected three-byte Tauri UNK to NSS bundle-type patch differs; every other byte matches.",
+  "service_matches_build": true,
+  "web_file_count": 90,
+  "hd_artwork_variants": 52,
+  "no_runtime_profile_or_env_files": true,
+  "extracted_service": ".preview/release-045-unpacked/xiliu-service.exe",
+  "assets": [
+    {
+      "file": "favicon.svg",
+      "sha256": "ff701353dcaf7cd8e718628f6accaf0ef0b8daed6cf11fe12c6006dbfae07597",
+      "bytes": 592
+    },
+    {
+      "file": "index.html",
+      "sha256": "5b74600b8ba06a66181aee3b970d7e5b4e2b1ec246d2ef8eb7372c8c0257b4fe",
+      "bytes": 773
+    },
+    {
+      "file": "_redirects",
+      "sha256": "94f76bf42ffc51f446f54963735cab3da50e9db2eb45d4934da61e45c717d599",
+      "bytes": 20
+    },
+    {
+      "file": "artwork/alpine-huts-1920.webp",
+      "sha256": "7f30927e0ccd8d1ccbc16989ae12dfd71f5a7e6a0fa745391fdabbe6c18b9781",
+      "bytes": 355128
+    },
+    {
+      "file": "artwork/alpine-huts-3840.webp",
+      "sha256": "9e35a23594a5069c218644c640b94079e7d1ab64e171ab9fad77979123de3cea",
+      "bytes": 1383674
+    },
+    {
+      "file": "artwork/alpine-huts-480.webp",
+      "sha256": "f62a51fd7311fb30eeb5fd6555df1d841f76a8c66022316029f8bddae15e9542",
+      "bytes": 24216
+    },
+    {
+      "file": "artwork/alpine-huts-960.webp",
+      "sha256": "058c894cc83a8c443f8f53275a65821d165fc3a8ca00a1d7637aa34fdb29b5c6",
+      "bytes": 83696
+    },
+    {
+      "file": "artwork/baku-architecture-1920.webp",
+      "sha256": "f241cf4e5a59f2c15ec690d894bbff82aa2b9dff37b59713365889802678717b",
+      "bytes": 279698
+    },
+    {
+      "file": "artwork/baku-architecture-480.webp",
+      "sha256": "f2748e6175236c10a45ed3fc7885ad9f6341d7b644c51a11d6404d7243981555",
+      "bytes": 28526
+    },
+    {
+      "file": "artwork/baku-architecture-960.webp",
+      "sha256": "d7c6bc10eaa791f039c6de434f8eb098224b41596b86f377057a3403c95e3036",
+      "bytes": 94574
+    },
+    {
+      "file": "artwork/city-skyline-1920.webp",
+      "sha256": "5196c4019adfc233613c2296469d3e1d2182a5982edd835a20097d7ce6e5098b",
+      "bytes": 486636
+    },
+    {
+      "file": "artwork/city-skyline-480.webp",
+      "sha256": "818434a7a4dcfc6a831a3a0d447ee90b1c5d9da22ce41917896fc6dd1e986bf5",
+      "bytes": 39120
+    },
+    {
+      "file": "artwork/city-skyline-960.webp",
+      "sha256": "ee142bc78620ea8275acefc72be1d860b0457fc8621061b33b7ed645825c9680",
+      "bytes": 152548
+    },
+    {
+      "file": "artwork/creative-notes-1920.webp",
+      "sha256": "92d4982f1b5402a2dac7c6bc1fbd08630e67b886ea0ad136c26f0a7d25ad47d4",
+      "bytes": 665852
+    },
+    {
+      "file": "artwork/creative-notes-480.webp",
+      "sha256": "42a88ab0bbf465ba0a37c6fbf3ede3fb9e876f41676eca1323d6c93b016f0a4a",
+      "bytes": 37776
+    },
+    {
+      "file": "artwork/creative-notes-960.webp",
+      "sha256": "525105a379b7d887e6f58b082f6b732daabd38cefaa937578980256804c30ae1",
+      "bytes": 163870
+    },
+    {
+      "file": "artwork/desktop-display-1920.webp",
+      "sha256": "db77ba9cd906db4aa09ac7a2111171fc235728130636c6954f22c92d3093074a",
+      "bytes": 242548
+    },
+    {
+      "file": "artwork/desktop-display-480.webp",
+      "sha256": "5a63d0d5ef992db53620116291dc66d044f466580d18bab46b942f8f9b7ab3c2",
+      "bytes": 23730
+    },
+    {
+      "file": "artwork/desktop-display-960.webp",
+      "sha256": "e643b4d99de81b08b0d022506724f214dfa57f5d1b51ed5704f0cd05362ea0eb",
+      "bytes": 80684
+    },
+    {
+      "file": "artwork/digital-workspace-1920.webp",
+      "sha256": "f8aa5c1825109751b5dc472a6bc4abddef9c9740e2f9ec56fb08f10bc8d7590a",
+      "bytes": 168286
+    },
+    {
+      "file": "artwork/digital-workspace-480.webp",
+      "sha256": "0fc065c8f413f7a06e164d2bb9e55dbffdcd6fd31c5de80a1996dbea68cc1156",
+      "bytes": 24192
+    },
+    {
+      "file": "artwork/digital-workspace-960.webp",
+      "sha256": "d472577b5267c50efa50ef5a0ddde7e49fdd94790cc5b8af346cc487485627ad",
+      "bytes": 64102
+    },
+    {
+      "file": "artwork/laptop-mouse-1920.webp",
+      "sha256": "11bcd7f2b46a196a0f534eaa988fdfe74d6a552c75afa6f689d4f02e160c48eb",
+      "bytes": 65784
+    },
+    {
+      "file": "artwork/laptop-mouse-480.webp",
+      "sha256": "d6516e61ffc2555b52c4a1ffe1ede1fa3b5fcbfd9f3b690f11bb8aa6856b104c",
+      "bytes": 9114
+    },
+    {
+      "file": "artwork/laptop-mouse-960.webp",
+      "sha256": "99757a3c510f53749436a7c6052bc879ef4d2d2525e3347a4a69343bc18278c9",
+      "bytes": 25342
+    },
+    {
+      "file": "artwork/library-shelves-1920.webp",
+      "sha256": "3c932d999ad9c2669838ecb464de826f36361c99315fc2d1d4dde16c586203d0",
+      "bytes": 393580
+    },
+    {
+      "file": "artwork/library-shelves-480.webp",
+      "sha256": "516cce8416a2e2bb9c4aac7b752da408276a9b865290eb1bca3505a125fb0690",
+      "bytes": 35226
+    },
+    {
+      "file": "artwork/library-shelves-960.webp",
+      "sha256": "1823e7e5ce022142f74aa251c9380eea640d5adfaa11055320ad9ee8b1eed41c",
+      "bytes": 119042
+    },
+    {
+      "file": "artwork/london-skyline-1920.webp",
+      "sha256": "6e2973c6a0960ae4ced8206fd02384bdae6a48ae740961f640df5cf66431c679",
+      "bytes": 407240
+    },
+    {
+      "file": "artwork/london-skyline-480.webp",
+      "sha256": "c64f45f934030eb0b7002fc916642457c9dc0550320522bd0bdb4346014d712c",
+      "bytes": 33292
+    },
+    {
+      "file": "artwork/london-skyline-960.webp",
+      "sha256": "6068d23b363c6b53fb4bbda386b2cf106134e1f4357a5a43852977d1b975e65e",
+      "bytes": 124450
+    },
+    {
+      "file": "artwork/minimal-tools-1920.webp",
+      "sha256": "103723447ebb9918bf4605252006a878c5c5d1fdc2d2b3124a26563350ba399e",
+      "bytes": 472140
+    },
+    {
+      "file": "artwork/minimal-tools-480.webp",
+      "sha256": "b33f8ed3797a78e95702358af1b4a21252a66c0549ba2c981d8008f48ba4c1ef",
+      "bytes": 24852
+    },
+    {
+      "file": "artwork/minimal-tools-960.webp",
+      "sha256": "a51711eb9c75c1d1af5893e59f2f35e2a22a39148a5cd6cd49d53cec83aab29c",
+      "bytes": 121956
+    },
+    {
+      "file": "artwork/open-notebook-1920.webp",
+      "sha256": "11a2ed644022e4ef86b47fa95a1605c3fd0c1c5dda68005ce74510eaee29a925",
+      "bytes": 78370
+    },
+    {
+      "file": "artwork/open-notebook-480.webp",
+      "sha256": "ce5fe2c5dbe7bd4913183edf5d70e55bd6a2a8bc1078812931e0f17b6d6057b9",
+      "bytes": 12378
+    },
+    {
+      "file": "artwork/open-notebook-960.webp",
+      "sha256": "6cc807a2a582a090337b59e9793fb8119ed32df08cd17f592d2a2a73d44a0864",
+      "bytes": 32544
+    },
+    {
+      "file": "artwork/quiet-water-1920.webp",
+      "sha256": "36097ca0df61cb491cc72b7609f223df09a7e3404040dbb3dc2f6da4267120a1",
+      "bytes": 503698
+    },
+    {
+      "file": "artwork/quiet-water-3840.webp",
+      "sha256": "107adbb2003b0c02db4d0f4e785fa1e3e483cad547f3c1add96ce2d5e18a94a8",
+      "bytes": 1671638
+    },
+    {
+      "file": "artwork/quiet-water-480.webp",
+      "sha256": "5b6eca89d9c0d55fe81a691c1c8580ff81d2a975a073d61b06ed873770da65e6",
+      "bytes": 32456
+    },
+    {
+      "file": "artwork/quiet-water-960.webp",
+      "sha256": "aafbbbf6750105c7ef8ff47ea2a6ba712acfffd8fb8282bfd5e69408f4a871e1",
+      "bytes": 129122
+    },
+    {
+      "file": "artwork/reading-room-1920.webp",
+      "sha256": "d45bdcd623731fa1fa4a2112743224d94066c1100740272beb54f355ccf2b958",
+      "bytes": 150482
+    },
+    {
+      "file": "artwork/reading-room-480.webp",
+      "sha256": "9af02a59c47d84d307c11a5bb284248ab6d125b5d1e224d95b4a9bebb4a071e2",
+      "bytes": 21452
+    },
+    {
+      "file": "artwork/reading-room-960.webp",
+      "sha256": "12316406a34c03a6580af7bf2631535c19f4a01b776205e941f74912acf395ac",
+      "bytes": 53974
+    },
+    {
+      "file": "artwork/turquoise-peaks-1920.webp",
+      "sha256": "f267e414b8b32a5e6e07e2f73078a14cf8958a7d80925f1ecd917a39eae64dad",
+      "bytes": 548696
+    },
+    {
+      "file": "artwork/turquoise-peaks-3840.webp",
+      "sha256": "00c39b2282d7be6a391fe8ad1faa44a0d599ebf293cf78c5523e9cda2e590a42",
+      "bytes": 1758450
+    },
+    {
+      "file": "artwork/turquoise-peaks-480.webp",
+      "sha256": "e2fdd0826d7e52bdceae477f5cc0eb1a0f595843e8577f2e49736118dd30848a",
+      "bytes": 36298
+    },
+    {
+      "file": "artwork/turquoise-peaks-960.webp",
+      "sha256": "76248b23a2611f2f76c816be9c50b289875c6c3d344fb44cd6f6e9b76fb8ebf0",
+      "bytes": 142438
+    },
+    {
+      "file": "artwork/white-library-1920.webp",
+      "sha256": "625781fc2f397dc2ff934b8a6aaf79c56134086e399c6ea3626323ac7343af8c",
+      "bytes": 314100
+    },
+    {
+      "file": "artwork/white-library-480.webp",
+      "sha256": "53b5b38bf80e3e74f98edbe676cf3d5ba1ce7c638b365baec8236cf540a25de4",
+      "bytes": 40474
+    },
+    {
+      "file": "artwork/white-library-960.webp",
+      "sha256": "234078441228b58ab2193971af2909ecf127bbac7e99b0f78cf3a6b8ea783c5e",
+      "bytes": 127116
+    },
+    {
+      "file": "artwork/winter-lake-1920.webp",
+      "sha256": "fdf7049f8c94b13bf878a1ea251884c1f33667a4970435b2d1084e58969247ac",
+      "bytes": 869472
+    },
+    {
+      "file": "artwork/winter-lake-3840.webp",
+      "sha256": "9f694e2c3b0b330e632816a57bce963b74b60ab4590411943f7ae2db3e81cc6e",
+      "bytes": 2982682
+    },
+    {
+      "file": "artwork/winter-lake-480.webp",
+      "sha256": "d5007b11efbeeaaaa6e373a5df78f3778d4be452e8620132aa60de8d58f86c57",
+      "bytes": 53194
+    },
+    {
+      "file": "artwork/winter-lake-960.webp",
+      "sha256": "d1c8ed777340bcb7c09d9b21ce426564fd4fd07c7978350b5fa98db0052cc715",
+      "bytes": 208100
+    },
+    {
+      "file": "assets/app-Cizu_y19.css",
+      "sha256": "9a37b91a220fed94a8612983a69a327a0b17330e8cb12b900c1bb62976269927",
+      "bytes": 263587
+    },
+    {
+      "file": "assets/app-DOVtMJep.js",
+      "sha256": "2c1c7105b58b9c2bd4140321b1476f102b37e71543902ae3e8fd28bdcc38ea0e",
+      "bytes": 786730
+    },
+    {
+      "file": "assets/core-D2L4nEXB.js",
+      "sha256": "8e1ab44e6e9acdfd95d0742b14714e9bbe68ccbfc2119fc30befd83a37798e4e",
+      "bytes": 269955
+    },
+    {
+      "file": "assets/cubism4.es-OPzCIMO1.js",
+      "sha256": "23880c5e137bdd0bf38b8c9bfc415a4e0e702a0400d8690ecd6a21d28da5d979",
+      "bytes": 119656
+    },
+    {
+      "file": "assets/live2d-runtime-CrqlkrNR.js",
+      "sha256": "f32d0cde8d18dda5a29e9f1f7e4fe3d5f607a1ae1dcc62ae78255538d3a3a020",
+      "bytes": 3106
+    },
+    {
+      "file": "assets/pixi-C8-WbEDn.js",
+      "sha256": "883f782871c2625e01b607f6d363c1aa39cb872d5f561def219209144f664642",
+      "bytes": 239267
+    },
+    {
+      "file": "companion/chibi.png",
+      "sha256": "3ee25a86edae6ebc37d3ae4ce282b2060804111c2dcfbc262c5203e05e670c75",
+      "bytes": 1102735
+    },
+    {
+      "file": "companion/home-background.png",
+      "sha256": "b6441806e4b0577008fe86e1191a0762dd90f6d34c5d5dccadff0b6c05eaf5ec",
+      "bytes": 1504236
+    },
+    {
+      "file": "companion/standing.png",
+      "sha256": "dd78cf64d605f8c1d5e6ad4c624aa7113a0d7cf418251f12e447005467a91aac",
+      "bytes": 1536137
+    },
+    {
+      "file": "feed/city.webp",
+      "sha256": "a62d17321c3fb078113f812908e060078d17437ffc5fb80724aaffa9a5846593",
+      "bytes": 4744
+    },
+    {
+      "file": "feed/design.webp",
+      "sha256": "7e144236674aa52ea5cb4d49d48598397b197edd73d4e6d97a25b10335038ff0",
+      "bytes": 2492
+    },
+    {
+      "file": "feed/mountain.webp",
+      "sha256": "3928146ad3ee98faed4af73a13e3acbdf1e8e295cdc8a13cfec9010896c82377",
+      "bytes": 20756
+    },
+    {
+      "file": "feed/technology.webp",
+      "sha256": "3349f23c21bde075cb23c3597eb75119a108989fe3ba5b6d183768245fe90319",
+      "bytes": 3740
+    },
+    {
+      "file": "fonts/Allura-OFL.txt",
+      "sha256": "71b58f55dc055090f288f963aef9708f4c6b8d1e28bfa4e8b588d810ea320f69",
+      "bytes": 4477
+    },
+    {
+      "file": "fonts/LXGWWenKai-OFL.txt",
+      "sha256": "81993037ca4e39a2c1e9eea4598bef9f92f7e608f5591c411e172f983f4ddd05",
+      "bytes": 5269
+    },
+    {
+      "file": "fonts/xiliu-handwriting.woff2",
+      "sha256": "28cc2022ea80f1dab80e3e2ce8f0c2bcb2bf68f40deac6e5b784fef7b7ce3110",
+      "bytes": 5432280
+    },
+    {
+      "file": "fonts/xiliu-headlines.woff2",
+      "sha256": "e631e831682f170481faf0f2756f89890edf2cd8d06698d13a288e1b19bba775",
+      "bytes": 6836
+    },
+    {
+      "file": "fonts/xiliu-script.woff2",
+      "sha256": "c6dd2cdf6d663fff887b4642d7e4fb82c9b05eb1e2bfc748264815c28ca99dec",
+      "bytes": 87016
+    },
+    {
+      "file": "intro/favicon.svg",
+      "sha256": "d2bc6f77f474c45996f30916898a417bf5bba5fdeb66884b3a8617ba9cf5e863",
+      "bytes": 706
+    },
+    {
+      "file": "intro/index.html",
+      "sha256": "d6aa191de807f36669ff0dcac7e9ad3c6bf836633a9aa3c62d5b6519949c565e",
+      "bytes": 742
+    },
+    {
+      "file": "plans/task-calendar-illustration.webp",
+      "sha256": "fbb7bf0db1ef34970ac2f3794b0ca04a5c4b75a0a611acc0dad83b66021c4442",
+      "bytes": 22968
+    },
+    {
+      "file": "themes/home-desk.webp",
+      "sha256": "533f909ea4c9759f0e67591811b557f4721575601c1d9865d4dcf9d103f57bfb",
+      "bytes": 4294
+    },
+    {
+      "file": "themes/home-lake.webp",
+      "sha256": "59ecb4c7da8a661c5d760420bc8ceab2057601bacae310f05942b13ea62028db",
+      "bytes": 7322
+    },
+    {
+      "file": "themes/home-seaside.webp",
+      "sha256": "5dce4290cb03fbf3271191eb5fceade572038173d9417dd73af4b33f3ea3b07c",
+      "bytes": 9674
+    },
+    {
+      "file": "themes/workbench-panorama-hd.webp",
+      "sha256": "c0bfa9426341fbbcc0b8761ee38911b3f7f8189fb9e909c6976943f5bae6d8f8",
+      "bytes": 188976
+    },
+    {
+      "file": "themes/workbench-panorama-mobile.webp",
+      "sha256": "7dd749eda9aab2dcb456330128838694b7ce7df6744fcbe05133e91b7634ccdd",
+      "bytes": 14566
+    },
+    {
+      "file": "themes/workbench-panorama.webp",
+      "sha256": "292e08b0a3ffee68a538a03ff5d0e0d6f2a548f2b343bcf374eac7112c5bb0d7",
+      "bytes": 28220
+    },
+    {
+      "file": "companion/expressions/chibi-blink.png",
+      "sha256": "e83ce2aa2398c31a350c695ffb14d5a47bb56752b7790f30502ef74ce7b1bb72",
+      "bytes": 1090904
+    },
+    {
+      "file": "companion/expressions/chibi-happy.png",
+      "sha256": "0efcf42787306894dc759e25ca4e24fce8147fe719e51987a3ede35163a30610",
+      "bytes": 1104612
+    },
+    {
+      "file": "companion/expressions/chibi-surprised.png",
+      "sha256": "b2ea5539d45db098df19855026f1d69702496ee02328b8907cd1eb8ca202d9a1",
+      "bytes": 1111829
+    },
+    {
+      "file": "companion/expressions/standing-blink.png",
+      "sha256": "1c60ac6604dcb26432ece8716ac191b25d4720aa2b3e4499885cf993eb333377",
+      "bytes": 1547636
+    },
+    {
+      "file": "companion/expressions/standing-happy.png",
+      "sha256": "32255caf90e97042bc0a49370659f41932443034e3c438eb3e3c006c0bdf51b6",
+      "bytes": 1534548
+    },
+    {
+      "file": "companion/expressions/standing-surprised.png",
+      "sha256": "ce047f822410ca7779fb558b86aae1710ea4969ba70acfbab4d1587397b3c34c",
+      "bytes": 1547820
+    },
+    {
+      "file": "intro/assets/index-CL6VnqMB.js",
+      "sha256": "be9bc5097d196f9a7b279c418bf751a9a9b77002b6b5f18e5af91de3dd1c6cb8",
+      "bytes": 374702
+    },
+    {
+      "file": "intro/assets/index-CuEjGbN0.css",
+      "sha256": "75db4dc7ffd5f6d7ce89c1b7cf8ac39e90937d99cfa70d7b368396ac93ac2aed",
+      "bytes": 38267
+    }
+  ],
+  "limits": "Extracted without installing or changing the user application registry; native installed-window/mixed-DPI interaction is not covered."
+}

@@ -1,0 +1,10 @@
+
+ RUN  v4.1.11 E:/Learning/xiliu/web
+
+ ❯ src/lib/artwork.test.tsx (5 tests | 1 failed) 35ms
+   × featured and list covers do not overwrite each other’s rotation history 5ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  12:46:41
+   Duration  1.14s (transform 125ms, setup 210ms, import 247ms, tests 35ms, environment 480ms)

@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "Launch enters Today immediately with reduced motion and no particle canvas",
+    "Companion form switch, menu and composer preserve existing behavior and draft",
+    "Default compact companion still fits 136×172 CSS viewport; native host not simulated",
+    "Capture window retains dismissed draft and imports a real small text file without model calls",
+    "All 12 tour steps fit desktop/mobile and return to original route with focus interaction unlocked",
+    "Dark theme and 18px preferences verified across content, library, launch and settings"
+  ],
+  "errors": [],
+  "native": "Browser only; OS window host and mixed-DPI dragging are outside this pass."
+}

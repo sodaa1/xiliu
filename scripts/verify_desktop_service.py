@@ -297,45 +297,10 @@ def verify(
                                     "arguments": {"value": "FrozenMCPMarker"},
                                 },
                             )
-                        elif "probe-todo" not in outputs:
-                            assert outputs["probe-call"]["ok"], outputs["probe-call"]
-                            probe_call = (
-                                "probe-todo",
-                                "todo_write",
-                                {
-                                    "todos": [
-                                        {
-                                            "id": "probe",
-                                            "content": "Invoke the local packaging marker",
-                                        }
-                                    ]
-                                },
-                            )
-                        elif "probe-progress" not in outputs:
-                            assert outputs["probe-todo"]["ok"], outputs["probe-todo"]
-                            probe_call = (
-                                "probe-progress",
-                                "todo_update",
-                                {"todo_id": "probe", "status": "in_progress"},
-                            )
-                        elif "probe-complete" not in outputs:
-                            assert outputs["probe-progress"]["ok"], outputs["probe-progress"]
-                            probe_call = (
-                                "probe-complete",
-                                "todo_update",
-                                {"todo_id": "probe", "status": "completed"},
-                            )
                         else:
-                            assert all(
-                                outputs[key]["ok"]
-                                for key in (
-                                    "probe-search",
-                                    "probe-call",
-                                    "probe-todo",
-                                    "probe-progress",
-                                    "probe-complete",
-                                )
-                            )
+                            # /mcp confines this turn to discovery and MCP invocation.
+                            # TODO writes are separate capabilities, not part of this probe.
+                            assert outputs["probe-call"]["ok"], outputs["probe-call"]
                             assert probe_marker.read_text("utf-8") == "FrozenMCPMarker"
                             Provider.probe_chain_verified = True
                             answer = json.dumps(
@@ -440,7 +405,7 @@ def verify(
                             f"/api/conversations/{cid}/chat",
                             {"text": "北京天气如何"}
                             if live_search
-                            else {"text": "联网查询北京天气", "mode": "fast"}
+                            else {"text": "联网查询北京天气"}
                             if workflow
                             else {"text": "Hello"},
                             timeout=60,
@@ -482,7 +447,6 @@ def verify(
                             f"/api/conversations/{probe_cid}/chat",
                             {
                                 "text": "/mcp packaging_probe Invoke the packaging marker",
-                                "mode": "standard",
                             },
                             timeout=60,
                         )
@@ -490,7 +454,8 @@ def verify(
                         .splitlines()
                     ]
                     assert probe_events[-1]["type"] == "final", probe_events
-                    if "Frozen MCP probe complete" not in probe_events[-1]["text"]:
+                    execution = probe_events[-1].get("metadata", {}).get("execution_result", {})
+                    if execution.get("status") != "completed" or not execution.get("verified"):
                         checkpoints = list(
                             (Path(temporary) / "workspaces" / probe_cid).rglob("checkpoint.json")
                         )

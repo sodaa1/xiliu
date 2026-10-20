@@ -1,0 +1,1 @@
+{"status": "passed", "surface_count": 1073, "errors": 0, "output": "docs\\audit\\themed-artwork-2026-10-20\\coverage-results.json"}

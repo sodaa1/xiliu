@@ -1,0 +1,121 @@
+/* Product type roles: Atlassian, Material, W3C clreq; respects user font/size preferences. */
+:root {
+  --type-caption: 0.85714rem;
+  --type-label: 0.92857rem;
+  --type-body: 1rem;
+  --type-reading: 1.07143rem;
+  --type-title: 1.28571rem;
+  --type-page: 1.85714rem;
+}
+body {
+  font-family: var(--app-font, 'PingFang SC', 'Microsoft YaHei UI', 'Microsoft YaHei', sans-serif);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.app-shell {
+  font-size: var(--type-body);
+}
+.app-shell :is(h1, h2, h3) {
+  font-family: var(--app-font);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  text-wrap: pretty;
+}
+.app-shell :is(.workspace-header, .plan-header) h1 {
+  font-size: var(--type-page);
+  line-height: 1.3;
+  font-weight: 650;
+}
+.app-shell :is(.workspace-header, .plan-header) p {
+  font-size: var(--type-label);
+  line-height: 1.65;
+}
+.app-shell :is(.plan-task-title, .wb-task-title, .conversation-select > span) {
+  font-size: var(--type-body);
+  line-height: 1.6;
+  font-weight: 500;
+}
+.app-shell
+  :is(
+    .plan-task-meta,
+    .plan-category-badge,
+    .feed-source,
+    .conversation-select small,
+    .conversation-select time,
+    .wb-stat small,
+    .wb-task-list time,
+    .wb-timeline time,
+    .wb-timeline p,
+    .wb-feed-card time
+  ) {
+  font-size: var(--type-caption);
+  line-height: 1.6;
+}
+.app-shell :is(.settings-card, .workspace-page) label {
+  font-size: var(--type-label);
+}
+.app-shell :is(.settings-card, .content-row, .knowledge-folder-card) p {
+  line-height: 1.7;
+}
+.app-shell :is(.wb-panel-heading, .section-heading) h2 {
+  font-size: var(--type-title);
+  line-height: 1.45;
+}
+.app-shell .message-content {
+  font-size: var(--type-reading);
+  line-height: 1.85;
+}
+.app-shell .home-copy h1 {
+  font-family: var(--app-font);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+}
+.app-shell .wb-welcome h1 {
+  font-size: 2.14286rem;
+  line-height: 1.35;
+}
+.app-shell .wb-stat-label {
+  font-size: var(--type-label);
+}
+.app-shell .wb-stat strong {
+  font-size: 1.71429rem;
+  line-height: 1.35;
+}
+.app-shell .wb-quick-actions strong {
+  font-size: var(--type-label);
+}
+.app-shell .wb-quick-actions small {
+  font-size: var(--type-caption);
+  white-space: normal;
+}
+.app-shell .wb-feed-card h3 {
+  font-size: var(--type-body);
+  line-height: 1.6;
+}
+.app-shell .composer-box textarea {
+  font-size: var(--type-body);
+  line-height: 1.7;
+}
+.content-dialog,
+.modal-panel {
+  font-family: var(--app-font);
+}
+@media (max-width: 760px) {
+  .app-shell :is(.workspace-header, .plan-header) h1 {
+    font-size: 1.57143rem;
+  }
+  .app-shell .wb-welcome h1 {
+    font-size: 1.71429rem;
+  }
+  .app-shell .wb-stat strong {
+    font-size: 1.14286rem;
+  }
+  .app-shell .wb-stat-label {
+    font-size: 0.71429rem;
+  }
+  .app-shell .wb-quick-actions small {
+    font-size: 0.78571rem;
+  }
+}

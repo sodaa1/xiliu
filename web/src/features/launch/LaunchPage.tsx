@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { Brand } from '../../components/Brand'
-import { GalaxyCanvas } from './GalaxyCanvas'
+import { ArtworkImage } from '../../components/ArtworkImage'
+import { version } from '../../../package.json'
 import { useReducedMotion } from '../../lib/useReducedMotion'
 import './launch.css'
 
@@ -12,7 +13,13 @@ export function LaunchPage() {
   const ready = introComplete || reducedMotion
   return (
     <section className={`launch-page ${ready ? 'intro-complete' : ''}`}>
-      <GalaxyCanvas introComplete={ready} />
+      <ArtworkImage
+        className="launch-landscape"
+        topic="nature"
+        slot="launch-landscape"
+        sizes="100vw"
+        fetchPriority="high"
+      />
       <div className="launch-vignette" aria-hidden="true" />
       {!ready && (
         <button className="launch-skip" onClick={() => setIntroComplete(true)}>
@@ -39,7 +46,7 @@ export function LaunchPage() {
           </span>
         </Link>
       </div>
-      <span className="launch-version">xiliu · v0.1</span>
+      <span className="launch-version">xiliu · v{version}</span>
     </section>
   )
 }

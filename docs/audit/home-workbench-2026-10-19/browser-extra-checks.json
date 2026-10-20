@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "Existing personal-plan TaskForm creates task from home",
+    "Manual feed capture uses existing endpoint",
+    "Article saves to real inbox",
+    "Daily brief renders current task/note data",
+    "Appearance settings overlay returns to same home",
+    "Ctrl+K cannot focus background while a modal is open",
+    "Capture keyboard focus remains trapped",
+    "Failed save retains draft and reports error",
+    "Tablet breakpoint has no horizontal overflow"
+  ],
+  "errors": []
+}

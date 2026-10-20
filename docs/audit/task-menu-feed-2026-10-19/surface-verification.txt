@@ -1,0 +1,1 @@
+{"status": "passed", "surface_count": 1041, "errors": 0, "output": "docs\\audit\\task-menu-feed-2026-10-19\\coverage-results.json"}

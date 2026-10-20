@@ -1,0 +1,48 @@
+{
+  "version": "0.4.5",
+  "required_release_checks": "passed",
+  "backend": {
+    "passed": 931,
+    "skipped": 1,
+    "warnings": 101
+  },
+  "frontend": {
+    "passed": 248,
+    "files": 57
+  },
+  "rust": {
+    "passed": 8
+  },
+  "ruff": "passed",
+  "pyright": "passed",
+  "eslint": "passed",
+  "typescript": "passed",
+  "production_build": "passed",
+  "surface_guard": {
+    "count": 1073,
+    "errors": 0
+  },
+  "installer": {
+    "installer": "Xiliu-0.4.5-x64-setup.exe",
+    "bytes": 66747710,
+    "sha256": "0455b3b582512c5d69f68fe7e9ae089d49a1843bb8d72a06b4236983a9b67b35",
+    "web_file_count": 90,
+    "hd_artwork_variants": 52
+  },
+  "extracted_service": {
+    "runs": 2,
+    "shutdowns": [
+      "private_route",
+      "stdin_eof"
+    ],
+    "actual_stdio_mcp": true,
+    "local_mock_model_only": true,
+    "real_provider_keys_used": false
+  },
+  "legacy_app_folder_probe": {
+    "status": "failed_legacy_fixture",
+    "details": "The optional zero-model --app-folder probe assumes an unconfigured Chat entry can execute Fast actions. The current source and frozen entry require a configured profile; its canned model does not implement the current App Planner contract. This scenario is not counted as passing and no zero-model Chat-folder guarantee is made."
+  },
+  "native_installer_interaction": "not_run; extracted without changing existing installation/registry",
+  "mixed_dpi_dragging": "not_run"
+}

@@ -342,6 +342,13 @@ const sections = [
   { id: 'automations', label: '自动化', icon: Clock3 },
   { id: 'data', label: '数据与存储', icon: Database },
 ]
+const sectionDescriptions: Record<string, string> = {
+  profile: '管理个人资料与头像',
+  appearance: '主题、阅读与桌面伴侣',
+  model: '配置模型提供方与连接',
+  automations: '每日计划与运行记录',
+  data: '本机内容与存储位置',
+}
 export function ModelSettingsPanel() {
   const settings = useQuery({ queryKey: ['model-settings'], queryFn: api.settings })
   const catalog = useQuery({ queryKey: ['model-catalog'], queryFn: api.catalog })
@@ -468,7 +475,7 @@ export function SettingsPage({ embedded = false }: { embedded?: boolean }) {
     setParams({ section: sections[value].id }, { replace: true, state: location.state })
   }
   return (
-    <section className="settings-page">
+    <section className="settings-page settings-workbench">
       {!embedded && (
         <Link to="/assistant" className="back-link">
           <ArrowLeft size={17} />
@@ -496,14 +503,15 @@ export function SettingsPage({ embedded = false }: { embedded?: boolean }) {
             role="tab"
             id={`settings-tab-${id}`}
             aria-selected={position === index}
+            aria-label={label}
             aria-controls={`settings-panel-${id}`}
             tabIndex={position === index ? 0 : -1}
             onClick={() => select(position)}
             onKeyDown={(event) => {
               const target =
-                event.key === 'ArrowRight'
+                event.key === 'ArrowRight' || event.key === 'ArrowDown'
                   ? (index + 1) % sections.length
-                  : event.key === 'ArrowLeft'
+                  : event.key === 'ArrowLeft' || event.key === 'ArrowUp'
                     ? (index + sections.length - 1) % sections.length
                     : event.key === 'Home'
                       ? 0
@@ -518,7 +526,10 @@ export function SettingsPage({ embedded = false }: { embedded?: boolean }) {
             }}
           >
             <Icon size={16} />
-            <span>{label}</span>
+            <span>
+              {label}
+              <small>{sectionDescriptions[id]}</small>
+            </span>
           </button>
         ))}
       </div>
@@ -530,6 +541,11 @@ export function SettingsPage({ embedded = false }: { embedded?: boolean }) {
         className="settings-panel"
         data-onboarding={`settings-${current.id}`}
       >
+        <header className="settings-panel-heading">
+          <span>设置 / {current.label}</span>
+          <h2>{current.label}</h2>
+          <p>{sectionDescriptions[current.id]}</p>
+        </header>
         {current.id === 'profile' && <PersonalSettings />}
         {current.id === 'appearance' && (
           <>

@@ -1,238 +1,125 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { render, screen, waitFor, within } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
-import { afterEach, expect, test, vi } from 'vitest'
-import { FeedCard, FeedPage } from './FeedPage'
+import { beforeEach, afterEach, expect, test, vi } from 'vitest'
+import { FeedPage } from './FeedPage'
 import type { FeedItem } from '../../lib/workspace-api'
-
-afterEach(() => vi.unstubAllGlobals())
-
-const previewItem: FeedItem = {
-  id: 'external',
-  source: 'aihot',
-  title: 'Preview story',
-  summary: 'Short summary',
-  url: 'https://example.org/news',
-  published_at: '2026-10-14T10:00:00Z',
-  tags: ['ai'],
-  metadata: {},
-}
-
-function mountFeedCard() {
-  return render(
-    <MemoryRouter>
-      <QueryClientProvider
-        client={
-          new QueryClient({
-            defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
-          })
-        }
-      >
-        <FeedCard item={previewItem} />
-      </QueryClientProvider>
-    </MemoryRouter>
-  )
-}
-
-test('feed preview opens by keyboard and returns focus when dismissed', async () => {
-  mountFeedCard()
-  const user = userEvent.setup()
-  await user.tab()
-  const title = screen.getByRole('button', { name: 'Preview story' })
-  expect(title).toHaveFocus()
-  await user.keyboard('{Enter}')
-  expect(screen.getByRole('dialog', { name: 'Preview story' })).toBeVisible()
-  await user.keyboard('{Escape}')
-  expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-  expect(title).toHaveFocus()
-  await user.keyboard(' ')
-  expect(screen.getByRole('dialog', { name: 'Preview story' })).toBeVisible()
-})
-
-test('feed preview blocks duplicate saves and shows save failures before retry', async () => {
-  let finishSave!: (response: Response) => void
-  const saves: string[] = []
+let items: FeedItem[]
+let writes: { url: string; method: string; body: Record<string, unknown> }[]
+beforeEach(() => {
+  items = Array.from({ length: 4 }, (_, index) => ({
+    id: 'n' + index,
+    source: 'manual',
+    title: '资讯标题 ' + index,
+    summary: '真实接口数据形成的摘要 ' + index,
+    url: 'https://example.com/' + index,
+    published_at: `2026-10-${19 - index}T09:00:00Z`,
+    tags: [index === 0 ? '设计' : 'AI'],
+    metadata: {},
+  }))
+  writes = []
   vi.stubGlobal(
     'fetch',
     vi.fn(async (input: string, init?: RequestInit) => {
-      if (input === '/api/feed/external/save' && init?.method === 'POST') {
-        saves.push(input)
-        return new Promise<Response>((resolve) => {
-          finishSave = resolve
-        })
+      const url = String(input),
+        method = init?.method ?? 'GET',
+        body = init?.body ? JSON.parse(String(init.body)) : {}
+      if (method !== 'GET') writes.push({ url, method, body })
+      if (url === '/api/feed/manual' && method === 'POST') {
+        const item = { ...items[0], ...body, id: 'new', published_at: new Date().toISOString() }
+        items = [item, ...items]
+        return Response.json(item)
       }
-      throw new Error(`Unexpected request: ${input}`)
-    })
-  )
-  mountFeedCard()
-  const user = userEvent.setup()
-  await user.click(screen.getByRole('heading', { name: 'Preview story', level: 2 }))
-  const dialog = screen.getByRole('dialog', { name: 'Preview story' })
-  const save = within(dialog).getByRole('button', { name: '收进收件箱' })
-  await user.click(save)
-  expect(save).toBeDisabled()
-  expect(save).toHaveTextContent('保存中')
-  await user.click(save)
-  expect(saves).toHaveLength(1)
-
-  finishSave(Response.json({ error: { message: '无法保存，请重试。' } }, { status: 503 }))
-  expect(await within(dialog).findByRole('alert')).toHaveTextContent('无法保存，请重试。')
-  expect(save).toBeEnabled()
-  await user.click(save)
-  expect(saves).toHaveLength(2)
-  finishSave(Response.json({ id: 'saved' }))
-  expect(await within(dialog).findByRole('button', { name: '已收进收件箱' })).toBeDisabled()
-  expect(within(dialog).queryByRole('alert')).not.toBeInTheDocument()
-})
-
-test('manual add edit remove restore and external hide restore remain available in 资讯', async () => {
-  const user = userEvent.setup()
-  let items = [
-    {
-      id: 'external',
-      source: 'aihot',
-      title: 'External story',
-      summary: '',
-      url: 'https://example.org/news',
-      tags: [],
-      metadata: {},
-      hidden: false,
-      deleted_at: null,
-    },
-  ]
-  vi.stubGlobal(
-    'fetch',
-    vi.fn(async (input: string, init?: RequestInit) => {
-      const url = new URL(String(input), 'http://localhost')
-      const body = init?.body ? JSON.parse(String(init.body)) : {}
-      if (url.pathname === '/api/feed' && (!init?.method || init.method === 'GET')) {
+      if (url.startsWith('/api/feed/manual/') && method === 'PATCH') {
+        const id = url.split('/').at(-1)
+        items = items.map((item) => (item.id === id ? { ...item, ...body } : item))
+        return Response.json(items.find((item) => item.id === id))
+      }
+      if (url.startsWith('/api/feed/manual/') && method === 'DELETE') {
+        const id = url.split('/').at(-1)
+        items = items.filter((item) => item.id !== id)
+        return Response.json({ deleted: true })
+      }
+      if (url.startsWith('/api/feed')) {
+        const params = new URL(url, 'http://localhost').searchParams
         return Response.json({
           items: items.filter(
             (item) =>
-              url.searchParams.get('include_hidden') === 'true' ||
-              (!item.hidden && !item.deleted_at)
+              (!params.get('q') || item.title.includes(params.get('q')!)) &&
+              (!params.get('source') || item.source === params.get('source'))
           ),
-          sources: [],
+          sources: [{ source: 'manual', label: '我的资讯', status: 'ok', message: '已更新' }],
         })
       }
-      if (url.pathname === '/api/feed/manual' && init?.method === 'POST') {
-        const item = {
-          id: 'manual',
-          source: 'manual',
-          title: body.title || body.url,
-          summary: '',
-          url: body.url,
-          tags: [],
-          metadata: {},
-          hidden: false,
-          deleted_at: null,
-        }
-        items.push(item)
-        return Response.json(item)
-      }
-      const id = url.pathname.includes('/manual/') ? 'manual' : 'external'
-      items = items.map((item) =>
-        item.id !== id
-          ? item
-          : {
-              ...item,
-              ...(init?.method === 'PATCH' ? body : {}),
-              ...(init?.method === 'DELETE' ? { deleted_at: '2026-10-10' } : {}),
-              ...(url.pathname.endsWith('/restore') ? { deleted_at: null } : {}),
-              ...(url.pathname.endsWith('/hide') ? { hidden: true } : {}),
-              ...(url.pathname.endsWith('/unhide') ? { hidden: false } : {}),
-            }
-      )
-      return Response.json(items.find((item) => item.id === id))
-    })
-  )
-  render(
-    <MemoryRouter>
-      <QueryClientProvider
-        client={
-          new QueryClient({
-            defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
-          })
-        }
-      >
-        <FeedPage />
-      </QueryClientProvider>
-    </MemoryRouter>
-  )
-  await screen.findByText('External story')
-  await user.click(screen.getByRole('button', { name: '添加资讯' }))
-  await user.type(screen.getByLabelText('资讯链接'), 'https://example.org/manual')
-  await user.type(screen.getByLabelText('资讯标题'), 'Manual story')
-  await user.click(screen.getByRole('button', { name: '保存资讯' }))
-  await screen.findByText('Manual story')
-  await user.click(screen.getByRole('button', { name: '编辑 Manual story' }))
-  await user.clear(screen.getByLabelText('资讯标题'))
-  await user.type(screen.getByLabelText('资讯标题'), 'Edited story')
-  await user.click(screen.getByRole('button', { name: '保存资讯' }))
-  await screen.findByText('Edited story')
-  await user.click(screen.getByRole('button', { name: '删除 Edited story' }))
-  await waitFor(() => expect(screen.queryByText('Edited story')).not.toBeInTheDocument())
-  await user.click(screen.getByRole('button', { name: '隐藏 External story' }))
-  await waitFor(() => expect(screen.queryByText('External story')).not.toBeInTheDocument())
-  await user.click(screen.getByLabelText('显示已移除资讯'))
-  await screen.findByText('Edited story')
-  await user.click(screen.getByRole('button', { name: '恢复 Edited story' }))
-  await user.click(screen.getByRole('button', { name: '取消隐藏 External story' }))
-  await user.click(screen.getByLabelText('显示已移除资讯'))
-  await screen.findByText('Edited story')
-  await screen.findByText('External story')
-})
-
-test('feed card opens a preview with AI summary, read original and save actions', async () => {
-  const user = userEvent.setup()
-  vi.stubGlobal(
-    'fetch',
-    vi.fn(async (input: string, init?: RequestInit) => {
-      const url = new URL(String(input), 'http://localhost')
-      if (url.pathname === '/api/feed' && (!init?.method || init.method === 'GET')) {
-        return Response.json({
-          items: [
-            {
-              id: 'external',
-              source: 'aihot',
-              title: 'Preview story',
-              summary: 'Short summary',
-              url: 'https://example.org/news',
-              tags: ['ai'],
-              metadata: {},
-              hidden: false,
-              deleted_at: null,
-            },
-          ],
-          sources: [],
-        })
-      }
-      if (url.pathname === '/api/feed/external/summarize' && init?.method === 'POST')
-        return Response.json({ summary: '这是一段更详细的 AI 总结，解释了它为什么值得关注。' })
       return Response.json({})
     })
   )
+})
+afterEach(() => vi.unstubAllGlobals())
+function mount() {
   render(
-    <MemoryRouter>
-      <QueryClientProvider
-        client={
-          new QueryClient({
-            defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
-          })
-        }
-      >
+    <QueryClientProvider
+      client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}
+    >
+      <MemoryRouter>
         <FeedPage />
-      </QueryClientProvider>
-    </MemoryRouter>
+      </MemoryRouter>
+    </QueryClientProvider>
   )
-  await user.click(await screen.findByRole('heading', { name: 'Preview story', level: 2 }))
-  const dialog = await screen.findByRole('dialog', { name: 'Preview story' })
-  expect(within(dialog).getByRole('link', { name: /阅读原文/ })).toHaveAttribute(
-    'href',
-    'https://example.org/news'
+  return userEvent.setup()
+}
+test('feed discovery uses actual items for featured stories topic filters sort and views', async () => {
+  const user = mount()
+  const featured = await screen.findByRole('region', { name: '焦点阅读' })
+  expect(within(featured).getAllByRole('heading', { name: '资讯标题 0' })).toHaveLength(1)
+  const fullListCard = document.querySelector('.feed-card-standard')!
+  expect(
+    within(fullListCard as HTMLElement).getByRole('button', { name: '编辑 资讯标题 0' })
+  ).toBeVisible()
+  await user.click(screen.getByRole('button', { name: '焦点阅读第 2 篇' }))
+  expect(within(featured).getByRole('button', { name: '焦点阅读第 2 篇' })).toHaveAttribute(
+    'aria-pressed',
+    'true'
   )
-  expect(within(dialog).getByRole('button', { name: /收进收件箱/ })).toBeVisible()
-  await user.click(within(dialog).getByRole('button', { name: /AI 总结/ }))
-  expect(await within(dialog).findByText(/更详细的 AI 总结/)).toBeVisible()
+  await user.click(screen.getByRole('button', { name: '设计' }))
+  expect(screen.queryByRole('region', { name: '焦点阅读' })).not.toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: '资讯标题 0' })).toBeVisible()
+  expect(screen.queryByRole('heading', { name: '资讯标题 1' })).not.toBeInTheDocument()
+  await user.click(screen.getByRole('button', { name: '卡片视图' }))
+  expect(screen.getByRole('button', { name: '卡片视图' })).toHaveAttribute('aria-pressed', 'true')
+  await user.selectOptions(screen.getByRole('combobox', { name: '资讯排序' }), 'oldest')
+  await user.click(screen.getByRole('button', { name: '来源状态' }))
+  expect(screen.getByRole('dialog', { name: '来源状态' })).toBeVisible()
+  await user.click(screen.getByRole('button', { name: '浏览' }))
+  expect(screen.getByRole('button', { name: '我的资讯' })).toHaveAttribute('aria-pressed', 'true')
+})
+test('feed redesign preserves manual create edit delete and search through existing endpoints', async () => {
+  items = items.slice(0, 1)
+  const user = mount()
+  await screen.findByRole('heading', { name: '资讯标题 0' })
+  await user.click(screen.getByRole('button', { name: '添加资讯' }))
+  await user.type(screen.getByRole('textbox', { name: '资讯链接' }), 'https://example.com/new')
+  await user.type(screen.getByRole('textbox', { name: '资讯标题' }), '新增设计资讯')
+  await user.click(screen.getByRole('button', { name: '保存资讯' }))
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
+  expect(writes.some((item) => item.url === '/api/feed/manual' && item.method === 'POST')).toBe(
+    true
+  )
+  await user.click(screen.getByRole('button', { name: '编辑 新增设计资讯' }))
+  await user.clear(screen.getByRole('textbox', { name: '资讯标题' }))
+  await user.type(screen.getByRole('textbox', { name: '资讯标题' }), '编辑后的资讯')
+  await user.click(screen.getByRole('button', { name: '保存资讯' }))
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
+  fireEvent.change(screen.getByRole('textbox', { name: '搜索资讯' }), {
+    target: { value: '编辑后的' },
+  })
+  expect(await screen.findByRole('heading', { name: '编辑后的资讯' })).toBeVisible()
+  await user.click(screen.getByRole('button', { name: '删除 编辑后的资讯' }))
+  await waitFor(() =>
+    expect(screen.queryByRole('heading', { name: '编辑后的资讯' })).not.toBeInTheDocument()
+  )
+  expect(
+    writes.some((item) => item.url === '/api/feed/manual/new' && item.method === 'DELETE')
+  ).toBe(true)
 })

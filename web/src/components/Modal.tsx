@@ -6,11 +6,13 @@ export function Modal({
   onClose,
   children,
   className = '',
+  headerContent,
 }: {
   title: string
   onClose: () => void
   children: ReactNode
   className?: string
+  headerContent?: ReactNode
 }) {
   const panel = useRef<HTMLElement>(null)
   useEffect(() => {
@@ -67,7 +69,7 @@ export function Modal({
         ref={panel}
       >
         <header className="section-heading">
-          <h2>{title}</h2>
+          {headerContent ?? <h2>{title}</h2>}
           <button className="icon-button" aria-label={`关闭${title}`} onClick={onClose}>
             <X size={20} />
           </button>

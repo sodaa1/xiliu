@@ -1,0 +1,116 @@
+{
+  "errors": [],
+  "rectangles": [
+    {
+      "route": "today",
+      "toolbar": {
+        "x": 934.046875,
+        "y": 24,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "route": "workbench",
+      "toolbar": {
+        "x": 909.046875,
+        "y": 14.5,
+        "width": 419.953125,
+        "height": 36
+      },
+      "search": {
+        "x": 145.578125,
+        "y": 23.5,
+        "width": 326.390625,
+        "height": 18
+      }
+    },
+    {
+      "route": "assistant",
+      "toolbar": {
+        "x": 992.046875,
+        "y": 24.546875,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "route": "feed",
+      "toolbar": {
+        "x": 927.046875,
+        "y": 34.203125,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "route": "inbox",
+      "toolbar": {
+        "x": 927.046875,
+        "y": 42.171875,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "route": "knowledge",
+      "toolbar": {
+        "x": 927.046875,
+        "y": 50.4375,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    },
+    {
+      "route": "plans",
+      "toolbar": {
+        "x": 985.5,
+        "y": 37.78125,
+        "width": 419.953125,
+        "height": 36
+      },
+      "rail": {
+        "x": 0,
+        "y": 0,
+        "width": 74,
+        "height": 900
+      },
+      "overflow": false
+    }
+  ]
+}

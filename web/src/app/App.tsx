@@ -1,19 +1,14 @@
+import { useHomeTheme } from '../features/today/home-theme'
+import {
+  WorkspaceChromeProvider,
+  WorkspaceSidebar,
+  PageToolbar,
+} from '../components/WorkspaceChrome'
+import { WorkbenchShell } from '../features/today/WorkbenchShell'
 import { PlansPage } from '../features/plans/PlansPage'
-import { NavLink, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
-import {
-  BookOpen,
-  House,
-  Inbox,
-  MessageSquare,
-  Newspaper,
-  Settings,
-  CalendarCheck2,
-  CircleHelp,
-} from 'lucide-react'
-import { Brand } from '../components/Brand'
-import { PillNav } from '../components/PillNav'
 import { AssistantPage } from '../features/assistant/AssistantPage'
 import { SettingsPage } from '../features/settings/SettingsPage'
 import { ChatProvider } from '../features/assistant/ChatProvider'
@@ -34,21 +29,11 @@ import './page-transition.css'
 import { CompanionController } from '../features/companion/CompanionController'
 import { CompanionPage } from '../features/companion/CompanionPage'
 import { CapturePage } from '../features/companion/CapturePage'
-import { isCloud, isDemo } from '../lib/runtime-mode'
-import { AccountControl } from '../features/auth/AccountControl'
+import { isDemo } from '../lib/runtime-mode'
 import { DemoBar } from '../features/demo/DemoBar'
 import { resetDemoExperience } from '../features/demo/reset'
 import { Onboarding } from '../features/onboarding/Onboarding'
-import { startGuide } from '../features/onboarding/progress'
 
-const navigation = [
-  { path: '/today', label: '今日', icon: House },
-  { path: '/assistant', label: '助手', icon: MessageSquare },
-  { path: '/feed', label: '资讯', icon: Newspaper },
-  { path: '/inbox', label: '收件箱', icon: Inbox },
-  { path: '/knowledge', label: '知识库', icon: BookOpen },
-  { path: '/plans', label: '个人计划', icon: CalendarCheck2 },
-]
 export function App() {
   useApplyPreferences()
   const location = useLocation()
@@ -69,11 +54,15 @@ export function App() {
   return (
     <ChatProvider key={demoEpoch}>
       {!isDemo && <CompanionController />}
-      <AppLayout />
+      <WorkspaceChromeProvider>
+        <AppLayout />
+        {location.pathname !== '/' && <Onboarding />}
+      </WorkspaceChromeProvider>
     </ChatProvider>
   )
 }
 function AppLayout() {
+  const homeTheme = useHomeTheme()
   const location = useLocation()
   const navigate = useNavigate()
   const cache = useQueryClient()
@@ -103,52 +92,29 @@ function AppLayout() {
     () => navigate(closeTarget, { replace: true }),
     [navigate, closeTarget]
   )
+  if (homeTheme === 'workbench' && displayed.pathname === '/today')
+    return (
+      <div className="route-surface" ref={transitionRoot} data-route-path={displayed.pathname}>
+        <WorkbenchShell inert={isSettings}>
+          <TodayPage />
+        </WorkbenchShell>
+        {isSettings && (
+          <Modal title="设置" onClose={closeSettings} className="settings-dialog">
+            <div className="settings-page-toolbar">
+              <PageToolbar />
+            </div>
+            <SettingsPage embedded />
+          </Modal>
+        )}
+      </div>
+    )
   return (
     <div className="route-surface" ref={transitionRoot} data-route-path={displayed.pathname}>
       {displayed.pathname === '/' ? (
         <LaunchPage />
       ) : (
         <div className="app-shell">
-          <aside inert={isSettings || undefined} className="global-sidebar icon-rail">
-            <NavLink className="brand" to="/assistant" aria-label="xiliu 助手" title="xiliu">
-              <Brand />
-            </NavLink>
-            <nav aria-label="主导航" id="main-navigation">
-              {navigation.map(({ path, label, icon: Icon }) => (
-                <NavLink
-                  key={path}
-                  to={path}
-                  aria-label={label}
-                  title={label}
-                  data-onboarding={`nav-${path.slice(1)}`}
-                  className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-                >
-                  <Icon size={21} />
-                </NavLink>
-              ))}
-            </nav>
-            <div className="sidebar-bottom">
-              <button
-                type="button"
-                className="nav-item"
-                aria-label="重新查看新手引导"
-                title="新手引导"
-                data-onboarding="help-entry"
-                onClick={startGuide}
-              >
-                <CircleHelp size={20} />
-              </button>
-              <NavLink
-                className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
-                to="/settings"
-                state={{ backgroundLocation: isSettings ? backgroundUrl : location }}
-                aria-label="设置"
-                title="设置"
-              >
-                <Settings size={20} />
-              </NavLink>
-            </div>
-          </aside>
+          <WorkspaceSidebar inert={isSettings} />
           <main className="main-stage" inert={isSettings || undefined}>
             {isDemo && (
               <DemoBar
@@ -158,11 +124,6 @@ function AppLayout() {
                 }}
               />
             )}
-            <div className="global-topbar">
-              <PillNav />
-              {isCloud && <AccountControl />}
-            </div>
-            <Onboarding />
             <Routes location={displayed}>
               <Route path="/assistant" element={<AssistantPage />} />
               <Route path="/today" element={<TodayPage />} />
@@ -184,6 +145,9 @@ function AppLayout() {
           </main>
           {isSettings && (
             <Modal title="设置" onClose={closeSettings} className="settings-dialog">
+              <div className="settings-page-toolbar">
+                <PageToolbar />
+              </div>
               <SettingsPage embedded />
             </Modal>
           )}

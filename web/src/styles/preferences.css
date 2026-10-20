@@ -4,7 +4,9 @@
   --text: #18243b;
   --accent-soft: #eeedff;
   --muted-readable: #616e83;
-  --app-font: Inter, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  --app-font:
+    'PingFang SC', 'Microsoft YaHei UI', 'Microsoft YaHei', 'Noto Sans CJK SC', 'Noto Sans SC',
+    'Segoe UI', sans-serif;
   font-family: var(--app-font);
   color-scheme: light;
 }

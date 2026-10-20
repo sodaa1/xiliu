@@ -1,3 +1,5 @@
+import { FeedCover, FeedDiscovery, FeedSources, type FeedPresentation } from './FeedDiscovery'
+import { PageToolbar } from '../../components/WorkspaceChrome'
 import { useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -57,6 +59,7 @@ function FeedEditor({ item, onClose }: { item?: FeedItem; onClose: () => void })
   return (
     <ContentDialog title={item ? '编辑资讯' : '添加资讯'} onClose={onClose}>
       <form
+        className="feed-editor-form"
         onSubmit={(event) => {
           event.preventDefault()
           save.mutate()
@@ -160,6 +163,7 @@ function FeedPreview({
   return (
     <ContentDialog title={item.title} onClose={onClose}>
       <div className="feed-preview">
+        <FeedCover item={item} featured placement="preview" />
         <div className="feed-preview-meta">
           <span className="feed-source">{sourceLabel}</span>
           {item.published_at && (
@@ -234,7 +238,15 @@ function FeedPreview({
   )
 }
 
-export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void }) {
+export function FeedCard({
+  item,
+  onEdit,
+  variant = 'standard',
+}: {
+  item: FeedItem
+  onEdit?: () => void
+  variant?: FeedPresentation
+}) {
   const cache = useQueryClient(),
     ask = useAskAI()
   const [preview, setPreview] = useState(false)
@@ -273,12 +285,13 @@ export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void
     })
   return (
     <article
-      className="feed-card is-openable"
+      className={`feed-card is-openable feed-card-${variant}`}
       onClick={(event) => {
         if ((event.target as HTMLElement).closest('button, a, input, label')) return
         setPreview(true)
       }}
     >
+      <FeedCover item={item} featured={variant === 'hero'} placement={variant} />
       <div className="feed-card-top">
         <span className={`item-symbol ${item.source}`}>
           <Icon size={22} />
@@ -318,6 +331,7 @@ export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void
             </a>
           )}
           <button
+            title={save.isSuccess ? '已收进收件箱' : '收藏'}
             disabled={removed || save.isPending || save.isSuccess}
             onClick={() => save.mutate()}
           >
@@ -325,13 +339,14 @@ export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void
             {save.isSuccess ? '已收进收件箱' : '收藏'}
           </button>
           {item.source === 'manual' && onEdit && !removed && (
-            <button aria-label={`编辑 ${item.title}`} onClick={onEdit}>
+            <button title="编辑" aria-label={`编辑 ${item.title}`} onClick={onEdit}>
               <Pencil size={14} />
               编辑
             </button>
           )}
           <button
             disabled={visibility.isPending}
+            title={visibilityLabel}
             aria-label={`${visibilityLabel} ${item.title}`}
             onClick={() => visibility.mutate()}
           >
@@ -344,7 +359,7 @@ export function FeedCard({ item, onEdit }: { item: FeedItem; onEdit?: () => void
             )}
             {visibilityLabel}
           </button>
-          <button disabled={ask.isPending} onClick={askAI}>
+          <button title="引用提问" disabled={ask.isPending} onClick={askAI}>
             <Sparkles size={14} />
             引用提问
           </button>
@@ -378,7 +393,8 @@ export function FeedPage() {
     [source, setSource] = useState(''),
     [q, setQ] = useState(''),
     [includeHidden, setIncludeHidden] = useState(false),
-    [editor, setEditor] = useState<FeedItem | 'new' | null>(null)
+    [editor, setEditor] = useState<FeedItem | 'new' | null>(null),
+    [sourcesOpen, setSourcesOpen] = useState(false)
   const feed = useQuery({
     queryKey: ['feed', source, q, includeHidden],
     queryFn: () => workspaceApi.feed(source, q, includeHidden),
@@ -391,12 +407,13 @@ export function FeedPage() {
     },
   })
   return (
-    <section className="workspace-page feed-page">
+    <section className="workspace-page feed-page feed-workbench">
       <header className="workspace-header">
+        <PageToolbar />
         <div>
           <span className="eyebrow">信息汇聚，思路生长</span>
           <h1>资讯</h1>
-          <p>AI 与开源世界的新发现。</p>
+          <p>从你关心的来源，发现值得阅读的内容。</p>
         </div>
         <label className="search-field feed-header-search">
           <Search size={17} />
@@ -425,9 +442,18 @@ export function FeedPage() {
       {editor && (
         <FeedEditor item={editor === 'new' ? undefined : editor} onClose={() => setEditor(null)} />
       )}
+      {sourcesOpen && (
+        <FeedSources
+          sources={feed.data?.sources ?? []}
+          onClose={() => setSourcesOpen(false)}
+          onBrowse={(value) => {
+            setSource(value)
+            setSourcesOpen(false)
+          }}
+        />
+      )}
       <div className="feed-workspace">
         <aside className="feed-source-panel" aria-label="资讯来源与状态">
-          <h2>浏览来源</h2>
           <div className="segmented" aria-label="资讯来源">
             {[
               { value: '', label: '全部资讯', icon: Layers3 },
@@ -454,46 +480,15 @@ export function FeedPage() {
             />
             显示已移除资讯
           </label>
-          {!!feed.data?.sources.length && (
-            <div className="source-statuses">
-              <h2>来源状态</h2>
-              {feed.data.sources
-                .filter((item) => !source || item.source === source)
-                .map((item) => (
-                  <div key={item.source} className="source-status">
-                    <strong>
-                      {{ aihot: '人工智能热点', github: 'GitHub 热门项目', manual: '我的资讯' }[
-                        item.source
-                      ] ?? item.label}
-                    </strong>
-                    <span>
-                      {item.message ||
-                        (item.status === 'ok' || item.status === 'success'
-                          ? '已更新'
-                          : item.status === 'empty'
-                            ? '暂时没有新内容'
-                            : '暂时无法更新，请稍后重试')}
-                    </span>
-                    {item.updated_at && (
-                      <time dateTime={item.updated_at}>
-                        {new Date(item.updated_at).toLocaleTimeString('zh-CN', {
-                          hour: '2-digit',
-                          minute: '2-digit',
-                        })}
-                      </time>
-                    )}
-                  </div>
-                ))}
-            </div>
-          )}
+          <button
+            className="feed-source-manage"
+            disabled={!feed.data?.sources.length}
+            onClick={() => setSourcesOpen(true)}
+          >
+            来源状态
+          </button>
         </aside>
         <section className="feed-reading" aria-label="资讯列表">
-          <div className="feed-reading-toolbar">
-            <div className="feed-reading-count">
-              <strong>{feed.data?.items.length ?? '—'}</strong>
-              <span>条资讯</span>
-            </div>
-          </div>
           {refresh.error && (
             <p className="workspace-error" role="alert">
               {refresh.error.message}
@@ -515,11 +510,17 @@ export function FeedPage() {
               <p>{q ? '换个关键词试试。' : '点击刷新，获取来源中的最新内容。'}</p>
             </div>
           ) : (
-            <div className="feed-grid">
-              {feed.data.items.map((item) => (
-                <FeedCard key={item.id} item={item} onEdit={() => setEditor(item)} />
-              ))}
-            </div>
+            <FeedDiscovery
+              items={feed.data.items}
+              renderCard={(item, variant) => (
+                <FeedCard
+                  key={item.id}
+                  item={item}
+                  variant={variant}
+                  onEdit={() => setEditor(item)}
+                />
+              )}
+            />
           )}
         </section>
       </div>

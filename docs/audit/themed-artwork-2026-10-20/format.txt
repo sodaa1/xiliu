@@ -1,0 +1,8 @@
+src/lib/artwork.ts 208ms
+src/lib/artwork.test.tsx 16ms
+src/lib/artwork-catalog.json 70ms
+src/components/ArtworkImage.tsx 7ms (unchanged)
+src/features/feed/FeedDiscovery.tsx 22ms (unchanged)
+src/features/knowledge/KnowledgePage.tsx 32ms (unchanged)
+src/features/today/WorkbenchHome.tsx 55ms
+src/features/launch/LaunchPage.tsx 4ms (unchanged)

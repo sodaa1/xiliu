@@ -1,0 +1,12 @@
+
+running 8 tests
+test companion::tests::compact_window_reserves_space_for_the_dock_and_expansion ... ok
+test companion::tests::offscreen_anchor_uses_nearest_monitor_not_the_primary ... ok
+test companion::tests::restored_anchor_stays_inside_available_monitor ... ok
+test companion::tests::captured_item_navigation_is_local_and_validated ... ok
+test companion::tests::stale_snapshots_are_ignored_and_summary_is_bounded ... ok
+test companion::tests::default_sizes_and_scale_limits_are_safe ... ok
+test access::tests::remote_access_is_bound_to_owned_port_and_window_role ... ok
+test companion::tests::legacy_size_migrates_and_each_form_restores_its_own_scale ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

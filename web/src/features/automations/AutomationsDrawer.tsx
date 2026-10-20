@@ -13,7 +13,7 @@ function RunHistory({ id }: { id: string }) {
         <p role="alert">{runs.error.message}</p>
       ) : runs.data?.length ? (
         runs.data.map((run) => (
-          <article key={run.run_id}>
+          <article key={run.run_id} data-run-status={run.status}>
             <div>
               <strong>
                 {['success', 'completed', 'succeeded', 'done'].includes(run.status)
@@ -84,8 +84,12 @@ export function AutomationsPanel() {
         </div>
       </header>
       <p className="section-description">每天一个固定时间，让信息与想法持续汇聚。</p>
+      <div className="automation-overview" aria-label="自动任务概况">
+        <span>{automations.data?.length ?? '—'} 个任务</span>
+        <span>{automations.data?.filter((item) => item.enabled).length ?? '—'} 个已启用</span>
+      </div>
       <button
-        className="secondary-button automation-add"
+        className="primary-button automation-add"
         onClick={() => setAdding(!adding)}
         aria-expanded={adding}
       >
@@ -162,6 +166,9 @@ export function AutomationsPanel() {
         <div className="automation-list">
           {automations.data.map((item) => (
             <article className="automation-card" key={item.id}>
+              <span className="automation-symbol" aria-hidden="true">
+                <Clock3 size={22} />
+              </span>
               <div className="section-heading">
                 <h2>{item.name}</h2>
                 <button

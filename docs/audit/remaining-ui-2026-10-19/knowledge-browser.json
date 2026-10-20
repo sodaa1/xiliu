@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Recent documents use real content and open full reading route; editing and one-toolbar navigation retained",
+    "Existing knowledge search endpoint and clear control work",
+    "Folder create/edit/confirmed delete use real API",
+    "Folder and document list layouts fit 390px"
+  ],
+  "errors": []
+}

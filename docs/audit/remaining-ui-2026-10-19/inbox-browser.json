@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Real rows render, list/grid switches and row menu returns focus",
+    "Reading metadata panel and independent edit dialog open and close by keyboard",
+    "Capture uses existing real import API without model calls; file mode is reachable",
+    "390px inbox/capture layout fits viewport"
+  ],
+  "errors": []
+}

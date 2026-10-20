@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "name": "inbox",
+      "url": "/inbox",
+      "overflow": false
+    },
+    {
+      "name": "knowledge",
+      "url": "/knowledge",
+      "overflow": false
+    },
+    {
+      "name": "knowledge-all",
+      "url": "/knowledge?folder=all",
+      "overflow": false
+    },
+    {
+      "name": "launch",
+      "url": "/",
+      "overflow": false
+    },
+    {
+      "name": "capture-window",
+      "url": "/desktop/capture",
+      "overflow": false
+    },
+    {
+      "name": "settings-profile",
+      "url": "/settings?section=profile",
+      "overflow": false
+    },
+    {
+      "name": "settings-appearance",
+      "url": "/settings?section=appearance",
+      "overflow": false
+    },
+    {
+      "name": "settings-model",
+      "url": "/settings?section=model",
+      "overflow": false
+    },
+    {
+      "name": "settings-automations",
+      "url": "/settings?section=automations",
+      "overflow": false
+    },
+    {
+      "name": "settings-data",
+      "url": "/settings?section=data",
+      "overflow": false
+    },
+    {
+      "name": "companion",
+      "url": "/desktop/companion",
+      "overflow": false
+    }
+  ],
+  "errors": []
+}

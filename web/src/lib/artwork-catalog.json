@@ -1,0 +1,474 @@
+[
+  {
+    "id": "alpine-huts",
+    "topic": "nature",
+    "photographer": "Dominik Perau",
+    "source": "https://www.pexels.com/photo/beautiful-landscape-of-a-mountain-lake-12699620/",
+    "download": "https://images.pexels.com/photos/12699620/pexels-photo-12699620.jpeg?auto=compress&cs=tinysrgb&w=3840&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 320,
+        "path": "artwork/alpine-huts-480.webp",
+        "bytes": 24216
+      },
+      {
+        "width": 960,
+        "height": 640,
+        "path": "artwork/alpine-huts-960.webp",
+        "bytes": 83696
+      },
+      {
+        "width": 1920,
+        "height": 1280,
+        "path": "artwork/alpine-huts-1920.webp",
+        "bytes": 355128
+      },
+      {
+        "width": 3840,
+        "height": 2560,
+        "path": "artwork/alpine-huts-3840.webp",
+        "bytes": 1383674
+      }
+    ]
+  },
+  {
+    "id": "turquoise-peaks",
+    "topic": "nature",
+    "photographer": "Luke Miller",
+    "source": "https://www.pexels.com/photo/serene-mountain-landscape-with-turquoise-lake-28811891/",
+    "download": "https://images.pexels.com/photos/28811891/pexels-photo-28811891.jpeg?auto=compress&cs=tinysrgb&w=3840&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 320,
+        "path": "artwork/turquoise-peaks-480.webp",
+        "bytes": 36298
+      },
+      {
+        "width": 960,
+        "height": 640,
+        "path": "artwork/turquoise-peaks-960.webp",
+        "bytes": 142438
+      },
+      {
+        "width": 1920,
+        "height": 1280,
+        "path": "artwork/turquoise-peaks-1920.webp",
+        "bytes": 548696
+      },
+      {
+        "width": 3840,
+        "height": 2560,
+        "path": "artwork/turquoise-peaks-3840.webp",
+        "bytes": 1758450
+      }
+    ]
+  },
+  {
+    "id": "winter-lake",
+    "topic": "nature",
+    "photographer": "Boris Ulzibat",
+    "source": "https://www.pexels.com/photo/landscape-photography-of-mountain-lake-3055497/",
+    "download": "https://images.pexels.com/photos/3055497/pexels-photo-3055497.jpeg?auto=compress&cs=tinysrgb&w=3840&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 320,
+        "path": "artwork/winter-lake-480.webp",
+        "bytes": 53194
+      },
+      {
+        "width": 960,
+        "height": 640,
+        "path": "artwork/winter-lake-960.webp",
+        "bytes": 208100
+      },
+      {
+        "width": 1920,
+        "height": 1280,
+        "path": "artwork/winter-lake-1920.webp",
+        "bytes": 869472
+      },
+      {
+        "width": 3840,
+        "height": 2560,
+        "path": "artwork/winter-lake-3840.webp",
+        "bytes": 2982682
+      }
+    ]
+  },
+  {
+    "id": "quiet-water",
+    "topic": "nature",
+    "photographer": "Jordi Costa Tomé",
+    "source": "https://www.pexels.com/photo/serene-mountain-lake-landscape-in-overcast-weather-31469974/",
+    "download": "https://images.pexels.com/photos/31469974/pexels-photo-31469974.jpeg?auto=compress&cs=tinysrgb&w=3840&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 320,
+        "path": "artwork/quiet-water-480.webp",
+        "bytes": 32456
+      },
+      {
+        "width": 960,
+        "height": 640,
+        "path": "artwork/quiet-water-960.webp",
+        "bytes": 129122
+      },
+      {
+        "width": 1920,
+        "height": 1280,
+        "path": "artwork/quiet-water-1920.webp",
+        "bytes": 503698
+      },
+      {
+        "width": 3840,
+        "height": 2560,
+        "path": "artwork/quiet-water-3840.webp",
+        "bytes": 1671638
+      }
+    ]
+  },
+  {
+    "id": "white-library",
+    "topic": "reading",
+    "photographer": "Polona Mitar Osolnik",
+    "source": "https://www.pexels.com/photo/interior-view-of-library-1837726/",
+    "download": "https://images.pexels.com/photos/1837726/pexels-photo-1837726.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 318,
+        "path": "artwork/white-library-480.webp",
+        "bytes": 40474
+      },
+      {
+        "width": 960,
+        "height": 636,
+        "path": "artwork/white-library-960.webp",
+        "bytes": 127116
+      },
+      {
+        "width": 1920,
+        "height": 1272,
+        "path": "artwork/white-library-1920.webp",
+        "bytes": 314100
+      }
+    ]
+  },
+  {
+    "id": "reading-room",
+    "topic": "reading",
+    "photographer": "Element5 Digital",
+    "source": "https://www.pexels.com/photo/selective-focus-photography-of-bookshelf-with-books-1370296/",
+    "download": "https://images.pexels.com/photos/1370296/pexels-photo-1370296.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 320,
+        "path": "artwork/reading-room-480.webp",
+        "bytes": 21452
+      },
+      {
+        "width": 960,
+        "height": 641,
+        "path": "artwork/reading-room-960.webp",
+        "bytes": 53974
+      },
+      {
+        "width": 1920,
+        "height": 1282,
+        "path": "artwork/reading-room-1920.webp",
+        "bytes": 150482
+      }
+    ]
+  },
+  {
+    "id": "library-shelves",
+    "topic": "reading",
+    "photographer": "Zetong Li",
+    "source": "https://www.pexels.com/photo/rows-of-bookshelves-in-a-college-library-16689053/",
+    "download": "https://images.pexels.com/photos/16689053/pexels-photo-16689053.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 319,
+        "path": "artwork/library-shelves-480.webp",
+        "bytes": 35226
+      },
+      {
+        "width": 960,
+        "height": 638,
+        "path": "artwork/library-shelves-960.webp",
+        "bytes": 119042
+      },
+      {
+        "width": 1920,
+        "height": 1277,
+        "path": "artwork/library-shelves-1920.webp",
+        "bytes": 393580
+      }
+    ]
+  },
+  {
+    "id": "laptop-mouse",
+    "topic": "technology",
+    "photographer": "Markus Spiske",
+    "source": "https://www.pexels.com/photo/apple-desk-laptop-technology-96858/",
+    "download": "https://images.pexels.com/photos/96858/pexels-photo-96858.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 320,
+        "path": "artwork/laptop-mouse-480.webp",
+        "bytes": 9114
+      },
+      {
+        "width": 960,
+        "height": 640,
+        "path": "artwork/laptop-mouse-960.webp",
+        "bytes": 25342
+      },
+      {
+        "width": 1920,
+        "height": 1280,
+        "path": "artwork/laptop-mouse-1920.webp",
+        "bytes": 65784
+      }
+    ]
+  },
+  {
+    "id": "digital-workspace",
+    "topic": "technology",
+    "photographer": "Mateusz Dach",
+    "source": "https://www.pexels.com/photo/computer-set-up-on-a-workspace-450035/",
+    "download": "https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 320,
+        "path": "artwork/digital-workspace-480.webp",
+        "bytes": 24192
+      },
+      {
+        "width": 960,
+        "height": 640,
+        "path": "artwork/digital-workspace-960.webp",
+        "bytes": 64102
+      },
+      {
+        "width": 1920,
+        "height": 1280,
+        "path": "artwork/digital-workspace-1920.webp",
+        "bytes": 168286
+      }
+    ]
+  },
+  {
+    "id": "desktop-display",
+    "topic": "technology",
+    "photographer": "Skylar Kang",
+    "source": "https://www.pexels.com/photo/laptop-and-monitor-on-desk-6045231/",
+    "download": "https://images.pexels.com/photos/6045231/pexels-photo-6045231.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 318,
+        "path": "artwork/desktop-display-480.webp",
+        "bytes": 23730
+      },
+      {
+        "width": 960,
+        "height": 636,
+        "path": "artwork/desktop-display-960.webp",
+        "bytes": 80684
+      },
+      {
+        "width": 1920,
+        "height": 1272,
+        "path": "artwork/desktop-display-1920.webp",
+        "bytes": 242548
+      }
+    ]
+  },
+  {
+    "id": "open-notebook",
+    "topic": "design",
+    "photographer": "Kaboompics",
+    "source": "https://www.pexels.com/photo/a-notebook-and-pen-on-the-table-8092410/",
+    "download": "https://images.pexels.com/photos/8092410/pexels-photo-8092410.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 320,
+        "path": "artwork/open-notebook-480.webp",
+        "bytes": 12378
+      },
+      {
+        "width": 960,
+        "height": 640,
+        "path": "artwork/open-notebook-960.webp",
+        "bytes": 32544
+      },
+      {
+        "width": 1920,
+        "height": 1280,
+        "path": "artwork/open-notebook-1920.webp",
+        "bytes": 78370
+      }
+    ]
+  },
+  {
+    "id": "minimal-tools",
+    "topic": "design",
+    "photographer": "Tima Miroshnichenko",
+    "source": "https://www.pexels.com/photo/grayscale-photo-of-a-notebook-5717300/",
+    "download": "https://images.pexels.com/photos/5717300/pexels-photo-5717300.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 320,
+        "path": "artwork/minimal-tools-480.webp",
+        "bytes": 24852
+      },
+      {
+        "width": 960,
+        "height": 640,
+        "path": "artwork/minimal-tools-960.webp",
+        "bytes": 121956
+      },
+      {
+        "width": 1920,
+        "height": 1280,
+        "path": "artwork/minimal-tools-1920.webp",
+        "bytes": 472140
+      }
+    ]
+  },
+  {
+    "id": "creative-notes",
+    "topic": "design",
+    "photographer": "cottonbro studio",
+    "source": "https://www.pexels.com/photo/notebook-on-a-table-7441089/",
+    "download": "https://images.pexels.com/photos/7441089/pexels-photo-7441089.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 720,
+        "path": "artwork/creative-notes-480.webp",
+        "bytes": 37776
+      },
+      {
+        "width": 960,
+        "height": 1440,
+        "path": "artwork/creative-notes-960.webp",
+        "bytes": 163870
+      },
+      {
+        "width": 1920,
+        "height": 2880,
+        "path": "artwork/creative-notes-1920.webp",
+        "bytes": 665852
+      }
+    ]
+  },
+  {
+    "id": "city-skyline",
+    "topic": "urban",
+    "photographer": "AG ZN",
+    "source": "https://www.pexels.com/photo/skyline-photography-of-a-modern-city-5698184/",
+    "download": "https://images.pexels.com/photos/5698184/pexels-photo-5698184.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 270,
+        "path": "artwork/city-skyline-480.webp",
+        "bytes": 39120
+      },
+      {
+        "width": 960,
+        "height": 540,
+        "path": "artwork/city-skyline-960.webp",
+        "bytes": 152548
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "path": "artwork/city-skyline-1920.webp",
+        "bytes": 486636
+      }
+    ]
+  },
+  {
+    "id": "london-skyline",
+    "topic": "urban",
+    "photographer": "Pablo",
+    "source": "https://www.pexels.com/photo/modern-city-skyline-with-skyscrapers-36552948/",
+    "download": "https://images.pexels.com/photos/36552948/pexels-photo-36552948.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 362,
+        "path": "artwork/london-skyline-480.webp",
+        "bytes": 33292
+      },
+      {
+        "width": 960,
+        "height": 723,
+        "path": "artwork/london-skyline-960.webp",
+        "bytes": 124450
+      },
+      {
+        "width": 1920,
+        "height": 1446,
+        "path": "artwork/london-skyline-1920.webp",
+        "bytes": 407240
+      }
+    ]
+  },
+  {
+    "id": "baku-architecture",
+    "topic": "urban",
+    "photographer": "Tahir Xəlfəquliyev",
+    "source": "https://www.pexels.com/photo/urban-skyline-view-with-modern-architecture-33686105/",
+    "download": "https://images.pexels.com/photos/33686105/pexels-photo-33686105.jpeg?auto=compress&cs=tinysrgb&w=1920&q=95",
+    "license": "https://www.pexels.com/license/",
+    "variants": [
+      {
+        "width": 480,
+        "height": 320,
+        "path": "artwork/baku-architecture-480.webp",
+        "bytes": 28526
+      },
+      {
+        "width": 960,
+        "height": 640,
+        "path": "artwork/baku-architecture-960.webp",
+        "bytes": 94574
+      },
+      {
+        "width": 1920,
+        "height": 1280,
+        "path": "artwork/baku-architecture-1920.webp",
+        "bytes": 279698
+      }
+    ]
+  }
+]
