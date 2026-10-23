@@ -41,5 +41,6 @@
     "Existing weather --workflow mock fixture does not supply execution evidence required by the current verifier; not counted as passing. Basic SDK/Graph and actual MCP paths passed.",
     "Installer is unsigned, as before.",
     "Uncommitted backend changes in the original workspace are excluded."
-  ]
+  ],
+  "source_commit": "efa0d9f0f44206708aaac246e300e4b0d49f828a"
 }

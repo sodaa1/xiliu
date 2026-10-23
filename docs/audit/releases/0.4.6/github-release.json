@@ -1,0 +1,25 @@
+{
+  "tag": "v0.4.6",
+  "draft": false,
+  "url": "https://github.com/sodaa1/xiliu/releases/tag/v0.4.6",
+  "assets": [
+    {
+      "name": "Xiliu-0.4.6-validation.json",
+      "size": 1500,
+      "digest": "sha256:9389aed13cd959cfcf41f6ea83fc6fc29f278f2b7aead7c5e05db4a429fd2788",
+      "browser_download_url": "https://github.com/sodaa1/xiliu/releases/download/v0.4.6/Xiliu-0.4.6-validation.json"
+    },
+    {
+      "name": "Xiliu-0.4.6-x64-setup.exe",
+      "size": 66235959,
+      "digest": "sha256:525e3f3dd7f03e3e8b30415452145575dec5511bf8340a74bf85c5f252541987",
+      "browser_download_url": "https://github.com/sodaa1/xiliu/releases/download/v0.4.6/Xiliu-0.4.6-x64-setup.exe"
+    },
+    {
+      "name": "Xiliu-0.4.6-x64-setup.exe.sha256",
+      "size": 93,
+      "digest": "sha256:2600e523c35cf4af3ae152a95daa087ffe8dfd0bfff3682a9c517ca4b9031e0f",
+      "browser_download_url": "https://github.com/sodaa1/xiliu/releases/download/v0.4.6/Xiliu-0.4.6-x64-setup.exe.sha256"
+    }
+  ]
+}
