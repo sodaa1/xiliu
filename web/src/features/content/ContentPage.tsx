@@ -348,6 +348,38 @@ export function ContentPage({
   const preview = inbox ? items.find((item) => item.id === previewing?.id) : previewing
   const reading = inbox && !!preview
   const layout = reading ? 'list' : view
+  const askAbout = (item: ContentItem, includeFileNotice = false) =>
+    ask.mutate({
+      draft: '请帮我梳理这份内容的要点。',
+      reference: {
+        documentId: item.id,
+        title: item.title,
+        content: [
+          includeFileNotice && item.filename
+            ? `文件：${item.filename}\n以下参考仅包含文件名与备注，原文件内容未展开。`
+            : '',
+          item.content,
+          item.summary,
+          item.source,
+        ]
+          .filter(Boolean)
+          .join('\n\n'),
+      },
+    })
+  const renderPreview = (item: ContentItem, standalone = false) => (
+    <ContentPreview
+      key={item.id}
+      standalone={standalone}
+      item={item}
+      asking={ask.isPending}
+      onClose={() => setPreviewing(null)}
+      onEdit={() => {
+        if (!standalone) setPreviewing(null)
+        setEditing(item)
+      }}
+      onAsk={() => askAbout(item)}
+    />
+  )
   return (
     <section
       className={`workspace-page content-page ui-page legacy-content-cards content-view-${layout} ${inbox ? 'inbox-library' : ''} ${reading ? 'has-selected-article' : ''} ${documentId ? 'is-document' : ''}`}
@@ -503,31 +535,7 @@ export function ContentPage({
             />
           </ContentDialog>
         )}
-        {previewing && !inbox && (
-          <ContentPreview
-            key={previewing.id}
-            item={previewing}
-            asking={ask.isPending}
-            onClose={() => setPreviewing(null)}
-            onEdit={() => {
-              const item = previewing
-              setPreviewing(null)
-              setEditing(item)
-            }}
-            onAsk={() =>
-              ask.mutate({
-                draft: '请帮我梳理这份内容的要点。',
-                reference: {
-                  documentId: previewing.id,
-                  title: previewing.title,
-                  content: [previewing.content, previewing.summary, previewing.source]
-                    .filter(Boolean)
-                    .join('\n\n'),
-                },
-              })
-            }
-          />
-        )}
+        {previewing && !inbox && renderPreview(previewing)}
         {list.isLoading ? (
           <p className="workspace-empty">正在找回你的内容…</p>
         ) : list.error ? (
@@ -612,25 +620,7 @@ export function ContentPage({
                 </button>
               </div>
             )}
-            <ContentPreview
-              standalone
-              item={items[0]}
-              onClose={() => setPreviewing(null)}
-              onEdit={() => setEditing(items[0])}
-              asking={ask.isPending}
-              onAsk={() =>
-                ask.mutate({
-                  draft: '请帮我梳理这份内容的要点。',
-                  reference: {
-                    documentId: items[0].id,
-                    title: items[0].title,
-                    content: [items[0].content, items[0].summary, items[0].source]
-                      .filter(Boolean)
-                      .join('\n\n'),
-                  },
-                })
-              }
-            />
+            {renderPreview(items[0], true)}
           </div>
         ) : (
           <div className="content-list">
@@ -742,28 +732,7 @@ export function ContentPage({
                             {status === 'inbox' ? '归档到知识库' : '移回收件箱'}
                           </button>
                         )}
-                        <button
-                          disabled={ask.isPending}
-                          onClick={() =>
-                            ask.mutate({
-                              draft: '请帮我梳理这份内容的要点。',
-                              reference: {
-                                documentId: item.id,
-                                title: item.title,
-                                content: [
-                                  item.filename
-                                    ? `文件：${item.filename}\n以下参考仅包含文件名与备注，原文件内容未展开。`
-                                    : '',
-                                  item.content,
-                                  item.summary,
-                                  item.source,
-                                ]
-                                  .filter(Boolean)
-                                  .join('\n\n'),
-                              },
-                            })
-                          }
-                        >
+                        <button disabled={ask.isPending} onClick={() => askAbout(item, true)}>
                           <Sparkles size={14} />
                           引用提问
                         </button>
@@ -800,25 +769,7 @@ export function ContentPage({
             <span>内容与来源</span>
           </div>
           <div className="content-reader-scroll" key={preview.id}>
-            <ContentPreview
-              standalone
-              item={preview}
-              asking={ask.isPending}
-              onClose={() => setPreviewing(null)}
-              onEdit={() => setEditing(preview)}
-              onAsk={() =>
-                ask.mutate({
-                  draft: '请帮我梳理这份内容的要点。',
-                  reference: {
-                    documentId: preview.id,
-                    title: preview.title,
-                    content: [preview.content, preview.summary, preview.source]
-                      .filter(Boolean)
-                      .join('\n\n'),
-                  },
-                })
-              }
-            />
+            {renderPreview(preview, true)}
           </div>
         </section>
       )}

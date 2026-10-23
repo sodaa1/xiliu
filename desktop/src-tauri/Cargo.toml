@@ -1,6 +1,6 @@
 [package]
 name = "xiliu-desktop"
-version = "0.4.5"
+version = "0.4.6"
 description = "息流本地桌面工作台"
 edition = "2021"
 
@@ -12,3 +12,9 @@ tauri = { version = "2", features = ["tray-icon"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 uuid = { version = "1", features = ["v4"] }
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true

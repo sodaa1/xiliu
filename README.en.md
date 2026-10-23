@@ -10,7 +10,7 @@
 
 **Give information a home and ideas room to flow.** Xiliu is a local-first personal knowledge workspace and AI assistant connecting Feed, Inbox, Knowledge, Assistant, and Today.
 
-Current version: **0.4.5**. React and FastAPI share the Runtime / LangGraph kernel; the Windows desktop uses Tauri 2. Documents and conversations stay on your device. Enabled model and network tools send their requests to the services you configure.
+Current version: **0.4.6**. React and FastAPI share the Runtime / LangGraph kernel; the Windows desktop uses Tauri 2. Documents and conversations stay on your device. Enabled model and network tools send their requests to the services you configure.
 
 ## Full Web deployment package
 
@@ -18,16 +18,18 @@ The self-hosted Web app supports accounts, isolated workspaces, user-owned model
 
 Follow the [Docker deployment guide](docs/CLOUD_WEB_DEPLOYMENT.md); account data lives in the server's persistent volume. See [operations](docs/cloud-operations.md) for backups and account recovery. This is a deployable source package; a public full-service instance is not yet hosted. GitHub Pages remains the guest demo. Desktop sign-in and bidirectional synchronization are planned for a later phase.
 
-Cloud mode disables local files, processes, Skills / MCP and shared search credentials; AI Hot and Web search are unavailable. The Windows 0.4.5 installer remains the local desktop edition.
+Cloud mode disables local files, processes, Skills / MCP and shared search credentials; AI Hot and Web search are unavailable. The Windows 0.4.6 installer remains the local desktop edition.
 
 ## Latest update · October 23, 2026
 
 - Consistent icon navigation and corner controls across all six pages, without a duplicate global search header; home theme controls remain on the home page.
 - Inbox and Feed start with compact card grids. Opening an item switches to a left-hand list and a right-hand reader that fills the available width and height without resizing between items.
 - Knowledge retains its folder cards with tag categories and a recent-items view. Compact desktop toolbars leave most of the space for documents.
-- Existing capture, editing, classification, search, reference and original-download APIs remain in use. These changes are in the mainline source; the published Windows installer and online demo are not claimed to include them yet.
+- Existing capture, editing, classification, search, reference and original-download APIs remain in use. The Windows 0.4.6 installer includes these changes; the online demo has its own deployment cycle.
 
-See the [integration evidence](docs/ui-redesign-v2/integration.md) and [GitHub Releases](https://github.com/sodaa1/xiliu/releases) for older release history.
+- Shared preview/reference logic replaces repeated implementations. The shell is 31.16% smaller; the installer is 63.17 MiB, about 0.77% smaller, with all HD assets retained.
+
+See the [0.4.6 review and evidence](docs/audit/releases/0.4.6/review.md) and [GitHub Releases](https://github.com/sodaa1/xiliu/releases) for older release history.
 
 ## Features and workflow
 
@@ -44,7 +46,7 @@ See the [integration evidence](docs/ui-redesign-v2/integration.md) and [GitHub R
 
 ## Windows installation
 
-Download `Xiliu-0.4.5-x64-setup.exe` and its SHA256 file from [GitHub Release v0.4.5](https://github.com/sodaa1/xiliu/releases/tag/v0.4.5). Installers are published as release assets rather than committed to Git source.
+Download `Xiliu-0.4.6-x64-setup.exe` and its SHA256 file from [GitHub Release v0.4.6](https://github.com/sodaa1/xiliu/releases/tag/v0.4.6). Installers are published as release assets rather than committed to Git source.
 
 1. Run the installer and follow its Chinese-language wizard. Python, Node.js, and Rust are not required to use the packaged application.
 2. On first launch, configure your provider, API endpoint, model, and API key in Settings. The package includes no developer credentials, personal model configuration, databases, tests, or project documentation.
@@ -103,7 +105,7 @@ The data directory's `agents/` contains `rag`, `research`, and `code` templates.
 
 ## Verification and limits
 
-UI integration verification on October 23, 2026: mainline backend **931 passed / 1 skipped**, frontend **258 passed**; ESLint, production build and the 1,092-surface static audit passed. Another 38 relevant API tests passed against the local uncommitted backend changes, which are excluded from this UI commit. See [integration evidence and limits](docs/ui-redesign-v2/integration.md).
+Release verification on October 23, 2026: backend **931 passed / 1 skipped**, frontend **258 passed**, Rust **8 passed**; ESLint, production build, the 1,086-surface audit and extracted-service checks passed. See [review, size comparison and limits](docs/audit/releases/0.4.6/review.md).
 
 ```powershell
 uv run python -m pytest

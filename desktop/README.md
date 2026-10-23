@@ -4,7 +4,7 @@ Tauri 2 管理窗口和自己启动的 Python 服务，业务复用 FastAPI / Ru
 
 ## 安装与首次配置
 
-当前本地安装包为 `dist/Xiliu-0.4.5-x64-setup.exe`，附带 SHA256 校验文件。本次内核与模型设置更新见 [0.4 发布验证](../docs/architecture/graph-v2/release-0.4.md)，历史安装证据见 [Windows 交付记录](../docs/WINDOWS_RELEASE.md)。双击后使用中文向导安装。
+当前本地安装包为 `dist/Xiliu-0.4.6-x64-setup.exe`，附带 SHA256 校验文件。本次内核与模型设置更新见 [0.4 发布验证](../docs/architecture/graph-v2/release-0.4.md)，历史安装证据见 [Windows 交付记录](../docs/WINDOWS_RELEASE.md)。双击后使用中文向导安装。
 
 用户不需要 Python、Node.js 或 Rust。需要 WebView2，缺少时安装向导下载运行时。首次启动在设置中自行填写模型 API 地址、模型和 API Key。包内不包含开发者 `.env`、密钥、个人模型配置或用户资料。
 

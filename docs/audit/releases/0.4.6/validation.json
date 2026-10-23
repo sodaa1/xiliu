@@ -1,0 +1,45 @@
+{
+  "version": "0.4.6",
+  "source_base": "010626e352cffd885881ce3b2a85b5929c292b6f",
+  "installer": {
+    "installer": "Xiliu-0.4.6-x64-setup.exe",
+    "bytes": 66235959,
+    "sha256": "525e3f3dd7f03e3e8b30415452145575dec5511bf8340a74bf85c5f252541987",
+    "previous_installer_bytes": 66747710,
+    "saved_bytes": 511751,
+    "saved_percent": 0.767
+  },
+  "shell_bytes": {
+    "previous": 11213824,
+    "current": 7719936,
+    "saved_percent": 31.16
+  },
+  "checks": {
+    "backend": {
+      "passed": 931,
+      "skipped": 1
+    },
+    "frontend": {
+      "passed": 258
+    },
+    "rust": {
+      "passed": 8
+    },
+    "eslint": "passed",
+    "production_build": "passed",
+    "surface_guard": {
+      "count": 1086,
+      "errors": 0
+    },
+    "extracted_web_files": 90,
+    "unchanged_hd_artwork_variants": 52,
+    "frozen_service": "passed; local fake model, actual stdio MCP, persistence and both shutdown paths"
+  },
+  "limits": [
+    "No real model-provider credentials or external model calls.",
+    "No fresh native installer interaction or mixed-DPI physical drag test.",
+    "Existing weather --workflow mock fixture does not supply execution evidence required by the current verifier; not counted as passing. Basic SDK/Graph and actual MCP paths passed.",
+    "Installer is unsigned, as before.",
+    "Uncommitted backend changes in the original workspace are excluded."
+  ]
+}

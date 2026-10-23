@@ -10,7 +10,7 @@
 
 **信息有归处，思考自成流。** 息流是本地优先的个人信息与 AI 助手，把 Feed、Inbox、Knowledge、Assistant 和 Today 连接成从发现到行动的信息流。
 
-当前版本：**0.4.5**。React 界面和 FastAPI 业务层复用 Runtime / LangGraph；Windows 桌面使用 Tauri 2。资料与会话保存在本机，启用模型或联网工具时，对应请求会发送至用户配置的服务。
+当前版本：**0.4.6**。React 界面和 FastAPI 业务层复用 Runtime / LangGraph；Windows 桌面使用 Tauri 2。资料与会话保存在本机，启用模型或联网工具时，对应请求会发送至用户配置的服务。
 
 ## 完整网页版部署包
 
@@ -18,16 +18,18 @@
 
 按 [Docker 部署指南](docs/CLOUD_WEB_DEPLOYMENT.md) 自行部署，账号资料保存在服务器持久化卷中；备份和账号恢复见 [运维说明](docs/cloud-operations.md)。目前提供可部署源码包，尚未上线公共完整版服务；上方 GitHub Pages 链接仍为游客演示。桌面账号登录和双向数据同步留待后续实现。
 
-云端不开放本机文件、进程、Skill / MCP 和公共搜索凭据；AI Hot 与联网搜索暂不可用。Windows 0.4.5 安装包仍为本地桌面版本。
+云端不开放本机文件、进程、Skill / MCP 和公共搜索凭据；AI Hot 与联网搜索暂不可用。Windows 0.4.6 安装包仍为本地桌面版本。
 
 ## 最近更新 · 2026-10-23
 
 - 统一六个页面的图标侧栏和角落控件，移除重复的顶部搜索与空白；首页独有的主题切换保持一致。
 - Inbox 与资讯默认采用紧凑横排卡片，打开后切为左侧列表与右侧阅读面；阅读面贴齐右边和底部，切换内容尺寸保持稳定。
 - 知识库保留原有文件夹卡片，增加标签分类和最近资料入口；桌面顶部工具区约占四分之一，给资料留出更多空间。
-- 保留现有收集、编辑、归档、搜索、引用提问及原件下载接口。此次改进随主干源码提供，不代表已发布的 Windows 安装包或在线演示已同步更新。
+- 保留现有收集、编辑、归档、搜索、引用提问及原件下载接口。Windows 0.4.6 安装包包含本次改进；在线游客演示仍以单独的部署结果为准。
 
-界面效果与兼容性记录见 [本次集成验证](docs/ui-redesign-v2/integration.md)。旧版本历史见 [GitHub Releases](https://github.com/sodaa1/xiliu/releases)。
+- 精简重复的预览和引用逻辑；桌面壳减少约 31.16%，安装包为 63.17 MiB，较上一版减少约 0.77%，保留全部高清资源。
+
+详情见 [0.4.6 审查与验证](docs/audit/releases/0.4.6/review.md)。旧版本历史见 [GitHub Releases](https://github.com/sodaa1/xiliu/releases)。
 
 ## 功能与工作流
 
@@ -44,7 +46,7 @@
 
 ## Windows 安装
 
-从 [GitHub Release v0.4.5](https://github.com/sodaa1/xiliu/releases/tag/v0.4.5) 下载 `Xiliu-0.4.5-x64-setup.exe` 与 SHA256 校验文件。安装包作为 Release 附件发布，不存入 Git 源码。
+从 [GitHub Release v0.4.6](https://github.com/sodaa1/xiliu/releases/tag/v0.4.6) 下载 `Xiliu-0.4.6-x64-setup.exe` 与 SHA256 校验文件。安装包作为 Release 附件发布，不存入 Git 源码。
 
 1. 双击安装包，使用中文向导安装并启动「息流」。无需另装 Python、Node.js 或 Rust。
 2. 首次启动在设置中自行填写模型提供商、API 地址、模型名称和 API Key。安装包不包含开发者密钥、个人模型配置、数据库、测试或项目文档。
@@ -103,7 +105,7 @@ powershell -ExecutionPolicy Bypass -File scripts/build-windows.ps1
 
 ## 验证与当前边界
 
-2026-10-23 本次 UI 集成验证：主干后端 **931 passed / 1 skipped**，前端 **258 passed**；Lint、正式构建与 1092 项界面静态覆盖审计通过。另对本地尚未提交的后端改动运行了 38 项相关接口测试，全部通过；这些后端改动不包含在此次 UI 提交中。完整结果和验证边界见 [集成记录](docs/ui-redesign-v2/integration.md)。
+2026-10-23 发布回归：后端 **931 passed / 1 skipped**，前端 **258 passed**，Rust **8 passed**；Lint、正式构建、1086 项静态审计及解包服务检查通过。验证边界与体积对比见 [0.4.6 记录](docs/audit/releases/0.4.6/review.md)。
 
 ```powershell
 uv run python -m pytest

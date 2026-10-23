@@ -1,6 +1,16 @@
 # 息流 Windows 交付记录
 
-## 当前版本：0.4.5（2026-10-20）
+## 当前版本：0.4.6（2026-10-23）
+
+[GitHub Release v0.4.6](https://github.com/sodaa1/xiliu/releases/tag/v0.4.6) 提供更新后的 Windows x64 安装包、SHA256 与验证摘要。
+
+安装包 `Xiliu-0.4.6-x64-setup.exe`：66,235,959 字节（63.17 MiB），SHA256 `525e3f3dd7f03e3e8b30415452145575dec5511bf8340a74bf85c5f252541987`。较 0.4.5 减少 511,751 字节（0.767%）；Rust 壳减少约 31.16%。保留全部 52 个高清图片变体及运行依赖。
+
+本版包含统一图标侧栏、紧凑知识库分类、Inbox / 资讯网格与固定分栏阅读，并合并重复的预览和引用逻辑。后端 931 / 前端 258 / Rust 8 项通过，另 1 项后端跳过；解包资源、冻结服务、本地模型和实际 MCP 检查通过。未提交的原目录后端改动不进入本版，未重复真实安装交互、跨屏拖动或外部模型验收。旧天气 workflow 模拟器未计为通过。
+
+详见 [审查与体积对比](audit/releases/0.4.6/review.md)、[包内核对](audit/releases/0.4.6/package.json)、[冻结服务](audit/releases/0.4.6/service.json)、[验证摘要](audit/releases/0.4.6/validation.json)。
+
+## 历史版本：0.4.5（2026-10-20）
 
 [GitHub Release v0.4.5](https://github.com/sodaa1/xiliu/releases/tag/v0.4.5) 提供 Windows x64 中文安装包与 SHA256 校验文件。
 

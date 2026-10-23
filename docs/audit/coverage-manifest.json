@@ -6714,34 +6714,6 @@
       }
     },
     {
-      "surface_id": "ui_button:2746a358b1015f14fe01:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:b047e50752710866acd0:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, draft editing, focus, modal, filtering or animation control. Its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::unified capture saves text and the AI preference"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
       "surface_id": "ui_api:017121cc84e984853358:1",
       "classification": "restricted",
       "action_ids": [],
@@ -11173,34 +11145,6 @@
     },
     {
       "surface_id": "ui_event:af2100331e76899ffd73:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:82feaaee3cd2e1391225:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:d08d076eea0fdc3e750c:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
@@ -17149,48 +17093,6 @@
       }
     },
     {
-      "surface_id": "ui_event:af2100331e76899ffd73:2",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Reference-based content/library/settings presentation and native-workspace chrome; preserves existing API actions and frontend preferences.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component regression and isolated API browser checks; not an assertion of complete Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:789e1b9464b290b1a512:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Reference-based content/library/settings presentation and native-workspace chrome; preserves existing API actions and frontend preferences.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component regression and isolated API browser checks; not an assertion of complete Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:af70d51abf670c351c82:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Reference-based content/library/settings presentation and native-workspace chrome; preserves existing API actions and frontend preferences.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component regression and isolated API browser checks; not an assertion of complete Agent equivalence."
-      }
-    },
-    {
       "surface_id": "ui_button:15a1ad374146057e0699:1",
       "classification": "ui_only",
       "action_ids": [],
@@ -17418,22 +17320,6 @@
       }
     },
     {
-      "surface_id": "ui_event:48a46d9a4fb250c0b406:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "inbox.classify_selected"
-      ],
-      "reason": "Uses existing registered App action; interactive review and UI tests do not prove all Agent paths ran.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
-      }
-    },
-    {
       "surface_id": "ui_button:09fd02ef43fc11cf6142:1",
       "classification": "ui_only",
       "action_ids": [],
@@ -17449,48 +17335,6 @@
     },
     {
       "surface_id": "ui_event:1026e9575c4ff0619c48:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
-      }
-    },
-    {
-      "surface_id": "ui_event:af2100331e76899ffd73:3",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
-      }
-    },
-    {
-      "surface_id": "ui_event:b2a40abb21d2ae5639d5:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
-      }
-    },
-    {
-      "surface_id": "ui_event:9e502bb9a2f80ddbe86d:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
@@ -18107,6 +17951,76 @@
       "verification": {
         "status": "not_run",
         "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:90659c60ec1347ae32ee:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Shared preview, reference construction and navigation; actual API writes retain their separately audited bindings.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Static linkage does not establish full live Agent execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:7a3bd1a994f5331850a5:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Shared preview, reference construction and navigation; actual API writes retain their separately audited bindings.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Static linkage does not establish full live Agent execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:67cbbeb31bba60167056:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Shared preview, reference construction and navigation; actual API writes retain their separately audited bindings.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Static linkage does not establish full live Agent execution."
+      }
+    },
+    {
+      "surface_id": "ui_button:f3f31be260e3cec5fe71:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Shared preview, reference construction and navigation; actual API writes retain their separately audited bindings.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Static linkage does not establish full live Agent execution."
+      }
+    },
+    {
+      "surface_id": "ui_event:2a0d0ebdfe06f7fb485e:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Shared preview, reference construction and navigation; actual API writes retain their separately audited bindings.",
+      "ui_tests": [
+        "web/src/features/content/Workspace.test.tsx::inbox card opens a preview with edit, open-original and download actions"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Static linkage does not establish full live Agent execution."
       }
     }
   ],
