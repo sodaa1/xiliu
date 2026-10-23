@@ -1,9 +1,5 @@
 import { useHomeTheme } from '../features/today/home-theme'
-import {
-  WorkspaceChromeProvider,
-  WorkspaceSidebar,
-  PageToolbar,
-} from '../components/WorkspaceChrome'
+import { WorkspaceSidebar, WorkspaceControls } from '../components/WorkspaceChrome'
 import { WorkbenchShell } from '../features/today/WorkbenchShell'
 import { PlansPage } from '../features/plans/PlansPage'
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
@@ -54,10 +50,8 @@ export function App() {
   return (
     <ChatProvider key={demoEpoch}>
       {!isDemo && <CompanionController />}
-      <WorkspaceChromeProvider>
-        <AppLayout />
-        {location.pathname !== '/' && <Onboarding />}
-      </WorkspaceChromeProvider>
+      <AppLayout />
+      {location.pathname !== '/' && <Onboarding />}
     </ChatProvider>
   )
 }
@@ -87,7 +81,7 @@ function AppLayout() {
   const closeTarget =
     typeof backgroundUrl === 'string'
       ? backgroundUrl
-      : backgroundUrl.pathname + backgroundUrl.search + backgroundUrl.hash
+      : backgroundUrl.pathname + (backgroundUrl.search ?? '') + (backgroundUrl.hash ?? '')
   const closeSettings = useCallback(
     () => navigate(closeTarget, { replace: true }),
     [navigate, closeTarget]
@@ -100,9 +94,6 @@ function AppLayout() {
         </WorkbenchShell>
         {isSettings && (
           <Modal title="设置" onClose={closeSettings} className="settings-dialog">
-            <div className="settings-page-toolbar">
-              <PageToolbar />
-            </div>
             <SettingsPage embedded />
           </Modal>
         )}
@@ -113,7 +104,9 @@ function AppLayout() {
       {displayed.pathname === '/' ? (
         <LaunchPage />
       ) : (
-        <div className="app-shell">
+        <div
+          className={`app-shell ${['/assistant', '/plans', '/inbox', '/knowledge'].includes(displayed.pathname) ? 'workspace-original-pages' : 'workspace-v2'}`}
+        >
           <WorkspaceSidebar inert={isSettings} />
           <main className="main-stage" inert={isSettings || undefined}>
             {isDemo && (
@@ -124,30 +117,30 @@ function AppLayout() {
                 }}
               />
             )}
-            <Routes location={displayed}>
-              <Route path="/assistant" element={<AssistantPage />} />
-              <Route path="/today" element={<TodayPage />} />
-              <Route path="/plans" element={<PlansPage />} />
-              <Route path="/feed" element={<FeedPage />} />
-              <Route
-                path="/inbox"
-                element={
-                  <ContentPage
-                    key={`inbox:${capturedItem ?? ''}`}
-                    status="inbox"
-                    documentId={capturedItem ?? undefined}
-                  />
-                }
-              />
-              <Route path="/knowledge" element={<KnowledgePage />} />
-              <Route path="*" element={<Navigate to="/assistant" replace />} />
-            </Routes>
+            <WorkspaceControls />
+            <div className="workspace-route-content">
+              <Routes location={displayed}>
+                <Route path="/assistant" element={<AssistantPage />} />
+                <Route path="/today" element={<TodayPage />} />
+                <Route path="/plans" element={<PlansPage />} />
+                <Route path="/feed" element={<FeedPage />} />
+                <Route
+                  path="/inbox"
+                  element={
+                    <ContentPage
+                      key={`inbox:${capturedItem ?? ''}`}
+                      status="inbox"
+                      documentId={capturedItem ?? undefined}
+                    />
+                  }
+                />
+                <Route path="/knowledge" element={<KnowledgePage />} />
+                <Route path="*" element={<Navigate to="/assistant" replace />} />
+              </Routes>
+            </div>
           </main>
           {isSettings && (
             <Modal title="设置" onClose={closeSettings} className="settings-dialog">
-              <div className="settings-page-toolbar">
-                <PageToolbar />
-              </div>
               <SettingsPage embedded />
             </Modal>
           )}

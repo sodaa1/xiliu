@@ -1,4 +1,3 @@
-import { PageToolbar } from '../../components/WorkspaceChrome'
 import { useHomeTheme } from './home-theme'
 import { WorkbenchHome } from './WorkbenchHome'
 import { useHomeDraft } from './useHomeDraft'
@@ -13,6 +12,7 @@ import { CaptureDialog } from '../content/CaptureDialog'
 import { useHomeBackground } from './useHomeBackground'
 import { publicAsset } from '../../lib/deployment'
 import './home.css'
+import { TodayWorkspace } from './TodayWorkspace'
 export function TodayPage() {
   const theme = useHomeTheme()
   return theme === 'workbench' ? <WorkbenchHome /> : <OriginalHome />
@@ -40,9 +40,7 @@ function OriginalHome() {
           }}
         />
       )}
-      <div className="original-home-toolbar">
-        <PageToolbar />
-      </div>
+
       <Link
         className="home-profile"
         to="/settings?section=profile"
@@ -128,6 +126,7 @@ function OriginalHome() {
           />
         </div>
       </div>
+      <TodayWorkspace />
       {capture && (
         <CaptureDialog
           initialText={draft}

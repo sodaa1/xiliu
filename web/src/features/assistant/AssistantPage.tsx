@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { PageToolbar } from '../../components/WorkspaceChrome'
 import './assistant-workbench.css'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
@@ -140,7 +139,6 @@ export function AssistantPage() {
         />
         <section className="chat-panel">
           <header className="chat-header">
-            <PageToolbar />
             <div>
               <h1>助手</h1>
               <p>把想法交给息流，一起往前走。</p>

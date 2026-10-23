@@ -1,0 +1,371 @@
+.content-collection-queue {
+  display: contents;
+}
+@media (min-width: 761px) {
+  .app-shell .feed-reading-workspace:not(.has-selected-article) .feed-article-queue {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto minmax(0, 1fr);
+  }
+  .app-shell .feed-reading-workspace:not(.has-selected-article) .feed-topic-tabs {
+    align-items: center;
+    border: 0;
+    padding: 6px 24px;
+  }
+  .app-shell .feed-reading-workspace:not(.has-selected-article) .feed-queue-sort,
+  .app-shell .feed-reading-workspace:not(.has-selected-article) .feed-continuous-list {
+    grid-column: 1 / -1;
+  }
+}
+.app-shell .feed-page.feed-workbench.workspace-page {
+  padding: 0;
+}
+.app-shell .feed-page.feed-workbench.workspace-page > .workspace-header {
+  padding: 12px 24px 8px;
+  margin: 0;
+}
+.app-shell .feed-page .feed-reading {
+  width: 100%;
+  flex: 1;
+  align-self: stretch;
+}
+.app-shell .feed-layout-grid .feed-card-standard > .feed-cover {
+  height: 56px;
+  flex-shrink: 0;
+}
+.app-shell .feed-layout-grid .feed-card-standard > .feed-card-top,
+.app-shell .feed-layout-grid .feed-card-standard > p,
+.app-shell .feed-layout-grid .feed-card-standard > .tag-list,
+.app-shell .feed-layout-grid .feed-card-standard > .feed-card-bottom {
+  margin: 0;
+  padding: 0;
+}
+.app-shell .feed-layout-grid .feed-card-standard > .feed-card-bottom {
+  margin-top: auto;
+}
+.app-shell .workspace-page.inbox-library,
+.app-shell .workspace-page.feed-page {
+  padding: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.app-shell .inbox-library {
+  display: flex;
+  gap: 0;
+}
+.inbox-library .content-collection-queue {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+}
+.app-shell .inbox-library .workspace-header {
+  padding: 12px 24px 8px;
+  margin: 0;
+  gap: 12px;
+  flex: none;
+  align-items: center;
+}
+.app-shell .inbox-library .workspace-header h1 {
+  font-size: 22px;
+  margin: 0;
+}
+.app-shell .inbox-library .workspace-header .eyebrow,
+.app-shell .inbox-library .workspace-header p {
+  display: none;
+}
+.app-shell .inbox-library .workspace-toolbar {
+  padding: 0 24px;
+  margin: 0;
+  gap: 10px;
+  flex: none;
+}
+.app-shell .inbox-library .workspace-toolbar .search-field {
+  flex: 1;
+}
+.app-shell .inbox-library .workspace-toolbar input,
+.app-shell .inbox-library .workspace-toolbar select {
+  min-height: 34px;
+  padding-block: 6px;
+}
+.app-shell .inbox-library .content-filter-row {
+  padding: 8px 24px;
+  margin: 0;
+  gap: 10px;
+  flex: none;
+  flex-wrap: wrap;
+}
+.app-shell .inbox-library .content-filter button {
+  padding: 5px 8px;
+  font-size: 12px;
+}
+.app-shell .inbox-library .content-bulk {
+  margin-left: auto;
+  font-size: 12px;
+}
+.app-shell .inbox-library .content-bulk button {
+  padding: 5px 8px;
+  min-height: 30px;
+}
+.app-shell .inbox-library .content-list {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 12px 24px 24px;
+  margin: 0;
+  align-content: start;
+}
+.app-shell .inbox-library.content-view-grid .content-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+.app-shell .inbox-library .content-row {
+  min-height: 0;
+  padding: 16px;
+  border-radius: 14px;
+  gap: 10px;
+  position: relative;
+}
+.app-shell .inbox-library.content-view-grid .content-row {
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.app-shell .inbox-library .content-row > input {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.app-shell .inbox-library .item-symbol {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 9px;
+}
+.app-shell .inbox-library .item-symbol svg {
+  width: 18px;
+  height: 18px;
+}
+.app-shell .inbox-library .content-row-body {
+  display: block;
+  min-height: 0;
+  min-width: 0;
+  flex: 1;
+}
+.app-shell .inbox-library .content-row-title {
+  display: block;
+}
+.app-shell .inbox-library .content-row-title h2 {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+.app-shell .inbox-library .content-row-title time {
+  font-size: 11px;
+}
+.app-shell .inbox-library .content-excerpt {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 5px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.app-shell .inbox-library .content-row-body > .source-link {
+  display: none;
+}
+.app-shell .inbox-library .content-processing {
+  margin: 4px 0;
+  font-size: 11px;
+}
+.app-shell .inbox-library .tag-list {
+  margin: 5px 0 0;
+  gap: 4px;
+}
+.app-shell .inbox-library .tag-list button {
+  font-size: 11px;
+  padding: 2px 4px;
+}
+.app-shell .inbox-library .content-row-menu {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+}
+.app-shell .inbox-library.has-selected-article .content-collection-queue,
+.app-shell .has-selected-article .feed-article-queue {
+  width: 320px;
+  flex: none;
+  border-right: 1px solid var(--line);
+}
+.app-shell .inbox-library.has-selected-article .workspace-header {
+  padding: 14px 16px 8px;
+}
+.app-shell .inbox-library.has-selected-article .workspace-toolbar {
+  padding: 0 16px;
+}
+.app-shell .inbox-library.has-selected-article .workspace-toolbar select,
+.app-shell .inbox-library.has-selected-article .workspace-count {
+  display: none;
+}
+.app-shell .inbox-library.has-selected-article .content-filter-row {
+  padding: 8px 16px;
+}
+.app-shell .inbox-library.has-selected-article .content-bulk {
+  margin-left: 0;
+}
+.app-shell .inbox-library.has-selected-article .content-list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.app-shell .inbox-library.has-selected-article .content-row {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  flex: none;
+  padding: 18px 16px;
+  background: transparent;
+}
+.app-shell .inbox-library.has-selected-article .content-row.is-current {
+  background: var(--accent-soft);
+  box-shadow: inset 2px 0 var(--accent);
+}
+.content-article-pane,
+.app-shell .feed-article-pane {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  background: var(--surface);
+}
+.content-reader-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+.app-shell .content-article-pane .document-reading-page,
+.app-shell .feed-reader-document {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 30px 40px;
+  box-sizing: border-box;
+}
+.app-shell .content-article-pane .document-reading-page > h2 {
+  font-size: 28px;
+  line-height: 1.5;
+  margin: 0 0 24px;
+  overflow-wrap: anywhere;
+}
+.app-shell .content-article-pane .content-reading {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.app-shell .content-article-pane .content-reading-facts {
+  order: 2;
+  padding: 14px;
+}
+.app-shell .content-article-pane .content-reading-facts dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 0;
+}
+.app-shell .content-article-pane .content-preview-body {
+  font-size: 16px;
+  line-height: 1.9;
+  min-height: 120px;
+}
+.app-shell .feed-reader-back {
+  display: inline-flex;
+}
+.app-shell .feed-article-queue {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+}
+.app-shell .feed-page > .workspace-header {
+  padding: 12px 24px 8px;
+}
+.app-shell .feed-source-panel {
+  padding: 0 24px;
+}
+.app-shell .feed-queue-heading {
+  padding: 10px 24px 6px;
+}
+.app-shell .feed-topic-tabs {
+  padding: 0 24px 6px;
+}
+.app-shell .feed-queue-sort {
+  padding: 5px 24px;
+}
+.app-shell .feed-layout-grid .feed-continuous-list {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  padding: 12px 24px 24px;
+}
+.app-shell .feed-layout-grid .feed-card {
+  padding: 12px;
+  gap: 6px;
+  min-height: 0;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+.app-shell .feed-layout-grid .feed-cover {
+  height: 64px;
+  min-height: 0;
+  width: 100%;
+}
+.app-shell .feed-layout-grid .feed-card h2 {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 5px 0;
+}
+.app-shell .feed-layout-grid .feed-card p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 5px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.app-shell .feed-layout-grid .feed-card button,
+.app-shell .feed-layout-grid .feed-card a,
+.app-shell .feed-layout-grid .feed-card time {
+  font-size: 11px;
+}
+@media (max-width: 760px) {
+  .app-shell .inbox-library.has-selected-article .content-collection-queue,
+  .app-shell .has-selected-article .feed-article-queue {
+    display: none;
+  }
+  .app-shell .inbox-library .content-filter-row {
+    gap: 6px;
+  }
+  .app-shell .inbox-library .workspace-header,
+  .app-shell .inbox-library .workspace-toolbar {
+    padding-inline: 14px;
+  }
+  .app-shell .content-article-pane .document-reading-page,
+  .app-shell .feed-reader-document {
+    padding: 24px 20px;
+  }
+  .app-shell .feed-pane-heading {
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

@@ -20,43 +20,14 @@
 
 云端不开放本机文件、进程、Skill / MCP 和公共搜索凭据；AI Hot 与联网搜索暂不可用。Windows 0.4.5 安装包仍为本地桌面版本。
 
-## 0.4.5 更新
+## 最近更新 · 2026-10-23
 
-- 白灰与淡紫的统一工作台，保留原版首页与山水首页两种主题；重做助手、资讯、收件箱、知识库与设置。
-- 个人计划支持未开始、进行中、已完成状态，以及悬停/键盘/触屏可用的三点任务菜单。
-- 内置 16 张有来源署名的高清照片，按主题随机轮换，支持高 DPI、响应式尺寸和本地加载；文章原图与上传背景保持优先。
-- 改进收集、阅读、编辑、自动化和新手引导，兼容移动布局、深色、大字号及减少动态效果设置。
-- [Windows 安装包与 SHA256](https://github.com/sodaa1/xiliu/releases/tag/v0.4.5)；验收与边界见 [Windows 交付记录](docs/WINDOWS_RELEASE.md)。
+- 统一六个页面的图标侧栏和角落控件，移除重复的顶部搜索与空白；首页独有的主题切换保持一致。
+- Inbox 与资讯默认采用紧凑横排卡片，打开后切为左侧列表与右侧阅读面；阅读面贴齐右边和底部，切换内容尺寸保持稳定。
+- 知识库保留原有文件夹卡片，增加标签分类和最近资料入口；桌面顶部工具区约占四分之一，给资料留出更多空间。
+- 保留现有收集、编辑、归档、搜索、引用提问及原件下载接口。此次改进随主干源码提供，不代表已发布的 Windows 安装包或在线演示已同步更新。
 
-## 0.4.4 更新
-
-- 首次打开的分步功能引导，网页和桌面共用；支持跳过和手动重看。
-- 统一中文界面和六项导航，合并桌宠拖放反馈与立绘发梢、裙摆惯性。
-- [在线演示](https://sodaa1.github.io/xiliu/#/today)免安装体验示例资料与演示回复；此静态站不提供账号与云同步。
-
-## 0.4.3 更新
-
-- 首页默认显示内置背景；保留用户已保存的留白或自定义背景。
-- Windows 安装包内置独立桌宠，支持 Q 版与常规比例切换、分别缩放、快捷对话和 Inbox 收录。
-- 补齐待机眨眼与微笑、清晰拖动反馈及原生窗口命令权限。默认使用图片表情，真实 Live2D 形变需另行导入模型与 Core 资源。
-
-## 0.4 更新
-
-- 应用业务统一通过一个 `app` 工具和 ActionRegistry，复用页面原有 Service。
-- 明确的本地操作走 Fast，零模型、零 Supervisor；可选 AI 元数据归档作业持久化并支持重启恢复。
-- Feed 支持手动添加、编辑、删除和恢复，外部资讯支持隐藏和恢复；非敏感偏好通过版本检查同步。
-- 人工确认、逐项权限、取消与真实写入校验在执行路径中统一。
-- 实测结果见 [0.4 交付记录](docs/XILIU_04_UNIFIED_ACTIONS.md)、[全页面能力矩阵](docs/audit/all-pages-capabilities.md)、[性能](docs/audit/fast-performance.md)和[包体积对比](docs/audit/package-size-before-after.md)。
-
-## 0.3 更新
-
-- **资料操作接入 Agent**：`inbox_import`、`inbox_list`、`knowledge_folders`、`knowledge_folder_create`、`inbox_classify` 复用页面服务。多个 URL 分别导入，用户明确要求保存时可将未匹配文件夹的卡片保存到 Knowledge。
-- **多会话与停止回复**：每个聊天单独保存运行状态和请求控制器；可同时使用其他聊天，只停止选中的会话，保留已收到的思考内容与已完成操作。
-- **可调整布局**：主侧栏最小 144px，对话侧栏最小 160px，输入框高度 48–98px；支持拖动、键盘调整和刷新后保留尺寸。
-- **桌面与模型连接**：上传区使用 HTML5 拖入；保留 SDK 思考流与聊天历史。字面本地模型地址绕过系统代理，外部地址保留代理；连接和认证错误直接返回，不被路由器转成重复任务重试。
-- **AIHot 默认配置**：首次启动补入公开 MCP 配置，保留已有用户配置；读取资讯不依赖模型 API Key。
-
-详见 [0.3 修复记录](docs/XILIU_03_FIXES.md) 与 [0.3.1 天气检索及桌面检查点修复](docs/XILIU_031_FIXES.md)。0.3.1 补齐实时天气检索、统一搜索重试预算及 Windows Git 子进程启动。[0.3.2](docs/XILIU_032_FIXES.md) 补齐文件夹创建与指定归档，保留 Inbox 生成的标签。
+界面效果与兼容性记录见 [本次集成验证](docs/ui-redesign-v2/integration.md)。旧版本历史见 [GitHub Releases](https://github.com/sodaa1/xiliu/releases)。
 
 ## 功能与工作流
 
@@ -73,7 +44,7 @@
 
 ## Windows 安装
 
-从 [GitHub Release v0.4.4](https://github.com/sodaa1/xiliu/releases/tag/v0.4.4) 下载 `Xiliu-0.4.4-x64-setup.exe` 与 SHA256 校验文件。安装包作为 Release 附件发布，不存入 Git 源码。
+从 [GitHub Release v0.4.5](https://github.com/sodaa1/xiliu/releases/tag/v0.4.5) 下载 `Xiliu-0.4.5-x64-setup.exe` 与 SHA256 校验文件。安装包作为 Release 附件发布，不存入 Git 源码。
 
 1. 双击安装包，使用中文向导安装并启动「息流」。无需另装 Python、Node.js 或 Rust。
 2. 首次启动在设置中自行填写模型提供商、API 地址、模型名称和 API Key。安装包不包含开发者密钥、个人模型配置、数据库、测试或项目文档。
@@ -132,7 +103,7 @@ powershell -ExecutionPolicy Bypass -File scripts/build-windows.ps1
 
 ## 验证与当前边界
 
-2026-10-09 本次主干回归：后端 **124 passed / 1 skipped**，前端 **33 passed**。跳过项为 Windows 缺少创建符号链接权限的既有静态资源用例。详细记录见 [项目进展](docs/DEVELOPMENT_PROCESS.md)。
+2026-10-23 本次 UI 集成验证：主干后端 **931 passed / 1 skipped**，前端 **258 passed**；Lint、正式构建与 1092 项界面静态覆盖审计通过。另对本地尚未提交的后端改动运行了 38 项相关接口测试，全部通过；这些后端改动不包含在此次 UI 提交中。完整结果和验证边界见 [集成记录](docs/ui-redesign-v2/integration.md)。
 
 ```powershell
 uv run python -m pytest

@@ -1,4 +1,3 @@
-import { PageToolbar } from '../../components/WorkspaceChrome'
 import {
   useCallback,
   useEffect,
@@ -203,7 +202,6 @@ export function PlansPage({ initialDate }: { initialDate?: Date } = {}) {
   return (
     <section className="workspace-page plans-page" data-plans-motion={reduced ? 'reduced' : 'full'}>
       <header className="plan-header">
-        <PageToolbar />
         <div>
           <h1>个人计划</h1>
           <p>让每一天的行动，靠近想要的生活。</p>

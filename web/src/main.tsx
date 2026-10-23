@@ -17,6 +17,9 @@ import './features/automations/automations-workbench.css'
 import './features/onboarding/onboarding-workbench.css'
 import './features/launch/launch-workbench.css'
 import './features/companion/companion-workbench.css'
+import './styles/workspace-v2.css'
+import './styles/material-workspace.css'
+import './components/workspace-chrome.css'
 const Router = usesHashRouting() ? HashRouter : BrowserRouter
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

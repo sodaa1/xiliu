@@ -116,11 +116,9 @@ test('saving capture stays open until its request finishes to protect subsequent
   await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
 })
 
-test('workbench shell searches existing tasks and preserves settings overlay navigation', async () => {
+test('workbench shell shares floating home controls without a search header', () => {
   render(
-    <QueryClientProvider
-      client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}
-    >
+    <QueryClientProvider client={new QueryClient()}>
       <MemoryRouter initialEntries={['/today']}>
         <WorkbenchShell inert={false}>
           <p>首页内容</p>
@@ -128,19 +126,7 @@ test('workbench shell searches existing tasks and preserves settings overlay nav
       </MemoryRouter>
     </QueryClientProvider>
   )
-  const search = screen.getByRole('textbox', { name: '搜索息流' })
-  fireEvent.change(search, { target: { value: '产品设计' } })
-  fireEvent.submit(search.closest('form')!)
-  expect(await screen.findByRole('link', { name: /任务.*完成产品设计稿/ })).toHaveAttribute(
-    'href',
-    '/plans'
-  )
-  expect(screen.getByRole('link', { name: '外观设置' })).toHaveAttribute(
-    'href',
-    '/settings?section=appearance'
-  )
-  fireEvent.keyDown(window, { key: 'k', ctrlKey: true })
-  expect(search).not.toHaveFocus()
-  fireEvent.click(screen.getByRole('button', { name: '关闭弹窗' }))
-  expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  expect(screen.getByRole('group', { name: '首页主题' })).toBeVisible()
+  expect(screen.queryByRole('textbox', { name: '搜索息流' })).not.toBeInTheDocument()
+  expect(document.querySelector('.workbench-topbar')).not.toBeInTheDocument()
 })

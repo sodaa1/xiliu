@@ -6,10 +6,12 @@ export function ContentDialog({
   title,
   onClose,
   children,
+  className = '',
 }: {
   title: string
   onClose: () => void
   children: ReactNode
+  className?: string
 }) {
   const panel = useRef<HTMLDivElement>(null)
   const close = useRef(onClose)
@@ -75,7 +77,7 @@ export function ContentDialog({
         aria-modal="true"
         aria-label={title}
         tabIndex={-1}
-        className="content-dialog"
+        className={`content-dialog ${className}`.trim()}
       >
         <div className="section-heading">
           <h2>{title}</h2>

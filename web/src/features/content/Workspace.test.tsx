@@ -248,7 +248,12 @@ test('inbox card opens a preview with edit, open-original and download actions',
   mount(<ContentPage status="inbox" />)
   const user = userEvent.setup()
   await user.click(await screen.findByRole('button', { name: 'File note' }))
-  const dialog = await screen.findByRole('dialog', { name: 'File note' })
+  const dialog = await screen.findByRole('region', { name: '资料阅读' })
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  expect(screen.getByRole('button', { name: '内容列表视图' })).toHaveAttribute(
+    'aria-pressed',
+    'true'
+  )
   expect(within(dialog).getByText('Full content body')).toBeVisible()
   expect(within(dialog).getAllByText('A short summary')).toHaveLength(1)
   expect(within(dialog).getByRole('link', { name: /打开原文/ })).toHaveAttribute(
@@ -256,7 +261,15 @@ test('inbox card opens a preview with edit, open-original and download actions',
     'https://example.org/doc'
   )
   expect(within(dialog).getByRole('link', { name: /下载原件/ })).toBeInTheDocument()
-  await user.click(within(dialog).getByRole('button', { name: '编辑' }))
+  await user.click(within(dialog).getByRole('button', { name: '返回内容卡片' }))
+  expect(screen.queryByRole('region', { name: '资料阅读' })).not.toBeInTheDocument()
+  expect(screen.getByRole('button', { name: '内容卡片视图' })).toHaveAttribute(
+    'aria-pressed',
+    'true'
+  )
+  await user.click(screen.getByRole('button', { name: 'File note' }))
+  const reopened = screen.getByRole('region', { name: '资料阅读' })
+  await user.click(within(reopened).getByRole('button', { name: '编辑' }))
   expect(await screen.findByRole('heading', { name: '编辑内容' })).toBeVisible()
 })
 test('deleting a recent import does not refetch the deleted ID', async () => {
@@ -266,9 +279,13 @@ test('deleting a recent import does not refetch the deleted ID', async () => {
   await user.type(screen.getByLabelText('文字或链接'), 'Temporary note')
   await user.click(screen.getByLabelText('使用 AI 整理'))
   await user.click(screen.getByRole('button', { name: '收进收件箱' }))
+  await user.click(await screen.findByRole('button', { name: 'Temporary note' }))
   await user.click(await screen.findByRole('button', { name: '内容操作：Temporary note' }))
   await user.click(screen.getByRole('menuitem', { name: '删除 Temporary note' }))
   await screen.findByText('已删除内容')
+  await waitFor(() =>
+    expect(screen.queryByRole('region', { name: '资料阅读' })).not.toBeInTheDocument()
+  )
   await waitFor(() => expect(screen.queryByRole('heading', { name: 'Temporary note' })).toBeNull())
   const removed = requests.findIndex((request) => request.method === 'DELETE')
   expect(removed).toBeGreaterThan(-1)
@@ -287,8 +304,9 @@ test('资讯 saves to 收件箱 and carries a separate reference into a new 助�
   )
   const user = userEvent.setup()
   await screen.findByRole('heading', { name: news.title })
+  await user.click(screen.getByRole('button', { name: news.title }))
   expect(screen.getByRole('link', { name: '阅读原文' })).toHaveAttribute('href', news.url)
-  await user.click(screen.getByRole('button', { name: '收藏' }))
+  await user.click(screen.getByRole('button', { name: '收进收件箱' }))
   expect(await screen.findByRole('button', { name: '已收进收件箱' })).toBeDisabled()
   expect(content[0].status).toBe('inbox')
   await user.click(screen.getByRole('button', { name: '引用提问' }))
@@ -296,7 +314,7 @@ test('资讯 saves to 收件箱 and carries a separate reference into a new 助�
   expect(state.draft).toContain('解读')
   expect(state.reference).toEqual({
     title: news.title,
-    content: `${news.summary}\n\n来源：${news.url}`,
+    content: `以下仅为资讯摘要与来源链接，未加载全文。\n\n${news.summary}\n\n来源：${news.url}`,
   })
   expect(
     requests.filter((item) => item.url === '/api/conversations' && item.method === 'POST')

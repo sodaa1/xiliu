@@ -1,4 +1,3 @@
-import { createContext, useContext, type ReactNode } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import {
   BookOpen,
@@ -11,26 +10,23 @@ import {
   CircleHelp,
 } from 'lucide-react'
 import { Brand } from './Brand'
-import { PillNav } from './PillNav'
+
 import { HomeThemeSwitch } from '../features/today/HomeThemeSwitch'
 import { startGuide } from '../features/onboarding/progress'
 import { AccountControl } from '../features/auth/AccountControl'
 import { isCloud } from '../lib/runtime-mode'
-import './workspace-chrome.css'
 
-const Chrome = createContext(false)
-export function WorkspaceChromeProvider({ children }: { children: ReactNode }) {
-  return <Chrome.Provider value>{children}</Chrome.Provider>
-}
-export function PageToolbar() {
-  const enabled = useContext(Chrome)
-  return enabled ? (
-    <div className="page-toolbar">
-      <PillNav />
-      <HomeThemeSwitch />
-      {isCloud && <AccountControl />}
+export function WorkspaceControls() {
+  const location = useLocation()
+  if (location.pathname !== '/today' && !isCloud) return null
+  return (
+    <div className="workspace-controls">
+      <div className="workspace-controls-inner">
+        {location.pathname === '/today' && <HomeThemeSwitch />}
+        {isCloud && <AccountControl />}
+      </div>
     </div>
-  ) : null
+  )
 }
 const navigation = [
   { path: '/today', label: '今日', icon: House },
@@ -47,7 +43,10 @@ export function WorkspaceSidebar({ inert = false }: { inert?: boolean }) {
       ? (location.state?.backgroundLocation ?? { pathname: '/today' })
       : location
   return (
-    <aside inert={inert || undefined} className="global-sidebar icon-rail">
+    <aside
+      inert={inert || undefined}
+      className="global-sidebar workspace-sidebar icon-only-sidebar"
+    >
       <NavLink className="brand" to="/assistant" aria-label="xiliu 助手" title="xiliu">
         <Brand />
       </NavLink>

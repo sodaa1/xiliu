@@ -10823,7 +10823,7 @@
       ],
       "reason": "Exact shared API client binding to registered App actions.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10843,7 +10843,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10863,7 +10863,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10901,7 +10901,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10921,7 +10921,7 @@
       ],
       "reason": "Mapped to existing strict App action and its actual Service/catalog binding; unit evidence is separate from browser E2E.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [
         "tests/integration/test_feed_actions.py::test_feed_http_crud_and_error_contract",
@@ -10939,49 +10939,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:2e5ff449c71d2cbe6167:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed preview blocks duplicate saves and shows save failures before retry"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_button:407315e532597276992a:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Keyboard-accessible title button opens the existing local preview; it performs no business mutation.",
-      "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed preview opens by keyboard and returns focus when dismissed"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:fec3c1559853d27b08f8:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Opens the existing local preview from a keyboard-accessible title button; it performs no business mutation.",
-      "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed preview opens by keyboard and returns focus when dismissed"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [],
       "verification": {
@@ -10995,7 +10953,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [],
       "verification": {
@@ -11009,7 +10967,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [],
       "verification": {
@@ -11023,7 +10981,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [],
       "verification": {
@@ -11037,21 +10995,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Per-occurrence live browser/Agent equivalence; static linkage and passing domain test suites do not establish every occurrence ran."
-      }
-    },
-    {
-      "surface_id": "ui_event:8dd9402ff9a874848cf6:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
-      "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [],
       "verification": {
@@ -11079,7 +11023,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [],
       "verification": {
@@ -11093,7 +11037,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [],
       "verification": {
@@ -11107,7 +11051,7 @@
       "action_ids": [],
       "reason": "Local presentation/navigation, preview toggle, draft editing, focus or modal control; its enclosing save/query boundary is separately inventoried.",
       "ui_tests": [
-        "web/src/features/feed/FeedRegression.test.tsx::feed card opens a preview with AI summary, read original and save actions"
+        "web/src/features/feed/FeedRegression.test.tsx::feed reader keeps AI summary, read original and save actions available"
       ],
       "tests": [],
       "verification": {
@@ -16250,244 +16194,12 @@
       }
     },
     {
-      "surface_id": "ui_api:a0cce6a0d22d5b012e2c:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "today.read"
-      ],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_query:36b1bba98d11c30a905e:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_api:12fc2c96782079102b67:1",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "inbox.list",
-        "knowledge.items.list"
-      ],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_query:b6cb7e797bf8483fc7c1:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_api:12fc2c96782079102b67:2",
-      "classification": "agent_enabled",
-      "action_ids": [
-        "inbox.list",
-        "knowledge.items.list"
-      ],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_query:b6cb7e797bf8483fc7c1:2",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
       "surface_id": "ui_event:414c8fcd66321277ad48:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
       "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:3ddf146302c2e7f290a8:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:613a776157b9cd582ce5:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_link:bbf8c85cd70e522f9c57:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_link:032d585e8806f5b6e216:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:eeb1b5fe9487408fd1c8:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:3c99b03318287577c514:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:613a776157b9cd582ce5:2",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:62524577addfd4e667a6:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_link:8b17a8942efa1964adb1:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Named component tests cover representative flows; this classification does not claim per-control browser/Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_button:888a2be7b72275c8d033:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Home reference theme: reuses existing API actions; layout, navigation and local browser presentation controls introduce no new backend capability.",
-      "ui_tests": [
-        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell searches existing tasks and preserves settings overlay navigation"
+        "web/src/features/today/WorkbenchHome.test.tsx::workbench shell shares floating home controls without a search header"
       ],
       "tests": [],
       "verification": {
@@ -16515,7 +16227,7 @@
       "action_ids": [],
       "reason": "Shared original rail, integrated page navigation, explicit task status and assistant presentation; retains existing backend actions.",
       "ui_tests": [
-        "web/src/app/App.test.tsx::settings capsule inside the overlay preserves the original feed return route"
+        "web/src/app/App.test.tsx::settings panels preserve the original feed return route"
       ],
       "tests": [],
       "verification": {
@@ -16529,7 +16241,7 @@
       "action_ids": [],
       "reason": "Shared original rail, integrated page navigation, explicit task status and assistant presentation; retains existing backend actions.",
       "ui_tests": [
-        "web/src/components/WorkspaceChrome.test.tsx::shared rail preserves original icon-only order and toolbar exposes icon theme choices"
+        "web/src/components/WorkspaceChrome.test.tsx::workspace navigation keeps only accessible icons without sidebar search"
       ],
       "tests": [],
       "verification": {
@@ -16543,7 +16255,7 @@
       "action_ids": [],
       "reason": "Shared original rail, integrated page navigation, explicit task status and assistant presentation; retains existing backend actions.",
       "ui_tests": [
-        "web/src/components/WorkspaceChrome.test.tsx::shared rail preserves original icon-only order and toolbar exposes icon theme choices"
+        "web/src/components/WorkspaceChrome.test.tsx::workspace navigation keeps only accessible icons without sidebar search"
       ],
       "tests": [],
       "verification": {
@@ -16557,7 +16269,7 @@
       "action_ids": [],
       "reason": "Shared original rail, integrated page navigation, explicit task status and assistant presentation; retains existing backend actions.",
       "ui_tests": [
-        "web/src/components/WorkspaceChrome.test.tsx::shared rail preserves original icon-only order and toolbar exposes icon theme choices"
+        "web/src/components/WorkspaceChrome.test.tsx::workspace navigation keeps only accessible icons without sidebar search"
       ],
       "tests": [],
       "verification": {
@@ -16571,7 +16283,7 @@
       "action_ids": [],
       "reason": "Shared original rail, integrated page navigation, explicit task status and assistant presentation; retains existing backend actions.",
       "ui_tests": [
-        "web/src/components/WorkspaceChrome.test.tsx::shared rail preserves original icon-only order and toolbar exposes icon theme choices"
+        "web/src/components/WorkspaceChrome.test.tsx::workspace navigation keeps only accessible icons without sidebar search"
       ],
       "tests": [],
       "verification": {
@@ -16585,7 +16297,7 @@
       "action_ids": [],
       "reason": "Shared original rail, integrated page navigation, explicit task status and assistant presentation; retains existing backend actions.",
       "ui_tests": [
-        "web/src/components/WorkspaceChrome.test.tsx::shared rail preserves original icon-only order and toolbar exposes icon theme choices"
+        "web/src/components/WorkspaceChrome.test.tsx::workspace navigation keeps only accessible icons without sidebar search"
       ],
       "tests": [],
       "verification": {
@@ -16784,7 +16496,7 @@
       "action_ids": [],
       "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
       ],
       "tests": [],
       "verification": {
@@ -16798,119 +16510,7 @@
       "action_ids": [],
       "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component tests plus isolated real API browser verification; no claim of full Agent action equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_button:8397e7cc6d5cde58f730:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
-      "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component tests plus isolated real API browser verification; no claim of full Agent action equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:e8b46ece23ece4d425fd:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
-      "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component tests plus isolated real API browser verification; no claim of full Agent action equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_button:fb42be48e7f30e09f9f9:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
-      "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component tests plus isolated real API browser verification; no claim of full Agent action equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:ce6973e13568d9740f1c:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
-      "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component tests plus isolated real API browser verification; no claim of full Agent action equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_button:79cd1546f7ab5bfeb710:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
-      "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component tests plus isolated real API browser verification; no claim of full Agent action equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:dbcddbe211faf7bc24b1:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
-      "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component tests plus isolated real API browser verification; no claim of full Agent action equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_button:9e73292ab29239cdeee8:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
-      "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component tests plus isolated real API browser verification; no claim of full Agent action equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:6f06a46bd239d23569c8:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
-      "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
       ],
       "tests": [],
       "verification": {
@@ -16924,7 +16524,7 @@
       "action_ids": [],
       "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
       ],
       "tests": [],
       "verification": {
@@ -16938,7 +16538,7 @@
       "action_ids": [],
       "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
       ],
       "tests": [],
       "verification": {
@@ -16952,7 +16552,7 @@
       "action_ids": [],
       "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
       ],
       "tests": [],
       "verification": {
@@ -16966,7 +16566,7 @@
       "action_ids": [],
       "reason": "Task status menu and Feed presentation reuse existing business actions; layout/filter interactions are UI-only.",
       "ui_tests": [
-        "web/src/features/feed/FeedPage.test.tsx::feed discovery uses actual items for featured stories topic filters sort and views"
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
       ],
       "tests": [],
       "verification": {
@@ -17409,62 +17009,6 @@
       }
     },
     {
-      "surface_id": "ui_button:a02288b321a878c6eb7d:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Reference-based content/library/settings presentation and native-workspace chrome; preserves existing API actions and frontend preferences.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component regression and isolated API browser checks; not an assertion of complete Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:53cebcd9dd8c91ca07d6:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Reference-based content/library/settings presentation and native-workspace chrome; preserves existing API actions and frontend preferences.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component regression and isolated API browser checks; not an assertion of complete Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_button:59b75a33ee4929188c74:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Reference-based content/library/settings presentation and native-workspace chrome; preserves existing API actions and frontend preferences.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component regression and isolated API browser checks; not an assertion of complete Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_event:c89ed79a3f47b73cd826:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Reference-based content/library/settings presentation and native-workspace chrome; preserves existing API actions and frontend preferences.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component regression and isolated API browser checks; not an assertion of complete Agent equivalence."
-      }
-    },
-    {
       "surface_id": "ui_event:0b2a5d8e80184011cc14:2",
       "classification": "ui_only",
       "action_ids": [],
@@ -17647,20 +17191,6 @@
       }
     },
     {
-      "surface_id": "ui_event:f88ac5e11a8850c29806:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Reference-based content/library/settings presentation and native-workspace chrome; preserves existing API actions and frontend preferences.",
-      "ui_tests": [
-        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component regression and isolated API browser checks; not an assertion of complete Agent equivalence."
-      }
-    },
-    {
       "surface_id": "ui_button:15a1ad374146057e0699:1",
       "classification": "ui_only",
       "action_ids": [],
@@ -17690,20 +17220,6 @@
     },
     {
       "surface_id": "ui_link:581bbe3cca7f0ac6e6d2:1",
-      "classification": "ui_only",
-      "action_ids": [],
-      "reason": "Reference-based content/library/settings presentation and native-workspace chrome; preserves existing API actions and frontend preferences.",
-      "ui_tests": [
-        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
-      ],
-      "tests": [],
-      "verification": {
-        "status": "not_run",
-        "scope": "Component regression and isolated API browser checks; not an assertion of complete Agent equivalence."
-      }
-    },
-    {
-      "surface_id": "ui_button:83aea0bb0e82448f8737:1",
       "classification": "ui_only",
       "action_ids": [],
       "reason": "Reference-based content/library/settings presentation and native-workspace chrome; preserves existing API actions and frontend preferences.",
@@ -17843,6 +17359,754 @@
       "verification": {
         "status": "not_run",
         "scope": "Frontend image fallback, rotation and isolated browser checks; prior business execution evidence remains unchanged."
+      }
+    },
+    {
+      "surface_id": "ui_button:331bb0fd22afd40ae97e:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:2cb294db9b7880a182c4:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:e5dc46aa99dc052e95a8:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:f811e1361514598f4d28:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:48a46d9a4fb250c0b406:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "inbox.classify_selected"
+      ],
+      "reason": "Uses existing registered App action; interactive review and UI tests do not prove all Agent paths ran.",
+      "ui_tests": [
+        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:09fd02ef43fc11cf6142:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:1026e9575c4ff0619c48:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:af2100331e76899ffd73:3",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:b2a40abb21d2ae5639d5:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:9e502bb9a2f80ddbe86d:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/content/ContentDocument.test.tsx::standalone document retains retry errors and shows classification result after archiving"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:4ac135027ab6773f216a:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:1a19f7ec2c08049e6120:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:d7e6c866a89a7cee2452:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:6017162b07be647244c8:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:e4b7eb417674bc0a201b:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:5ff9c883e97b8c36113c:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:cd919aa26b439cbfb4d3:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:00556e012bd80a414215:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:b5b924275ffa1ef14974:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:cb0243f065d0e5b64cf4:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedPage.test.tsx::feed workspace uses actual articles for selection, topic filters, sort and views"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:a3b2a2627cfaf6fbadb0:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:8b79f40a04af6a4e23e3:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:3c39a28996156662bac0:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:29bbda38f3cf5d634b08:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:876e80333346c143da0d:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:3ce9eab15c1967b3c715:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:ec2b295d676a38a656eb:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:9e8f29a709a0ccd060c9:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:a1101fa2545178066e1b:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:221b6699a8a8f5e36cbf:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:98745b6b0d821f8cfbec:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:2fe224b1b3080c66279b:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/feed/FeedRegression.test.tsx::manual add edit remove restore and external hide restore remain available in 资讯"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:697ea9808e45953d9e61:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:a7a8c4919e5846006ce7:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:1ccf88f095115d27a5ab:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:25feaaebed07b61cc160:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:bd60b2235d9ba98d6073:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:93116f72e48542cec412:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:559fc884d20211c90b20:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_button:8eaa7cda1753a51fde0e:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_event:50cb45f541b3c223d235:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/knowledge/KnowledgePage.test.tsx::folder card edit and delete actions open their dialogs"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_api:9f39c8dea9ea5de4deeb:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "today.read"
+      ],
+      "reason": "Uses existing registered App action; interactive review and UI tests do not prove all Agent paths ran.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_query:1341b3a447698e9fe88c:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_api:7c8dbd372e23b0c22d1e:1",
+      "classification": "agent_enabled",
+      "action_ids": [
+        "inbox.list"
+      ],
+      "reason": "Uses existing registered App action; interactive review and UI tests do not prove all Agent paths ran.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_query:7c19401d8f58b6e17eb5:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_link:b2080790b95e686fa80d:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_link:0e1a52f081b96d57e5bc:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_link:5da910d5dfb9e8d9d9e7:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_link:978a4d915d23ead47b06:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_link:a2d39027abbcd6aef805:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_link:c810062f20450b3fe3e3:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_link:a2d39027abbcd6aef805:2",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
+      }
+    },
+    {
+      "surface_id": "ui_link:bc143f1017b595c33d89:1",
+      "classification": "ui_only",
+      "action_ids": [],
+      "reason": "Presentation/navigation/selection/read UI only; business writes remain behind the existing registered API.",
+      "ui_tests": [
+        "web/src/features/today/TodayWorkspace.test.tsx::the home workspace links to actual inbox records and shows actual task states"
+      ],
+      "tests": [],
+      "verification": {
+        "status": "not_run",
+        "scope": "Per-occurrence live Agent equivalence is not inferred from component tests or static mapping."
       }
     }
   ],

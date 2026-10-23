@@ -1,5 +1,4 @@
 import { FeedCover, FeedDiscovery, FeedSources, type FeedPresentation } from './FeedDiscovery'
-import { PageToolbar } from '../../components/WorkspaceChrome'
 import { useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
@@ -141,6 +140,7 @@ function FeedPreview({
   saving,
   saveError,
   saveDisabled,
+  inline = false,
 }: {
   item: FeedItem
   onClose: () => void
@@ -150,6 +150,7 @@ function FeedPreview({
   saving: boolean
   saveError: Error | null
   saveDisabled: boolean
+  inline?: boolean
 }) {
   const url = safeHttpUrl(item.url)
   const sourceLabel =
@@ -160,80 +161,80 @@ function FeedPreview({
         : '人工智能热点'
   const summarize = useMutation({ mutationFn: () => workspaceApi.summarizeFeed(item.id) })
   const detailed = summarize.data?.summary
-  return (
-    <ContentDialog title={item.title} onClose={onClose}>
-      <div className="feed-preview">
-        <FeedCover item={item} featured placement="preview" />
-        <div className="feed-preview-meta">
-          <span className="feed-source">{sourceLabel}</span>
-          {item.published_at && (
-            <time dateTime={item.published_at}>
-              {new Date(item.published_at).toLocaleDateString('zh-CN')}
-            </time>
-          )}
+  const reading = (
+    <div className="feed-preview">
+      <FeedCover item={item} featured placement="preview" />
+      <div className="feed-preview-meta">
+        <span className="feed-source">{sourceLabel}</span>
+        {item.published_at && (
+          <time dateTime={item.published_at}>
+            {new Date(item.published_at).toLocaleDateString('zh-CN')}
+          </time>
+        )}
+      </div>
+      <p className="feed-preview-summary">
+        {item.summary || '这条资讯暂无摘要，打开原文了解详情。'}
+      </p>
+      {detailed && (
+        <div className="feed-preview-detail">
+          <span className="feed-preview-detail-label">
+            <Sparkles size={13} />
+            AI 总结
+          </span>
+          <p>{detailed}</p>
         </div>
-        <p className="feed-preview-summary">
-          {item.summary || '这条资讯暂无摘要，打开原文了解详情。'}
+      )}
+      {summarize.error && (
+        <p className="workspace-error" role="alert">
+          {summarize.error.message}
         </p>
-        {detailed && (
-          <div className="feed-preview-detail">
-            <span className="feed-preview-detail-label">
-              <Sparkles size={13} />
-              AI 总结
-            </span>
-            <p>{detailed}</p>
-          </div>
-        )}
-        {summarize.error && (
-          <p className="workspace-error" role="alert">
-            {summarize.error.message}
-          </p>
-        )}
-        {saveError && (
-          <p className="workspace-error" role="alert">
-            {saveError.message}
-          </p>
-        )}
-        {!!item.tags.length && (
-          <div className="tag-list">
-            {item.tags.map((tag) => (
-              <span key={tag}># {tag}</span>
-            ))}
-          </div>
-        )}
-        <div className="editor-actions">
-          {!detailed && (
-            <button
-              type="button"
-              className="secondary-button"
-              disabled={summarize.isPending}
-              onClick={() => summarize.mutate()}
-            >
-              <Sparkles size={15} className={summarize.isPending ? 'spinning' : ''} />
-              {summarize.isPending ? '生成中…' : 'AI 总结'}
-            </button>
-          )}
+      )}
+      {saveError && (
+        <p className="workspace-error" role="alert">
+          {saveError.message}
+        </p>
+      )}
+      {!!item.tags.length && (
+        <div className="tag-list">
+          {item.tags.map((tag) => (
+            <span key={tag}># {tag}</span>
+          ))}
+        </div>
+      )}
+      <div className="editor-actions">
+        {!detailed && (
           <button
             type="button"
             className="secondary-button"
-            disabled={saveDisabled}
-            onClick={onSave}
+            disabled={summarize.isPending}
+            onClick={() => summarize.mutate()}
           >
-            {saved ? <Check size={15} /> : <BookmarkPlus size={15} />}
-            {saved ? '已收进收件箱' : saving ? '保存中…' : '收进收件箱'}
+            <Sparkles size={15} className={summarize.isPending ? 'spinning' : ''} />
+            {summarize.isPending ? '生成中…' : 'AI 总结'}
           </button>
-          <button type="button" className="secondary-button" onClick={onAsk}>
-            <Sparkles size={15} />
-            引用提问
-          </button>
-          {url && (
-            <a className="primary-link" href={url} target="_blank" rel="noreferrer">
-              阅读原文
-              <ArrowUpRight size={16} />
-            </a>
-          )}
-        </div>
+        )}
+        <button type="button" className="secondary-button" disabled={saveDisabled} onClick={onSave}>
+          {saved ? <Check size={15} /> : <BookmarkPlus size={15} />}
+          {saved ? '已收进收件箱' : saving ? '保存中…' : '收进收件箱'}
+        </button>
+        <button type="button" className="secondary-button" onClick={onAsk}>
+          <Sparkles size={15} />
+          引用提问
+        </button>
+        {url && (
+          <a className="primary-link" href={url} target="_blank" rel="noreferrer">
+            阅读原文
+            <ArrowUpRight size={16} />
+          </a>
+        )}
       </div>
+    </div>
+  )
+  return inline ? (
+    reading
+  ) : (
+    <ContentDialog title={item.title} onClose={onClose}>
+      {reading}
     </ContentDialog>
   )
 }
@@ -242,10 +243,12 @@ export function FeedCard({
   item,
   onEdit,
   variant = 'standard',
+  onOpen,
 }: {
   item: FeedItem
   onEdit?: () => void
   variant?: FeedPresentation
+  onOpen?: () => void
 }) {
   const cache = useQueryClient(),
     ask = useAskAI()
@@ -281,14 +284,56 @@ export function FeedCard({
   const askAI = () =>
     ask.mutate({
       draft: '请解读这条资讯，说明它值得关注的地方。',
-      reference: { title: item.title, content: `${item.summary}\n\n来源：${item.url}` },
+      reference: {
+        title: item.title,
+        content: `以下仅为资讯摘要与来源链接，未加载全文。\n\n${item.summary}\n\n来源：${item.url}`,
+      },
     })
+  if (variant === 'reader')
+    return (
+      <article className="feed-reader-document">
+        <div className="feed-document-actions">
+          {item.source === 'manual' && onEdit && !removed && (
+            <button className="secondary-button" aria-label={`编辑 ${item.title}`} onClick={onEdit}>
+              <Pencil size={14} />
+              编辑
+            </button>
+          )}
+          <button
+            className="secondary-button"
+            disabled={visibility.isPending}
+            aria-label={`${visibilityLabel} ${item.title}`}
+            onClick={() => visibility.mutate()}
+          >
+            {removed ? <RotateCcw size={14} /> : <EyeOff size={14} />} {visibilityLabel}
+          </button>
+        </div>
+        <h2>{item.title}</h2>
+        <FeedPreview
+          inline
+          item={item}
+          onClose={() => setPreview(false)}
+          onAsk={askAI}
+          onSave={() => save.mutate()}
+          saved={save.isSuccess}
+          saving={save.isPending}
+          saveError={save.error}
+          saveDisabled={removed || save.isPending || save.isSuccess}
+        />
+        {(ask.error || visibility.error) && (
+          <p className="workspace-error" role="alert">
+            {(ask.error || visibility.error)!.message}
+          </p>
+        )}
+      </article>
+    )
   return (
     <article
       className={`feed-card is-openable feed-card-${variant}`}
       onClick={(event) => {
         if ((event.target as HTMLElement).closest('button, a, input, label')) return
-        setPreview(true)
+        if (onOpen) onOpen()
+        else setPreview(true)
       }}
     >
       <FeedCover item={item} featured={variant === 'hero'} placement={variant} />
@@ -306,7 +351,11 @@ export function FeedCard({
             {removed && (item.deleted_at ? ' · 已删除' : ' · 已隐藏')}
           </span>
           <h2>
-            <button type="button" className="content-row-open" onClick={() => setPreview(true)}>
+            <button
+              type="button"
+              className="content-row-open"
+              onClick={() => (onOpen ? onOpen() : setPreview(true))}
+            >
               {item.title}
             </button>
           </h2>
@@ -409,7 +458,6 @@ export function FeedPage() {
   return (
     <section className="workspace-page feed-page feed-workbench">
       <header className="workspace-header">
-        <PageToolbar />
         <div>
           <span className="eyebrow">信息汇聚，思路生长</span>
           <h1>资讯</h1>
@@ -512,11 +560,12 @@ export function FeedPage() {
           ) : (
             <FeedDiscovery
               items={feed.data.items}
-              renderCard={(item, variant) => (
+              renderCard={(item, variant, onOpen) => (
                 <FeedCard
                   key={item.id}
                   item={item}
                   variant={variant}
+                  onOpen={onOpen}
                   onEdit={() => setEditor(item)}
                 />
               )}

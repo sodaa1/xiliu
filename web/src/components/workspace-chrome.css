@@ -1,213 +1,168 @@
-/* Shared chrome lives in each page's own header, never in a separate navigation row. */
-.page-toolbar {
+/* Single shared authority for workspace navigation and floating page controls. */
+.app-shell {
+  border-radius: 0;
+}
+.app-shell .global-sidebar.workspace-sidebar {
+  width: 64px;
+  min-width: 64px;
+  padding: 20px 8px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-right: 1px solid var(--line);
+  background: #f2f6ff;
+}
+.app-shell .workspace-sidebar .brand {
+  width: 48px;
+  height: 42px;
+  margin: 0 0 24px;
+  padding: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  min-width: 0;
-  max-width: 100%;
-  flex: 0 1 auto;
-  margin-left: auto;
-  order: 10;
+  justify-content: center;
 }
-.page-toolbar .today-shortcuts {
-  padding: 3px;
-  margin: -3px;
-}
-.page-toolbar .today-shortcuts .pill-nav {
-  --nav-h: 32px;
-  --pill-pad-x: 11px;
-}
-.page-toolbar .today-shortcuts .pill {
-  font-size: 0.82rem;
-}
-.page-toolbar .home-theme-switch {
-  flex: none;
+.app-shell .workspace-sidebar .brand .brand-mark {
+  width: 28px;
+  height: 28px;
+  padding: 0;
   margin: 0;
-  gap: 2px;
-  padding: 2px;
-  background: color-mix(in srgb, var(--surface, #fff) 65%, transparent);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: #7568b7;
 }
-.page-toolbar .home-theme-switch button {
+.app-shell .workspace-sidebar .brand .brand-mark svg {
+  width: 26px;
+  height: 26px;
+}
+.app-shell .workspace-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0;
+}
+.app-shell .workspace-sidebar .nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 40px;
+  min-height: 40px;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--accent-strong);
+  box-shadow: none;
+  transition: background-color 120ms ease;
+}
+.app-shell .workspace-sidebar .nav-item svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.7;
+}
+.app-shell .workspace-sidebar .nav-item.active {
+  background: #dee9ff;
+  box-shadow: inset 3px 0 #2864dc;
+}
+.app-shell .workspace-sidebar .nav-item:hover {
+  background: #e7efff;
+}
+.app-shell .workspace-sidebar .nav-item[href='/today'] svg,
+.app-shell .workspace-sidebar .nav-item[href='/inbox'] svg {
+  color: #bd5038;
+}
+.app-shell .workspace-sidebar .nav-item[href='/assistant'] svg,
+.app-shell .workspace-sidebar .nav-item[href='/feed'] svg {
+  color: #2864dc;
+}
+.app-shell .workspace-sidebar .nav-item[href='/knowledge'] svg,
+.app-shell .workspace-sidebar .nav-item[href='/plans'] svg {
+  color: #087f76;
+}
+.app-shell .workspace-sidebar .sidebar-bottom {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.app-shell .main-stage {
+  position: relative;
+}
+.workspace-controls {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  z-index: 5;
+  background: transparent;
+  pointer-events: none;
+}
+.main-stage:has(> .demo-bar) > .workspace-controls {
+  top: 54px;
+}
+.workspace-controls-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+.workspace-controls .home-theme-switch {
+  display: flex;
+  margin: 0;
+  padding: 2px;
+  gap: 2px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.workspace-controls .home-theme-switch button {
   width: 30px;
   height: 30px;
   min-height: 30px;
   padding: 6px;
+  background: transparent;
+  border-radius: 4px;
+  color: var(--muted-readable);
 }
-.page-toolbar .home-theme-switch button svg {
+.workspace-controls .home-theme-switch button svg {
   display: block;
   width: 16px;
   height: 16px;
 }
-.page-toolbar .home-theme-switch button:focus-visible {
+.workspace-controls .home-theme-switch button.active {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+.workspace-controls button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
-.original-home-toolbar {
-  position: absolute;
-  top: 24px;
-  right: 86px;
-  left: 28px;
-  z-index: 3;
-  display: flex;
-  justify-content: flex-end;
-  pointer-events: none;
-}
-.original-home-toolbar .page-toolbar {
-  pointer-events: auto;
-}
-.workspace-header > .page-toolbar,
-.plan-header > .page-toolbar {
-  order: 10;
-}
-.workspace-header:has(> .page-toolbar),
-.plan-header:has(> .page-toolbar) {
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.workspace-header:has(> .page-toolbar)
-  > div:not(.page-toolbar):not(.row-actions):not(.content-header-actions) {
-  flex: 1;
-  min-width: 160px;
-}
-.workspace-header:has(> .page-toolbar) .feed-header-search {
-  flex: 0 1 190px;
-  min-width: 140px;
-}
-.plan-header:has(> .page-toolbar) > div:not(.page-toolbar):not(.plan-header-actions) {
-  margin-right: auto;
-}
-.plan-header:has(> .page-toolbar) .plan-header-actions {
-  flex: 0 1 auto;
-  gap: 10px;
-}
-.plan-header:has(> .page-toolbar) .plan-search {
-  width: 170px;
-}
-.settings-page-toolbar {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 16px;
-}
-.knowledge-detail-heading {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-}
-.workbench-shell .workbench-topbar {
-  background: transparent;
-  border-bottom: 0;
-  padding-inline: 28px;
-  gap: 18px;
-}
-.workbench-shell .wb-global-search {
-  flex: 1 1 220px;
-  width: auto;
-  max-width: 430px;
-  min-width: 150px;
-}
-.workbench-shell .wb-top-actions {
-  margin-left: auto;
-  min-width: 0;
-  gap: 12px;
-}
-.workbench-shell .wb-top-actions .page-toolbar {
-  order: 0;
-}
-.plans-page select.plan-inline-status {
-  width: auto;
-  max-width: 90px;
-  min-width: 76px;
-  flex: none;
-  padding: 4px 5px;
-  border: 1px solid #e7e0f5;
-  border-radius: 7px;
-  font: inherit;
-  font-size: 0.78rem;
-  color: var(--accent-strong, #7755b9);
-  background: var(--surface, #fff);
-}
-.plan-task-row.state-in_progress .plan-inline-status {
-  background: var(--accent-soft, #f0eaff);
-  border-color: #cbb9ee;
-}
-@media (max-width: 1100px) {
-  .page-toolbar {
-    gap: 5px;
-  }
-  .page-toolbar .today-shortcuts .pill-nav {
-    --pill-pad-x: 8px;
-    --nav-h: 30px;
-  }
-  .page-toolbar .today-shortcuts .pill {
-    font-size: 0.75rem;
-  }
-  .workspace-header:has(> .page-toolbar) .row-actions {
-    order: 11;
-    margin-left: auto;
-  }
-  .workbench-shell .wb-top-actions > .wb-icon-button {
-    display: none;
-  }
-}
 @media (max-width: 760px) {
-  .original-home-toolbar {
-    top: 14px;
-    right: 65px;
-    left: 10px;
+  .workspace-controls {
+    right: 14px;
   }
-  .page-toolbar .today-shortcuts {
-    max-width: calc(100vw - 160px);
-  }
-  .page-toolbar .home-theme-switch button {
-    width: 26px;
-    height: 28px;
-    min-height: 28px;
-    padding: 5px;
-  }
-  .page-toolbar .today-shortcuts .pill-nav {
-    --nav-h: 29px;
-    --pill-pad-x: 8px;
-  }
-  .workspace-header:has(> .page-toolbar) > .page-toolbar,
-  .plan-header:has(> .page-toolbar) > .page-toolbar {
-    width: 100%;
-    order: 0;
-    margin: 0;
-  }
-  .workbench-shell .workbench-topbar {
-    height: auto;
-    min-height: 52px;
-    padding: 8px 12px;
-    gap: 8px;
-  }
-  .workbench-shell .wb-global-search {
-    flex: 1;
-    min-width: 88px;
-    max-width: none;
-  }
-  .workbench-shell .wb-top-actions {
-    flex: 0 1 auto;
-  }
-  .workbench-shell .wb-top-actions .today-shortcuts {
-    max-width: 140px;
-  }
-  .workbench-shell .global-sidebar.icon-rail {
-    display: flex;
-  }
-  .workbench-shell .main-stage {
-    width: calc(100% - 74px);
-  }
-  .workbench-shell .wb-mobile-nav {
-    left: 74px;
-  }
-  .workbench-shell .wb-landscape {
-    mask-image: linear-gradient(to right, transparent 28%, #000 100%);
-  }
-  .plans-page select.plan-inline-status {
-    min-width: 70px;
-    max-width: 76px;
-    font-size: 0.72rem;
-  }
+}
+/* Peer controls share the same visual language across all workspace routes. */
+:root[data-theme] .app-shell :is(.workspace-page, .plans-page, .chat-panel) .primary-button {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: none;
+}
+:root[data-theme] .app-shell :is(.workspace-page, .plans-page) .segmented button {
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted-readable);
+  box-shadow: none;
+  padding: 6px 10px;
+}
+:root[data-theme] .app-shell :is(.workspace-page, .plans-page) .segmented button.selected {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  box-shadow: none;
 }

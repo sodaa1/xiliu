@@ -50,12 +50,10 @@ test('folder cards open nested contents and return to the folder homepage', asyn
 test('folder card edit and delete actions open their dialogs', async () => {
   mount()
   const user = userEvent.setup()
-  await user.click(await screen.findByRole('button', { name: '文件夹操作：研究' }))
-  await user.click(screen.getByRole('menuitem', { name: '编辑规则' }))
+  await user.click(await screen.findByRole('button', { name: '编辑规则' }))
   expect(await screen.findByRole('heading', { name: '编辑文件夹规则' })).toBeVisible()
   await user.click(screen.getByRole('button', { name: '取消' }))
-  await user.click(await screen.findByRole('button', { name: '文件夹操作：研究' }))
-  await user.click(screen.getByRole('menuitem', { name: '删除文件夹 研究' }))
+  await user.click(await screen.findByRole('button', { name: '删除文件夹 研究' }))
   expect(await screen.findByRole('heading', { name: '删除文件夹 研究' })).toBeVisible()
 })
 test('folder rules are submitted with parsed tags and numeric priority', async () => {
@@ -77,4 +75,29 @@ test('folder rules are submitted with parsed tags and numeric priority', async (
     tags: ['代码', '前端'],
     priority: 5,
   })
+})
+
+test('library category filters use actual folder tags and can reset without changing folders', async () => {
+  const original = fetch
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (input: string, init?: RequestInit) => {
+      if (String(input) === '/api/knowledge/folders' && init?.method !== 'POST') {
+        const response = await original(input)
+        const folders = await response.json()
+        return Response.json([
+          ...folders,
+          { ...folders[0], id: 'work', name: '工作', tags: ['项目'] },
+        ])
+      }
+      return original(input, init)
+    })
+  )
+  mount()
+  const user = userEvent.setup()
+  await user.click(await screen.findByRole('button', { name: '论文' }))
+  expect(screen.getByRole('heading', { name: '研究' })).toBeVisible()
+  expect(screen.queryByRole('heading', { name: '工作' })).not.toBeInTheDocument()
+  await user.click(screen.getByRole('button', { name: '全部分类' }))
+  expect(await screen.findByRole('heading', { name: '工作' })).toBeVisible()
 })

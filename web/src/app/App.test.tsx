@@ -84,6 +84,35 @@ function mount(path = '/settings') {
     </QueryClientProvider>
   )
 }
+test('home themes share the same top right controls without workspace breadcrumbs', async () => {
+  const view = mount('/today')
+  const user = userEvent.setup()
+  const controls = () =>
+    Array.from(view.container.querySelectorAll('.workspace-controls button')).map((button) =>
+      button.getAttribute('aria-label')
+    )
+  const original = controls()
+  expect(original).toEqual(['原有主题', '山水工作台'])
+  expect(screen.queryByText('我的空间')).not.toBeInTheDocument()
+  await user.click(screen.getByRole('button', { name: '山水工作台' }))
+  expect(controls()).toEqual(original)
+  expect(screen.queryByRole('link', { name: '外观设置' })).not.toBeInTheDocument()
+})
+
+test('assistant inbox and plans retain the committed layout scope', async () => {
+  const view = mount('/inbox')
+  expect(view.container.querySelector('.app-shell')).not.toHaveClass('workspace-v2')
+  expect(view.container.querySelector('.workbench-reading-pane')).not.toBeInTheDocument()
+  const user = userEvent.setup()
+  for (const name of ['助手', '个人计划']) {
+    await user.click(
+      within(screen.getByRole('navigation', { name: '主导航' })).getByRole('link', { name })
+    )
+    await waitFor(() =>
+      expect(view.container.querySelector('.app-shell')).not.toHaveClass('workspace-v2')
+    )
+  }
+})
 test('App icon rail navigates to every page', async () => {
   const view = mount('/today'),
     user = userEvent.setup()
@@ -132,9 +161,7 @@ test('tour keeps its origin when the workbench homepage changes the shell', asyn
 test('App 设置 overlay preserves page and keyboard navigation selects panels', async () => {
   const view = mount('/today'),
     user = userEvent.setup()
-  await user.click(
-    within(screen.getByRole('navigation', { name: '快捷导航' })).getByRole('link', { name: '设置' })
-  )
+  await user.click(screen.getByRole('link', { name: '设置' }))
   expect(screen.getByRole('dialog', { name: '设置' })).toBeVisible()
   await user.click(screen.getByRole('tab', { name: '个人信息' }))
   await user.keyboard('{ArrowRight}')
@@ -151,7 +178,7 @@ test('App 设置 overlay preserves page and keyboard navigation selects panels',
   )
 })
 
-test('settings capsule inside the overlay preserves the original feed return route', async () => {
+test('settings panels preserve the original feed return route', async () => {
   const user = userEvent.setup()
   const view = render(
     <QueryClientProvider
@@ -165,7 +192,8 @@ test('settings capsule inside the overlay preserves the original feed return rou
   const rail = screen.getByRole('navigation', { name: '主导航' })
   await user.click(within(rail.closest('aside')!).getByRole('link', { name: '设置' }))
   const dialog = await screen.findByRole('dialog', { name: '设置' })
-  await user.click(within(dialog).getByRole('link', { name: '设置' }))
+  await user.click(within(dialog).getByRole('tab', { name: '模型与连接' }))
+  await user.click(within(dialog).getByRole('tab', { name: '个人信息' }))
   await user.click(screen.getByRole('button', { name: '关闭设置' }))
   await waitFor(() =>
     expect(view.container.querySelector('[data-route-path]')).toHaveAttribute(

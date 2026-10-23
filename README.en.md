@@ -20,43 +20,14 @@ Follow the [Docker deployment guide](docs/CLOUD_WEB_DEPLOYMENT.md); account data
 
 Cloud mode disables local files, processes, Skills / MCP and shared search credentials; AI Hot and Web search are unavailable. The Windows 0.4.5 installer remains the local desktop edition.
 
-## What's new in 0.4.5
+## Latest update · October 23, 2026
 
-- A unified white/gray/lilac workspace with both original and landscape home themes; redesigned Assistant, Feed, Inbox, Knowledge and Settings.
-- Explicit pending, in-progress and completed task states with hover, keyboard and touch overflow menus.
-- Sixteen credited, locally bundled HD photographs rotate by topic, with responsive/high-DPI variants; original article images and uploaded backgrounds remain available.
-- Refined capture, reading, editing, automations and onboarding, including mobile, dark, larger-font and reduced-motion support.
-- [Windows installer and SHA256](https://github.com/sodaa1/xiliu/releases/tag/v0.4.5); see [delivery evidence and limits](docs/WINDOWS_RELEASE.md).
+- Consistent icon navigation and corner controls across all six pages, without a duplicate global search header; home theme controls remain on the home page.
+- Inbox and Feed start with compact card grids. Opening an item switches to a left-hand list and a right-hand reader that fills the available width and height without resizing between items.
+- Knowledge retains its folder cards with tag categories and a recent-items view. Compact desktop toolbars leave most of the space for documents.
+- Existing capture, editing, classification, search, reference and original-download APIs remain in use. These changes are in the mainline source; the published Windows installer and online demo are not claimed to include them yet.
 
-## What's new in 0.4.4
-
-- A shared first-visit feature tour for Web and desktop, with skip and replay controls.
-- Chinese interface and six navigation shortcuts; companion drag feedback and standing hair/skirt inertia.
-- [Online demo](https://sodaa1.github.io/xiliu/#/today) with sample data and simulated replies. This static site has no accounts or cloud synchronization.
-
-## What's new in 0.4.3
-
-- The home opens with the built-in background; saved blank and custom backgrounds remain unchanged.
-- The Windows package includes an independent desktop companion with Q and standing forms, per-form scaling, compact chat and Inbox capture.
-- Idle blink/smile, clear drag feedback, and native window command permissions are included. Rigged Live2D models and Cubism Core remain optional external assets.
-
-## What's new in 0.4
-
-- App business operations use one `app` tool and one ActionRegistry, backed by the existing UI services.
-- Explicit local operations use Fast without Supervisor or model calls; optional AI metadata jobs persist and recover after restart.
-- Feed supports manual add/edit/remove/restore and external hide/unhide. Non-sensitive preferences synchronize with revision checks.
-- Human confirmations, per-action policy, cancellation and stored result verification are shared across execution paths.
-- See the [v0.4 delivery report](docs/XILIU_04_UNIFIED_ACTIONS.md), [page capability matrix](docs/audit/all-pages-capabilities.md), [performance](docs/audit/fast-performance.md) and [package comparison](docs/audit/package-size-before-after.md).
-
-## What's new in 0.3
-
-- **Agent access to application data:** `inbox_import`, `inbox_list`, `knowledge_folders`, `knowledge_folder_create`, and `inbox_classify` reuse the UI's services. URLs are imported separately. When explicitly requested, unmatched cards can be saved to Knowledge without a folder.
-- **Independent chats and cancellation:** each conversation owns its running state and request controller. Use other chats while one is running, stop only the selected chat, and retain received reasoning and completed operations.
-- **Adjustable layout:** the main sidebar can shrink to 144px, the conversation sidebar to 160px, and the composer height ranges from 48–98px. Pointer and keyboard resizing persist across reloads.
-- **Desktop and model connections:** uploads use HTML5 drag and drop; SDK reasoning and chat history are retained. Literal local model addresses bypass system proxies; external endpoints keep their proxy settings. Connection and authentication errors return directly instead of becoming repeated routing retries.
-- **AIHot defaults:** first launch adds the public MCP configuration when missing and preserves existing user configuration. News retrieval does not require a model API key.
-
-See the [0.3 change record](docs/XILIU_03_FIXES.md) and [0.3.1 repair record](docs/XILIU_031_FIXES.md). The patch adds current-weather retrieval, one workflow retry budget for search, and reliable Windows Git subprocess startup. [0.3.2](docs/XILIU_032_FIXES.md) adds folder creation and preserves Inbox tags when moving links to a requested folder.
+See the [integration evidence](docs/ui-redesign-v2/integration.md) and [GitHub Releases](https://github.com/sodaa1/xiliu/releases) for older release history.
 
 ## Features and workflow
 
@@ -73,7 +44,7 @@ See the [0.3 change record](docs/XILIU_03_FIXES.md) and [0.3.1 repair record](do
 
 ## Windows installation
 
-Download `Xiliu-0.4.4-x64-setup.exe` and its SHA256 file from [GitHub Release v0.4.4](https://github.com/sodaa1/xiliu/releases/tag/v0.4.4). Installers are published as release assets rather than committed to Git source.
+Download `Xiliu-0.4.5-x64-setup.exe` and its SHA256 file from [GitHub Release v0.4.5](https://github.com/sodaa1/xiliu/releases/tag/v0.4.5). Installers are published as release assets rather than committed to Git source.
 
 1. Run the installer and follow its Chinese-language wizard. Python, Node.js, and Rust are not required to use the packaged application.
 2. On first launch, configure your provider, API endpoint, model, and API key in Settings. The package includes no developer credentials, personal model configuration, databases, tests, or project documentation.
@@ -132,7 +103,7 @@ The data directory's `agents/` contains `rag`, `research`, and `code` templates.
 
 ## Verification and limits
 
-Fresh mainline regression on October 9, 2026: backend **124 passed / 1 skipped**, frontend **33 passed**. The skip is an existing static-resource test requiring unavailable Windows symlink privileges. See [project progress](docs/DEVELOPMENT_PROCESS.en.md).
+UI integration verification on October 23, 2026: mainline backend **931 passed / 1 skipped**, frontend **258 passed**; ESLint, production build and the 1,092-surface static audit passed. Another 38 relevant API tests passed against the local uncommitted backend changes, which are excluded from this UI commit. See [integration evidence and limits](docs/ui-redesign-v2/integration.md).
 
 ```powershell
 uv run python -m pytest

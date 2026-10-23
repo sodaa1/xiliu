@@ -160,31 +160,36 @@ test('manual add edit remove restore and external hide restore remain available 
       </QueryClientProvider>
     </MemoryRouter>
   )
-  await screen.findByText('External story')
+  await screen.findByRole('button', { name: 'External story' })
   await user.click(screen.getByRole('button', { name: '添加资讯' }))
   await user.type(screen.getByLabelText('资讯链接'), 'https://example.org/manual')
   await user.type(screen.getByLabelText('资讯标题'), 'Manual story')
   await user.click(screen.getByRole('button', { name: '保存资讯' }))
-  await screen.findByText('Manual story')
+  await user.click(await screen.findByRole('button', { name: 'Manual story' }))
   await user.click(screen.getByRole('button', { name: '编辑 Manual story' }))
   await user.clear(screen.getByLabelText('资讯标题'))
   await user.type(screen.getByLabelText('资讯标题'), 'Edited story')
   await user.click(screen.getByRole('button', { name: '保存资讯' }))
-  await screen.findByText('Edited story')
+  await screen.findByRole('heading', { name: 'Edited story' })
   await user.click(screen.getByRole('button', { name: '删除 Edited story' }))
-  await waitFor(() => expect(screen.queryByText('Edited story')).not.toBeInTheDocument())
+  await waitFor(() =>
+    expect(screen.queryByRole('button', { name: '阅读：Edited story' })).not.toBeInTheDocument()
+  )
   await user.click(screen.getByRole('button', { name: '隐藏 External story' }))
-  await waitFor(() => expect(screen.queryByText('External story')).not.toBeInTheDocument())
+  await waitFor(() =>
+    expect(screen.queryByRole('button', { name: '阅读：External story' })).not.toBeInTheDocument()
+  )
   await user.click(screen.getByLabelText('显示已移除资讯'))
-  await screen.findByText('Edited story')
+  await user.click(await screen.findByRole('button', { name: 'Edited story' }))
   await user.click(screen.getByRole('button', { name: '恢复 Edited story' }))
+  await user.click(screen.getByRole('button', { name: '阅读：External story' }))
   await user.click(screen.getByRole('button', { name: '取消隐藏 External story' }))
   await user.click(screen.getByLabelText('显示已移除资讯'))
-  await screen.findByText('Edited story')
-  await screen.findByText('External story')
+  await screen.findByRole('button', { name: 'Edited story' })
+  await screen.findByRole('button', { name: 'External story' })
 })
 
-test('feed card opens a preview with AI summary, read original and save actions', async () => {
+test('feed reader keeps AI summary, read original and save actions available', async () => {
   const user = userEvent.setup()
   vi.stubGlobal(
     'fetch',
@@ -226,8 +231,8 @@ test('feed card opens a preview with AI summary, read original and save actions'
       </QueryClientProvider>
     </MemoryRouter>
   )
-  await user.click(await screen.findByRole('heading', { name: 'Preview story', level: 2 }))
-  const dialog = await screen.findByRole('dialog', { name: 'Preview story' })
+  await user.click(await screen.findByRole('button', { name: 'Preview story' }))
+  const dialog = await screen.findByRole('region', { name: '资讯阅读' })
   expect(within(dialog).getByRole('link', { name: /阅读原文/ })).toHaveAttribute(
     'href',
     'https://example.org/news'

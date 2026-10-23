@@ -1,23 +1,12 @@
-import { PageToolbar } from '../../components/WorkspaceChrome'
-import { ActionMenu } from '../../components/ActionMenu'
 import { useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Link, useSearchParams } from 'react-router-dom'
-import {
-  ArrowLeft,
-  Folder,
-  Plus,
-  Search,
-  BookOpen,
-  ArrowUpRight,
-  FileText,
-  Pencil,
-  Trash2,
-} from 'lucide-react'
+import { ArrowLeft, Folder, Plus, Search, BookOpen, ArrowUpRight, FileText } from 'lucide-react'
 import { workspaceApi, type KnowledgeFolder, type ContentItem } from '../../lib/workspace-api'
 import { ContentPage } from '../content/ContentPage'
 import { ContentDialog } from '../content/ContentDialog'
 import './knowledge.css'
+import './knowledge-library.css'
 import { ArtworkImage } from '../../components/ArtworkImage'
 import { topicForContent } from '../../lib/artwork'
 
@@ -151,22 +140,6 @@ function FolderCard({
 }) {
   return (
     <article className="knowledge-folder-card">
-      <div className="knowledge-folder-menu">
-        <ActionMenu label={`文件夹操作：${folder.name}`}>
-          <button onClick={onEdit}>
-            <Pencil size={15} />
-            编辑规则
-          </button>
-          <button
-            className="delete-action"
-            aria-label={`删除文件夹 ${folder.name}`}
-            onClick={onDelete}
-          >
-            <Trash2 size={15} />
-            删除
-          </button>
-        </ActionMenu>
-      </div>
       <Link className="knowledge-folder-open" to={`?folder=${encodeURIComponent(folder.id)}`}>
         <div className="knowledge-folder-symbol">
           <Folder size={26} />
@@ -182,6 +155,12 @@ function FolderCard({
       </div>
       <footer>
         <span>优先级 {folder.priority}</span>
+        <div>
+          <button onClick={onEdit}>编辑规则</button>
+          <button aria-label={`删除文件夹 ${folder.name}`} onClick={onDelete}>
+            删除
+          </button>
+        </div>
       </footer>
     </article>
   )
@@ -194,7 +173,9 @@ export function KnowledgePage() {
   const [editing, setEditing] = useState<KnowledgeFolder | null | undefined>(undefined),
     [deleting, setDeleting] = useState<KnowledgeFolder | null>(null),
     [q, setQ] = useState(''),
-    [search, setSearch] = useState('')
+    [search, setSearch] = useState(''),
+    [category, setCategory] = useState(''),
+    [libraryView, setLibraryView] = useState<'folders' | 'recent'>('folders')
   const folders = useQuery({ queryKey: ['knowledge-folders'], queryFn: workspaceApi.folders })
   const recent = useQuery({
     queryKey: ['content', 'knowledge'],
@@ -213,12 +194,20 @@ export function KnowledgePage() {
       void cache.invalidateQueries({ queryKey: ['content'] })
     },
   })
+  const categories = [...new Set((folders.data ?? []).flatMap((folder) => folder.tags))].sort(
+    (a, b) => a.localeCompare(b, 'zh-CN')
+  )
+  const visibleFolders = (folders.data ?? []).filter(
+    (folder) => !category || folder.tags.includes(category)
+  )
+  const visibleRecent = (recent.data ?? []).filter(
+    (item) => !category || item.tags.includes(category)
+  )
   const activeFolder = folders.data?.find((folder) => folder.id === folderId)
   if (folderId)
     return (
-      <div className="knowledge-detail library-workbench-detail">
+      <div className="knowledge-detail">
         <div className="knowledge-detail-heading">
-          <PageToolbar />
           <button className="secondary-button" onClick={() => setParams({})}>
             <ArrowLeft size={16} />
             返回文件夹
@@ -234,82 +223,104 @@ export function KnowledgePage() {
         <ContentPage
           key={folderId}
           status="knowledge"
-          showPageToolbar={false}
           documentId={params.get('document') ?? undefined}
           folderId={folderId === 'all' ? undefined : folderId}
         />
       </div>
     )
   return (
-    <section className="workspace-page knowledge-page ui-page library-workbench">
-      <header className="workspace-header">
-        <PageToolbar />
-        <div>
-          <span className="eyebrow">让积累成为你的知识</span>
-          <h1>知识库</h1>
-          <p>通过标签规则自动归类，也可以随时手动调整。</p>
-          <div className="knowledge-overview" aria-label="知识库概况">
-            <span>
-              <strong>{folders.data?.length ?? '—'}</strong>
-              个文件夹
-            </span>
-            <span>
-              <strong>
-                {folders.data?.reduce((total, folder) => total + folder.item_count, 0) ?? '—'}
-              </strong>
-              项已归类内容
-            </span>
+    <section className="workspace-page knowledge-page ui-page knowledge-library">
+      <div className="knowledge-library-tools">
+        <header className="workspace-header">
+          <div>
+            <h1>知识库</h1>
+
+            <div className="knowledge-overview" aria-label="知识库概况">
+              <span>
+                <strong>{folders.data?.length ?? '—'}</strong>
+                个文件夹
+              </span>
+              <span>
+                <strong>
+                  {folders.data?.reduce((total, folder) => total + folder.item_count, 0) ?? '—'}
+                </strong>
+                项已归类内容
+              </span>
+            </div>
           </div>
-        </div>
-        <button className="primary-button" onClick={() => setEditing(null)}>
-          <Plus size={17} />
-          新建文件夹
-        </button>
-      </header>
-      <form
-        className="workspace-toolbar"
-        onSubmit={(event) => {
-          event.preventDefault()
-          setSearch(q.trim())
-        }}
-      >
-        <label className="search-field">
-          <Search size={17} />
-          <input
-            aria-label="检索知识库"
-            value={q}
-            onChange={(event) => setQ(event.target.value)}
-            placeholder="按标签、关键词或问题检索"
-          />
-        </label>
-        <button className="secondary-button">检索</button>
-        {search && (
-          <button
-            className="secondary-button"
-            type="button"
-            onClick={() => {
-              setSearch('')
-              setQ('')
+          <form
+            className="workspace-toolbar"
+            onSubmit={(event) => {
+              event.preventDefault()
+              setSearch(q.trim())
             }}
           >
-            清除
+            <label className="search-field">
+              <Search size={17} />
+              <input
+                aria-label="检索知识库"
+                value={q}
+                onChange={(event) => setQ(event.target.value)}
+                placeholder="按标签、关键词或问题检索"
+              />
+            </label>
+            <button className="secondary-button">检索</button>
+            {search && (
+              <button
+                className="secondary-button"
+                type="button"
+                onClick={() => {
+                  setSearch('')
+                  setQ('')
+                }}
+              >
+                清除
+              </button>
+            )}
+          </form>
+          <button className="primary-button" onClick={() => setEditing(null)}>
+            <Plus size={17} />
+            新建文件夹
           </button>
-        )}
-      </form>
-      <nav className="knowledge-links" aria-label="知识库浏览">
-        <span className="knowledge-current">
-          <Folder size={16} />
-          文件夹
-        </span>
-        <Link to="?folder=all">
-          <BookOpen size={16} />
-          全部资料
-        </Link>
-        <Link to="?folder=unfiled">
-          <FileText size={16} />
-          未分类
-        </Link>
-      </nav>
+        </header>
+
+        <nav className="knowledge-links" aria-label="知识库浏览">
+          <button
+            type="button"
+            aria-pressed={libraryView === 'folders'}
+            onClick={() => setLibraryView('folders')}
+          >
+            <Folder size={16} />
+            文件夹
+          </button>
+          <button
+            type="button"
+            aria-pressed={libraryView === 'recent'}
+            onClick={() => setLibraryView('recent')}
+          >
+            <FileText size={16} />
+            最近资料
+          </button>
+          <Link to="?folder=all">
+            <BookOpen size={16} />
+            全部资料
+          </Link>
+          <Link to="?folder=unfiled">
+            <FileText size={16} />
+            未分类
+          </Link>
+        </nav>
+        <div className="knowledge-category-filter" role="group" aria-label="资料分类">
+          <button aria-pressed={!category} onClick={() => setCategory('')}>
+            全部分类
+          </button>
+          {categories.map((tag) => (
+            <button key={tag} aria-pressed={category === tag} onClick={() => setCategory(tag)}>
+              {tag}
+            </button>
+          ))}
+        </div>
+      </div>
       {search && (
         <section className="knowledge-results" aria-label="知识库检索结果">
           <h2>检索结果</h2>
@@ -341,33 +352,36 @@ export function KnowledgePage() {
           )}
         </section>
       )}
-      {folders.isLoading ? (
-        <p className="workspace-empty">正在加载文件夹…</p>
-      ) : folders.error ? (
-        <div className="workspace-empty">
-          <p role="alert">{folders.error.message}</p>
-          <button className="secondary-button" onClick={() => void folders.refetch()}>
-            重新加载
-          </button>
-        </div>
-      ) : !folders.data?.length ? (
-        <div className="workspace-empty">
-          <Folder size={32} />
-          <h2>建立第一条整理规则</h2>
-          <p>新建文件夹并设置匹配标签，让导入的资料有处可去。</p>
-        </div>
-      ) : (
-        <div className="knowledge-folder-grid">
-          {folders.data.map((folder) => (
-            <FolderCard
-              key={folder.id}
-              folder={folder}
-              onEdit={() => setEditing(folder)}
-              onDelete={() => setDeleting(folder)}
-            />
-          ))}
-        </div>
-      )}
+      {!search &&
+        libraryView === 'folders' &&
+        (folders.isLoading ? (
+          <p className="workspace-empty">正在加载文件夹…</p>
+        ) : folders.error ? (
+          <div className="workspace-empty">
+            <p role="alert">{folders.error.message}</p>
+            <button className="secondary-button" onClick={() => void folders.refetch()}>
+              重新加载
+            </button>
+          </div>
+        ) : !folders.data?.length ? (
+          <div className="workspace-empty">
+            <Folder size={32} />
+            <h2>建立第一条整理规则</h2>
+            <p>新建文件夹并设置匹配标签，让导入的资料有处可去。</p>
+          </div>
+        ) : (
+          <div className="knowledge-folder-grid">
+            {!visibleFolders.length && <p role="status">此分类下暂无文件夹。</p>}
+            {visibleFolders.map((folder) => (
+              <FolderCard
+                key={folder.id}
+                folder={folder}
+                onEdit={() => setEditing(folder)}
+                onDelete={() => setDeleting(folder)}
+              />
+            ))}
+          </div>
+        ))}
       {!search && (
         <section className="knowledge-recent" aria-label="最近内容">
           <header>
@@ -386,11 +400,11 @@ export function KnowledgePage() {
             <p role="alert" className="workspace-error">
               {recent.error.message}
             </p>
-          ) : recent.data?.length ? (
+          ) : visibleRecent.length ? (
             <div className="knowledge-recent-grid">
-              {[...recent.data]
+              {[...visibleRecent]
                 .sort((a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at))
-                .slice(0, 4)
+                .slice(0, libraryView === 'recent' ? 24 : 8)
                 .map((item) => (
                   <RecentDocument key={item.id} item={item} />
                 ))}

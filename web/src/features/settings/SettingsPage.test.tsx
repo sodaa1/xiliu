@@ -86,9 +86,7 @@ function mount(path = '/settings') {
 test('settings opens above the current page; profile and appearance persist', async () => {
   const view = mount('/feed'),
     user = userEvent.setup()
-  await user.click(
-    within(screen.getByRole('navigation', { name: '快捷导航' })).getByRole('link', { name: '设置' })
-  )
+  await user.click(screen.getByRole('link', { name: '设置' }))
   expect(screen.getByRole('dialog', { name: '设置' })).toBeVisible()
   await user.type(screen.getByLabelText('昵称'), '小溪')
   await user.click(screen.getByRole('button', { name: '保存个人信息' }))
@@ -109,12 +107,12 @@ test('settings opens above the current page; profile and appearance persist', as
   expect(document.documentElement.style.fontSize).toBe('18px')
 })
 
-test('global pill navigation sits above the page, not inside the 今日 heading', async () => {
+test('workspace text navigation stays outside the home content and reaches every page', async () => {
   mount('/today')
   const user = userEvent.setup()
-  const nav = screen.getByRole('navigation', { name: '快捷导航' })
+  const nav = screen.getByRole('navigation', { name: '主导航' })
   expect(within(nav).getByRole('link', { name: '助手' })).toHaveAttribute('href', '/assistant')
-  expect(within(nav).getByRole('link', { name: '设置' })).toHaveAttribute('href', '/settings')
+  expect(screen.getByRole('link', { name: '设置' })).toHaveAttribute('href', '/settings')
   const header = screen.getByRole('heading', { name: /今天从容开始/ }).closest('header')!
   expect(within(header).queryByRole('link', { name: '助手' })).not.toBeInTheDocument()
   await user.click(within(nav).getByRole('link', { name: '资讯' }))

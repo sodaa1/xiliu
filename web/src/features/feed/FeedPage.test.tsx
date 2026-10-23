@@ -69,17 +69,18 @@ function mount() {
   )
   return userEvent.setup()
 }
-test('feed discovery uses actual items for featured stories topic filters sort and views', async () => {
+test('feed workspace uses actual articles for selection, topic filters, sort and views', async () => {
   const user = mount()
-  const featured = await screen.findByRole('region', { name: '焦点阅读' })
+  await user.click(await screen.findByRole('button', { name: '资讯标题 0' }))
+  const featured = await screen.findByRole('region', { name: '资讯阅读' })
   expect(within(featured).getAllByRole('heading', { name: '资讯标题 0' })).toHaveLength(1)
-  const fullListCard = document.querySelector('.feed-card-standard')!
+  const fullListCard = featured
   expect(
     within(fullListCard as HTMLElement).getByRole('button', { name: '编辑 资讯标题 0' })
   ).toBeVisible()
-  await user.click(screen.getByRole('button', { name: '焦点阅读第 2 篇' }))
-  expect(within(featured).getByRole('button', { name: '焦点阅读第 2 篇' })).toHaveAttribute(
-    'aria-pressed',
+  await user.click(screen.getByRole('button', { name: '阅读：资讯标题 1' }))
+  expect(screen.getByRole('button', { name: '阅读：资讯标题 1' })).toHaveAttribute(
+    'aria-current',
     'true'
   )
   await user.click(screen.getByRole('button', { name: '设计' }))
